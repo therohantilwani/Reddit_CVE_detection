@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reddit CVE Tracker</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+        
+        header {
+            margin-bottom: 32px;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            color: #94a3b8;
+            font-size: 0.875rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        
+        .stat-card {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #334155;
+        }
+        
+        .stat-label {
+            color: #94a3b8;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 4px;
+        }
+        
+        .stat-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+        }
+        
+        .stat-value.positive { color: #4ade80; }
+        .stat-value.negative { color: #f87171; }
+        .stat-value.neutral { color: #60a5fa; }
+        
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+        
+        .chart-card {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid #334155;
+        }
+        
+        .chart-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #e2e8f0;
+        }
+        
+        .table-container {
+            background: #1e293b;
+            border-radius: 12px;
+            border: 1px solid #334155;
+            overflow: hidden;
+        }
+        
+        .table-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 24px;
+            border-bottom: 1px solid #334155;
+        }
+        
+        .table-title {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        .search-box {
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 8px 16px;
+            color: #e2e8f0;
+            font-size: 0.875rem;
+            width: 280px;
+        }
+        
+        .search-box:focus {
+            outline: none;
+            border-color: #60a5fa;
+        }
+        
+        .filters {
+            display: flex;
+            gap: 8px;
+            padding: 12px 24px;
+            border-bottom: 1px solid #334155;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            background: #334155;
+            border: none;
+            border-radius: 6px;
+            padding: 6px 12px;
+            color: #e2e8f0;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .filter-btn:hover {
+            background: #475569;
+        }
+        
+        .filter-btn.active {
+            background: #3b82f6;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th {
+            text-align: left;
+            padding: 12px 16px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #94a3b8;
+            background: #0f172a;
+            cursor: pointer;
+            user-select: none;
+            white-space: nowrap;
+        }
+        
+        th:hover {
+            color: #e2e8f0;
+        }
+        
+        td {
+            padding: 12px 16px;
+            font-size: 0.875rem;
+            border-bottom: 1px solid #334155;
+        }
+        
+        tr:hover {
+            background: #334155;
+        }
+        
+        tr {
+            cursor: pointer;
+        }
+        
+        .cve-id {
+            font-family: 'SF Mono', Monaco, monospace;
+            color: #60a5fa;
+            font-weight: 500;
+        }
+        
+        .severity-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .severity-critical { background: #dc2626; color: white; }
+        .severity-high { background: #f97316; color: white; }
+        .severity-medium { background: #eab308; color: #1e293b; }
+        .severity-low { background: #22c55e; color: white; }
+        .severity-none { background: #64748b; color: white; }
+        
+        .lead-positive { color: #4ade80; }
+        .lead-negative { color: #f87171; }
+        .lead-neutral { color: #94a3b8; }
+        
+        .subreddit-tag {
+            display: inline-block;
+            background: #334155;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            margin: 2px;
+        }
+        
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 24px;
+        }
+        
+        .modal {
+            background: #1e293b;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border: 1px solid #334155;
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px;
+            border-bottom: 1px solid #334155;
+        }
+        
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: 'SF Mono', Monaco, monospace;
+            color: #60a5fa;
+        }
+        
+        .modal-close {
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 4px;
+        }
+        
+        .modal-close:hover {
+            color: #e2e8f0;
+        }
+        
+        .modal-body {
+            padding: 24px;
+        }
+        
+        .detail-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+        
+        .detail-section {
+            background: #0f172a;
+            border-radius: 8px;
+            padding: 16px;
+        }
+        
+        .detail-label {
+            color: #94a3b8;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 4px;
+        }
+        
+        .detail-value {
+            font-size: 0.875rem;
+            word-break: break-all;
+        }
+        
+        .detail-value.large {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        
+        .urls-section {
+            margin-top: 24px;
+        }
+        
+        .url-item {
+            display: block;
+            background: #0f172a;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: #60a5fa;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+        
+        .url-item:hover {
+            background: #334155;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 48px;
+            color: #94a3b8;
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            padding: 16px;
+            border-top: 1px solid #334155;
+        }
+        
+        .page-btn {
+            background: #334155;
+            border: none;
+            border-radius: 6px;
+            padding: 8px 16px;
+            color: #e2e8f0;
+            cursor: pointer;
+        }
+        
+        .page-btn:hover:not(:disabled) {
+            background: #475569;
+        }
+        
+        .page-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .page-info {
+            color: #94a3b8;
+            font-size: 0.875rem;
+        }
+        
+        @media (max-width: 768px) {
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .detail-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .table-header {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .search-box {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Reddit CVE Tracker</h1>
+            <p class="subtitle">CVEs discussed on Reddit before official NVD listing</p>
+        </header>
+        
+        <div id="loading" class="loading">Loading data...</div>
+        
+        <div id="app" class="hidden">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Total CVEs</div>
+                    <div class="stat-value" id="total-cves">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Reddit First (Positive Lead)</div>
+                    <div class="stat-value positive" id="positive-lead">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">NVD First (Negative Lead)</div>
+                    <div class="stat-value negative" id="negative-lead">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Avg Lead Time</div>
+                    <div class="stat-value neutral" id="avg-lead">0 days</div>
+                </div>
+            </div>
+            
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <div class="chart-title">Lead Time Distribution</div>
+                    <canvas id="leadTimeChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <div class="chart-title">CVSS Severity Distribution</div>
+                    <canvas id="severityChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <div class="chart-title">Top Subreddits</div>
+                    <canvas id="subredditChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <div class="chart-title">CVSS Score Distribution</div>
+                    <canvas id="cvssChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="table-container">
+                <div class="table-header">
+                    <div class="table-title">All CVEs</div>
+                    <input type="text" class="search-box" id="search" placeholder="Search CVE ID or subreddit...">
+                </div>
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="positive">Reddit First</button>
+                    <button class="filter-btn" data-filter="negative">NVD First</button>
+                    <button class="filter-btn" data-filter="critical">Critical</button>
+                    <button class="filter-btn" data-filter="high">High</button>
+                    <button class="filter-btn" data-filter="medium">Medium</button>
+                    <button class="filter-btn" data-filter="low">Low</button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th data-sort="cve">CVE ID â</th>
+                            <th data-sort="post_count">Posts â</th>
+                            <th data-sort="cvss_score">CVSS â</th>
+                            <th data-sort="cvss_severity">Severity â</th>
+                            <th data-sort="lead_days">Lead Days â</th>
+                            <th data-sort="earliest_post_iso_utc">Reddit Date â</th>
+                            <th data-sort="nvd_published">NVD Date â</th>
+                            <th>Subreddits</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+                    </tbody>
+                </table>
+                <div class="pagination">
+                    <button class="page-btn" id="prev-page">Previous</button>
+                    <span class="page-info" id="page-info">Page 1 of 1</span>
+                    <button class="page-btn" id="next-page">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal" class="modal-overlay hidden">
+        <div class="modal">
+            <div class="modal-header">
+                <div class="modal-title" id="modal-cve">CVE-XXXX-XXXXX</div>
+                <button class="modal-close" id="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="detail-grid">
+                    <div class="detail-section">
+                        <div class="detail-label">CVSS Score</div>
+                        <div class="detail-value large" id="modal-cvss">-</div>
+                    </div>
+                    <div class="detail-section">
+                        <div class="detail-label">Severity</div>
+                        <div class="detail-value large" id="modal-severity">-</div>
+                    </div>
+                    <div class="detail-section">
+                        <div class="detail-label">Lead Time</div>
+                        <div class="detail-value large" id="modal-lead">-</div>
+                    </div>
+                    <div class="detail-section">
+                        <div class="detail-label">Reddit Post Count</div>
+                        <div class="detail-value large" id="modal-posts">-</div>
+                    </div>
+                    <div class="detail-section">
+                        <div class="detail-label">First Reddit Post</div>
+                        <div class="detail-value" id="modal-reddit-date">-</div>
+                    </div>
+                    <div class="detail-section">
+                        <div class="detail-label">NVD Published</div>
+                        <div class="detail-value" id="modal-nvd-date">-</div>
+                    </div>
+                    <div class="detail-section">
+                        <div class="detail-label">NVD Last Modified</div>
+                        <div class="detail-value" id="modal-nvd-modified">-</div>
+                    </div>
+                    <div class="detail-section">
+                        <div class="detail-label">CVSS Vector</div>
+                        <div class="detail-value" id="modal-vector">-</div>
+                    </div>
+                </div>
+                <div class="detail-section">
+                    <div class="detail-label">Subreddits</div>
+                    <div class="detail-value" id="modal-subreddits"></div>
+                </div>
+                <div class="urls-section">
+                    <div class="detail-label">Reddit Posts</div>
+                    <div id="modal-urls"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let cveData = [];
+        let filteredData = [];
+        let currentPage = 1;
+        const itemsPerPage = 25;
+        let currentFilter = 'all';
+        let sortColumn = 'lead_days';
+        let sortDirection = 'desc';
+        
+        async function loadData() {
+            try {
+                const response = await fetch('cve_lead_time.csv');
+                const text = await response.text();
+                cveData = parseCSV(text);
+                filteredData = [...cveData];
+                updateStats();
+                renderCharts();
+                renderTable();
+                setupEventListeners();
+                document.getElementById('loading').classList.add('hidden');
+                document.getElementById('app').classList.remove('hidden');
+            } catch (error) {
+                console.error('Error loading data:', error);
+                document.getElementById('loading').textContent = 'Error loading data. Make sure cve_lead_time.csv is in the same directory.';
+            }
+        }
+        
+        function parseCSV(text) {
+            const lines = text.trim().split('\n');
+            const headers = lines[0].split(',');
+            
+            return lines.slice(1).map(line => {
+                const values = [];
+                let current = '';
+                let inQuotes = false;
+                
+                for (const char of line) {
+                    if (char === '"') {
+                        inQuotes = !inQuotes;
+                    } else if (char === ',' && !inQuotes) {
+                        values.push(current);
+                        current = '';
+                    } else {
+                        current += char;
+                    }
+                }
+                values.push(current);
+                
+                const obj = {};
+                headers.forEach((header, i) => {
+                    obj[header] = values[i] || '';
+                });
+                
+                obj.lead_days = parseFloat(obj.lead_days) || 0;
+                obj.cvss_score = parseFloat(obj.cvss_score) || 0;
+                obj.post_count = parseInt(obj.post_count) || 0;
+                
+                return obj;
+            });
+        }
+        
+        function updateStats() {
+            const total = cveData.length;
+            const positive = cveData.filter(d => d.lead_days > 0).length;
+            const negative = cveData.filter(d => d.lead_days < 0).length;
+            const avgLead = cveData.reduce((sum, d) => sum + d.lead_days, 0) / total;
+            
+            document.getElementById('total-cves').textContent = total;
+            document.getElementById('positive-lead').textContent = positive;
+            document.getElementById('negative-lead').textContent = negative;
+            document.getElementById('avg-lead').textContent = avgLead.toFixed(1) + ' days';
+        }
+        
+        function renderCharts() {
+            const leadTimeData = {
+                '>30 days': 0,
+                '15-30 days': 0,
+                '7-15 days': 0,
+                '1-7 days': 0,
+                '-1 to 1 day': 0,
+                '-7 to -1 days': 0,
+                '-15 to -7 days': 0,
+                '-30 to -15 days': 0,
+                '<-30 days': 0
+            };
+            
+            cveData.forEach(d => {
+                if (d.lead_days > 30) leadTimeData['>30 days']++;
+                else if (d.lead_days > 15) leadTimeData['15-30 days']++;
+                else if (d.lead_days > 7) leadTimeData['7-15 days']++;
+                else if (d.lead_days > 1) leadTimeData['1-7 days']++;
+                else if (d.lead_days >= -1) leadTimeData['-1 to 1 day']++;
+                else if (d.lead_days >= -7) leadTimeData['-7 to -1 days']++;
+                else if (d.lead_days >= -15) leadTimeData['-15 to -7 days']++;
+                else if (d.lead_days >= -30) leadTimeData['-30 to -15 days']++;
+                else leadTimeData['<-30 days']++;
+            });
+            
+            new Chart(document.getElementById('leadTimeChart'), {
+                type: 'bar',
+                data: {
+                    labels: Object.keys(leadTimeData),
+                    datasets: [{
+                        label: 'Count',
+                        data: Object.values(leadTimeData),
+                        backgroundColor: Object.keys(leadTimeData).map(k => {
+                            if (k.includes('>') || k.includes('15') || k.includes('7-')) return '#4ade80';
+                            if (k.includes('to')) return '#60a5fa';
+                            return '#f87171';
+                        }),
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { ticks: { color: '#94a3b8' }, grid: { display: false } },
+                        y: { ticks: { color: '#94a3b8' }, grid: { color: '#334155' } }
+                    }
+                }
+            });
+            
+            const severityData = { CRITICAL: 0, HIGH: 0, MEDIUM: 0, LOW: 0, '': 0 };
+            cveData.forEach(d => {
+                const sev = d.cvss_severity.toUpperCase() || 'NONE';
+                if (severityData.hasOwnProperty(sev)) severityData[sev]++;
+                else severityData['']++;
+            });
+            
+            new Chart(document.getElementById('severityChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: Object.keys(severityData).filter(k => k !== '' || severityData[k] > 0),
+                    datasets: [{
+                        data: Object.values(severityData).filter((_, i) => Object.keys(severityData)[i] !== '' || severityData[Object.keys(severityData)[i]] > 0),
+                        backgroundColor: ['#dc2626', '#f97316', '#eab308', '#22c55e', '#64748b']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { position: 'right', labels: { color: '#e2e8f0' } } }
+                }
+            });
+            
+            const subredditCounts = {};
+            cveData.forEach(d => {
+                if (d.subreddits) {
+                    d.subreddits.split(';').forEach(sub => {
+                        subredditCounts[sub] = (subredditCounts[sub] || 0) + 1;
+                    });
+                }
+            });
+            
+            const topSubreddits = Object.entries(subredditCounts)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 10);
+            
+            new Chart(document.getElementById('subredditChart'), {
+                type: 'bar',
+                data: {
+                    labels: topSubreddits.map(([k]) => 'r/' + k),
+                    datasets: [{
+                        label: 'CVEs',
+                        data: topSubreddits.map(([, v]) => v),
+                        backgroundColor: '#8b5cf6',
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { ticks: { color: '#94a3b8' }, grid: { color: '#334155' } },
+                        y: { ticks: { color: '#94a3b8' }, grid: { display: false } }
+                    }
+                }
+            });
+            
+            const cvssRanges = { '9-10': 0, '7-8.9': 0, '4-6.9': 0, '0-3.9': 0, 'N/A': 0 };
+            cveData.forEach(d => {
+                const score = d.cvss_score;
+                if (score >= 9) cvssRanges['9-10']++;
+                else if (score >= 7) cvssRanges['7-8.9']++;
+                else if (score >= 4) cvssRanges['4-6.9']++;
+                else if (score > 0) cvssRanges['0-3.9']++;
+                else cvssRanges['N/A']++;
+            });
+            
+            new Chart(document.getElementById('cvssChart'), {
+                type: 'bar',
+                data: {
+                    labels: Object.keys(cvssRanges),
+                    datasets: [{
+                        label: 'Count',
+                        data: Object.values(cvssRanges),
+                        backgroundColor: ['#dc2626', '#f97316', '#eab308', '#22c55e', '#64748b'],
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { ticks: { color: '#94a3b8' }, grid: { display: false } },
+                        y: { ticks: { color: '#94a3b8' }, grid: { color: '#334155' } }
+                    }
+                }
+            });
+        }
+        
+        function applyFilters() {
+            const search = document.getElementById('search').value.toLowerCase();
+            
+            filteredData = cveData.filter(d => {
+                const matchesSearch = !search || 
+                    d.cve.toLowerCase().includes(search) ||
+                    (d.subreddits || '').toLowerCase().includes(search);
+                
+                let matchesFilter = true;
+                if (currentFilter === 'positive') matchesFilter = d.lead_days > 0;
+                else if (currentFilter === 'negative') matchesFilter = d.lead_days < 0;
+                else if (currentFilter === 'critical') matchesFilter = d.cvss_severity.toUpperCase() === 'CRITICAL';
+                else if (currentFilter === 'high') matchesFilter = d.cvss_severity.toUpperCase() === 'HIGH';
+                else if (currentFilter === 'medium') matchesFilter = d.cvss_severity.toUpperCase() === 'MEDIUM';
+                else if (currentFilter === 'low') matchesFilter = d.cvss_severity.toUpperCase() === 'LOW';
+                
+                return matchesSearch && matchesFilter;
+            });
+            
+            sortData();
+            currentPage = 1;
+            renderTable();
+        }
+        
+        function sortData() {
+            filteredData.sort((a, b) => {
+                let aVal = a[sortColumn];
+                let bVal = b[sortColumn];
+                
+                if (typeof aVal === 'string') {
+                    aVal = aVal.toLowerCase();
+                    bVal = bVal.toLowerCase();
+                }
+                
+                if (aVal < bVal) return sortDirection === 'asc' ? -1 : 1;
+                if (aVal > bVal) return sortDirection === 'asc' ? 1 : -1;
+                return 0;
+            });
+        }
+        
+        function renderTable() {
+            const tbody = document.getElementById('table-body');
+            const start = (currentPage - 1) * itemsPerPage;
+            const pageData = filteredData.slice(start, start + itemsPerPage);
+            
+            tbody.innerHTML = pageData.map(d => {
+                const severityClass = d.cvss_severity.toUpperCase() || 'none';
+                const leadClass = d.lead_days > 0 ? 'lead-positive' : d.lead_days < 0 ? 'lead-negative' : 'lead-neutral';
+                const subreddits = d.subreddits ? d.subreddits.split(';').slice(0, 3).map(s => 
+                    `<span class="subreddit-tag">${s}</span>`
+                ).join('') : '-';
+                
+                let url = '';
+                if (d.example_urls) {
+                    const parts = d.example_urls.split(';');
+                    url = parts[0] || '';
+                }
+                
+                return `
+                    <tr>
+                        <td><a href="${url}" target="_blank" class="cve-id">${d.cve}</a></td>
+                        <td>${d.post_count}</td>
+                        <td>${d.cvss_score || '-'}</td>
+                        <td><span class="severity-badge severity-${severityClass.toLowerCase()}">${severityClass || 'N/A'}</span></td>
+                        <td class="${leadClass}">${d.lead_days > 0 ? '+' : ''}${d.lead_days.toFixed(2)}</td>
+                        <td>${formatDate(d.earliest_post_iso_utc)}</td>
+                        <td>${formatDate(d.nvd_published)}</td>
+                        <td>${subreddits}</td>
+                    </tr>
+                `;
+            }).join('');
+            
+            const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+            document.getElementById('page-info').textContent = `Page ${currentPage} of ${totalPages}`;
+            document.getElementById('prev-page').disabled = currentPage === 1;
+            document.getElementById('next-page').disabled = currentPage === totalPages;
+            
+
+        }
+        
+        function formatDate(dateStr) {
+            if (!dateStr) return '-';
+            try {
+                return new Date(dateStr).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric'
+                });
+            } catch {
+                return dateStr;
+            }
+        }
+        
+        function showModal(cveId) {
+            const cve = cveData.find(d => d.cve === cveId);
+            if (!cve) return;
+            
+            document.getElementById('modal-cve').textContent = cve.cve;
+            document.getElementById('modal-cvss').textContent = cve.cvss_score || 'N/A';
+            document.getElementById('modal-severity').textContent = cve.cvss_severity || 'N/A';
+            document.getElementById('modal-lead').textContent = `${cve.lead_days > 0 ? '+' : ''}${cve.lead_days.toFixed(2)} days (${cve.lead_hours.toFixed(2)} hours)`;
+            document.getElementById('modal-posts').textContent = cve.post_count;
+            document.getElementById('modal-reddit-date').textContent = formatDate(cve.earliest_post_iso_utc);
+            document.getElementById('modal-nvd-date').textContent = formatDate(cve.nvd_published);
+            document.getElementById('modal-nvd-modified').textContent = formatDate(cve.nvd_last_modified);
+            document.getElementById('modal-vector').textContent = cve.cvss_vector || 'N/A';
+            
+            const subreddits = cve.subreddits ? cve.subreddits.split(';').map(s => 
+                `<span class="subreddit-tag">r/${s}</span>`
+            ).join('') : 'None';
+            document.getElementById('modal-subreddits').innerHTML = subreddits;
+            
+            const urls = cve.example_urls ? cve.example_urls.split(';').map(url => 
+                `<a href="${url}" target="_blank" class="url-item">${url}</a>`
+            ).join('') : 'No URLs available';
+            document.getElementById('modal-urls').innerHTML = urls;
+            
+            document.getElementById('modal').classList.remove('hidden');
+        }
+        
+        function setupEventListeners() {
+            document.getElementById('search').addEventListener('input', applyFilters);
+            
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentFilter = btn.dataset.filter;
+                    applyFilters();
+                });
+            });
+            
+            document.querySelectorAll('th[data-sort]').forEach(th => {
+                th.addEventListener('click', () => {
+                    const column = th.dataset.sort;
+                    if (sortColumn === column) {
+                        sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+                    } else {
+                        sortColumn = column;
+                        sortDirection = 'desc';
+                    }
+                    applyFilters();
+                });
+            });
+            
+            document.getElementById('prev-page').addEventListener('click', () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    renderTable();
+                }
+            });
+            
+            document.getElementById('next-page').addEventListener('click', () => {
+                const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    renderTable();
+                }
+            });
+            
+            document.getElementById('modal-close').addEventListener('click', () => {
+                document.getElementById('modal').classList.add('hidden');
+            });
+            
+            document.getElementById('modal').addEventListener('click', (e) => {
+                if (e.target.id === 'modal') {
+                    document.getElementById('modal').classList.add('hidden');
+                }
+            });
+        }
+        
+        loadData();
+    </script>
+</body>
+</html>
+
