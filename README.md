@@ -75,8 +75,7 @@ A Python-based tool to fetch and analyze CVE-related posts from Reddit using the
 
 ## License
 
-[Specify your license here, e.g., MIT License]
 
 ## Contact
 
-[Your name/email or GitHub profile]
+Rohan Jagdish Tilwani (r_tilwani@u.pacific.edu)
