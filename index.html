@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reddit CVE Tracker</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -198,6 +199,14 @@
             font-family: 'SF Mono', Monaco, monospace;
             color: #60a5fa;
             font-weight: 500;
+        }
+        
+        .cve-id:not([href]) {
+            cursor: pointer;
+        }
+        
+        .cve-id[href]:hover {
+            text-decoration: underline;
         }
         
         .severity-badge {
@@ -460,6 +469,12 @@
                     <button class="filter-btn" data-filter="medium">Medium</button>
                     <button class="filter-btn" data-filter="low">Low</button>
                 </div>
+                <div class="filters">
+                    <span style="color: #94a3b8; font-size: 0.75rem; margin-right: 8px;">Vendor:</span>
+                    <select id="vendor-filter" class="search-box" style="width: 180px;">
+                        <option value="">All Vendors</option>
+                    </select>
+                </div>
                 <table>
                     <thead>
                         <tr>
@@ -470,6 +485,7 @@
                             <th data-sort="lead_days">Lead Days ↕</th>
                             <th data-sort="earliest_post_iso_utc">Reddit Date ↕</th>
                             <th data-sort="nvd_published">NVD Date ↕</th>
+                            <th>Vendors</th>
                             <th>Subreddits</th>
                         </tr>
                     </thead>
@@ -544,15 +560,34 @@
         let currentPage = 1;
         const itemsPerPage = 25;
         let currentFilter = 'all';
+        let currentVendor = '';
         let sortColumn = 'lead_days';
         let sortDirection = 'desc';
         
         async function loadData() {
             try {
-                const response = await fetch('cve_lead_time.csv');
+                const response = await fetch('cve_lead_time.csv?t=' + Date.now());
                 const text = await response.text();
-                cveData = parseCSV(text);
+                
+                const results = Papa.parse(text, {
+                    header: true,
+                    skipEmptyLines: true
+                });
+                
+                cveData = results.data;
                 filteredData = [...cveData];
+                
+                cveData.forEach(d => {
+                    d.lead_days = parseFloat(d.lead_days) || 0;
+                    d.cvss_score = parseFloat(d.cvss_score) || 0;
+                    d.post_count = parseInt(d.post_count) || 0;
+                });
+                
+                console.log('Loaded', cveData.length, 'rows');
+                console.log('First row keys:', Object.keys(cveData[0] || {}));
+                console.log('First row example_urls:', cveData[0]?.example_urls);
+                
+                populateVendorDropdown();
                 updateStats();
                 renderCharts();
                 renderTable();
@@ -561,25 +596,46 @@
                 document.getElementById('app').classList.remove('hidden');
             } catch (error) {
                 console.error('Error loading data:', error);
-                document.getElementById('loading').textContent = 'Error loading data. Make sure cve_lead_time.csv is in the same directory.';
+                document.getElementById('loading').textContent = 'Error loading data. ' + error.message;
             }
+        }
+        
+        function populateVendorDropdown() {
+            const vendors = new Set();
+            cveData.forEach(d => {
+                if (d.vendors) {
+                    d.vendors.split(';').forEach(v => {
+                        if (v.trim()) vendors.add(v.trim());
+                    });
+                }
+            });
+            
+            const select = document.getElementById('vendor-filter');
+            const sorted = Array.from(vendors).sort();
+            sorted.forEach(v => {
+                const opt = document.createElement('option');
+                opt.value = v;
+                opt.textContent = v;
+                select.appendChild(opt);
+            });
         }
         
         function parseCSV(text) {
             const lines = text.trim().split('\n');
             const headers = lines[0].split(',');
+            const numCols = headers.length;
             
             return lines.slice(1).map(line => {
                 const values = [];
                 let current = '';
-                let inQuotes = false;
+                let col = 0;
                 
-                for (const char of line) {
-                    if (char === '"') {
-                        inQuotes = !inQuotes;
-                    } else if (char === ',' && !inQuotes) {
+                for (let i = 0; i < line.length; i++) {
+                    const char = line[i];
+                    if (char === ',' && col < numCols - 1) {
                         values.push(current);
                         current = '';
+                        col++;
                     } else {
                         current += char;
                     }
@@ -590,7 +646,6 @@
                 headers.forEach((header, i) => {
                     obj[header] = values[i] || '';
                 });
-                console.log('Parsed row:', obj.cve, 'example_urls:', obj.example_urls);
                 
                 obj.lead_days = parseFloat(obj.lead_days) || 0;
                 obj.cvss_score = parseFloat(obj.cvss_score) || 0;
@@ -767,7 +822,13 @@
                 else if (currentFilter === 'medium') matchesFilter = d.cvss_severity.toUpperCase() === 'MEDIUM';
                 else if (currentFilter === 'low') matchesFilter = d.cvss_severity.toUpperCase() === 'LOW';
                 
-                return matchesSearch && matchesFilter;
+                let matchesVendor = true;
+                if (currentVendor) {
+                    const vendors = (d.vendors || '').split(';').map(v => v.trim().toLowerCase());
+                    matchesVendor = vendors.includes(currentVendor.toLowerCase());
+                }
+                
+                return matchesSearch && matchesFilter && matchesVendor;
             });
             
             sortData();
@@ -802,19 +863,27 @@
                 const subreddits = d.subreddits ? d.subreddits.split(';').slice(0, 3).map(s => 
                     `<span class="subreddit-tag">${s}</span>`
                 ).join('') : '-';
+                const vendors = d.vendors ? d.vendors.split(';').slice(0, 3).map(v => 
+                    `<span class="subreddit-tag">${v}</span>`
+                ).join('') : '-';
                 
-                const redditUrl = (d.example_urls || '').split(';')[0];
-                console.log('Rendering CVE:', d.cve, 'URL:', redditUrl);
+                const rawUrls = d['example_urls'] || '';
+                const redditUrls = rawUrls.split(';').filter(url => url.trim());
+                const primaryUrl = redditUrls[0] || '';
+                if (!primaryUrl && d.cve === 'CVE-2026-28292') {
+                    console.log('DEBUG CVE-2026-28292:', { rawUrls, redditUrls, allKeys: Object.keys(d) });
+                }
                 
                 return `
                     <tr>
-                        <td><a href="${redditUrl}" target="_blank" class="cve-id">${d.cve}</a></td>
+                        <td><a href="${primaryUrl}" target="_blank" class="cve-id" onclick="event.stopPropagation()">${d.cve}</a></td>
                         <td>${d.post_count}</td>
                         <td>${d.cvss_score || '-'}</td>
                         <td><span class="severity-badge severity-${severityClass.toLowerCase()}">${severityClass || 'N/A'}</span></td>
                         <td class="${leadClass}">${d.lead_days > 0 ? '+' : ''}${d.lead_days.toFixed(2)}</td>
                         <td>${formatDate(d.earliest_post_iso_utc)}</td>
                         <td>${formatDate(d.nvd_published)}</td>
+                        <td>${vendors}</td>
                         <td>${subreddits}</td>
                     </tr>
                 `;
@@ -870,6 +939,11 @@
         
         function setupEventListeners() {
             document.getElementById('search').addEventListener('input', applyFilters);
+            
+            document.getElementById('vendor-filter').addEventListener('change', (e) => {
+                currentVendor = e.target.value;
+                applyFilters();
+            });
             
             document.querySelectorAll('.filter-btn').forEach(btn => {
                 btn.addEventListener('click', () => {

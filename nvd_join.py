@@ -146,6 +146,8 @@ def fetch_nvd_for_cve(cve_id: str) -> Dict[str, Any]:
     last_modified = cve_obj.get("lastModified", "")
 
     score, severity, vector = extract_cvss(cve_obj)
+    
+    vendors = extract_vendors(cve_obj)
 
     return {
         "cve": cve_id,
@@ -155,7 +157,52 @@ def fetch_nvd_for_cve(cve_id: str) -> Dict[str, Any]:
         "cvss_score": score,
         "cvss_severity": severity,
         "cvss_vector": vector,
+        "vendors": vendors,
     }
+
+
+def extract_vendors(cve_obj: Dict[str, Any]) -> str:
+    """
+    Extract vendor/company names from NVD CPE (Common Platform Enumeration) data.
+    Returns semicolon-separated list of vendors.
+    """
+    vendors_set = set()
+    configurations = cve_obj.get("configurations", []) or []
+    
+    for config in configurations:
+        nodes = config.get("nodes", []) or []
+        for node in nodes:
+            cpe_match = node.get("cpeMatch", []) or []
+            for cpe in cpe_match:
+                criteria = cpe.get("criteria", "")
+                if criteria:
+                    parts = criteria.split(":")
+                    if len(parts) > 3:
+                        vendor = parts[3]
+                        if vendor and vendor not in ("*", "-"):
+                            vendors_set.add(vendor)
+    
+    if not vendors_set:
+        descriptions = cve_obj.get("description", []) or []
+        for desc in descriptions:
+            text = desc.get("value", "").lower()
+            vendor_keywords = {
+                "apple": "Apple", "google": "Google", "microsoft": "Microsoft",
+                "linux": "Linux", "docker": "Docker", "mozilla": "Mozilla",
+                "apache": "Apache", "nginx": "nginx", "oracle": "Oracle",
+                "ibm": "IBM", "cisco": "Cisco", "intel": "Intel", "amd": "AMD",
+                "nvidia": "NVIDIA", "redhat": "Red Hat", "ubuntu": "Ubuntu",
+                "debian": "Debian", "fedora": "Fedora", "amazon": "Amazon",
+                "cloudflare": "Cloudflare", "kubernetes": "Kubernetes",
+                "nodejs": "Node.js", "python": "Python", "golang": "Go",
+                "gitlab": "GitLab", "github": "GitHub", "jetbrains": "JetBrains",
+                "wordpress": "WordPress", "joomla": "Joomla", "drupal": "Drupal",
+            }
+            for keyword, name in vendor_keywords.items():
+                if keyword in text:
+                    vendors_set.add(name)
+    
+    return ";".join(sorted(vendors_set))
 
 
 # -----------------------------
@@ -233,6 +280,7 @@ def main():
             "cvss_score": nvd.get("cvss_score", ""),
             "cvss_severity": nvd.get("cvss_severity", ""),
             "cvss_vector": nvd.get("cvss_vector", ""),
+            "vendors": nvd.get("vendors", ""),
 
             # Computed
             "lead_days": lead_days,
@@ -265,6 +313,7 @@ def main():
         "earliest_post_iso_utc", "earliest_post_epoch",
         "nvd_found", "nvd_published", "nvd_last_modified",
         "cvss_score", "cvss_severity", "cvss_vector",
+        "vendors",
         "lead_days", "lead_hours",
         "subreddits", "example_urls",
     ]
