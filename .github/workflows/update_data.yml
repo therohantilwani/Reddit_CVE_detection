@@ -46,3 +46,4 @@ jobs:
             git commit -m "chore: auto-update CVE and NVD data"
             git push
           fi
+# manual trigger
