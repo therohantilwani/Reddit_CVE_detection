@@ -213,11 +213,19 @@ def read_cve_summary(path: str) -> List[Dict[str, str]]:
         return list(csv.DictReader(f))
 
 
+def sanitize_csv_value(value: Any) -> Any:
+    if isinstance(value, str) and value.startswith(('=', '+', '-', '@', '\t', '\r', '\n')):
+        return f"'{value}"
+    return value
+
+
 def write_csv(path: str, fieldnames: List[str], rows: List[Dict[str, Any]]) -> None:
     with open(path, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=fieldnames)
         w.writeheader()
-        w.writerows(rows)
+        for r in rows:
+            sanitized = {k: sanitize_csv_value(v) for k, v in r.items()}
+            w.writerow(sanitized)
 
 
 # -----------------------------

@@ -241,12 +241,19 @@ def explode_cves(cve_str: str) -> List[str]:
     return [c.strip() for c in cve_str.split(";") if c.strip()]
 
 
+def sanitize_csv_value(value: Any) -> Any:
+    if isinstance(value, str) and value.startswith(('=', '+', '-', '@', '\t', '\r', '\n')):
+        return f"'{value}"
+    return value
+
+
 def write_csv(path: str, fieldnames: List[str], rows: Iterable[Dict[str, Any]]) -> None:
     with open(path, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=fieldnames)
         w.writeheader()
         for r in rows:
-            w.writerow(r)
+            sanitized = {k: sanitize_csv_value(v) for k, v in r.items()}
+            w.writerow(sanitized)
 
 
 def build_cve_summary(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
