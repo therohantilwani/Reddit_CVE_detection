@@ -139,11 +139,13 @@ def fetch_nvd_for_cve(cve_id: str) -> Dict[str, Any]:
             "cvss_score": "",
             "cvss_severity": "",
             "cvss_vector": "",
+            "vuln_status": "",
         }
 
     cve_obj = (vulns[0].get("cve") or {})
     published = cve_obj.get("published", "")
     last_modified = cve_obj.get("lastModified", "")
+    vuln_status = cve_obj.get("vulnStatus", "")
 
     score, severity, vector = extract_cvss(cve_obj)
     
@@ -157,6 +159,7 @@ def fetch_nvd_for_cve(cve_id: str) -> Dict[str, Any]:
         "cvss_score": score,
         "cvss_severity": severity,
         "cvss_vector": vector,
+        "vuln_status": vuln_status,
         "vendors": vendors,
     }
 
@@ -288,6 +291,7 @@ def main():
             "cvss_score": nvd.get("cvss_score", ""),
             "cvss_severity": nvd.get("cvss_severity", ""),
             "cvss_vector": nvd.get("cvss_vector", ""),
+            "vuln_status": nvd.get("vuln_status", ""),
             "vendors": nvd.get("vendors", ""),
 
             # Computed
@@ -321,6 +325,7 @@ def main():
         "earliest_post_iso_utc", "earliest_post_epoch",
         "nvd_found", "nvd_published", "nvd_last_modified",
         "cvss_score", "cvss_severity", "cvss_vector",
+        "vuln_status",
         "vendors",
         "lead_days", "lead_hours",
         "subreddits", "example_urls",

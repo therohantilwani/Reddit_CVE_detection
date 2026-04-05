@@ -482,6 +482,7 @@
                             <th data-sort="post_count">Posts ↕</th>
                             <th data-sort="cvss_score">CVSS ↕</th>
                             <th data-sort="cvss_severity">Severity ↕</th>
+                            <th data-sort="vuln_status">Status ↕</th>
                             <th data-sort="lead_days">Lead Days ↕</th>
                             <th data-sort="earliest_post_iso_utc">Reddit Date ↕</th>
                             <th data-sort="nvd_published">NVD Date ↕</th>
@@ -516,6 +517,10 @@
                     <div class="detail-section">
                         <div class="detail-label">Severity</div>
                         <div class="detail-value large" id="modal-severity">-</div>
+                    </div>
+                    <div class="detail-section">
+                        <div class="detail-label">Status</div>
+                        <div class="detail-value large" id="modal-status">-</div>
                     </div>
                     <div class="detail-section">
                         <div class="detail-label">Lead Time</div>
@@ -880,6 +885,7 @@
                         <td>${d.post_count}</td>
                         <td>${d.cvss_score || '-'}</td>
                         <td><span class="severity-badge severity-${severityClass.toLowerCase()}">${severityClass || 'N/A'}</span></td>
+                        <td>${d.vuln_status || '-'}</td>
                         <td class="${leadClass}">${d.lead_days > 0 ? '+' : ''}${d.lead_days.toFixed(2)}</td>
                         <td>${formatDate(d.earliest_post_iso_utc)}</td>
                         <td>${formatDate(d.nvd_published)}</td>
@@ -917,6 +923,7 @@
             document.getElementById('modal-cve').textContent = cve.cve;
             document.getElementById('modal-cvss').textContent = cve.cvss_score || 'N/A';
             document.getElementById('modal-severity').textContent = cve.cvss_severity || 'N/A';
+            document.getElementById('modal-status').textContent = cve.vuln_status || 'Unknown';
             document.getElementById('modal-lead').textContent = `${cve.lead_days > 0 ? '+' : ''}${cve.lead_days.toFixed(2)} days (${cve.lead_hours.toFixed(2)} hours)`;
             document.getElementById('modal-posts').textContent = cve.post_count;
             document.getElementById('modal-reddit-date').textContent = formatDate(cve.earliest_post_iso_utc);
