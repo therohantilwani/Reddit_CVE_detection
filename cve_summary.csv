@@ -23,9 +23,7 @@ CVE-2020-26262,1,2026-02-12T10:24:04+00:00,1770891844,WebRTC,https://reddit.com/
 CVE-2021-28372,1,2026-03-05T15:53:05+00:00,1772725985,homelab,https://reddit.com/r/homelab/comments/1rll5dw/checked_every_device_on_my_homelab_against_nvd/
 CVE-2021-4034,1,2026-03-17T00:39:47+00:00,1773707987,homelab,https://reddit.com/r/homelab/comments/1rvrszo/hackable_ii_purple_team_writeup_from_anonymous/
 CVE-2022-27624,1,2026-03-05T15:53:05+00:00,1772725985,homelab,https://reddit.com/r/homelab/comments/1rll5dw/checked_every_device_on_my_homelab_against_nvd/
-CVE-2022-38694,1,2025-12-29T14:09:02+00:00,1767017342,Android,https://reddit.com/r/Android/comments/1pyn777/nearly_a_billion_active_android_devices_are/
 CVE-2023-28303,1,2026-02-10T08:58:24+00:00,1770713904,sysadmin,https://reddit.com/r/sysadmin/comments/1r0vsoc/cve202328303/
-CVE-2023-39910,1,2026-01-02T13:24:02+00:00,1767360242,Bitcoin,https://reddit.com/r/Bitcoin/comments/1q1yicy/ever_wondered_how_those_weak_key_exploits/
 CVE-2023-49356,1,2026-02-10T17:10:44+00:00,1770743444,rust,https://reddit.com/r/rust/comments/1r16lyb/seeking_debian_packaging_help_for_mp3rgain/
 CVE-2024-0057,1,2026-02-27T18:59:39+00:00,1772218779,c#,https://stackoverflow.com/questions/79898063/high-security-vulnerability-microsoft-powershell-native-v7-0-0
 CVE-2024-28224,1,2026-03-26T20:39:39+00:00,1774557579,ollama,https://reddit.com/r/ollama/comments/1s4j73f/fresh_install_of_ollama_major_security_threat/
@@ -43,7 +41,6 @@ CVE-2025-32434,1,2026-03-19T03:26:35+00:00,1773890795,pytorch,https://reddit.com
 CVE-2025-38617,1,2026-03-06T22:42:41+00:00,1772836961,netsec,https://reddit.com/r/netsec/comments/1rmsmhg/a_race_within_a_race_exploiting_cve202538617_in/
 CVE-2025-40237,1,2026-04-04T13:14:54+00:00,1775308494,linux,https://reddit.com/r/linux/comments/1sc8yx8/aws_engineer_reports_postgresql_performance/
 CVE-2025-48050,1,2026-04-02T09:50:55+00:00,1775123455,axelor,https://stackoverflow.com/questions/79918937/dompurify-3-2-2-vulnerability-in-axelor-frontend
-CVE-2025-48593,1,2025-12-29T14:09:02+00:00,1767017342,Android,https://reddit.com/r/Android/comments/1pyn777/nearly_a_billion_active_android_devices_are/
 CVE-2025-5278,1,2026-02-02T14:35:23+00:00,1770042923,linux,https://reddit.com/r/linux/comments/1qtwoo1/rust_coreutils_continues_working_toward_100_gnu/
 CVE-2025-53109,1,2026-03-19T12:55:35+00:00,1773924935,netsec,https://reddit.com/r/netsec/comments/1rxznrs/a_timeline_of_mcp_security_breaches_tool/
 CVE-2025-55182,1,2026-01-23T08:20:52+00:00,1769156452,django,https://reddit.com/r/django/comments/1qklaj0/i_built_a_tool_for_scanning_web_apps/
@@ -55,6 +52,7 @@ CVE-2025-6514,1,2026-02-05T21:29:51+00:00,1770326991,openclaw,https://reddit.com
 CVE-2025-66413,1,2026-03-17T20:07:12+00:00,1773778032,sysadmin,https://reddit.com/r/sysadmin/comments/1rwhsow/cve202566413_git_for_windows_ntlm_hash_theft/
 CVE-2025-66478,1,2026-01-23T08:20:52+00:00,1769156452,django,https://reddit.com/r/django/comments/1qklaj0/i_built_a_tool_for_scanning_web_apps/
 CVE-2025-70951,1,2026-04-03T08:20:58+00:00,1775204458,netsec,https://reddit.com/r/netsec/comments/1sb7pr4/new_rce_in_control_web_panel_cve202570951/
+CVE-2026-020963,1,2026-04-06T06:43:41+00:00,1775457821,homelab,https://reddit.com/r/homelab/comments/1sdrbgk/running_autonomous_multiagent_cve_analysis/
 CVE-2026-0714,1,2026-02-19T15:38:01+00:00,1771515481,netsec,https://reddit.com/r/netsec/comments/1r92evr/cve20260714_tpmsniffing_luks_keys_on_an_embedded/
 CVE-2026-0915,1,2026-01-18T19:06:30+00:00,1768763190,linux,https://reddit.com/r/linux/comments/1qgh9po/cve20260915_gnu_c_library_fixes_a_security_issue/
 CVE-2026-12345,1,2026-03-25T19:33:27+00:00,1774467207,github,https://reddit.com/r/github/comments/1s3ksik/scam_alert_fake_vs_code_critical_vulnerability/
@@ -107,6 +105,7 @@ CVE-2026-33058,1,2026-03-19T09:18:05+00:00,1773911885,netsec,https://reddit.com/
 CVE-2026-33068,1,2026-03-20T17:40:56+00:00,1774028456,netsec,https://reddit.com/r/netsec/comments/1rz2xuw/claude_code_workspace_trust_dialog_bypass_via/
 CVE-2026-33634,1,2026-03-25T22:43:44+00:00,1774478624,kubernetes,https://reddit.com/r/kubernetes/comments/1s3pxcu/breakdown_of_the_trivy_supply_chain_compromise/
 CVE-2026-33656,1,2026-03-25T12:51:52+00:00,1774443112,netsec,https://reddit.com/r/netsec/comments/1s39ujn/cve202633656_espocrm_933_formula_engine_acl_gap/
+CVE-2026-35616,1,2026-04-06T19:05:15+00:00,1775502315,sysadmin,https://reddit.com/r/sysadmin/comments/1se86ws/cve202635616_fortinet_auth_bypass_patch_your/
 CVE-2026-3564,1,2026-03-20T01:21:28+00:00,1773969688,sysadmin,https://reddit.com/r/sysadmin/comments/1ryipfs/first_unifi_with_a_100_cve_now_screenconnect_90/
 CVE-2026-3906,1,2026-03-21T16:23:50+00:00,1774110230,Wordpress,https://reddit.com/r/Wordpress/comments/1rzvpax/it_seems_like_automatic_wordpress_updates_are/
 CVE-2026-4747,1,2026-03-31T19:57:17+00:00,1774987037,netsec,https://reddit.com/r/netsec/comments/1s8y8pp/mad_bugs_claude_wrote_a_full_freebsd_remote/
