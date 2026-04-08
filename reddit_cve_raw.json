@@ -1,5 +1,166 @@
 [
   {
+    "_id": "69d5bf9bda0850f8382ad544",
+    "redditId": "1sffoi3",
+    "author": "Buffalo_Bushman_92",
+    "author_description": "A lot of “AI memory” projects talk about retrieval, agents, RAG, vaults, long-term context, etc.\n\nBut they skip the obvious question:\n\nHow does useful knowledge actually get into the vault?\n\nThat was the big question after my modus-memory post last week, so I built the answer:\n\nWRAITH — a local-first browser capture pipeline that turns what you save into structured, searchable markdown your AI can keep forever.\n\nPipeline:\n\nBrowser ──► WRAITH ──► Scout ──► Librarian ──► vault/\n\n↕\n\nmodus-memory\n\n↕\n\nClaude / Cursor / any MCP client\n\nWhat it captures\n\nSafari extension over WebSocket:\n\n\t•\tpages\n\n\t•\ttweets\n\n\t•\ttext selections\n\nBackground ingestors:\n\n\t•\tX bookmarks\n\n\t•\tGitHub stars\n\n\t•\tReddit saved\n\n\t•\tYouTube transcripts\n\n\t•\tAudible highlights\n\nSo instead of “AI memory” meaning a toy notes DB, this becomes a real ingestion pipeline for the stuff you actually consume online.\n\nThe interesting part for this sub\n\nYouTube transcript extraction runs through the Librarian model (Gemma 4 26B).\n\nSo the local model is not just answering queries later. It’s doing real work during ingestion:\n\n\t•\tSummary\n\n\t•\tKey Ideas\n\n\t•\tTechnical Details\n\n\t•\tActionable Takeaways\n\n\t•\tQuotes\n\n\t•\tReferences\n\nThat means the model is actively converting raw saved content into structured knowledge before it ever hits retrieval.\n\nDedup is deterministic\n\nNo fuzzy black box nonsense.\n\n\t•\tSHA-256 for exact duplicates\n\n\t•\tJaccard word similarity with 0.82 threshold for near-dupes\n\nIf you save the same thing twice, it collapses into the canonical capture.\n\nTwo-officer pipeline\n\nScout = fast triage\n\nExamples:\n\n\t•\tGitHub URL → mission candidate\n\n\t•\ttitle contains CVE- → mission candidate\n\n\t•\tempty body → discard\n\n\t•\totherwise → keep\n\nLibrarian = final filing\n\nWrites to:\n\nbrain/{source}/YYYY-MM-DD-{slug}.md\n\nwith YAML frontmatter + checksum.\n\nBuilt like a real pipeline\n\n\t•\tevery handoff logged to JSONL\n\n\t•\tpersistent queue across restarts\n\n\t•\tfailures marked cleanly without taking down the system\n\nIf you already use modus-memory\n\nPoint both at the same vault:\n\n\t•\tWRAITH writes\n\n\t•\tmodus-memory indexes\n\nResult: your AI gets persistent memory of what you actually browse, save, watch, and highlight.\n\nCurrent test vault:\n\n\t•\t16,000+ documents\n\n\t•\tsearchable in &lt;5ms\n\nOther details:\n\n\t•\tGo binary\n\n\t•\t\\~6MB\n\n\t•\tlocalhost only\n\n\t•\tMIT licensed\n\nMost memory systems obsess over recall. I wanted to solve capture.",
+    "awards": [],
+    "comments": [],
+    "created_utc": "2026-04-08T01:55:59",
+    "first_author_comment": null,
+    "num_comments": 0,
+    "score": 1,
+    "subreddit": "ollama",
+    "tag": null,
+    "tags": [],
+    "title": "Most “AI memory” projects hand-wave ingestion. I built the missing layer.",
+    "updatedAt": "2026-04-08T04:00:25.904Z",
+    "upvote_ratio": 1,
+    "url": "https://reddit.com/r/ollama/comments/1sffoi3/most_ai_memory_projects_handwave_ingestion_i/",
+    "versionList": [],
+    "classification": {
+      "componentType": [
+        "GPT",
+        "MACHINE_LEARNING"
+      ]
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.0003908325185789248,
+        "timestampPredicted": "2026-04-08T04:00:24.087847+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": false
+  },
+  {
+    "_id": "69d569a7da0850f8382acfec",
+    "redditId": "1sf7sno",
+    "author": "scopedsecurity",
+    "author_description": null,
+    "awards": [],
+    "comments": [],
+    "created_utc": "2026-04-07T20:31:22",
+    "first_author_comment": null,
+    "num_comments": 1,
+    "score": 7,
+    "subreddit": "netsec",
+    "tag": null,
+    "tags": [],
+    "title": "CVE-2026-34197: ActiveMQ RCE via Jolokia API",
+    "updatedAt": "2026-04-08T04:31:16.958Z",
+    "upvote_ratio": 0.74,
+    "url": "https://reddit.com/r/netsec/comments/1sf7sno/cve202634197_activemq_rce_via_jolokia_api/",
+    "versionList": [
+      "2026.0.0",
+      "34197.0.0"
+    ],
+    "classification": {
+      "securityType": [
+        "SECURITY"
+      ],
+      "componentType": [
+        "API"
+      ]
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.00021870192652362084,
+        "timestampPredicted": "2026-04-08T04:00:57.678181+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": false
+  },
+  {
+    "_id": "69d569a8da0850f8382acfee",
+    "redditId": "1sf550g",
+    "author": "Fun_Preference1113",
+    "author_description": "AI coding tools are being shipped fast. In too many cases, basic security is not keeping up.\n\nIn our latest research, we found the same sandbox trust-boundary failure pattern across tools from Anthropic, Google, and OpenAI. Anthropic fixed and engaged quickly (CVE-2026-25725). Google did not ship a fix by disclosure. OpenAI closed the report as informational and did not address the core architectural issue.\n\nThat gap in response says a lot about vendor security posture.",
+    "awards": [],
+    "comments": [],
+    "created_utc": "2026-04-07T18:54:28",
+    "first_author_comment": null,
+    "num_comments": 4,
+    "score": 14,
+    "subreddit": "netsec",
+    "tag": null,
+    "tags": [],
+    "title": "The Race to Ship AI Tools Left Security Behind. Part 1: Sandbox Escape",
+    "updatedAt": "2026-04-08T04:31:18.495Z",
+    "upvote_ratio": 1,
+    "url": "https://reddit.com/r/netsec/comments/1sf550g/the_race_to_ship_ai_tools_left_security_behind/",
+    "versionList": [
+      "1.0.0"
+    ],
+    "classification": {
+      "componentType": [
+        "GPT",
+        "MACHINE_LEARNING"
+      ],
+      "securityType": [
+        "UNKNOWN"
+      ]
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.0004986748327780653,
+        "timestampPredicted": "2026-04-08T04:01:16.782819+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true
+  },
+  {
+    "_id": "69d534c3da0850f8382acbb5",
+    "redditId": "1seyups",
+    "author": "Valunex",
+    "author_description": "IOC — WordPress admlnlx/one\\_images\\_user backdoor\n\n  Plugin: one\\_images\\_user/one\\_images\\_user.php (trojanized avatar plugin)\n\n  Backdoor user: admlnlx / wordpresupport@\\[victim-domain\\]\n\n  DB flags: \\_pre\\_user\\_id, theme\\_dc\\_aluma\\_tools, theme\\_aluma\\_times\n\n  Entry vector: WP Cerber 9.0 CVE-2022-4712 (Stored XSS)\n\n  Spam domain: [tr.betpas-2026resmi-girisimiz.vip](http://tr.betpas-2026resmi-girisimiz.vip)\n\n  GSC token: CjUBjhDFviESMJb3nHtrm5pzOgfbzUjRdxrOKf-oS9I\n\n  Attacker IPs: 109.104.199.179, 109.107.86.35, 140.99.215.57, 149.0.252.108,\n\n151.229.64.34, 154.56.243.118, 176.238.178.216, 176.41.181.192 (+ more)",
+    "awards": [],
+    "comments": [],
+    "created_utc": "2026-04-07T15:14:17",
+    "first_author_comment": null,
+    "num_comments": 2,
+    "score": 1,
+    "subreddit": "Wordpress",
+    "tag": null,
+    "tags": [],
+    "title": "NEW WORDPRESS HACK GOING AROUND!",
+    "updatedAt": "2026-04-07T20:01:03.363Z",
+    "upvote_ratio": 0.54,
+    "url": "https://reddit.com/r/Wordpress/comments/1seyups/new_wordpress_hack_going_around/",
+    "versionList": [],
+    "classification": {
+      "securityType": [
+        "UNKNOWN"
+      ]
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.029423895634839728,
+        "timestampPredicted": "2026-04-07T20:01:03.217366+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": false
+  },
+  {
     "_id": "69d416a5da0850f8382a71a7",
     "redditId": "1se86ws",
     "author": "Hot-Independence-985",
@@ -14,8 +175,8 @@
     "tag": null,
     "tags": [],
     "title": "CVE-2026-35616: Fortinet Auth Bypass. Patch your firewalls right now.",
-    "updatedAt": "2026-04-07T04:25:11.580Z",
-    "upvote_ratio": 0.29,
+    "updatedAt": "2026-04-07T16:25:19.773Z",
+    "upvote_ratio": 0.27,
     "url": "https://reddit.com/r/sysadmin/comments/1se86ws/cve202635616_fortinet_auth_bypass_patch_your/",
     "versionList": [
       "2026.0.0",
@@ -93,7 +254,7 @@
         "id": "oe90v4i",
         "author": "anh0516",
         "body": "TL;DR this is due to the removal of PREEMPT_NONE, and the solution is to adapt PostgreSQL to use restartable sequences (rseq).",
-        "score": 388,
+        "score": 397,
         "created_utc_ts": 1775308506,
         "created_utc": "2026-04-04T13:15:06",
         "permalink": "https://reddit.com/r/linux/comments/1sc8yx8/aws_engineer_reports_postgresql_performance/oe90v4i/",
@@ -104,7 +265,7 @@
         "id": "oe92iw8",
         "author": "MokoshHydro",
         "body": "&gt; ... shifting the blame to PostgreSQL ...  \n  \nWhat happened with \"we don't break userspace\" motto?",
-        "score": 55,
+        "score": 54,
         "created_utc_ts": 1775309078,
         "created_utc": "2026-04-04T13:24:38",
         "permalink": "https://reddit.com/r/linux/comments/1sc8yx8/aws_engineer_reports_postgresql_performance/oe92iw8/",
@@ -115,7 +276,7 @@
         "id": "oe92snx",
         "author": "kumliaowongg",
         "body": "It's not broken, just degraded.",
-        "score": 162,
+        "score": 158,
         "created_utc_ts": 1775309170,
         "created_utc": "2026-04-04T13:26:10",
         "permalink": "https://reddit.com/r/linux/comments/1sc8yx8/aws_engineer_reports_postgresql_performance/oe92snx/",
@@ -126,7 +287,7 @@
         "id": "oe94wew",
         "author": "bigbearandy",
         "body": "I know, let's blame Rust, and woke, and something something, because reasons.",
-        "score": 61,
+        "score": 62,
         "created_utc_ts": 1775309887,
         "created_utc": "2026-04-04T13:38:07",
         "permalink": "https://reddit.com/r/linux/comments/1sc8yx8/aws_engineer_reports_postgresql_performance/oe94wew/",
@@ -137,7 +298,7 @@
         "id": "oe957nh",
         "author": "CaptainPolydactyl",
         "body": "As I understand it, breaking changes are a thing between major kernel version releases.  Breaking userspace in point releases is verboten.",
-        "score": -30,
+        "score": -28,
         "created_utc_ts": 1775309992,
         "created_utc": "2026-04-04T13:39:52",
         "permalink": "https://reddit.com/r/linux/comments/1sc8yx8/aws_engineer_reports_postgresql_performance/oe957nh/",
@@ -148,7 +309,7 @@
         "id": "oe95uix",
         "author": "Swizzel-Stixx",
         "body": "And systemd, and wayland, and Kent for some reason",
-        "score": 69,
+        "score": 72,
         "created_utc_ts": 1775310205,
         "created_utc": "2026-04-04T13:43:25",
         "permalink": "https://reddit.com/r/linux/comments/1sc8yx8/aws_engineer_reports_postgresql_performance/oe95uix/",
@@ -159,7 +320,7 @@
         "id": "oe98oai",
         "author": "sepease",
         "body": "&gt; As a result, yesterday posted to the Linux kernel mailing list was a patch to restore PREEMPT_NONE as the default given the severity of the reported regression.\n\n~~Not seeing the contradiction here. Userspace was adversely affected and they decided to undo the change.~~\n\nEDIT: See [another comment](https://www.reddit.com/r/linux/s/G3imiR2EAH) for a better explanation",
-        "score": 45,
+        "score": 44,
         "created_utc_ts": 1775311139,
         "created_utc": "2026-04-04T13:58:59",
         "permalink": "https://reddit.com/r/linux/comments/1sc8yx8/aws_engineer_reports_postgresql_performance/oe98oai/",
@@ -192,7 +353,7 @@
         "id": "oe9ev6e",
         "author": "aeropl3b",
         "body": "Wasn't that a CVE fix?\n\nhttps://nvd.nist.gov/vuln/detail/CVE-2025-40237\n\nGlad there is a work-around, headline is a bit click bait",
-        "score": 140,
+        "score": 142,
         "created_utc_ts": 1775313113,
         "created_utc": "2026-04-04T14:31:53",
         "permalink": "https://reddit.com/r/linux/comments/1sc8yx8/aws_engineer_reports_postgresql_performance/oe9ev6e/",
@@ -203,7 +364,7 @@
         "id": "oe9k51q",
         "author": "Nervous-Cockroach541",
         "body": "So I've been researching this for about the past 40 minutes. Here's what I've uncovered.\n\n1. There won't be a reversion. Linux developers knew this was going to be a consequence.\n2. It's happening because PostgresSQL uses a forever hold spinlock model to optimize the resources.\n3. Dependency on PREEMPT\\_NONE has created tech debt in the kernel. Plans have been in works to replace it for years. PREEMPT\\_LAZY was added about a year ago, which is the current behavior. But was never a default.\n4. The extreme drop in performance has in part to do with this test being done on a 96-core CPU where spin-locked threads are getting interrupted more often. Essentially the more spinlocked threads you have, the more impacted your applications will be. On lower core count with more applications running, performance will be greatly improved. Luckily people running 96-core CPUs probably know enough to mitigate this problem by staying a version behind.\n5. PostgreSQL has known using Spinlocks is not a good solution to their problems going back to 2011. That this is a bad model. That it won't play nice with other processes, and if other processes did the same you'd endup with both processes acting unpredictable in a contested environment.\n   * [https://www.postgresql.org/message-id/98ACBA06-8F4D-43BE-A653-9907CD836EC4@phlo.org](https://www.postgresql.org/message-id/98ACBA06-8F4D-43BE-A653-9907CD836EC4@phlo.org)\n   * [https://www.enterprisedb.com/blog/locking-postgresql](https://www.enterprisedb.com/blog/locking-postgresql)\n\nMy overall take away: PostgreSQL will have to adapt, and would've always had to adapt eventually. But I think the kernel missed a step in the process. They added the new behavior in November 2024 year ago to 6.13. But the default behavior was still PREEMPT\\_NONE. Now PREEMPT\\_NONE is removed completely. There should've been a time when PREEMPT\\_LAZY was the default with a fall back.\n\n1. PREEMPT\\_NONE is the only option\n2. PREEMPT\\_LAZY option added, PREEMPT\\_NONE remains default.\n3. PREEMPT\\_LAZY is made the default, with PREEMPT\\_NONE being a fallback.\n4. PREEMPT\\_NONE is removed.\n\nWe're missing step three in this rollout.",
-        "score": 483,
+        "score": 501,
         "created_utc_ts": 1775314721,
         "created_utc": "2026-04-04T14:58:41",
         "permalink": "https://reddit.com/r/linux/comments/1sc8yx8/aws_engineer_reports_postgresql_performance/oe9k51q/",
@@ -214,7 +375,7 @@
         "id": "oe9l4d5",
         "author": "1esproc",
         "body": "&gt; I think the kernel missed a step in the process. They added the new behavior in November 2024 year ago to 6.13. But the default behavior was still PREEMPT_NONE. Now PREEMPT_NONE is removed completely. There should've been a time when PREEMPT_LAZY was the default with a fall back.\n\nAgree",
-        "score": 104,
+        "score": 112,
         "created_utc_ts": 1775315011,
         "created_utc": "2026-04-04T15:03:31",
         "permalink": "https://reddit.com/r/linux/comments/1sc8yx8/aws_engineer_reports_postgresql_performance/oe9l4d5/",
@@ -225,7 +386,7 @@
         "id": "oe9mb1j",
         "author": "JollyGreenLittleGuy",
         "body": "Ah you're totally right, that's usually the cycle of default, deprecated, removed. ",
-        "score": 87,
+        "score": 86,
         "created_utc_ts": 1775315360,
         "created_utc": "2026-04-04T15:09:20",
         "permalink": "https://reddit.com/r/linux/comments/1sc8yx8/aws_engineer_reports_postgresql_performance/oe9mb1j/",
@@ -236,7 +397,7 @@
         "id": "oe9ng12",
         "author": "pangapingus",
         "body": "Thanks for the recap of Lunduke's vid on this",
-        "score": 19,
+        "score": 20,
         "created_utc_ts": 1775315699,
         "created_utc": "2026-04-04T15:14:59",
         "permalink": "https://reddit.com/r/linux/comments/1sc8yx8/aws_engineer_reports_postgresql_performance/oe9ng12/",
@@ -247,7 +408,7 @@
         "id": "oe9rq03",
         "author": "retiredwindowcleaner",
         "body": "*i NeEd A pReEmT kErNeL sO tHaT mY gAmEs RuN fAsTeR*",
-        "score": -12,
+        "score": -13,
         "created_utc_ts": 1775316965,
         "created_utc": "2026-04-04T15:36:05",
         "permalink": "https://reddit.com/r/linux/comments/1sc8yx8/aws_engineer_reports_postgresql_performance/oe9rq03/",
@@ -258,7 +419,7 @@
         "id": "oe9tsjp",
         "author": "warpedgeoid",
         "body": "What, if any, security implications are there for reverting the removal of PREEMPT_NONE and allowing both to remain until a future 7.x release, to give Postgres time to refactor a ton of code to support the new scheme properly?",
-        "score": 8,
+        "score": 9,
         "created_utc_ts": 1775317574,
         "created_utc": "2026-04-04T15:46:14",
         "permalink": "https://reddit.com/r/linux/comments/1sc8yx8/aws_engineer_reports_postgresql_performance/oe9tsjp/",
@@ -335,7 +496,7 @@
         "id": "oeaztga",
         "author": "JagerAntlerite7",
         "body": "If you are using a bleeding edge kernel you are going to bleed 🩸",
-        "score": 2,
+        "score": 5,
         "created_utc_ts": 1775329947,
         "created_utc": "2026-04-04T19:12:27",
         "permalink": "https://reddit.com/r/linux/comments/1sc8yx8/aws_engineer_reports_postgresql_performance/oeaztga/",
@@ -346,7 +507,7 @@
         "id": "oeb39j1",
         "author": "grg994",
         "body": "While I think this PREEMPT\\_\\* transition could be more graceful, it was said many many times including by Linus himself:\n\n\"**do not use spinlocks in user space, unless you actually know what you're doing**. And be aware that the likelihood that you know what you are doing is basically nil.\" ([https://www.realworldtech.com/forum/?threadid=189711&amp;curpostid=189723](https://www.realworldtech.com/forum/?threadid=189711&amp;curpostid=189723))\n\nBy common sense the guess is that Postgres just shot itself in the foot here.",
-        "score": 37,
+        "score": 39,
         "created_utc_ts": 1775330989,
         "created_utc": "2026-04-04T19:29:49",
         "permalink": "https://reddit.com/r/linux/comments/1sc8yx8/aws_engineer_reports_postgresql_performance/oeb39j1/",
@@ -379,7 +540,7 @@
         "id": "oeca10b",
         "author": "lfittl",
         "body": "Its worth reading this follow-up LKML post by Andres Freund (who works on Postgres): [https://lore.kernel.org/lkml/yr3inlzesdb45n6i6lpbimwr7b25kqkn37qzlvvzgad5hfd7ut@xv4cihno76wu/](https://lore.kernel.org/lkml/yr3inlzesdb45n6i6lpbimwr7b25kqkn37qzlvvzgad5hfd7ut@xv4cihno76wu/)\n\nMy read: Huge pages are the typical situation for most Postgres production deployments I've seen, so the \"performance is halved\" in the Phoronix article is likely unnecessarily sensationalist - that said, the way the Linux kernel change was made, and proposing user space programs to switch to a new API just added, doesn't seem in good faith either.",
-        "score": 14,
+        "score": 15,
         "created_utc_ts": 1775344431,
         "created_utc": "2026-04-04T23:13:51",
         "permalink": "https://reddit.com/r/linux/comments/1sc8yx8/aws_engineer_reports_postgresql_performance/oeca10b/",
@@ -401,7 +562,7 @@
         "id": "oehd8az",
         "author": "Shished",
         "body": "That's not a userspace breakage. This is akin to xkcd 1172, exploiting the bad behavior and then complaining that the behavior has changed.",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1775415490,
         "created_utc": "2026-04-05T18:58:10",
         "permalink": "https://reddit.com/r/linux/comments/1sc8yx8/aws_engineer_reports_postgresql_performance/oehd8az/",
@@ -418,19 +579,41 @@
         "permalink": "https://reddit.com/r/linux/comments/1sc8yx8/aws_engineer_reports_postgresql_performance/oemmn8j/",
         "parent_id": "t3_1sc8yx8",
         "is_submitter": false
+      },
+      {
+        "id": "oes653a",
+        "author": "BosonCollider",
+        "body": "I am increasingly disappointed by how Linux again prioritizes everything except the database usecase for development, which is literally the usecase that has the most dire real world outcomes if you mess things up. Every now and then freebsd looks attractive again",
+        "score": 1,
+        "created_utc_ts": 1775560810,
+        "created_utc": "2026-04-07T11:20:10",
+        "permalink": "https://reddit.com/r/linux/comments/1sc8yx8/aws_engineer_reports_postgresql_performance/oes653a/",
+        "parent_id": "t3_1sc8yx8",
+        "is_submitter": false
+      },
+      {
+        "id": "oes6m18",
+        "author": "BosonCollider",
+        "body": "Right. Imo the 7.0 kernel should be on step 2 or 3, and 7.1 or 7.2 can be step 3 and 4, and the rseq extension absolutely needs to be there before lazy preemption is made the default. The Ubuntu LTS should not be running on a kernel preemption experiment imo\n\nWith that said, honestly, PREMPT\\_LAZY is an academic experiment and PREMPT\\_NONE should stay supported until PREEMPT\\_LAZY is actually proven. The 7.0 release feels a lot like if linux tried to force all distros to make btrfs the default file system fifteen years ago",
+        "score": 1,
+        "created_utc_ts": 1775561005,
+        "created_utc": "2026-04-07T11:23:25",
+        "permalink": "https://reddit.com/r/linux/comments/1sc8yx8/aws_engineer_reports_postgresql_performance/oes6m18/",
+        "parent_id": "t1_oe9k51q",
+        "is_submitter": false
       }
     ],
     "created_utc": "2026-04-04T13:14:54",
     "first_author_comment": "TL;DR this is due to the removal of PREEMPT_NONE, and the solution is to adapt PostgreSQL to use restartable sequences (rseq).",
-    "num_comments": 74,
-    "score": 584,
+    "num_comments": 78,
+    "score": 604,
     "subreddit": "linux",
     "tag": "Kernel",
     "tags": [
       "Kernel"
     ],
     "title": "AWS Engineer Reports PostgreSQL Performance Halved By Linux 7.0",
-    "updatedAt": "2026-04-07T02:33:20.626Z",
+    "updatedAt": "2026-04-08T02:33:35.631Z",
     "upvote_ratio": 0.96,
     "url": "https://reddit.com/r/linux/comments/1sc8yx8/aws_engineer_reports_postgresql_performance/",
     "versionList": [
@@ -557,13 +740,13 @@
     "created_utc": "2026-04-03T08:20:58",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 8,
+    "score": 9,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "New RCE in Control Web Panel (CVE-2025-70951)",
-    "updatedAt": "2026-04-07T02:30:57.501Z",
-    "upvote_ratio": 0.84,
+    "updatedAt": "2026-04-08T04:31:25.297Z",
+    "upvote_ratio": 0.91,
     "url": "https://reddit.com/r/netsec/comments/1sb7pr4/new_rce_in_control_web_panel_cve202570951/",
     "versionList": [
       "2025.0.0",
@@ -600,13 +783,13 @@
     "created_utc": "2026-04-02T13:35:22",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 31,
+    "score": 29,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Mongoose: Preauth RCE and mTLS Bypass on Millions of Devices",
-    "updatedAt": "2026-04-07T02:30:58.583Z",
-    "upvote_ratio": 0.92,
+    "updatedAt": "2026-04-08T04:31:26.494Z",
+    "upvote_ratio": 0.9,
     "url": "https://reddit.com/r/netsec/comments/1sahl4e/mongoose_preauth_rce_and_mtls_bypass_on_millions/",
     "versionList": [],
     "classification": {
@@ -643,7 +826,7 @@
     "tag": null,
     "tags": [],
     "title": "You’re Not Supposed To ShareFile With Everyone (Progress ShareFile Pre-Auth RCE Chain CVE-2026-2699 &amp; CVE-2026-2701) - watchTowr Labs",
-    "updatedAt": "2026-04-07T02:30:59.465Z",
+    "updatedAt": "2026-04-08T04:31:27.314Z",
     "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/netsec/comments/1saebwi/youre_not_supposed_to_sharefile_with_everyone/",
     "versionList": [
@@ -729,7 +912,7 @@
       "axelor"
     ],
     "title": "DOMPurify 3.2.2 vulnerability in Axelor frontend",
-    "updatedAt": "2026-04-07T04:25:03.676Z",
+    "updatedAt": "2026-04-08T04:25:04.277Z",
     "upvote_ratio": null,
     "url": "https://stackoverflow.com/questions/79918937/dompurify-3-2-2-vulnerability-in-axelor-frontend",
     "versionList": [
@@ -850,12 +1033,12 @@
     "created_utc": "2026-03-31T19:57:17",
     "first_author_comment": null,
     "num_comments": 11,
-    "score": 68,
+    "score": 69,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "MAD Bugs: Claude Wrote a Full FreeBSD Remote Kernel RCE with Root Shell (CVE-2026-4747)",
-    "updatedAt": "2026-04-07T02:31:00.046Z",
+    "updatedAt": "2026-04-08T04:31:27.910Z",
     "upvote_ratio": 0.86,
     "url": "https://reddit.com/r/netsec/comments/1s8y8pp/mad_bugs_claude_wrote_a_full_freebsd_remote/",
     "versionList": [
@@ -948,13 +1131,13 @@
     "created_utc": "2026-03-29T20:10:23",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 25,
+    "score": 27,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Please, We Beg, Just One Weekend Free Of Appliances (Citrix NetScaler CVE-2026-3055 Memory Overread Part 2) - watchTowr Labs",
-    "updatedAt": "2026-04-07T02:31:10.294Z",
-    "upvote_ratio": 0.82,
+    "updatedAt": "2026-04-08T04:31:36.565Z",
+    "upvote_ratio": 0.85,
     "url": "https://reddit.com/r/netsec/comments/1s75kb9/please_we_beg_just_one_weekend_free_of_appliances/",
     "versionList": [
       "2026.0.0",
@@ -1034,7 +1217,7 @@
         "id": "od38oun",
         "author": "BigHandLittleSlap",
         "body": "&gt; only exploitable if the appliance is 'configured as a SAML IDP'. This is a cursed configuration to begin with, and we can think of no appliance more poorly-suited to the task of being an IdP than this class of network device.\n\n&gt; But, well, we know someone out there will have thought it was a Really Good Idea and rushed to implement it. Hopefully not you.\n\nIt was me.\n\nDon't judge me.\n\nWe had to federate the identity systems from half a dozen government departments into a single SAML IdP for a reporting product that didn't support multiple IdPs itself. We had NetScaler, no other SAML server products of any description, and 48 hours available to deploy something to production.\n\nNever again!\n\nHorrifically buggy, to the point where rebooting appliances would cause settings to revert, whether or not you \"saved\" them.",
-        "score": 6,
+        "score": 4,
         "created_utc_ts": 1774765909,
         "created_utc": "2026-03-29T06:31:49",
         "permalink": "https://reddit.com/r/netsec/comments/1s6bdxi/the_sequels_are_never_as_good_but_were_still_in/od38oun/",
@@ -1067,13 +1250,13 @@
     "created_utc": "2026-03-28T20:40:20",
     "first_author_comment": "sir, we are not in the business of stealing titles - coincidence!",
     "num_comments": 3,
-    "score": 29,
+    "score": 30,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "The Sequels Are Never As Good, But We're Still In Pain (Citrix NetScaler CVE-2026-3055 Memory Overread) - watchTowr Labs",
-    "updatedAt": "2026-04-07T02:31:11.908Z",
-    "upvote_ratio": 0.86,
+    "updatedAt": "2026-04-08T04:31:38.248Z",
+    "upvote_ratio": 0.87,
     "url": "https://reddit.com/r/netsec/comments/1s6bdxi/the_sequels_are_never_as_good_but_were_still_in/",
     "versionList": [
       "2026.0.0",
@@ -7383,305 +7566,5 @@
     ],
     "isAboutCve": false,
     "isAboutLatestUpdate": false
-  },
-  {
-    "_id": "697ae260034576c5a988cb69",
-    "redditId": "1qpwn4w",
-    "author": "Patient_Fail_6241",
-    "author_description": "**Body:**\n\nHey everyone,\n\nI recently had a weird security issue on a WooCommerce site (WP 6.9) and wanted to share it since I couldn't find **any** public mentions of this exact behavior.\n\n**What happened:**\n\n* After installing/activating the **Brevo for WooCommerce** plugin (slug: woocommerce-sendinblue-newsletter-subscription), a new admin user appeared: `woocommerce_bot@gmail.com` with role administrator.\n* The user was created even on a fresh plugin install from wordpress.org — but only when I visited the Brevo settings page in wp-admin.\n* The rogue user kept reappearing until I dug into the database.\n\n**Root cause (what I found):**\n\n* The option `sendinblue_woocommerce_user_connection_id` contained a malicious JavaScript payload injected via Stored XSS (likely CVE-2025-14436, fixed in 4.0.50).\n* The payload was an `&lt;img src=x onerror=\"eval(atob('...long base64...'))\"&gt;` string.\n* Decoded, it was JS that:\n   * Fetched `/wp-admin/user-new.php` to extract the nonce\n   * Built a FormData object\n   * POSTed to create a new admin user with username `woocommerce_bot`, email `woocommerce_bot@gmail.com`, password `[redacted]`, role `administrator`\n   * Sent success/failure back to a remote server via image beacon\n* Deleting this one option (`wp option delete sendinblue_woocommerce_user_connection_id`) + clearing transients/cache stopped it completely.\n* After that, reinstalling the latest Brevo plugin (4.0.50+) and re-entering API key worked fine — no more rogue user.\n\n**Key points:**\n\n* The payload was **persisted in the database** — updating/reinstalling the plugin did **not** remove it (only explicit deletion did).\n* No evidence of file-level backdoor (mu-plugins empty, core checksums clean after reinstall).\n* No other plugins/themes showed similar behavior when deactivated.\n* Site was previously hit by a core corruption issue (memory exhaustion in theme.php), but that was unrelated (fixed by `wp core download --force`).\n\n**Questions:**\n\n* Has anyone else seen `woocommerce_bot@gmail.com` (or similar bot accounts) appear after using Brevo/Sendinblue WooCommerce integration?\n* Is this a known chain/exploit leveraging the Brevo XSS CVE, or something new?\n* Any other places this payload has been spotted?\n\nI scanned with Wordfence afterward — nothing else flagged. Just wanted to share in case others run into the same thing. Stay safe out there.\n\n(Using latest WP 6.9 + Brevo plugin from official repo. No nulled/cracked anything.)",
-    "awards": [],
-    "comments": [],
-    "created_utc": "2026-01-29T02:57:09",
-    "first_author_comment": null,
-    "num_comments": 8,
-    "score": 21,
-    "subreddit": "Wordpress",
-    "tag": null,
-    "tags": [],
-    "title": "Brevo for WooCommerce plugin stored XSS led to rogue admin user \"woocommerce_bot@gmail.com\" – anyone else seen this?",
-    "updatedAt": "2026-01-30T10:33:18.547Z",
-    "upvote_ratio": 0.96,
-    "url": "https://reddit.com/r/Wordpress/comments/1qpwn4w/brevo_for_woocommerce_plugin_stored_xss_led_to/",
-    "versionList": [],
-    "classification": {
-      "securityType": [
-        "SECURITY"
-      ],
-      "componentType": []
-    },
-    "metadata": {
-      "predicted": {
-        "isUpdateRelated": false,
-        "positiveScore": 0.00517110020554588,
-        "timestampPredicted": "2026-01-29T20:01:35.888518+00:00"
-      },
-      "labeled": {
-        "isUpdateRelated": null
-      }
-    },
-    "isAboutCve": true,
-    "isAboutLatestUpdate": true
-  },
-  {
-    "_id": "697330c8cfccdc7666f064de",
-    "redditId": "1qklaj0",
-    "author": "felix-thebest",
-    "author_description": "Most web apps are still vulnerable to deadly vulnerabilities like React2Shell - [https://react2shell.com/https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-componentshttps://slcyber.io/research-center/high-fidelity-detection-mechanism-for-rsc-next-js-rce-cve-2025-55182-cve-2025-66478/](https://react2shell.com/https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-componentshttps://slcyber.io/research-center/high-fidelity-detection-mechanism-for-rsc-next-js-rce-cve-2025-55182-cve-2025-66478/)\n\nFor the last 2 weeks, I decided to experiment with a tool used for web security testing and managed to make a web service that you can use to test your solution easily without any technical setup.\n\nhttps://preview.redd.it/35rfwue342fg1.png?width=1554&amp;format=png&amp;auto=webp&amp;s=3ed77a63186488d6dc31a8f64f0db74d9d1aa995\n\nWhen you [scan yours](https://app.regulance.io/pentest/new/)  \\- For each assessment, you will get details on how to fix the issues found. Feel free to also recommend on the items I should also add to make this useful. Please let me know if you find this useful.\n\nThanks",
-    "awards": [],
-    "comments": [],
-    "created_utc": "2026-01-23T08:20:52",
-    "first_author_comment": null,
-    "num_comments": 0,
-    "score": 0,
-    "subreddit": "django",
-    "tag": "Apps",
-    "tags": [
-      "Apps"
-    ],
-    "title": "I built a tool for scanning web apps vulnerabilities - Please let me know what you think",
-    "updatedAt": "2026-01-26T22:28:12.623Z",
-    "upvote_ratio": 0.5,
-    "url": "https://reddit.com/r/django/comments/1qklaj0/i_built_a_tool_for_scanning_web_apps/",
-    "versionList": [],
-    "classification": {
-      "securityType": [
-        "UNKNOWN"
-      ],
-      "componentType": [
-        "WEB"
-      ]
-    },
-    "metadata": {
-      "predicted": {
-        "isUpdateRelated": false,
-        "positiveScore": 0.00021153555758124016,
-        "timestampPredicted": "2026-01-24T12:01:31.576686+00:00"
-      },
-      "labeled": {
-        "isUpdateRelated": null
-      }
-    },
-    "isAboutCve": true,
-    "isAboutLatestUpdate": true
-  },
-  {
-    "_id": "696eb02dcfccdc7666f00d79",
-    "redditId": "1qgh9po",
-    "author": "anh0516",
-    "author_description": null,
-    "awards": [],
-    "comments": [
-      {
-        "id": "o0cbd28",
-        "author": "MatchingTurret",
-        "body": "This is the kind of errors a memory safe language would have prevented. There really is an argument to be made to rewrite libc in Rust like [relibc](https://gitlab.redox-os.org/redox-os/relibc/).",
-        "score": -185,
-        "created_utc_ts": 1768764068,
-        "created_utc": "2026-01-18T19:21:08",
-        "permalink": "https://reddit.com/r/linux/comments/1qgh9po/cve20260915_gnu_c_library_fixes_a_security_issue/o0cbd28/",
-        "parent_id": "t3_1qgh9po",
-        "is_submitter": false
-      },
-      {
-        "id": "o0cc82p",
-        "author": "ABotelho23",
-        "body": "90% of these rewrites have the same problem: weak licenses. Moving from LGPL to MIT is a huge problem in my opinion.",
-        "score": 155,
-        "created_utc_ts": 1768764316,
-        "created_utc": "2026-01-18T19:25:16",
-        "permalink": "https://reddit.com/r/linux/comments/1qgh9po/cve20260915_gnu_c_library_fixes_a_security_issue/o0cc82p/",
-        "parent_id": "t1_o0cbd28",
-        "is_submitter": false
-      },
-      {
-        "id": "o0cehek",
-        "author": "ilikedeserts90",
-        "body": "Yes wow and just introduce brand new bugs (that either dont exist or were fixed long ago in the C code) that we can spend the next two decades finding and fixing. Great. Love it.\n\nHow about just shut up with the language evangelism and just work harder at finding bugs?",
-        "score": 68,
-        "created_utc_ts": 1768764974,
-        "created_utc": "2026-01-18T19:36:14",
-        "permalink": "https://reddit.com/r/linux/comments/1qgh9po/cve20260915_gnu_c_library_fixes_a_security_issue/o0cehek/",
-        "parent_id": "t1_o0cbd28",
-        "is_submitter": false
-      },
-      {
-        "id": "o0chlhv",
-        "author": "Megame50",
-        "body": "&gt; $ man networks(5)\n\n&gt; The file /etc/networks is a plain ASCII file that describes known DARPA networks and symbolic names for these networks. [...]\n\nSomething tells me literally nobody has used this function since 1990.",
-        "score": 359,
-        "created_utc_ts": 1768765879,
-        "created_utc": "2026-01-18T19:51:19",
-        "permalink": "https://reddit.com/r/linux/comments/1qgh9po/cve20260915_gnu_c_library_fixes_a_security_issue/o0chlhv/",
-        "parent_id": "t3_1qgh9po",
-        "is_submitter": false
-      },
-      {
-        "id": "o0cl0p7",
-        "author": "pfp-disciple",
-        "body": "&gt; it took 30 years for a zero value case to be tested \n\nIt'd be interesting for a college course to have  an exercise to write unit tests for critical infrastructure things, like glibc, musl, core utilities, etc. Any that expose a real bug could get bonus points on their grade. ",
-        "score": 339,
-        "created_utc_ts": 1768766873,
-        "created_utc": "2026-01-18T20:07:53",
-        "permalink": "https://reddit.com/r/linux/comments/1qgh9po/cve20260915_gnu_c_library_fixes_a_security_issue/o0cl0p7/",
-        "parent_id": "t3_1qgh9po",
-        "is_submitter": false
-      },
-      {
-        "id": "o0cvkei",
-        "author": "meditonsin",
-        "body": "That happened to some class in my uni a few years ago. The students got an assignment to make a formal mathematical model of some component of the Linux kernel (semaphores, I think?). None of them could get their model to show correctness when constructed after the code as it was.\n\nTurns out there was a weird edge case bug in there. It got reported and fixed, and everyone who found it got full marks for that assignment.",
-        "score": 215,
-        "created_utc_ts": 1768770055,
-        "created_utc": "2026-01-18T21:00:55",
-        "permalink": "https://reddit.com/r/linux/comments/1qgh9po/cve20260915_gnu_c_library_fixes_a_security_issue/o0cvkei/",
-        "parent_id": "t1_o0cl0p7",
-        "is_submitter": false
-      },
-      {
-        "id": "o0dbhep",
-        "author": "oxez",
-        "body": "I have nothing to add besides I'm smiling at how badly you got downvoted for suggesting we replace glibc with a rust rewrite\n\nlmao",
-        "score": 12,
-        "created_utc_ts": 1768774954,
-        "created_utc": "2026-01-18T22:22:34",
-        "permalink": "https://reddit.com/r/linux/comments/1qgh9po/cve20260915_gnu_c_library_fixes_a_security_issue/o0dbhep/",
-        "parent_id": "t1_o0cbd28",
-        "is_submitter": false
-      },
-      {
-        "id": "o0ddhfj",
-        "author": "JustBadPlaya",
-        "body": "relibc exists because redox needs it (and also isn't pure Rust), rustix exists mostly for purposes of slimming down code and adding Result returns for syscalls, mustang and eyra exist purely for experimental purposes. libc is very well tested already, rewriting it for the purposes of safety is a pointless endeavour given just how many pitfalls there are",
-        "score": 8,
-        "created_utc_ts": 1768775520,
-        "created_utc": "2026-01-18T22:32:00",
-        "permalink": "https://reddit.com/r/linux/comments/1qgh9po/cve20260915_gnu_c_library_fixes_a_security_issue/o0ddhfj/",
-        "parent_id": "t1_o0cbd28",
-        "is_submitter": false
-      },
-      {
-        "id": "o0ddrxc",
-        "author": "DriftingKraken",
-        "body": "[Someone probably is](https://imgs.xkcd.com/comics/workflow.png) and he's going to angrily complain about the behaviour changing.",
-        "score": 158,
-        "created_utc_ts": 1768775602,
-        "created_utc": "2026-01-18T22:33:22",
-        "permalink": "https://reddit.com/r/linux/comments/1qgh9po/cve20260915_gnu_c_library_fixes_a_security_issue/o0ddrxc/",
-        "parent_id": "t1_o0chlhv",
-        "is_submitter": false
-      },
-      {
-        "id": "o0du7at",
-        "author": "Jayden_Ha",
-        "body": "Oh fuck rust rewrites I want quality not quantity",
-        "score": 1,
-        "created_utc_ts": 1768780568,
-        "created_utc": "2026-01-18T23:56:08",
-        "permalink": "https://reddit.com/r/linux/comments/1qgh9po/cve20260915_gnu_c_library_fixes_a_security_issue/o0du7at/",
-        "parent_id": "t1_o0cbd28",
-        "is_submitter": false
-      },
-      {
-        "id": "o0eq6oj",
-        "author": "JGPH",
-        "body": "I'm so curious about what those DARPA entries were. It's so weird that there would be DARPA-specific stuff built into UNIX for a publicly available OS!",
-        "score": 10,
-        "created_utc_ts": 1768790965,
-        "created_utc": "2026-01-19T02:49:25",
-        "permalink": "https://reddit.com/r/linux/comments/1qgh9po/cve20260915_gnu_c_library_fixes_a_security_issue/o0eq6oj/",
-        "parent_id": "t1_o0chlhv",
-        "is_submitter": false
-      },
-      {
-        "id": "o0m24aa",
-        "author": "Cylian91460",
-        "body": "... What do you think unit tests are for?",
-        "score": 1,
-        "created_utc_ts": 1768883990,
-        "created_utc": "2026-01-20T04:39:50",
-        "permalink": "https://reddit.com/r/linux/comments/1qgh9po/cve20260915_gnu_c_library_fixes_a_security_issue/o0m24aa/",
-        "parent_id": "t1_o0cbd28",
-        "is_submitter": false
-      }
-    ],
-    "created_utc": "2026-01-18T19:06:30",
-    "first_author_comment": null,
-    "num_comments": 94,
-    "score": 670,
-    "subreddit": "linux",
-    "tag": "Security",
-    "tags": [
-      "Security"
-    ],
-    "title": "CVE-2026-0915: GNU C Library Fixes A Security Issue Present Since 1996",
-    "updatedAt": "2026-01-22T08:28:46.714Z",
-    "upvote_ratio": 0.99,
-    "url": "https://reddit.com/r/linux/comments/1qgh9po/cve20260915_gnu_c_library_fixes_a_security_issue/",
-    "versionList": [
-      "2026.0.0",
-      "0915.0.0",
-      "1996.0.0"
-    ],
-    "metadata": {
-      "predicted": {
-        "isUpdateRelated": false,
-        "positiveScore": 0.0011933190444642383,
-        "timestampPredicted": "2026-01-20T08:01:28.602724+00:00"
-      },
-      "labeled": {
-        "isUpdateRelated": null
-      }
-    },
-    "isAboutCve": true,
-    "isAboutLatestUpdate": true,
-    "classification": {
-      "componentType": [
-        "LIBRARY",
-        "LANGUAGE"
-      ],
-      "securityType": [
-        "SECURITY"
-      ]
-    }
-  },
-  {
-    "_id": "696eb07fcfccdc7666f00dd7",
-    "redditId": "1qgcznb",
-    "author": "mcdotdotdot",
-    "author_description": "I manage 30+ Node.js projects across different repos. When CVE-2025-64756 (glob) dropped in November, I spent hours manually checking every project with \\`npm audit\\`.\n\nHow do you all handle this? Currently considering:\n\n\\- Snyk (too expensive at $300+/mo)  \n\\- Manual npm audit runs (time-consuming)  \n\\- Building a simple scanner that monitors all my repos\n\nFor those with multiple projects: what's your process when a new CVE drops?",
-    "awards": [],
-    "comments": [],
-    "created_utc": "2026-01-18T16:27:28",
-    "first_author_comment": null,
-    "num_comments": 14,
-    "score": 22,
-    "subreddit": "node",
-    "tag": null,
-    "tags": [],
-    "title": "Managing 30+ Node.js projects - how do you track CVE vulnerabilities?",
-    "updatedAt": "2026-01-21T08:29:04.061Z",
-    "upvote_ratio": 0.96,
-    "url": "https://reddit.com/r/node/comments/1qgcznb/managing_30_nodejs_projects_how_do_you_track_cve/",
-    "versionList": [
-      "30.0.0"
-    ],
-    "metadata": {
-      "predicted": {
-        "isUpdateRelated": false,
-        "positiveScore": 9.208979564151532e-05,
-        "timestampPredicted": "2026-01-20T08:01:35.013684+00:00"
-      },
-      "labeled": {
-        "isUpdateRelated": null
-      }
-    },
-    "isAboutCve": true,
-    "isAboutLatestUpdate": true,
-    "classification": {
-      "componentType": [],
-      "securityType": [
-        "SECURITY"
-      ]
-    }
   }
 ]
