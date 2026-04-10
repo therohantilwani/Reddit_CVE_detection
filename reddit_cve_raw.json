@@ -1,5 +1,96 @@
 [
   {
+    "_id": "69d7f2afda0850f8382b8ef6",
+    "redditId": "1sgy1gc",
+    "author": "JulietSecurity",
+    "author_description": "if you're running Helm 4.0.0 through 4.1.3, heads up. a malicious plugin can write files to arbitrary locations on your filesystem through a path traversal in the plugin.yaml version field.\n\nthe version field gets used in path construction when helm installs or updates a plugin, and there was zero validation on it. so a plugin author could set something like:\n\n```yaml\nname: totally-legit-plugin\nversion: ../../../../tmp/whatever\n```\n\nand helm would happily write plugin contents outside the plugin directory to wherever that path resolves. classic path traversal, nothing fancy, but effective.\n\nfix in 4.1.4 adds semver validation to the version field so anything that isn't a valid semver string gets rejected at install time.\n\n**what to do:**\n\n- upgrade to 4.1.4\n- if you want to check your existing plugins: look at the plugin.yaml files in your helm plugin directory (`helm env HELM_PLUGINS`) and make sure none of the version fields have anything weird in them (slashes, dots that aren't semver, etc)\n- general reminder to only install plugins from sources you trust, since this requires you to actually install the malicious plugin\n\nnot as scary as a remote exploit but if you're in an environment where people install helm plugins from random github repos (be honest, we all do it sometimes) it's worth patching.\n\nadvisory: https://github.com/helm/helm/security/advisories/GHSA-vmx8-mqv2-9gmg",
+    "awards": [],
+    "comments": [],
+    "created_utc": "2026-04-09T18:31:03",
+    "first_author_comment": null,
+    "num_comments": 0,
+    "score": 7,
+    "subreddit": "kubernetes",
+    "tag": null,
+    "tags": [],
+    "title": "PSA: Helm path traversal via malicious plugin - upgrade to 4.1.4 (CVE-2026-35204)",
+    "updatedAt": "2026-04-10T04:01:18.044Z",
+    "upvote_ratio": 0.82,
+    "url": "https://reddit.com/r/kubernetes/comments/1sgy1gc/psa_helm_path_traversal_via_malicious_plugin/",
+    "versionList": [
+      "4.1.4",
+      "2026.0.0",
+      "35204.0.0"
+    ],
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.05487820682309956,
+        "timestampPredicted": "2026-04-10T04:01:17.512563+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true,
+    "classification": {
+      "componentType": [],
+      "securityType": [
+        "SECURITY"
+      ]
+    }
+  },
+  {
+    "_id": "69d7f258da0850f8382b8ed1",
+    "redditId": "1sgmi14",
+    "author": "BigSneakyDuck",
+    "author_description": "The security firm [calif.io](http://calif.io) caused a splash at the end of March by blogging that Claude Opus 4.6 had found a working exploit after being shown the The FreeBSD Security Advisory for CVE-2026-4747. This advisory was announced on 26 March and credited \"Nicholas Carlini using Claude, Anthropic\" but details of how the CVE was found were not made public. It's a remote code execution vulnerability on unpatched machines running NFS that allows an attacker to gain root access. [https://www.freebsd.org/security/advisories/FreeBSD-SA-26:08.rpcsec\\_gss.asc](https://www.freebsd.org/security/advisories/FreeBSD-SA-26:08.rpcsec_gss.asc)\n\nThe claimed significance of what Calif achieved, within days of the announcement, was that \"To our knowledge, this is the first remote kernel exploit both discovered and exploited by an AI\". Though note Calif didn't get Opus 4.6 to do the finding, just the exploiting of a known vulnerability, and even that was human-aided as it needed extensive prompting to do so. [https://blog.calif.io/p/mad-bugs-claude-wrote-a-full-freebsd](https://blog.calif.io/p/mad-bugs-claude-wrote-a-full-freebsd)\n\nNow details have been released about Carlini's original discovery, it turns out Anthropic's new, non-public Claude Mythos Preview model had not only found the vulnerability (overlooked in the FreeBSD code base for 17 years) but went on to create an exploit too. More significantly, it had done so \"fully autonomously\"-  \"no human was involved in either the discovery or exploitation of this vulnerability after the initial request to find the bug\". So it seems the Calif story was not *the* story (though it did show what's possible with the tools publicly available right now). The big story is, at first sight, more alarming. [https://red.anthropic.com/2026/mythos-preview/](https://red.anthropic.com/2026/mythos-preview/)\n\nAnd there are more where that one came from:\n\n&gt;Separate from this now-public CVE, we are in various stages of reporting additional vulnerabilities and exploits to FreeBSD, including one we will publish with SHA-3 commitment aab856123a5b555425d1538a37a2e6ca47655c300515ebfc55d238b0 for the report and aa4aff220c5011ee4b262c05faed7e0424d249353c336048af0f2375 for the PoC. These are still undergoing responsible disclosure.\n\nIt's clear that Opus 4.6 is not actually all that good at exploiting vulnerabilities, although as Calif proved it can be cajoled into doing so. Anthropic is vaunting Mythos Preview as a big leap forward in this regard:\n\n&gt;These capabilities have emerged very quickly. Last month, we wrote that “Opus 4.6 is currently far better at identifying and fixing vulnerabilities than at exploiting them.” Our internal evaluations showed that Opus 4.6 generally had a near-0% success rate at autonomous exploit development. But Mythos Preview is in a different league. For example, Opus 4.6 turned the vulnerabilities it had found in Mozilla’s Firefox 147 JavaScript engine—all patched in Firefox 148—into JavaScript shell exploits only two times out of several hundred attempts. We re-ran this experiment as a benchmark for Mythos Preview, which developed working exploits 181 times, and achieved register control on 29 more.\n\n&gt;These same capabilities are observable in our own internal benchmarks. We regularly run our models against roughly a thousand open source repositories from the OSS-Fuzz corpus, and grade the worst crash they can produce on a five-tier ladder of increasing severity, ranging from basic crashes (tier 1) to complete control flow hijack (tier 5). With one run on each of roughly 7000 entry points into these repositories, Sonnet 4.6 and Opus 4.6 reached tier 1 in between 150 and 175 cases, and tier 2 about 100 times, but each achieved only a single crash at tier 3. In contrast, Mythos Preview achieved 595 crashes at tiers 1 and 2, added a handful of crashes at tiers 3 and 4, and achieved full control flow hijack on ten separate, fully patched targets (tier 5).\n\nThis obviously isn't a FreeBSD-specific story, there's also a 27 year-old OpenBSD bug (\"Mythos Preview identified a vulnerability in the OpenBSD implementation of SACK that would allow an adversary to crash any OpenBSD host that responds over TCP\"), could successfully bypass KASLR to seize root control on Linux, found a 16-year old FFMPEG vulnerability, flaws in cryptographic libraries...\n\n&gt;We have identified thousands of additional high- and critical-severity vulnerabilities that we are working on responsibly disclosing to open source maintainers and closed source vendors. We have contracted a number of professional security contractors to assist in our disclosure process by manually validating every bug report before we send it out to ensure that we send only high-quality reports to maintainers.\n\n&gt;While we are unable to state with certainty that these vulnerabilities are definitely high- or critical-severity, in practice we have found that our human validators overwhelmingly agree with the original severity assigned by the model: in 89% of the 198 manually reviewed vulnerability reports, our expert contractors agreed with Claude’s severity assessment exactly, and 98% of the assessments were within one severity level. If these results hold consistently for our remaining findings, we would have over a thousand more critical severity vulnerabilities and thousands more high severity vulnerabilities. Eventually it may become necessary to relax our stringent human-review requirements. In any such case, we commit to publicly stating any changes we will make to our processes in advance of doing so.\n\nThis is only one (non-public) model at one company, and the trend is only going in one direction from here. Security teams have already seen an influx of AI-generated or assisted reports, albeit many are not currently accurate or useful.  The step change in the ability to exploit vulnerabilities, not just find them, is concerning - in the next few years, not everyone with these capabilities will be going through responsible disclosure or chasing bug bounties. Fortunately there is some level of cost barrier - Anthropic claims it cost $20,000 to find that OpenBSD exploit and a few others, though some individual exploits were more like a few thousand dollars - but that will surely come down as well.\n\nI've no doubt that there's a lot of hype here too but serious people working in security are paying close attention. In an El Reg interview, Greg Kroah-Hartman of the Linux kernel noted that incoming AI-generated security reports had recently gone from \"slop\" to \"real reports that are made with AI, but they're good, and they're real\". [https://www.theregister.com/2026/03/26/greg\\_kroahhartman\\_ai\\_kernel/](https://www.theregister.com/2026/03/26/greg_kroahhartman_ai_kernel/)\n\nThere is an optimistic perspective, or at least silver lining, from Colin Percival (FreeBSD Release Engineering Lead) who foresees a lot of work ahead but \"by the end of the year we're going to have much more secure code; and we're also going to see which security teams are truly operationally excellent, because those are the ones which will manage to keep up.\" [https://nitter.net/cperciva/status/2035045573116789002](https://nitter.net/cperciva/status/2035045573116789002)\n\nBut I do have concerns that FreeBSD has a relatively small team behind it, limited financial resources, a large code base ([which does get security audits](https://freebsdfoundation.org/news-and-events/latest-news/freebsd-foundation-releases-bhyve-and-capsicum-security-audit-funded-by-alpha-omega-project/) but I'm not sure it's as comprehensive as e.g. OpenBSD's) and is still run on a lot of important infrastructure - all of which must mark it out as a particularly juicy target for attackers. At the very least the security team are going to be busy. And reputationally this hasn't been good for FreeBSD either - not just the Calif headlines but also Anthropic's writeup of why the FreeBSD kernel was an especially easy target by modern OS standards - even though Mythos Preview also built exploits for Linux, OpenBSD, and other software products. In fact the problem looks set to be even more overwhelming for the ecosystem of small open source products that all these OSes import and rely on, e.g. with cURL: [https://www.theregister.com/2026/01/21/curl\\_ends\\_bug\\_bounty/](https://www.theregister.com/2026/01/21/curl_ends_bug_bounty/)\n\nAnthropic has announced \"Project Glasswing\" in which various tech players are getting access to Mythos Preview for defensive purposes, as well as \"$4M in direct donations to open-source security organizations\". The Linux Foundation are participating, does anyone know if any of this is likely to help any of the \\*BSDs specifically or the smaller projects that they're all [2347](https://xkcd.com/2347/)'d on?   [https://www.theregister.com/2026/04/07/anthropic\\_all\\_your\\_zerodays\\_are\\_belong\\_to\\_us/](https://www.theregister.com/2026/04/07/anthropic_all_your_zerodays_are_belong_to_us/)",
+    "awards": [],
+    "comments": [],
+    "created_utc": "2026-04-09T11:06:27",
+    "first_author_comment": null,
+    "num_comments": 36,
+    "score": 36,
+    "subreddit": "freebsd",
+    "tag": "news",
+    "tags": [
+      "news"
+    ],
+    "title": "Claude Mythos Preview \"fully autonomously\" finds and exploits new FreeBSD vulnerabilities (plus Linux, OpenBSD, and others) - more concerning than calif.io story with known CVE and human prompting?",
+    "updatedAt": "2026-04-09T22:38:24.473Z",
+    "upvote_ratio": 0.89,
+    "url": "https://reddit.com/r/freebsd/comments/1sgmi14/claude_mythos_preview_fully_autonomously_finds/",
+    "versionList": [],
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true
+  },
+  {
+    "_id": "69d7d656da0850f8382b8cc5",
+    "redditId": "1sfxve3",
+    "author": "Remarkable-Gurrrr",
+    "author_description": "heads up for anyone running flannel - CVE-2026-32241 dropped recently, CVSS 8.8. \n\nbefore you panic: it only affects clusters using the experimental Extension backend. if you're on vxlan, wireguard, or host-gw you're fine.\n\nthat said the exploit chain is worth understanding even if you're not affected because the pattern shows up elsewhere.\n\n**what happens:**\n\nthe Extension backend lets you define shell commands that run on subnet events. these get executed via `sh -c` and receive data piped from a node annotation (`flannel.alpha.coreos.com/backend-data`). problem is that annotation value gets passed to the shell with zero sanitization.\n\nso anyone who can PATCH node annotations (which is more principals than you'd think in a lot of clusters) can inject arbitrary commands that execute as root on every flannel node. that's full cross-node RCE from a single annotation write.\n\n**what to do:**\n\n- if you're on the Extension backend: upgrade to v0.28.2 or switch backends\n- either way, worth auditing who can PATCH node objects in your cluster. that permission is more powerful than it looks and this is a good example of why\n- check your node annotations for anything weird in `flannel.alpha.coreos.com/backend-data` if you want to be thorough\n\nfix was straightforward - they replaced the `sh -c` invocation with direct exec so shell metacharacters aren't interpreted anymore.\n\nthe bigger takeaway imo is that node annotations are a surprisingly fat attack surface in k8s. a lot of CNI plugins and other node-level components read from them, and if any of those consumers pass annotation values into shell commands or config files without validation, you get this exact same class of bug. worth thinking about if you're running any extension-style backends in other components too.\n\nadvisory: https://github.com/flannel-io/flannel/security/advisories/GHSA-vchx-5pr6-ffx2",
+    "awards": [],
+    "comments": [],
+    "created_utc": "2026-04-08T16:30:19",
+    "first_author_comment": null,
+    "num_comments": 2,
+    "score": 8,
+    "subreddit": "kubernetes",
+    "tag": null,
+    "tags": [],
+    "title": "CVE-2026-32241 - Flannel RCE via node annotation injection (Extension backend only)",
+    "updatedAt": "2026-04-09T22:40:11.097Z",
+    "upvote_ratio": 1,
+    "url": "https://reddit.com/r/kubernetes/comments/1sfxve3/cve202632241_flannel_rce_via_node_annotation/",
+    "versionList": [
+      "2026.0.0",
+      "32241.0.0"
+    ],
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true
+  },
+  {
     "_id": "69d64abbda0850f8382b2869",
     "redditId": "1sfpmg9",
     "author": "TradeGold6317",
@@ -10,24 +101,35 @@
         "id": "oez1t2i",
         "author": "TradeGold6317",
         "body": "Six XML-based translation importers in Tolgee (Android XML, XLIFF, .resx, stringsdict) all used default Java parser settings with external entities enabled. Any authenticated user could upload a crafted file and read arbitrary files from the server. Confirmed on [app.tolgee.io](http://app.tolgee.io), their multi-tenant cloud. Fixed within a week.",
-        "score": 4,
+        "score": 5,
         "created_utc_ts": 1775646254,
         "created_utc": "2026-04-08T11:04:14",
         "permalink": "https://reddit.com/r/netsec/comments/1sfpmg9/reading_etcpasswd_via_translation_file_upload_in/oez1t2i/",
         "parent_id": "t3_1sfpmg9",
         "is_submitter": true
+      },
+      {
+        "id": "of60o87",
+        "author": "fisebuk",
+        "body": "Authenticated XXE is interesting because most threat models downplay post-auth attack surface - in reality these post-auth vectors are way wider than people realize. Default Java XML parser with entities enabled is still somehow common, ngl. Multi-tenant cloud setup makes it worse since you might grab another customer's config files with API keys or creds sitting around.",
+        "score": 2,
+        "created_utc_ts": 1775733196,
+        "created_utc": "2026-04-09T11:13:16",
+        "permalink": "https://reddit.com/r/netsec/comments/1sfpmg9/reading_etcpasswd_via_translation_file_upload_in/of60o87/",
+        "parent_id": "t1_oez1t2i",
+        "is_submitter": false
       }
     ],
     "created_utc": "2026-04-08T11:03:55",
     "first_author_comment": "Six XML-based translation importers in Tolgee (Android XML, XLIFF, .resx, stringsdict) all used default Java parser settings with external entities enabled. Any authenticated user could upload a crafted file and read arbitrary files from the server. Confirmed on [app.tolgee.io](http://app.tolgee.io), their multi-tenant cloud. Fixed within a week.",
-    "num_comments": 1,
-    "score": 17,
+    "num_comments": 3,
+    "score": 21,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Reading /etc/passwd via translation file upload in Tolgee's cloud platform (CVE-2026-32251, CVSS 9.3)",
-    "updatedAt": "2026-04-09T02:30:54.127Z",
-    "upvote_ratio": 0.91,
+    "updatedAt": "2026-04-10T04:31:01.967Z",
+    "upvote_ratio": 0.96,
     "url": "https://reddit.com/r/netsec/comments/1sfpmg9/reading_etcpasswd_via_translation_file_upload_in/",
     "versionList": [
       "2026.0.0",
@@ -105,12 +207,12 @@
     "created_utc": "2026-04-08T07:01:17",
     "first_author_comment": null,
     "num_comments": 5,
-    "score": 26,
+    "score": 33,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Spooler Alert: Remote Unauth'd RCE-to-root Chain in CUPS",
-    "updatedAt": "2026-04-09T02:30:54.319Z",
+    "updatedAt": "2026-04-10T04:31:02.160Z",
     "upvote_ratio": 0.89,
     "url": "https://reddit.com/r/netsec/comments/1sflk3t/spooler_alert_remote_unauthd_rcetoroot_chain_in/",
     "versionList": [],
@@ -148,8 +250,8 @@
     "tag": null,
     "tags": [],
     "title": "I built a faster, local-first CVE scanner for JS/TS projects because I was tired of noisy dependency security output",
-    "updatedAt": "2026-04-09T02:38:08.369Z",
-    "upvote_ratio": 0.2,
+    "updatedAt": "2026-04-09T20:41:35.079Z",
+    "upvote_ratio": 0.25,
     "url": "https://reddit.com/r/node/comments/1sfhlg4/i_built_a_faster_localfirst_cve_scanner_for_jsts/",
     "versionList": [],
     "classification": {
@@ -224,13 +326,13 @@
     "created_utc": "2026-04-07T20:31:22",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 11,
+    "score": 12,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-34197: ActiveMQ RCE via Jolokia API",
-    "updatedAt": "2026-04-09T02:30:56.060Z",
-    "upvote_ratio": 0.8,
+    "updatedAt": "2026-04-10T04:31:03.787Z",
+    "upvote_ratio": 0.81,
     "url": "https://reddit.com/r/netsec/comments/1sf7sno/cve202634197_activemq_rce_via_jolokia_api/",
     "versionList": [
       "2026.0.0",
@@ -266,14 +368,14 @@
     "comments": [],
     "created_utc": "2026-04-07T18:54:28",
     "first_author_comment": null,
-    "num_comments": 6,
-    "score": 18,
+    "num_comments": 7,
+    "score": 23,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "The Race to Ship AI Tools Left Security Behind. Part 1: Sandbox Escape",
-    "updatedAt": "2026-04-09T02:30:57.720Z",
-    "upvote_ratio": 0.82,
+    "updatedAt": "2026-04-10T04:31:05.419Z",
+    "upvote_ratio": 0.85,
     "url": "https://reddit.com/r/netsec/comments/1sf550g/the_race_to_ship_ai_tools_left_security_behind/",
     "versionList": [
       "1.0.0"
@@ -917,13 +1019,13 @@
     "created_utc": "2026-04-03T08:20:58",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 9,
+    "score": 7,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "New RCE in Control Web Panel (CVE-2025-70951)",
-    "updatedAt": "2026-04-09T02:31:04.505Z",
-    "upvote_ratio": 0.91,
+    "updatedAt": "2026-04-10T04:31:12.776Z",
+    "upvote_ratio": 0.82,
     "url": "https://reddit.com/r/netsec/comments/1sb7pr4/new_rce_in_control_web_panel_cve202570951/",
     "versionList": [
       "2025.0.0",
@@ -960,13 +1062,13 @@
     "created_utc": "2026-04-02T13:35:22",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 29,
+    "score": 27,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Mongoose: Preauth RCE and mTLS Bypass on Millions of Devices",
-    "updatedAt": "2026-04-09T02:31:05.553Z",
-    "upvote_ratio": 0.91,
+    "updatedAt": "2026-04-10T04:31:13.797Z",
+    "upvote_ratio": 0.88,
     "url": "https://reddit.com/r/netsec/comments/1sahl4e/mongoose_preauth_rce_and_mtls_bypass_on_millions/",
     "versionList": [],
     "classification": {
@@ -998,13 +1100,13 @@
     "created_utc": "2026-04-02T11:06:09",
     "first_author_comment": null,
     "num_comments": 0,
-    "score": 23,
+    "score": 22,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "You’re Not Supposed To ShareFile With Everyone (Progress ShareFile Pre-Auth RCE Chain CVE-2026-2699 &amp; CVE-2026-2701) - watchTowr Labs",
-    "updatedAt": "2026-04-09T02:31:06.351Z",
-    "upvote_ratio": 0.93,
+    "updatedAt": "2026-04-10T04:31:14.615Z",
+    "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/netsec/comments/1saebwi/youre_not_supposed_to_sharefile_with_everyone/",
     "versionList": [
       "2026.0.0",
@@ -1089,7 +1191,7 @@
       "axelor"
     ],
     "title": "DOMPurify 3.2.2 vulnerability in Axelor frontend",
-    "updatedAt": "2026-04-09T04:25:03.849Z",
+    "updatedAt": "2026-04-10T04:25:04.397Z",
     "upvote_ratio": null,
     "url": "https://stackoverflow.com/questions/79918937/dompurify-3-2-2-vulnerability-in-axelor-frontend",
     "versionList": [
@@ -1210,13 +1312,13 @@
     "created_utc": "2026-03-31T19:57:17",
     "first_author_comment": null,
     "num_comments": 11,
-    "score": 64,
+    "score": 67,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "MAD Bugs: Claude Wrote a Full FreeBSD Remote Kernel RCE with Root Shell (CVE-2026-4747)",
-    "updatedAt": "2026-04-09T02:31:06.918Z",
-    "upvote_ratio": 0.85,
+    "updatedAt": "2026-04-10T04:31:15.155Z",
+    "upvote_ratio": 0.86,
     "url": "https://reddit.com/r/netsec/comments/1s8y8pp/mad_bugs_claude_wrote_a_full_freebsd_remote/",
     "versionList": [
       "2026.0.0",
@@ -1308,12 +1410,12 @@
     "created_utc": "2026-03-29T20:10:23",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 29,
+    "score": 28,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Please, We Beg, Just One Weekend Free Of Appliances (Citrix NetScaler CVE-2026-3055 Memory Overread Part 2) - watchTowr Labs",
-    "updatedAt": "2026-04-09T02:31:15.329Z",
+    "updatedAt": "2026-04-10T04:31:23.676Z",
     "upvote_ratio": 0.85,
     "url": "https://reddit.com/r/netsec/comments/1s75kb9/please_we_beg_just_one_weekend_free_of_appliances/",
     "versionList": [
@@ -1394,7 +1496,7 @@
         "id": "od38oun",
         "author": "BigHandLittleSlap",
         "body": "&gt; only exploitable if the appliance is 'configured as a SAML IDP'. This is a cursed configuration to begin with, and we can think of no appliance more poorly-suited to the task of being an IdP than this class of network device.\n\n&gt; But, well, we know someone out there will have thought it was a Really Good Idea and rushed to implement it. Hopefully not you.\n\nIt was me.\n\nDon't judge me.\n\nWe had to federate the identity systems from half a dozen government departments into a single SAML IdP for a reporting product that didn't support multiple IdPs itself. We had NetScaler, no other SAML server products of any description, and 48 hours available to deploy something to production.\n\nNever again!\n\nHorrifically buggy, to the point where rebooting appliances would cause settings to revert, whether or not you \"saved\" them.",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1774765909,
         "created_utc": "2026-03-29T06:31:49",
         "permalink": "https://reddit.com/r/netsec/comments/1s6bdxi/the_sequels_are_never_as_good_but_were_still_in/od38oun/",
@@ -1427,12 +1529,12 @@
     "created_utc": "2026-03-28T20:40:20",
     "first_author_comment": "sir, we are not in the business of stealing titles - coincidence!",
     "num_comments": 3,
-    "score": 30,
+    "score": 28,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "The Sequels Are Never As Good, But We're Still In Pain (Citrix NetScaler CVE-2026-3055 Memory Overread) - watchTowr Labs",
-    "updatedAt": "2026-04-09T02:31:16.844Z",
+    "updatedAt": "2026-04-10T04:31:25.227Z",
     "upvote_ratio": 0.87,
     "url": "https://reddit.com/r/netsec/comments/1s6bdxi/the_sequels_are_never_as_good_but_were_still_in/",
     "versionList": [
@@ -6679,130 +6781,5 @@
     },
     "isAboutCve": true,
     "isAboutLatestUpdate": true
-  },
-  {
-    "_id": "698b7a59f8b09305bc91eb2d",
-    "redditId": "1r16lyb",
-    "author": "Independent-Car-1560",
-    "author_description": "Hi everyone,\n\nI'm the developer of [mp3rgain](https://github.com/M-Igashi/mp3rgain), a lossless MP3/AAC volume normalizer written in Rust. It's a modern, memory-safe reimplementation of the classic `mp3gain` tool with full CLI compatibility (drop-in replacement).\n\nI've filed an ITP ([#1126519](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1126519)) and would love to get mp3rgain into the official Debian repositories, but I'm not a Debian Developer/Maintainer and this is my first time going through the official packaging process. I'm looking for guidance or collaboration from someone experienced with Debian packaging — ideally someone familiar with the Rust packaging workflow (`debcargo`).\n\n**Why this might be worth packaging:**\n\n- The existing `mp3gain` package in Debian has [known unpatched security vulnerabilities](https://security-tracker.debian.org/tracker/source-package/mp3gain) including CVE-2023-49356 (stack buffer overflow)\n- mp3rgain is written in Rust, providing memory safety guarantees against these classes of vulnerabilities\n- MIT licensed (DFSG-compliant)\n- Actively maintained — latest release is [v1.6.0](https://github.com/M-Igashi/mp3rgain/releases/tag/v1.6.0) (Feb 2026)\n- Pre-built .deb packages are already available on GitHub Releases\n- Man page included\n\n**What I've done so far:**\n\n- Submitted the ITP and CC'd `debian-rust@lists.debian.org`\n- Reached out to the current `mp3gain` Debian maintainer (no response yet)\n- Set up `cargo-deb` configuration and .deb build in CI\n- Tested .deb installation on Debian/Ubuntu\n\n**What I'm looking for:**\n\n- A Debian Developer or Maintainer willing to sponsor/mentor the package\n- Advice on setting up `debcargo-conf` for the official packaging pipeline\n- General guidance on navigating the Debian NEW queue process\n\nI'm happy to do the work — I just need someone who knows the process to point me in the right direction. If you're interested or know someone who might be, please reach out here or on the [GitHub issue](https://github.com/M-Igashi/mp3rgain/issues/14).\n\nThank you for reading!",
-    "awards": [],
-    "comments": [],
-    "created_utc": "2026-02-10T17:10:44",
-    "first_author_comment": null,
-    "num_comments": 1,
-    "score": 1,
-    "subreddit": "rust",
-    "tag": "🙋 seeking help &amp; advice",
-    "tags": [],
-    "title": "Seeking Debian packaging help for mp3rgain (Rust-based mp3gain replacement)",
-    "updatedAt": "2026-02-11T12:01:36.400Z",
-    "upvote_ratio": 0.67,
-    "url": "https://reddit.com/r/rust/comments/1r16lyb/seeking_debian_packaging_help_for_mp3rgain/",
-    "versionList": [],
-    "metadata": {
-      "predicted": {
-        "isUpdateRelated": false,
-        "positiveScore": 0.0002689661885704576,
-        "timestampPredicted": "2026-02-11T12:01:35.471732+00:00"
-      },
-      "labeled": {
-        "isUpdateRelated": null
-      }
-    },
-    "isAboutCve": true,
-    "isAboutLatestUpdate": true,
-    "classification": {
-      "componentType": [
-        "LANGUAGE"
-      ],
-      "securityType": [
-        "UNKNOWN"
-      ]
-    }
-  },
-  {
-    "_id": "698b091df8b09305bc91e1e6",
-    "redditId": "1r0vsoc",
-    "author": "OkLog5841",
-    "author_description": "Hello All,  \ni'm trying to resolve this vulnerability that is related to windows snipping tool on windows servers. but i could not find anything useful related to it. is there a specific product or category that need to be checked in wsus server ?",
-    "awards": [],
-    "comments": [],
-    "created_utc": "2026-02-10T08:58:24",
-    "first_author_comment": null,
-    "num_comments": 3,
-    "score": 1,
-    "subreddit": "sysadmin",
-    "tag": "Question",
-    "tags": [
-      "Question"
-    ],
-    "title": "CVE-2023-28303",
-    "updatedAt": "2026-02-10T20:01:22.308Z",
-    "upvote_ratio": 0.67,
-    "url": "https://reddit.com/r/sysadmin/comments/1r0vsoc/cve202328303/",
-    "versionList": [
-      "2023.0.0",
-      "28303.0.0"
-    ],
-    "metadata": {
-      "predicted": {
-        "isUpdateRelated": false,
-        "positiveScore": 0.000255620777464555,
-        "timestampPredicted": "2026-02-10T20:01:21.700938+00:00"
-      },
-      "labeled": {
-        "isUpdateRelated": null
-      }
-    },
-    "isAboutCve": true,
-    "isAboutLatestUpdate": false,
-    "classification": {
-      "securityType": [
-        "SECURITY"
-      ],
-      "componentType": []
-    }
-  },
-  {
-    "_id": "698a6906f8b09305bc8f0b9d",
-    "redditId": "1r0flm2",
-    "author": "ajscott",
-    "author_description": "FYI, patch ASAP if you run BeyondTrust.\n\nhttps://www.beyondtrust.com/trust-center/security-advisories/bt26-02\n\nOn February 6, 2026, BeyondTrust released security advisory BT26-02, disclosing a critical pre-authentication Remote Code Execution (RCE) vulnerability affecting its Remote Support (RS) and Privileged Remote Access (PRA) products. Assigned CVE-2026-1731 and a near-maximum CVSSv4 score of 9.9, the flaw allows unauthenticated, remote attackers to execute arbitrary operating system commands in the context of the site user by sending specially crafted requests. The vulnerability affects Remote Support (RS) versions 25.3.1 and prior, as well as Privileged Remote Access (PRA) versions 24.3.4 and prior. \n\nMitigation Guidance \n\nA vendor-provided patch is available to remediate CVE-2026-1731 in on-premise deployments. \n\nBeyondTrust Remote Support (RS): \n•\tVersions 25.3.1 and prior are affected by CVE-2026-1731.\n•\tCVE-2026-1731 is fixed in 25.3.2 and later.\n\nBeyondTrust Privileged Remote Access (PRA): \n•\tVersions 24.3.4 and prior are affected by CVE-2026-1731.\n•\tCVE-2026-1731 is fixed in 25.1.1 and later.",
-    "awards": [],
-    "comments": [],
-    "created_utc": "2026-02-09T20:30:31",
-    "first_author_comment": null,
-    "num_comments": 6,
-    "score": 54,
-    "subreddit": "sysadmin",
-    "tag": "General Discussion",
-    "tags": [
-      "General Discussion"
-    ],
-    "title": "Patch available for 9.9 CVE in BeyondTrust Remote Support and PRA",
-    "updatedAt": "2026-02-10T16:34:57.282Z",
-    "upvote_ratio": 0.99,
-    "url": "https://reddit.com/r/sysadmin/comments/1r0flm2/patch_available_for_99_cve_in_beyondtrust_remote/",
-    "versionList": [
-      "9.9.0"
-    ],
-    "metadata": {
-      "predicted": {
-        "isUpdateRelated": false,
-        "positiveScore": 0.0061018568457665455,
-        "timestampPredicted": "2026-02-10T16:01:56.396032+00:00"
-      },
-      "labeled": {
-        "isUpdateRelated": null
-      }
-    },
-    "isAboutCve": true,
-    "isAboutLatestUpdate": true,
-    "classification": {
-      "securityType": [
-        "SECURITY"
-      ],
-      "componentType": []
-    }
   }
 ]
