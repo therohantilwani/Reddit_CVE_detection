@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reddit CVE Tracker</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="5f2c30c1-2a32-4699-83f2-557214f21e96"></script>
+    <script defer src="https://cloud.umami.is/script.js"
+        data-website-id="5f2c30c1-2a32-4699-83f2-557214f21e96"></script>
     <script>
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme) {
@@ -28,17 +30,17 @@
             --danger-color: #ff3b30;
             --danger-hover: #ff453a;
             --glass-bg: rgba(29, 29, 31, 0.7);
-            
+
             /* Status Colors */
             --status-critical: #ff453a;
             --status-high: #ff9f0a;
             --status-medium: #ffd60a;
             --status-low: #30d158;
             --status-none: #86868b;
-            
+
             --panel-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
         }
-        
+
         [data-theme="light"] {
             /* Apple Light Mode */
             --bg-color: #f5f5f7;
@@ -69,7 +71,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             -webkit-font-smoothing: antialiased;
@@ -79,20 +81,20 @@
             transition: background-color 0.3s ease, color 0.3s ease;
             line-height: 1.5;
         }
-        
+
         .container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 40px 24px;
         }
-        
+
         header {
             margin-bottom: 40px;
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
         }
-        
+
         .header-left {
             flex: 1;
         }
@@ -102,8 +104,9 @@
             align-items: center;
             gap: 12px;
         }
-        
-        .auth-btn, .theme-btn {
+
+        .auth-btn,
+        .theme-btn {
             background: var(--accent-color);
             color: #ffffff;
             border: none;
@@ -130,19 +133,19 @@
             background: var(--bg-surface-hover);
             border-color: var(--border-hover);
         }
-        
+
         .auth-btn:hover {
             background: var(--accent-hover);
         }
-        
+
         .auth-btn.logout {
             background: var(--danger-color);
         }
-        
+
         .auth-btn.logout:hover {
             background: var(--danger-hover);
         }
-        
+
         .auth-info {
             font-size: 0.85rem;
             color: var(--text-secondary);
@@ -205,7 +208,8 @@
             margin: 8px 0;
         }
 
-        .divider::before, .divider::after {
+        .divider::before,
+        .divider::after {
             content: '';
             flex: 1;
             border-bottom: 1px solid var(--border-color);
@@ -238,7 +242,7 @@
         .google-btn:hover {
             background: var(--bg-surface-hover);
         }
-        
+
         h1 {
             font-size: 2.25rem;
             font-weight: 600;
@@ -246,21 +250,21 @@
             margin-bottom: 4px;
             color: var(--text-primary);
         }
-        
+
         .subtitle {
             color: var(--text-secondary);
             font-size: 0.95rem;
             font-weight: 400;
             letter-spacing: -0.005em;
         }
-        
+
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
             margin-bottom: 40px;
         }
-        
+
         .stat-card {
             background: var(--bg-surface);
             border-radius: 16px;
@@ -268,7 +272,7 @@
             border: 1px solid var(--border-color);
             box-shadow: var(--panel-shadow);
         }
-        
+
         .stat-label {
             color: var(--text-secondary);
             font-size: 0.75rem;
@@ -277,24 +281,32 @@
             margin-bottom: 8px;
             font-weight: 600;
         }
-        
+
         .stat-value {
             font-size: 2rem;
             font-weight: 600;
             letter-spacing: -0.02em;
         }
-        
-        .stat-value.positive { color: var(--status-low); }
-        .stat-value.negative { color: var(--status-critical); }
-        .stat-value.neutral { color: var(--accent-color); }
-        
+
+        .stat-value.positive {
+            color: var(--status-low);
+        }
+
+        .stat-value.negative {
+            color: var(--status-critical);
+        }
+
+        .stat-value.neutral {
+            color: var(--accent-color);
+        }
+
         .charts-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 24px;
             margin-bottom: 40px;
         }
-        
+
         .chart-card {
             background: var(--bg-surface);
             border-radius: 16px;
@@ -302,7 +314,7 @@
             border: 1px solid var(--border-color);
             box-shadow: var(--panel-shadow);
         }
-        
+
         .chart-title {
             font-size: 1.1rem;
             font-weight: 600;
@@ -310,7 +322,7 @@
             color: var(--text-primary);
             letter-spacing: -0.01em;
         }
-        
+
         .table-container {
             background: var(--bg-surface);
             border-radius: 16px;
@@ -318,7 +330,7 @@
             overflow: hidden;
             box-shadow: var(--panel-shadow);
         }
-        
+
         .table-header {
             display: flex;
             justify-content: space-between;
@@ -326,13 +338,13 @@
             padding: 20px 24px;
             border-bottom: 1px solid var(--border-color);
         }
-        
+
         .table-title {
             font-size: 1.1rem;
             font-weight: 600;
             letter-spacing: -0.01em;
         }
-        
+
         .search-box {
             background: var(--bg-color);
             border: 1px solid var(--border-color);
@@ -343,12 +355,12 @@
             width: 280px;
             transition: border-color 0.2s;
         }
-        
+
         .search-box:focus {
             outline: none;
             border-color: var(--accent-color);
         }
-        
+
         .filters {
             display: flex;
             gap: 8px;
@@ -356,7 +368,7 @@
             border-bottom: 1px solid var(--border-color);
             flex-wrap: wrap;
         }
-        
+
         .filter-btn {
             background: transparent;
             border: 1px solid var(--border-color);
@@ -368,30 +380,31 @@
             cursor: pointer;
             transition: all 0.2s ease;
         }
-        
+
         .filter-btn:hover {
             color: var(--text-primary);
             border-color: var(--border-hover);
         }
-        
+
         .filter-btn.active {
             background: var(--text-primary);
             color: var(--bg-color);
             border-color: var(--text-primary);
         }
-        
+
         .table-wrapper {
             width: 100%;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
         }
-        
+
         table {
             width: 100%;
             border-collapse: collapse;
-            min-width: 800px; /* Ensures table doesn't squash too much on mobile */
+            min-width: 800px;
+            /* Ensures table doesn't squash too much on mobile */
         }
-        
+
         th {
             text-align: left;
             padding: 12px 24px;
@@ -405,31 +418,31 @@
             border-bottom: 1px solid var(--border-color);
             font-weight: 600;
         }
-        
+
         th:hover {
             color: var(--text-primary);
         }
-        
+
         td {
             padding: 16px 24px;
             font-size: 0.85rem;
             border-bottom: 1px solid var(--border-color);
             color: var(--text-primary);
         }
-        
+
         tr:last-child td {
             border-bottom: none;
         }
-        
+
         tr:hover {
             background: var(--bg-surface-hover);
         }
-        
+
         tr {
             cursor: pointer;
             transition: background-color 0.1s ease;
         }
-        
+
         .cve-id {
             font-family: "SF Mono", "Menlo", monospace;
             color: var(--accent-color);
@@ -437,15 +450,15 @@
             text-decoration: none;
             white-space: nowrap;
         }
-        
+
         .cve-id:not([href]) {
             cursor: pointer;
         }
-        
+
         .cve-id[href]:hover {
             text-decoration: underline;
         }
-        
+
         .severity-badge {
             display: inline-flex;
             justify-content: center;
@@ -456,17 +469,42 @@
             font-weight: 600;
             color: #ffffff;
         }
-        
-        .severity-critical { background: var(--status-critical); }
-        .severity-high { background: var(--status-high); }
-        .severity-medium { background: var(--status-medium); color: #000; }
-        .severity-low { background: var(--status-low); }
-        .severity-none { background: var(--status-none); }
-        
-        .lead-positive { color: var(--status-low); font-weight: 500; }
-        .lead-negative { color: var(--status-critical); font-weight: 500;}
-        .lead-neutral { color: var(--text-secondary); }
-        
+
+        .severity-critical {
+            background: var(--status-critical);
+        }
+
+        .severity-high {
+            background: var(--status-high);
+        }
+
+        .severity-medium {
+            background: var(--status-medium);
+            color: #000;
+        }
+
+        .severity-low {
+            background: var(--status-low);
+        }
+
+        .severity-none {
+            background: var(--status-none);
+        }
+
+        .lead-positive {
+            color: var(--status-low);
+            font-weight: 500;
+        }
+
+        .lead-negative {
+            color: var(--status-critical);
+            font-weight: 500;
+        }
+
+        .lead-neutral {
+            color: var(--text-secondary);
+        }
+
         .subreddit-tag {
             display: inline-block;
             background: var(--bg-color);
@@ -477,7 +515,7 @@
             margin: 2px;
             color: var(--text-primary);
         }
-        
+
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -496,12 +534,12 @@
             visibility: hidden;
             transition: opacity 0.3s ease, visibility 0.3s ease;
         }
-        
+
         .modal-overlay:not(.hidden) {
             opacity: 1;
             visibility: visible;
         }
-        
+
         .modal {
             background: var(--glass-bg);
             backdrop-filter: blur(20px);
@@ -512,11 +550,11 @@
             max-height: 90vh;
             overflow-y: auto;
             border: 1px solid var(--border-color);
-            box-shadow: 0 24px 48px rgba(0,0,0,0.2);
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2);
             transform: scale(0.95);
             transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        
+
         .modal-overlay:not(.hidden) .modal {
             transform: scale(1);
         }
@@ -528,7 +566,7 @@
             padding: 24px 32px;
             border-bottom: 1px solid var(--border-color);
         }
-        
+
         .modal-title {
             font-size: 1.5rem;
             font-weight: 600;
@@ -536,7 +574,7 @@
             color: var(--text-primary);
             letter-spacing: -0.015em;
         }
-        
+
         .modal-close {
             background: var(--bg-color);
             border: none;
@@ -551,23 +589,23 @@
             justify-content: center;
             transition: all 0.2s;
         }
-        
+
         .modal-close:hover {
             color: var(--text-primary);
             background: var(--border-color);
         }
-        
+
         .modal-body {
             padding: 32px;
         }
-        
+
         .detail-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 20px;
             margin-bottom: 32px;
         }
-        
+
         .detail-section {
             background: var(--bg-color);
             border-radius: 12px;
@@ -575,7 +613,7 @@
             border: none;
             box-shadow: none;
         }
-        
+
         .detail-label {
             color: var(--text-secondary);
             font-size: 0.75rem;
@@ -584,23 +622,23 @@
             margin-bottom: 8px;
             font-weight: 600;
         }
-        
+
         .detail-value {
             font-size: 0.9rem;
             word-break: break-word;
             color: var(--text-primary);
         }
-        
+
         .detail-value.large {
             font-size: 1.25rem;
             font-weight: 600;
             letter-spacing: -0.01em;
         }
-        
+
         .urls-section {
             margin-top: 24px;
         }
-        
+
         .url-item {
             display: block;
             background: var(--bg-color);
@@ -614,11 +652,11 @@
             transition: all 0.2s;
             border: 1px solid var(--border-color);
         }
-        
+
         .url-item:hover {
             background: var(--bg-surface-hover);
         }
-        
+
         .loading {
             text-align: center;
             padding: 60px;
@@ -626,11 +664,11 @@
             font-weight: 500;
             letter-spacing: -0.01em;
         }
-        
+
         .hidden {
             display: none !important;
         }
-        
+
         .pagination {
             display: flex;
             justify-content: center;
@@ -638,7 +676,7 @@
             gap: 16px;
             padding: 20px;
         }
-        
+
         .page-btn {
             background: transparent;
             border: 1px solid var(--border-color);
@@ -648,41 +686,42 @@
             font-size: 0.85rem;
             font-weight: 500;
         }
-        
+
         .page-btn:hover:not(:disabled) {
             background: var(--bg-surface-hover);
         }
-        
+
         .page-btn:disabled {
             opacity: 0.3;
             cursor: not-allowed;
             background: transparent;
         }
-        
+
         .page-info {
             color: var(--text-secondary);
             font-size: 0.85rem;
             font-weight: 500;
         }
-        
+
         @media (max-width: 768px) {
             .charts-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .detail-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .table-header {
                 flex-direction: column;
                 gap: 16px;
                 align-items: flex-start;
             }
-            
+
             .search-box {
                 width: 100%;
             }
+
             .header-right {
                 flex-direction: column;
                 align-items: flex-end;
@@ -690,6 +729,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <header>
@@ -704,9 +744,9 @@
                 <button id="logout-btn" class="auth-btn logout hidden">Log Out</button>
             </div>
         </header>
-        
+
         <div id="loading" class="loading">Loading data...</div>
-        
+
         <div id="app" class="hidden">
             <div class="stats-grid">
                 <div class="stat-card">
@@ -726,7 +766,7 @@
                     <div class="stat-value neutral" id="avg-lead">0 days</div>
                 </div>
             </div>
-            
+
             <div class="charts-grid">
                 <div class="chart-card">
                     <div class="chart-title">Lead Time Distribution</div>
@@ -737,7 +777,7 @@
                     <canvas id="severityChart"></canvas>
                 </div>
             </div>
-            
+
             <div class="charts-grid">
                 <div class="chart-card">
                     <div class="chart-title">Top Subreddits</div>
@@ -748,7 +788,7 @@
                     <canvas id="cvssChart"></canvas>
                 </div>
             </div>
-            
+
             <div class="table-container">
                 <div class="table-header">
                     <div class="table-title">All CVEs</div>
@@ -798,11 +838,12 @@
                 </div>
             </div>
         </div>
-        <div style="text-align: center; margin-top: 40px; color: var(--text-secondary); font-size: 0.85rem; font-weight: 500;">
-            Made with ❤️ 🧠
+        <div
+            style="text-align: center; margin-top: 40px; color: var(--text-secondary); font-size: 0.85rem; font-weight: 500;">
+            Made with ❤️ & 🧠 by Rohan
         </div>
     </div>
-    
+
     <div id="auth-modal" class="modal-overlay hidden">
         <div class="modal" style="max-width: 400px;">
             <div class="modal-header">
@@ -815,14 +856,24 @@
                     <input type="password" id="auth-password" class="auth-input" placeholder="Password">
                     <button id="email-login-btn" class="auth-btn">Log In</button>
                     <button id="email-signup-btn" class="auth-btn" style="background: #475569;">Sign Up</button>
-                    
+
                     <div class="divider">OR</div>
-                    
+
                     <button id="google-login-btn" class="google-btn">
-                        <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+                        <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+                            <path fill="#EA4335"
+                                d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z" />
+                            <path fill="#4285F4"
+                                d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z" />
+                            <path fill="#FBBC05"
+                                d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z" />
+                            <path fill="#34A853"
+                                d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" />
+                        </svg>
                         Continue with Google
                     </button>
-                    <div id="auth-error" class="hidden" style="color: #ef4444; font-size: 0.875rem; text-align: center; margin-top: 8px;"></div>
+                    <div id="auth-error" class="hidden"
+                        style="color: #ef4444; font-size: 0.875rem; text-align: center; margin-top: 8px;"></div>
                 </div>
             </div>
         </div>
@@ -901,7 +952,7 @@
             }
         }
         updateThemeBtn();
-        
+
         themeBtn.addEventListener('click', () => {
             if (document.documentElement.getAttribute('data-theme') === 'light') {
                 document.documentElement.removeAttribute('data-theme');
@@ -936,9 +987,9 @@
                 document.getElementById('auth-modal').classList.remove('hidden');
                 return;
             }
-            
+
             const isCurrentlySaved = savedCves.has(cveId);
-            
+
             // Optimistic UI update
             if (isCurrentlySaved) {
                 savedCves.delete(cveId);
@@ -946,7 +997,7 @@
                 savedCves.add(cveId);
             }
             applyFilters(true);
-            
+
             const docRef = doc(db, `users/${currentUser.uid}/saved_cves`, cveId);
             try {
                 if (isCurrentlySaved) {
@@ -977,30 +1028,30 @@
         let currentVendor = '';
         let sortColumn = 'lead_days';
         let sortDirection = 'desc';
-        
+
         async function loadData() {
             try {
                 const response = await fetch('cve_lead_time.csv?t=' + Date.now());
                 const text = await response.text();
-                
+
                 const results = Papa.parse(text, {
                     header: true,
                     skipEmptyLines: true
                 });
-                
+
                 cveData = results.data;
                 filteredData = [...cveData];
-                
+
                 cveData.forEach(d => {
                     d.lead_days = parseFloat(d.lead_days) || 0;
                     d.cvss_score = parseFloat(d.cvss_score) || 0;
                     d.post_count = parseInt(d.post_count) || 0;
                 });
-                
+
                 console.log('Loaded', cveData.length, 'rows');
                 console.log('First row keys:', Object.keys(cveData[0] || {}));
                 console.log('First row example_urls:', cveData[0]?.example_urls);
-                
+
                 populateVendorDropdown();
                 updateStats();
                 renderCharts();
@@ -1013,7 +1064,7 @@
                 document.getElementById('loading').textContent = 'Error loading data. ' + error.message;
             }
         }
-        
+
         function populateVendorDropdown() {
             const vendors = new Set();
             cveData.forEach(d => {
@@ -1023,7 +1074,7 @@
                     });
                 }
             });
-            
+
             const select = document.getElementById('vendor-filter');
             const sorted = Array.from(vendors).sort();
             sorted.forEach(v => {
@@ -1033,17 +1084,17 @@
                 select.appendChild(opt);
             });
         }
-        
+
         function parseCSV(text) {
             const lines = text.trim().split('\n');
             const headers = lines[0].split(',');
             const numCols = headers.length;
-            
+
             return lines.slice(1).map(line => {
                 const values = [];
                 let current = '';
                 let col = 0;
-                
+
                 for (let i = 0; i < line.length; i++) {
                     const char = line[i];
                     if (char === ',' && col < numCols - 1) {
@@ -1055,32 +1106,32 @@
                     }
                 }
                 values.push(current);
-                
+
                 const obj = {};
                 headers.forEach((header, i) => {
                     obj[header] = values[i] || '';
                 });
-                
+
                 obj.lead_days = parseFloat(obj.lead_days) || 0;
                 obj.cvss_score = parseFloat(obj.cvss_score) || 0;
                 obj.post_count = parseInt(obj.post_count) || 0;
-                
+
                 return obj;
             });
         }
-        
+
         function updateStats() {
             const total = cveData.length;
             const positive = cveData.filter(d => d.lead_days > 0).length;
             const negative = cveData.filter(d => d.lead_days < 0).length;
             const avgLead = cveData.reduce((sum, d) => sum + d.lead_days, 0) / total;
-            
+
             document.getElementById('total-cves').textContent = total;
             document.getElementById('positive-lead').textContent = positive;
             document.getElementById('negative-lead').textContent = negative;
             document.getElementById('avg-lead').textContent = avgLead.toFixed(1) + ' days';
         }
-        
+
         function renderCharts() {
             const leadTimeData = {
                 '>30 days': 0,
@@ -1093,7 +1144,7 @@
                 '-30 to -15 days': 0,
                 '<-30 days': 0
             };
-            
+
             cveData.forEach(d => {
                 if (d.lead_days > 30) leadTimeData['>30 days']++;
                 else if (d.lead_days > 15) leadTimeData['15-30 days']++;
@@ -1105,7 +1156,7 @@
                 else if (d.lead_days >= -30) leadTimeData['-30 to -15 days']++;
                 else leadTimeData['<-30 days']++;
             });
-            
+
             new Chart(document.getElementById('leadTimeChart'), {
                 type: 'bar',
                 data: {
@@ -1130,14 +1181,14 @@
                     }
                 }
             });
-            
+
             const severityData = { CRITICAL: 0, HIGH: 0, MEDIUM: 0, LOW: 0, '': 0 };
             cveData.forEach(d => {
                 const sev = d.cvss_severity.toUpperCase() || 'NONE';
                 if (severityData.hasOwnProperty(sev)) severityData[sev]++;
                 else severityData['']++;
             });
-            
+
             new Chart(document.getElementById('severityChart'), {
                 type: 'doughnut',
                 data: {
@@ -1152,7 +1203,7 @@
                     plugins: { legend: { position: 'right', labels: { color: '#e2e8f0' } } }
                 }
             });
-            
+
             const subredditCounts = {};
             cveData.forEach(d => {
                 if (d.subreddits) {
@@ -1161,11 +1212,11 @@
                     });
                 }
             });
-            
+
             const topSubreddits = Object.entries(subredditCounts)
                 .sort((a, b) => b[1] - a[1])
                 .slice(0, 10);
-            
+
             new Chart(document.getElementById('subredditChart'), {
                 type: 'bar',
                 data: {
@@ -1187,7 +1238,7 @@
                     }
                 }
             });
-            
+
             const cvssRanges = { '9-10': 0, '7-8.9': 0, '4-6.9': 0, '0-3.9': 0, 'N/A': 0 };
             cveData.forEach(d => {
                 const score = d.cvss_score;
@@ -1197,7 +1248,7 @@
                 else if (score > 0) cvssRanges['0-3.9']++;
                 else cvssRanges['N/A']++;
             });
-            
+
             new Chart(document.getElementById('cvssChart'), {
                 type: 'bar',
                 data: {
@@ -1219,15 +1270,15 @@
                 }
             });
         }
-        
+
         function applyFilters(preservePage = false) {
             const search = document.getElementById('search').value.toLowerCase();
-            
+
             filteredData = cveData.filter(d => {
-                const matchesSearch = !search || 
+                const matchesSearch = !search ||
                     d.cve.toLowerCase().includes(search) ||
                     (d.subreddits || '').toLowerCase().includes(search);
-                
+
                 let matchesFilter = true;
                 if (currentFilter === 'saved') {
                     if (!currentUser) matchesFilter = false;
@@ -1239,16 +1290,16 @@
                 else if (currentFilter === 'high') matchesFilter = d.cvss_severity.toUpperCase() === 'HIGH';
                 else if (currentFilter === 'medium') matchesFilter = d.cvss_severity.toUpperCase() === 'MEDIUM';
                 else if (currentFilter === 'low') matchesFilter = d.cvss_severity.toUpperCase() === 'LOW';
-                
+
                 let matchesVendor = true;
                 if (currentVendor) {
                     const vendors = (d.vendors || '').split(';').map(v => v.trim().toLowerCase());
                     matchesVendor = vendors.includes(currentVendor.toLowerCase());
                 }
-                
+
                 return matchesSearch && matchesFilter && matchesVendor;
             });
-            
+
             sortData();
             if (!preservePage) {
                 currentPage = 1;
@@ -1258,46 +1309,46 @@
             }
             renderTable();
         }
-        
+
         function sortData() {
             filteredData.sort((a, b) => {
                 let aVal = a[sortColumn];
                 let bVal = b[sortColumn];
-                
+
                 if (typeof aVal === 'string') {
                     aVal = aVal.toLowerCase();
                     bVal = bVal.toLowerCase();
                 }
-                
+
                 if (aVal < bVal) return sortDirection === 'asc' ? -1 : 1;
                 if (aVal > bVal) return sortDirection === 'asc' ? 1 : -1;
                 return 0;
             });
         }
-        
+
         function renderTable() {
             const tbody = document.getElementById('table-body');
             const start = (currentPage - 1) * itemsPerPage;
             const pageData = filteredData.slice(start, start + itemsPerPage);
-            
+
             tbody.innerHTML = pageData.map(d => {
                 const severityClass = d.cvss_severity.toUpperCase() || 'none';
                 const leadClass = d.lead_days > 0 ? 'lead-positive' : d.lead_days < 0 ? 'lead-negative' : 'lead-neutral';
-                const subreddits = d.subreddits ? d.subreddits.split(';').slice(0, 3).map(s => 
+                const subreddits = d.subreddits ? d.subreddits.split(';').slice(0, 3).map(s =>
                     `<span class="subreddit-tag">${s}</span>`
                 ).join('') : '-';
-                const vendors = d.vendors ? d.vendors.split(';').slice(0, 3).map(v => 
+                const vendors = d.vendors ? d.vendors.split(';').slice(0, 3).map(v =>
                     `<span class="subreddit-tag">${v}</span>`
                 ).join('') : '-';
-                
+
                 const rawUrls = d['example_urls'] || '';
                 const redditUrls = rawUrls.split(';').filter(url => url.trim());
                 const primaryUrl = redditUrls[0] || '';
                 if (!primaryUrl && d.cve === 'CVE-2026-28292') {
                     console.log('DEBUG CVE-2026-28292:', { rawUrls, redditUrls, allKeys: Object.keys(d) });
                 }
-                
-                
+
+
                 const isSaved = savedCves.has(d.cve);
                 const saveIcon = isSaved ? '⭐' : '☆';
                 const saveClass = isSaved ? 'saved' : '';
@@ -1322,15 +1373,15 @@
                     </tr>
                 `;
             }).join('');
-            
+
             const totalPages = Math.ceil(filteredData.length / itemsPerPage);
             document.getElementById('page-info').textContent = `Page ${currentPage} of ${totalPages}`;
             document.getElementById('prev-page').disabled = currentPage === 1;
             document.getElementById('next-page').disabled = currentPage === totalPages;
-            
+
 
         }
-        
+
         function formatDate(dateStr) {
             if (!dateStr) return '-';
             try {
@@ -1343,11 +1394,11 @@
                 return dateStr;
             }
         }
-        
+
         function showModal(cveId) {
             const cve = cveData.find(d => d.cve === cveId);
             if (!cve) return;
-            
+
             const isSaved = savedCves.has(cve.cve);
             const saveIcon = isSaved ? '⭐ Saved' : '☆ Save';
             const saveClass = isSaved ? 'saved' : '';
@@ -1367,28 +1418,28 @@
             document.getElementById('modal-nvd-date').textContent = formatDate(cve.nvd_published);
             document.getElementById('modal-nvd-modified').textContent = formatDate(cve.nvd_last_modified);
             document.getElementById('modal-vector').textContent = cve.cvss_vector || 'N/A';
-            
-            const subreddits = cve.subreddits ? cve.subreddits.split(';').map(s => 
+
+            const subreddits = cve.subreddits ? cve.subreddits.split(';').map(s =>
                 `<span class="subreddit-tag">r/${s}</span>`
             ).join('') : 'None';
             document.getElementById('modal-subreddits').innerHTML = subreddits;
-            
-            const urls = cve.example_urls ? cve.example_urls.split(';').map(url => 
+
+            const urls = cve.example_urls ? cve.example_urls.split(';').map(url =>
                 `<a href="${url}" target="_blank" class="url-item">${url}</a>`
             ).join('') : 'No URLs available';
             document.getElementById('modal-urls').innerHTML = urls;
-            
+
             document.getElementById('modal').classList.remove('hidden');
         }
-        
+
         function setupEventListeners() {
             document.getElementById('search').addEventListener('input', applyFilters);
-            
+
             document.getElementById('vendor-filter').addEventListener('change', (e) => {
                 currentVendor = e.target.value;
                 applyFilters();
             });
-            
+
             document.querySelectorAll('.filter-btn').forEach(btn => {
                 btn.addEventListener('click', () => {
                     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -1397,7 +1448,7 @@
                     applyFilters();
                 });
             });
-            
+
             document.querySelectorAll('th[data-sort]').forEach(th => {
                 th.addEventListener('click', () => {
                     const column = th.dataset.sort;
@@ -1410,14 +1461,14 @@
                     applyFilters();
                 });
             });
-            
+
             document.getElementById('prev-page').addEventListener('click', () => {
                 if (currentPage > 1) {
                     currentPage--;
                     renderTable();
                 }
             });
-            
+
             document.getElementById('next-page').addEventListener('click', () => {
                 const totalPages = Math.ceil(filteredData.length / itemsPerPage);
                 if (currentPage < totalPages) {
@@ -1425,11 +1476,11 @@
                     renderTable();
                 }
             });
-            
+
             document.getElementById('modal-close').addEventListener('click', () => {
                 document.getElementById('modal').classList.add('hidden');
             });
-            
+
             document.getElementById('modal').addEventListener('click', (e) => {
                 if (e.target.id === 'modal') {
                     document.getElementById('modal').classList.add('hidden');
@@ -1442,7 +1493,7 @@
             const logoutBtn = document.getElementById('logout-btn');
             const authError = document.getElementById('auth-error');
             const userInfo = document.getElementById('user-info');
-            
+
             loginBtn.addEventListener('click', () => {
                 authError.classList.add('hidden');
                 authModal.classList.remove('hidden');
@@ -1544,8 +1595,9 @@
                 }
             });
         }
-        
+
         loadData();
     </script>
 </body>
+
 </html>
