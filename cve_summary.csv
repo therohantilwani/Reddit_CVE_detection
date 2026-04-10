@@ -4,7 +4,6 @@ CVE-2026-29000,4,2026-03-05T14:00:22+00:00,1772719222,github;netsec;sysadmin,htt
 CVE-2026-3888,4,2026-03-19T00:38:41+00:00,1773880721,Ubuntu;debian;linux;netsec,https://reddit.com/r/Ubuntu/comments/1s7xq6g/should_this_be_a_cause_for_concern_for_ubuntu/;https://reddit.com/r/debian/comments/1rypev8/snapd_cve/;https://reddit.com/r/linux/comments/1ry1cu9/high_severity_systemd_bug_in_ubuntu_local_root/;https://reddit.com/r/netsec/comments/1rxlr0y/ubtuntu_2404_snapd_local_privilege_escalation/
 CVE-2026-22729,3,2026-03-18T22:16:27+00:00,1773872187,java;netsec,https://reddit.com/r/java/comments/1s0si5o/spring_ai_vector_store_has_two_high_injection/;https://reddit.com/r/netsec/comments/1rxz7tl/cve202622729_jsonpath_injection_in_spring_ais/;https://reddit.com/r/java/comments/1rxi6gx/spring_ai_cves_cve202622729_and_cve202622730_are/
 CVE-2026-22730,3,2026-03-18T22:16:27+00:00,1773872187,java;netsec,https://reddit.com/r/java/comments/1s0si5o/spring_ai_vector_store_has_two_high_injection/;https://reddit.com/r/netsec/comments/1rxv3nu/cve202622730_sql_injection_in_spring_ais_mariadb/;https://reddit.com/r/java/comments/1rxi6gx/spring_ai_cves_cve202622729_and_cve202622730_are/
-CVE-2026-1731,2,2026-02-09T20:30:31+00:00,1770669031,sysadmin,https://reddit.com/r/sysadmin/comments/1r3wb9v/beyondtrust_gets_hit_again_preauth_rce_in_remote/;https://reddit.com/r/sysadmin/comments/1r0flm2/patch_available_for_99_cve_in_beyondtrust_remote/
 CVE-2026-20841,2,2026-02-11T11:49:54+00:00,1770810594,software;sysadmin,https://reddit.com/r/software/comments/1r20649/microsofts_notepad_got_pwned/;https://reddit.com/r/sysadmin/comments/1r1vaon/windows_notepad_app_remote_code_execution/
 CVE-2026-22039,2,2026-02-13T23:42:45+00:00,1771026165,kubernetes,https://reddit.com/r/kubernetes/comments/1r6eq9j/kubewarden_not_affected_by_crossns_privilege/;https://reddit.com/r/kubernetes/comments/1r44yxo/cve202622039_how_an_admission_controller/
 CVE-2026-22557,2,2026-03-19T00:14:39+00:00,1773879279,homelab;sysadmin,https://reddit.com/r/sysadmin/comments/1ryipfs/first_unifi_with_a_100_cve_now_screenconnect_90/;https://reddit.com/r/homelab/comments/1rxl68p/psa_unifi_network_application_vulnerability/
@@ -18,14 +17,13 @@ CVE-2026-3055,2,2026-03-28T20:40:20+00:00,1774730420,netsec,https://reddit.com/r
 CVE-2026-32746,2,2026-03-19T00:15:39+00:00,1773879339,netsec,https://reddit.com/r/netsec/comments/1ryban8/a_32yearold_bug_walks_into_a_telnet_server_gnu/;https://reddit.com/r/netsec/comments/1rxl75t/cve202632746_gnu_telnetd_buffer_overflow_poc/
 CVE-2026-33017,2,2026-03-22T16:55:47+00:00,1774198547,LangChain;netsec,https://reddit.com/r/LangChain/comments/1s72uzr/langflow_cve202633017_unauthenticated_rce_via/;https://reddit.com/r/netsec/comments/1s0qsxi/langflow_got_hacked_twice_through_the_same_exec/
 CVE-2026-33579,2,2026-04-03T13:34:55+00:00,1775223295,netsec;sysadmin,https://reddit.com/r/sysadmin/comments/1sbdw29/if_youre_running_openclaw_you_probably_got_hacked/;https://reddit.com/r/netsec/comments/1sbds9i/if_youre_running_openclaw_you_probably_got_hacked/
+CVE-2026-4747,2,2026-03-31T19:57:17+00:00,1774987037,freebsd;netsec,https://reddit.com/r/freebsd/comments/1sgmi14/claude_mythos_preview_fully_autonomously_finds/;https://reddit.com/r/netsec/comments/1s8y8pp/mad_bugs_claude_wrote_a_full_freebsd_remote/
 CVE-2019-18634,1,2026-02-28T08:40:06+00:00,1772268006,linux,https://reddit.com/r/linux/comments/1rgxjcw/sudors_shows_password_asterisks_by_default_break/
 CVE-2020-26262,1,2026-02-12T10:24:04+00:00,1770891844,WebRTC,https://reddit.com/r/WebRTC/comments/1r2pwqn/turn_security_threats_a_hackers_view/
 CVE-2021-28372,1,2026-03-05T15:53:05+00:00,1772725985,homelab,https://reddit.com/r/homelab/comments/1rll5dw/checked_every_device_on_my_homelab_against_nvd/
 CVE-2021-4034,1,2026-03-17T00:39:47+00:00,1773707987,homelab,https://reddit.com/r/homelab/comments/1rvrszo/hackable_ii_purple_team_writeup_from_anonymous/
 CVE-2022-27624,1,2026-03-05T15:53:05+00:00,1772725985,homelab,https://reddit.com/r/homelab/comments/1rll5dw/checked_every_device_on_my_homelab_against_nvd/
 CVE-2022-4712,1,2026-04-07T15:14:17+00:00,1775574857,Wordpress,https://reddit.com/r/Wordpress/comments/1seyups/new_wordpress_hack_going_around/
-CVE-2023-28303,1,2026-02-10T08:58:24+00:00,1770713904,sysadmin,https://reddit.com/r/sysadmin/comments/1r0vsoc/cve202328303/
-CVE-2023-49356,1,2026-02-10T17:10:44+00:00,1770743444,rust,https://reddit.com/r/rust/comments/1r16lyb/seeking_debian_packaging_help_for_mp3rgain/
 CVE-2024-0057,1,2026-02-27T18:59:39+00:00,1772218779,c#,https://stackoverflow.com/questions/79898063/high-security-vulnerability-microsoft-powershell-native-v7-0-0
 CVE-2024-21762,1,2026-04-08T10:36:41+00:00,1775644601,netsec,https://reddit.com/r/netsec/comments/1sfp46v/brandefense_q4_2025_ransomware_trends_report_2373/
 CVE-2024-28224,1,2026-03-26T20:39:39+00:00,1774557579,ollama,https://reddit.com/r/ollama/comments/1s4j73f/fresh_install_of_ollama_major_security_threat/
@@ -57,6 +55,7 @@ CVE-2025-70951,1,2026-04-03T08:20:58+00:00,1775204458,netsec,https://reddit.com/
 CVE-2026-020963,1,2026-04-06T06:43:41+00:00,1775457821,homelab,https://reddit.com/r/homelab/comments/1sdrbgk/running_autonomous_multiagent_cve_analysis/
 CVE-2026-0714,1,2026-02-19T15:38:01+00:00,1771515481,netsec,https://reddit.com/r/netsec/comments/1r92evr/cve20260714_tpmsniffing_luks_keys_on_an_embedded/
 CVE-2026-12345,1,2026-03-25T19:33:27+00:00,1774467207,github,https://reddit.com/r/github/comments/1s3ksik/scam_alert_fake_vs_code_critical_vulnerability/
+CVE-2026-1731,1,2026-02-13T18:03:12+00:00,1771005792,sysadmin,https://reddit.com/r/sysadmin/comments/1r3wb9v/beyondtrust_gets_hit_again_preauth_rce_in_remote/
 CVE-2026-20122,1,2026-03-06T06:11:34+00:00,1772777494,sysadmin,https://reddit.com/r/sysadmin/comments/1rm660l/cisco_catalyst_sd_wan_just_got_hit_with_active/
 CVE-2026-20127,1,2026-03-06T06:11:34+00:00,1772777494,sysadmin,https://reddit.com/r/sysadmin/comments/1rm660l/cisco_catalyst_sd_wan_just_got_hit_with_active/
 CVE-2026-20128,1,2026-03-06T06:11:34+00:00,1772777494,sysadmin,https://reddit.com/r/sysadmin/comments/1rm660l/cisco_catalyst_sd_wan_just_got_hit_with_active/
@@ -101,6 +100,7 @@ CVE-2026-31829,1,2026-03-19T19:37:58+00:00,1773949078,netsec,https://reddit.com/
 CVE-2026-31861,1,2026-03-19T19:37:58+00:00,1773949078,netsec,https://reddit.com/r/netsec/comments/1rya1ep/22_security_advisories_covering_aiml/
 CVE-2026-31862,1,2026-03-19T19:37:58+00:00,1773949078,netsec,https://reddit.com/r/netsec/comments/1rya1ep/22_security_advisories_covering_aiml/
 CVE-2026-31975,1,2026-03-19T19:37:58+00:00,1773949078,netsec,https://reddit.com/r/netsec/comments/1rya1ep/22_security_advisories_covering_aiml/
+CVE-2026-32241,1,2026-04-08T16:30:19+00:00,1775665819,kubernetes,https://reddit.com/r/kubernetes/comments/1sfxve3/cve202632241_flannel_rce_via_node_annotation/
 CVE-2026-32247,1,2026-03-19T21:22:49+00:00,1773955369,LangChain,https://reddit.com/r/LangChain/comments/1rycurg/psa_two_langgraph_checkpoint_vulnerabilities/
 CVE-2026-32251,1,2026-04-08T11:03:55+00:00,1775646235,netsec,https://reddit.com/r/netsec/comments/1sfpmg9/reading_etcpasswd_via_translation_file_upload_in/
 CVE-2026-33056,1,2026-03-23T13:12:40+00:00,1774271560,linux,https://reddit.com/r/linux/comments/1s1ghpw/canonical_joins_the_rust_foundation_as_a_gold/
@@ -111,10 +111,10 @@ CVE-2026-33656,1,2026-03-25T12:51:52+00:00,1774443112,netsec,https://reddit.com/
 CVE-2026-34197,1,2026-04-07T20:31:22+00:00,1775593882,netsec,https://reddit.com/r/netsec/comments/1sf7sno/cve202634197_activemq_rce_via_jolokia_api/
 CVE-2026-34980,1,2026-04-08T07:01:17+00:00,1775631677,netsec,https://reddit.com/r/netsec/comments/1sflk3t/spooler_alert_remote_unauthd_rcetoroot_chain_in/
 CVE-2026-34990,1,2026-04-08T07:01:17+00:00,1775631677,netsec,https://reddit.com/r/netsec/comments/1sflk3t/spooler_alert_remote_unauthd_rcetoroot_chain_in/
+CVE-2026-35204,1,2026-04-09T18:31:03+00:00,1775759463,kubernetes,https://reddit.com/r/kubernetes/comments/1sgy1gc/psa_helm_path_traversal_via_malicious_plugin/
 CVE-2026-35616,1,2026-04-06T19:05:15+00:00,1775502315,sysadmin,https://reddit.com/r/sysadmin/comments/1se86ws/cve202635616_fortinet_auth_bypass_patch_your/
 CVE-2026-3564,1,2026-03-20T01:21:28+00:00,1773969688,sysadmin,https://reddit.com/r/sysadmin/comments/1ryipfs/first_unifi_with_a_100_cve_now_screenconnect_90/
 CVE-2026-3906,1,2026-03-21T16:23:50+00:00,1774110230,Wordpress,https://reddit.com/r/Wordpress/comments/1rzvpax/it_seems_like_automatic_wordpress_updates_are/
-CVE-2026-4747,1,2026-03-31T19:57:17+00:00,1774987037,netsec,https://reddit.com/r/netsec/comments/1s8y8pp/mad_bugs_claude_wrote_a_full_freebsd_remote/
 CVE-2026-5244,1,2026-04-02T13:35:22+00:00,1775136922,netsec,https://reddit.com/r/netsec/comments/1sahl4e/mongoose_preauth_rce_and_mtls_bypass_on_millions/
 CVE-2026-5245,1,2026-04-02T13:35:22+00:00,1775136922,netsec,https://reddit.com/r/netsec/comments/1sahl4e/mongoose_preauth_rce_and_mtls_bypass_on_millions/
 CVE-2026-5246,1,2026-04-02T13:35:22+00:00,1775136922,netsec,https://reddit.com/r/netsec/comments/1sahl4e/mongoose_preauth_rce_and_mtls_bypass_on_millions/
