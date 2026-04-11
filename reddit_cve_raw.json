@@ -1,5 +1,73 @@
 [
   {
+    "_id": "69d99650da0850f8382bf8a4",
+    "redditId": "1si3xvv",
+    "author": "maurosoria",
+    "author_description": null,
+    "awards": [],
+    "comments": [],
+    "created_utc": "2026-04-11T00:21:08",
+    "first_author_comment": null,
+    "num_comments": 1,
+    "score": 2,
+    "subreddit": "netsec",
+    "tag": null,
+    "tags": [],
+    "title": "Claude + Humans vs nginx: CVE-2026-27654",
+    "updatedAt": "2026-04-11T04:00:29.081Z",
+    "upvote_ratio": 0.75,
+    "url": "https://reddit.com/r/netsec/comments/1si3xvv/claude_humans_vs_nginx_cve202627654/",
+    "versionList": [
+      "2026.0.0",
+      "27654.0.0"
+    ],
+    "classification": {
+      "componentType": [
+        "SERVER"
+      ]
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.0004934107204656047,
+        "timestampPredicted": "2026-04-11T04:00:28.415962+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    }
+  },
+  {
+    "_id": "69d8b4e4da0850f8382be983",
+    "redditId": "1shgdvh",
+    "author": "NeoLogic_Dev",
+    "author_description": "I've been running a small local loop on my Android phone — no cloud, no external API. Four agents chain off each other, each only seeing the previous agent's output.\n\nThe setup is simple: feed it a real CVE from a public catalog, let the agents analyze it in sequence. Repeat overnight.\n\nWhat I didn't expect: by round 30, the agents started drifting on the CVE IDs themselves.\n\nReal input: CVE-2025-21042\n\nWhat Dominus analyzed: CVE-2025-021042\n\nWhat Axiom picked up: CVE2025-21242\n\nTwo different wrong IDs. In the same round. Neither agent flagged it.\n\nBy round 348, one agent introduced CVE-2025-12345 completely unprompted. The next agent built a full technical analysis on top of it.\n\nThe content sounds correct. The structure is clean. The vulnerability descriptions are plausible. But the IDs are fiction — and nothing in the chain catches it.\n\nNo crash. No error. Just confident, well-formatted hallucination compounding across agents.\n\nI expected the loop to break loudly. It didn't. It just quietly drifted.\n\nStill figuring out the best way to catch this early. Anyone here run into similar behavior in long-running local loops?",
+    "awards": [],
+    "comments": [],
+    "created_utc": "2026-04-10T08:14:08",
+    "first_author_comment": null,
+    "num_comments": 10,
+    "score": 0,
+    "subreddit": "homelab",
+    "tag": "Discussion",
+    "tags": [],
+    "title": "I let an autonomous security analysis loop run overnight on my phone — by round 30 it was confidently analyzing CVEs that don't exist",
+    "updatedAt": "2026-04-10T08:29:24.735Z",
+    "upvote_ratio": 0.22,
+    "url": "https://reddit.com/r/homelab/comments/1shgdvh/i_let_an_autonomous_security_analysis_loop_run/",
+    "versionList": [
+      "30.0.0"
+    ],
+    "classification": {
+      "securityType": [
+        "UNKNOWN"
+      ],
+      "componentType": [
+        "OS"
+      ]
+    }
+  },
+  {
     "_id": "69d7f2afda0850f8382b8ef6",
     "redditId": "1sgy1gc",
     "author": "JulietSecurity",
@@ -128,7 +196,7 @@
     "tag": null,
     "tags": [],
     "title": "Reading /etc/passwd via translation file upload in Tolgee's cloud platform (CVE-2026-32251, CVSS 9.3)",
-    "updatedAt": "2026-04-10T04:31:01.967Z",
+    "updatedAt": "2026-04-11T02:30:56.999Z",
     "upvote_ratio": 0.96,
     "url": "https://reddit.com/r/netsec/comments/1sfpmg9/reading_etcpasswd_via_translation_file_upload_in/",
     "versionList": [
@@ -207,13 +275,13 @@
     "created_utc": "2026-04-08T07:01:17",
     "first_author_comment": null,
     "num_comments": 5,
-    "score": 33,
+    "score": 34,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Spooler Alert: Remote Unauth'd RCE-to-root Chain in CUPS",
-    "updatedAt": "2026-04-10T04:31:02.160Z",
-    "upvote_ratio": 0.89,
+    "updatedAt": "2026-04-11T02:30:57.182Z",
+    "upvote_ratio": 0.9,
     "url": "https://reddit.com/r/netsec/comments/1sflk3t/spooler_alert_remote_unauthd_rcetoroot_chain_in/",
     "versionList": [],
     "classification": {
@@ -326,13 +394,13 @@
     "created_utc": "2026-04-07T20:31:22",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 12,
+    "score": 13,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-34197: ActiveMQ RCE via Jolokia API",
-    "updatedAt": "2026-04-10T04:31:03.787Z",
-    "upvote_ratio": 0.81,
+    "updatedAt": "2026-04-11T02:30:58.862Z",
+    "upvote_ratio": 0.82,
     "url": "https://reddit.com/r/netsec/comments/1sf7sno/cve202634197_activemq_rce_via_jolokia_api/",
     "versionList": [
       "2026.0.0",
@@ -369,13 +437,13 @@
     "created_utc": "2026-04-07T18:54:28",
     "first_author_comment": null,
     "num_comments": 7,
-    "score": 23,
+    "score": 27,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "The Race to Ship AI Tools Left Security Behind. Part 1: Sandbox Escape",
-    "updatedAt": "2026-04-10T04:31:05.419Z",
-    "upvote_ratio": 0.85,
+    "updatedAt": "2026-04-11T02:31:00.568Z",
+    "upvote_ratio": 0.89,
     "url": "https://reddit.com/r/netsec/comments/1sf550g/the_race_to_ship_ai_tools_left_security_behind/",
     "versionList": [
       "1.0.0"
@@ -1019,13 +1087,13 @@
     "created_utc": "2026-04-03T08:20:58",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 7,
+    "score": 10,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "New RCE in Control Web Panel (CVE-2025-70951)",
-    "updatedAt": "2026-04-10T04:31:12.776Z",
-    "upvote_ratio": 0.82,
+    "updatedAt": "2026-04-11T02:31:07.460Z",
+    "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/netsec/comments/1sb7pr4/new_rce_in_control_web_panel_cve202570951/",
     "versionList": [
       "2025.0.0",
@@ -1062,13 +1130,13 @@
     "created_utc": "2026-04-02T13:35:22",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 27,
+    "score": 28,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Mongoose: Preauth RCE and mTLS Bypass on Millions of Devices",
-    "updatedAt": "2026-04-10T04:31:13.797Z",
-    "upvote_ratio": 0.88,
+    "updatedAt": "2026-04-11T02:31:08.494Z",
+    "upvote_ratio": 0.9,
     "url": "https://reddit.com/r/netsec/comments/1sahl4e/mongoose_preauth_rce_and_mtls_bypass_on_millions/",
     "versionList": [],
     "classification": {
@@ -1100,13 +1168,13 @@
     "created_utc": "2026-04-02T11:06:09",
     "first_author_comment": null,
     "num_comments": 0,
-    "score": 22,
+    "score": 23,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "You’re Not Supposed To ShareFile With Everyone (Progress ShareFile Pre-Auth RCE Chain CVE-2026-2699 &amp; CVE-2026-2701) - watchTowr Labs",
-    "updatedAt": "2026-04-10T04:31:14.615Z",
-    "upvote_ratio": 0.92,
+    "updatedAt": "2026-04-11T02:31:09.329Z",
+    "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/netsec/comments/1saebwi/youre_not_supposed_to_sharefile_with_everyone/",
     "versionList": [
       "2026.0.0",
@@ -1191,7 +1259,7 @@
       "axelor"
     ],
     "title": "DOMPurify 3.2.2 vulnerability in Axelor frontend",
-    "updatedAt": "2026-04-10T04:25:04.397Z",
+    "updatedAt": "2026-04-11T02:25:03.850Z",
     "upvote_ratio": null,
     "url": "https://stackoverflow.com/questions/79918937/dompurify-3-2-2-vulnerability-in-axelor-frontend",
     "versionList": [
@@ -1312,12 +1380,12 @@
     "created_utc": "2026-03-31T19:57:17",
     "first_author_comment": null,
     "num_comments": 11,
-    "score": 67,
+    "score": 68,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "MAD Bugs: Claude Wrote a Full FreeBSD Remote Kernel RCE with Root Shell (CVE-2026-4747)",
-    "updatedAt": "2026-04-10T04:31:15.155Z",
+    "updatedAt": "2026-04-11T02:31:09.890Z",
     "upvote_ratio": 0.86,
     "url": "https://reddit.com/r/netsec/comments/1s8y8pp/mad_bugs_claude_wrote_a_full_freebsd_remote/",
     "versionList": [
@@ -1415,7 +1483,7 @@
     "tag": null,
     "tags": [],
     "title": "Please, We Beg, Just One Weekend Free Of Appliances (Citrix NetScaler CVE-2026-3055 Memory Overread Part 2) - watchTowr Labs",
-    "updatedAt": "2026-04-10T04:31:23.676Z",
+    "updatedAt": "2026-04-11T02:31:18.397Z",
     "upvote_ratio": 0.85,
     "url": "https://reddit.com/r/netsec/comments/1s75kb9/please_we_beg_just_one_weekend_free_of_appliances/",
     "versionList": [
@@ -1496,7 +1564,7 @@
         "id": "od38oun",
         "author": "BigHandLittleSlap",
         "body": "&gt; only exploitable if the appliance is 'configured as a SAML IDP'. This is a cursed configuration to begin with, and we can think of no appliance more poorly-suited to the task of being an IdP than this class of network device.\n\n&gt; But, well, we know someone out there will have thought it was a Really Good Idea and rushed to implement it. Hopefully not you.\n\nIt was me.\n\nDon't judge me.\n\nWe had to federate the identity systems from half a dozen government departments into a single SAML IdP for a reporting product that didn't support multiple IdPs itself. We had NetScaler, no other SAML server products of any description, and 48 hours available to deploy something to production.\n\nNever again!\n\nHorrifically buggy, to the point where rebooting appliances would cause settings to revert, whether or not you \"saved\" them.",
-        "score": 4,
+        "score": 6,
         "created_utc_ts": 1774765909,
         "created_utc": "2026-03-29T06:31:49",
         "permalink": "https://reddit.com/r/netsec/comments/1s6bdxi/the_sequels_are_never_as_good_but_were_still_in/od38oun/",
@@ -1529,13 +1597,13 @@
     "created_utc": "2026-03-28T20:40:20",
     "first_author_comment": "sir, we are not in the business of stealing titles - coincidence!",
     "num_comments": 3,
-    "score": 28,
+    "score": 29,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "The Sequels Are Never As Good, But We're Still In Pain (Citrix NetScaler CVE-2026-3055 Memory Overread) - watchTowr Labs",
-    "updatedAt": "2026-04-10T04:31:25.227Z",
-    "upvote_ratio": 0.87,
+    "updatedAt": "2026-04-11T02:31:20.009Z",
+    "upvote_ratio": 0.86,
     "url": "https://reddit.com/r/netsec/comments/1s6bdxi/the_sequels_are_never_as_good_but_were_still_in/",
     "versionList": [
       "2026.0.0",
@@ -2275,7 +2343,7 @@
       "Distro News"
     ],
     "title": "Canonical joins the Rust Foundation as a Gold Member",
-    "updatedAt": "2026-03-27T16:26:14.015Z",
+    "updatedAt": "2026-04-10T23:44:15.454Z",
     "upvote_ratio": 0.96,
     "url": "https://reddit.com/r/linux/comments/1s1ghpw/canonical_joins_the_rust_foundation_as_a_gold/",
     "versionList": [],
@@ -3412,7 +3480,7 @@
     "tag": null,
     "tags": [],
     "title": "A timeline of MCP security breaches: Tool poisoning, RCE via mcp-remote, sandbox escapes, and 7,000+ exposed servers",
-    "updatedAt": "2026-03-30T14:31:43.792Z",
+    "updatedAt": "2026-04-10T23:49:48.471Z",
     "upvote_ratio": 0.85,
     "url": "https://reddit.com/r/netsec/comments/1rxznrs/a_timeline_of_mcp_security_breaches_tool/",
     "versionList": [
@@ -6422,7 +6490,7 @@
     "tag": null,
     "tags": [],
     "title": "Almost Impossible: Java Deserialization Through Broken Crypto in OpenText Directory Services",
-    "updatedAt": "2026-03-27T16:30:32.425Z",
+    "updatedAt": "2026-04-10T23:49:52.189Z",
     "upvote_ratio": 0.96,
     "url": "https://reddit.com/r/netsec/comments/1r6r7no/almost_impossible_java_deserialization_through/",
     "versionList": [],
@@ -6709,77 +6777,5 @@
     "versionList": [],
     "isAboutCve": true,
     "isAboutLatestUpdate": false
-  },
-  {
-    "_id": "698d5779f8b09305bc9216df",
-    "redditId": "1r20649",
-    "author": "IncidentSpecial5053",
-    "author_description": "Notepad RCE vulnerability CVE-2026-20841 explained. How a text editor became a remote code execution vector. What you need to know.",
-    "awards": [],
-    "comments": [],
-    "created_utc": "2026-02-11T15:20:47",
-    "first_author_comment": null,
-    "num_comments": 0,
-    "score": 1,
-    "subreddit": "software",
-    "tag": "News :Shoutout:",
-    "tags": [
-      "News "
-    ],
-    "title": "Microsoft's Notepad Got Pwned",
-    "updatedAt": "2026-02-12T08:31:37.929Z",
-    "upvote_ratio": 1,
-    "url": "https://reddit.com/r/software/comments/1r20649/microsofts_notepad_got_pwned/",
-    "versionList": [],
-    "classification": {
-      "securityType": [
-        "UNKNOWN"
-      ]
-    },
-    "isAboutCve": true,
-    "isAboutLatestUpdate": false
-  },
-  {
-    "_id": "698c76eef8b09305bc92003c",
-    "redditId": "1r1vaon",
-    "author": "theevilsharpie",
-    "author_description": "The built-in Windows 11 Notepad app has an RCE vulnerability, somehow.\n\nNo, I don't mean Notepad++, I mean literal Notepad.\n\nhttps://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-20841\n\n&gt; An attacker could trick a user into clicking a malicious link inside a Markdown file opened in Notepad, causing the application to launch unverified protocols that load and execute remote files.\n\n&gt; The malicious code would execute in the security context of the user who opened the Markdown file, giving the attacker the same permissions as that user.\n\nI've spent most of my career dealing with Linux systems at this point, and I've been out of the Windows world professionally for many years and don't even run it on my personal machines anymore, so this doesn't affect me directly.\n\nBut man, being able to pop a shell from Notepad [used to be a security researcher punchline](https://projectzero.google/2019/08/down-rabbit-hole.html#:~:text=Am%20I%20the%20first%20person%20to%20pop%20a%20shell%20in%20notepad), and now here we are. Da fuq you guys doing over there?",
-    "awards": [],
-    "comments": [],
-    "created_utc": "2026-02-11T11:49:54",
-    "first_author_comment": null,
-    "num_comments": 255,
-    "score": 1083,
-    "subreddit": "sysadmin",
-    "tag": "Microsoft",
-    "tags": [
-      "Microsoft"
-    ],
-    "title": "Windows Notepad App Remote Code Execution Vulnerability",
-    "updatedAt": "2026-02-12T22:37:25.856Z",
-    "upvote_ratio": 0.97,
-    "url": "https://reddit.com/r/sysadmin/comments/1r1vaon/windows_notepad_app_remote_code_execution/",
-    "versionList": [],
-    "classification": {
-      "componentType": [
-        "OS",
-        "APP"
-      ],
-      "securityType": [
-        "SECURITY"
-      ]
-    },
-    "metadata": {
-      "predicted": {
-        "isUpdateRelated": false,
-        "positiveScore": 0.03000410304268207,
-        "timestampPredicted": "2026-02-12T00:02:23.701343+00:00"
-      },
-      "labeled": {
-        "isUpdateRelated": null
-      }
-    },
-    "isAboutCve": true,
-    "isAboutLatestUpdate": true
   }
 ]

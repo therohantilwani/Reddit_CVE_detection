@@ -4,7 +4,6 @@ CVE-2026-29000,4,2026-03-05T14:00:22+00:00,1772719222,github;netsec;sysadmin,htt
 CVE-2026-3888,4,2026-03-19T00:38:41+00:00,1773880721,Ubuntu;debian;linux;netsec,https://reddit.com/r/Ubuntu/comments/1s7xq6g/should_this_be_a_cause_for_concern_for_ubuntu/;https://reddit.com/r/debian/comments/1rypev8/snapd_cve/;https://reddit.com/r/linux/comments/1ry1cu9/high_severity_systemd_bug_in_ubuntu_local_root/;https://reddit.com/r/netsec/comments/1rxlr0y/ubtuntu_2404_snapd_local_privilege_escalation/
 CVE-2026-22729,3,2026-03-18T22:16:27+00:00,1773872187,java;netsec,https://reddit.com/r/java/comments/1s0si5o/spring_ai_vector_store_has_two_high_injection/;https://reddit.com/r/netsec/comments/1rxz7tl/cve202622729_jsonpath_injection_in_spring_ais/;https://reddit.com/r/java/comments/1rxi6gx/spring_ai_cves_cve202622729_and_cve202622730_are/
 CVE-2026-22730,3,2026-03-18T22:16:27+00:00,1773872187,java;netsec,https://reddit.com/r/java/comments/1s0si5o/spring_ai_vector_store_has_two_high_injection/;https://reddit.com/r/netsec/comments/1rxv3nu/cve202622730_sql_injection_in_spring_ais_mariadb/;https://reddit.com/r/java/comments/1rxi6gx/spring_ai_cves_cve202622729_and_cve202622730_are/
-CVE-2026-20841,2,2026-02-11T11:49:54+00:00,1770810594,software;sysadmin,https://reddit.com/r/software/comments/1r20649/microsofts_notepad_got_pwned/;https://reddit.com/r/sysadmin/comments/1r1vaon/windows_notepad_app_remote_code_execution/
 CVE-2026-22039,2,2026-02-13T23:42:45+00:00,1771026165,kubernetes,https://reddit.com/r/kubernetes/comments/1r6eq9j/kubewarden_not_affected_by_crossns_privilege/;https://reddit.com/r/kubernetes/comments/1r44yxo/cve202622039_how_an_admission_controller/
 CVE-2026-22557,2,2026-03-19T00:14:39+00:00,1773879279,homelab;sysadmin,https://reddit.com/r/sysadmin/comments/1ryipfs/first_unifi_with_a_100_cve_now_screenconnect_90/;https://reddit.com/r/homelab/comments/1rxl68p/psa_unifi_network_application_vulnerability/
 CVE-2026-2441,2,2026-02-15T10:43:31+00:00,1771152211,MicrosoftEdge,https://reddit.com/r/MicrosoftEdge/comments/1r6our7/edge_v1450380058_no_release_notes/;https://reddit.com/r/MicrosoftEdge/comments/1r5bn1t/zeroday_exploit_cve2026441_is_your_crypto_wallet/
@@ -29,10 +28,13 @@ CVE-2024-21762,1,2026-04-08T10:36:41+00:00,1775644601,netsec,https://reddit.com/
 CVE-2024-28224,1,2026-03-26T20:39:39+00:00,1774557579,ollama,https://reddit.com/r/ollama/comments/1s4j73f/fresh_install_of_ollama_major_security_threat/
 CVE-2024-37032,1,2026-03-26T20:39:39+00:00,1774557579,ollama,https://reddit.com/r/ollama/comments/1s4j73f/fresh_install_of_ollama_major_security_threat/
 CVE-2024-45163,1,2026-03-15T06:35:33+00:00,1773556533,netsec,https://reddit.com/r/netsec/comments/1ru6xxl/cve202445163_remote_dos_in_mirai_c2_research/
+CVE-2025-021042,1,2026-04-10T08:14:08+00:00,1775808848,homelab,https://reddit.com/r/homelab/comments/1shgdvh/i_let_an_autonomous_security_analysis_loop_run/
 CVE-2025-10035,1,2026-04-08T10:36:41+00:00,1775644601,netsec,https://reddit.com/r/netsec/comments/1sfp46v/brandefense_q4_2025_ransomware_trends_report_2373/
 CVE-2025-11757,1,2026-03-10T17:51:47+00:00,1773165107,SecurityCamera,https://reddit.com/r/SecurityCamera/comments/1rq3z6o/cloudedgemeari_cve_and_status_on_the_dark_web/
+CVE-2025-12345,1,2026-04-10T08:14:08+00:00,1775808848,homelab,https://reddit.com/r/homelab/comments/1shgdvh/i_let_an_autonomous_security_analysis_loop_run/
 CVE-2025-15579,1,2026-02-17T00:34:23+00:00,1771288463,netsec,https://reddit.com/r/netsec/comments/1r6r7no/almost_impossible_java_deserialization_through/
 CVE-2025-20080,1,2026-03-15T09:35:23+00:00,1773567323,Fedora,https://reddit.com/r/Fedora/comments/1ru9sx6/anyone_else_seeing_fwupdmgr_reporting_a_failed/
+CVE-2025-21042,1,2026-04-10T08:14:08+00:00,1775808848,homelab,https://reddit.com/r/homelab/comments/1shgdvh/i_let_an_autonomous_security_analysis_loop_run/
 CVE-2025-26791,1,2026-04-02T09:50:55+00:00,1775123455,axelor,https://stackoverflow.com/questions/79918937/dompurify-3-2-2-vulnerability-in-axelor-frontend
 CVE-2025-27708,1,2026-03-15T09:35:23+00:00,1773567323,Fedora,https://reddit.com/r/Fedora/comments/1ru9sx6/anyone_else_seeing_fwupdmgr_reporting_a_failed/
 CVE-2025-29824,1,2026-04-08T10:36:41+00:00,1775644601,netsec,https://reddit.com/r/netsec/comments/1sfp46v/brandefense_q4_2025_ransomware_trends_report_2373/
@@ -86,6 +88,7 @@ CVE-2026-2635,1,2026-03-19T19:37:58+00:00,1773949078,netsec,https://reddit.com/r
 CVE-2026-2699,1,2026-04-02T11:06:09+00:00,1775127969,netsec,https://reddit.com/r/netsec/comments/1saebwi/youre_not_supposed_to_sharefile_with_everyone/
 CVE-2026-2701,1,2026-04-02T11:06:09+00:00,1775127969,netsec,https://reddit.com/r/netsec/comments/1saebwi/youre_not_supposed_to_sharefile_with_everyone/
 CVE-2026-27624,1,2026-02-26T04:06:02+00:00,1772078762,WebRTC,https://reddit.com/r/WebRTC/comments/1rf02fw/turn_server_security_best_practices_coturn/
+CVE-2026-27654,1,2026-04-11T00:21:08+00:00,1775866868,netsec,https://reddit.com/r/netsec/comments/1si3xvv/claude_humans_vs_nginx_cve202627654/
 CVE-2026-27952,1,2026-03-19T19:37:58+00:00,1773949078,netsec,https://reddit.com/r/netsec/comments/1rya1ep/22_security_advisories_covering_aiml/
 CVE-2026-27961,1,2026-03-19T19:37:58+00:00,1773949078,netsec,https://reddit.com/r/netsec/comments/1rya1ep/22_security_advisories_covering_aiml/
 CVE-2026-27966,1,2026-03-19T21:22:49+00:00,1773955369,LangChain,https://reddit.com/r/LangChain/comments/1rycurg/psa_two_langgraph_checkpoint_vulnerabilities/
