@@ -1,4 +1,6 @@
 post_id,subreddit,created_iso_utc,title,cves,cve_paths,url
+,netsec,2026-04-11T00:21:08+00:00,Claude + Humans vs nginx: CVE-2026-27654,CVE-2026-27654,title,https://reddit.com/r/netsec/comments/1si3xvv/claude_humans_vs_nginx_cve202627654/
+,homelab,2026-04-10T08:14:08+00:00,I let an autonomous security analysis loop run overnight on my phone — by round 30 it was confidently analyzing CVEs that don't exist,CVE-2025-021042;CVE-2025-12345;CVE-2025-21042,author_description,https://reddit.com/r/homelab/comments/1shgdvh/i_let_an_autonomous_security_analysis_loop_run/
 ,kubernetes,2026-04-09T18:31:03+00:00,PSA: Helm path traversal via malicious plugin - upgrade to 4.1.4 (CVE-2026-35204),CVE-2026-35204,title,https://reddit.com/r/kubernetes/comments/1sgy1gc/psa_helm_path_traversal_via_malicious_plugin/
 ,freebsd,2026-04-09T11:06:27+00:00,"Claude Mythos Preview ""fully autonomously"" finds and exploits new FreeBSD vulnerabilities (plus Linux, OpenBSD, and others) - more concernin",CVE-2026-4747,author_description,https://reddit.com/r/freebsd/comments/1sgmi14/claude_mythos_preview_fully_autonomously_finds/
 ,kubernetes,2026-04-08T16:30:19+00:00,CVE-2026-32241 - Flannel RCE via node annotation injection (Extension backend only),CVE-2026-32241,author_description;title,https://reddit.com/r/kubernetes/comments/1sfxve3/cve202632241_flannel_rce_via_node_annotation/
@@ -97,5 +99,3 @@ post_id,subreddit,created_iso_utc,title,cves,cve_paths,url
 ,kubernetes,2026-02-13T23:42:45+00:00,CVE-2026-22039: How an admission controller vulnerability turned Kubernetes namespaces into a security illusion,CVE-2026-22039,author_description;title,https://reddit.com/r/kubernetes/comments/1r44yxo/cve202622039_how_an_admission_controller/
 ,sysadmin,2026-02-13T18:03:12+00:00,BeyondTrust Gets Hit Again: Pre-Auth RCE in Remote Support Tools,CVE-2026-1731,author_description,https://reddit.com/r/sysadmin/comments/1r3wb9v/beyondtrust_gets_hit_again_preauth_rce_in_remote/
 ,WebRTC,2026-02-12T10:24:04+00:00,TURN Security Threats: A Hacker's View,CVE-2020-26262,comments[0].body;first_author_comment,https://reddit.com/r/WebRTC/comments/1r2pwqn/turn_security_threats_a_hackers_view/
-,software,2026-02-11T15:20:47+00:00,Microsoft's Notepad Got Pwned,CVE-2026-20841,author_description,https://reddit.com/r/software/comments/1r20649/microsofts_notepad_got_pwned/
-,sysadmin,2026-02-11T11:49:54+00:00,Windows Notepad App Remote Code Execution Vulnerability,CVE-2026-20841,author_description,https://reddit.com/r/sysadmin/comments/1r1vaon/windows_notepad_app_remote_code_execution/
