@@ -18,7 +18,6 @@ CVE-2026-33017,2,2026-03-22T16:55:47+00:00,1774198547,LangChain;netsec,https://r
 CVE-2026-33579,2,2026-04-03T13:34:55+00:00,1775223295,netsec;sysadmin,https://reddit.com/r/sysadmin/comments/1sbdw29/if_youre_running_openclaw_you_probably_got_hacked/;https://reddit.com/r/netsec/comments/1sbds9i/if_youre_running_openclaw_you_probably_got_hacked/
 CVE-2026-4747,2,2026-03-31T19:57:17+00:00,1774987037,freebsd;netsec,https://reddit.com/r/freebsd/comments/1sgmi14/claude_mythos_preview_fully_autonomously_finds/;https://reddit.com/r/netsec/comments/1s8y8pp/mad_bugs_claude_wrote_a_full_freebsd_remote/
 CVE-2019-18634,1,2026-02-28T08:40:06+00:00,1772268006,linux,https://reddit.com/r/linux/comments/1rgxjcw/sudors_shows_password_asterisks_by_default_break/
-CVE-2020-26262,1,2026-02-12T10:24:04+00:00,1770891844,WebRTC,https://reddit.com/r/WebRTC/comments/1r2pwqn/turn_security_threats_a_hackers_view/
 CVE-2021-28372,1,2026-03-05T15:53:05+00:00,1772725985,homelab,https://reddit.com/r/homelab/comments/1rll5dw/checked_every_device_on_my_homelab_against_nvd/
 CVE-2021-4034,1,2026-03-17T00:39:47+00:00,1773707987,homelab,https://reddit.com/r/homelab/comments/1rvrszo/hackable_ii_purple_team_writeup_from_anonymous/
 CVE-2022-27624,1,2026-03-05T15:53:05+00:00,1772725985,homelab,https://reddit.com/r/homelab/comments/1rll5dw/checked_every_device_on_my_homelab_against_nvd/
@@ -118,6 +117,7 @@ CVE-2026-35204,1,2026-04-09T18:31:03+00:00,1775759463,kubernetes,https://reddit.
 CVE-2026-35616,1,2026-04-06T19:05:15+00:00,1775502315,sysadmin,https://reddit.com/r/sysadmin/comments/1se86ws/cve202635616_fortinet_auth_bypass_patch_your/
 CVE-2026-3564,1,2026-03-20T01:21:28+00:00,1773969688,sysadmin,https://reddit.com/r/sysadmin/comments/1ryipfs/first_unifi_with_a_100_cve_now_screenconnect_90/
 CVE-2026-3906,1,2026-03-21T16:23:50+00:00,1774110230,Wordpress,https://reddit.com/r/Wordpress/comments/1rzvpax/it_seems_like_automatic_wordpress_updates_are/
+CVE-2026-39961,1,2026-04-10T12:10:15+00:00,1775823015,kubernetes,https://reddit.com/r/kubernetes/comments/1shkpf0/psa_if_your_k8s_operators_have_clusterrole_secret/
 CVE-2026-5244,1,2026-04-02T13:35:22+00:00,1775136922,netsec,https://reddit.com/r/netsec/comments/1sahl4e/mongoose_preauth_rce_and_mtls_bypass_on_millions/
 CVE-2026-5245,1,2026-04-02T13:35:22+00:00,1775136922,netsec,https://reddit.com/r/netsec/comments/1sahl4e/mongoose_preauth_rce_and_mtls_bypass_on_millions/
 CVE-2026-5246,1,2026-04-02T13:35:22+00:00,1775136922,netsec,https://reddit.com/r/netsec/comments/1sahl4e/mongoose_preauth_rce_and_mtls_bypass_on_millions/
