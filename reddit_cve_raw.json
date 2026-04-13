@@ -1,5 +1,45 @@
 [
   {
+    "_id": "69dc0002da0850f8382c9ef2",
+    "redditId": "1sjntfg",
+    "author": "Machismo0311",
+    "author_description": "Hey everyone, hoping someone here can help me get unstuck on a Unisoc SC9832E tablet project.\n\nBackground: I picked up two Sword Health branded Android tablets (they were home physical therapy devices sent to patients). They run a locked kiosk app installed as a system app, so safe mode doesn't help and I can't get into standard Android settings. I'm trying to factory reset them so I can repurpose them as home automation dashboards.\n\nI've made solid progress but I'm stuck on getting FDL files that work. Here's everything I know:\n\n\\*\\*Hardware:\\*\\*\n\n\\- Chip: Unisoc/Spreadtrum SC9832E (confirmed via bcdDevice 24.16 in download mode)\n\n\\- USB ID normal mode: 1782:4001\n\n\\- USB ID download mode: 1782:4d00\n\n\\- BROM string: SPRD3\n\n\\- Storage: eMMC (confirmed by TomKing062)\n\n\\- 8.4\" tablet, USB-C\n\n\\*\\*What's working:\\*\\*\n\n\\- BROM connection via TomKing062's spd\\_dump on Debian Linux\n\n\\- Both exec addresses accepted: 0x4ee8 and 0x4f18 (from sc9820e\\_sc9832e folder in CVE-2022-38694 repo)\n\n\\- FDL1 sends successfully at 0x5000\n\n\\*\\*The problem:\\*\\*\n\n\\- After FDL1 sends, times out waiting for response every time\n\n\\- Tried Symphony i95 SC9832E FDL files — same timeout\n\n\\- Output looks like this:\n\nSEND fdl1-sign.bin to 0x5000\n\nSEND custom\\_exec\\_no\\_verify\\_4ee8.bin to 0x4ee8\n\nEXEC FDL1\n\nusb\\_recv failed : LIBUSB\\_ERROR\\_TIMEOUT\n\nCHECK\\_BAUD FAIL\n\n(repeats 5 times)\n\nwrong command or wrong mode detected\n\nMy theory is the Symphony i95 FDL is incompatible because it's a phone not a tablet — different pinmap initialization.\n\n\\*\\*What I need:\\*\\*\n\n\\- SC9832E FDL1/FDL2 files confirmed working on a tablet, or at least a device that's closer hardware-wise than a budget phone\n\n\\- Or guidance on which PAC file to extract from\n\n\\- Or any other approach to get past BROM stage\n\nI just need to get to FDL2 stage so I can wipe userdata and factory reset the device. I'm comfortable on Linux command line and have the full spd\\_dump toolchain set up and working.\n\nAny help appreciated — been at this for a while and getting close!",
+    "awards": [],
+    "comments": [],
+    "created_utc": "2026-04-12T19:21:19",
+    "first_author_comment": null,
+    "num_comments": 0,
+    "score": 1,
+    "subreddit": "AndroidQuestions",
+    "tag": "Rooting Help",
+    "tags": [],
+    "title": "SC9832E tablet stuck at BROM after FDL1 timeout — need confirmed working FDL files for tablet (not phone)",
+    "updatedAt": "2026-04-13T04:25:51.417Z",
+    "upvote_ratio": 1,
+    "url": "https://reddit.com/r/AndroidQuestions/comments/1sjntfg/sc9832e_tablet_stuck_at_brom_after_fdl1_timeout/",
+    "versionList": [],
+    "classification": {
+      "componentType": [
+        "OS"
+      ],
+      "securityType": [
+        "UNKNOWN"
+      ]
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.0003975663401409563,
+        "timestampPredicted": "2026-04-13T04:01:12.876943+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": false
+  },
+  {
     "_id": "69d99650da0850f8382bf8a4",
     "redditId": "1si3xvv",
     "author": "maurosoria",
@@ -10,7 +50,7 @@
         "id": "ofjdkpo",
         "author": "stonerism",
         "body": "Great seeing the F5 folks continuing to do excellent security work! ",
-        "score": -5,
+        "score": -6,
         "created_utc_ts": 1775897780,
         "created_utc": "2026-04-11T08:56:20",
         "permalink": "https://reddit.com/r/netsec/comments/1si3xvv/claude_humans_vs_nginx_cve202627654/ofjdkpo/",
@@ -21,7 +61,7 @@
         "id": "ofjta1t",
         "author": "TheG0AT0fAllTime",
         "body": "r/netsec is being invaded by slop",
-        "score": 11,
+        "score": 17,
         "created_utc_ts": 1775905929,
         "created_utc": "2026-04-11T11:12:09",
         "permalink": "https://reddit.com/r/netsec/comments/1si3xvv/claude_humans_vs_nginx_cve202627654/ofjta1t/",
@@ -32,7 +72,7 @@
         "id": "ofjzf7x",
         "author": "Lowetheiy",
         "body": "This is useful work, how is it slop?",
-        "score": -2,
+        "score": -6,
         "created_utc_ts": 1775908544,
         "created_utc": "2026-04-11T11:55:44",
         "permalink": "https://reddit.com/r/netsec/comments/1si3xvv/claude_humans_vs_nginx_cve202627654/ofjzf7x/",
@@ -43,7 +83,7 @@
         "id": "ofk5t3n",
         "author": "JAD2017",
         "body": "Yup, now AI slop is the biggest internet threat! Omg the skynet takeover is upon us /s",
-        "score": -4,
+        "score": -8,
         "created_utc_ts": 1775910953,
         "created_utc": "2026-04-11T12:35:53",
         "permalink": "https://reddit.com/r/netsec/comments/1si3xvv/claude_humans_vs_nginx_cve202627654/ofk5t3n/",
@@ -54,7 +94,7 @@
         "id": "ofkr0y2",
         "author": "chfoo",
         "body": "I'm tired too of seeing these kind of posts where the end conclusion is that it was cheaper or faster with gen AI without any numbers backing that up. If you don't have to pay for compute resources and model training, then of course it would be faster or cheaper. \n\nWhether it's AI or traditional fuzzing, it's not a magic tool. There's going to be a tradeoff and it's frustrating that people are not understanding this.",
-        "score": 8,
+        "score": 9,
         "created_utc_ts": 1775917915,
         "created_utc": "2026-04-11T14:31:55",
         "permalink": "https://reddit.com/r/netsec/comments/1si3xvv/claude_humans_vs_nginx_cve202627654/ofkr0y2/",
@@ -65,13 +105,13 @@
     "created_utc": "2026-04-11T00:21:08",
     "first_author_comment": null,
     "num_comments": 10,
-    "score": 21,
+    "score": 20,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Claude + Humans vs nginx: CVE-2026-27654",
-    "updatedAt": "2026-04-12T04:31:01.043Z",
-    "upvote_ratio": 0.66,
+    "updatedAt": "2026-04-13T04:31:07.149Z",
+    "upvote_ratio": 0.63,
     "url": "https://reddit.com/r/netsec/comments/1si3xvv/claude_humans_vs_nginx_cve202627654/",
     "versionList": [
       "2026.0.0",
@@ -276,13 +316,13 @@
     "created_utc": "2026-04-08T11:03:55",
     "first_author_comment": "Six XML-based translation importers in Tolgee (Android XML, XLIFF, .resx, stringsdict) all used default Java parser settings with external entities enabled. Any authenticated user could upload a crafted file and read arbitrary files from the server. Confirmed on [app.tolgee.io](http://app.tolgee.io), their multi-tenant cloud. Fixed within a week.",
     "num_comments": 3,
-    "score": 20,
+    "score": 19,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Reading /etc/passwd via translation file upload in Tolgee's cloud platform (CVE-2026-32251, CVSS 9.3)",
-    "updatedAt": "2026-04-12T04:31:07.552Z",
-    "upvote_ratio": 0.95,
+    "updatedAt": "2026-04-13T04:31:13.607Z",
+    "upvote_ratio": 0.89,
     "url": "https://reddit.com/r/netsec/comments/1sfpmg9/reading_etcpasswd_via_translation_file_upload_in/",
     "versionList": [
       "2026.0.0",
@@ -360,13 +400,13 @@
     "created_utc": "2026-04-08T07:01:17",
     "first_author_comment": null,
     "num_comments": 5,
-    "score": 36,
+    "score": 35,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Spooler Alert: Remote Unauth'd RCE-to-root Chain in CUPS",
-    "updatedAt": "2026-04-12T04:31:07.737Z",
-    "upvote_ratio": 0.92,
+    "updatedAt": "2026-04-13T04:31:13.805Z",
+    "upvote_ratio": 0.9,
     "url": "https://reddit.com/r/netsec/comments/1sflk3t/spooler_alert_remote_unauthd_rcetoroot_chain_in/",
     "versionList": [],
     "classification": {
@@ -479,13 +519,13 @@
     "created_utc": "2026-04-07T20:31:22",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 14,
+    "score": 12,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-34197: ActiveMQ RCE via Jolokia API",
-    "updatedAt": "2026-04-12T04:31:09.415Z",
-    "upvote_ratio": 0.86,
+    "updatedAt": "2026-04-13T04:31:15.618Z",
+    "upvote_ratio": 0.84,
     "url": "https://reddit.com/r/netsec/comments/1sf7sno/cve202634197_activemq_rce_via_jolokia_api/",
     "versionList": [
       "2026.0.0",
@@ -522,13 +562,13 @@
     "created_utc": "2026-04-07T18:54:28",
     "first_author_comment": null,
     "num_comments": 7,
-    "score": 25,
+    "score": 26,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "The Race to Ship AI Tools Left Security Behind. Part 1: Sandbox Escape",
-    "updatedAt": "2026-04-12T04:31:10.987Z",
-    "upvote_ratio": 0.86,
+    "updatedAt": "2026-04-13T04:31:17.306Z",
+    "upvote_ratio": 0.87,
     "url": "https://reddit.com/r/netsec/comments/1sf550g/the_race_to_ship_ai_tools_left_security_behind/",
     "versionList": [
       "1.0.0"
@@ -1172,13 +1212,13 @@
     "created_utc": "2026-04-03T08:20:58",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 11,
+    "score": 10,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "New RCE in Control Web Panel (CVE-2025-70951)",
-    "updatedAt": "2026-04-12T04:31:17.878Z",
-    "upvote_ratio": 0.92,
+    "updatedAt": "2026-04-13T04:31:24.507Z",
+    "upvote_ratio": 0.86,
     "url": "https://reddit.com/r/netsec/comments/1sb7pr4/new_rce_in_control_web_panel_cve202570951/",
     "versionList": [
       "2025.0.0",
@@ -1215,13 +1255,13 @@
     "created_utc": "2026-04-02T13:35:22",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 28,
+    "score": 26,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Mongoose: Preauth RCE and mTLS Bypass on Millions of Devices",
-    "updatedAt": "2026-04-12T04:31:18.906Z",
-    "upvote_ratio": 0.88,
+    "updatedAt": "2026-04-13T04:31:25.590Z",
+    "upvote_ratio": 0.86,
     "url": "https://reddit.com/r/netsec/comments/1sahl4e/mongoose_preauth_rce_and_mtls_bypass_on_millions/",
     "versionList": [],
     "classification": {
@@ -1258,7 +1298,7 @@
     "tag": null,
     "tags": [],
     "title": "You’re Not Supposed To ShareFile With Everyone (Progress ShareFile Pre-Auth RCE Chain CVE-2026-2699 &amp; CVE-2026-2701) - watchTowr Labs",
-    "updatedAt": "2026-04-12T04:31:19.689Z",
+    "updatedAt": "2026-04-13T04:31:26.452Z",
     "upvote_ratio": 0.9,
     "url": "https://reddit.com/r/netsec/comments/1saebwi/youre_not_supposed_to_sharefile_with_everyone/",
     "versionList": [
@@ -1465,13 +1505,13 @@
     "created_utc": "2026-03-31T19:57:17",
     "first_author_comment": null,
     "num_comments": 11,
-    "score": 62,
+    "score": 66,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "MAD Bugs: Claude Wrote a Full FreeBSD Remote Kernel RCE with Root Shell (CVE-2026-4747)",
-    "updatedAt": "2026-04-12T04:31:20.253Z",
-    "upvote_ratio": 0.85,
+    "updatedAt": "2026-04-13T04:31:27.037Z",
+    "upvote_ratio": 0.86,
     "url": "https://reddit.com/r/netsec/comments/1s8y8pp/mad_bugs_claude_wrote_a_full_freebsd_remote/",
     "versionList": [
       "2026.0.0",
@@ -1563,12 +1603,12 @@
     "created_utc": "2026-03-29T20:10:23",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 28,
+    "score": 29,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Please, We Beg, Just One Weekend Free Of Appliances (Citrix NetScaler CVE-2026-3055 Memory Overread Part 2) - watchTowr Labs",
-    "updatedAt": "2026-04-12T04:31:28.457Z",
+    "updatedAt": "2026-04-13T04:31:34.198Z",
     "upvote_ratio": 0.85,
     "url": "https://reddit.com/r/netsec/comments/1s75kb9/please_we_beg_just_one_weekend_free_of_appliances/",
     "versionList": [
@@ -1649,7 +1689,7 @@
         "id": "od38oun",
         "author": "BigHandLittleSlap",
         "body": "&gt; only exploitable if the appliance is 'configured as a SAML IDP'. This is a cursed configuration to begin with, and we can think of no appliance more poorly-suited to the task of being an IdP than this class of network device.\n\n&gt; But, well, we know someone out there will have thought it was a Really Good Idea and rushed to implement it. Hopefully not you.\n\nIt was me.\n\nDon't judge me.\n\nWe had to federate the identity systems from half a dozen government departments into a single SAML IdP for a reporting product that didn't support multiple IdPs itself. We had NetScaler, no other SAML server products of any description, and 48 hours available to deploy something to production.\n\nNever again!\n\nHorrifically buggy, to the point where rebooting appliances would cause settings to revert, whether or not you \"saved\" them.",
-        "score": 6,
+        "score": 5,
         "created_utc_ts": 1774765909,
         "created_utc": "2026-03-29T06:31:49",
         "permalink": "https://reddit.com/r/netsec/comments/1s6bdxi/the_sequels_are_never_as_good_but_were_still_in/od38oun/",
@@ -1682,13 +1722,13 @@
     "created_utc": "2026-03-28T20:40:20",
     "first_author_comment": "sir, we are not in the business of stealing titles - coincidence!",
     "num_comments": 3,
-    "score": 33,
+    "score": 32,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "The Sequels Are Never As Good, But We're Still In Pain (Citrix NetScaler CVE-2026-3055 Memory Overread) - watchTowr Labs",
-    "updatedAt": "2026-04-12T04:31:30.015Z",
-    "upvote_ratio": 0.92,
+    "updatedAt": "2026-04-13T04:31:35.802Z",
+    "upvote_ratio": 0.89,
     "url": "https://reddit.com/r/netsec/comments/1s6bdxi/the_sequels_are_never_as_good_but_were_still_in/",
     "versionList": [
       "2026.0.0",
@@ -6777,45 +6817,5 @@
     },
     "isAboutCve": true,
     "isAboutLatestUpdate": true
-  },
-  {
-    "_id": "698f8aff05a8a7435b3713d1",
-    "redditId": "1r3wb9v",
-    "author": "IncidentSpecial5053",
-    "author_description": "[CVE-2026-1731: Command injection vulnerability in BeyondTrust Remote Support and Privileged Remote Access allows unauthenticated remote code execution](https://foss-daily.org/posts/beyondtrust-cve-2026-02-13/?utm_source=reddit-sys&amp;utm_campaign=beyondtrust1)",
-    "awards": [],
-    "comments": [],
-    "created_utc": "2026-02-13T18:03:12",
-    "first_author_comment": null,
-    "num_comments": 3,
-    "score": 3,
-    "subreddit": "sysadmin",
-    "tag": "General Discussion",
-    "tags": [
-      "General Discussion"
-    ],
-    "title": "BeyondTrust Gets Hit Again: Pre-Auth RCE in Remote Support Tools",
-    "updatedAt": "2026-02-14T16:01:51.304Z",
-    "upvote_ratio": 0.71,
-    "url": "https://reddit.com/r/sysadmin/comments/1r3wb9v/beyondtrust_gets_hit_again_preauth_rce_in_remote/",
-    "versionList": [],
-    "classification": {
-      "componentType": [],
-      "securityType": [
-        "UNKNOWN"
-      ]
-    },
-    "metadata": {
-      "predicted": {
-        "isUpdateRelated": false,
-        "positiveScore": 0.01752748628784727,
-        "timestampPredicted": "2026-02-14T16:01:50.697643+00:00"
-      },
-      "labeled": {
-        "isUpdateRelated": null
-      }
-    },
-    "isAboutCve": true,
-    "isAboutLatestUpdate": false
   }
 ]
