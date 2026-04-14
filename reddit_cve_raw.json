@@ -1,5 +1,123 @@
 [
   {
+    "_id": "69dcfe2ada0850f8382cf245",
+    "redditId": "1skazzv",
+    "author": "JivaSecurity",
+    "author_description": "Root cause: the $forbiddenphpstrings blocklist is only enforced in blacklist mode -&gt; the default whitelist mode never touches it. The whitelist regex is also blind to PHP dynamic callable syntax (('exec')('cmd')). Either bug alone limits impact; together they reach OS command execution. Coordinated disclosure - patch available as of 4/4/2026.",
+    "awards": [],
+    "comments": [],
+    "created_utc": "2026-04-13T13:34:19",
+    "first_author_comment": null,
+    "num_comments": 2,
+    "score": 6,
+    "subreddit": "netsec",
+    "tag": null,
+    "tags": [],
+    "title": "CVE-2026-22666: Dolibarr 23.0.0 dol_eval() whitelist bypass -&gt; RCE (full write-up + PoC)",
+    "updatedAt": "2026-04-13T20:31:14.789Z",
+    "upvote_ratio": 0.88,
+    "url": "https://reddit.com/r/netsec/comments/1skazzv/cve202622666_dolibarr_2300_dol_eval_whitelist/",
+    "versionList": [
+      "2026.0.0",
+      "22666.0.0",
+      "23.0.0"
+    ],
+    "classification": {
+      "componentType": [],
+      "securityType": [
+        "SECURITY"
+      ]
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.01302434850914947,
+        "timestampPredicted": "2026-04-13T20:01:24.915567+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true
+  },
+  {
+    "_id": "69dca9d4da0850f8382cede9",
+    "redditId": "1sk4j5o",
+    "author": "Important_Map6928",
+    "author_description": null,
+    "awards": [],
+    "comments": [
+      {
+        "id": "ofwmigk",
+        "author": "Important_Map6928",
+        "body": "**TL;DR:** 4-part BYOVD exploitation series on CVE-2025-8061 (Lenovo MSR driver) inspired by Quarkslab's blog post. One MSR read defeats kASLR. One MSR write hijacks the syscall handler. From there: token theft -&gt; SYSTEM -&gt; DSE bypass (or reflective loading) -&gt; unsigned rootkit.",
+        "score": 8,
+        "created_utc_ts": 1776071293,
+        "created_utc": "2026-04-13T09:08:13",
+        "permalink": "https://reddit.com/r/netsec/comments/1sk4j5o/cve20258061_from_userland_to_ring_0/ofwmigk/",
+        "parent_id": "t3_1sk4j5o",
+        "is_submitter": true
+      },
+      {
+        "id": "ofy9eov",
+        "author": "jonbonesjonesjohnson",
+        "body": "a few things from a fellow BYOVD researcher:   \n\\- stop milking the lenovo/throttlestop/2025 cve drivers - they are not in Windows blocklist yet but every decent EDR is blocking them. Go find new drivers and report them while you're at it, plenty of 0day ones to be found if you know where to look.  \n\\- Make it HVCI compatible by switching out the MSR write primitive (dead with mitigations) for VA/PA writes, its right there in the driver, check RE.  \n\\- DSE bypass also dead with mitigations, use the driver itself to run whatever arbitrary calls or data-only attacks in ring0 via one of the modern techniques (start with ROP gadgets on suspended threads, realize it will be dead too with kCET and find one of the better recent ones or find ur own)",
+        "score": 5,
+        "created_utc_ts": 1776092782,
+        "created_utc": "2026-04-13T15:06:22",
+        "permalink": "https://reddit.com/r/netsec/comments/1sk4j5o/cve20258061_from_userland_to_ring_0/ofy9eov/",
+        "parent_id": "t3_1sk4j5o",
+        "is_submitter": false
+      },
+      {
+        "id": "ofybz11",
+        "author": "Important_Map6928",
+        "body": "Thanks appreciate it. You’re totally right about those limitations and I'm well aware that most of the techniques I tried would probably be dead ends in future Windows builds.\n\nTo be honest, I’m currently a student, so using the Lenovo CVE was mainly just a stepping stone to familiarize myself with the mechanics of kernel exploitation and physical memory translation.\n\nNow that I have the foundation built, hunting for my own 0-day in a fresh driver and moving toward data-only attacks / VA-PA writes is exactly what's next on my list. Grateful for the technical roadmap and feedback :)",
+        "score": 2,
+        "created_utc_ts": 1776093470,
+        "created_utc": "2026-04-13T15:17:50",
+        "permalink": "https://reddit.com/r/netsec/comments/1sk4j5o/cve20258061_from_userland_to_ring_0/ofybz11/",
+        "parent_id": "t1_ofy9eov",
+        "is_submitter": true
+      }
+    ],
+    "created_utc": "2026-04-13T08:13:44",
+    "first_author_comment": "**TL;DR:** 4-part BYOVD exploitation series on CVE-2025-8061 (Lenovo MSR driver) inspired by Quarkslab's blog post. One MSR read defeats kASLR. One MSR write hijacks the syscall handler. From there: token theft -&gt; SYSTEM -&gt; DSE bypass (or reflective loading) -&gt; unsigned rootkit.",
+    "num_comments": 4,
+    "score": 18,
+    "subreddit": "netsec",
+    "tag": null,
+    "tags": [],
+    "title": "CVE-2025-8061: From User-land to Ring 0",
+    "updatedAt": "2026-04-13T20:31:16.272Z",
+    "upvote_ratio": 0.81,
+    "url": "https://reddit.com/r/netsec/comments/1sk4j5o/cve20258061_from_userland_to_ring_0/",
+    "versionList": [
+      "2025.0.0",
+      "8061.0.0",
+      "0.0.0"
+    ],
+    "classification": {
+      "securityType": [
+        "SECURITY"
+      ],
+      "componentType": []
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.0009668917942836875,
+        "timestampPredicted": "2026-04-13T16:01:15.679863+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": false
+  },
+  {
     "_id": "69dc0002da0850f8382c9ef2",
     "redditId": "1sjntfg",
     "author": "Machismo0311",
@@ -8,13 +126,13 @@
     "comments": [],
     "created_utc": "2026-04-12T19:21:19",
     "first_author_comment": null,
-    "num_comments": 0,
+    "num_comments": 1,
     "score": 1,
     "subreddit": "AndroidQuestions",
     "tag": "Rooting Help",
     "tags": [],
     "title": "SC9832E tablet stuck at BROM after FDL1 timeout — need confirmed working FDL files for tablet (not phone)",
-    "updatedAt": "2026-04-13T04:25:51.417Z",
+    "updatedAt": "2026-04-13T20:25:56.433Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/AndroidQuestions/comments/1sjntfg/sc9832e_tablet_stuck_at_brom_after_fdl1_timeout/",
     "versionList": [],
@@ -50,7 +168,7 @@
         "id": "ofjdkpo",
         "author": "stonerism",
         "body": "Great seeing the F5 folks continuing to do excellent security work! ",
-        "score": -6,
+        "score": -8,
         "created_utc_ts": 1775897780,
         "created_utc": "2026-04-11T08:56:20",
         "permalink": "https://reddit.com/r/netsec/comments/1si3xvv/claude_humans_vs_nginx_cve202627654/ofjdkpo/",
@@ -61,7 +179,7 @@
         "id": "ofjta1t",
         "author": "TheG0AT0fAllTime",
         "body": "r/netsec is being invaded by slop",
-        "score": 17,
+        "score": 19,
         "created_utc_ts": 1775905929,
         "created_utc": "2026-04-11T11:12:09",
         "permalink": "https://reddit.com/r/netsec/comments/1si3xvv/claude_humans_vs_nginx_cve202627654/ofjta1t/",
@@ -72,7 +190,7 @@
         "id": "ofjzf7x",
         "author": "Lowetheiy",
         "body": "This is useful work, how is it slop?",
-        "score": -6,
+        "score": -4,
         "created_utc_ts": 1775908544,
         "created_utc": "2026-04-11T11:55:44",
         "permalink": "https://reddit.com/r/netsec/comments/1si3xvv/claude_humans_vs_nginx_cve202627654/ofjzf7x/",
@@ -83,7 +201,7 @@
         "id": "ofk5t3n",
         "author": "JAD2017",
         "body": "Yup, now AI slop is the biggest internet threat! Omg the skynet takeover is upon us /s",
-        "score": -8,
+        "score": -6,
         "created_utc_ts": 1775910953,
         "created_utc": "2026-04-11T12:35:53",
         "permalink": "https://reddit.com/r/netsec/comments/1si3xvv/claude_humans_vs_nginx_cve202627654/ofk5t3n/",
@@ -94,7 +212,7 @@
         "id": "ofkr0y2",
         "author": "chfoo",
         "body": "I'm tired too of seeing these kind of posts where the end conclusion is that it was cheaper or faster with gen AI without any numbers backing that up. If you don't have to pay for compute resources and model training, then of course it would be faster or cheaper. \n\nWhether it's AI or traditional fuzzing, it's not a magic tool. There's going to be a tradeoff and it's frustrating that people are not understanding this.",
-        "score": 9,
+        "score": 8,
         "created_utc_ts": 1775917915,
         "created_utc": "2026-04-11T14:31:55",
         "permalink": "https://reddit.com/r/netsec/comments/1si3xvv/claude_humans_vs_nginx_cve202627654/ofkr0y2/",
@@ -105,13 +223,13 @@
     "created_utc": "2026-04-11T00:21:08",
     "first_author_comment": null,
     "num_comments": 10,
-    "score": 20,
+    "score": 21,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Claude + Humans vs nginx: CVE-2026-27654",
-    "updatedAt": "2026-04-13T04:31:07.149Z",
-    "upvote_ratio": 0.63,
+    "updatedAt": "2026-04-13T20:31:17.697Z",
+    "upvote_ratio": 0.64,
     "url": "https://reddit.com/r/netsec/comments/1si3xvv/claude_humans_vs_nginx_cve202627654/",
     "versionList": [
       "2026.0.0",
@@ -147,13 +265,13 @@
     "comments": [],
     "created_utc": "2026-04-10T12:10:15",
     "first_author_comment": null,
-    "num_comments": 11,
-    "score": 32,
+    "num_comments": 12,
+    "score": 33,
     "subreddit": "kubernetes",
     "tag": null,
     "tags": [],
     "title": "PSA: if your K8s operators have ClusterRole secret access, check how they handle namespace boundaries",
-    "updatedAt": "2026-04-11T22:38:34.666Z",
+    "updatedAt": "2026-04-13T18:40:30.275Z",
     "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/kubernetes/comments/1shkpf0/psa_if_your_k8s_operators_have_clusterrole_secret/",
     "versionList": [],
@@ -305,7 +423,7 @@
         "id": "of60o87",
         "author": "fisebuk",
         "body": "Authenticated XXE is interesting because most threat models downplay post-auth attack surface - in reality these post-auth vectors are way wider than people realize. Default Java XML parser with entities enabled is still somehow common, ngl. Multi-tenant cloud setup makes it worse since you might grab another customer's config files with API keys or creds sitting around.",
-        "score": 2,
+        "score": 3,
         "created_utc_ts": 1775733196,
         "created_utc": "2026-04-09T11:13:16",
         "permalink": "https://reddit.com/r/netsec/comments/1sfpmg9/reading_etcpasswd_via_translation_file_upload_in/of60o87/",
@@ -316,13 +434,13 @@
     "created_utc": "2026-04-08T11:03:55",
     "first_author_comment": "Six XML-based translation importers in Tolgee (Android XML, XLIFF, .resx, stringsdict) all used default Java parser settings with external entities enabled. Any authenticated user could upload a crafted file and read arbitrary files from the server. Confirmed on [app.tolgee.io](http://app.tolgee.io), their multi-tenant cloud. Fixed within a week.",
     "num_comments": 3,
-    "score": 19,
+    "score": 22,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Reading /etc/passwd via translation file upload in Tolgee's cloud platform (CVE-2026-32251, CVSS 9.3)",
-    "updatedAt": "2026-04-13T04:31:13.607Z",
-    "upvote_ratio": 0.89,
+    "updatedAt": "2026-04-13T20:31:24.253Z",
+    "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/netsec/comments/1sfpmg9/reading_etcpasswd_via_translation_file_upload_in/",
     "versionList": [
       "2026.0.0",
@@ -400,13 +518,13 @@
     "created_utc": "2026-04-08T07:01:17",
     "first_author_comment": null,
     "num_comments": 5,
-    "score": 35,
+    "score": 39,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Spooler Alert: Remote Unauth'd RCE-to-root Chain in CUPS",
-    "updatedAt": "2026-04-13T04:31:13.805Z",
-    "upvote_ratio": 0.9,
+    "updatedAt": "2026-04-13T20:31:24.479Z",
+    "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/netsec/comments/1sflk3t/spooler_alert_remote_unauthd_rcetoroot_chain_in/",
     "versionList": [],
     "classification": {
@@ -519,13 +637,13 @@
     "created_utc": "2026-04-07T20:31:22",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 12,
+    "score": 11,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-34197: ActiveMQ RCE via Jolokia API",
-    "updatedAt": "2026-04-13T04:31:15.618Z",
-    "upvote_ratio": 0.84,
+    "updatedAt": "2026-04-13T20:31:26.351Z",
+    "upvote_ratio": 0.8,
     "url": "https://reddit.com/r/netsec/comments/1sf7sno/cve202634197_activemq_rce_via_jolokia_api/",
     "versionList": [
       "2026.0.0",
@@ -562,13 +680,13 @@
     "created_utc": "2026-04-07T18:54:28",
     "first_author_comment": null,
     "num_comments": 7,
-    "score": 26,
+    "score": 28,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "The Race to Ship AI Tools Left Security Behind. Part 1: Sandbox Escape",
-    "updatedAt": "2026-04-13T04:31:17.306Z",
-    "upvote_ratio": 0.87,
+    "updatedAt": "2026-04-13T20:31:28.109Z",
+    "upvote_ratio": 0.9,
     "url": "https://reddit.com/r/netsec/comments/1sf550g/the_race_to_ship_ai_tools_left_security_behind/",
     "versionList": [
       "1.0.0"
@@ -1212,13 +1330,13 @@
     "created_utc": "2026-04-03T08:20:58",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 10,
+    "score": 9,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "New RCE in Control Web Panel (CVE-2025-70951)",
-    "updatedAt": "2026-04-13T04:31:24.507Z",
-    "upvote_ratio": 0.86,
+    "updatedAt": "2026-04-13T20:31:35.980Z",
+    "upvote_ratio": 0.85,
     "url": "https://reddit.com/r/netsec/comments/1sb7pr4/new_rce_in_control_web_panel_cve202570951/",
     "versionList": [
       "2025.0.0",
@@ -1255,13 +1373,13 @@
     "created_utc": "2026-04-02T13:35:22",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 26,
+    "score": 29,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Mongoose: Preauth RCE and mTLS Bypass on Millions of Devices",
-    "updatedAt": "2026-04-13T04:31:25.590Z",
-    "upvote_ratio": 0.86,
+    "updatedAt": "2026-04-13T20:31:37.110Z",
+    "upvote_ratio": 0.91,
     "url": "https://reddit.com/r/netsec/comments/1sahl4e/mongoose_preauth_rce_and_mtls_bypass_on_millions/",
     "versionList": [],
     "classification": {
@@ -1298,7 +1416,7 @@
     "tag": null,
     "tags": [],
     "title": "You’re Not Supposed To ShareFile With Everyone (Progress ShareFile Pre-Auth RCE Chain CVE-2026-2699 &amp; CVE-2026-2701) - watchTowr Labs",
-    "updatedAt": "2026-04-13T04:31:26.452Z",
+    "updatedAt": "2026-04-13T20:31:37.952Z",
     "upvote_ratio": 0.9,
     "url": "https://reddit.com/r/netsec/comments/1saebwi/youre_not_supposed_to_sharefile_with_everyone/",
     "versionList": [
@@ -1505,13 +1623,13 @@
     "created_utc": "2026-03-31T19:57:17",
     "first_author_comment": null,
     "num_comments": 11,
-    "score": 66,
+    "score": 64,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "MAD Bugs: Claude Wrote a Full FreeBSD Remote Kernel RCE with Root Shell (CVE-2026-4747)",
-    "updatedAt": "2026-04-13T04:31:27.037Z",
-    "upvote_ratio": 0.86,
+    "updatedAt": "2026-04-13T20:31:38.557Z",
+    "upvote_ratio": 0.85,
     "url": "https://reddit.com/r/netsec/comments/1s8y8pp/mad_bugs_claude_wrote_a_full_freebsd_remote/",
     "versionList": [
       "2026.0.0",
@@ -1603,12 +1721,12 @@
     "created_utc": "2026-03-29T20:10:23",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 29,
+    "score": 28,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Please, We Beg, Just One Weekend Free Of Appliances (Citrix NetScaler CVE-2026-3055 Memory Overread Part 2) - watchTowr Labs",
-    "updatedAt": "2026-04-13T04:31:34.198Z",
+    "updatedAt": "2026-04-13T20:31:46.120Z",
     "upvote_ratio": 0.85,
     "url": "https://reddit.com/r/netsec/comments/1s75kb9/please_we_beg_just_one_weekend_free_of_appliances/",
     "versionList": [
@@ -1727,7 +1845,7 @@
     "tag": null,
     "tags": [],
     "title": "The Sequels Are Never As Good, But We're Still In Pain (Citrix NetScaler CVE-2026-3055 Memory Overread) - watchTowr Labs",
-    "updatedAt": "2026-04-13T04:31:35.802Z",
+    "updatedAt": "2026-04-13T10:31:35.057Z",
     "upvote_ratio": 0.89,
     "url": "https://reddit.com/r/netsec/comments/1s6bdxi/the_sequels_are_never_as_good_but_were_still_in/",
     "versionList": [
@@ -6717,105 +6835,5 @@
         "UNKNOWN"
       ]
     }
-  },
-  {
-    "_id": "6991bbe205a8a7435b3746cd",
-    "redditId": "1r5bn1t",
-    "author": "IndividualRevenue995",
-    "author_description": null,
-    "awards": [],
-    "comments": [
-      {
-        "id": "o5k2zbr",
-        "author": "Kobi_Blade",
-        "body": "There is no such [vulnerability](https://nvd.nist.gov/vuln/detail/CVE-2026-441), go spread your spam elsewhere.\n\nThe latest update fixes [CVE-2026-2441](https://nvd.nist.gov/vuln/detail/cve-2026-2441), which has nothing to do with Crypto Wallets.\n\nMicrosoft Edge like most Chromium browsers pushes automatic updates in rollout.",
-        "score": 3,
-        "created_utc_ts": 1771183434,
-        "created_utc": "2026-02-15T19:23:54",
-        "permalink": "https://reddit.com/r/MicrosoftEdge/comments/1r5bn1t/zeroday_exploit_cve2026441_is_your_crypto_wallet/o5k2zbr/",
-        "parent_id": "t3_1r5bn1t",
-        "is_submitter": false
-      }
-    ],
-    "created_utc": "2026-02-15T10:43:31",
-    "first_author_comment": null,
-    "num_comments": 1,
-    "score": 0,
-    "subreddit": "MicrosoftEdge",
-    "tag": "BUG",
-    "tags": [
-      "BUG"
-    ],
-    "title": "Zero-Day EXPLOIT (CVE-2026-441): Is Your Crypto Wallet at Risk?",
-    "updatedAt": "2026-02-17T20:31:16.025Z",
-    "upvote_ratio": 0.2,
-    "url": "https://reddit.com/r/MicrosoftEdge/comments/1r5bn1t/zeroday_exploit_cve2026441_is_your_crypto_wallet/",
-    "versionList": [
-      "2026.0.0",
-      "441.0.0"
-    ],
-    "classification": {
-      "componentType": [
-        "BITCOIN"
-      ],
-      "securityType": [
-        "SECURITY"
-      ]
-    },
-    "metadata": {
-      "predicted": {
-        "isUpdateRelated": false,
-        "positiveScore": 0.0009668917942836875,
-        "timestampPredicted": "2026-02-16T08:01:33.833719+00:00"
-      },
-      "labeled": {
-        "isUpdateRelated": null
-      }
-    },
-    "isAboutCve": true,
-    "isAboutLatestUpdate": false
-  },
-  {
-    "_id": "698ff9aa05a8a7435b371c35",
-    "redditId": "1r44yxo",
-    "author": "RemmeM89",
-    "author_description": "Just saw this nasty Kyverno CVE that's a perfect example of why I'm skeptical of admission controllers with god-mode RBAC.\n\nCVE-2026-22039 lets any user with namespaced Policy perms exfiltrate data from ANY namespace by abusing api Call variable substitution. Attacker creates a policy in their restricted namespace, triggers it with annotations pointing to kube-system resources, and boom- Kyverno's cluster-admin SA does the dirty work for them. \n\nFixed in 1.16.3/1.15.3 but this highlights how these security tools can become the biggest attack vector.",
-    "awards": [],
-    "comments": [],
-    "created_utc": "2026-02-13T23:42:45",
-    "first_author_comment": null,
-    "num_comments": 19,
-    "score": 73,
-    "subreddit": "kubernetes",
-    "tag": null,
-    "tags": [],
-    "title": "CVE-2026-22039: How an admission controller vulnerability turned Kubernetes namespaces into a security illusion",
-    "updatedAt": "2026-02-17T20:30:26.243Z",
-    "upvote_ratio": 0.89,
-    "url": "https://reddit.com/r/kubernetes/comments/1r44yxo/cve202622039_how_an_admission_controller/",
-    "versionList": [
-      "2026.0.0",
-      "22039.0.0"
-    ],
-    "classification": {
-      "securityType": [
-        "SECURITY"
-      ],
-      "componentType": [
-        "CONTAINERIZATION"
-      ]
-    },
-    "metadata": {
-      "predicted": {
-        "isUpdateRelated": false,
-        "positiveScore": 4.060701217622475e-05,
-        "timestampPredicted": "2026-02-14T20:01:39.026248+00:00"
-      },
-      "labeled": {
-        "isUpdateRelated": null
-      }
-    },
-    "isAboutCve": true,
-    "isAboutLatestUpdate": true
   }
 ]
