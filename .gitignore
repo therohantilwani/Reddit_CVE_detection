@@ -2,3 +2,6 @@
 __pycache__/
 *.pyc
 nul
+
+# Local Environment Variables (API Keys)
+.env
