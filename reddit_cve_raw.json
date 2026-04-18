@@ -1,5 +1,424 @@
 [
   {
+    "_id": "69e2b7b3da0850f8382f0d5e",
+    "redditId": "1so5s1j",
+    "author": "TakesThisSeriously",
+    "author_description": "Line-by-line analysis of BlueHammer (FunnyApp.cpp), the CVE-2026-33825 PoC. The exploit chains three mechanisms — a batch oplock on RstrtMgr.dll, NT object manager symlinks (not NTFS symlinks), and a fake Cloud Files sync provider — to get Defender to read the SAM database at SYSTEM privilege with no admin required.\n\nThe part most writeups miss: the filestoleak array has SYSTEM and SECURITY hives commented out, not deleted. The published PoC reads SAM. The author wrote the full credential dump and chose what to ship. Two uncommented lines is the distance between the demo and domain compromise.",
+    "awards": [],
+    "comments": [],
+    "created_utc": "2026-04-17T16:22:09",
+    "first_author_comment": null,
+    "num_comments": 1,
+    "score": 1,
+    "subreddit": "windows",
+    "tag": "Insider Bug",
+    "tags": [
+      "Insider Bug"
+    ],
+    "title": "Windows Defender CVE-2026-33825: How a batch oplock, a fake OneDrive provider, and two comment characters expose your full credential store",
+    "updatedAt": "2026-04-18T00:01:15.724Z",
+    "upvote_ratio": 1,
+    "url": "https://reddit.com/r/windows/comments/1so5s1j/windows_defender_cve202633825_how_a_batch_oplock/",
+    "versionList": [
+      "2026.0.0",
+      "33825.0.0"
+    ],
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 8.559823522929769e-05,
+        "timestampPredicted": "2026-04-18T00:01:15.335380+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": false,
+    "classification": {
+      "componentType": [
+        "OS"
+      ]
+    }
+  },
+  {
+    "_id": "69e2b728da0850f8382f0c86",
+    "redditId": "1sngr5c",
+    "author": "tigitz",
+    "author_description": null,
+    "awards": [],
+    "comments": [
+      {
+        "id": "oglmdvu",
+        "author": "TheFlx",
+        "body": "Can’t wait for my apps to randomly start deploying to Laravel Cloud without even having that set up",
+        "score": 37,
+        "created_utc_ts": 1776375208,
+        "created_utc": "2026-04-16T21:33:28",
+        "permalink": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/oglmdvu/",
+        "parent_id": "t3_1sngr5c",
+        "is_submitter": false
+      },
+      {
+        "id": "oglpnc6",
+        "author": "rsmike",
+        "body": "here's your $5 credit",
+        "score": 13,
+        "created_utc_ts": 1776376202,
+        "created_utc": "2026-04-16T21:50:02",
+        "permalink": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/oglpnc6/",
+        "parent_id": "t1_oglmdvu",
+        "is_submitter": false
+      },
+      {
+        "id": "oglqatr",
+        "author": "MysteriousCoconut31",
+        "body": "How does this work if I already have an infra plugin installed like the AWS deployment skill? Does one take precedence over the other? Is it going to poison my preferred guidance from the AWS plugin?\n\nThis is a genuine question I’m asking in good faith. I’ve been critical of Laravel’s recent direction, but maybe this was considered already and the impact is overblown?",
+        "score": 5,
+        "created_utc_ts": 1776376402,
+        "created_utc": "2026-04-16T21:53:22",
+        "permalink": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/oglqatr/",
+        "parent_id": "t3_1sngr5c",
+        "is_submitter": false
+      },
+      {
+        "id": "oglr8cr",
+        "author": "DvD_cD",
+        "body": "Taylor (in r/laravel) mentioned that they moved this section to a different file already",
+        "score": 7,
+        "created_utc_ts": 1776376688,
+        "created_utc": "2026-04-16T21:58:08",
+        "permalink": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/oglr8cr/",
+        "parent_id": "t1_oglqatr",
+        "is_submitter": false
+      },
+      {
+        "id": "oglvofv",
+        "author": "Curtilia",
+        "body": "So it begins",
+        "score": 19,
+        "created_utc_ts": 1776378099,
+        "created_utc": "2026-04-16T22:21:39",
+        "permalink": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/oglvofv/",
+        "parent_id": "t3_1sngr5c",
+        "is_submitter": false
+      },
+      {
+        "id": "oglyig5",
+        "author": "fraki67",
+        "body": "Switch to symfony.",
+        "score": 38,
+        "created_utc_ts": 1776379030,
+        "created_utc": "2026-04-16T22:37:10",
+        "permalink": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/oglyig5/",
+        "parent_id": "t3_1sngr5c",
+        "is_submitter": false
+      },
+      {
+        "id": "ogm4hay",
+        "author": "NorthernCobraChicken",
+        "body": "Am I about to witness, first hand, the gradual downfall of laravel?\n\nAre we going to go back to the good old days of symphony only?? ",
+        "score": 20,
+        "created_utc_ts": 1776381009,
+        "created_utc": "2026-04-16T23:10:09",
+        "permalink": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/ogm4hay/",
+        "parent_id": "t3_1sngr5c",
+        "is_submitter": false
+      },
+      {
+        "id": "ogm8gf3",
+        "author": "rocketpastsix",
+        "body": "It began a while ago with some hires they made and then the series a",
+        "score": 9,
+        "created_utc_ts": 1776382367,
+        "created_utc": "2026-04-16T23:32:47",
+        "permalink": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/ogm8gf3/",
+        "parent_id": "t1_oglvofv",
+        "is_submitter": false
+      },
+      {
+        "id": "ogmzbm4",
+        "author": "Sharchimedes",
+        "body": "We’re about to witness the downfall of just about everything.",
+        "score": 27,
+        "created_utc_ts": 1776391929,
+        "created_utc": "2026-04-17T02:12:09",
+        "permalink": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/ogmzbm4/",
+        "parent_id": "t1_ogm4hay",
+        "is_submitter": false
+      },
+      {
+        "id": "ogn0z16",
+        "author": "CSAtWitsEnd",
+        "body": "Last I looked at it, I felt that it was missing an extremely obvious \"happy path\" to setup for people who are very new to the framework. Which makes...getting your hands in and playing around / learning kinda tedious.\n\nMeanwhile, Laravel has that down, but becomes cumbersome when you need to deviate from that happy path.",
+        "score": 16,
+        "created_utc_ts": 1776392514,
+        "created_utc": "2026-04-17T02:21:54",
+        "permalink": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/ogn0z16/",
+        "parent_id": "t1_oglyig5",
+        "is_submitter": false
+      },
+      {
+        "id": "ogn50ns",
+        "author": "user08182019",
+        "body": "Lambos don’t pay for themselves guys. Pony up.",
+        "score": 33,
+        "created_utc_ts": 1776393977,
+        "created_utc": "2026-04-17T02:46:17",
+        "permalink": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/ogn50ns/",
+        "parent_id": "t3_1sngr5c",
+        "is_submitter": false
+      },
+      {
+        "id": "ogna5ia",
+        "author": "UnmaintainedDonkey",
+        "body": "Stop using Laravel. PHP has symfony, thats not evil like laravel.",
+        "score": 15,
+        "created_utc_ts": 1776395949,
+        "created_utc": "2026-04-17T03:19:09",
+        "permalink": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/ogna5ia/",
+        "parent_id": "t3_1sngr5c",
+        "is_submitter": false
+      },
+      {
+        "id": "ognlf9i",
+        "author": "Juntaur",
+        "body": "Good old Codeigniter too",
+        "score": 4,
+        "created_utc_ts": 1776400698,
+        "created_utc": "2026-04-17T04:38:18",
+        "permalink": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/ognlf9i/",
+        "parent_id": "t1_ogna5ia",
+        "is_submitter": false
+      },
+      {
+        "id": "ognw3ha",
+        "author": "Jebble",
+        "body": "I mean, it's true so the agents aren't wrong there ",
+        "score": -2,
+        "created_utc_ts": 1776405745,
+        "created_utc": "2026-04-17T06:02:25",
+        "permalink": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/ognw3ha/",
+        "parent_id": "t3_1sngr5c",
+        "is_submitter": false
+      },
+      {
+        "id": "ogo1lhr",
+        "author": "punkpang",
+        "body": "In 2019, Laravel introduced Ignition - a \"beautiful\" error page (everything is beautiful from Laravel's POV).\n\nIgnition could run migrations, generate APP\\_KEY, modify files - all good for dev experience, which sucks when you can run this in production.\n\n  \nThis lead to CVE-2021-3129 -&gt; unsafe use of file\\_get\\_contents / file\\_put\\_contents. Debug mode had to be on, patch was released quickly but let's look at something - in order to promote yet another bad clone of existing tools, we got an error page that.. well, allows RCE.\n\nThen there's the whole story with PEST and 50 different attempts at SPA authentication which means the framework itself is just bloat and platform for advertising crap products. This is the part I really hate about Laravel   - pushing solutions that no one needs, just to help the \"elite\" jump on the train. And this sucks. \n\nI'm ok with making money through Laravel, incredible amount of time has been invested into it, but these ad tactics - no one likes them. Framework, and ecosystem, will inevitably end up shittified and fubar'd.\n\n  \nI dislike the framework, the way certain individuals around it behave (irresponsibly and like drunken rock stars), but it is a shame it's going this way. ",
+        "score": 11,
+        "created_utc_ts": 1776408519,
+        "created_utc": "2026-04-17T06:48:39",
+        "permalink": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/ogo1lhr/",
+        "parent_id": "t3_1sngr5c",
+        "is_submitter": false
+      },
+      {
+        "id": "ogonr8f",
+        "author": "yourteam",
+        "body": "I don't get how people still use Laravel while symfony is better in all aspects but overbloated plug and olay",
+        "score": 1,
+        "created_utc_ts": 1776420309,
+        "created_utc": "2026-04-17T10:05:09",
+        "permalink": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/ogonr8f/",
+        "parent_id": "t3_1sngr5c",
+        "is_submitter": false
+      },
+      {
+        "id": "ogonsb1",
+        "author": "qooplmao",
+        "body": "`artisan` as the CLI always gets me. You're trying too hard, Taylor.",
+        "score": 2,
+        "created_utc_ts": 1776420324,
+        "created_utc": "2026-04-17T10:05:24",
+        "permalink": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/ogonsb1/",
+        "parent_id": "t1_ogo1lhr",
+        "is_submitter": false
+      },
+      {
+        "id": "ogpdaws",
+        "author": "arhimedosin",
+        "body": "Mezzio",
+        "score": 2,
+        "created_utc_ts": 1776430297,
+        "created_utc": "2026-04-17T12:51:37",
+        "permalink": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/ogpdaws/",
+        "parent_id": "t1_ogna5ia",
+        "is_submitter": false
+      },
+      {
+        "id": "ogpxubr",
+        "author": "EQuillers",
+        "body": "Maybe its time for a breath of fresh air in the space.",
+        "score": 3,
+        "created_utc_ts": 1776436350,
+        "created_utc": "2026-04-17T14:32:30",
+        "permalink": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/ogpxubr/",
+        "parent_id": "t3_1sngr5c",
+        "is_submitter": false
+      },
+      {
+        "id": "ogqr2nz",
+        "author": "No_Mark_5487",
+        "body": "Aguante laravel y las Ladyboy 😂",
+        "score": 0,
+        "created_utc_ts": 1776444322,
+        "created_utc": "2026-04-17T16:45:22",
+        "permalink": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/ogqr2nz/",
+        "parent_id": "t3_1sngr5c",
+        "is_submitter": false
+      },
+      {
+        "id": "ogsghlk",
+        "author": "IHateHPPrinters",
+        "body": "I'm a beginner trying to learn PHP and laravel for its guides and ease of use. Is it something to stay away from now??",
+        "score": 2,
+        "created_utc_ts": 1776461776,
+        "created_utc": "2026-04-17T21:36:16",
+        "permalink": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/ogsghlk/",
+        "parent_id": "t3_1sngr5c",
+        "is_submitter": false
+      },
+      {
+        "id": "ogsrs18",
+        "author": "frankyfrankfrank",
+        "body": "The issues raised here are more at the business level. They're valid criticisms, but not really the concern of a programming novice.  \n  \nIf Laravel helps you learn how to code right now because of the available help and ease-of-use, then I'd continue on at least for a little while.  \nLearning Laravel isn't going to hinder you from learning any other framework or language later on. The principles of programming apply to all.\n\nDefinitely explore other languages, frameworks... but build on what you've already learned.",
+        "score": 1,
+        "created_utc_ts": 1776465518,
+        "created_utc": "2026-04-17T22:38:38",
+        "permalink": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/ogsrs18/",
+        "parent_id": "t1_ogsghlk",
+        "is_submitter": false
+      },
+      {
+        "id": "ogsxjbl",
+        "author": "Kryobeam66",
+        "body": "Now that I've read this it makes so much sense. I was building a small personal app for work and months before when I did research on how to host it AWS and other sites were recommended to me. About 2 weeks ago when I actually started building and wanted to deploy chatgpt suggested it to me in the same way the article described. Nevertheless for the small project I was doing it was a really good launch and I forget the situation. I just monitor my usage and if my team reported anything on the app that's an issue I just make the changes and commit to GitHub and it does the rest.",
+        "score": 1,
+        "created_utc_ts": 1776467507,
+        "created_utc": "2026-04-17T23:11:47",
+        "permalink": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/ogsxjbl/",
+        "parent_id": "t3_1sngr5c",
+        "is_submitter": false
+      }
+    ],
+    "created_utc": "2026-04-16T21:17:16",
+    "first_author_comment": null,
+    "num_comments": 45,
+    "score": 82,
+    "subreddit": "PHP",
+    "tag": null,
+    "tags": [],
+    "title": "Laravel raised money and now injects ads directly into your agent",
+    "updatedAt": "2026-04-18T02:39:24.679Z",
+    "upvote_ratio": 0.88,
+    "url": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/",
+    "versionList": [],
+    "isAboutCve": false,
+    "isAboutLatestUpdate": false
+  },
+  {
+    "_id": "69e2b49fda0850f8382f0823",
+    "redditId": "1snem8w",
+    "author": "r3verii",
+    "author_description": "u/albinowax  ’s work on request smuggling has always inspired me. I’ve followed his research, watched his talks at DEFCON and BlackHat, and spent time experimenting with his labs and tooling.\n\nComing from a web security background, I’ve explored vulnerabilities both from a black-box and white-box perspective — understanding not just how to exploit them, but also the exact lines of code responsible for issues like SQLi, XSS, and broken access control.\n\nRequest smuggling, however, always felt different. It remained something I could detect and exploit… but never fully trace down to its root cause in real-world server implementations.\n\nA few months ago, I decided to go deeper into networking and protocol internals, and now, months later, I can say that I “might” have figured out how the internet works😂  \nThis research on HAProxy (HTTP/3, standalone mode) is the result of that journey — finally connecting the dots between protocol behavior and the actual code paths leading to the bug.\n\n(Yes, I used AI 😉 )",
+    "awards": [],
+    "comments": [],
+    "created_utc": "2026-04-16T19:59:49",
+    "first_author_comment": null,
+    "num_comments": 5,
+    "score": 28,
+    "subreddit": "netsec",
+    "tag": null,
+    "tags": [],
+    "title": "HAProxy HTTP/3 -&gt; HTTP/1 Desync: Cross-Protocol Smuggling via a Standalone QUIC FIN (CVE-2026-33555)",
+    "updatedAt": "2026-04-18T02:31:05.993Z",
+    "upvote_ratio": 0.84,
+    "url": "https://reddit.com/r/netsec/comments/1snem8w/haproxy_http3_http1_desync_crossprotocol/",
+    "versionList": [
+      "3.0.0",
+      "1.0.0",
+      "2026.0.0",
+      "33555.0.0"
+    ],
+    "isAboutCve": true,
+    "isAboutLatestUpdate": false
+  },
+  {
+    "_id": "69e2b4f5da0850f8382f08d2",
+    "redditId": "1sm4uxq",
+    "author": "Equivalent_Drive_976",
+    "author_description": "Not sure if anyone else experienced this.\n\nI have 2 detections in copy activities from my ASR (Azure Site Recovery.... not attack surface reduct) to Azure.\n\nThe alerts are pretty similar. The source of detection is: (masking some info below with XXXXX)\n\nD:\\\\PSCache\\\\15a4a900-XXXX-XXXX-9XXX-9cXXXXXXXXXX\\\\{470XXXX4-5XXX-4XXX-AXXX-26XXXXXXXXXX}\\\\43XXXXXX-88XX-54XX-baXX-5d5XXXXXXXXX\\\\diffsync\\\\44bXXXXX-39XX-4XXX-80XXXXXXXXXXXXXXX\\\\pre\\_completed\\_ediffcompleted\\_diff\\_P134XXXXXXXXXXXXX\\_41XXXX2\\_1\\_E13XXXXXXXXXXXXXXX1\\_41XXXX7\\_WE1.dat\n\n  \nThe \"threats\" found by Defender were:\n\n1) Exploit:O97M/CVE-2017-11882.A in one file \".dat\" file\n\nor\n\n2) Exploit:Win32/Hitbrovi.A!dha in another file \".dat\" file\n\n  \nThe alerts were informational, meaning Defender simply deleted the temp file and i have no way to obtain a copy from those dat files.\n\n\n\nFrom the paths (like in example above), I could safely assume and later confirm:\n\n\\- Paths were created as temporary artifacts by ASR - Azure Site Recovery during the copies\n\n\\- the \"diff\" part of the file indicates (likely) a differential copy being made by ASR (meaning it could be files or pieces of files from one of my VMs)\n\n\\- the long strings (AI tools called them GUIDs) used to name the subfolders of the path hosting the .dat file are not direct reference to any of my VMs or servers (they are not VM IDs or disk identifiers)\n\n\\- asking my IT colleague to navigate to connect to the ASR server, and navigate to those folders, she found temporary json files (likely operational logs from ASR) indicating the actual SourceHostName of the detection \\[very ineffective way to catch the source of the \"detected\" file that was manipulated by ASR diff copy\\]\n\n\\- running full Defender scans in both source host (server being copied) and ASR server did not find anything - meaning I have no idea which original file (being read by ASR) generated the Defender alert \\[there are no .DAT files in my VMs to be copied by ASR\\]\n\n\\- I have no threats detected elsewhere (no malware present in any disk, server or laptop across the firm)\n\n\\- I have multiple additional detection strategies in place that I test and deploy from Defender/Sentinel Content Hub (customized KQL searches turned into custom detections), meaning, malware activity (including download, execution, lateral movement, escal. of privileges) would be likely detected by Defender or any other MS security stack software we have (including identity, cloud, office, CommonLogs etc.)\n\n  \nDid anyone else saw this happening with ASR copies? Or something that comes to your mind?\n\nDoes anyone has any method to inspect these Azure Site Recovery temporary files if they get flagged by defender?\n\n\n\nthank you.",
+    "awards": [],
+    "comments": [],
+    "created_utc": "2026-04-15T12:37:24",
+    "first_author_comment": null,
+    "num_comments": 1,
+    "score": 3,
+    "subreddit": "AZURE",
+    "tag": "Question",
+    "tags": [
+      "Question"
+    ],
+    "title": "Defender detecting false-positive malware in Azure Site Recovery activities",
+    "updatedAt": "2026-04-18T02:32:32.592Z",
+    "upvote_ratio": 1,
+    "url": "https://reddit.com/r/AZURE/comments/1sm4uxq/defender_detecting_falsepositive_malware_in_azure/",
+    "versionList": [],
+    "isAboutCve": true,
+    "isAboutLatestUpdate": false
+  },
+  {
+    "_id": "69e2b491da0850f8382f0810",
+    "redditId": "1slty6n",
+    "author": "Isaac24r",
+    "author_description": "The ESP32 chip is in over a billion different devices, even though it’s known to have vulnerabilities that can’t be patched (CVE-2025-27840, CVE-2019-15894, CVE-2025-66409, CVE-2025-65821, CVE-2025-65822, CVE-2026-23833)\n\nBlueBorne showcased how these exploits could be abused, and I think it’s only a matter of time before your smart fridge or whatever gets compromised. Now seems like the perfect time for a bad actor to step in against the US or Anthropic as well, since fingers will all be pointed at Iran and Russia. Plus mythos will quickly patch most things that can be patched, but nobody’s had time to implement those fixes yet. Pair that with the fact lots of the companies building the esp32 chips are state sponsored by china ($1.5b+ in funding for them last year). I just don’t like how all these things are adding up here but maybe I’m just being paranoid idk",
+    "awards": [],
+    "comments": [],
+    "created_utc": "2026-04-15T03:00:12",
+    "first_author_comment": null,
+    "num_comments": 9,
+    "score": 22,
+    "subreddit": "IOT",
+    "tag": null,
+    "tags": [],
+    "title": "Bluetooth on IoT devices",
+    "updatedAt": "2026-04-18T02:30:50.950Z",
+    "upvote_ratio": 1,
+    "url": "https://reddit.com/r/IOT/comments/1slty6n/bluetooth_on_iot_devices/",
+    "versionList": [],
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true
+  },
+  {
+    "_id": "69e2b72bda0850f8382f0c91",
+    "redditId": "1sl4z6i",
+    "author": "naderman",
+    "author_description": "**Please immediately update Composer to version 2.9.6 or 2.2.27 (LTS)** by running `composer.phar self-update`. The new releases include fixes for two command injection security vulnerabilities in the Perforce VCS driver. [CVE-2026-40261](https://github.com/composer/composer/security/advisories/GHSA-gqw4-4w2p-838q) was reported by [Koda Reef](https://github.com/kodareef5) and [CVE-2026-40176](https://github.com/composer/composer/security/advisories/GHSA-wg36-wvj6-r67p) was reported by [saku0512](https://github.com/Saku0512).\n\n**To the best of our knowledge, neither vulnerability has been exploited prior to publication.**",
+    "awards": [],
+    "comments": [],
+    "created_utc": "2026-04-14T10:40:33",
+    "first_author_comment": null,
+    "num_comments": 7,
+    "score": 37,
+    "subreddit": "PHP",
+    "tag": null,
+    "tags": [],
+    "title": "Composer 2.9.6: Perforce Driver Command Injection Vulnerabilities (CVE-2026-40261, CVE-2026-40176)",
+    "updatedAt": "2026-04-18T02:39:28.354Z",
+    "upvote_ratio": 0.95,
+    "url": "https://reddit.com/r/PHP/comments/1sl4z6i/composer_296_perforce_driver_command_injection/",
+    "versionList": [
+      "2.9.6",
+      "2026.0.0",
+      "40261.0.0",
+      "2026.0.0",
+      "40176.0.0"
+    ],
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true
+  },
+  {
     "_id": "69dcfe2ada0850f8382cf245",
     "redditId": "1skazzv",
     "author": "JivaSecurity",
@@ -9,13 +428,13 @@
     "created_utc": "2026-04-13T13:34:19",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 6,
+    "score": 10,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-22666: Dolibarr 23.0.0 dol_eval() whitelist bypass -&gt; RCE (full write-up + PoC)",
-    "updatedAt": "2026-04-13T20:31:14.789Z",
-    "upvote_ratio": 0.88,
+    "updatedAt": "2026-04-18T02:31:08.802Z",
+    "upvote_ratio": 0.79,
     "url": "https://reddit.com/r/netsec/comments/1skazzv/cve202622666_dolibarr_2300_dol_eval_whitelist/",
     "versionList": [
       "2026.0.0",
@@ -39,7 +458,18 @@
       }
     },
     "isAboutCve": true,
-    "isAboutLatestUpdate": true
+    "isAboutLatestUpdate": true,
+    "detectedCVEs": [
+      {
+        "cveId": [
+          "CVE-2026-22666"
+        ],
+        "commentText": "CVE-2026-22666: Dolibarr 23.0.0 dol_eval() whitelist bypass -> RCE (full write-up + PoC)",
+        "linkToComment": "",
+        "commentDate": "2026-04-13 13:34:19+00:00",
+        "cveChangeHistory": "1. 2026-04-07T13:16:45.200 | New CVE Received | source=disclosure@vulncheck.com | changeId=16E3E151-AE32-4902-A313-FBB9F8699120\n   - Added Description: Dolibarr ERP/CRM versions prior to 23.0.2 contain an authenticated remote code execution vulnerability in the dol_eval_standard() function that fails to apply forbidden string checks in whitelist mode and does not detect PHP dynamic callable syntax. Attackers with administrator privileges can inject malicious payloads through computed extrafields or other evaluation paths using PHP dynamic callable syntax to bypass validation and achieve arbitrary command execution via eval().\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:H/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CVSS V3.1: AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-95\n   - Added Reference: https://github.com/Dolibarr/dolibarr/commit/6f425521b3e6f9f27eca05228e02093dbaa40dea\n   - Added Reference: https://github.com/Dolibarr/dolibarr/releases/tag/23.0.2\n   - Added Reference: https://github.com/Dolibarr/dolibarr/security/advisories/GHSA-vmvw-qq8w-wqhg\n   - Added Reference: https://jivasecurity.com/writeups/dolibarr-remote-code-execution-cve-2026-22666\n   - Added Reference: https://www.vulncheck.com/advisories/dolibarr-erp-crm-authenticated-rce-via-dol-eval-standard\n"
+      }
+    ]
   },
   {
     "_id": "69dca9d4da0850f8382cede9",
@@ -52,7 +482,7 @@
         "id": "ofwmigk",
         "author": "Important_Map6928",
         "body": "**TL;DR:** 4-part BYOVD exploitation series on CVE-2025-8061 (Lenovo MSR driver) inspired by Quarkslab's blog post. One MSR read defeats kASLR. One MSR write hijacks the syscall handler. From there: token theft -&gt; SYSTEM -&gt; DSE bypass (or reflective loading) -&gt; unsigned rootkit.",
-        "score": 8,
+        "score": 6,
         "created_utc_ts": 1776071293,
         "created_utc": "2026-04-13T09:08:13",
         "permalink": "https://reddit.com/r/netsec/comments/1sk4j5o/cve20258061_from_userland_to_ring_0/ofwmigk/",
@@ -63,7 +493,7 @@
         "id": "ofy9eov",
         "author": "jonbonesjonesjohnson",
         "body": "a few things from a fellow BYOVD researcher:   \n\\- stop milking the lenovo/throttlestop/2025 cve drivers - they are not in Windows blocklist yet but every decent EDR is blocking them. Go find new drivers and report them while you're at it, plenty of 0day ones to be found if you know where to look.  \n\\- Make it HVCI compatible by switching out the MSR write primitive (dead with mitigations) for VA/PA writes, its right there in the driver, check RE.  \n\\- DSE bypass also dead with mitigations, use the driver itself to run whatever arbitrary calls or data-only attacks in ring0 via one of the modern techniques (start with ROP gadgets on suspended threads, realize it will be dead too with kCET and find one of the better recent ones or find ur own)",
-        "score": 5,
+        "score": 8,
         "created_utc_ts": 1776092782,
         "created_utc": "2026-04-13T15:06:22",
         "permalink": "https://reddit.com/r/netsec/comments/1sk4j5o/cve20258061_from_userland_to_ring_0/ofy9eov/",
@@ -85,13 +515,13 @@
     "created_utc": "2026-04-13T08:13:44",
     "first_author_comment": "**TL;DR:** 4-part BYOVD exploitation series on CVE-2025-8061 (Lenovo MSR driver) inspired by Quarkslab's blog post. One MSR read defeats kASLR. One MSR write hijacks the syscall handler. From there: token theft -&gt; SYSTEM -&gt; DSE bypass (or reflective loading) -&gt; unsigned rootkit.",
     "num_comments": 4,
-    "score": 18,
+    "score": 28,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2025-8061: From User-land to Ring 0",
-    "updatedAt": "2026-04-13T20:31:16.272Z",
-    "upvote_ratio": 0.81,
+    "updatedAt": "2026-04-18T02:31:10.430Z",
+    "upvote_ratio": 0.86,
     "url": "https://reddit.com/r/netsec/comments/1sk4j5o/cve20258061_from_userland_to_ring_0/",
     "versionList": [
       "2025.0.0",
@@ -115,7 +545,18 @@
       }
     },
     "isAboutCve": true,
-    "isAboutLatestUpdate": false
+    "isAboutLatestUpdate": false,
+    "detectedCVEs": [
+      {
+        "cveId": [
+          "CVE-2025-8061"
+        ],
+        "commentText": "**TL;DR:** 4-part BYOVD exploitation series on CVE-2025-8061 (Lenovo MSR driver) inspired by Quarkslab's blog post.",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1sk4j5o/cve20258061_from_userland_to_ring_0/ofwmigk/",
+        "commentDate": "2026-04-13 09:08:13+00:00",
+        "cveChangeHistory": "1. 2025-09-11T19:15:35.060 | New CVE Received | source=psirt@lenovo.com | changeId=A1341148-DB95-45BC-99AF-49533567E013\n   - Added Description: A potential insufficient access control vulnerability was reported in the Lenovo Dispatcher 3.0 and Dispatcher 3.1 drivers used by some Lenovo consumer notebooks that could allow an authenticated local user to execute code with elevated privileges. The Lenovo Dispatcher 3.2 driver is not affected. This vulnerability does not affect systems when the Windows feature Core Isolation Memory Integrity is enabled. Lenovo systems preloaded with Windows 11 have this feature enabled by default.\n   - Added CVSS V4.0: AV:L/AC:H/AT:N/PR:L/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CVSS V3.1: AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-782\n   - Added Reference: https://support.lenovo.com/us/en/product_security/LEN-200860\n"
+      }
+    ]
   },
   {
     "_id": "69dc0002da0850f8382c9ef2",
@@ -179,7 +620,7 @@
         "id": "ofjta1t",
         "author": "TheG0AT0fAllTime",
         "body": "r/netsec is being invaded by slop",
-        "score": 19,
+        "score": 22,
         "created_utc_ts": 1775905929,
         "created_utc": "2026-04-11T11:12:09",
         "permalink": "https://reddit.com/r/netsec/comments/1si3xvv/claude_humans_vs_nginx_cve202627654/ofjta1t/",
@@ -190,7 +631,7 @@
         "id": "ofjzf7x",
         "author": "Lowetheiy",
         "body": "This is useful work, how is it slop?",
-        "score": -4,
+        "score": -5,
         "created_utc_ts": 1775908544,
         "created_utc": "2026-04-11T11:55:44",
         "permalink": "https://reddit.com/r/netsec/comments/1si3xvv/claude_humans_vs_nginx_cve202627654/ofjzf7x/",
@@ -201,7 +642,7 @@
         "id": "ofk5t3n",
         "author": "JAD2017",
         "body": "Yup, now AI slop is the biggest internet threat! Omg the skynet takeover is upon us /s",
-        "score": -6,
+        "score": -8,
         "created_utc_ts": 1775910953,
         "created_utc": "2026-04-11T12:35:53",
         "permalink": "https://reddit.com/r/netsec/comments/1si3xvv/claude_humans_vs_nginx_cve202627654/ofk5t3n/",
@@ -212,24 +653,35 @@
         "id": "ofkr0y2",
         "author": "chfoo",
         "body": "I'm tired too of seeing these kind of posts where the end conclusion is that it was cheaper or faster with gen AI without any numbers backing that up. If you don't have to pay for compute resources and model training, then of course it would be faster or cheaper. \n\nWhether it's AI or traditional fuzzing, it's not a magic tool. There's going to be a tradeoff and it's frustrating that people are not understanding this.",
-        "score": 8,
+        "score": 10,
         "created_utc_ts": 1775917915,
         "created_utc": "2026-04-11T14:31:55",
         "permalink": "https://reddit.com/r/netsec/comments/1si3xvv/claude_humans_vs_nginx_cve202627654/ofkr0y2/",
         "parent_id": "t1_ofjta1t",
         "is_submitter": false
+      },
+      {
+        "id": "og3igrw",
+        "author": "More_Implement1639",
+        "body": "I personally don't think Mythos will EVER replace humans in vuln research.   \nI think it will be exactly this: Mythos + Humans ",
+        "score": 2,
+        "created_utc_ts": 1776156479,
+        "created_utc": "2026-04-14T08:47:59",
+        "permalink": "https://reddit.com/r/netsec/comments/1si3xvv/claude_humans_vs_nginx_cve202627654/og3igrw/",
+        "parent_id": "t3_1si3xvv",
+        "is_submitter": false
       }
     ],
     "created_utc": "2026-04-11T00:21:08",
     "first_author_comment": null,
-    "num_comments": 10,
-    "score": 21,
+    "num_comments": 11,
+    "score": 26,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Claude + Humans vs nginx: CVE-2026-27654",
-    "updatedAt": "2026-04-13T20:31:17.697Z",
-    "upvote_ratio": 0.64,
+    "updatedAt": "2026-04-18T02:31:11.740Z",
+    "upvote_ratio": 0.66,
     "url": "https://reddit.com/r/netsec/comments/1si3xvv/claude_humans_vs_nginx_cve202627654/",
     "versionList": [
       "2026.0.0",
@@ -412,7 +864,7 @@
         "id": "oez1t2i",
         "author": "TradeGold6317",
         "body": "Six XML-based translation importers in Tolgee (Android XML, XLIFF, .resx, stringsdict) all used default Java parser settings with external entities enabled. Any authenticated user could upload a crafted file and read arbitrary files from the server. Confirmed on [app.tolgee.io](http://app.tolgee.io), their multi-tenant cloud. Fixed within a week.",
-        "score": 7,
+        "score": 8,
         "created_utc_ts": 1775646254,
         "created_utc": "2026-04-08T11:04:14",
         "permalink": "https://reddit.com/r/netsec/comments/1sfpmg9/reading_etcpasswd_via_translation_file_upload_in/oez1t2i/",
@@ -434,13 +886,13 @@
     "created_utc": "2026-04-08T11:03:55",
     "first_author_comment": "Six XML-based translation importers in Tolgee (Android XML, XLIFF, .resx, stringsdict) all used default Java parser settings with external entities enabled. Any authenticated user could upload a crafted file and read arbitrary files from the server. Confirmed on [app.tolgee.io](http://app.tolgee.io), their multi-tenant cloud. Fixed within a week.",
     "num_comments": 3,
-    "score": 22,
+    "score": 23,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Reading /etc/passwd via translation file upload in Tolgee's cloud platform (CVE-2026-32251, CVSS 9.3)",
-    "updatedAt": "2026-04-13T20:31:24.253Z",
-    "upvote_ratio": 0.93,
+    "updatedAt": "2026-04-18T02:31:17.997Z",
+    "upvote_ratio": 0.96,
     "url": "https://reddit.com/r/netsec/comments/1sfpmg9/reading_etcpasswd_via_translation_file_upload_in/",
     "versionList": [
       "2026.0.0",
@@ -518,13 +970,13 @@
     "created_utc": "2026-04-08T07:01:17",
     "first_author_comment": null,
     "num_comments": 5,
-    "score": 39,
+    "score": 40,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Spooler Alert: Remote Unauth'd RCE-to-root Chain in CUPS",
-    "updatedAt": "2026-04-13T20:31:24.479Z",
-    "upvote_ratio": 0.93,
+    "updatedAt": "2026-04-18T02:31:18.189Z",
+    "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/netsec/comments/1sflk3t/spooler_alert_remote_unauthd_rcetoroot_chain_in/",
     "versionList": [],
     "classification": {
@@ -637,13 +1089,13 @@
     "created_utc": "2026-04-07T20:31:22",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 11,
+    "score": 10,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-34197: ActiveMQ RCE via Jolokia API",
-    "updatedAt": "2026-04-13T20:31:26.351Z",
-    "upvote_ratio": 0.8,
+    "updatedAt": "2026-04-18T02:31:19.881Z",
+    "upvote_ratio": 0.76,
     "url": "https://reddit.com/r/netsec/comments/1sf7sno/cve202634197_activemq_rce_via_jolokia_api/",
     "versionList": [
       "2026.0.0",
@@ -685,8 +1137,8 @@
     "tag": null,
     "tags": [],
     "title": "The Race to Ship AI Tools Left Security Behind. Part 1: Sandbox Escape",
-    "updatedAt": "2026-04-13T20:31:28.109Z",
-    "upvote_ratio": 0.9,
+    "updatedAt": "2026-04-18T02:31:21.948Z",
+    "upvote_ratio": 0.88,
     "url": "https://reddit.com/r/netsec/comments/1sf550g/the_race_to_ship_ai_tools_left_security_behind/",
     "versionList": [
       "1.0.0"
@@ -1330,13 +1782,13 @@
     "created_utc": "2026-04-03T08:20:58",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 9,
+    "score": 10,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "New RCE in Control Web Panel (CVE-2025-70951)",
-    "updatedAt": "2026-04-13T20:31:35.980Z",
-    "upvote_ratio": 0.85,
+    "updatedAt": "2026-04-18T02:31:28.612Z",
+    "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/netsec/comments/1sb7pr4/new_rce_in_control_web_panel_cve202570951/",
     "versionList": [
       "2025.0.0",
@@ -1373,13 +1825,13 @@
     "created_utc": "2026-04-02T13:35:22",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 29,
+    "score": 32,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Mongoose: Preauth RCE and mTLS Bypass on Millions of Devices",
-    "updatedAt": "2026-04-13T20:31:37.110Z",
-    "upvote_ratio": 0.91,
+    "updatedAt": "2026-04-18T02:31:29.638Z",
+    "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/netsec/comments/1sahl4e/mongoose_preauth_rce_and_mtls_bypass_on_millions/",
     "versionList": [],
     "classification": {
@@ -1416,7 +1868,7 @@
     "tag": null,
     "tags": [],
     "title": "You’re Not Supposed To ShareFile With Everyone (Progress ShareFile Pre-Auth RCE Chain CVE-2026-2699 &amp; CVE-2026-2701) - watchTowr Labs",
-    "updatedAt": "2026-04-13T20:31:37.952Z",
+    "updatedAt": "2026-04-18T02:31:30.561Z",
     "upvote_ratio": 0.9,
     "url": "https://reddit.com/r/netsec/comments/1saebwi/youre_not_supposed_to_sharefile_with_everyone/",
     "versionList": [
@@ -1623,13 +2075,13 @@
     "created_utc": "2026-03-31T19:57:17",
     "first_author_comment": null,
     "num_comments": 11,
-    "score": 64,
+    "score": 68,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "MAD Bugs: Claude Wrote a Full FreeBSD Remote Kernel RCE with Root Shell (CVE-2026-4747)",
-    "updatedAt": "2026-04-13T20:31:38.557Z",
-    "upvote_ratio": 0.85,
+    "updatedAt": "2026-04-18T02:31:31.137Z",
+    "upvote_ratio": 0.86,
     "url": "https://reddit.com/r/netsec/comments/1s8y8pp/mad_bugs_claude_wrote_a_full_freebsd_remote/",
     "versionList": [
       "2026.0.0",
@@ -2586,7 +3038,7 @@
       "Distro News"
     ],
     "title": "Canonical joins the Rust Foundation as a Gold Member",
-    "updatedAt": "2026-04-11T16:45:27.313Z",
+    "updatedAt": "2026-04-17T21:43:00.710Z",
     "upvote_ratio": 0.96,
     "url": "https://reddit.com/r/linux/comments/1s1ghpw/canonical_joins_the_rust_foundation_as_a_gold/",
     "versionList": [],
@@ -3054,7 +3506,7 @@
     "tag": null,
     "tags": [],
     "title": "Oracle Identity Manager and Oracle Web Services Manager CVE 9.8 - CVE-2026-21992",
-    "updatedAt": "2026-03-21T16:25:19.919Z",
+    "updatedAt": "2026-04-17T21:52:55.399Z",
     "upvote_ratio": 0.74,
     "url": "https://reddit.com/r/sysadmin/comments/1rypwei/oracle_identity_manager_and_oracle_web_services/",
     "versionList": [
@@ -3081,7 +3533,18 @@
       }
     },
     "isAboutCve": true,
-    "isAboutLatestUpdate": false
+    "isAboutLatestUpdate": false,
+    "detectedCVEs": [
+      {
+        "cveId": [
+          "CVE-2026-21992"
+        ],
+        "commentText": "Oracle Identity Manager and Oracle Web Services Manager CVE 9.8 - CVE-2026-21992",
+        "linkToComment": "",
+        "commentDate": "2026-03-20 07:36:41+00:00",
+        "cveChangeHistory": "1. 2026-03-23T15:30:30.950 | Initial Analysis | source=nvd@nist.gov | changeId=0C8274D3-BDEC-4452-A7B4-B59EDCDFBAEE\n   - Added CPE Configuration: OR\n          *cpe:2.3:a:oracle:identity_manager:12.2.1.4.0:*:*:*:*:*:*:*\n          *cpe:2.3:a:oracle:web_services_manager:12.2.1.4.0:*:*:*:*:*:*:*\n          *cpe:2.3:a:oracle:identity_manager:14.1.2.1.0:*:*:*:*:*:*:*\n          *cpe:2.3:a:oracle:web_services_manager:14.1.2.1.0:*:*:*:*:*:*:*\n   - Added Reference Type: Oracle: https://www.oracle.com/security-alerts/alert-cve-2026-21992.html Types: Vendor Advisory\n2. 2026-03-20T22:16:26.933 | CVE Modified | source=secalert_us@oracle.com | changeId=9C1F533D-02C0-4A64-A167-E99CC91D5849\n   - Changed Description: Vulnerability in the Oracle Identity Manager product of Oracle Fusion Middleware (component: REST WebServices) and Oracle Web Services Manager product of Oracle Fusion Middleware (component: Web Services Security).  Supported versions that are affected are 12.2.1.4.0 and  14.1.2.1.0. Easily exploitable vulnerability allows unauthenticated attacker with network access via HTTP to compromise Oracle Identity Manager and Oracle Web Services Manager.  Successful attacks of this vulnerability can result in takeover of Oracle Identity Manager and Oracle Web Services Manager. CVSS 3.1 Base Score 9.8 (Confidentiality, Integrity and Availability impacts).  CVSS Vector: (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H). -> Vulnerability in the Oracle Identity Manager product of Oracle Fusion Middleware (component: REST WebServices) and Oracle Web Services Manager product of Oracle Fusion Middleware (component: Web Services Security).  Supported versions that are affected are 12.2.1.4.0 and  14.1.2.1.0. Easily exploitable vulnerability allows unauthenticated attacker with network access via HTTP to compromise Oracle Identity Manager and Oracle Web Services Manager.  Successful attacks of this vulnerability can result in takeover of Oracle Identity Manager and Oracle Web Services Manager. Note: Oracle Web Services Manager is installed with an Oracle Fusion Middleware Infrastructure. CVSS 3.1 Base Score 9.8 (Confidentiality, Integrity and Availability impacts).  CVSS Vector: (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H).\n3. 2026-03-20T15:16:15.317 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=34E69C07-64AF-4BA5-84F6-5997FCB0BBED\n   - Added CWE: CWE-306\n4. 2026-03-20T03:15:58.680 | New CVE Received | source=secalert_us@oracle.com | changeId=288CBBDC-39D8-4D3A-B6BE-33402023E600\n   - Added Description: Vulnerability in the Oracle Identity Manager product of Oracle Fusion Middleware (component: REST WebServices) and Oracle Web Services Manager product of Oracle Fusion Middleware (component: Web Services Security).  Supported versions that are affected are 12.2.1.4.0 and  14.1.2.1.0. Easily exploitable vulnerability allows unauthenticated attacker with network access via HTTP to compromise Oracle Identity Manager and Oracle Web Services Manager.  Successful attacks of this vulnerability can result in takeover of Oracle Identity Manager and Oracle Web Services Manager. CVSS 3.1 Base Score 9.8 (Confidentiality, Integrity and Availability impacts).  CVSS Vector: (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H).\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added Reference: https://www.oracle.com/security-alerts/alert-cve-2026-21992.html\n"
+      }
+    ]
   },
   {
     "_id": "69bd068dace01fe6e260e3da",
@@ -3723,7 +4186,7 @@
     "tag": null,
     "tags": [],
     "title": "A timeline of MCP security breaches: Tool poisoning, RCE via mcp-remote, sandbox escapes, and 7,000+ exposed servers",
-    "updatedAt": "2026-04-11T16:48:00.645Z",
+    "updatedAt": "2026-04-17T21:46:30.197Z",
     "upvote_ratio": 0.85,
     "url": "https://reddit.com/r/netsec/comments/1rxznrs/a_timeline_of_mcp_security_breaches_tool/",
     "versionList": [
@@ -4846,7 +5309,7 @@
     "tag": null,
     "tags": [],
     "title": "CVE-2026-28292: RCE in simple-git via case-sensitivity bypass (CVSS 9.8)",
-    "updatedAt": "2026-03-19T16:32:10.603Z",
+    "updatedAt": "2026-04-17T21:46:55.957Z",
     "upvote_ratio": 0.94,
     "url": "https://reddit.com/r/netsec/comments/1rqmrer/cve202628292_rce_in_simplegit_via_casesensitivity/",
     "versionList": [
@@ -4855,7 +5318,18 @@
       "9.8.0"
     ],
     "isAboutCve": true,
-    "isAboutLatestUpdate": false
+    "isAboutLatestUpdate": false,
+    "detectedCVEs": [
+      {
+        "cveId": [
+          "CVE-2026-28292"
+        ],
+        "commentText": "CVE-2026-28292: RCE in simple-git via case-sensitivity bypass (CVSS 9.8)",
+        "linkToComment": "",
+        "commentDate": "2026-03-11 07:02:46+00:00",
+        "cveChangeHistory": "1. 2026-04-14T16:16:38.047 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=24FB964E-75F8-413B-9A48-6F0A5D7EF614\n   - Added Reference: https://www.codeant.ai/security-research/simple-git-remote-code-execution-cve-2026-28292\n2. 2026-04-13T18:16:28.930 | CVE Modified | source=security-advisories@github.com | changeId=C0397ABA-6079-441C-9075-7F5D7FD20E30\n   - Added Reference: https://github.com/steveukx/git-js/security/advisories/GHSA-r275-fr43-pm7q\n3. 2026-03-12T17:09:44.010 | Initial Analysis | source=nvd@nist.gov | changeId=D8F84A4F-CDD5-4C95-9583-A65C68BCEC3C\n   - Added CPE Configuration: OR\n          *cpe:2.3:a:simple-git_project:simple-git:*:*:*:*:*:node.js:*:* versions from (including) 3.15.0 up to (excluding) 3.32.2\n   - Added Reference Type: GitHub, Inc.: https://github.com/steveukx/git-js/commit/f7042088aa2dac59e3c49a84d7a2f4b26048a257 Types: Patch\n   - Added Reference Type: GitHub, Inc.: https://www.codeant.ai/security-research/security-research-simple-git-remote-code-execution-cve-2026-28292 Types: Exploit, Third Party Advisory\n4. 2026-03-10T19:17:20.840 | New CVE Received | source=security-advisories@github.com | changeId=6A071613-4B66-47B0-82D2-F7A9349C055D\n   - Added Description: `simple-git`, an interface for running git commands in any node.js application, has an issue in versions 3.15.0 through 3.32.2 that allows an attacker to bypass two prior CVE fixes (CVE-2022-25860 and CVE-2022-25912) and achieve full remote code execution on the host machine. Version 3.23.0 contains an updated fix for the vulnerability.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-78\n   - Added CWE: CWE-178\n   - Added Reference: https://github.com/steveukx/git-js/commit/f7042088aa2dac59e3c49a84d7a2f4b26048a257\n   - Added Reference: https://www.codeant.ai/security-research/security-research-simple-git-remote-code-execution-cve-2026-28292\n"
+      }
+    ]
   },
   {
     "_id": "69b74f71a7e9276ab0f5ada3",
@@ -5274,7 +5748,7 @@
     "tag": null,
     "tags": [],
     "title": "Sometimes, You Can Just Feel The Security In The Design (Junos OS Evolved CVE-2026-21902 RCE) - watchTowr Labs",
-    "updatedAt": "2026-03-16T14:31:55.625Z",
+    "updatedAt": "2026-04-17T21:47:18.298Z",
     "upvote_ratio": 0.96,
     "url": "https://reddit.com/r/netsec/comments/1rjqfwy/sometimes_you_can_just_feel_the_security_in_the/",
     "versionList": [
@@ -5282,7 +5756,18 @@
       "21902.0.0"
     ],
     "isAboutCve": true,
-    "isAboutLatestUpdate": false
+    "isAboutLatestUpdate": false,
+    "detectedCVEs": [
+      {
+        "cveId": [
+          "CVE-2026-21902"
+        ],
+        "commentText": "Sometimes, You Can Just Feel The Security In The Design (Junos OS Evolved CVE-2026-21902 RCE) - watchTowr Labs",
+        "linkToComment": "",
+        "commentDate": "2026-03-03 14:15:59+00:00",
+        "cveChangeHistory": "1. 2026-03-30T15:16:05.537 | Initial Analysis | source=nvd@nist.gov | changeId=ABEA6446-49C5-411F-9689-F0F104F99E90\n   - Added CPE Configuration: AND\n     OR\n          *cpe:2.3:o:juniper:junos_os_evolved:25.4:r1:*:*:*:*:*:*\n     OR\n          cpe:2.3:h:juniper:ptx10008:-:*:*:*:*:*:*:*\n          cpe:2.3:h:juniper:ptx10016:-:*:*:*:*:*:*:*\n          cpe:2.3:h:juniper:ptx10003:-:*:*:*:*:*:*:*\n          cpe:2.3:h:juniper:ptx10001-36mr:-:*:*:*:*:*:*:*\n          cpe:2.3:h:juniper:ptx10004:-:*:*:*:*:*:*:*\n          cpe:2.3:h:juniper:ptx10002-36qdd:-:*:*:*:*:*:*:*\n   - Added Reference Type: Juniper Networks, Inc.: https://kb.juniper.net/JSA107128 Types: Mitigation, Vendor Advisory\n   - Added Reference Type: Juniper Networks, Inc.: https://supportportal.juniper.net/JSA107128 Types: Mitigation, Vendor Advisory\n   - Added Reference Type: CISA-ADP: https://github.com/watchtowrlabs/watchTowr-vs-JunosEvolved-CVE-2026-21902/blob/main/watchTowr-vs-JunosEvolved-CVE-2026-21902.py Types: Product\n2. 2026-03-03T15:16:18.363 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=E50B5391-8FE6-472B-8FB0-7ED91B037793\n   - Added Reference: https://github.com/watchtowrlabs/watchTowr-vs-JunosEvolved-CVE-2026-21902/blob/main/watchTowr-vs-JunosEvolved-CVE-2026-21902.py\n3. 2026-02-25T18:23:40.360 | New CVE Received | source=sirt@juniper.net | changeId=4B799837-5FCC-4972-B130-986D1D14C4A6\n   - Added Description: An Incorrect Permission Assignment for Critical Resource vulnerability in the On-Box Anomaly detection framework of Juniper Networks Junos OS Evolved on PTX Series allows an unauthenticated, network-based attacker to execute code as root.\n\nThe On-Box Anomaly detection framework should only be reachable by other internal processes over the internal routing instance, but not over an externally exposed port. With the ability to access and manipulate the service to execute code as root a remote attacker can take complete control of the device.\nPlease note that this service is enabled by default as no specific configuration is required.\n\nThis issue affects Junos OS Evolved on PTX Series:\n\n\n\n  *  25.4 versions before 25.4R1-S1-EVO, 25.4R2-EVO.\n\n\n\n\nThis issue does not affect Junos OS Evolved versions before 25.4R1-EVO.\n\nThis issue does not affect Junos OS.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:L/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:Y/R:U/V:X/RE:M/U:Red\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-732\n   - Added Reference: https://kb.juniper.net/JSA107128\n   - Added Reference: https://supportportal.juniper.net/JSA107128\n"
+      }
+    ]
   },
   {
     "_id": "69a4bd8914360ffebe03a72f",
@@ -6543,297 +7028,5 @@
     ],
     "isAboutCve": true,
     "isAboutLatestUpdate": false
-  },
-  {
-    "_id": "69bcecb9ace01fe6e260e2b6",
-    "redditId": "1rf02fw",
-    "author": "EnableSecurity",
-    "author_description": null,
-    "awards": [],
-    "comments": [
-      {
-        "id": "o7ggr6z",
-        "author": "EnableSecurity",
-        "body": "Published two companion guides to the TURN security threats post from a couple weeks ago.\n\nThe best practices guide is implementation-agnostic: what IP ranges to block, protocol features to disable, rate limiting approach, deployment patterns for SFU vs P2P architectures.\n\nThe coturn guide has copy-paste configuration blocks and three complete templates (minimal through high-security): https://www.enablesecurity.com/blog/coturn-security-configuration-guide/\n\nAll config templates are on GitHub with Docker for testing: https://github.com/EnableSecurity/coturn-secure-config\n\nGood timing too - coturn 4.9.0 came out yesterday with fixes for CVE-2026-27624 (IPv4-mapped IPv6 bypass of peer address deny rules) and an inverted password check in the web admin that had been broken since ~2019.\n",
-        "score": 3,
-        "created_utc_ts": 1772078783,
-        "created_utc": "2026-02-26T04:06:23",
-        "permalink": "https://reddit.com/r/WebRTC/comments/1rf02fw/turn_server_security_best_practices_coturn/o7ggr6z/",
-        "parent_id": "t3_1rf02fw",
-        "is_submitter": true
-      },
-      {
-        "id": "o7h9wd5",
-        "author": "mirotalk",
-        "body": "Nice post! Thank you.",
-        "score": 1,
-        "created_utc_ts": 1772092492,
-        "created_utc": "2026-02-26T07:54:52",
-        "permalink": "https://reddit.com/r/WebRTC/comments/1rf02fw/turn_server_security_best_practices_coturn/o7h9wd5/",
-        "parent_id": "t1_o7ggr6z",
-        "is_submitter": false
-      },
-      {
-        "id": "o7hyrwo",
-        "author": "neurosys_zero",
-        "body": "Great stuff! Thank you for all you do! Love your blog!!",
-        "score": 1,
-        "created_utc_ts": 1772106322,
-        "created_utc": "2026-02-26T11:45:22",
-        "permalink": "https://reddit.com/r/WebRTC/comments/1rf02fw/turn_server_security_best_practices_coturn/o7hyrwo/",
-        "parent_id": "t3_1rf02fw",
-        "is_submitter": false
-      },
-      {
-        "id": "o7ic2gi",
-        "author": "EnableSecurity",
-        "body": "Glad you do - thanks!",
-        "score": 2,
-        "created_utc_ts": 1772111766,
-        "created_utc": "2026-02-26T13:16:06",
-        "permalink": "https://reddit.com/r/WebRTC/comments/1rf02fw/turn_server_security_best_practices_coturn/o7ic2gi/",
-        "parent_id": "t1_o7hyrwo",
-        "is_submitter": true
-      }
-    ],
-    "created_utc": "2026-02-26T04:06:02",
-    "first_author_comment": "Published two companion guides to the TURN security threats post from a couple weeks ago.\n\nThe best practices guide is implementation-agnostic: what IP ranges to block, protocol features to disable, rate limiting approach, deployment patterns for SFU vs P2P architectures.\n\nThe coturn guide has copy-paste configuration blocks and three complete templates (minimal through high-security): https://www.enablesecurity.com/blog/coturn-security-configuration-guide/\n\nAll config templates are on GitHub with Docker for testing: https://github.com/EnableSecurity/coturn-secure-config\n\nGood timing too - coturn 4.9.0 came out yesterday with fixes for CVE-2026-27624 (IPv4-mapped IPv6 bypass of peer address deny rules) and an inverted password check in the web admin that had been broken since ~2019.\n",
-    "num_comments": 5,
-    "score": 13,
-    "subreddit": "WebRTC",
-    "tag": null,
-    "tags": [],
-    "title": "TURN server security best practices + coturn hardening guide with copy-paste configs",
-    "updatedAt": "2026-03-20T22:49:28.879Z",
-    "upvote_ratio": 0.94,
-    "url": "https://reddit.com/r/WebRTC/comments/1rf02fw/turn_server_security_best_practices_coturn/",
-    "versionList": [],
-    "isAboutCve": true,
-    "isAboutLatestUpdate": false
-  },
-  {
-    "_id": "69a7b5a114360ffebe048219",
-    "redditId": "1r9th6w",
-    "author": "AlmondOffSec",
-    "author_description": null,
-    "awards": [],
-    "comments": [
-      {
-        "id": "o6rjvsn",
-        "author": "peregrinefalco9",
-        "body": "Clean root cause analysis. The interesting part is how long this sat in the codebase before anyone looked at it. Would be worth tracking how many similar patterns exist in adjacent code paths.",
-        "score": 1,
-        "created_utc_ts": 1771765445,
-        "created_utc": "2026-02-22T13:04:05",
-        "permalink": "https://reddit.com/r/netsec/comments/1r9th6w/discovery_analysis_of_cve202529969/o6rjvsn/",
-        "parent_id": "t3_1r9th6w",
-        "is_submitter": false
-      },
-      {
-        "id": "o82ay54",
-        "author": "Spare-Grand4975",
-        "body": "Good callout. The bigger lesson is not just the bug itself, but how similar logic patterns persist unnoticed across code paths. Root cause analysis should extend into pattern hunting, otherwise we fix one instance and leave the exposure surface largely unchanged.",
-        "score": 1,
-        "created_utc_ts": 1772378265,
-        "created_utc": "2026-03-01T15:17:45",
-        "permalink": "https://reddit.com/r/netsec/comments/1r9th6w/discovery_analysis_of_cve202529969/o82ay54/",
-        "parent_id": "t3_1r9th6w",
-        "is_submitter": false
-      }
-    ],
-    "created_utc": "2026-02-20T11:59:22",
-    "first_author_comment": null,
-    "num_comments": 2,
-    "score": 7,
-    "subreddit": "netsec",
-    "tag": null,
-    "tags": [],
-    "title": "Discovery &amp; Analysis of CVE-2025-29969",
-    "updatedAt": "2026-03-06T18:31:55.504Z",
-    "upvote_ratio": 0.89,
-    "url": "https://reddit.com/r/netsec/comments/1r9th6w/discovery_analysis_of_cve202529969/",
-    "versionList": [
-      "2025.0.0",
-      "29969.0.0"
-    ],
-    "isAboutCve": true,
-    "isAboutLatestUpdate": false
-  },
-  {
-    "_id": "69a7b5a214360ffebe04821a",
-    "redditId": "1r92evr",
-    "author": "AlmondOffSec",
-    "author_description": null,
-    "awards": [],
-    "comments": [],
-    "created_utc": "2026-02-19T15:38:01",
-    "first_author_comment": null,
-    "num_comments": 1,
-    "score": 42,
-    "subreddit": "netsec",
-    "tag": null,
-    "tags": [],
-    "title": "[CVE-2026-0714] TPM-sniffing LUKS Keys on an Embedded Device",
-    "updatedAt": "2026-03-06T18:31:56.402Z",
-    "upvote_ratio": 0.93,
-    "url": "https://reddit.com/r/netsec/comments/1r92evr/cve20260714_tpmsniffing_luks_keys_on_an_embedded/",
-    "versionList": [
-      "2026.0.0",
-      "0714.0.0"
-    ],
-    "isAboutCve": true,
-    "isAboutLatestUpdate": false
-  },
-  {
-    "_id": "69a7b5a914360ffebe048220",
-    "redditId": "1r6r7no",
-    "author": "Mempodipper",
-    "author_description": null,
-    "awards": [],
-    "comments": [
-      {
-        "id": "o5sqytq",
-        "author": "SuperDrewb",
-        "body": "Extremely impressive ",
-        "score": 6,
-        "created_utc_ts": 1771295813,
-        "created_utc": "2026-02-17T02:36:53",
-        "permalink": "https://reddit.com/r/netsec/comments/1r6r7no/almost_impossible_java_deserialization_through/o5sqytq/",
-        "parent_id": "t3_1r6r7no",
-        "is_submitter": false
-      },
-      {
-        "id": "o5u4dog",
-        "author": "Few-Gap-5421",
-        "body": "Nice research man",
-        "score": 4,
-        "created_utc_ts": 1771318830,
-        "created_utc": "2026-02-17T09:00:30",
-        "permalink": "https://reddit.com/r/netsec/comments/1r6r7no/almost_impossible_java_deserialization_through/o5u4dog/",
-        "parent_id": "t3_1r6r7no",
-        "is_submitter": false
-      },
-      {
-        "id": "o7psfd6",
-        "author": "forty-fiver",
-        "body": "CVE-2025-15579",
-        "score": 1,
-        "created_utc_ts": 1772206514,
-        "created_utc": "2026-02-27T15:35:14",
-        "permalink": "https://reddit.com/r/netsec/comments/1r6r7no/almost_impossible_java_deserialization_through/o7psfd6/",
-        "parent_id": "t3_1r6r7no",
-        "is_submitter": false
-      }
-    ],
-    "created_utc": "2026-02-17T00:34:23",
-    "first_author_comment": null,
-    "num_comments": 3,
-    "score": 69,
-    "subreddit": "netsec",
-    "tag": null,
-    "tags": [],
-    "title": "Almost Impossible: Java Deserialization Through Broken Crypto in OpenText Directory Services",
-    "updatedAt": "2026-04-11T16:48:05.432Z",
-    "upvote_ratio": 0.96,
-    "url": "https://reddit.com/r/netsec/comments/1r6r7no/almost_impossible_java_deserialization_through/",
-    "versionList": [],
-    "isAboutCve": false,
-    "isAboutLatestUpdate": false,
-    "detectedCVEs": [
-      {
-        "cveId": [
-          "CVE-2025-15579"
-        ],
-        "commentText": "CVE-2025-15579",
-        "linkToComment": "https://reddit.com/r/netsec/comments/1r6r7no/almost_impossible_java_deserialization_through/o7psfd6/",
-        "commentDate": "2026-02-27 15:35:14+00:00",
-        "cveChangeHistory": "1. 2026-02-27T22:16:22.617 | CVE Modified | source=security@opentext.com | changeId=77D60208-C65E-42E0-BC52-EDA18364C24F\n   - Changed Description: Deserialization of Untrusted Data vulnerability in OpenText™ Directory Services allows Object Injection. The vulnerability could lead to remote code execution, denial of service, or\nprivilege escalation.\n\nThis issue affects Directory Services: from 10.5 through 26.1. -> Deserialization of Untrusted Data vulnerability in OpenText™ Directory Services allows Object Injection. \n\nThe vulnerability could lead to remote code execution, denial of service, or privilege escalation.\n\nThis issue affects Directory Services: before 24.4.16, from 25.1 before 25.1.9, from 25.2 before 25.2.9, from 25.3 before 25.3.8, from 25.4 before 25.4.5, from 26.1 before 26.1.2.\n2. 2026-02-18T16:22:28.290 | New CVE Received | source=security@opentext.com | changeId=B68F2C60-7730-4D66-9694-CC78FCA6E318\n   - Added Description: Deserialization of Untrusted Data vulnerability in OpenText™ Directory Services allows Object Injection. The vulnerability could lead to remote code execution, denial of service, or\nprivilege escalation.\n\nThis issue affects Directory Services: from 10.5 through 26.1.\n   - Added CVSS V4.0: AV:N/AC:H/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:P/AU:Y/R:U/V:C/RE:M/U:Red\n   - Added CWE: CWE-502\n   - Added Reference: https://support.opentext.com/csm?id=ot_kb_unauthenticated&sysparm_article=KB0859600&sys_kb_id=f82c01214707b6144549b6bd416d43b7&spa=1\n"
-      }
-    ]
-  },
-  {
-    "_id": "6993b60f05a8a7435b37d2e7",
-    "redditId": "1r6our7",
-    "author": "Nervous-Equivalent",
-    "author_description": "If anyone from Microsoft is monitors this sub...any particular reason v145.0.3800.58 was released two days ago and there's still no release notes for it? Does it patch CVE-2026-2441 or not?",
-    "awards": [],
-    "comments": [],
-    "created_utc": "2026-02-16T22:56:57",
-    "first_author_comment": null,
-    "num_comments": 1,
-    "score": 7,
-    "subreddit": "MicrosoftEdge",
-    "tag": "QUESTION",
-    "tags": [
-      "QUESTION"
-    ],
-    "title": "Edge v145.0.3800.58 - No Release Notes",
-    "updatedAt": "2026-02-17T20:31:11.058Z",
-    "upvote_ratio": 0.82,
-    "url": "https://reddit.com/r/MicrosoftEdge/comments/1r6our7/edge_v1450380058_no_release_notes/",
-    "versionList": [
-      "145.0.3800",
-      "58.0.0"
-    ],
-    "classification": {
-      "securityType": [
-        "UNKNOWN"
-      ],
-      "componentType": [
-        "BROWSER"
-      ]
-    },
-    "metadata": {
-      "predicted": {
-        "isUpdateRelated": false,
-        "positiveScore": 0.00112936202218357,
-        "timestampPredicted": "2026-02-17T16:01:50.451589+00:00"
-      },
-      "labeled": {
-        "isUpdateRelated": null
-      }
-    },
-    "isAboutCve": true,
-    "isAboutLatestUpdate": true
-  },
-  {
-    "_id": "69939a4805a8a7435b37d144",
-    "redditId": "1r6eq9j",
-    "author": "viccuad",
-    "author_description": "Hello, Kubewarden maintainer here.  \n  \nWe've had people get in touch about CVE-2026-22039 (for other adm controller, not us), and voice concerns and doubts about Admission Controllers in general. We believe that is a misrepresentation of Admission Controllers, which may include us.\n\nKubewarden is not affected given is architecture. For more information, we published this blogpost.",
-    "awards": [],
-    "comments": [],
-    "created_utc": "2026-02-16T16:46:15",
-    "first_author_comment": null,
-    "num_comments": 0,
-    "score": 5,
-    "subreddit": "kubernetes",
-    "tag": null,
-    "tags": [],
-    "title": "Kubewarden not affected by cross-ns privilege escalation via policy api call",
-    "updatedAt": "2026-02-17T20:30:22.474Z",
-    "upvote_ratio": 0.67,
-    "url": "https://reddit.com/r/kubernetes/comments/1r6eq9j/kubewarden_not_affected_by_crossns_privilege/",
-    "versionList": [],
-    "metadata": {
-      "predicted": {
-        "isUpdateRelated": false,
-        "positiveScore": 3.052717432770558e-05,
-        "timestampPredicted": "2026-02-17T12:01:39.652730+00:00"
-      },
-      "labeled": {
-        "isUpdateRelated": null
-      }
-    },
-    "isAboutCve": true,
-    "isAboutLatestUpdate": false,
-    "classification": {
-      "componentType": [
-        "API"
-      ],
-      "securityType": [
-        "UNKNOWN"
-      ]
-    }
   }
 ]
