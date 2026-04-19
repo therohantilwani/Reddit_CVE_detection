@@ -6,8 +6,6 @@ CVE-2026-22729,3,2026-03-18T22:16:27+00:00,1773872187,java;netsec,https://reddit
 CVE-2026-22730,3,2026-03-18T22:16:27+00:00,1773872187,java;netsec,https://reddit.com/r/java/comments/1s0si5o/spring_ai_vector_store_has_two_high_injection/;https://reddit.com/r/netsec/comments/1rxv3nu/cve202622730_sql_injection_in_spring_ais_mariadb/;https://reddit.com/r/java/comments/1rxi6gx/spring_ai_cves_cve202622729_and_cve202622730_are/
 CVE-2026-22557,2,2026-03-19T00:14:39+00:00,1773879279,homelab;sysadmin,https://reddit.com/r/sysadmin/comments/1ryipfs/first_unifi_with_a_100_cve_now_screenconnect_90/;https://reddit.com/r/homelab/comments/1rxl68p/psa_unifi_network_application_vulnerability/
 CVE-2026-27022,2,2026-03-19T19:37:58+00:00,1773949078,LangChain;netsec,https://reddit.com/r/LangChain/comments/1rycurg/psa_two_langgraph_checkpoint_vulnerabilities/;https://reddit.com/r/netsec/comments/1rya1ep/22_security_advisories_covering_aiml/
-CVE-2026-27509,2,2026-02-26T19:19:02+00:00,1772133542,hardwarehacking;netsec,https://reddit.com/r/hardwarehacking/comments/1rfl9yr/from_dds_packets_to_robot_shells_two_rces_in/;https://reddit.com/r/netsec/comments/1rfjjfc/from_dds_packets_to_robot_shells_two_rces_in/
-CVE-2026-27510,2,2026-02-26T19:19:02+00:00,1772133542,hardwarehacking;netsec,https://reddit.com/r/hardwarehacking/comments/1rfl9yr/from_dds_packets_to_robot_shells_two_rces_in/;https://reddit.com/r/netsec/comments/1rfjjfc/from_dds_packets_to_robot_shells_two_rces_in/
 CVE-2026-28277,2,2026-03-19T19:37:58+00:00,1773949078,LangChain;netsec,https://reddit.com/r/LangChain/comments/1rycurg/psa_two_langgraph_checkpoint_vulnerabilities/;https://reddit.com/r/netsec/comments/1rya1ep/22_security_advisories_covering_aiml/
 CVE-2026-28500,2,2026-03-21T20:55:23+00:00,1774126523,Python;netsec,https://reddit.com/r/netsec/comments/1s02jrq/onnx_hub_silenttrue_suppresses_all_trust/;https://reddit.com/r/Python/comments/1s02in4/psa_onnxhubloadsilenttrue_suppresses_all_security/
 CVE-2026-3055,2,2026-03-28T20:40:20+00:00,1774730420,netsec,https://reddit.com/r/netsec/comments/1s75kb9/please_we_beg_just_one_weekend_free_of_appliances/;https://reddit.com/r/netsec/comments/1s6bdxi/the_sequels_are_never_as_good_but_were_still_in/
@@ -15,6 +13,7 @@ CVE-2026-32746,2,2026-03-19T00:15:39+00:00,1773879339,netsec,https://reddit.com/
 CVE-2026-33017,2,2026-03-22T16:55:47+00:00,1774198547,LangChain;netsec,https://reddit.com/r/LangChain/comments/1s72uzr/langflow_cve202633017_unauthenticated_rce_via/;https://reddit.com/r/netsec/comments/1s0qsxi/langflow_got_hacked_twice_through_the_same_exec/
 CVE-2026-33579,2,2026-04-03T13:34:55+00:00,1775223295,netsec;sysadmin,https://reddit.com/r/sysadmin/comments/1sbdw29/if_youre_running_openclaw_you_probably_got_hacked/;https://reddit.com/r/netsec/comments/1sbds9i/if_youre_running_openclaw_you_probably_got_hacked/
 CVE-2026-4747,2,2026-03-31T19:57:17+00:00,1774987037,freebsd;netsec,https://reddit.com/r/freebsd/comments/1sgmi14/claude_mythos_preview_fully_autonomously_finds/;https://reddit.com/r/netsec/comments/1s8y8pp/mad_bugs_claude_wrote_a_full_freebsd_remote/
+CVE-2003-0063,1,2026-04-18T10:35:38+00:00,1776508538,netsec,https://reddit.com/r/netsec/comments/1sou4zz/mad_bugs_even_cat_readmetxt_is_not_safe/
 CVE-2017-11882,1,2026-04-15T12:37:24+00:00,1776256644,AZURE,https://reddit.com/r/AZURE/comments/1sm4uxq/defender_detecting_falsepositive_malware_in_azure/
 CVE-2019-15894,1,2026-04-15T03:00:12+00:00,1776222012,IOT,https://reddit.com/r/IOT/comments/1slty6n/bluetooth_on_iot_devices/
 CVE-2019-18634,1,2026-02-28T08:40:06+00:00,1772268006,linux,https://reddit.com/r/linux/comments/1rgxjcw/sudors_shows_password_asterisks_by_default_break/
@@ -119,6 +118,8 @@ CVE-2026-33634,1,2026-03-25T22:43:44+00:00,1774478624,kubernetes,https://reddit.
 CVE-2026-33656,1,2026-03-25T12:51:52+00:00,1774443112,netsec,https://reddit.com/r/netsec/comments/1s39ujn/cve202633656_espocrm_933_formula_engine_acl_gap/
 CVE-2026-33825,1,2026-04-17T16:22:09+00:00,1776442929,windows,https://reddit.com/r/windows/comments/1so5s1j/windows_defender_cve202633825_how_a_batch_oplock/
 CVE-2026-34197,1,2026-04-07T20:31:22+00:00,1775593882,netsec,https://reddit.com/r/netsec/comments/1sf7sno/cve202634197_activemq_rce_via_jolokia_api/
+CVE-2026-34621,1,2026-04-18T15:43:37+00:00,1776527017,netsec,https://reddit.com/r/netsec/comments/1sp128h/cve202634621_poc_isnt_a_scanner_its_a_campaign/
+CVE-2026-34714,1,2026-04-18T10:35:38+00:00,1776508538,netsec,https://reddit.com/r/netsec/comments/1sou4zz/mad_bugs_even_cat_readmetxt_is_not_safe/
 CVE-2026-34980,1,2026-04-08T07:01:17+00:00,1775631677,netsec,https://reddit.com/r/netsec/comments/1sflk3t/spooler_alert_remote_unauthd_rcetoroot_chain_in/
 CVE-2026-34990,1,2026-04-08T07:01:17+00:00,1775631677,netsec,https://reddit.com/r/netsec/comments/1sflk3t/spooler_alert_remote_unauthd_rcetoroot_chain_in/
 CVE-2026-35204,1,2026-04-09T18:31:03+00:00,1775759463,kubernetes,https://reddit.com/r/kubernetes/comments/1sgy1gc/psa_helm_path_traversal_via_malicious_plugin/
