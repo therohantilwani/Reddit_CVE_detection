@@ -1783,74 +1783,78 @@
         }
 
         // --- Chat Widget JS ---
-        const chatToggle = document.getElementById('chat-toggle-btn');
-        const chatWindow = document.getElementById('chat-window');
-        const chatClose = document.getElementById('chat-close');
-        const chatInput = document.getElementById('chat-input');
-        const chatSend = document.getElementById('chat-send');
-        const chatBody = document.getElementById('chat-body');
+        document.addEventListener('DOMContentLoaded', () => {
+            const chatToggle = document.getElementById('chat-toggle-btn');
+            const chatWindow = document.getElementById('chat-window');
+            const chatClose = document.getElementById('chat-close');
+            const chatInput = document.getElementById('chat-input');
+            const chatSend = document.getElementById('chat-send');
+            const chatBody = document.getElementById('chat-body');
 
-        chatToggle.addEventListener('click', () => {
-            chatWindow.classList.toggle('active');
-        });
+            if (!chatToggle) return; // safety check
 
-        chatClose.addEventListener('click', () => {
-            chatWindow.classList.remove('active');
-        });
+            chatToggle.addEventListener('click', () => {
+                chatWindow.classList.toggle('active');
+            });
 
-        function formatMarkdown(text) {
-            if (window.marked) return marked.parse(text);
-            return text.replace(/\n/g, '<br>');
-        }
+            chatClose.addEventListener('click', () => {
+                chatWindow.classList.remove('active');
+            });
 
-        function appendMessage(role, content) {
-            const el = document.createElement('div');
-            el.className = `chat-message ${role}`;
-            el.innerHTML = role === 'assistant' ? formatMarkdown(content) : content;
-            chatBody.appendChild(el);
-            chatBody.scrollTop = chatBody.scrollHeight;
-            return el;
-        }
-
-        chatSend.addEventListener('click', async () => {
-            const text = chatInput.value.trim();
-            if (!text) return;
-
-            chatInput.value = '';
-            appendMessage('user', text);
-
-            const loadingEl = document.createElement('div');
-            loadingEl.className = 'chat-message assistant';
-            loadingEl.innerHTML = '<div class="loading-dots"><div></div><div></div><div></div></div>';
-            chatBody.appendChild(loadingEl);
-            chatBody.scrollTop = chatBody.scrollHeight;
-
-            try {
-                const res = await fetch('/api/chat', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ message: text })
-                });
-
-                chatBody.removeChild(loadingEl);
-
-                if (!res.ok) {
-                    const data = await res.json();
-                    appendMessage('assistant', `**Error:** ${data.error || 'Server error'}`);
-                    return;
-                }
-
-                const data = await res.json();
-                appendMessage('assistant', data.response);
-
-            } catch (e) {
-                if (chatBody.contains(loadingEl)) chatBody.removeChild(loadingEl);
-                appendMessage('assistant', '**Error:** Could not connect to the AI Sever. Is it running?');
+            function formatMarkdown(text) {
+                if (window.marked) return marked.parse(text);
+                return text.replace(/\n/g, '<br>');
             }
-        });
 
-        chatInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') chatSend.click();
+            function appendMessage(role, content) {
+                const el = document.createElement('div');
+                el.className = `chat-message ${role}`;
+                el.innerHTML = role === 'assistant' ? formatMarkdown(content) : content;
+                chatBody.appendChild(el);
+                chatBody.scrollTop = chatBody.scrollHeight;
+                return el;
+            }
+
+            chatSend.addEventListener('click', async () => {
+                const text = chatInput.value.trim();
+                if (!text) return;
+
+                chatInput.value = '';
+                appendMessage('user', text);
+
+                const loadingEl = document.createElement('div');
+                loadingEl.className = 'chat-message assistant';
+                loadingEl.innerHTML = '<div class="loading-dots"><div></div><div></div><div></div></div>';
+                chatBody.appendChild(loadingEl);
+                chatBody.scrollTop = chatBody.scrollHeight;
+
+                try {
+                    const res = await fetch('/api/chat', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ message: text })
+                    });
+
+                    chatBody.removeChild(loadingEl);
+
+                    if (!res.ok) {
+                        const data = await res.json();
+                        appendMessage('assistant', `**Error:** ${data.error || 'Server error'}`);
+                        return;
+                    }
+
+                    const data = await res.json();
+                    appendMessage('assistant', data.response);
+
+                } catch (e) {
+                    if (chatBody.contains(loadingEl)) chatBody.removeChild(loadingEl);
+                    appendMessage('assistant', '**Error:** Could not connect to the AI Sever. Is it running?');
+                }
+            });
+
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') chatSend.click();
+            });
         });
 
         loadData();
