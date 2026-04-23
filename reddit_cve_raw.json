@@ -1,5 +1,466 @@
 [
   {
+    "_id": "69e94cb8da0850f83832f95c",
+    "redditId": "1sszdy4",
+    "author": "sashalav",
+    "author_description": "Any local user can get root shell - PoC exists. This is not Ubuntu-specific. Notice was published this morning on mailing lists (including Ubuntu security) but web site notice is still 404. Updated packages are available since this morning\n\n[https://ubuntu.com/security/notices/USN-8195-1](https://ubuntu.com/security/notices/USN-8195-1) (404 as I am posting this)\n\nMore info here so I don't copy/paste other folks content:\n\n[https://github.com/PackageKit/PackageKit/security/advisories/GHSA-f55j-vvr9-69xv](https://github.com/PackageKit/PackageKit/security/advisories/GHSA-f55j-vvr9-69xv)\n\nI would not delay this update.  \n  \nUpdated packages\n\n    Ubuntu 25.10\n      packagekit                      1.3.1-1ubuntu1.1\n    \n    Ubuntu 24.04 LTS\n      packagekit                      1.2.8-2ubuntu1.5\n    \n    Ubuntu 22.04 LTS\n      packagekit                      1.2.5-2ubuntu3.1",
+    "awards": [],
+    "comments": [],
+    "created_utc": "2026-04-22T21:48:18",
+    "first_author_comment": null,
+    "num_comments": 5,
+    "score": 2,
+    "subreddit": "Ubuntu",
+    "tag": null,
+    "tags": [],
+    "title": "CVE-2026-41651 packagekit - local priviledge escalation",
+    "updatedAt": "2026-04-23T04:33:43.657Z",
+    "upvote_ratio": 1,
+    "url": "https://reddit.com/r/Ubuntu/comments/1sszdy4/cve202641651_packagekit_local_priviledge/",
+    "versionList": [
+      "2026.0.0",
+      "41651.0.0"
+    ],
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.001653221396926314,
+        "timestampPredicted": "2026-04-23T04:00:52.165279+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true,
+    "classification": {
+      "componentType": [],
+      "securityType": [
+        "SECURITY"
+      ]
+    }
+  },
+  {
+    "_id": "69e92ffada0850f83832ef26",
+    "redditId": "1sswok7",
+    "author": "TyrHeimdal",
+    "author_description": "Some more information from the author of PackageKit on [https://www.openwall.com/lists/oss-security/2026/04/22/6](https://www.openwall.com/lists/oss-security/2026/04/22/6) too.\n\nExpect to see reliable (public) exploits pretty soon.",
+    "awards": [],
+    "comments": [],
+    "created_utc": "2026-04-22T20:06:48",
+    "first_author_comment": null,
+    "num_comments": 0,
+    "score": 8,
+    "subreddit": "netsec",
+    "tag": null,
+    "tags": [],
+    "title": "Pack2TheRoot (CVE-2026-41651): Cross-Distro Local Privilege Escalation Vulnerability",
+    "updatedAt": "2026-04-23T04:30:54.005Z",
+    "upvote_ratio": 0.76,
+    "url": "https://reddit.com/r/netsec/comments/1sswok7/pack2theroot_cve202641651_crossdistro_local/",
+    "versionList": [
+      "2026.0.0",
+      "41651.0.0"
+    ],
+    "classification": {
+      "componentType": [],
+      "securityType": [
+        "SECURITY"
+      ]
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.00016388701052958102,
+        "timestampPredicted": "2026-04-23T04:01:10.846242+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": false
+  },
+  {
+    "_id": "69e93287da0850f83832f150",
+    "redditId": "1ssuze9",
+    "author": "ShabzSparq",
+    "author_description": "I've helped hundreds of people debug their OpenCLaw setups over the past few months. the pattern is brutal. People install it, get excited, skip the boring stuff, break things in ways that take hours to fix, and half of them quit before the second week.\n\nThis is everything i wish someone had told me on day one. not a setup guide. just the stuff that'll save you from the most common pain.\n\n**DO: pick a cheap model first.**\n\nYour default model matters more than you think. if you didn't change it during setup, check what you're running:\n\nbash\n\n    openclaw config get agents.defaults.model\n\nIf it says Opus anywhere, switch immediately. opus is $5/$25 per million tokens. sonnet does 90% of the same work at $3/$15. For your first week of learning, even cheaper models work fine. GLM-5.1 at $0.95/$3.15 or openrouter free tier costs literally nothing.\n\nSomeone I helped was spending $47/week without realizing it. changed one setting. Next week cost $6.\n\n**DON'T: skip the gateway security.**\n\nIf you're on a VPS or any internet-connected machine:\n\nbash\n\n    openclaw config get | grep -E \"host|bind\"\n\nIf it says `0.0.0.0` Your agent is accessible to anyone who finds your IP. there are 500,000+ OpenCLAW instances exposed on the public internet right now. one had a zero-click exploit (CVE-2026-25253, patched) that let attackers hijack agents from a single webpage visit.\n\nbash\n\n    openclaw config set gateway.bind loopback\n\ntwo minutes. do it before connecting any channel.\n\n**DO: write a** **SOUL.md** **with boundaries, not just personality.**\n\nMost guides tell you to write personality rules. \"be direct, match my tone, don't say absolutely.\" that's fine. but the part people skip is boundaries:\n\nmarkdown\n\n    Never send emails, messages, or make bookings without showing me first.\n    Never sign up for services without my explicit approval.\n    Never delete files or emails without asking.\n\nWithout boundaries, your agent will do exactly what it thinks you want at machine speed with zero hesitation. someone told their agent to \"explore what you can do.\" it created dating profiles using data from his emails. the agent wasn't broken. the instructions were too open.\n\n\"Never do X\" works better than \"try to be Y.\" your SOUL.md is built through irritation, not planning.\n\n**DON'T: install skills in your first week.**\n\nI know. Clawhub has 13,000+ skills and they all look cool. don't.\n\n1,467 malicious skills were found during the ClawHavoc campaign. typosquatted names, clean documentation, legitimate-looking publishers. they silently exfiltrated your .env file (every API key, every OAuth token) to external servers.\n\nclawhub has VirusTotal scanning now. It's better. But \"better\" and \"safe\" are different things.\n\nlearn what your agent can do without skills first. You'll be surprised. After week 1, add ONE skill from a verified publisher. test it for a few days. Watch your costs. then add another. never more than one at a time.\n\n**DO: use /new aggressively.**\n\nEvery message you send in a session gets included in every future API call. after a few days of chatting, you're sending thousands of tokens of old conversation with every new message. that costs money and makes your agent slower and more confused.\n\n`/new` starts a fresh session. Your agent keeps all its memory files, SOUL.md, everything. You're just clearing the conversation buffer.\n\nUse it before any big task. When your agent starts acting weird. at least once a day as a habit.\n\nalso learn `/btw` for tangent questions. Instead of polluting your main session with \"what's the weather tomorrow,\" type `/btw what's the weather tomorrow` and it fires off a side conversation without touching your main context.\n\n**DON'T: create a second agent.**\n\nEvery new user thinks they need multiple agents. personal, work, coding. you don't. not yet.\n\nEvery agent is an independent token consumer. every agent needs its own channel binding. Every agent complicates debugging. i've seen too many people create a second agent to \"fix\" problems with the first one. now they have two broken agents.\n\nGet one agent working perfectly for 2 weeks. then decide if you actually need another. most people don't.\n\n**DO: check your costs every single day for the first 2 weeks.**\n\ncheck your API provider's dashboard directly (console.anthropic.com, platform.openai.com, whatever you use). Don't rely on OpenClaw's internal cost tracking, it's an estimate and sometimes doesn't match what you actually get billed.\n\non Sonnet with one agent and no skills, expect $3-8/month for moderate personal use. if you're above that in your first week, something is wrong and it's fixable.\n\nWatch for heartbeat costs specifically. OpenClaw checks in every 30-60 minutes. if those heartbeats are running on your expensive model, you're paying for your agent to check its own pulse 24 times a day at premium rates.\n\n**DON'T: auto-update without checking the changelog.**\n\nThis is the mistake experienced users make. OpenClaw updates 2-3 times a week. Some updates break things. if you auto-update overnight, you might wake up to a broken setup with no idea what changed.\n\nEither pin your version and update manually when you're ready, or at minimum read the changelog before letting updates through.\n\n**DO: have realistic expectations for your first week.**\n\nday 1-2: set up your model, lock your gateway, write your SOUL.md. have normal conversations. ask stupid questions. get comfortable.\n\nday 3-4: start using it for real tasks. calendar, reminders, web searches, summarizing articles. the boring stuff. keep everything read-only. Don't give it write access to email or files yet.\n\nday 5-7: refine your SOUL.md based on what annoyed you. Check your costs. get a feel for daily usage.\n\nThat's it. no skills. no second agent. no multi-agent orchestrator. no cron jobs. just one agent that knows who you are, respects boundaries, and does basic tasks reliably.\n\nIf that feels underwhelming, good. The people still using OpenCLaw three months from now all started exactly like this. The people who quit started with 8 agents and 20 skills on day one. For more details, you can visit r/better_claw.",
+    "awards": [],
+    "comments": [],
+    "created_utc": "2026-04-22T19:05:16",
+    "first_author_comment": null,
+    "num_comments": 13,
+    "score": 67,
+    "subreddit": "openclaw",
+    "tag": "Tutorial/Guide",
+    "tags": [
+      "Tutorial/Guide"
+    ],
+    "title": "Trying OpenClaw for the first time? Here's the Dos and Don'ts",
+    "updatedAt": "2026-04-23T04:39:06.896Z",
+    "upvote_ratio": 0.91,
+    "url": "https://reddit.com/r/openclaw/comments/1ssuze9/trying_openclaw_for_the_first_time_heres_the_dos/",
+    "versionList": [],
+    "classification": {
+      "componentType": [],
+      "securityType": [
+        "UNKNOWN"
+      ]
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.015544842309525792,
+        "timestampPredicted": "2026-04-23T04:01:17.436492+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true
+  },
+  {
+    "_id": "69e92fbeda0850f83832ede8",
+    "redditId": "1ssu8ms",
+    "author": "Grogg-Rhine",
+    "author_description": "1) After a couple of days, had to enable \"bind to eht0\" on my PiHole DNS to get teleport working\n\n2) Then I'd try a hotspot on my mobile phone (Android), knowing my UTR would work with public Wifi networks. I discovered that I have to turn off battery saving on the advanced Wifi setting or else I'd get about 3 or 4 pings out and the the uplink Wifi would disconnect, and then rinse and repeat a few moments later.\n\n3) Another big one for me was CyserSecure -&gt; Detection Mode. I had to set this to notify only and then the DNS routing would work into my home network. I moved it back then to block post testing and I discovered that \"ET SCAN Tomcat Auth Brute Force attempt (admin)\" and \"ET EXPLOIT \\[ConnectWise CRU\\] Potential Sonicwall SMA Authentication Bypass (management) (CVE-2021-20016)\" were detected against 2 of my NAS boxes at the house. I excluded them for both directions to/from my NAS IP's. Then I added into Detection Exclusions, the URT IP and the UTR network IP ranges.\n\nSome adventure, but I got there. I feel this needs to be more seamless.  \nMaybe someone has a better approach but it's been a head-scratcher for days.",
+    "awards": [],
+    "comments": [],
+    "created_utc": "2026-04-22T18:38:50",
+    "first_author_comment": null,
+    "num_comments": 1,
+    "score": 0,
+    "subreddit": "Ubiquiti",
+    "tag": "Fix In Comments",
+    "tags": [],
+    "title": "UTR and some battles to get connected - PHEW!",
+    "updatedAt": "2026-04-23T04:29:55.992Z",
+    "upvote_ratio": 0.5,
+    "url": "https://reddit.com/r/Ubiquiti/comments/1ssu8ms/utr_and_some_battles_to_get_connected_phew/",
+    "versionList": [],
+    "classification": {
+      "componentType": [],
+      "securityType": [
+        "UNKNOWN"
+      ]
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.0001290128268660771,
+        "timestampPredicted": "2026-04-23T04:01:23.770023+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": false
+  },
+  {
+    "_id": "69e9145dda0850f83832daa8",
+    "redditId": "1sssx5l",
+    "author": "anh0516",
+    "author_description": null,
+    "awards": [],
+    "comments": [
+      {
+        "id": "ohoq0sl",
+        "author": "PraetorRU",
+        "body": "&gt;Ubuntu 26.04 LTS is shipping with Rust Coreutils 0.8 that has most of those security fixes in place. \n\nNumber looks high, but in reality they found nothing really serious, and most of what they found is already fixed. Things that they were not able to fix in time were not shipped:\n\n&gt;cp, mv, and rm continue to be provided by GNU coreutils in 26.04. These utilities have remaining open TOCTOU (time-of-check to time-of-use) issues (8 as of Apr 22, 2026) that need to be resolved before we are confident shipping them.)",
+        "score": 58,
+        "created_utc_ts": 1776885488,
+        "created_utc": "2026-04-22T19:18:08",
+        "permalink": "https://reddit.com/r/linux/comments/1sssx5l/ubuntu_rust_coreutils_audit_revealed_113_issues/ohoq0sl/",
+        "parent_id": "t3_1sssx5l",
+        "is_submitter": false
+      },
+      {
+        "id": "ohos8du",
+        "author": "sylvester_0",
+        "body": "It's probably been discussed a billion times but I don't really understand this push. I'm much less worried about memory safety in coreutils than in exposed/critical services like openssl, SSH, etc ",
+        "score": 24,
+        "created_utc_ts": 1776886113,
+        "created_utc": "2026-04-22T19:28:33",
+        "permalink": "https://reddit.com/r/linux/comments/1sssx5l/ubuntu_rust_coreutils_audit_revealed_113_issues/ohos8du/",
+        "parent_id": "t3_1sssx5l",
+        "is_submitter": false
+      },
+      {
+        "id": "ohoxrze",
+        "author": "0riginal-Syn",
+        "body": "I said in another post, that I am not a fan of the rewrite or even Canonical, but they commissioned this independent audit to find and fix everything found before LTS. It is younger than coreutils so it has not had decades of real-world use and testing. This was actually a pretty smart move, regardless of my view on uutils or Canonical.",
+        "score": 70,
+        "created_utc_ts": 1776887691,
+        "created_utc": "2026-04-22T19:54:51",
+        "permalink": "https://reddit.com/r/linux/comments/1sssx5l/ubuntu_rust_coreutils_audit_revealed_113_issues/ohoxrze/",
+        "parent_id": "t3_1sssx5l",
+        "is_submitter": false
+      },
+      {
+        "id": "ohoz19y",
+        "author": "PraetorRU",
+        "body": "One doesn't contradict another. Coreutils are very important for hosting and other server usage when you allow lots of people to have a shell in your system.\n\nOn the other hand, incentive to use coreutils rewritten in Rust is basically what Canonical's tech lead sold to the management. I don't think they won anything from it up to this day besides a lot of effort to stabilize \"oxidized\" implementations.",
+        "score": 16,
+        "created_utc_ts": 1776888049,
+        "created_utc": "2026-04-22T20:00:49",
+        "permalink": "https://reddit.com/r/linux/comments/1sssx5l/ubuntu_rust_coreutils_audit_revealed_113_issues/ohoz19y/",
+        "parent_id": "t1_ohos8du",
+        "is_submitter": false
+      },
+      {
+        "id": "ohozog5",
+        "author": "gmes78",
+        "body": "&gt; Number looks high, but in reality they found nothing really serious, and most of what they found is already fixed\n\nBut how would we make clickbait headlines otherwise?",
+        "score": 44,
+        "created_utc_ts": 1776888238,
+        "created_utc": "2026-04-22T20:03:58",
+        "permalink": "https://reddit.com/r/linux/comments/1sssx5l/ubuntu_rust_coreutils_audit_revealed_113_issues/ohozog5/",
+        "parent_id": "t1_ohoq0sl",
+        "is_submitter": false
+      },
+      {
+        "id": "ohpeatf",
+        "author": "dathislayer",
+        "body": "Very good perspective. ",
+        "score": 12,
+        "created_utc_ts": 1776892583,
+        "created_utc": "2026-04-22T21:16:23",
+        "permalink": "https://reddit.com/r/linux/comments/1sssx5l/ubuntu_rust_coreutils_audit_revealed_113_issues/ohpeatf/",
+        "parent_id": "t1_ohoxrze",
+        "is_submitter": false
+      },
+      {
+        "id": "ohpetmg",
+        "author": "Coyann",
+        "body": "Did the The Lunduke Journal write this headline?",
+        "score": 12,
+        "created_utc_ts": 1776892743,
+        "created_utc": "2026-04-22T21:19:03",
+        "permalink": "https://reddit.com/r/linux/comments/1sssx5l/ubuntu_rust_coreutils_audit_revealed_113_issues/ohpetmg/",
+        "parent_id": "t3_1sssx5l",
+        "is_submitter": false
+      },
+      {
+        "id": "ohpkoau",
+        "author": "suszuk",
+        "body": "Rewriting battle tested software in fairly \"rolling release\" programming language that gets updates every 6 month and not finalized is just asking for problems,  you know I miss the days when software engineering was sane that they don't touch what doesn't need fixing just improving upon without rewriting the entire thing from scratch,  reinventing the wheels and opening a new can of worms ",
+        "score": -3,
+        "created_utc_ts": 1776894585,
+        "created_utc": "2026-04-22T21:49:45",
+        "permalink": "https://reddit.com/r/linux/comments/1sssx5l/ubuntu_rust_coreutils_audit_revealed_113_issues/ohpkoau/",
+        "parent_id": "t3_1sssx5l",
+        "is_submitter": false
+      },
+      {
+        "id": "ohplg2e",
+        "author": "creeper6530",
+        "body": "Again and again. The Rust coreutils were supposed to be an exercise, not production replacement. Shit on Canonical.",
+        "score": 0,
+        "created_utc_ts": 1776894831,
+        "created_utc": "2026-04-22T21:53:51",
+        "permalink": "https://reddit.com/r/linux/comments/1sssx5l/ubuntu_rust_coreutils_audit_revealed_113_issues/ohplg2e/",
+        "parent_id": "t3_1sssx5l",
+        "is_submitter": false
+      },
+      {
+        "id": "ohplufm",
+        "author": "creeper6530",
+        "body": "Blame Canonical. The rewrite project was originally never supposed to go production. And even ignoring that, it's still not even v1.0",
+        "score": 2,
+        "created_utc_ts": 1776894961,
+        "created_utc": "2026-04-22T21:56:01",
+        "permalink": "https://reddit.com/r/linux/comments/1sssx5l/ubuntu_rust_coreutils_audit_revealed_113_issues/ohplufm/",
+        "parent_id": "t1_ohpkoau",
+        "is_submitter": false
+      },
+      {
+        "id": "ohpyebn",
+        "author": "jonathancast",
+        "body": "I don't have a bookmark, but I remember a few years ago people mocking the idea of Rust rewrites, or even writing new stuff in Rust, by saying \"rewrite something simple in Rust, like coreutils, and then I'll listen\". I think that's the motive - it's just a demonstration to prove to people that Rust really is a production-ready, capable programming language.",
+        "score": 2,
+        "created_utc_ts": 1776899197,
+        "created_utc": "2026-04-22T23:06:37",
+        "permalink": "https://reddit.com/r/linux/comments/1sssx5l/ubuntu_rust_coreutils_audit_revealed_113_issues/ohpyebn/",
+        "parent_id": "t1_ohos8du",
+        "is_submitter": false
+      },
+      {
+        "id": "ohq84ok",
+        "author": "IngwiePhoenix",
+        "body": "Rust Coreutils feels like such a footgun... x) But I'd bet people are hellbent on _not_ admitting this being a mistake.",
+        "score": 0,
+        "created_utc_ts": 1776902602,
+        "created_utc": "2026-04-23T00:03:22",
+        "permalink": "https://reddit.com/r/linux/comments/1sssx5l/ubuntu_rust_coreutils_audit_revealed_113_issues/ohq84ok/",
+        "parent_id": "t3_1sssx5l",
+        "is_submitter": false
+      },
+      {
+        "id": "ohq91qd",
+        "author": "Natural_Night9957",
+        "body": "The h4t3ful six: Ubuntu, snaps, Rust, systemd, wayland, GNOME\n\n*BETTER YET, THE SINISTER SIX",
+        "score": 1,
+        "created_utc_ts": 1776902922,
+        "created_utc": "2026-04-23T00:08:42",
+        "permalink": "https://reddit.com/r/linux/comments/1sssx5l/ubuntu_rust_coreutils_audit_revealed_113_issues/ohq91qd/",
+        "parent_id": "t3_1sssx5l",
+        "is_submitter": false
+      },
+      {
+        "id": "ohq9fi8",
+        "author": "100GHz",
+        "body": "&gt; nothing serious\n\n:P\n\nhttps://www.cve.org/CVERecord?id=CVE-2026-35338",
+        "score": 0,
+        "created_utc_ts": 1776903055,
+        "created_utc": "2026-04-23T00:10:55",
+        "permalink": "https://reddit.com/r/linux/comments/1sssx5l/ubuntu_rust_coreutils_audit_revealed_113_issues/ohq9fi8/",
+        "parent_id": "t1_ohoq0sl",
+        "is_submitter": false
+      },
+      {
+        "id": "ohqduyq",
+        "author": "ea_nasir_official_",
+        "body": "but... but.. ubuntu bad",
+        "score": 0,
+        "created_utc_ts": 1776904576,
+        "created_utc": "2026-04-23T00:36:16",
+        "permalink": "https://reddit.com/r/linux/comments/1sssx5l/ubuntu_rust_coreutils_audit_revealed_113_issues/ohqduyq/",
+        "parent_id": "t1_ohoq0sl",
+        "is_submitter": false
+      },
+      {
+        "id": "ohqew40",
+        "author": "SosirisTseng",
+        "body": "License ",
+        "score": -1,
+        "created_utc_ts": 1776904925,
+        "created_utc": "2026-04-23T00:42:05",
+        "permalink": "https://reddit.com/r/linux/comments/1sssx5l/ubuntu_rust_coreutils_audit_revealed_113_issues/ohqew40/",
+        "parent_id": "t1_ohos8du",
+        "is_submitter": false
+      },
+      {
+        "id": "ohqg641",
+        "author": "TerribleReason4195",
+        "body": "Cp, MV, and rm are pretty important IMO.",
+        "score": 2,
+        "created_utc_ts": 1776905357,
+        "created_utc": "2026-04-23T00:49:17",
+        "permalink": "https://reddit.com/r/linux/comments/1sssx5l/ubuntu_rust_coreutils_audit_revealed_113_issues/ohqg641/",
+        "parent_id": "t1_ohoq0sl",
+        "is_submitter": false
+      },
+      {
+        "id": "ohqgddr",
+        "author": "TerribleReason4195",
+        "body": "You could replace or add canonical in there.",
+        "score": 1,
+        "created_utc_ts": 1776905426,
+        "created_utc": "2026-04-23T00:50:26",
+        "permalink": "https://reddit.com/r/linux/comments/1sssx5l/ubuntu_rust_coreutils_audit_revealed_113_issues/ohqgddr/",
+        "parent_id": "t1_ohq91qd",
+        "is_submitter": false
+      },
+      {
+        "id": "ohqubyd",
+        "author": "TampaPowers",
+        "body": "I had a box get compromised just a few days ago. No clue how besides a password being guessed maybe(left enable from the vendor unfortunately). Canonical actually fixing bugs is good, until you see how many more still exist in critical software and you really wonder how they can call anything stable. It was really good with 18 and 20 and since 22 so much stuff started to break it's creating more work than it should.",
+        "score": 1,
+        "created_utc_ts": 1776910239,
+        "created_utc": "2026-04-23T02:10:39",
+        "permalink": "https://reddit.com/r/linux/comments/1sssx5l/ubuntu_rust_coreutils_audit_revealed_113_issues/ohqubyd/",
+        "parent_id": "t1_ohos8du",
+        "is_submitter": false
+      },
+      {
+        "id": "ohr0sey",
+        "author": "Anonymo",
+        "body": "I aim for 0% Ubuntu usage.",
+        "score": 2,
+        "created_utc_ts": 1776912488,
+        "created_utc": "2026-04-23T02:48:08",
+        "permalink": "https://reddit.com/r/linux/comments/1sssx5l/ubuntu_rust_coreutils_audit_revealed_113_issues/ohr0sey/",
+        "parent_id": "t3_1sssx5l",
+        "is_submitter": false
+      },
+      {
+        "id": "ohr3sx7",
+        "author": "Infiniti_151",
+        "body": "Only the first 2",
+        "score": 1,
+        "created_utc_ts": 1776913585,
+        "created_utc": "2026-04-23T03:06:25",
+        "permalink": "https://reddit.com/r/linux/comments/1sssx5l/ubuntu_rust_coreutils_audit_revealed_113_issues/ohr3sx7/",
+        "parent_id": "t1_ohq91qd",
+        "is_submitter": false
+      },
+      {
+        "id": "ohr4isp",
+        "author": "void4",
+        "body": "Cause there are multiple perfectly aligned interests:\n\n1. Guys from \"NG\"O \"Sovereign Tech Fund\" got their hands on German taxpayers' money, which they need to spend on relevant projects. They of course would like to spend them on projects ran by either their friends or at least fellow far left activists\n\n2. Managers at Canonical (or any other big company) have KPI which says that they must drive some project within the company. Moreover, such project should be as cheap as possible, preferably - paid for by someone else. Another plus if it means getting rid of GPL licensed software - this license is really bothersome for corporations\n\n3. RiiR requires no skills and no visible metric improvements. It's actually the opposite: if your modern RiiR'd project produces a binary which compiles 10 times slower and contains 10x more bloat and 10x more bugs than its \"deprecated\" alternative because you're a lazy incompetent idiot, then you can always say that it's for the sake of memory safety, security, yadda yadda.",
+        "score": 1,
+        "created_utc_ts": 1776913853,
+        "created_utc": "2026-04-23T03:10:53",
+        "permalink": "https://reddit.com/r/linux/comments/1sssx5l/ubuntu_rust_coreutils_audit_revealed_113_issues/ohr4isp/",
+        "parent_id": "t1_ohos8du",
+        "is_submitter": false
+      },
+      {
+        "id": "ohr6kzo",
+        "author": "JockstrapCummies",
+        "body": "I aim for 100% Ubuntu usage.\n\nThe great thing about Linux is that you have a choice.",
+        "score": 2,
+        "created_utc_ts": 1776914618,
+        "created_utc": "2026-04-23T03:23:38",
+        "permalink": "https://reddit.com/r/linux/comments/1sssx5l/ubuntu_rust_coreutils_audit_revealed_113_issues/ohr6kzo/",
+        "parent_id": "t1_ohr0sey",
+        "is_submitter": false
+      }
+    ],
+    "created_utc": "2026-04-22T17:52:32",
+    "first_author_comment": null,
+    "num_comments": 34,
+    "score": 88,
+    "subreddit": "linux",
+    "tag": "Distro News",
+    "tags": [
+      "Distro News"
+    ],
+    "title": "Ubuntu Rust Coreutils Audit Revealed 113 Issues, Ubuntu 26.10 Aims For \"100% Rust Coreutils\"",
+    "updatedAt": "2026-04-23T04:32:55.796Z",
+    "upvote_ratio": 0.84,
+    "url": "https://reddit.com/r/linux/comments/1sssx5l/ubuntu_rust_coreutils_audit_revealed_113_issues/",
+    "versionList": [
+      "113.0.0",
+      "26.10.0",
+      "100.0.0"
+    ],
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.0011615889673787507,
+        "timestampPredicted": "2026-04-23T00:01:17.356913+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": false,
+    "isAboutLatestUpdate": false,
+    "classification": {
+      "componentType": [
+        "LANGUAGE",
+        "OS"
+      ],
+      "securityType": [
+        "UNKNOWN"
+      ]
+    }
+  },
+  {
     "_id": "69e81736da0850f838312a13",
     "redditId": "1ss55f7",
     "author": "anh0516",
@@ -10,7 +471,7 @@
         "id": "ohjgs2a",
         "author": "Heavy_Boss_1467",
         "body": "**Changes:**\n\n* Fix bashism in configure script causing errors in non-bash shells.\n* **(mkntfs)** Enable microsecond-level volume creation time.\n* Fix two instances of an invalid `errno` state when encountering `NULL` in strings.\n* Fix a crash when a reparse tag could not be found in the index.\n* Fix incorrect MFT free records value when bitmap is expanded.\n* Fix 'extras' manpages being installed when extras are disabled.\n* Fix various instances of use-after-free conditions in the library and tools.\n* Fix typo in NTFS hibernation message. Thanks to Anil Kumar for the report/fix.\n* Escape commas in the fsname when `libfuse` 2.8 or higher is used.\n* **(ntfsclone)** Allow adjusting the sector size in the NTFS boot sector for the target device when restoring images.\n* Remove `libdl` dependency when building without external plugins.\n* **(ntfsinfo)** Show information about the logfile state when dumping metadata.\n* **(ntfsinfo)** Fix displaying crowded directories or indexes.\n* **(ntfsinfo)** Fix displaying the security descriptor list in ntfsinfo.\n* Fix heap buffer overflow when POSIX ACLs were enabled ([CVE-2026-40706](https://github.com/tuxera/ntfs-3g/security/advisories/GHSA-4cwv-5285-63v9)). Thanks to Andrea Bocchetti for the report.\n* **(ntfsusermap)** Fix overflow when constructing backup filename.\n* Fix two time-of-check-time-of-use conditions.\n* Fix missing `malloc`/`sscanf` return value checks.\n\n[https://github.com/tuxera/ntfs-3g/releases/tag/2026.2.25](https://github.com/tuxera/ntfs-3g/releases/tag/2026.2.25)",
-        "score": 4,
+        "score": 10,
         "created_utc_ts": 1776816178,
         "created_utc": "2026-04-22T00:02:58",
         "permalink": "https://reddit.com/r/linux/comments/1ss55f7/ntfs3g_fuse_driver_sees_first_new_release_in_four/ohjgs2a/",
@@ -21,7 +482,7 @@
         "id": "ohjsbgh",
         "author": "Kevin_Kofler",
         "body": "Looks like Tuxera is foreseeing their userbase completely evaporating with the new in-kernel NTFS driver and trying to save what can be saved by updating both the NTFS-3G FUSE driver and the NTFS3 kernel driver. But I think it is too little too late.",
-        "score": 5,
+        "score": 26,
         "created_utc_ts": 1776820131,
         "created_utc": "2026-04-22T01:08:51",
         "permalink": "https://reddit.com/r/linux/comments/1ss55f7/ntfs3g_fuse_driver_sees_first_new_release_in_four/ohjsbgh/",
@@ -43,43 +504,139 @@
         "id": "ohjy21o",
         "author": "God_Hand_9764",
         "body": "Why would you not update a thing in 4 years and then give a crap if people stop using it?  \n\nSeems kind of strange to me... but yeah I think that's a wrap for this driver. ",
-        "score": 3,
+        "score": 15,
         "created_utc_ts": 1776822057,
         "created_utc": "2026-04-22T01:40:57",
         "permalink": "https://reddit.com/r/linux/comments/1ss55f7/ntfs3g_fuse_driver_sees_first_new_release_in_four/ohjy21o/",
         "parent_id": "t1_ohjsbgh",
         "is_submitter": false
+      },
+      {
+        "id": "ohmod69",
+        "author": "garywilli",
+        "body": "We can use NTFS compression on Fedora? I didn't know that. Is it fully featured and reliable?",
+        "score": 1,
+        "created_utc_ts": 1776864868,
+        "created_utc": "2026-04-22T13:34:28",
+        "permalink": "https://reddit.com/r/linux/comments/1ss55f7/ntfs3g_fuse_driver_sees_first_new_release_in_four/ohmod69/",
+        "parent_id": "t1_ohjsrlj",
+        "is_submitter": false
       }
     ],
     "created_utc": "2026-04-21T23:58:43",
     "first_author_comment": null,
-    "num_comments": 5,
-    "score": 23,
+    "num_comments": 8,
+    "score": 73,
     "subreddit": "linux",
     "tag": "Software Release",
     "tags": [
       "Software Release"
     ],
     "title": "NTFS-3G FUSE Driver Sees First New Release In Four Years",
-    "updatedAt": "2026-04-22T04:32:57.144Z",
-    "upvote_ratio": 0.96,
+    "updatedAt": "2026-04-23T04:33:07.785Z",
+    "upvote_ratio": 0.97,
     "url": "https://reddit.com/r/linux/comments/1ss55f7/ntfs3g_fuse_driver_sees_first_new_release_in_four/",
     "versionList": [],
     "classification": {
-      "componentType": []
+      "componentType": [],
+      "securityType": [
+        "UNKNOWN"
+      ]
     },
     "metadata": {
       "predicted": {
         "isUpdateRelated": false,
         "positiveScore": 7.996353184065755e-05,
-        "timestampPredicted": "2026-04-22T04:00:30.130158+00:00"
+        "timestampPredicted": "2026-04-22T12:01:25.858076+00:00"
       },
       "labeled": {
         "isUpdateRelated": null
       }
     },
     "isAboutCve": false,
-    "isAboutLatestUpdate": true
+    "isAboutLatestUpdate": true,
+    "detectedCVEs": [
+      {
+        "cveId": "CVE-2026-40706",
+        "cveIds": [
+          "CVE-2026-40706"
+        ],
+        "source": "Comment",
+        "commentText": "* Fix heap buffer overflow when POSIX ACLs were enabled ([CVE-2026-40706](https://github.com/tuxera/ntfs-3g/security/advisories/GHSA-4cwv-5285-63v9)).",
+        "linkToComment": "https://reddit.com/r/linux/comments/1ss55f7/ntfs3g_fuse_driver_sees_first_new_release_in_four/ohjgs2a/",
+        "commentDate": "2026-04-22T00:02:58+00:00",
+        "cvePublishedDate": "2026-04-21T22:16:19.077000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-04-21T22:16:19.077 | New CVE Received | source=cve@mitre.org | changeId=CC51F209-BBEB-4468-87B2-4E12DAE517F2\n   - Added Description: In NTFS-3G 2022.10.3 before 2026.2.25, a heap buffer overflow exists in ntfs_build_permissions_posix() in acls.c that allows an attacker to corrupt heap memory in the SUID-root ntfs-3g binary by crafting a malicious NTFS image. The overflow is triggered on the READ path (stat, readdir, open) when processing a security descriptor with multiple ACCESS_DENIED ACEs containing WRITE_OWNER from distinct group SIDs.\n   - Added CVSS V3.1: AV:L/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-122\n   - Added Reference: https://github.com/tuxera/ntfs-3g/blob/d3ace19838ce37cfde55294e76841e6d2f393f9e/libntfs-3g/acls.c#L4011-L4027\n   - Added Reference: https://github.com/tuxera/ntfs-3g/releases/tag/2026.2.25\n   - Added Reference: https://github.com/tuxera/ntfs-3g/security/advisories/GHSA-4cwv-5285-63v9\n   - Added Reference: https://www.openwall.com/lists/oss-security/2026/04/21/4\n2. 2026-04-21T22:16:19.077 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=FCE8CB7B-067E-4DEB-B4F2-3A96A6B9C13F\n   - Added Reference: http://www.openwall.com/lists/oss-security/2026/04/21/4\n   - Added Reference: https://lists.debian.org/debian-lts-announce/2026/04/msg00024.html\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-40706",
+        "cveIds": [
+          "CVE-2026-40706"
+        ],
+        "source": "Comment",
+        "commentText": "* Fix heap buffer overflow when POSIX ACLs were enabled ([CVE-2026-40706](https://github.com/tuxera/ntfs-3g/security/advisories/GHSA-4cwv-5285-63v9)).",
+        "linkToComment": "https://reddit.com/r/linux/comments/1ss55f7/ntfs3g_fuse_driver_sees_first_new_release_in_four/ohjgs2a/",
+        "commentDate": "2026-04-22T00:02:58+00:00",
+        "cvePublishedDate": "2026-04-21T22:16:19.077000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-04-21T22:16:19.077 | New CVE Received | source=cve@mitre.org | changeId=CC51F209-BBEB-4468-87B2-4E12DAE517F2\n   - Added Description: In NTFS-3G 2022.10.3 before 2026.2.25, a heap buffer overflow exists in ntfs_build_permissions_posix() in acls.c that allows an attacker to corrupt heap memory in the SUID-root ntfs-3g binary by crafting a malicious NTFS image. The overflow is triggered on the READ path (stat, readdir, open) when processing a security descriptor with multiple ACCESS_DENIED ACEs containing WRITE_OWNER from distinct group SIDs.\n   - Added CVSS V3.1: AV:L/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-122\n   - Added Reference: https://github.com/tuxera/ntfs-3g/blob/d3ace19838ce37cfde55294e76841e6d2f393f9e/libntfs-3g/acls.c#L4011-L4027\n   - Added Reference: https://github.com/tuxera/ntfs-3g/releases/tag/2026.2.25\n   - Added Reference: https://github.com/tuxera/ntfs-3g/security/advisories/GHSA-4cwv-5285-63v9\n   - Added Reference: https://www.openwall.com/lists/oss-security/2026/04/21/4\n2. 2026-04-21T22:16:19.077 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=FCE8CB7B-067E-4DEB-B4F2-3A96A6B9C13F\n   - Added Reference: http://www.openwall.com/lists/oss-security/2026/04/21/4\n   - Added Reference: https://lists.debian.org/debian-lts-announce/2026/04/msg00024.html\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-40706",
+        "cveIds": [
+          "CVE-2026-40706"
+        ],
+        "source": "Comment",
+        "commentText": "* Fix heap buffer overflow when POSIX ACLs were enabled ([CVE-2026-40706](https://github.com/tuxera/ntfs-3g/security/advisories/GHSA-4cwv-5285-63v9)).",
+        "linkToComment": "https://reddit.com/r/linux/comments/1ss55f7/ntfs3g_fuse_driver_sees_first_new_release_in_four/ohjgs2a/",
+        "commentDate": "2026-04-22T00:02:58+00:00",
+        "cvePublishedDate": "2026-04-21T22:16:19.077000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-04-21T22:16:19.077 | New CVE Received | source=cve@mitre.org | changeId=CC51F209-BBEB-4468-87B2-4E12DAE517F2\n   - Added Description: In NTFS-3G 2022.10.3 before 2026.2.25, a heap buffer overflow exists in ntfs_build_permissions_posix() in acls.c that allows an attacker to corrupt heap memory in the SUID-root ntfs-3g binary by crafting a malicious NTFS image. The overflow is triggered on the READ path (stat, readdir, open) when processing a security descriptor with multiple ACCESS_DENIED ACEs containing WRITE_OWNER from distinct group SIDs.\n   - Added CVSS V3.1: AV:L/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-122\n   - Added Reference: https://github.com/tuxera/ntfs-3g/blob/d3ace19838ce37cfde55294e76841e6d2f393f9e/libntfs-3g/acls.c#L4011-L4027\n   - Added Reference: https://github.com/tuxera/ntfs-3g/releases/tag/2026.2.25\n   - Added Reference: https://github.com/tuxera/ntfs-3g/security/advisories/GHSA-4cwv-5285-63v9\n   - Added Reference: https://www.openwall.com/lists/oss-security/2026/04/21/4\n2. 2026-04-21T22:16:19.077 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=FCE8CB7B-067E-4DEB-B4F2-3A96A6B9C13F\n   - Added Reference: http://www.openwall.com/lists/oss-security/2026/04/21/4\n   - Added Reference: https://lists.debian.org/debian-lts-announce/2026/04/msg00024.html\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-40706",
+        "cveIds": [
+          "CVE-2026-40706"
+        ],
+        "source": "Comment",
+        "commentText": "* Fix heap buffer overflow when POSIX ACLs were enabled ([CVE-2026-40706](https://github.com/tuxera/ntfs-3g/security/advisories/GHSA-4cwv-5285-63v9)).",
+        "linkToComment": "https://reddit.com/r/linux/comments/1ss55f7/ntfs3g_fuse_driver_sees_first_new_release_in_four/ohjgs2a/",
+        "commentDate": "2026-04-22T00:02:58+00:00",
+        "cvePublishedDate": "2026-04-21T22:16:19.077000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-04-21T22:16:19.077 | New CVE Received | source=cve@mitre.org | changeId=CC51F209-BBEB-4468-87B2-4E12DAE517F2\n   - Added Description: In NTFS-3G 2022.10.3 before 2026.2.25, a heap buffer overflow exists in ntfs_build_permissions_posix() in acls.c that allows an attacker to corrupt heap memory in the SUID-root ntfs-3g binary by crafting a malicious NTFS image. The overflow is triggered on the READ path (stat, readdir, open) when processing a security descriptor with multiple ACCESS_DENIED ACEs containing WRITE_OWNER from distinct group SIDs.\n   - Added CVSS V3.1: AV:L/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-122\n   - Added Reference: https://github.com/tuxera/ntfs-3g/blob/d3ace19838ce37cfde55294e76841e6d2f393f9e/libntfs-3g/acls.c#L4011-L4027\n   - Added Reference: https://github.com/tuxera/ntfs-3g/releases/tag/2026.2.25\n   - Added Reference: https://github.com/tuxera/ntfs-3g/security/advisories/GHSA-4cwv-5285-63v9\n   - Added Reference: https://www.openwall.com/lists/oss-security/2026/04/21/4\n2. 2026-04-21T22:16:19.077 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=FCE8CB7B-067E-4DEB-B4F2-3A96A6B9C13F\n   - Added Reference: http://www.openwall.com/lists/oss-security/2026/04/21/4\n   - Added Reference: https://lists.debian.org/debian-lts-announce/2026/04/msg00024.html\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      }
+    ]
   },
   {
     "_id": "69e7fe0dda0850f83830ee04",
@@ -96,7 +653,7 @@
     "tag": "🛠️ project",
     "tags": [],
     "title": "new release of rustsploit 4 years of development",
-    "updatedAt": "2026-04-22T04:00:56.840Z",
+    "updatedAt": "2026-04-22T08:01:17.948Z",
     "upvote_ratio": 0.5,
     "url": "https://reddit.com/r/rust/comments/1ss0w73/new_release_of_rustsploit_4_years_of_development/",
     "versionList": [
@@ -106,7 +663,7 @@
       "predicted": {
         "isUpdateRelated": false,
         "positiveScore": 0.021657374676244793,
-        "timestampPredicted": "2026-04-22T04:00:56.652606+00:00"
+        "timestampPredicted": "2026-04-22T08:01:17.611192+00:00"
       },
       "labeled": {
         "isUpdateRelated": null
@@ -131,13 +688,13 @@
     "created_utc": "2026-04-21T18:05:51",
     "first_author_comment": null,
     "num_comments": 0,
-    "score": 7,
+    "score": 8,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Two new critical Spinnaker vulns allow RCE and production access",
-    "updatedAt": "2026-04-22T04:31:03.227Z",
-    "upvote_ratio": 0.9,
+    "updatedAt": "2026-04-23T04:30:56.515Z",
+    "upvote_ratio": 0.76,
     "url": "https://reddit.com/r/netsec/comments/1srvol6/two_new_critical_spinnaker_vulns_allow_rce_and/",
     "versionList": [],
     "metadata": {
@@ -168,16 +725,16 @@
     "comments": [],
     "created_utc": "2026-04-21T14:42:02",
     "first_author_comment": null,
-    "num_comments": 60,
-    "score": 69,
+    "num_comments": 69,
+    "score": 107,
     "subreddit": "openclaw",
     "tag": "Use Cases",
     "tags": [
       "Use Cases"
     ],
     "title": "openclaw crossed 500k downloads a day this week. here are the 5 things nobody tells you when you're one of them",
-    "updatedAt": "2026-04-22T04:38:40.217Z",
-    "upvote_ratio": 0.76,
+    "updatedAt": "2026-04-22T20:41:46.900Z",
+    "upvote_ratio": 0.8,
     "url": "https://reddit.com/r/openclaw/comments/1srpodd/openclaw_crossed_500k_downloads_a_day_this_week/",
     "versionList": [
       "5.0.0"
@@ -204,16 +761,16 @@
     "comments": [],
     "created_utc": "2026-04-21T14:35:20",
     "first_author_comment": null,
-    "num_comments": 5,
-    "score": 13,
+    "num_comments": 7,
+    "score": 14,
     "subreddit": "openclaw",
     "tag": "Discussion",
     "tags": [
       "Discussion"
     ],
     "title": "three openclaw CVEs published today. i spent my morning auditing my own install and what i found wasn't the scary part",
-    "updatedAt": "2026-04-22T04:38:40.979Z",
-    "upvote_ratio": 0.89,
+    "updatedAt": "2026-04-22T12:40:05.842Z",
+    "upvote_ratio": 0.85,
     "url": "https://reddit.com/r/openclaw/comments/1srpi01/three_openclaw_cves_published_today_i_spent_my/",
     "versionList": [],
     "metadata": {
@@ -238,16 +795,16 @@
     "comments": [],
     "created_utc": "2026-04-21T03:10:58",
     "first_author_comment": null,
-    "num_comments": 19,
-    "score": 67,
+    "num_comments": 22,
+    "score": 79,
     "subreddit": "linux",
     "tag": "Fluff",
     "tags": [
       "Fluff"
     ],
     "title": "CONFIG_VT=n in 2026",
-    "updatedAt": "2026-04-22T04:33:02.231Z",
-    "upvote_ratio": 0.92,
+    "updatedAt": "2026-04-23T04:33:13.070Z",
+    "upvote_ratio": 0.94,
     "url": "https://reddit.com/r/linux/comments/1srbr7m/config_vtn_in_2026/",
     "versionList": [
       "2026.0.0"
@@ -376,7 +933,7 @@
         "id": "ogviu17",
         "author": "[deleted]",
         "body": "[deleted]",
-        "score": -5,
+        "score": -4,
         "created_utc_ts": 1776509098,
         "created_utc": "2026-04-18T10:44:58",
         "permalink": "https://reddit.com/r/netsec/comments/1sou4zz/mad_bugs_even_cat_readmetxt_is_not_safe/ogviu17/",
@@ -387,7 +944,7 @@
         "id": "ogvjr3n",
         "author": "LilthC",
         "body": "Legit question.",
-        "score": -12,
+        "score": -13,
         "created_utc_ts": 1776509557,
         "created_utc": "2026-04-18T10:52:37",
         "permalink": "https://reddit.com/r/netsec/comments/1sou4zz/mad_bugs_even_cat_readmetxt_is_not_safe/ogvjr3n/",
@@ -398,7 +955,7 @@
         "id": "ogvjree",
         "author": "gunni",
         "body": "catting files has been unsafe for decades.\n\nUsually if you cat binary files you just get some dings and some blinking.\n\nBut if you cat malicious files you can get pwned.",
-        "score": 161,
+        "score": 156,
         "created_utc_ts": 1776509561,
         "created_utc": "2026-04-18T10:52:41",
         "permalink": "https://reddit.com/r/netsec/comments/1sou4zz/mad_bugs_even_cat_readmetxt_is_not_safe/ogvjree/",
@@ -409,7 +966,7 @@
         "id": "ogvliqy",
         "author": "fiskfisk",
         "body": "It's a bug in iTerm2. ",
-        "score": 23,
+        "score": 24,
         "created_utc_ts": 1776510406,
         "created_utc": "2026-04-18T11:06:46",
         "permalink": "https://reddit.com/r/netsec/comments/1sou4zz/mad_bugs_even_cat_readmetxt_is_not_safe/ogvliqy/",
@@ -420,7 +977,7 @@
         "id": "ogvllk5",
         "author": "_vavkamil_",
         "body": "&gt; Is this a bug in cat/most terminals, or are you just desperate for attention?  \n  \nSorry, I'm not the author, just found this interesting. So no, I'm not desperate for attention.",
-        "score": 16,
+        "score": 14,
         "created_utc_ts": 1776510442,
         "created_utc": "2026-04-18T11:07:22",
         "permalink": "https://reddit.com/r/netsec/comments/1sou4zz/mad_bugs_even_cat_readmetxt_is_not_safe/ogvllk5/",
@@ -431,7 +988,7 @@
         "id": "ogvlt43",
         "author": "iamapizza",
         "body": "&gt; iterm2\n\n\nSay no more. ",
-        "score": 53,
+        "score": 56,
         "created_utc_ts": 1776510538,
         "created_utc": "2026-04-18T11:08:58",
         "permalink": "https://reddit.com/r/netsec/comments/1sou4zz/mad_bugs_even_cat_readmetxt_is_not_safe/ogvlt43/",
@@ -442,7 +999,7 @@
         "id": "ogvmepm",
         "author": "execveat",
         "body": "That’s uncalled for. Terminal escape sequences are highly risky by design as they multiplex display data and control instructions over the same channel. There have been a bunch of similar vulnerabilities in the past, like the classic CVE-2003-0063.",
-        "score": 18,
+        "score": 17,
         "created_utc_ts": 1776510811,
         "created_utc": "2026-04-18T11:13:31",
         "permalink": "https://reddit.com/r/netsec/comments/1sou4zz/mad_bugs_even_cat_readmetxt_is_not_safe/ogvmepm/",
@@ -464,7 +1021,7 @@
         "id": "ogvo7us",
         "author": "Nerdlinger",
         "body": "Couldn’t make it to the third sentence of the writeup, eh?",
-        "score": 13,
+        "score": 14,
         "created_utc_ts": 1776511627,
         "created_utc": "2026-04-18T11:27:07",
         "permalink": "https://reddit.com/r/netsec/comments/1sou4zz/mad_bugs_even_cat_readmetxt_is_not_safe/ogvo7us/",
@@ -475,7 +1032,7 @@
         "id": "ogvvosa",
         "author": "granadesnhorseshoes",
         "body": "iterm2 specific bug. It's fancy ssh integration features are implemented over standard terminal escape sequences so the remote ssh session can hijack your local terminal and run commands on your local machine via just outputting poison escape sequences to stdout. EG when you cat a maliciously crafted text file.\n\n\nAll the \"logic\" is in the text file so the remote host doesn't need to be controlled by an attacker, the file just needs to be present and output to stdout. Eg from a git clone of an evil repo.",
-        "score": 7,
+        "score": 8,
         "created_utc_ts": 1776514732,
         "created_utc": "2026-04-18T12:18:52",
         "permalink": "https://reddit.com/r/netsec/comments/1sou4zz/mad_bugs_even_cat_readmetxt_is_not_safe/ogvvosa/",
@@ -486,7 +1043,7 @@
         "id": "ogw6mxv",
         "author": "Ok_Tap7102",
         "body": "Right? Why are people surprised using a vulnerable terminal with published vulnerabilities might be unsafe?\n\nLet's leave cat out of this ",
-        "score": 51,
+        "score": 50,
         "created_utc_ts": 1776518725,
         "created_utc": "2026-04-18T13:25:25",
         "permalink": "https://reddit.com/r/netsec/comments/1sou4zz/mad_bugs_even_cat_readmetxt_is_not_safe/ogw6mxv/",
@@ -497,7 +1054,7 @@
         "id": "ogwbblq",
         "author": "Ok_Tap7102",
         "body": "You're correct, cat will faithfully render file contents which can bork the usability of your terminal or cause the file to render differently than its content\n\nNeither of which are command execution, that's iTerm2s fault here, nothing to do with cat?",
-        "score": 64,
+        "score": 61,
         "created_utc_ts": 1776520320,
         "created_utc": "2026-04-18T13:52:00",
         "permalink": "https://reddit.com/r/netsec/comments/1sou4zz/mad_bugs_even_cat_readmetxt_is_not_safe/ogwbblq/",
@@ -508,7 +1065,7 @@
         "id": "ogwcmhs",
         "author": "daidoji70",
         "body": "Yeah...\n\n\\#lol\n\n  \n\\`$ curl --proto '=https' --tlsv1.2 [https://sh.rustup.rs](https://sh.rustup.rs) \\-sSf | sh\\`\n\n",
-        "score": -16,
+        "score": -17,
         "created_utc_ts": 1776520737,
         "created_utc": "2026-04-18T13:58:57",
         "permalink": "https://reddit.com/r/netsec/comments/1sou4zz/mad_bugs_even_cat_readmetxt_is_not_safe/ogwcmhs/",
@@ -552,7 +1109,7 @@
         "id": "ogzmp7e",
         "author": "UltraEngine60",
         "body": "catting control characters can ruin your day. I found this out by accident when I cat'd a binary file instead of doing strings (was tired) and the terminal started spitting out weird errors.",
-        "score": 4,
+        "score": 5,
         "created_utc_ts": 1776557297,
         "created_utc": "2026-04-19T00:08:17",
         "permalink": "https://reddit.com/r/netsec/comments/1sou4zz/mad_bugs_even_cat_readmetxt_is_not_safe/ogzmp7e/",
@@ -563,7 +1120,7 @@
         "id": "oh1vr5r",
         "author": "yrro",
         "body": "`cat -v` is a good habit to get into. Or use less or vim to view files.",
-        "score": 4,
+        "score": 6,
         "created_utc_ts": 1776594237,
         "created_utc": "2026-04-19T10:23:57",
         "permalink": "https://reddit.com/r/netsec/comments/1sou4zz/mad_bugs_even_cat_readmetxt_is_not_safe/oh1vr5r/",
@@ -595,13 +1152,13 @@
     ],
     "created_utc": "2026-04-18T10:35:38",
     "first_author_comment": "&gt; Is this a bug in cat/most terminals, or are you just desperate for attention?  \n  \nSorry, I'm not the author, just found this interesting. So no, I'm not desperate for attention.",
-    "num_comments": 30,
-    "score": 133,
+    "num_comments": 31,
+    "score": 137,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "MAD Bugs: Even \"cat readme.txt\" is not safe",
-    "updatedAt": "2026-04-22T04:31:08.190Z",
+    "updatedAt": "2026-04-23T04:31:02.068Z",
     "upvote_ratio": 0.84,
     "url": "https://reddit.com/r/netsec/comments/1sou4zz/mad_bugs_even_cat_readmetxt_is_not_safe/",
     "versionList": [],
@@ -828,7 +1385,7 @@
         "id": "oglmdvu",
         "author": "TheFlx",
         "body": "Can’t wait for my apps to randomly start deploying to Laravel Cloud without even having that set up",
-        "score": 43,
+        "score": 46,
         "created_utc_ts": 1776375208,
         "created_utc": "2026-04-16T21:33:28",
         "permalink": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/oglmdvu/",
@@ -839,7 +1396,7 @@
         "id": "oglpnc6",
         "author": "rsmike",
         "body": "here's your $5 credit",
-        "score": 16,
+        "score": 17,
         "created_utc_ts": 1776376202,
         "created_utc": "2026-04-16T21:50:02",
         "permalink": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/oglpnc6/",
@@ -850,7 +1407,7 @@
         "id": "oglqatr",
         "author": "MysteriousCoconut31",
         "body": "How does this work if I already have an infra plugin installed like the AWS deployment skill? Does one take precedence over the other? Is it going to poison my preferred guidance from the AWS plugin?\n\nThis is a genuine question I’m asking in good faith. I’ve been critical of Laravel’s recent direction, but maybe this was considered already and the impact is overblown?",
-        "score": 5,
+        "score": 6,
         "created_utc_ts": 1776376402,
         "created_utc": "2026-04-16T21:53:22",
         "permalink": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/oglqatr/",
@@ -861,7 +1418,7 @@
         "id": "oglr8cr",
         "author": "DvD_cD",
         "body": "Taylor (in r/laravel) mentioned that they moved this section to a different file already",
-        "score": 6,
+        "score": 5,
         "created_utc_ts": 1776376688,
         "created_utc": "2026-04-16T21:58:08",
         "permalink": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/oglr8cr/",
@@ -872,7 +1429,7 @@
         "id": "oglvofv",
         "author": "Curtilia",
         "body": "So it begins",
-        "score": 30,
+        "score": 29,
         "created_utc_ts": 1776378099,
         "created_utc": "2026-04-16T22:21:39",
         "permalink": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/oglvofv/",
@@ -883,7 +1440,7 @@
         "id": "oglyig5",
         "author": "fraki67",
         "body": "Switch to symfony.",
-        "score": 53,
+        "score": 56,
         "created_utc_ts": 1776379030,
         "created_utc": "2026-04-16T22:37:10",
         "permalink": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/oglyig5/",
@@ -894,7 +1451,7 @@
         "id": "ogm4hay",
         "author": "NorthernCobraChicken",
         "body": "Am I about to witness, first hand, the gradual downfall of laravel?\n\nAre we going to go back to the good old days of symphony only?? ",
-        "score": 30,
+        "score": 29,
         "created_utc_ts": 1776381009,
         "created_utc": "2026-04-16T23:10:09",
         "permalink": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/ogm4hay/",
@@ -905,7 +1462,7 @@
         "id": "ogm8gf3",
         "author": "rocketpastsix",
         "body": "It began a while ago with some hires they made and then the series a",
-        "score": 10,
+        "score": 11,
         "created_utc_ts": 1776382367,
         "created_utc": "2026-04-16T23:32:47",
         "permalink": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/ogm8gf3/",
@@ -916,7 +1473,7 @@
         "id": "ogmzbm4",
         "author": "Sharchimedes",
         "body": "We’re about to witness the downfall of just about everything.",
-        "score": 32,
+        "score": 34,
         "created_utc_ts": 1776391929,
         "created_utc": "2026-04-17T02:12:09",
         "permalink": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/ogmzbm4/",
@@ -927,7 +1484,7 @@
         "id": "ogn0z16",
         "author": "CSAtWitsEnd",
         "body": "Last I looked at it, I felt that it was missing an extremely obvious \"happy path\" to setup for people who are very new to the framework. Which makes...getting your hands in and playing around / learning kinda tedious.\n\nMeanwhile, Laravel has that down, but becomes cumbersome when you need to deviate from that happy path.",
-        "score": 19,
+        "score": 21,
         "created_utc_ts": 1776392514,
         "created_utc": "2026-04-17T02:21:54",
         "permalink": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/ogn0z16/",
@@ -938,7 +1495,7 @@
         "id": "ogn50ns",
         "author": "user08182019",
         "body": "Lambos don’t pay for themselves guys. Pony up.",
-        "score": 53,
+        "score": 54,
         "created_utc_ts": 1776393977,
         "created_utc": "2026-04-17T02:46:17",
         "permalink": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/ogn50ns/",
@@ -949,7 +1506,7 @@
         "id": "ogna5ia",
         "author": "UnmaintainedDonkey",
         "body": "Stop using Laravel. PHP has symfony, thats not evil like laravel.",
-        "score": 18,
+        "score": 19,
         "created_utc_ts": 1776395949,
         "created_utc": "2026-04-17T03:19:09",
         "permalink": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/ogna5ia/",
@@ -960,7 +1517,7 @@
         "id": "ognlf9i",
         "author": "Juntaur",
         "body": "Good old Codeigniter too",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1776400698,
         "created_utc": "2026-04-17T04:38:18",
         "permalink": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/ognlf9i/",
@@ -1004,7 +1561,7 @@
         "id": "ogonsb1",
         "author": "qooplmao",
         "body": "`artisan` as the CLI always gets me. You're trying too hard, Taylor.",
-        "score": 3,
+        "score": 4,
         "created_utc_ts": 1776420324,
         "created_utc": "2026-04-17T10:05:24",
         "permalink": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/ogonsb1/",
@@ -1015,7 +1572,7 @@
         "id": "ogpdaws",
         "author": "arhimedosin",
         "body": "Mezzio",
-        "score": 2,
+        "score": 3,
         "created_utc_ts": 1776430297,
         "created_utc": "2026-04-17T12:51:37",
         "permalink": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/ogpdaws/",
@@ -1026,7 +1583,7 @@
         "id": "ogpxubr",
         "author": "EQuillers",
         "body": "Maybe its time for a breath of fresh air in the space.",
-        "score": 4,
+        "score": 6,
         "created_utc_ts": 1776436350,
         "created_utc": "2026-04-17T14:32:30",
         "permalink": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/ogpxubr/",
@@ -1059,7 +1616,7 @@
         "id": "ogsrs18",
         "author": "frankyfrankfrank",
         "body": "The issues raised here are more at the business level. They're valid criticisms, but not really the concern of a programming novice.  \n  \nIf Laravel helps you learn how to code right now because of the available help and ease-of-use, then I'd continue on at least for a little while.  \nLearning Laravel isn't going to hinder you from learning any other framework or language later on. The principles of programming apply to all.\n\nDefinitely explore other languages, frameworks... but build on what you've already learned.",
-        "score": 3,
+        "score": 4,
         "created_utc_ts": 1776465518,
         "created_utc": "2026-04-17T22:38:38",
         "permalink": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/ogsrs18/",
@@ -1169,12 +1726,12 @@
     "created_utc": "2026-04-16T21:17:16",
     "first_author_comment": null,
     "num_comments": 60,
-    "score": 100,
+    "score": 105,
     "subreddit": "PHP",
     "tag": null,
     "tags": [],
     "title": "Laravel raised money and now injects ads directly into your agent",
-    "updatedAt": "2026-04-22T04:39:25.557Z",
+    "updatedAt": "2026-04-23T04:39:45.134Z",
     "upvote_ratio": 0.9,
     "url": "https://reddit.com/r/PHP/comments/1sngr5c/laravel_raised_money_and_now_injects_ads_directly/",
     "versionList": [],
@@ -1244,12 +1801,12 @@
     "created_utc": "2026-04-16T19:59:49",
     "first_author_comment": null,
     "num_comments": 5,
-    "score": 39,
+    "score": 41,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "HAProxy HTTP/3 -&gt; HTTP/1 Desync: Cross-Protocol Smuggling via a Standalone QUIC FIN (CVE-2026-33555)",
-    "updatedAt": "2026-04-22T04:31:13.776Z",
+    "updatedAt": "2026-04-23T04:31:05.527Z",
     "upvote_ratio": 0.9,
     "url": "https://reddit.com/r/netsec/comments/1snem8w/haproxy_http3_http1_desync_crossprotocol/",
     "versionList": [
@@ -1295,12 +1852,12 @@
     "created_utc": "2026-04-15T03:00:12",
     "first_author_comment": null,
     "num_comments": 10,
-    "score": 22,
+    "score": 23,
     "subreddit": "IOT",
     "tag": null,
     "tags": [],
     "title": "Bluetooth on IoT devices",
-    "updatedAt": "2026-04-22T04:30:52.145Z",
+    "updatedAt": "2026-04-23T04:30:44.269Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/IOT/comments/1slty6n/bluetooth_on_iot_devices/",
     "versionList": [],
@@ -1317,13 +1874,13 @@
     "created_utc": "2026-04-14T10:40:33",
     "first_author_comment": null,
     "num_comments": 7,
-    "score": 39,
+    "score": 37,
     "subreddit": "PHP",
     "tag": null,
     "tags": [],
     "title": "Composer 2.9.6: Perforce Driver Command Injection Vulnerabilities (CVE-2026-40261, CVE-2026-40176)",
-    "updatedAt": "2026-04-22T04:39:28.757Z",
-    "upvote_ratio": 0.98,
+    "updatedAt": "2026-04-22T10:40:15.923Z",
+    "upvote_ratio": 0.95,
     "url": "https://reddit.com/r/PHP/comments/1sl4z6i/composer_296_perforce_driver_command_injection/",
     "versionList": [
       "2.9.6",
@@ -1345,13 +1902,13 @@
     "created_utc": "2026-04-13T13:34:19",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 11,
+    "score": 13,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-22666: Dolibarr 23.0.0 dol_eval() whitelist bypass -&gt; RCE (full write-up + PoC)",
-    "updatedAt": "2026-04-22T04:31:16.406Z",
-    "upvote_ratio": 0.81,
+    "updatedAt": "2026-04-23T04:31:08.224Z",
+    "upvote_ratio": 0.89,
     "url": "https://reddit.com/r/netsec/comments/1skazzv/cve202622666_dolibarr_2300_dol_eval_whitelist/",
     "versionList": [
       "2026.0.0",
@@ -1465,7 +2022,7 @@
         "id": "ofwmigk",
         "author": "Important_Map6928",
         "body": "**TL;DR:** 4-part BYOVD exploitation series on CVE-2025-8061 (Lenovo MSR driver) inspired by Quarkslab's blog post. One MSR read defeats kASLR. One MSR write hijacks the syscall handler. From there: token theft -&gt; SYSTEM -&gt; DSE bypass (or reflective loading) -&gt; unsigned rootkit.",
-        "score": 7,
+        "score": 6,
         "created_utc_ts": 1776071293,
         "created_utc": "2026-04-13T09:08:13",
         "permalink": "https://reddit.com/r/netsec/comments/1sk4j5o/cve20258061_from_userland_to_ring_0/ofwmigk/",
@@ -1498,13 +2055,13 @@
     "created_utc": "2026-04-13T08:13:44",
     "first_author_comment": "**TL;DR:** 4-part BYOVD exploitation series on CVE-2025-8061 (Lenovo MSR driver) inspired by Quarkslab's blog post. One MSR read defeats kASLR. One MSR write hijacks the syscall handler. From there: token theft -&gt; SYSTEM -&gt; DSE bypass (or reflective loading) -&gt; unsigned rootkit.",
     "num_comments": 2,
-    "score": 25,
+    "score": 29,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2025-8061: From User-land to Ring 0",
-    "updatedAt": "2026-04-22T04:31:18.248Z",
-    "upvote_ratio": 0.84,
+    "updatedAt": "2026-04-23T04:31:09.876Z",
+    "upvote_ratio": 0.88,
     "url": "https://reddit.com/r/netsec/comments/1sk4j5o/cve20258061_from_userland_to_ring_0/",
     "versionList": [
       "2025.0.0",
@@ -1724,7 +2281,7 @@
         "id": "ofjdkpo",
         "author": "stonerism",
         "body": "Great seeing the F5 folks continuing to do excellent security work! ",
-        "score": -5,
+        "score": -8,
         "created_utc_ts": 1775897780,
         "created_utc": "2026-04-11T08:56:20",
         "permalink": "https://reddit.com/r/netsec/comments/1si3xvv/claude_humans_vs_nginx_cve202627654/ofjdkpo/",
@@ -1746,7 +2303,7 @@
         "id": "ofjzf7x",
         "author": "Lowetheiy",
         "body": "This is useful work, how is it slop?",
-        "score": -6,
+        "score": -5,
         "created_utc_ts": 1775908544,
         "created_utc": "2026-04-11T11:55:44",
         "permalink": "https://reddit.com/r/netsec/comments/1si3xvv/claude_humans_vs_nginx_cve202627654/ofjzf7x/",
@@ -1757,7 +2314,7 @@
         "id": "ofk5t3n",
         "author": "JAD2017",
         "body": "Yup, now AI slop is the biggest internet threat! Omg the skynet takeover is upon us /s",
-        "score": -6,
+        "score": -7,
         "created_utc_ts": 1775910953,
         "created_utc": "2026-04-11T12:35:53",
         "permalink": "https://reddit.com/r/netsec/comments/1si3xvv/claude_humans_vs_nginx_cve202627654/ofk5t3n/",
@@ -1768,7 +2325,7 @@
         "id": "ofkr0y2",
         "author": "chfoo",
         "body": "I'm tired too of seeing these kind of posts where the end conclusion is that it was cheaper or faster with gen AI without any numbers backing that up. If you don't have to pay for compute resources and model training, then of course it would be faster or cheaper. \n\nWhether it's AI or traditional fuzzing, it's not a magic tool. There's going to be a tradeoff and it's frustrating that people are not understanding this.",
-        "score": 12,
+        "score": 11,
         "created_utc_ts": 1775917915,
         "created_utc": "2026-04-11T14:31:55",
         "permalink": "https://reddit.com/r/netsec/comments/1si3xvv/claude_humans_vs_nginx_cve202627654/ofkr0y2/",
@@ -1790,13 +2347,13 @@
     "created_utc": "2026-04-11T00:21:08",
     "first_author_comment": null,
     "num_comments": 11,
-    "score": 32,
+    "score": 28,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Claude + Humans vs nginx: CVE-2026-27654",
-    "updatedAt": "2026-04-22T04:31:19.642Z",
-    "upvote_ratio": 0.68,
+    "updatedAt": "2026-04-23T04:31:11.339Z",
+    "upvote_ratio": 0.66,
     "url": "https://reddit.com/r/netsec/comments/1si3xvv/claude_humans_vs_nginx_cve202627654/",
     "versionList": [
       "2026.0.0",
@@ -2006,8 +2563,8 @@
     "tag": null,
     "tags": [],
     "title": "Reading /etc/passwd via translation file upload in Tolgee's cloud platform (CVE-2026-32251, CVSS 9.3)",
-    "updatedAt": "2026-04-22T04:31:25.820Z",
-    "upvote_ratio": 0.96,
+    "updatedAt": "2026-04-23T04:31:18.150Z",
+    "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/netsec/comments/1sfpmg9/reading_etcpasswd_via_translation_file_upload_in/",
     "versionList": [
       "2026.0.0",
@@ -2085,13 +2642,13 @@
     "created_utc": "2026-04-08T07:01:17",
     "first_author_comment": null,
     "num_comments": 5,
-    "score": 41,
+    "score": 42,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Spooler Alert: Remote Unauth'd RCE-to-root Chain in CUPS",
-    "updatedAt": "2026-04-22T04:31:26.006Z",
-    "upvote_ratio": 0.94,
+    "updatedAt": "2026-04-23T04:31:18.342Z",
+    "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/netsec/comments/1sflk3t/spooler_alert_remote_unauthd_rcetoroot_chain_in/",
     "versionList": [],
     "classification": {
@@ -2204,13 +2761,13 @@
     "created_utc": "2026-04-07T20:31:22",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 11,
+    "score": 12,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-34197: ActiveMQ RCE via Jolokia API",
-    "updatedAt": "2026-04-22T04:31:27.619Z",
-    "upvote_ratio": 0.8,
+    "updatedAt": "2026-04-23T04:31:20.135Z",
+    "upvote_ratio": 0.81,
     "url": "https://reddit.com/r/netsec/comments/1sf7sno/cve202634197_activemq_rce_via_jolokia_api/",
     "versionList": [
       "2026.0.0",
@@ -2247,13 +2804,13 @@
     "created_utc": "2026-04-07T18:54:28",
     "first_author_comment": null,
     "num_comments": 7,
-    "score": 29,
+    "score": 27,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "The Race to Ship AI Tools Left Security Behind. Part 1: Sandbox Escape",
-    "updatedAt": "2026-04-22T04:31:29.377Z",
-    "upvote_ratio": 0.9,
+    "updatedAt": "2026-04-23T04:31:21.848Z",
+    "upvote_ratio": 0.86,
     "url": "https://reddit.com/r/netsec/comments/1sf550g/the_race_to_ship_ai_tools_left_security_behind/",
     "versionList": [
       "1.0.0"
@@ -2964,7 +3521,7 @@
     "tag": null,
     "tags": [],
     "title": "New RCE in Control Web Panel (CVE-2025-70951)",
-    "updatedAt": "2026-04-22T04:31:35.980Z",
+    "updatedAt": "2026-04-23T04:31:29.382Z",
     "upvote_ratio": 0.85,
     "url": "https://reddit.com/r/netsec/comments/1sb7pr4/new_rce_in_control_web_panel_cve202570951/",
     "versionList": [
@@ -3002,13 +3559,13 @@
     "created_utc": "2026-04-02T13:35:22",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 28,
+    "score": 29,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Mongoose: Preauth RCE and mTLS Bypass on Millions of Devices",
-    "updatedAt": "2026-04-22T04:31:37.021Z",
-    "upvote_ratio": 0.9,
+    "updatedAt": "2026-04-22T18:31:39.425Z",
+    "upvote_ratio": 0.88,
     "url": "https://reddit.com/r/netsec/comments/1sahl4e/mongoose_preauth_rce_and_mtls_bypass_on_millions/",
     "versionList": [],
     "classification": {
@@ -3040,13 +3597,13 @@
     "created_utc": "2026-04-02T11:06:09",
     "first_author_comment": null,
     "num_comments": 0,
-    "score": 23,
+    "score": 22,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "You’re Not Supposed To ShareFile With Everyone (Progress ShareFile Pre-Auth RCE Chain CVE-2026-2699 &amp; CVE-2026-2701) - watchTowr Labs",
-    "updatedAt": "2026-04-22T04:31:37.905Z",
-    "upvote_ratio": 0.93,
+    "updatedAt": "2026-04-22T16:31:44.567Z",
+    "upvote_ratio": 0.9,
     "url": "https://reddit.com/r/netsec/comments/1saebwi/youre_not_supposed_to_sharefile_with_everyone/",
     "versionList": [
       "2026.0.0",
@@ -3659,7 +4216,7 @@
     "tag": null,
     "tags": [],
     "title": "Security headers disappear with no errors - Critical 9.1 CVE-2026-22732 out this week",
-    "updatedAt": "2026-04-22T00:26:54.174Z",
+    "updatedAt": "2026-04-23T00:27:18.039Z",
     "upvote_ratio": 0.62,
     "url": "https://reddit.com/r/java/comments/1s3xj98/security_headers_disappear_with_no_errors/",
     "versionList": [
@@ -3686,6 +4243,90 @@
     "isAboutCve": true,
     "isAboutLatestUpdate": true,
     "detectedCVEs": [
+      {
+        "cveId": "CVE-2026-22732",
+        "cveIds": [
+          "CVE-2026-22732"
+        ],
+        "source": "Title",
+        "commentText": "Security headers disappear with no errors - Critical 9.1 CVE-2026-22732 out this week",
+        "linkToComment": "https://reddit.com/r/java/comments/1s3xj98/security_headers_disappear_with_no_errors/",
+        "commentDate": "2026-03-26T04:19:52+00:00",
+        "cvePublishedDate": "2026-03-19T23:16:41.253000+00:00",
+        "initialAnalysisDate": "2026-04-16T04:29:24.503",
+        "daysAfterPublication": 6,
+        "isPreAnalysis": true,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-04-16T04:29:24.503 | Initial Analysis | source=nvd@nist.gov | changeId=6BDEF59D-3D59-4B56-BA74-C81326C8BED4\n   - Added CPE Configuration: OR\n          *cpe:2.3:a:vmware:spring_security:*:*:*:*:*:*:*:* versions up to (excluding) 5.7.22\n          *cpe:2.3:a:vmware:spring_security:*:*:*:*:*:*:*:* versions from (including) 5.8.0 up to (excluding) 5.8.24\n          *cpe:2.3:a:vmware:spring_security:*:*:*:*:*:*:*:* versions from (including) 6.3.0 up to (excluding) 6.3.15\n          *cpe:2.3:a:vmware:spring_security:*:*:*:*:*:*:*:* versions from (including) 6.4.0 up to (excluding) 6.4.15\n          *cpe:2.3:a:vmware:spring_security:*:*:*:*:*:*:*:* versions from (including) 6.5.0 up to (excluding) 6.5.9\n          *cpe:2.3:a:vmware:spring_security:*:*:*:*:*:*:*:* versions from (including) 7.0.0 up to (excluding) 7.0.4\n   - Added Reference Type: VMware: https://spring.io/security/cve-2026-22732 Types: Exploit, Vendor Advisory\n2. 2026-04-02T08:16:28.230 | CVE Modified | source=security@vmware.com | changeId=F2D7E732-02BC-444D-951B-A0A0D5369FA6\n   - Changed Description: When applications specify HTTP response headers for servlet applications using Spring Security, there is the possibility that the HTTP Headers will not be written. \nThis issue affects Spring Security: from 5.7.0 through 5.7.21, from 5.8.0 through 5.8.23, from 6.3.0 through 6.3.14, from 6.4.0 through 6.4.14, from 6.5.0 through 6.5.8, from 7.0.0 through 7.0.3. -> When applications specify HTTP response headers for servlet applications using Spring Security, there is the possibility that the HTTP Headers will not be written. \nThis issue affects Spring Security Servlet applications using lazy (default) writing of HTTP Headers:\n\n: from 5.7.0 through 5.7.21, from 5.8.0 through 5.8.23, from 6.3.0 through 6.3.14, from 6.4.0 through 6.4.14, from 6.5.0 through 6.5.8, from 7.0.0 through 7.0.3.\n3. 2026-03-20T15:16:15.670 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=1AEDCE49-FCF5-4400-956A-88E3A5B6C154\n   - Added CWE: CWE-425\n4. 2026-03-19T23:16:41.253 | New CVE Received | source=security@vmware.com | changeId=6565A73E-47F8-4B5D-BBFD-FABBA04B08A2\n   - Added Description: When applications specify HTTP response headers for servlet applications using Spring Security, there is the possibility that the HTTP Headers will not be written. \nThis issue affects Spring Security: from 5.7.0 through 5.7.21, from 5.8.0 through 5.8.23, from 6.3.0 through 6.3.14, from 6.4.0 through 6.4.14, from 6.5.0 through 6.5.8, from 7.0.0 through 7.0.3.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N\n   - Added Reference: https://spring.io/security/cve-2026-22732\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-22732",
+        "cveIds": [
+          "CVE-2026-22732"
+        ],
+        "source": "Title",
+        "commentText": "Security headers disappear with no errors - Critical 9.1 CVE-2026-22732 out this week",
+        "linkToComment": "https://reddit.com/r/java/comments/1s3xj98/security_headers_disappear_with_no_errors/",
+        "commentDate": "2026-03-26T04:19:52+00:00",
+        "cvePublishedDate": "2026-03-19T23:16:41.253000+00:00",
+        "initialAnalysisDate": "2026-04-16T04:29:24.503",
+        "daysAfterPublication": 6,
+        "isPreAnalysis": true,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-04-16T04:29:24.503 | Initial Analysis | source=nvd@nist.gov | changeId=6BDEF59D-3D59-4B56-BA74-C81326C8BED4\n   - Added CPE Configuration: OR\n          *cpe:2.3:a:vmware:spring_security:*:*:*:*:*:*:*:* versions up to (excluding) 5.7.22\n          *cpe:2.3:a:vmware:spring_security:*:*:*:*:*:*:*:* versions from (including) 5.8.0 up to (excluding) 5.8.24\n          *cpe:2.3:a:vmware:spring_security:*:*:*:*:*:*:*:* versions from (including) 6.3.0 up to (excluding) 6.3.15\n          *cpe:2.3:a:vmware:spring_security:*:*:*:*:*:*:*:* versions from (including) 6.4.0 up to (excluding) 6.4.15\n          *cpe:2.3:a:vmware:spring_security:*:*:*:*:*:*:*:* versions from (including) 6.5.0 up to (excluding) 6.5.9\n          *cpe:2.3:a:vmware:spring_security:*:*:*:*:*:*:*:* versions from (including) 7.0.0 up to (excluding) 7.0.4\n   - Added Reference Type: VMware: https://spring.io/security/cve-2026-22732 Types: Exploit, Vendor Advisory\n2. 2026-04-02T08:16:28.230 | CVE Modified | source=security@vmware.com | changeId=F2D7E732-02BC-444D-951B-A0A0D5369FA6\n   - Changed Description: When applications specify HTTP response headers for servlet applications using Spring Security, there is the possibility that the HTTP Headers will not be written. \nThis issue affects Spring Security: from 5.7.0 through 5.7.21, from 5.8.0 through 5.8.23, from 6.3.0 through 6.3.14, from 6.4.0 through 6.4.14, from 6.5.0 through 6.5.8, from 7.0.0 through 7.0.3. -> When applications specify HTTP response headers for servlet applications using Spring Security, there is the possibility that the HTTP Headers will not be written. \nThis issue affects Spring Security Servlet applications using lazy (default) writing of HTTP Headers:\n\n: from 5.7.0 through 5.7.21, from 5.8.0 through 5.8.23, from 6.3.0 through 6.3.14, from 6.4.0 through 6.4.14, from 6.5.0 through 6.5.8, from 7.0.0 through 7.0.3.\n3. 2026-03-20T15:16:15.670 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=1AEDCE49-FCF5-4400-956A-88E3A5B6C154\n   - Added CWE: CWE-425\n4. 2026-03-19T23:16:41.253 | New CVE Received | source=security@vmware.com | changeId=6565A73E-47F8-4B5D-BBFD-FABBA04B08A2\n   - Added Description: When applications specify HTTP response headers for servlet applications using Spring Security, there is the possibility that the HTTP Headers will not be written. \nThis issue affects Spring Security: from 5.7.0 through 5.7.21, from 5.8.0 through 5.8.23, from 6.3.0 through 6.3.14, from 6.4.0 through 6.4.14, from 6.5.0 through 6.5.8, from 7.0.0 through 7.0.3.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N\n   - Added Reference: https://spring.io/security/cve-2026-22732\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-22732",
+        "cveIds": [
+          "CVE-2026-22732"
+        ],
+        "source": "Title",
+        "commentText": "Security headers disappear with no errors - Critical 9.1 CVE-2026-22732 out this week",
+        "linkToComment": "https://reddit.com/r/java/comments/1s3xj98/security_headers_disappear_with_no_errors/",
+        "commentDate": "2026-03-26T04:19:52+00:00",
+        "cvePublishedDate": "2026-03-19T23:16:41.253000+00:00",
+        "initialAnalysisDate": "2026-04-16T04:29:24.503",
+        "daysAfterPublication": 6,
+        "isPreAnalysis": true,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-04-16T04:29:24.503 | Initial Analysis | source=nvd@nist.gov | changeId=6BDEF59D-3D59-4B56-BA74-C81326C8BED4\n   - Added CPE Configuration: OR\n          *cpe:2.3:a:vmware:spring_security:*:*:*:*:*:*:*:* versions up to (excluding) 5.7.22\n          *cpe:2.3:a:vmware:spring_security:*:*:*:*:*:*:*:* versions from (including) 5.8.0 up to (excluding) 5.8.24\n          *cpe:2.3:a:vmware:spring_security:*:*:*:*:*:*:*:* versions from (including) 6.3.0 up to (excluding) 6.3.15\n          *cpe:2.3:a:vmware:spring_security:*:*:*:*:*:*:*:* versions from (including) 6.4.0 up to (excluding) 6.4.15\n          *cpe:2.3:a:vmware:spring_security:*:*:*:*:*:*:*:* versions from (including) 6.5.0 up to (excluding) 6.5.9\n          *cpe:2.3:a:vmware:spring_security:*:*:*:*:*:*:*:* versions from (including) 7.0.0 up to (excluding) 7.0.4\n   - Added Reference Type: VMware: https://spring.io/security/cve-2026-22732 Types: Exploit, Vendor Advisory\n2. 2026-04-02T08:16:28.230 | CVE Modified | source=security@vmware.com | changeId=F2D7E732-02BC-444D-951B-A0A0D5369FA6\n   - Changed Description: When applications specify HTTP response headers for servlet applications using Spring Security, there is the possibility that the HTTP Headers will not be written. \nThis issue affects Spring Security: from 5.7.0 through 5.7.21, from 5.8.0 through 5.8.23, from 6.3.0 through 6.3.14, from 6.4.0 through 6.4.14, from 6.5.0 through 6.5.8, from 7.0.0 through 7.0.3. -> When applications specify HTTP response headers for servlet applications using Spring Security, there is the possibility that the HTTP Headers will not be written. \nThis issue affects Spring Security Servlet applications using lazy (default) writing of HTTP Headers:\n\n: from 5.7.0 through 5.7.21, from 5.8.0 through 5.8.23, from 6.3.0 through 6.3.14, from 6.4.0 through 6.4.14, from 6.5.0 through 6.5.8, from 7.0.0 through 7.0.3.\n3. 2026-03-20T15:16:15.670 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=1AEDCE49-FCF5-4400-956A-88E3A5B6C154\n   - Added CWE: CWE-425\n4. 2026-03-19T23:16:41.253 | New CVE Received | source=security@vmware.com | changeId=6565A73E-47F8-4B5D-BBFD-FABBA04B08A2\n   - Added Description: When applications specify HTTP response headers for servlet applications using Spring Security, there is the possibility that the HTTP Headers will not be written. \nThis issue affects Spring Security: from 5.7.0 through 5.7.21, from 5.8.0 through 5.8.23, from 6.3.0 through 6.3.14, from 6.4.0 through 6.4.14, from 6.5.0 through 6.5.8, from 7.0.0 through 7.0.3.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N\n   - Added Reference: https://spring.io/security/cve-2026-22732\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-22732",
+        "cveIds": [
+          "CVE-2026-22732"
+        ],
+        "source": "Title",
+        "commentText": "Security headers disappear with no errors - Critical 9.1 CVE-2026-22732 out this week",
+        "linkToComment": "https://reddit.com/r/java/comments/1s3xj98/security_headers_disappear_with_no_errors/",
+        "commentDate": "2026-03-26T04:19:52+00:00",
+        "cvePublishedDate": "2026-03-19T23:16:41.253000+00:00",
+        "initialAnalysisDate": "2026-04-16T04:29:24.503",
+        "daysAfterPublication": 6,
+        "isPreAnalysis": true,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-04-16T04:29:24.503 | Initial Analysis | source=nvd@nist.gov | changeId=6BDEF59D-3D59-4B56-BA74-C81326C8BED4\n   - Added CPE Configuration: OR\n          *cpe:2.3:a:vmware:spring_security:*:*:*:*:*:*:*:* versions up to (excluding) 5.7.22\n          *cpe:2.3:a:vmware:spring_security:*:*:*:*:*:*:*:* versions from (including) 5.8.0 up to (excluding) 5.8.24\n          *cpe:2.3:a:vmware:spring_security:*:*:*:*:*:*:*:* versions from (including) 6.3.0 up to (excluding) 6.3.15\n          *cpe:2.3:a:vmware:spring_security:*:*:*:*:*:*:*:* versions from (including) 6.4.0 up to (excluding) 6.4.15\n          *cpe:2.3:a:vmware:spring_security:*:*:*:*:*:*:*:* versions from (including) 6.5.0 up to (excluding) 6.5.9\n          *cpe:2.3:a:vmware:spring_security:*:*:*:*:*:*:*:* versions from (including) 7.0.0 up to (excluding) 7.0.4\n   - Added Reference Type: VMware: https://spring.io/security/cve-2026-22732 Types: Exploit, Vendor Advisory\n2. 2026-04-02T08:16:28.230 | CVE Modified | source=security@vmware.com | changeId=F2D7E732-02BC-444D-951B-A0A0D5369FA6\n   - Changed Description: When applications specify HTTP response headers for servlet applications using Spring Security, there is the possibility that the HTTP Headers will not be written. \nThis issue affects Spring Security: from 5.7.0 through 5.7.21, from 5.8.0 through 5.8.23, from 6.3.0 through 6.3.14, from 6.4.0 through 6.4.14, from 6.5.0 through 6.5.8, from 7.0.0 through 7.0.3. -> When applications specify HTTP response headers for servlet applications using Spring Security, there is the possibility that the HTTP Headers will not be written. \nThis issue affects Spring Security Servlet applications using lazy (default) writing of HTTP Headers:\n\n: from 5.7.0 through 5.7.21, from 5.8.0 through 5.8.23, from 6.3.0 through 6.3.14, from 6.4.0 through 6.4.14, from 6.5.0 through 6.5.8, from 7.0.0 through 7.0.3.\n3. 2026-03-20T15:16:15.670 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=1AEDCE49-FCF5-4400-956A-88E3A5B6C154\n   - Added CWE: CWE-425\n4. 2026-03-19T23:16:41.253 | New CVE Received | source=security@vmware.com | changeId=6565A73E-47F8-4B5D-BBFD-FABBA04B08A2\n   - Added Description: When applications specify HTTP response headers for servlet applications using Spring Security, there is the possibility that the HTTP Headers will not be written. \nThis issue affects Spring Security: from 5.7.0 through 5.7.21, from 5.8.0 through 5.8.23, from 6.3.0 through 6.3.14, from 6.4.0 through 6.4.14, from 6.5.0 through 6.5.8, from 7.0.0 through 7.0.3.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N\n   - Added Reference: https://spring.io/security/cve-2026-22732\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
       {
         "cveId": "CVE-2026-22732",
         "cveIds": [
@@ -4020,7 +4661,7 @@
     "tag": null,
     "tags": [],
     "title": "OpenClaw CVE-2026-25253 is worse than it looks (quick security checklist)",
-    "updatedAt": "2026-04-22T00:26:56.707Z",
+    "updatedAt": "2026-04-23T00:27:21.567Z",
     "upvote_ratio": 0.73,
     "url": "https://reddit.com/r/netsec/comments/1s1i06c/openclaw_cve202625253_is_worse_than_it_looks/",
     "versionList": [
@@ -4049,6 +4690,90 @@
       {
         "cveId": "CVE-2026-25253",
         "allCvesInText": [
+          "CVE-2026-25253"
+        ],
+        "source": "Title",
+        "commentText": "OpenClaw CVE-2026-25253 is worse than it looks (quick security checklist)",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1s1i06c/openclaw_cve202625253_is_worse_than_it_looks/",
+        "commentDate": "2026-03-23T14:12:39+00:00",
+        "cvePublishedDate": "2026-02-01T23:15:49.717000+00:00",
+        "initialAnalysisDate": "2026-02-13T17:41:02.987",
+        "daysAfterPublication": 49,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-02-13T17:41:02.987 | Initial Analysis | source=nvd@nist.gov | changeId=FF5892DE-96BB-45FE-B25F-B4FDFEF7E897\n   - Added CPE Configuration: OR\n          *cpe:2.3:a:openclaw:openclaw:*:*:*:*:*:node.js:*:* versions up to (excluding) 2026.1.29\n   - Added Reference Type: MITRE: https://depthfirst.com/post/1-click-rce-to-steal-your-moltbot-data-and-keys Types: Exploit, Third Party Advisory\n   - Added Reference Type: MITRE: https://ethiack.com/news/blog/one-click-rce-moltbot Types: Exploit, Third Party Advisory\n   - Added Reference Type: MITRE: https://github.com/openclaw/openclaw/security/advisories/GHSA-g8p2-7wf7-98mq Types: Vendor Advisory\n   - Added Reference Type: MITRE: https://openclaw.ai/blog Types: Product\n   - Added Reference Type: MITRE: https://x.com/0xacb/status/2016913750557651228 Types: Exploit\n   - Added Reference Type: CISA-ADP: https://depthfirst.com/post/1-click-rce-to-steal-your-moltbot-data-and-keys Types: Exploit, Third Party Advisory\n2. 2026-02-03T16:16:14.903 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=F9FD3310-A49A-4DB7-ABEA-39DF6A3352C8\n   - Added Reference: https://depthfirst.com/post/1-click-rce-to-steal-your-moltbot-data-and-keys\n3. 2026-02-02T23:16:10.237 | CVE Modified | source=cve@mitre.org | changeId=61BB47A0-AF8D-4699-B3A0-677ED3F0204D\n   - Added Reference: https://ethiack.com/news/blog/one-click-rce-moltbot\n   - Added Reference: https://x.com/0xacb/status/2016913750557651228\n4. 2026-02-01T23:15:49.717 | New CVE Received | source=cve@mitre.org | changeId=333FE488-B7FB-4F88-9EB5-8189F2F36A76\n   - Added Description: OpenClaw (aka clawdbot or Moltbot) before 2026.1.29 obtains a gatewayUrl value from a query string and automatically makes a WebSocket connection without prompting, sending a token value.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-669\n   - Added Reference: https://depthfirst.com/post/1-click-rce-to-steal-your-moltbot-data-and-keys\n   - Added Reference: https://github.com/openclaw/openclaw/security/advisories/GHSA-g8p2-7wf7-98mq\n   - Added Reference: https://openclaw.ai/blog\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-25253",
+        "cveIds": [
+          "CVE-2026-25253"
+        ],
+        "source": "Title",
+        "commentText": "OpenClaw CVE-2026-25253 is worse than it looks (quick security checklist)",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1s1i06c/openclaw_cve202625253_is_worse_than_it_looks/",
+        "commentDate": "2026-03-23T14:12:39+00:00",
+        "cvePublishedDate": "2026-02-01T23:15:49.717000+00:00",
+        "initialAnalysisDate": "2026-02-13T17:41:02.987",
+        "daysAfterPublication": 49,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-02-13T17:41:02.987 | Initial Analysis | source=nvd@nist.gov | changeId=FF5892DE-96BB-45FE-B25F-B4FDFEF7E897\n   - Added CPE Configuration: OR\n          *cpe:2.3:a:openclaw:openclaw:*:*:*:*:*:node.js:*:* versions up to (excluding) 2026.1.29\n   - Added Reference Type: MITRE: https://depthfirst.com/post/1-click-rce-to-steal-your-moltbot-data-and-keys Types: Exploit, Third Party Advisory\n   - Added Reference Type: MITRE: https://ethiack.com/news/blog/one-click-rce-moltbot Types: Exploit, Third Party Advisory\n   - Added Reference Type: MITRE: https://github.com/openclaw/openclaw/security/advisories/GHSA-g8p2-7wf7-98mq Types: Vendor Advisory\n   - Added Reference Type: MITRE: https://openclaw.ai/blog Types: Product\n   - Added Reference Type: MITRE: https://x.com/0xacb/status/2016913750557651228 Types: Exploit\n   - Added Reference Type: CISA-ADP: https://depthfirst.com/post/1-click-rce-to-steal-your-moltbot-data-and-keys Types: Exploit, Third Party Advisory\n2. 2026-02-03T16:16:14.903 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=F9FD3310-A49A-4DB7-ABEA-39DF6A3352C8\n   - Added Reference: https://depthfirst.com/post/1-click-rce-to-steal-your-moltbot-data-and-keys\n3. 2026-02-02T23:16:10.237 | CVE Modified | source=cve@mitre.org | changeId=61BB47A0-AF8D-4699-B3A0-677ED3F0204D\n   - Added Reference: https://ethiack.com/news/blog/one-click-rce-moltbot\n   - Added Reference: https://x.com/0xacb/status/2016913750557651228\n4. 2026-02-01T23:15:49.717 | New CVE Received | source=cve@mitre.org | changeId=333FE488-B7FB-4F88-9EB5-8189F2F36A76\n   - Added Description: OpenClaw (aka clawdbot or Moltbot) before 2026.1.29 obtains a gatewayUrl value from a query string and automatically makes a WebSocket connection without prompting, sending a token value.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-669\n   - Added Reference: https://depthfirst.com/post/1-click-rce-to-steal-your-moltbot-data-and-keys\n   - Added Reference: https://github.com/openclaw/openclaw/security/advisories/GHSA-g8p2-7wf7-98mq\n   - Added Reference: https://openclaw.ai/blog\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-25253",
+        "cveIds": [
+          "CVE-2026-25253"
+        ],
+        "source": "Title",
+        "commentText": "OpenClaw CVE-2026-25253 is worse than it looks (quick security checklist)",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1s1i06c/openclaw_cve202625253_is_worse_than_it_looks/",
+        "commentDate": "2026-03-23T14:12:39+00:00",
+        "cvePublishedDate": "2026-02-01T23:15:49.717000+00:00",
+        "initialAnalysisDate": "2026-02-13T17:41:02.987",
+        "daysAfterPublication": 49,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-02-13T17:41:02.987 | Initial Analysis | source=nvd@nist.gov | changeId=FF5892DE-96BB-45FE-B25F-B4FDFEF7E897\n   - Added CPE Configuration: OR\n          *cpe:2.3:a:openclaw:openclaw:*:*:*:*:*:node.js:*:* versions up to (excluding) 2026.1.29\n   - Added Reference Type: MITRE: https://depthfirst.com/post/1-click-rce-to-steal-your-moltbot-data-and-keys Types: Exploit, Third Party Advisory\n   - Added Reference Type: MITRE: https://ethiack.com/news/blog/one-click-rce-moltbot Types: Exploit, Third Party Advisory\n   - Added Reference Type: MITRE: https://github.com/openclaw/openclaw/security/advisories/GHSA-g8p2-7wf7-98mq Types: Vendor Advisory\n   - Added Reference Type: MITRE: https://openclaw.ai/blog Types: Product\n   - Added Reference Type: MITRE: https://x.com/0xacb/status/2016913750557651228 Types: Exploit\n   - Added Reference Type: CISA-ADP: https://depthfirst.com/post/1-click-rce-to-steal-your-moltbot-data-and-keys Types: Exploit, Third Party Advisory\n2. 2026-02-03T16:16:14.903 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=F9FD3310-A49A-4DB7-ABEA-39DF6A3352C8\n   - Added Reference: https://depthfirst.com/post/1-click-rce-to-steal-your-moltbot-data-and-keys\n3. 2026-02-02T23:16:10.237 | CVE Modified | source=cve@mitre.org | changeId=61BB47A0-AF8D-4699-B3A0-677ED3F0204D\n   - Added Reference: https://ethiack.com/news/blog/one-click-rce-moltbot\n   - Added Reference: https://x.com/0xacb/status/2016913750557651228\n4. 2026-02-01T23:15:49.717 | New CVE Received | source=cve@mitre.org | changeId=333FE488-B7FB-4F88-9EB5-8189F2F36A76\n   - Added Description: OpenClaw (aka clawdbot or Moltbot) before 2026.1.29 obtains a gatewayUrl value from a query string and automatically makes a WebSocket connection without prompting, sending a token value.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-669\n   - Added Reference: https://depthfirst.com/post/1-click-rce-to-steal-your-moltbot-data-and-keys\n   - Added Reference: https://github.com/openclaw/openclaw/security/advisories/GHSA-g8p2-7wf7-98mq\n   - Added Reference: https://openclaw.ai/blog\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-25253",
+        "cveIds": [
+          "CVE-2026-25253"
+        ],
+        "source": "Title",
+        "commentText": "OpenClaw CVE-2026-25253 is worse than it looks (quick security checklist)",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1s1i06c/openclaw_cve202625253_is_worse_than_it_looks/",
+        "commentDate": "2026-03-23T14:12:39+00:00",
+        "cvePublishedDate": "2026-02-01T23:15:49.717000+00:00",
+        "initialAnalysisDate": "2026-02-13T17:41:02.987",
+        "daysAfterPublication": 49,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-02-13T17:41:02.987 | Initial Analysis | source=nvd@nist.gov | changeId=FF5892DE-96BB-45FE-B25F-B4FDFEF7E897\n   - Added CPE Configuration: OR\n          *cpe:2.3:a:openclaw:openclaw:*:*:*:*:*:node.js:*:* versions up to (excluding) 2026.1.29\n   - Added Reference Type: MITRE: https://depthfirst.com/post/1-click-rce-to-steal-your-moltbot-data-and-keys Types: Exploit, Third Party Advisory\n   - Added Reference Type: MITRE: https://ethiack.com/news/blog/one-click-rce-moltbot Types: Exploit, Third Party Advisory\n   - Added Reference Type: MITRE: https://github.com/openclaw/openclaw/security/advisories/GHSA-g8p2-7wf7-98mq Types: Vendor Advisory\n   - Added Reference Type: MITRE: https://openclaw.ai/blog Types: Product\n   - Added Reference Type: MITRE: https://x.com/0xacb/status/2016913750557651228 Types: Exploit\n   - Added Reference Type: CISA-ADP: https://depthfirst.com/post/1-click-rce-to-steal-your-moltbot-data-and-keys Types: Exploit, Third Party Advisory\n2. 2026-02-03T16:16:14.903 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=F9FD3310-A49A-4DB7-ABEA-39DF6A3352C8\n   - Added Reference: https://depthfirst.com/post/1-click-rce-to-steal-your-moltbot-data-and-keys\n3. 2026-02-02T23:16:10.237 | CVE Modified | source=cve@mitre.org | changeId=61BB47A0-AF8D-4699-B3A0-677ED3F0204D\n   - Added Reference: https://ethiack.com/news/blog/one-click-rce-moltbot\n   - Added Reference: https://x.com/0xacb/status/2016913750557651228\n4. 2026-02-01T23:15:49.717 | New CVE Received | source=cve@mitre.org | changeId=333FE488-B7FB-4F88-9EB5-8189F2F36A76\n   - Added Description: OpenClaw (aka clawdbot or Moltbot) before 2026.1.29 obtains a gatewayUrl value from a query string and automatically makes a WebSocket connection without prompting, sending a token value.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-669\n   - Added Reference: https://depthfirst.com/post/1-click-rce-to-steal-your-moltbot-data-and-keys\n   - Added Reference: https://github.com/openclaw/openclaw/security/advisories/GHSA-g8p2-7wf7-98mq\n   - Added Reference: https://openclaw.ai/blog\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-25253",
+        "cveIds": [
           "CVE-2026-25253"
         ],
         "source": "Title",
@@ -4869,7 +5594,7 @@
       "Discussion"
     ],
     "title": "PSA: onnx.hub.load(silent=True) suppresses ALL security warnings during model loading. CVE-2026-2850",
-    "updatedAt": "2026-04-22T00:26:57.635Z",
+    "updatedAt": "2026-04-23T00:27:22.832Z",
     "upvote_ratio": 0.17,
     "url": "https://reddit.com/r/Python/comments/1s02in4/psa_onnxhubloadsilenttrue_suppresses_all_security/",
     "versionList": [
@@ -4895,6 +5620,82 @@
       ]
     },
     "detectedCVEs": [
+      {
+        "cveId": "CVE-2026-2850",
+        "cveIds": [
+          "CVE-2026-2850"
+        ],
+        "source": "Title",
+        "commentText": "PSA: onnx.hub.load(silent=True) suppresses ALL security warnings during model loading. CVE-2026-2850",
+        "linkToComment": "https://reddit.com/r/Python/comments/1s02in4/psa_onnxhubloadsilenttrue_suppresses_all_security/",
+        "commentDate": "2026-03-21T20:55:23+00:00",
+        "cvePublishedDate": "2026-02-20T18:25:53.830000+00:00",
+        "initialAnalysisDate": "2026-02-26T02:40:36.140",
+        "daysAfterPublication": 29,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-02-26T02:40:36.140 | Initial Analysis | source=nvd@nist.gov | changeId=DFC1E9DF-7E17-44B3-9378-36CB18ECF8E4\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:N\n   - Added CPE Configuration: OR\n          *cpe:2.3:a:yeqifu:warehouse:*:*:*:*:*:*:*:* versions up to (including) 2025-10-06\n   - Added Reference Type: VulDB: https://github.com/yeqifu/warehouse/ Types: Product\n   - Added Reference Type: VulDB: https://github.com/yeqifu/warehouse/issues/61 Types: Exploit, Issue Tracking, Vendor Advisory\n   - Added Reference Type: VulDB: https://github.com/yeqifu/warehouse/issues/61#issue-3846669982 Types: Exploit, Issue Tracking\n   - Added Reference Type: VulDB: https://vuldb.com/?ctiid.347086 Types: Permissions Required, VDB Entry\n   - Added Reference Type: VulDB: https://vuldb.com/?id.347086 Types: Third Party Advisory, VDB Entry\n   - Added Reference Type: VulDB: https://vuldb.com/?submit.754429 Types: Third Party Advisory, VDB Entry\n2. 2026-02-20T18:25:53.830 | New CVE Received | source=cna@vuldb.com | changeId=E30D4460-D2D0-40FF-A0CD-030527CB957D\n   - Added Description: A vulnerability was found in yeqifu warehouse up to aaf29962ba407d22d991781de28796ee7b4670e4. This affects the function addCustomer/updateCustomer/deleteCustomer of the file dataset\\repos\\warehouse\\src\\main\\java\\com\\yeqifu\\bus\\controller\\CustomerController.java of the component Customer Endpoint. Performing a manipulation results in improper access controls. Remote exploitation of the attack is possible. The exploit has been made public and could be used. This product follows a rolling release approach for continuous delivery, so version details for affected or updated releases are not provided. The project was informed of the problem early through an issue report but has not responded yet.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:L/UI:N/VC:L/VI:L/VA:L/SC:N/SI:N/SA:N/E:P/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L\n   - Added CVSS V2: (AV:N/AC:L/Au:S/C:P/I:P/A:P)\n   - Added CWE: CWE-284\n   - Added CWE: CWE-266\n   - Added Reference: https://github.com/yeqifu/warehouse/\n   - Added Reference: https://github.com/yeqifu/warehouse/issues/61\n   - Added Reference: https://github.com/yeqifu/warehouse/issues/61#issue-3846669982\n   - Added Reference: https://vuldb.com/?ctiid.347086\n   … (2 more detail items)\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-2850",
+        "cveIds": [
+          "CVE-2026-2850"
+        ],
+        "source": "Title",
+        "commentText": "PSA: onnx.hub.load(silent=True) suppresses ALL security warnings during model loading. CVE-2026-2850",
+        "linkToComment": "https://reddit.com/r/Python/comments/1s02in4/psa_onnxhubloadsilenttrue_suppresses_all_security/",
+        "commentDate": "2026-03-21T20:55:23+00:00",
+        "cvePublishedDate": "2026-02-20T18:25:53.830000+00:00",
+        "initialAnalysisDate": "2026-02-26T02:40:36.140",
+        "daysAfterPublication": 29,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-02-26T02:40:36.140 | Initial Analysis | source=nvd@nist.gov | changeId=DFC1E9DF-7E17-44B3-9378-36CB18ECF8E4\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:N\n   - Added CPE Configuration: OR\n          *cpe:2.3:a:yeqifu:warehouse:*:*:*:*:*:*:*:* versions up to (including) 2025-10-06\n   - Added Reference Type: VulDB: https://github.com/yeqifu/warehouse/ Types: Product\n   - Added Reference Type: VulDB: https://github.com/yeqifu/warehouse/issues/61 Types: Exploit, Issue Tracking, Vendor Advisory\n   - Added Reference Type: VulDB: https://github.com/yeqifu/warehouse/issues/61#issue-3846669982 Types: Exploit, Issue Tracking\n   - Added Reference Type: VulDB: https://vuldb.com/?ctiid.347086 Types: Permissions Required, VDB Entry\n   - Added Reference Type: VulDB: https://vuldb.com/?id.347086 Types: Third Party Advisory, VDB Entry\n   - Added Reference Type: VulDB: https://vuldb.com/?submit.754429 Types: Third Party Advisory, VDB Entry\n2. 2026-02-20T18:25:53.830 | New CVE Received | source=cna@vuldb.com | changeId=E30D4460-D2D0-40FF-A0CD-030527CB957D\n   - Added Description: A vulnerability was found in yeqifu warehouse up to aaf29962ba407d22d991781de28796ee7b4670e4. This affects the function addCustomer/updateCustomer/deleteCustomer of the file dataset\\repos\\warehouse\\src\\main\\java\\com\\yeqifu\\bus\\controller\\CustomerController.java of the component Customer Endpoint. Performing a manipulation results in improper access controls. Remote exploitation of the attack is possible. The exploit has been made public and could be used. This product follows a rolling release approach for continuous delivery, so version details for affected or updated releases are not provided. The project was informed of the problem early through an issue report but has not responded yet.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:L/UI:N/VC:L/VI:L/VA:L/SC:N/SI:N/SA:N/E:P/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L\n   - Added CVSS V2: (AV:N/AC:L/Au:S/C:P/I:P/A:P)\n   - Added CWE: CWE-284\n   - Added CWE: CWE-266\n   - Added Reference: https://github.com/yeqifu/warehouse/\n   - Added Reference: https://github.com/yeqifu/warehouse/issues/61\n   - Added Reference: https://github.com/yeqifu/warehouse/issues/61#issue-3846669982\n   - Added Reference: https://vuldb.com/?ctiid.347086\n   … (2 more detail items)\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-2850",
+        "cveIds": [
+          "CVE-2026-2850"
+        ],
+        "source": "Title",
+        "commentText": "PSA: onnx.hub.load(silent=True) suppresses ALL security warnings during model loading. CVE-2026-2850",
+        "linkToComment": "https://reddit.com/r/Python/comments/1s02in4/psa_onnxhubloadsilenttrue_suppresses_all_security/",
+        "commentDate": "2026-03-21T20:55:23+00:00",
+        "cvePublishedDate": "2026-02-20T18:25:53.830000+00:00",
+        "initialAnalysisDate": "2026-02-26T02:40:36.140",
+        "daysAfterPublication": 29,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-02-26T02:40:36.140 | Initial Analysis | source=nvd@nist.gov | changeId=DFC1E9DF-7E17-44B3-9378-36CB18ECF8E4\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:N\n   - Added CPE Configuration: OR\n          *cpe:2.3:a:yeqifu:warehouse:*:*:*:*:*:*:*:* versions up to (including) 2025-10-06\n   - Added Reference Type: VulDB: https://github.com/yeqifu/warehouse/ Types: Product\n   - Added Reference Type: VulDB: https://github.com/yeqifu/warehouse/issues/61 Types: Exploit, Issue Tracking, Vendor Advisory\n   - Added Reference Type: VulDB: https://github.com/yeqifu/warehouse/issues/61#issue-3846669982 Types: Exploit, Issue Tracking\n   - Added Reference Type: VulDB: https://vuldb.com/?ctiid.347086 Types: Permissions Required, VDB Entry\n   - Added Reference Type: VulDB: https://vuldb.com/?id.347086 Types: Third Party Advisory, VDB Entry\n   - Added Reference Type: VulDB: https://vuldb.com/?submit.754429 Types: Third Party Advisory, VDB Entry\n2. 2026-02-20T18:25:53.830 | New CVE Received | source=cna@vuldb.com | changeId=E30D4460-D2D0-40FF-A0CD-030527CB957D\n   - Added Description: A vulnerability was found in yeqifu warehouse up to aaf29962ba407d22d991781de28796ee7b4670e4. This affects the function addCustomer/updateCustomer/deleteCustomer of the file dataset\\repos\\warehouse\\src\\main\\java\\com\\yeqifu\\bus\\controller\\CustomerController.java of the component Customer Endpoint. Performing a manipulation results in improper access controls. Remote exploitation of the attack is possible. The exploit has been made public and could be used. This product follows a rolling release approach for continuous delivery, so version details for affected or updated releases are not provided. The project was informed of the problem early through an issue report but has not responded yet.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:L/UI:N/VC:L/VI:L/VA:L/SC:N/SI:N/SA:N/E:P/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L\n   - Added CVSS V2: (AV:N/AC:L/Au:S/C:P/I:P/A:P)\n   - Added CWE: CWE-284\n   - Added CWE: CWE-266\n   - Added Reference: https://github.com/yeqifu/warehouse/\n   - Added Reference: https://github.com/yeqifu/warehouse/issues/61\n   - Added Reference: https://github.com/yeqifu/warehouse/issues/61#issue-3846669982\n   - Added Reference: https://vuldb.com/?ctiid.347086\n   … (2 more detail items)\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-2850",
+        "cveIds": [
+          "CVE-2026-2850"
+        ],
+        "source": "Title",
+        "commentText": "PSA: onnx.hub.load(silent=True) suppresses ALL security warnings during model loading. CVE-2026-2850",
+        "linkToComment": "https://reddit.com/r/Python/comments/1s02in4/psa_onnxhubloadsilenttrue_suppresses_all_security/",
+        "commentDate": "2026-03-21T20:55:23+00:00",
+        "cvePublishedDate": "2026-02-20T18:25:53.830000+00:00",
+        "initialAnalysisDate": "2026-02-26T02:40:36.140",
+        "daysAfterPublication": 29,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-02-26T02:40:36.140 | Initial Analysis | source=nvd@nist.gov | changeId=DFC1E9DF-7E17-44B3-9378-36CB18ECF8E4\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:N\n   - Added CPE Configuration: OR\n          *cpe:2.3:a:yeqifu:warehouse:*:*:*:*:*:*:*:* versions up to (including) 2025-10-06\n   - Added Reference Type: VulDB: https://github.com/yeqifu/warehouse/ Types: Product\n   - Added Reference Type: VulDB: https://github.com/yeqifu/warehouse/issues/61 Types: Exploit, Issue Tracking, Vendor Advisory\n   - Added Reference Type: VulDB: https://github.com/yeqifu/warehouse/issues/61#issue-3846669982 Types: Exploit, Issue Tracking\n   - Added Reference Type: VulDB: https://vuldb.com/?ctiid.347086 Types: Permissions Required, VDB Entry\n   - Added Reference Type: VulDB: https://vuldb.com/?id.347086 Types: Third Party Advisory, VDB Entry\n   - Added Reference Type: VulDB: https://vuldb.com/?submit.754429 Types: Third Party Advisory, VDB Entry\n2. 2026-02-20T18:25:53.830 | New CVE Received | source=cna@vuldb.com | changeId=E30D4460-D2D0-40FF-A0CD-030527CB957D\n   - Added Description: A vulnerability was found in yeqifu warehouse up to aaf29962ba407d22d991781de28796ee7b4670e4. This affects the function addCustomer/updateCustomer/deleteCustomer of the file dataset\\repos\\warehouse\\src\\main\\java\\com\\yeqifu\\bus\\controller\\CustomerController.java of the component Customer Endpoint. Performing a manipulation results in improper access controls. Remote exploitation of the attack is possible. The exploit has been made public and could be used. This product follows a rolling release approach for continuous delivery, so version details for affected or updated releases are not provided. The project was informed of the problem early through an issue report but has not responded yet.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:L/UI:N/VC:L/VI:L/VA:L/SC:N/SI:N/SA:N/E:P/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L\n   - Added CVSS V2: (AV:N/AC:L/Au:S/C:P/I:P/A:P)\n   - Added CWE: CWE-284\n   - Added CWE: CWE-266\n   - Added Reference: https://github.com/yeqifu/warehouse/\n   - Added Reference: https://github.com/yeqifu/warehouse/issues/61\n   - Added Reference: https://github.com/yeqifu/warehouse/issues/61#issue-3846669982\n   - Added Reference: https://vuldb.com/?ctiid.347086\n   … (2 more detail items)\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received"
+        ]
+      },
       {
         "cveId": "CVE-2026-2850",
         "cveIds": [
@@ -7586,249 +8387,6 @@
       "2026.0.0",
       "26117.0.0"
     ],
-    "isAboutCve": true,
-    "isAboutLatestUpdate": true
-  },
-  {
-    "_id": "69b74fa8a7e9276ab0f5ae2e",
-    "redditId": "1rq3z6o",
-    "author": "RealSimoneAvogadro",
-    "author_description": "I've looking into this and did not find anything but I'm pretty worried since those cameras are easy to use and cheap but the existing vulnerabilities actually allow -anyone- to find you position, disable cameras etc...\n\nIs there any good service to check if there are exploits in the wild and/or (maybe worse) public lists with addresses and camera IDs ?\n\nOnce such things exist those cameras become -dangerous- !\n\nP.s: here's the CVE but there are other vulnerabilities too: [https://nvd.nist.gov/vuln/detail/CVE-2025-11757](https://nvd.nist.gov/vuln/detail/CVE-2025-11757)\n\np.p.s.: this applies to ieGeek and other brands which are Meari",
-    "awards": [],
-    "comments": [],
-    "created_utc": "2026-03-10T17:51:47",
-    "first_author_comment": null,
-    "num_comments": 0,
-    "score": 0,
-    "subreddit": "SecurityCamera",
-    "tag": null,
-    "tags": [],
-    "title": "CloudEdge/Meari CVE and status on the dark web?",
-    "updatedAt": "2026-03-19T00:32:35.329Z",
-    "upvote_ratio": 0.33,
-    "url": "https://reddit.com/r/SecurityCamera/comments/1rq3z6o/cloudedgemeari_cve_and_status_on_the_dark_web/",
-    "versionList": [],
-    "isAboutCve": true,
-    "isAboutLatestUpdate": false
-  },
-  {
-    "_id": "69b74f76a7e9276ab0f5adaa",
-    "redditId": "1rp4lyj",
-    "author": "ulldma",
-    "author_description": "Hey! I’m one of the authors of this blog post. We (the GitHub Security Lab) developed an open-source AI-framework that supports security researchers in discovering vulnerabilities. In this blog post we show how it works and talk about the vulnerabilities we were able to find using it.",
-    "awards": [],
-    "comments": [],
-    "created_utc": "2026-03-09T16:17:49",
-    "first_author_comment": null,
-    "num_comments": 1,
-    "score": 77,
-    "subreddit": "netsec",
-    "tag": null,
-    "tags": [],
-    "title": "Sign in with ANY password into Rocket.Chat EE (CVE-2026-28514) and other vulnerabilities we’ve found with our open source AI framework",
-    "updatedAt": "2026-03-19T12:32:17.211Z",
-    "upvote_ratio": 0.84,
-    "url": "https://reddit.com/r/netsec/comments/1rp4lyj/sign_in_with_any_password_into_rocketchat_ee/",
-    "versionList": [
-      "2026.0.0",
-      "28514.0.0"
-    ],
-    "isAboutCve": true,
-    "isAboutLatestUpdate": false
-  },
-  {
-    "_id": "69b74f7aa7e9276ab0f5adaf",
-    "redditId": "1rmsmhg",
-    "author": "maurosoria",
-    "author_description": null,
-    "awards": [],
-    "comments": [
-      {
-        "id": "o96tfng",
-        "author": "skinnybuddha",
-        "body": "Hmm, packet sockets? Don’t most people call them RAW sockets?",
-        "score": 2,
-        "created_utc_ts": 1772909988,
-        "created_utc": "2026-03-07T18:59:48",
-        "permalink": "https://reddit.com/r/netsec/comments/1rmsmhg/a_race_within_a_race_exploiting_cve202538617_in/o96tfng/",
-        "parent_id": "t3_1rmsmhg",
-        "is_submitter": false
-      },
-      {
-        "id": "o98fzf4",
-        "author": "sosodank",
-        "body": "they are two different things. you can have a raw ipv4/ipv6 socket, for instance. [https://nick-black.com/dankwiki/index.php/Packet\\_sockets](https://nick-black.com/dankwiki/index.php/Packet_sockets)",
-        "score": 1,
-        "created_utc_ts": 1772929598,
-        "created_utc": "2026-03-08T00:26:38",
-        "permalink": "https://reddit.com/r/netsec/comments/1rmsmhg/a_race_within_a_race_exploiting_cve202538617_in/o98fzf4/",
-        "parent_id": "t1_o96tfng",
-        "is_submitter": false
-      }
-    ],
-    "created_utc": "2026-03-06T22:42:41",
-    "first_author_comment": null,
-    "num_comments": 2,
-    "score": 35,
-    "subreddit": "netsec",
-    "tag": null,
-    "tags": [],
-    "title": "A Race Within A Race: Exploiting CVE-2025-38617 in Linux Packet Sockets",
-    "updatedAt": "2026-04-21T18:29:41.314Z",
-    "upvote_ratio": 0.96,
-    "url": "https://reddit.com/r/netsec/comments/1rmsmhg/a_race_within_a_race_exploiting_cve202538617_in/",
-    "versionList": [
-      "2025.0.0",
-      "38617.0.0"
-    ],
-    "isAboutCve": true,
-    "isAboutLatestUpdate": false,
-    "detectedCVEs": [
-      {
-        "cveId": "CVE-2025-38617",
-        "allCvesInText": [
-          "CVE-2025-38617"
-        ],
-        "source": "Title",
-        "commentText": "A Race Within A Race: Exploiting CVE-2025-38617 in Linux Packet Sockets",
-        "linkToComment": "https://reddit.com/r/netsec/comments/1rmsmhg/a_race_within_a_race_exploiting_cve202538617_in/",
-        "commentDate": "2026-03-06T22:42:41+00:00",
-        "cvePublishedDate": "2025-08-22T14:15:46.160000+00:00",
-        "initialAnalysisDate": "2026-01-07T16:57:56.077",
-        "daysAfterPublication": 196,
-        "isPreAnalysis": false,
-        "isAnalyzed": true,
-        "cveChangeHistory": "1. 2026-03-18T17:16:04.167 | CVE Modified | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=DD575D63-4D2A-40A4-867A-274ED670F9FF\n   - Added Reference: https://blog.calif.io/p/a-race-within-a-race-exploiting-cve\n   - Added Reference: https://github.com/google/security-research/pull/339\n2. 2026-01-07T16:57:56.077 | Initial Analysis | source=nvd@nist.gov | changeId=3A819070-A187-415B-B247-705027E13987\n   - Added CVSS V3.1: AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H\n   - Added CWE: CWE-362\n   - Added CPE Configuration: OR\n          *cpe:2.3:o:linux:linux_kernel:2.6.12:rc4:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:2.6.12:rc5:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:2.6.12:rc2:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:2.6.12:rc3:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:2.6.12:-:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 5.16 up to (excluding) 6.1.148\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 5.11 up to (excluding) 5.15.190\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 5.5 up to (excluding) 5.10.241\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.16 up to (excluding) 6.16.1\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.13 up to (excluding) 6.15.10\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.7 up to (excluding) 6.12.42\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 2.6.13 up to (excluding) 5.4.297\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.2 up to (excluding) 6.6.102\n   - Added CPE Configuration: OR\n          *cpe:2.3:o:debian:debian_linux:11.0:*:*:*:*:*:*:*\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/01d3c8417b9c1b884a8a981a3b886da556512f36 Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/18f13f2a83eb81be349a9757ba2141ff1da9ad73 Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/7da733f117533e9b2ebbd530a22ae4028713955c Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/7de07705007c7e34995a5599aaab1d23e762d7ca Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/88caf46db8239e6471413d28aabaa6b8bd552805 Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/ba2257034755ae773722f15f4c3ad1dcdad15ca9 Types: Patch\n   … (5 more detail items)\n3. 2025-11-03T18:16:31.853 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=4ECE9F04-5A34-4BED-8016-DDB481895EA3\n   - Added Reference: https://lists.debian.org/debian-lts-announce/2025/10/msg00007.html\n   - Added Reference: https://lists.debian.org/debian-lts-announce/2025/10/msg00008.html\n4. 2025-08-28T15:15:55.930 | CVE Modified | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=28A21A3A-A2C8-42CF-A252-AFE7985D94E4\n   - Added Reference: https://git.kernel.org/stable/c/18f13f2a83eb81be349a9757ba2141ff1da9ad73\n   - Added Reference: https://git.kernel.org/stable/c/7da733f117533e9b2ebbd530a22ae4028713955c\n   - Added Reference: https://git.kernel.org/stable/c/ba2257034755ae773722f15f4c3ad1dcdad15ca9\n5. 2025-08-22T14:15:46.160 | New CVE Received | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=7C8C6CCC-3855-497D-92C8-842AB1AAD9A5\n   - Added Description: In the Linux kernel, the following vulnerability has been resolved:\n\nnet/packet: fix a race in packet_set_ring() and packet_notifier()\n\nWhen packet_set_ring() releases po->bind_lock, another thread can\nrun packet_notifier() and process an NETDEV_UP event.\n\nThis race and the fix are both similar to that of commit 15fe076edea7\n(\"net/packet: fix a race in packet_bind() and packet_notifier()\").\n\nThere too the packet_notifier NETDEV_UP event managed to run while a\npo->bind_lock critical section had to be temporarily released. And\nthe fix was similarly to temporarily set po->num to zero to keep\nthe socket unhooked until the lock is retaken.\n\nThe po->bind_lock in packet_set_ring and packet_notifier precede the\nintroduction of git history.\n   - Added Reference: https://git.kernel.org/stable/c/01d3c8417b9c1b884a8a981a3b886da556512f36\n   - Added Reference: https://git.kernel.org/stable/c/7de07705007c7e34995a5599aaab1d23e762d7ca\n   - Added Reference: https://git.kernel.org/stable/c/88caf46db8239e6471413d28aabaa6b8bd552805\n   - Added Reference: https://git.kernel.org/stable/c/e50ccfaca9e3c671cae917dcb994831a859cf588\n   - Added Reference: https://git.kernel.org/stable/c/f1791fd7b845bea0ce9674fcf2febee7bc87a893\n   - Added Reference: https://git.kernel.org/stable/c/f2e8fcfd2b1bc754920108b7f2cd75082c5a18df\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2025-38617",
-        "cveIds": [
-          "CVE-2025-38617"
-        ],
-        "source": "Title",
-        "commentText": "A Race Within A Race: Exploiting CVE-2025-38617 in Linux Packet Sockets",
-        "linkToComment": "https://reddit.com/r/netsec/comments/1rmsmhg/a_race_within_a_race_exploiting_cve202538617_in/",
-        "commentDate": "2026-03-06T22:42:41+00:00",
-        "cvePublishedDate": "2025-08-22T14:15:46.160000+00:00",
-        "initialAnalysisDate": "2026-01-07T16:57:56.077",
-        "daysAfterPublication": 196,
-        "isPreAnalysis": false,
-        "isAnalyzed": true,
-        "cveChangeHistory": "1. 2026-03-18T17:16:04.167 | CVE Modified | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=DD575D63-4D2A-40A4-867A-274ED670F9FF\n   - Added Reference: https://blog.calif.io/p/a-race-within-a-race-exploiting-cve\n   - Added Reference: https://github.com/google/security-research/pull/339\n2. 2026-01-07T16:57:56.077 | Initial Analysis | source=nvd@nist.gov | changeId=3A819070-A187-415B-B247-705027E13987\n   - Added CVSS V3.1: AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H\n   - Added CWE: CWE-362\n   - Added CPE Configuration: OR\n          *cpe:2.3:o:linux:linux_kernel:2.6.12:rc4:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:2.6.12:rc5:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:2.6.12:rc2:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:2.6.12:rc3:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:2.6.12:-:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 5.16 up to (excluding) 6.1.148\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 5.11 up to (excluding) 5.15.190\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 5.5 up to (excluding) 5.10.241\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.16 up to (excluding) 6.16.1\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.13 up to (excluding) 6.15.10\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.7 up to (excluding) 6.12.42\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 2.6.13 up to (excluding) 5.4.297\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.2 up to (excluding) 6.6.102\n   - Added CPE Configuration: OR\n          *cpe:2.3:o:debian:debian_linux:11.0:*:*:*:*:*:*:*\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/01d3c8417b9c1b884a8a981a3b886da556512f36 Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/18f13f2a83eb81be349a9757ba2141ff1da9ad73 Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/7da733f117533e9b2ebbd530a22ae4028713955c Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/7de07705007c7e34995a5599aaab1d23e762d7ca Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/88caf46db8239e6471413d28aabaa6b8bd552805 Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/ba2257034755ae773722f15f4c3ad1dcdad15ca9 Types: Patch\n   … (5 more detail items)\n3. 2025-11-03T18:16:31.853 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=4ECE9F04-5A34-4BED-8016-DDB481895EA3\n   - Added Reference: https://lists.debian.org/debian-lts-announce/2025/10/msg00007.html\n   - Added Reference: https://lists.debian.org/debian-lts-announce/2025/10/msg00008.html\n4. 2025-08-28T15:15:55.930 | CVE Modified | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=28A21A3A-A2C8-42CF-A252-AFE7985D94E4\n   - Added Reference: https://git.kernel.org/stable/c/18f13f2a83eb81be349a9757ba2141ff1da9ad73\n   - Added Reference: https://git.kernel.org/stable/c/7da733f117533e9b2ebbd530a22ae4028713955c\n   - Added Reference: https://git.kernel.org/stable/c/ba2257034755ae773722f15f4c3ad1dcdad15ca9\n5. 2025-08-22T14:15:46.160 | New CVE Received | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=7C8C6CCC-3855-497D-92C8-842AB1AAD9A5\n   - Added Description: In the Linux kernel, the following vulnerability has been resolved:\n\nnet/packet: fix a race in packet_set_ring() and packet_notifier()\n\nWhen packet_set_ring() releases po->bind_lock, another thread can\nrun packet_notifier() and process an NETDEV_UP event.\n\nThis race and the fix are both similar to that of commit 15fe076edea7\n(\"net/packet: fix a race in packet_bind() and packet_notifier()\").\n\nThere too the packet_notifier NETDEV_UP event managed to run while a\npo->bind_lock critical section had to be temporarily released. And\nthe fix was similarly to temporarily set po->num to zero to keep\nthe socket unhooked until the lock is retaken.\n\nThe po->bind_lock in packet_set_ring and packet_notifier precede the\nintroduction of git history.\n   - Added Reference: https://git.kernel.org/stable/c/01d3c8417b9c1b884a8a981a3b886da556512f36\n   - Added Reference: https://git.kernel.org/stable/c/7de07705007c7e34995a5599aaab1d23e762d7ca\n   - Added Reference: https://git.kernel.org/stable/c/88caf46db8239e6471413d28aabaa6b8bd552805\n   - Added Reference: https://git.kernel.org/stable/c/e50ccfaca9e3c671cae917dcb994831a859cf588\n   - Added Reference: https://git.kernel.org/stable/c/f1791fd7b845bea0ce9674fcf2febee7bc87a893\n   - Added Reference: https://git.kernel.org/stable/c/f2e8fcfd2b1bc754920108b7f2cd75082c5a18df\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2025-38617",
-        "cveIds": [
-          "CVE-2025-38617"
-        ],
-        "source": "Title",
-        "commentText": "A Race Within A Race: Exploiting CVE-2025-38617 in Linux Packet Sockets",
-        "linkToComment": "https://reddit.com/r/netsec/comments/1rmsmhg/a_race_within_a_race_exploiting_cve202538617_in/",
-        "commentDate": "2026-03-06T22:42:41+00:00",
-        "cvePublishedDate": "2025-08-22T14:15:46.160000+00:00",
-        "initialAnalysisDate": "2026-01-07T16:57:56.077",
-        "daysAfterPublication": 196,
-        "isPreAnalysis": false,
-        "isAnalyzed": true,
-        "cveChangeHistory": "1. 2026-03-18T17:16:04.167 | CVE Modified | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=DD575D63-4D2A-40A4-867A-274ED670F9FF\n   - Added Reference: https://blog.calif.io/p/a-race-within-a-race-exploiting-cve\n   - Added Reference: https://github.com/google/security-research/pull/339\n2. 2026-01-07T16:57:56.077 | Initial Analysis | source=nvd@nist.gov | changeId=3A819070-A187-415B-B247-705027E13987\n   - Added CVSS V3.1: AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H\n   - Added CWE: CWE-362\n   - Added CPE Configuration: OR\n          *cpe:2.3:o:linux:linux_kernel:2.6.12:rc4:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:2.6.12:rc5:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:2.6.12:rc2:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:2.6.12:rc3:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:2.6.12:-:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 5.16 up to (excluding) 6.1.148\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 5.11 up to (excluding) 5.15.190\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 5.5 up to (excluding) 5.10.241\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.16 up to (excluding) 6.16.1\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.13 up to (excluding) 6.15.10\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.7 up to (excluding) 6.12.42\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 2.6.13 up to (excluding) 5.4.297\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.2 up to (excluding) 6.6.102\n   - Added CPE Configuration: OR\n          *cpe:2.3:o:debian:debian_linux:11.0:*:*:*:*:*:*:*\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/01d3c8417b9c1b884a8a981a3b886da556512f36 Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/18f13f2a83eb81be349a9757ba2141ff1da9ad73 Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/7da733f117533e9b2ebbd530a22ae4028713955c Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/7de07705007c7e34995a5599aaab1d23e762d7ca Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/88caf46db8239e6471413d28aabaa6b8bd552805 Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/ba2257034755ae773722f15f4c3ad1dcdad15ca9 Types: Patch\n   … (5 more detail items)\n3. 2025-11-03T18:16:31.853 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=4ECE9F04-5A34-4BED-8016-DDB481895EA3\n   - Added Reference: https://lists.debian.org/debian-lts-announce/2025/10/msg00007.html\n   - Added Reference: https://lists.debian.org/debian-lts-announce/2025/10/msg00008.html\n4. 2025-08-28T15:15:55.930 | CVE Modified | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=28A21A3A-A2C8-42CF-A252-AFE7985D94E4\n   - Added Reference: https://git.kernel.org/stable/c/18f13f2a83eb81be349a9757ba2141ff1da9ad73\n   - Added Reference: https://git.kernel.org/stable/c/7da733f117533e9b2ebbd530a22ae4028713955c\n   - Added Reference: https://git.kernel.org/stable/c/ba2257034755ae773722f15f4c3ad1dcdad15ca9\n5. 2025-08-22T14:15:46.160 | New CVE Received | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=7C8C6CCC-3855-497D-92C8-842AB1AAD9A5\n   - Added Description: In the Linux kernel, the following vulnerability has been resolved:\n\nnet/packet: fix a race in packet_set_ring() and packet_notifier()\n\nWhen packet_set_ring() releases po->bind_lock, another thread can\nrun packet_notifier() and process an NETDEV_UP event.\n\nThis race and the fix are both similar to that of commit 15fe076edea7\n(\"net/packet: fix a race in packet_bind() and packet_notifier()\").\n\nThere too the packet_notifier NETDEV_UP event managed to run while a\npo->bind_lock critical section had to be temporarily released. And\nthe fix was similarly to temporarily set po->num to zero to keep\nthe socket unhooked until the lock is retaken.\n\nThe po->bind_lock in packet_set_ring and packet_notifier precede the\nintroduction of git history.\n   - Added Reference: https://git.kernel.org/stable/c/01d3c8417b9c1b884a8a981a3b886da556512f36\n   - Added Reference: https://git.kernel.org/stable/c/7de07705007c7e34995a5599aaab1d23e762d7ca\n   - Added Reference: https://git.kernel.org/stable/c/88caf46db8239e6471413d28aabaa6b8bd552805\n   - Added Reference: https://git.kernel.org/stable/c/e50ccfaca9e3c671cae917dcb994831a859cf588\n   - Added Reference: https://git.kernel.org/stable/c/f1791fd7b845bea0ce9674fcf2febee7bc87a893\n   - Added Reference: https://git.kernel.org/stable/c/f2e8fcfd2b1bc754920108b7f2cd75082c5a18df\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified",
-          "CVE Modified"
-        ]
-      }
-    ]
-  },
-  {
-    "_id": "69aae75e14360ffebe05c000",
-    "redditId": "1rmeedn",
-    "author": "charankmed",
-    "author_description": "We reported CVE-2026-29000 (auth bypass in pac4j-jwt) to the maintainer and had patches across 3 version lines within two business days.\n\nNo defensiveness. No delays. No \"we'll look into it eventually.\" Just a maintainer who took it seriously and moved fast.\n\nThe full story, from audit to global CVE: [https://www.codeant.ai/blogs/from-code-audit-to-global-cve-the-story-behind-the-pac4j-jwt-authentication-bypass](https://www.codeant.ai/blogs/from-code-audit-to-global-cve-the-story-behind-the-pac4j-jwt-authentication-bypass)\n\nAfter all the discourse about OSS maintainer burnout and slow responses, this is a reminder that responsible disclosure works when both sides act in good faith.\n\nWhat's your experience with disclosing vulnerabilities to OSS maintainers???",
-    "awards": [],
-    "comments": [],
-    "created_utc": "2026-03-06T13:46:22",
-    "first_author_comment": null,
-    "num_comments": 1,
-    "score": 7,
-    "subreddit": "github",
-    "tag": "Question",
-    "tags": [],
-    "title": "We found a CVSS 10.0 in an open source library. The maintainer shipped patches in 2 days. This is how disclosure should work",
-    "updatedAt": "2026-03-06T20:01:27.196Z",
-    "upvote_ratio": 0.82,
-    "url": "https://reddit.com/r/github/comments/1rmeedn/we_found_a_cvss_100_in_an_open_source_library_the/",
-    "versionList": [
-      "10.0.0",
-      "2.0.0"
-    ],
-    "classification": {
-      "componentType": [
-        "LIBRARY"
-      ],
-      "securityType": [
-        "UNKNOWN"
-      ]
-    },
-    "metadata": {
-      "predicted": {
-        "isUpdateRelated": false,
-        "positiveScore": 0.00010672261053341371,
-        "timestampPredicted": "2026-03-06T20:01:27.097934+00:00"
-      },
-      "labeled": {
-        "isUpdateRelated": null
-      }
-    },
-    "isAboutCve": true,
-    "isAboutLatestUpdate": true
-  },
-  {
-    "_id": "69aa734614360ffebe056a6b",
-    "redditId": "1rm660l",
-    "author": "ParsleyHefty2938",
-    "author_description": "Just got done emergency patching vManage after the [CVE-2026-20122](https://www.cve.org/CVERecord?id=CVE-2026-20122) and [CVE-2026-20128](https://www.helpnetsecurity.com/2026/03/05/cisco-cve-2026-20128-cve-2026-20122-exploited/) disclosures this week and I'm sitting here genuinely questioning where we go from here. Both actively exploited in the wild, one arbitrary file overwrite, one privilege escalation, and we spent the better part of two days verifying everything across our sites.\n\nThis is not the first time either. Last year it was CVE-2026-20127, CVSS 10.0, exploited by a sophisticated threat actor targeting high value organizations. Now this. I am starting to feel like patching vManage is just a permanent item on the calendar at this point.\n\nThe core problem is that vManage is customer managed software sitting on our infrastructure, which means every Cisco advisory becomes our emergency to deal with on our timeline with our resources. I am tired of it.\n\nContract renewal is coming up in a few months and I just do not know what direction to go. Started looking at cloud native alternatives where the vendor manages the underlying infrastructure so you are not on the hook every time a CVE drops, but I honestly do not have a clear answer yet on what actually makes sense for a multi site enterprise environment.\n\nAnyone gone through this evaluation recently or made a move off Cisco SD WAN after something like this, what did the process actually look like and where did you land?",
-    "awards": [],
-    "comments": [],
-    "created_utc": "2026-03-06T06:11:34",
-    "first_author_comment": null,
-    "num_comments": 21,
-    "score": 41,
-    "subreddit": "sysadmin",
-    "tag": "Question",
-    "tags": [
-      "Question"
-    ],
-    "title": "Cisco Catalyst SD WAN just got hit with active exploits, seriously reconsidering our whole setup now, Done with it.",
-    "updatedAt": "2026-03-06T20:25:18.498Z",
-    "upvote_ratio": 0.82,
-    "url": "https://reddit.com/r/sysadmin/comments/1rm660l/cisco_catalyst_sd_wan_just_got_hit_with_active/",
-    "versionList": [],
-    "classification": {
-      "securityType": [
-        "UNKNOWN"
-      ],
-      "componentType": []
-    },
-    "metadata": {
-      "predicted": {
-        "isUpdateRelated": false,
-        "positiveScore": 8.465076112118913e-05,
-        "timestampPredicted": "2026-03-06T12:00:56.741797+00:00"
-      },
-      "labeled": {
-        "isUpdateRelated": null
-      }
-    },
     "isAboutCve": true,
     "isAboutLatestUpdate": true
   }
