@@ -11,6 +11,7 @@ CVE-2026-3055,2,2026-03-28T20:40:20+00:00,1774730420,netsec,https://reddit.com/r
 CVE-2026-32746,2,2026-03-19T00:15:39+00:00,1773879339,netsec,https://reddit.com/r/netsec/comments/1ryban8/a_32yearold_bug_walks_into_a_telnet_server_gnu/;https://reddit.com/r/netsec/comments/1rxl75t/cve202632746_gnu_telnetd_buffer_overflow_poc/
 CVE-2026-33017,2,2026-03-22T16:55:47+00:00,1774198547,LangChain;netsec,https://reddit.com/r/LangChain/comments/1s72uzr/langflow_cve202633017_unauthenticated_rce_via/;https://reddit.com/r/netsec/comments/1s0qsxi/langflow_got_hacked_twice_through_the_same_exec/
 CVE-2026-33579,2,2026-04-03T13:34:55+00:00,1775223295,netsec;sysadmin,https://reddit.com/r/sysadmin/comments/1sbdw29/if_youre_running_openclaw_you_probably_got_hacked/;https://reddit.com/r/netsec/comments/1sbds9i/if_youre_running_openclaw_you_probably_got_hacked/
+CVE-2026-34621,2,2026-04-18T15:43:37+00:00,1776527017,netsec,https://reddit.com/r/netsec/comments/1str4k9/cve202634621_adobe_acrobat_reader_zeroday_was_on/;https://reddit.com/r/netsec/comments/1sp128h/cve202634621_poc_isnt_a_scanner_its_a_campaign/
 CVE-2026-41651,2,2026-04-22T20:06:48+00:00,1776888408,Ubuntu;netsec,https://reddit.com/r/Ubuntu/comments/1sszdy4/cve202641651_packagekit_local_priviledge/;https://reddit.com/r/netsec/comments/1sswok7/pack2theroot_cve202641651_crossdistro_local/
 CVE-2026-4747,2,2026-03-31T19:57:17+00:00,1774987037,freebsd;netsec,https://reddit.com/r/freebsd/comments/1sgmi14/claude_mythos_preview_fully_autonomously_finds/;https://reddit.com/r/netsec/comments/1s8y8pp/mad_bugs_claude_wrote_a_full_freebsd_remote/
 CVE-2003-0063,1,2026-04-18T10:35:38+00:00,1776508538,netsec,https://reddit.com/r/netsec/comments/1sou4zz/mad_bugs_even_cat_readmetxt_is_not_safe/
@@ -118,12 +119,10 @@ CVE-2026-33634,1,2026-03-25T22:43:44+00:00,1774478624,kubernetes,https://reddit.
 CVE-2026-33656,1,2026-03-25T12:51:52+00:00,1774443112,netsec,https://reddit.com/r/netsec/comments/1s39ujn/cve202633656_espocrm_933_formula_engine_acl_gap/
 CVE-2026-33825,1,2026-04-17T16:22:09+00:00,1776442929,windows,https://reddit.com/r/windows/comments/1so5s1j/windows_defender_cve202633825_how_a_batch_oplock/
 CVE-2026-34197,1,2026-04-07T20:31:22+00:00,1775593882,netsec,https://reddit.com/r/netsec/comments/1sf7sno/cve202634197_activemq_rce_via_jolokia_api/
-CVE-2026-34621,1,2026-04-18T15:43:37+00:00,1776527017,netsec,https://reddit.com/r/netsec/comments/1sp128h/cve202634621_poc_isnt_a_scanner_its_a_campaign/
 CVE-2026-34714,1,2026-04-18T10:35:38+00:00,1776508538,netsec,https://reddit.com/r/netsec/comments/1sou4zz/mad_bugs_even_cat_readmetxt_is_not_safe/
 CVE-2026-34980,1,2026-04-08T07:01:17+00:00,1775631677,netsec,https://reddit.com/r/netsec/comments/1sflk3t/spooler_alert_remote_unauthd_rcetoroot_chain_in/
 CVE-2026-34990,1,2026-04-08T07:01:17+00:00,1775631677,netsec,https://reddit.com/r/netsec/comments/1sflk3t/spooler_alert_remote_unauthd_rcetoroot_chain_in/
 CVE-2026-35204,1,2026-04-09T18:31:03+00:00,1775759463,kubernetes,https://reddit.com/r/kubernetes/comments/1sgy1gc/psa_helm_path_traversal_via_malicious_plugin/
-CVE-2026-35338,1,2026-04-22T17:52:32+00:00,1776880352,linux,https://reddit.com/r/linux/comments/1sssx5l/ubuntu_rust_coreutils_audit_revealed_113_issues/
 CVE-2026-35616,1,2026-04-06T19:05:15+00:00,1775502315,sysadmin,https://reddit.com/r/sysadmin/comments/1se86ws/cve202635616_fortinet_auth_bypass_patch_your/
 CVE-2026-3564,1,2026-03-20T01:21:28+00:00,1773969688,sysadmin,https://reddit.com/r/sysadmin/comments/1ryipfs/first_unifi_with_a_100_cve_now_screenconnect_90/
 CVE-2026-3906,1,2026-03-21T16:23:50+00:00,1774110230,Wordpress,https://reddit.com/r/Wordpress/comments/1rzvpax/it_seems_like_automatic_wordpress_updates_are/
