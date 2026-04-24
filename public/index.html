@@ -1151,7 +1151,7 @@
         });
 
         const firebaseConfig = {
-            apiKey: "***REMOVED***",
+            apiKey: "YOUR_API_KEY_HERE",
             authDomain: "reddit-cve.firebaseapp.com",
             projectId: "reddit-cve",
             storageBucket: "reddit-cve.firebasestorage.app",
@@ -1217,7 +1217,7 @@
 
         async function loadData() {
             try {
-                const response = await fetch('cve_lead_time.csv?t=' + Date.now());
+                const response = await fetch('/data/cve_lead_time.csv?t=' + Date.now());
                 const text = await response.text();
 
                 const results = Papa.parse(text, {

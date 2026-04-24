@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv()
 
-app = Flask(__name__, static_url_path='', static_folder='.')
+app = Flask(__name__, static_url_path='', static_folder='public')
 
 # ---------------------------------------------------------
 # GEMINI SETUP
@@ -25,13 +25,13 @@ def prepare_database():
     conn = sqlite3.connect(':memory:', check_same_thread=False)
     
     # Load Lead Time Data
-    if os.path.exists('cve_lead_time.csv'):
-        df_lead = pd.read_csv('cve_lead_time.csv')
+    if os.path.exists('data/cve_lead_time.csv'):
+        df_lead = pd.read_csv('data/cve_lead_time.csv')
         df_lead.to_sql('cve_lead_time', conn, index=False)
         
     # Load Reddit Posts Data
-    if os.path.exists('reddit_cve_posts.csv'):
-        df_posts = pd.read_csv('reddit_cve_posts.csv')
+    if os.path.exists('data/reddit_cve_posts.csv'):
+        df_posts = pd.read_csv('data/reddit_cve_posts.csv')
         df_posts.to_sql('reddit_cve_posts', conn, index=False)
         
     return conn
@@ -89,7 +89,11 @@ chat_session = None
 # ---------------------------------------------------------
 @app.route('/')
 def index():
-    return send_from_directory('.', 'index.html')
+    return send_from_directory('public', 'index.html')
+
+@app.route('/data/<path:filename>')
+def serve_data(filename):
+    return send_from_directory('data', filename)
 
 @app.route('/api/chat', methods=['POST'])
 def chat():
