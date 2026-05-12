@@ -794,6 +794,23 @@
             background: var(--bg-surface);
         }
 
+        .chat-model-select {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            border-radius: 6px;
+            padding: 4px 8px;
+            font-size: 0.9rem;
+            outline: none;
+            cursor: pointer;
+            font-family: inherit;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+        .chat-model-select:hover {
+            border-color: #8b5cf6;
+        }
         .chat-close {
             background: none;
             border: none;
@@ -1217,7 +1234,7 @@
 
         async function loadData() {
             try {
-                const response = await fetch('/data/cve_lead_time.csv?t=' + Date.now());
+                const response = await fetch('../data/cve_lead_time.csv?t=' + Date.now());
                 const text = await response.text();
 
                 const results = Papa.parse(text, {
@@ -1793,6 +1810,30 @@
 
             if (!chatToggle) return; // safety check
 
+            async function loadOllamaModels() {
+                try {
+                    const res = await fetch('/api/ollama_models');
+                    if (!res.ok) return;
+                    const data = await res.json();
+                    if (!data.models || data.models.length === 0) return;
+                    
+                    const select = document.getElementById('chat-model-select');
+                    Array.from(select.options).forEach(opt => {
+                        if (opt.value === 'ollama') opt.remove(); // Remove default placeholder
+                    });
+                    
+                    data.models.forEach(m => {
+                        const opt = document.createElement('option');
+                        opt.value = m;
+                        opt.textContent = `Ollama (${m})`;
+                        select.appendChild(opt);
+                    });
+                } catch (e) {
+                    console.log('Ollama not running natively or tags failed parsing.');
+                }
+            }
+            loadOllamaModels();
+
             chatToggle.addEventListener('click', () => {
                 chatWindow.classList.toggle('active');
             });
@@ -1832,7 +1873,10 @@
                     const res = await fetch('/api/chat', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ message: text })
+                        body: JSON.stringify({ 
+                            message: text,
+                            model: document.getElementById('chat-model-select').value
+                        })
                     });
 
                     chatBody.removeChild(loadingEl);
@@ -1865,7 +1909,10 @@
     <div id="chat-widget">
         <div id="chat-window" class="chat-window">
             <div class="chat-header">
-                <div>AI Assistant</div>
+                <select id="chat-model-select" class="chat-model-select">
+                    <option value="gemini">Gemini 2.5</option>
+                    <option value="ollama">Ollama (llama3.1)</option>
+                </select>
                 <button id="chat-close" class="chat-close">✕</button>
             </div>
             <div id="chat-body" class="chat-body">
