@@ -71,7 +71,7 @@ def nvd_headers() -> Dict[str, str]:
     return h
 
 
-def safe_get_json(url: str, params: Dict[str, Any], timeout: int = 30, max_retries: int = 5) -> Dict[str, Any]:
+def safe_get_json(url: str, params: Dict[str, Any], timeout: int = 30, max_retries: int = 1) -> Dict[str, Any]:
     """
     Retry with backoff for rate limits / transient errors.
     """
