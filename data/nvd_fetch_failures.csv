@@ -1,23 +1,6 @@
 cve,error
-CVE-2018-17144,NVD failed after 1 retries (last status=429).
-CVE-2022-38531,NVD failed after 1 retries (last status=429).
-CVE-2025-31133,NVD failed after 1 retries (last status=429).
+CVE-2026-42945,"HTTPSConnectionPool(host='services.nvd.nist.gov', port=443): Read timed out. (read timeout=30)"
+CVE-2021-35036,NVD failed after 1 retries (last status=429).
 CVE-2025-31161,NVD failed after 1 retries (last status=429).
-CVE-2025-48804,NVD failed after 1 retries (last status=429).
-CVE-2025-52565,NVD failed after 1 retries (last status=429).
-CVE-2025-52881,NVD failed after 1 retries (last status=429).
-CVE-2026-26956,NVD failed after 1 retries (last status=429).
-CVE-2026-28387,NVD failed after 1 retries (last status=429).
-CVE-2026-31430,NVD failed after 1 retries (last status=429).
-CVE-2026-31432,NVD failed after 1 retries (last status=429).
-CVE-2026-31433,NVD failed after 1 retries (last status=429).
-CVE-2026-32635,NVD failed after 1 retries (last status=429).
-CVE-2026-33827,NVD failed after 1 retries (last status=429).
-CVE-2026-34472,NVD failed after 1 retries (last status=429).
-CVE-2026-34474,NVD failed after 1 retries (last status=429).
-CVE-2026-35368,NVD failed after 1 retries (last status=429).
-CVE-2026-40176,NVD failed after 1 retries (last status=429).
-CVE-2026-45185,NVD failed after 1 retries (last status=429).
-CVE-2026-45753,NVD failed after 1 retries (last status=429).
-CVE-2026-46634,NVD failed after 1 retries (last status=429).
-CVE-2026-7412,NVD failed after 1 retries (last status=429).
+CVE-2026-35368,"HTTPSConnectionPool(host='services.nvd.nist.gov', port=443): Read timed out. (read timeout=30)"
+CVE-2026-40261,"HTTPSConnectionPool(host='services.nvd.nist.gov', port=443): Read timed out. (read timeout=30)"
