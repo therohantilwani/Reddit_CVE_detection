@@ -1,6 +1,5 @@
 cve,error
-CVE-2026-42945,"HTTPSConnectionPool(host='services.nvd.nist.gov', port=443): Read timed out. (read timeout=30)"
-CVE-2021-35036,NVD failed after 1 retries (last status=429).
-CVE-2025-31161,NVD failed after 1 retries (last status=429).
-CVE-2026-35368,"HTTPSConnectionPool(host='services.nvd.nist.gov', port=443): Read timed out. (read timeout=30)"
-CVE-2026-40261,"HTTPSConnectionPool(host='services.nvd.nist.gov', port=443): Read timed out. (read timeout=30)"
+CVE-2026-46634,NVD failed after 1 retries (last status=503).
+CVE-2026-47684,NVD failed after 1 retries (last status=429).
+CVE-2026-7411,NVD failed after 1 retries (last status=429).
+CVE-2026-7412,NVD failed after 1 retries (last status=429).
