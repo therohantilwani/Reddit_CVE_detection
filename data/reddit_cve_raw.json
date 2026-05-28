@@ -1,5 +1,120 @@
 [
   {
+    "_id": "6a172394074684288beb62e9",
+    "redditId": "1tpachm",
+    "author": "seanx820",
+    "author_description": "In this demo, we patch CVE-2024-6174 (a cloud-init permissions flaw) on a RHEL virtual machine running on OpenShift Virtualization, without leaving the IDE. The MCP-connected AI assistant identifies the affected systems, looks up the Red Hat Security Advisory, selects the right remediation, and executes the patch through AAP with full audit trail.",
+    "awards": [],
+    "created_utc": "2026-05-27T16:16:31",
+    "first_author_comment": null,
+    "num_comments": 1,
+    "score": 11,
+    "subreddit": "ansible",
+    "tag": null,
+    "tags": [],
+    "title": "AIOps: Patch RHEL CVEs in Minutes with Red Hat Lightspeed MCP and Ansible Automation Platform",
+    "updatedAt": "2026-05-28T05:01:33.331Z",
+    "upvote_ratio": 0.7,
+    "url": "https://reddit.com/r/ansible/comments/1tpachm/aiops_patch_rhel_cves_in_minutes_with_red_hat/",
+    "versionList": [],
+    "classification": {
+      "componentType": [
+        "DEVOPS"
+      ],
+      "securityType": [
+        "UNKNOWN"
+      ]
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.000139509734592484,
+        "timestampPredicted": "2026-05-27T20:00:52.192947+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true,
+    "comments": [
+      {
+        "id": "oo8w4db",
+        "author": "tapioca_slaughter",
+        "body": "lol pretty tone deaf when you’re running this on a set that is at least hundreds of thousands of dollars.",
+        "score": -3,
+        "created_utc_ts": 1779914932,
+        "created_utc": "2026-05-27T20:48:52",
+        "permalink": "https://reddit.com/r/ansible/comments/1tpachm/aiops_patch_rhel_cves_in_minutes_with_red_hat/oo8w4db/",
+        "parent_id": "t3_1tpachm",
+        "is_submitter": false
+      }
+    ]
+  },
+  {
+    "_id": "6a1703f7074684288beb5468",
+    "redditId": "1tp6dz0",
+    "author": "HexLayer3",
+    "author_description": "After FIOD seized 800+ servers and arrested two operators on May 18, the ELLIO research team reports that scanning from the network's ASN ranges has continued largely uninterrupted - and that while roughly a third of the recently-active ranges (including the legacy Stark blocks 94.131.105.0/24 and 92.118.232.0/24) have since been withdrawn from global routing, the surviving ranges under AS209847 (WorkTitans / THE.Hosting) are still announced and still scanning, at the network's normal daily rate. \n\nThe sibling ASNs (AS213999 and the Moscow-based AS33993) remain routed and idle. \n\nThe recent activity skews toward database and ICS/SCADA discovery = MongoDB, Redis, PostgreSQL, Oracle, LDAP, plus DNP3 and EtherNet/IP - alongside known-exploit probes like CVE-2017-17215 and WinRM.",
+    "awards": [],
+    "created_utc": "2026-05-27T13:58:10",
+    "first_author_comment": null,
+    "num_comments": 2,
+    "score": 57,
+    "subreddit": "netsec",
+    "tag": null,
+    "tags": [],
+    "title": "A week after Dutch FIOD seized 800+ servers, the hosting network's ASN (AS209847) is still scanning at its normal daily rate",
+    "updatedAt": "2026-05-28T04:47:05.641Z",
+    "upvote_ratio": 0.95,
+    "url": "https://reddit.com/r/netsec/comments/1tp6dz0/a_week_after_dutch_fiod_seized_800_servers_the/",
+    "versionList": [
+      "800.0.0"
+    ],
+    "classification": {
+      "componentType": [],
+      "securityType": [
+        "UNKNOWN"
+      ]
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.00020864693278667366,
+        "timestampPredicted": "2026-05-27T20:01:17.938791+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true,
+    "comments": [
+      {
+        "id": "oo8317y",
+        "author": "Top-Bed9587",
+        "body": "worked on some threat intel stuff a couple years back where we were tracking a botnet that got partially sinkholed by a big provider. the scanning cadence from the associated ranges barely dipped for like 3 days after the takedown. turned out a chunk of the nodes were running autonomously without needing live C2 contact for their scan routines, so losing control of the upstream infrastructure didnt actually interrupt the behavior at all. this feels really similar to what ELLIO is documenting here. either whatever FIOD seized was more the management/billing layer rather than the operational core, or theres enough distributed automation that pulling 800 servers doesnt meaningfully dent daily output. the detail about the legacy Stark blocks (94.131.105 and 92.118.232) being the ones that got withdrawn while the main AS209847 ranges are still fully announced and scanning at normal rate is pretty telling. it suggests those old blocks were tied to arrested operators or hardware that got physically taken, but the bulk of the actual scan infrastructure just kept running. good on ELLIO for continuing to track this instead of just covering the initial seizure headline and moving on",
+        "score": 9,
+        "created_utc_ts": 1779907196,
+        "created_utc": "2026-05-27T18:39:56",
+        "permalink": "https://reddit.com/r/netsec/comments/1tp6dz0/a_week_after_dutch_fiod_seized_800_servers_the/oo8317y/",
+        "parent_id": "t3_1tp6dz0",
+        "is_submitter": false
+      },
+      {
+        "id": "oo8hy5h",
+        "author": "TeramindTeam",
+        "body": "i remember seeing similar behavior back when they tried to pull the plug on other botnet infrastructure, its wild how often the traffic just shifts instead of stopping. its definately worth checking if the routing is actually being handled by a different upstream provider now or if they just have some automated failover still running",
+        "score": 3,
+        "created_utc_ts": 1779911117,
+        "created_utc": "2026-05-27T19:45:17",
+        "permalink": "https://reddit.com/r/netsec/comments/1tp6dz0/a_week_after_dutch_fiod_seized_800_servers_the/oo8hy5h/",
+        "parent_id": "t3_1tp6dz0",
+        "is_submitter": false
+      }
+    ]
+  },
+  {
     "_id": "6a15ee6c074684288beae1d8",
     "redditId": "1to6prc",
     "author": "bennyvasquez",
@@ -109,16 +224,16 @@
     "awards": [],
     "created_utc": "2026-05-26T10:07:54",
     "first_author_comment": null,
-    "num_comments": 2,
-    "score": 6,
+    "num_comments": 4,
+    "score": 7,
     "subreddit": "software",
     "tag": "News :Shoutout:",
     "tags": [
       "News "
     ],
     "title": "7-Zip CVE-2026-48095: Update to 26.01 to Fix NTFS Heap Overflow Vulnerability",
-    "updatedAt": "2026-05-27T04:26:13.382Z",
-    "upvote_ratio": 0.88,
+    "updatedAt": "2026-05-27T20:26:49.233Z",
+    "upvote_ratio": 0.89,
     "url": "https://reddit.com/r/software/comments/1to2hnl/7zip_cve202648095_update_to_2601_to_fix_ntfs_heap/",
     "versionList": [
       "7.0.0",
@@ -155,6 +270,28 @@
         "permalink": "https://reddit.com/r/software/comments/1to2hnl/7zip_cve202648095_update_to_2601_to_fix_ntfs_heap/oo041jx/",
         "parent_id": "t3_1to2hnl",
         "is_submitter": false
+      },
+      {
+        "id": "oo4frco",
+        "author": "PixelTeapot",
+        "body": "Do you have a source for this affecting versions earlier than 26.00, the only write ups I'm finding point to this being a 26.00 specific defect with no reference to earlier versions?",
+        "score": 1,
+        "created_utc_ts": 1779863437,
+        "created_utc": "2026-05-27T06:30:37",
+        "permalink": "https://reddit.com/r/software/comments/1to2hnl/7zip_cve202648095_update_to_2601_to_fix_ntfs_heap/oo4frco/",
+        "parent_id": "t3_1to2hnl",
+        "is_submitter": false
+      },
+      {
+        "id": "oo6uwo8",
+        "author": "Blackfort_Technology",
+        "body": "[https://blackfort-tec.de/en/insights/7-zip-cve-2026-48095-critical-rce-vulnerability-patched](https://blackfort-tec.de/en/insights/7-zip-cve-2026-48095-critical-rce-vulnerability-patched)",
+        "score": 1,
+        "created_utc_ts": 1779895902,
+        "created_utc": "2026-05-27T15:31:42",
+        "permalink": "https://reddit.com/r/software/comments/1to2hnl/7zip_cve202648095_update_to_2601_to_fix_ntfs_heap/oo6uwo8/",
+        "parent_id": "t3_1to2hnl",
+        "is_submitter": false
       }
     ]
   },
@@ -169,7 +306,7 @@
         "id": "onwt26d",
         "author": "erotomania44",
         "body": "Nice ai sloppost.",
-        "score": 9,
+        "score": 8,
         "created_utc_ts": 1779767961,
         "created_utc": "2026-05-26T03:59:21",
         "permalink": "https://reddit.com/r/AZURE/comments/1tnvfj5/anthropics_project_glasswing_found_10000/onwt26d/",
@@ -242,8 +379,8 @@
       "News"
     ],
     "title": "Anthropic's Project Glasswing found 10,000+ high/critical vulns in one month — but fewer than 100 are patched. Is AI-speed vulnerability discovery breaking the remediation model?",
-    "updatedAt": "2026-05-27T04:52:02.758Z",
-    "upvote_ratio": 0.27,
+    "updatedAt": "2026-05-28T04:51:17.861Z",
+    "upvote_ratio": 0.25,
     "url": "https://reddit.com/r/AZURE/comments/1tnvfj5/anthropics_project_glasswing_found_10000/",
     "versionList": [
       "10.0.0",
@@ -334,15 +471,15 @@
     "created_utc": "2026-05-25T16:00:24",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 6,
+    "score": 10,
     "subreddit": "linux",
     "tag": "Security",
     "tags": [
       "Security"
     ],
     "title": "USN-8299-1: Rclone vulnerabilities",
-    "updatedAt": "2026-05-27T04:54:01.338Z",
-    "upvote_ratio": 0.73,
+    "updatedAt": "2026-05-28T04:52:47.692Z",
+    "upvote_ratio": 0.86,
     "url": "https://reddit.com/r/linux/comments/1tndep9/usn82991_rclone_vulnerabilities/",
     "versionList": [
       "8299.0.0",
@@ -1158,7 +1295,7 @@
         "id": "onsy7jw",
         "author": "Lumethys",
         "body": "Why do you still have .env file ob a deployed project? ",
-        "score": -10,
+        "score": -8,
         "created_utc_ts": 1779723562,
         "created_utc": "2026-05-25T15:39:22",
         "permalink": "https://reddit.com/r/laravel/comments/1tncotb/50000_spam_emails_and_a_3_am_panic_what_happened/onsy7jw/",
@@ -1213,7 +1350,7 @@
         "id": "ont3xnf",
         "author": "HolyPad",
         "body": "Here is the exact cve: https://nvd.nist.gov/vuln/detail/cve-2025-54068",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1779725177,
         "created_utc": "2026-05-25T16:06:17",
         "permalink": "https://reddit.com/r/laravel/comments/1tncotb/50000_spam_emails_and_a_3_am_panic_what_happened/ont3xnf/",
@@ -1378,21 +1515,23 @@
     "created_utc": "2026-05-25T15:34:40",
     "first_author_comment": "Here is the exact cve: https://nvd.nist.gov/vuln/detail/cve-2025-54068",
     "num_comments": 34,
-    "score": 60,
+    "score": 61,
     "subreddit": "laravel",
     "tag": "News",
     "tags": [
       "News"
     ],
     "title": "50,000 Spam Emails and a 3 AM Panic: What Happened When I Forgot About a Side Project",
-    "updatedAt": "2026-05-27T05:08:49.389Z",
+    "updatedAt": "2026-05-27T23:18:44.655Z",
     "upvote_ratio": 0.97,
     "url": "https://reddit.com/r/laravel/comments/1tncotb/50000_spam_emails_and_a_3_am_panic_what_happened/",
     "versionList": [
       "50.0.0",
       "000.0.0",
       "3.0.0"
-    ]
+    ],
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true
   },
   {
     "_id": "6a147cf7074684288bea4773",
@@ -1403,13 +1542,13 @@
     "created_utc": "2026-05-25T14:47:16",
     "first_author_comment": null,
     "num_comments": 0,
-    "score": 8,
+    "score": 7,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2021-21735: ZTE H168N wizard whitelist exposed PPPoE and WLAN secrets pre-auth",
-    "updatedAt": "2026-05-27T04:47:47.005Z",
-    "upvote_ratio": 0.8,
+    "updatedAt": "2026-05-28T04:47:16.041Z",
+    "upvote_ratio": 0.78,
     "url": "https://reddit.com/r/netsec/comments/1tnbcp1/cve202121735_zte_h168n_wizard_whitelist_exposed/",
     "versionList": [
       "2021.0.0",
@@ -1433,6 +1572,44 @@
     },
     "isAboutCve": true,
     "isAboutLatestUpdate": false
+  },
+  {
+    "_id": "6a177b2b074684288beb95af",
+    "redditId": "1tn3mh3",
+    "author": "subredditsummarybot",
+    "author_description": "**Monday, May 18 - Sunday, May 24, 2026**\n\n###Top Posts\n\n| score | comments | title &amp; link |\n|--|--|--|\n| 60  | [1 comments](/r/javascript/comments/1thp1zc/how_i_patched_firefox_to_bypass_fingerprinting/)  | [How I patched Firefox to bypass fingerprinting anti-bot](https://github.com/feder-cr/invisible_playwright)|\n| 40  | [3 comments](/r/javascript/comments/1tlsqd1/you_might_not_need_the_repository_pattern/)  | [You might not need… the repository pattern](https://www.jayfreestone.com/writing/you-might-not-need-the-repository-pattern/)|\n| 39  | [8 comments](/r/javascript/comments/1tlhcx6/kysely_029_is_out_btw/)  | [kysely 0.29 is out btw.](https://github.com/kysely-org/kysely/releases/tag/v0.29.0)|\n| 28  | [28 comments](/r/javascript/comments/1thsgrr/from_81s_to_25s_by_migrating_to_oxlint_oxfmt/)  | [From 81s to 2.5s by migrating to Oxlint &amp; Oxfmt](https://charpeni.com/blog/migrating-from-eslint-biome-prettier-to-oxlint-oxfmt)|\n| 19  | [7 comments](/r/javascript/comments/1tjfxca/staged_publishing_for_npm_packages/)  | [Staged publishing for npm packages](https://docs.npmjs.com/staged-publishing)|\n| 18  | [2 comments](/r/javascript/comments/1thkgor/the_unreasonable_effectiveness_of_prosemirror/)  | [The Unreasonable Effectiveness of ProseMirror Model in Rich Text Transformation](https://smoores.dev/post/unreasonable_effectiveness_of_prosemirror/)|\n| 16  | [2 comments](/r/javascript/comments/1til0er/mikroorm_71_lazyref_perparent_collection_limiting/)  | [MikroORM 7.1: LazyRef, per-parent collection limiting, PGlite driver, query cancellation, database triggers, stored procedures, and more](https://mikro-orm.io/blog/mikro-orm-7-1-released)|\n| 13  | [5 comments](/r/javascript/comments/1tmrzx5/js_crossword_a_crossword_where_the_clue_evalanswer/)  | [JS Crossword - a crossword where the clue = eval&amp;#40;answer&amp;#41;](https://lyra.horse/fun/jscrossword/)|\n| 13  | [0 comments](/r/javascript/comments/1tk8h0c/staged_publishing_for_npm_packages_npm_docs/)  | [Staged publishing for npm packages &amp;#124; npm Docs](https://docs.npmjs.com/staged-publishing/)|\n| 13  | [0 comments](/r/javascript/comments/1tgkoe5/a_linuxlike_kernel_in_a_browser_tab_deep_dive_in/)  | [A Linux-like kernel in a browser tab - deep dive in the BrowserPod architecture](https://labs.leaningtech.com/blog/browserpod-deep-dive)|\n\n\n&amp;nbsp;\n\n###Most Commented Posts\n\n| score | comments | title &amp; link |\n|--|--|--|\n| 6  | [29 comments](/r/javascript/comments/1tlg1vu/askjs_help_me_choose_the_right_library_or/)  | `[AskJS]` &amp;#91;AskJS&amp;#93; Help me choose the right library or framework|\n| 0  | [12 comments](/r/javascript/comments/1tk5bvr/im_designing_a_rustinspired_js_compiler_what_do/)  | [I'm designing a Rust-inspired JS compiler — what do you think?](https://github.com/sudharaathith/lang)|\n| 2  | [11 comments](/r/javascript/comments/1tjdd6o/i_built_a_canvasbased_timeline_visualisation/)  | [I built a canvas-based timeline visualisation library with virtualised rendering in Typescript](https://tempis.dev/)|\n| 0  | [6 comments](/r/javascript/comments/1tjv8f4/a_new_way_to_connect_ssh_your_server/)  | [a new way to connect SSH your server](https://termique.app/)|\n| 6  | [6 comments](/r/javascript/comments/1tjjlbw/the_bun_cve_gap_when_your_package_manager_cant_do/)  | [The Bun CVE Gap: When Your Package Manager Can't Do Surgical Updates](https://charpeni.com/blog/the-bun-cve-gap-when-your-package-manager-cant-do-surgical-updates)|\n\n\n&amp;nbsp;\n\n###Top Ask JS\n\n| score | comments | title &amp; link |\n|--|--|--|\n| 2  | [2 comments](/r/javascript/comments/1tjmaio/askjs_built_a_browseronly_hls_video_downloader/)  | `[AskJS]` &amp;#91;AskJS&amp;#93; built a browser-only HLS video downloader that converts streams into MP4 using FFmpeg.wasm|\n| 1  | [0 comments](/r/javascript/comments/1thucyc/askjs_screenshot_api_that_renders_heavy_js/)  | `[AskJS]` &amp;#91;AskJS&amp;#93; Screenshot API that renders Heavy JS websites properly|\n\n\n&amp;nbsp;\n\n###Top Showoffs\n\n| score  |  comment  |\n|--|--|\n| 1  |  /u/dbb4004 said [React package to gamify any app.    Been working on it for a while. I think I have it built well now:   &amp;#91;https://www.npmjs.com/package/react-achievements&amp;#93;&amp;#40;https://www.npmjs.com/package/rea...](/r/javascript/comments/1tl93jy/showoff_saturday_may_23_2026/oniyh6p/?context=5) |\n| 1  |  /u/Vis_et_Honor said [Hey all,  We've been working on &amp;#91;LyteNyte Grid&amp;#93;&amp;#40;https://www.1771technologies.com/&amp;#41;, a high-performance React Data Grid, with over 150+ features. LyteNyte Grid is headless or pre-styled...](/r/javascript/comments/1tl93jy/showoff_saturday_may_23_2026/one6iai/?context=5) |\n| 1  |  /u/signalsrobot said [I built a small CLI tool that auto-generates JSDoc comments by analyzing function signatures and it's been saving me tons of time on documentation.](/r/javascript/comments/1tem5bg/showoff_saturday_may_16_2026/omnht9l/?context=5) |\n\n\n&amp;nbsp;\n\n###Top Comments\n\n| score  |  comment  |\n|--|--|\n| 18  |  /u/RWOverdijk said [I switched from prettier and eslint to just biome a couple years ago now and never looked back. I don’t know why you would be using biome, eslint and prettier, that’s the real problem there. Just swit...](/r/javascript/comments/1thsgrr/from_81s_to_25s_by_migrating_to_oxlint_oxfmt/ompa5i1/?context=5) |\n| 15  |  /u/lanerdofchristian said [The lack of such a mechanism in Bun when every other package manager supports it just further reinforces my opinion that Bun is not a serious piece of software that anyone should depend on.  Arguably ...](/r/javascript/comments/1tjjlbw/the_bun_cve_gap_when_your_package_manager_cant_do/on2pfpn/?context=5) |\n| 12  |  /u/arcanin said [We've been working on Yarn for almost ten years now. We've had good ideas, bad ideas, a lot of discussions, and in the end many things we support today have resulted from accumulated experience.  That...](/r/javascript/comments/1tjjlbw/the_bun_cve_gap_when_your_package_manager_cant_do/on4m47p/?context=5) |\n| 11  |  /u/Yanamo said [I migrated from Eslint to Oxlint yesterday as the Eslint v10 updated popped up. As the v9 update was already a pain in the *** and some plugins took forever to be compatible, I decided to give it a go...](/r/javascript/comments/1thsgrr/from_81s_to_25s_by_migrating_to_oxlint_oxfmt/omt2z7g/?context=5) |\n| 9  |  /u/Possible-Session9849 said [just use putty](/r/javascript/comments/1tjv8f4/a_new_way_to_connect_ssh_your_server/on46kbf/?context=5) |\n\n\n&amp;nbsp;",
+    "awards": [],
+    "comments": [
+      {
+        "id": "onr6p4j",
+        "author": "subredditsummarybot",
+        "body": "If you would like this roundup sent to your reddit inbox every week [send me a message with the subject 'javascript'](https://www.reddit.com/message/compose?to=subredditsummarybot&amp;subject=javascript&amp;message=x). Or if you want a daily roundup, [use the subject 'javascript daily'](https://www.reddit.com/message/compose?to=subredditsummarybot&amp;subject=javascript%20daily&amp;message=x) (&lt;--Click one of the links. The bot can't read chats, you must send a message). \n\n#####Please let me know if you have suggestions to make this roundup better for /r/javascript or if there are other subreddits that you think I should post in. I can search for posts based off keywords in the title, URL and flair - sorted by upvotes, \\# of comments, or awards. And I can also find the top comments overall or in specific threads.",
+        "score": 1,
+        "created_utc_ts": 1779700080,
+        "created_utc": "2026-05-25T09:08:00",
+        "permalink": "https://reddit.com/r/javascript/comments/1tn3mh3/your_rjavascript_recap_for_the_week_of_may_18_may/onr6p4j/",
+        "parent_id": "t3_1tn3mh3",
+        "is_submitter": true
+      }
+    ],
+    "created_utc": "2026-05-25T09:07:51",
+    "first_author_comment": "If you would like this roundup sent to your reddit inbox every week [send me a message with the subject 'javascript'](https://www.reddit.com/message/compose?to=subredditsummarybot&amp;subject=javascript&amp;message=x). Or if you want a daily roundup, [use the subject 'javascript daily'](https://www.reddit.com/message/compose?to=subredditsummarybot&amp;subject=javascript%20daily&amp;message=x) (&lt;--Click one of the links. The bot can't read chats, you must send a message). \n\n#####Please let me know if you have suggestions to make this roundup better for /r/javascript or if there are other subreddits that you think I should post in. I can search for posts based off keywords in the title, URL and flair - sorted by upvotes, \\# of comments, or awards. And I can also find the top comments overall or in specific threads.",
+    "num_comments": 1,
+    "score": 4,
+    "subreddit": "javascript",
+    "tag": "Subreddit Stats",
+    "tags": [],
+    "title": "Your /r/javascript recap for the week of May 18 - May 24, 2026",
+    "updatedAt": "2026-05-27T23:15:55.825Z",
+    "upvote_ratio": 1,
+    "url": "https://reddit.com/r/javascript/comments/1tn3mh3/your_rjavascript_recap_for_the_week_of_may_18_may/",
+    "versionList": [
+      "18.0.0",
+      "24.0.0",
+      "2026.0.0"
+    ],
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true
   },
   {
     "_id": "6a135eb4074684288be9d31f",
@@ -2363,20 +2540,108 @@
     "awards": [],
     "created_utc": "2026-05-24T01:44:43",
     "first_author_comment": "I feel like this (and Nate's [previous post](https://pointieststick.com/2026/05/16/start-with-fedora-kde-or-kubuntu/)) should be mandatory reading for new users.\n\nSo many people pick LTS distros because they're the \"stable\" option (when what they really want is reliability, or even just something that works), and then encounter a bunch of issues because LTS ends up not fulfilling their needs.",
-    "num_comments": 60,
-    "score": 63,
+    "num_comments": 62,
+    "score": 65,
     "subreddit": "linux",
     "tag": "Discussion",
     "tags": [
       "Discussion"
     ],
     "title": "“Long-Term Support” doesn’t mean what you think",
-    "updatedAt": "2026-05-27T04:54:20.748Z",
+    "updatedAt": "2026-05-28T04:53:05.193Z",
     "upvote_ratio": 0.84,
     "url": "https://reddit.com/r/linux/comments/1tlyi28/longterm_support_doesnt_mean_what_you_think/",
     "versionList": [],
     "commentCount": 24,
     "detectedCVEs": [
+      {
+        "cveId": "CVE-2023-51714",
+        "cveIds": [
+          "CVE-2023-51714",
+          "CVE-2023-51714",
+          "CVE-2024-36048",
+          "CVE-2024-36048"
+        ],
+        "source": "Comment",
+        "commentText": "[https://security-tracker.debian.org/tracker/CVE-2023-51714](https://security-tracker.debian.org/tracker/CVE-2023-51714)\n\n[https://security-tracker.debian.org/tracker/CVE-2024-36048](https://security-tracker.debian.org/tracker/CVE-2024-36048)\n\n[https://help.ubuntu.com/community/Repositories](https://help.ubuntu.com/community/Repositories)\n\n[https://www.debian.org/News/](https://www.debian.org/News/)",
+        "linkToComment": "https://reddit.com/r/linux/comments/1tlyi28/longterm_support_doesnt_mean_what_you_think/onjw677/",
+        "commentDate": "2026-05-24T05:11:09+00:00",
+        "cvePublishedDate": "2023-12-24T21:15:25.470000+00:00",
+        "initialAnalysisDate": "2024-01-04T16:36:01.263",
+        "daysAfterPublication": 881,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2025-03-20T21:31:13.473 | Modified Analysis | source=nvd@nist.gov | changeId=5B3A690E-9FB7-439B-B37C-A0BB077B0417\n   - Added CPE Configuration: OR\n          *cpe:2.3:o:debian:debian_linux:10.0:*:*:*:*:*:*:*\n   - Changed CPE Configuration: OR\n          *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions from (including) 6.6.0 up to (excluding) 6.6.2\n          *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions from (including) 6.3.0 up to (excluding) 6.5.4\n          *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions up to (excluding) 5.15.17\n          *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions from (including) 6.0.0 up to (excluding) 6.2.11 -> OR\n          *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions from (including) 6.6.0 up to (excluding) 6.6.2\n          *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions from (including) 6.3.0 up to (excluding) 6.5.4\n          *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions from (including) 6.0.0 up to (excluding) 6.2.11\n          *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions from (including) 5.7 up to (excluding) 5.15.17\n   - Added Reference Type: CVE: https://lists.debian.org/debian-lts-announce/2024/04/msg00027.html Types: Mailing List, Third Party Advisory\n   - Added Reference Type: MITRE: https://lists.debian.org/debian-lts-announce/2024/04/msg00027.html Types: Mailing List, Third Party Advisory\n2. 2024-11-21T08:38:39.687 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=3BB2D558-7E10-481D-BD17-46A378F24712\n   - Added Reference: https://codereview.qt-project.org/c/qt/qtbase/+/524864\n   - Added Reference: https://codereview.qt-project.org/c/qt/qtbase/+/524865/3\n   - Added Reference: https://lists.debian.org/debian-lts-announce/2024/04/msg00027.html\n3. 2024-05-14T14:20:13.200 | CVE Modified | source=cve@mitre.org | changeId=B0B113A4-7E18-4FCA-84E2-2FC7777F2035\n4. 2024-05-01T01:15:06.390 | CVE Modified | source=cve@mitre.org | changeId=52AFD7E6-70FE-4188-BCD6-93943C7568E2\n   - Added Reference: MITRE https://lists.debian.org/debian-lts-announce/2024/04/msg00027.html [No types assigned]\n5. 2024-01-04T16:36:01.263 | Initial Analysis | source=nvd@nist.gov | changeId=CB40934A-9D2A-4C0A-ADC9-C344B92E57A2\n   - Added CVSS V3.1: NIST AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Changed Reference Type: https://codereview.qt-project.org/c/qt/qtbase/+/524864 No Types Assigned -> https://codereview.qt-project.org/c/qt/qtbase/+/524864 Patch, Product\n   - Changed Reference Type: https://codereview.qt-project.org/c/qt/qtbase/+/524865/3 No Types Assigned -> https://codereview.qt-project.org/c/qt/qtbase/+/524865/3 Patch, Product\n   - Added CWE: NIST CWE-190\n   - Added CPE Configuration: OR\n     *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions up to (excluding) 5.15.17\n     *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions from (including) 6.0.0 up to (excluding) 6.2.11\n     *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions from (including) 6.3.0 up to (excluding) 6.5.4\n     *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions from (including) 6.6.0 up to (excluding) 6.6.2\n6. 2023-12-24T21:15:25.470 | New CVE Received | source=cve@mitre.org | changeId=C4E1CE7A-C5A8-4001-A925-E65A5C62D977\n   - Added Description: An issue was discovered in the HTTP2 implementation in Qt before 5.15.17, 6.x before 6.2.11, 6.3.x through 6.5.x before 6.5.4, and 6.6.x before 6.6.2. network/access/http2/hpacktable.cpp has an incorrect HPack integer overflow check.\n   - Added Reference: MITRE https://codereview.qt-project.org/c/qt/qtbase/+/524864 [No types assigned]\n   - Added Reference: MITRE https://codereview.qt-project.org/c/qt/qtbase/+/524865/3 [No types assigned]\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received"
+        ]
+      },
+      {
+        "cveId": "CVE-2023-51714",
+        "cveIds": [
+          "CVE-2023-51714",
+          "CVE-2023-51714",
+          "CVE-2024-36048",
+          "CVE-2024-36048"
+        ],
+        "source": "Comment",
+        "commentText": "[https://security-tracker.debian.org/tracker/CVE-2023-51714](https://security-tracker.debian.org/tracker/CVE-2023-51714)\n\n[https://security-tracker.debian.org/tracker/CVE-2024-36048](https://security-tracker.debian.org/tracker/CVE-2024-36048)\n\n[https://help.ubuntu.com/community/Repositories](https://help.ubuntu.com/community/Repositories)\n\n[https://www.debian.org/News/](https://www.debian.org/News/)",
+        "linkToComment": "https://reddit.com/r/linux/comments/1tlyi28/longterm_support_doesnt_mean_what_you_think/onjw677/",
+        "commentDate": "2026-05-24T05:11:09+00:00",
+        "cvePublishedDate": "2023-12-24T21:15:25.470000+00:00",
+        "initialAnalysisDate": "2024-01-04T16:36:01.263",
+        "daysAfterPublication": 881,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2025-03-20T21:31:13.473 | Modified Analysis | source=nvd@nist.gov | changeId=5B3A690E-9FB7-439B-B37C-A0BB077B0417\n   - Added CPE Configuration: OR\n          *cpe:2.3:o:debian:debian_linux:10.0:*:*:*:*:*:*:*\n   - Changed CPE Configuration: OR\n          *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions from (including) 6.6.0 up to (excluding) 6.6.2\n          *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions from (including) 6.3.0 up to (excluding) 6.5.4\n          *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions up to (excluding) 5.15.17\n          *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions from (including) 6.0.0 up to (excluding) 6.2.11 -> OR\n          *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions from (including) 6.6.0 up to (excluding) 6.6.2\n          *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions from (including) 6.3.0 up to (excluding) 6.5.4\n          *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions from (including) 6.0.0 up to (excluding) 6.2.11\n          *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions from (including) 5.7 up to (excluding) 5.15.17\n   - Added Reference Type: CVE: https://lists.debian.org/debian-lts-announce/2024/04/msg00027.html Types: Mailing List, Third Party Advisory\n   - Added Reference Type: MITRE: https://lists.debian.org/debian-lts-announce/2024/04/msg00027.html Types: Mailing List, Third Party Advisory\n2. 2024-11-21T08:38:39.687 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=3BB2D558-7E10-481D-BD17-46A378F24712\n   - Added Reference: https://codereview.qt-project.org/c/qt/qtbase/+/524864\n   - Added Reference: https://codereview.qt-project.org/c/qt/qtbase/+/524865/3\n   - Added Reference: https://lists.debian.org/debian-lts-announce/2024/04/msg00027.html\n3. 2024-05-14T14:20:13.200 | CVE Modified | source=cve@mitre.org | changeId=B0B113A4-7E18-4FCA-84E2-2FC7777F2035\n4. 2024-05-01T01:15:06.390 | CVE Modified | source=cve@mitre.org | changeId=52AFD7E6-70FE-4188-BCD6-93943C7568E2\n   - Added Reference: MITRE https://lists.debian.org/debian-lts-announce/2024/04/msg00027.html [No types assigned]\n5. 2024-01-04T16:36:01.263 | Initial Analysis | source=nvd@nist.gov | changeId=CB40934A-9D2A-4C0A-ADC9-C344B92E57A2\n   - Added CVSS V3.1: NIST AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Changed Reference Type: https://codereview.qt-project.org/c/qt/qtbase/+/524864 No Types Assigned -> https://codereview.qt-project.org/c/qt/qtbase/+/524864 Patch, Product\n   - Changed Reference Type: https://codereview.qt-project.org/c/qt/qtbase/+/524865/3 No Types Assigned -> https://codereview.qt-project.org/c/qt/qtbase/+/524865/3 Patch, Product\n   - Added CWE: NIST CWE-190\n   - Added CPE Configuration: OR\n     *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions up to (excluding) 5.15.17\n     *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions from (including) 6.0.0 up to (excluding) 6.2.11\n     *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions from (including) 6.3.0 up to (excluding) 6.5.4\n     *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions from (including) 6.6.0 up to (excluding) 6.6.2\n6. 2023-12-24T21:15:25.470 | New CVE Received | source=cve@mitre.org | changeId=C4E1CE7A-C5A8-4001-A925-E65A5C62D977\n   - Added Description: An issue was discovered in the HTTP2 implementation in Qt before 5.15.17, 6.x before 6.2.11, 6.3.x through 6.5.x before 6.5.4, and 6.6.x before 6.6.2. network/access/http2/hpacktable.cpp has an incorrect HPack integer overflow check.\n   - Added Reference: MITRE https://codereview.qt-project.org/c/qt/qtbase/+/524864 [No types assigned]\n   - Added Reference: MITRE https://codereview.qt-project.org/c/qt/qtbase/+/524865/3 [No types assigned]\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received"
+        ]
+      },
+      {
+        "cveId": "CVE-2023-51714",
+        "cveIds": [
+          "CVE-2023-51714",
+          "CVE-2023-51714",
+          "CVE-2024-36048",
+          "CVE-2024-36048"
+        ],
+        "source": "Comment",
+        "commentText": "[https://security-tracker.debian.org/tracker/CVE-2023-51714](https://security-tracker.debian.org/tracker/CVE-2023-51714)\n\n[https://security-tracker.debian.org/tracker/CVE-2024-36048](https://security-tracker.debian.org/tracker/CVE-2024-36048)\n\n[https://help.ubuntu.com/community/Repositories](https://help.ubuntu.com/community/Repositories)\n\n[https://www.debian.org/News/](https://www.debian.org/News/)",
+        "linkToComment": "https://reddit.com/r/linux/comments/1tlyi28/longterm_support_doesnt_mean_what_you_think/onjw677/",
+        "commentDate": "2026-05-24T05:11:09+00:00",
+        "cvePublishedDate": "2023-12-24T21:15:25.470000+00:00",
+        "initialAnalysisDate": "2024-01-04T16:36:01.263",
+        "daysAfterPublication": 881,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2025-03-20T21:31:13.473 | Modified Analysis | source=nvd@nist.gov | changeId=5B3A690E-9FB7-439B-B37C-A0BB077B0417\n   - Added CPE Configuration: OR\n          *cpe:2.3:o:debian:debian_linux:10.0:*:*:*:*:*:*:*\n   - Changed CPE Configuration: OR\n          *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions from (including) 6.6.0 up to (excluding) 6.6.2\n          *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions from (including) 6.3.0 up to (excluding) 6.5.4\n          *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions up to (excluding) 5.15.17\n          *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions from (including) 6.0.0 up to (excluding) 6.2.11 -> OR\n          *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions from (including) 6.6.0 up to (excluding) 6.6.2\n          *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions from (including) 6.3.0 up to (excluding) 6.5.4\n          *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions from (including) 6.0.0 up to (excluding) 6.2.11\n          *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions from (including) 5.7 up to (excluding) 5.15.17\n   - Added Reference Type: CVE: https://lists.debian.org/debian-lts-announce/2024/04/msg00027.html Types: Mailing List, Third Party Advisory\n   - Added Reference Type: MITRE: https://lists.debian.org/debian-lts-announce/2024/04/msg00027.html Types: Mailing List, Third Party Advisory\n2. 2024-11-21T08:38:39.687 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=3BB2D558-7E10-481D-BD17-46A378F24712\n   - Added Reference: https://codereview.qt-project.org/c/qt/qtbase/+/524864\n   - Added Reference: https://codereview.qt-project.org/c/qt/qtbase/+/524865/3\n   - Added Reference: https://lists.debian.org/debian-lts-announce/2024/04/msg00027.html\n3. 2024-05-14T14:20:13.200 | CVE Modified | source=cve@mitre.org | changeId=B0B113A4-7E18-4FCA-84E2-2FC7777F2035\n4. 2024-05-01T01:15:06.390 | CVE Modified | source=cve@mitre.org | changeId=52AFD7E6-70FE-4188-BCD6-93943C7568E2\n   - Added Reference: MITRE https://lists.debian.org/debian-lts-announce/2024/04/msg00027.html [No types assigned]\n5. 2024-01-04T16:36:01.263 | Initial Analysis | source=nvd@nist.gov | changeId=CB40934A-9D2A-4C0A-ADC9-C344B92E57A2\n   - Added CVSS V3.1: NIST AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Changed Reference Type: https://codereview.qt-project.org/c/qt/qtbase/+/524864 No Types Assigned -> https://codereview.qt-project.org/c/qt/qtbase/+/524864 Patch, Product\n   - Changed Reference Type: https://codereview.qt-project.org/c/qt/qtbase/+/524865/3 No Types Assigned -> https://codereview.qt-project.org/c/qt/qtbase/+/524865/3 Patch, Product\n   - Added CWE: NIST CWE-190\n   - Added CPE Configuration: OR\n     *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions up to (excluding) 5.15.17\n     *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions from (including) 6.0.0 up to (excluding) 6.2.11\n     *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions from (including) 6.3.0 up to (excluding) 6.5.4\n     *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions from (including) 6.6.0 up to (excluding) 6.6.2\n6. 2023-12-24T21:15:25.470 | New CVE Received | source=cve@mitre.org | changeId=C4E1CE7A-C5A8-4001-A925-E65A5C62D977\n   - Added Description: An issue was discovered in the HTTP2 implementation in Qt before 5.15.17, 6.x before 6.2.11, 6.3.x through 6.5.x before 6.5.4, and 6.6.x before 6.6.2. network/access/http2/hpacktable.cpp has an incorrect HPack integer overflow check.\n   - Added Reference: MITRE https://codereview.qt-project.org/c/qt/qtbase/+/524864 [No types assigned]\n   - Added Reference: MITRE https://codereview.qt-project.org/c/qt/qtbase/+/524865/3 [No types assigned]\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received"
+        ]
+      },
+      {
+        "cveId": "CVE-2023-51714",
+        "cveIds": [
+          "CVE-2023-51714",
+          "CVE-2023-51714",
+          "CVE-2024-36048",
+          "CVE-2024-36048"
+        ],
+        "source": "Comment",
+        "commentText": "[https://security-tracker.debian.org/tracker/CVE-2023-51714](https://security-tracker.debian.org/tracker/CVE-2023-51714)\n\n[https://security-tracker.debian.org/tracker/CVE-2024-36048](https://security-tracker.debian.org/tracker/CVE-2024-36048)\n\n[https://help.ubuntu.com/community/Repositories](https://help.ubuntu.com/community/Repositories)\n\n[https://www.debian.org/News/](https://www.debian.org/News/)",
+        "linkToComment": "https://reddit.com/r/linux/comments/1tlyi28/longterm_support_doesnt_mean_what_you_think/onjw677/",
+        "commentDate": "2026-05-24T05:11:09+00:00",
+        "cvePublishedDate": "2023-12-24T21:15:25.470000+00:00",
+        "initialAnalysisDate": "2024-01-04T16:36:01.263",
+        "daysAfterPublication": 881,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2025-03-20T21:31:13.473 | Modified Analysis | source=nvd@nist.gov | changeId=5B3A690E-9FB7-439B-B37C-A0BB077B0417\n   - Added CPE Configuration: OR\n          *cpe:2.3:o:debian:debian_linux:10.0:*:*:*:*:*:*:*\n   - Changed CPE Configuration: OR\n          *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions from (including) 6.6.0 up to (excluding) 6.6.2\n          *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions from (including) 6.3.0 up to (excluding) 6.5.4\n          *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions up to (excluding) 5.15.17\n          *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions from (including) 6.0.0 up to (excluding) 6.2.11 -> OR\n          *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions from (including) 6.6.0 up to (excluding) 6.6.2\n          *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions from (including) 6.3.0 up to (excluding) 6.5.4\n          *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions from (including) 6.0.0 up to (excluding) 6.2.11\n          *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions from (including) 5.7 up to (excluding) 5.15.17\n   - Added Reference Type: CVE: https://lists.debian.org/debian-lts-announce/2024/04/msg00027.html Types: Mailing List, Third Party Advisory\n   - Added Reference Type: MITRE: https://lists.debian.org/debian-lts-announce/2024/04/msg00027.html Types: Mailing List, Third Party Advisory\n2. 2024-11-21T08:38:39.687 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=3BB2D558-7E10-481D-BD17-46A378F24712\n   - Added Reference: https://codereview.qt-project.org/c/qt/qtbase/+/524864\n   - Added Reference: https://codereview.qt-project.org/c/qt/qtbase/+/524865/3\n   - Added Reference: https://lists.debian.org/debian-lts-announce/2024/04/msg00027.html\n3. 2024-05-14T14:20:13.200 | CVE Modified | source=cve@mitre.org | changeId=B0B113A4-7E18-4FCA-84E2-2FC7777F2035\n4. 2024-05-01T01:15:06.390 | CVE Modified | source=cve@mitre.org | changeId=52AFD7E6-70FE-4188-BCD6-93943C7568E2\n   - Added Reference: MITRE https://lists.debian.org/debian-lts-announce/2024/04/msg00027.html [No types assigned]\n5. 2024-01-04T16:36:01.263 | Initial Analysis | source=nvd@nist.gov | changeId=CB40934A-9D2A-4C0A-ADC9-C344B92E57A2\n   - Added CVSS V3.1: NIST AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Changed Reference Type: https://codereview.qt-project.org/c/qt/qtbase/+/524864 No Types Assigned -> https://codereview.qt-project.org/c/qt/qtbase/+/524864 Patch, Product\n   - Changed Reference Type: https://codereview.qt-project.org/c/qt/qtbase/+/524865/3 No Types Assigned -> https://codereview.qt-project.org/c/qt/qtbase/+/524865/3 Patch, Product\n   - Added CWE: NIST CWE-190\n   - Added CPE Configuration: OR\n     *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions up to (excluding) 5.15.17\n     *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions from (including) 6.0.0 up to (excluding) 6.2.11\n     *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions from (including) 6.3.0 up to (excluding) 6.5.4\n     *cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:* versions from (including) 6.6.0 up to (excluding) 6.6.2\n6. 2023-12-24T21:15:25.470 | New CVE Received | source=cve@mitre.org | changeId=C4E1CE7A-C5A8-4001-A925-E65A5C62D977\n   - Added Description: An issue was discovered in the HTTP2 implementation in Qt before 5.15.17, 6.x before 6.2.11, 6.3.x through 6.5.x before 6.5.4, and 6.6.x before 6.6.2. network/access/http2/hpacktable.cpp has an incorrect HPack integer overflow check.\n   - Added Reference: MITRE https://codereview.qt-project.org/c/qt/qtbase/+/524864 [No types assigned]\n   - Added Reference: MITRE https://codereview.qt-project.org/c/qt/qtbase/+/524865/3 [No types assigned]\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received"
+        ]
+      },
       {
         "cveId": "CVE-2023-51714",
         "cveIds": [
@@ -2605,7 +2870,7 @@
         "id": "onj46mq",
         "author": "gmes78",
         "body": "I feel like this (and Nate's [previous post](https://pointieststick.com/2026/05/16/start-with-fedora-kde-or-kubuntu/)) should be mandatory reading for new users.\n\nSo many people pick LTS distros because they're the \"stable\" option (when what they really want is reliability, or even just something that works), and then encounter a bunch of issues because LTS ends up not fulfilling their needs.",
-        "score": 57,
+        "score": 61,
         "created_utc_ts": 1779587430,
         "created_utc": "2026-05-24T01:50:30",
         "permalink": "https://reddit.com/r/linux/comments/1tlyi28/longterm_support_doesnt_mean_what_you_think/onj46mq/",
@@ -2616,7 +2881,7 @@
         "id": "onj4ps7",
         "author": "Venylynn",
         "body": "Yeah, what I really want is reliability. I started on Mint, and it worked, but I had issues with faster distros in August, fell back, spent months on Debian edition Mint, started running into issues and now suddenly Fedora is smooth and rock solid when it wasn't back in August. I'm still hoping this doesn't start breaking down. After August I still have that in my back pocket as a possibility.",
-        "score": 13,
+        "score": 16,
         "created_utc_ts": 1779587635,
         "created_utc": "2026-05-24T01:53:55",
         "permalink": "https://reddit.com/r/linux/comments/1tlyi28/longterm_support_doesnt_mean_what_you_think/onj4ps7/",
@@ -2627,7 +2892,7 @@
         "id": "onj6xql",
         "author": "mauvehead",
         "body": "LTS for servers, not for desktops.",
-        "score": 20,
+        "score": 21,
         "created_utc_ts": 1779588478,
         "created_utc": "2026-05-24T02:07:58",
         "permalink": "https://reddit.com/r/linux/comments/1tlyi28/longterm_support_doesnt_mean_what_you_think/onj6xql/",
@@ -2638,7 +2903,7 @@
         "id": "onj99kj",
         "author": "high-tech-low-life",
         "body": "I know exactly what LTS means.\n\nThis is the downside of getting popular and expanding beyond our geeky origins. It is like the ignorant who think \"real time\" means \"fast.\" Going mainstream is good, but nothing is perfect.",
-        "score": 20,
+        "score": 22,
         "created_utc_ts": 1779589371,
         "created_utc": "2026-05-24T02:22:51",
         "permalink": "https://reddit.com/r/linux/comments/1tlyi28/longterm_support_doesnt_mean_what_you_think/onj99kj/",
@@ -2660,7 +2925,7 @@
         "id": "onjlqbt",
         "author": "Junior_Common_9644",
         "body": "I don’t much care for his excitement for immutable disros. I don’t care to use flatpaks and snaps when I don’t have to. And it hinders the ability to install things outside of package management to some degree. Tried a few of them and hated them all. Only makes sense for servers.",
-        "score": 4,
+        "score": 2,
         "created_utc_ts": 1779594555,
         "created_utc": "2026-05-24T03:49:15",
         "permalink": "https://reddit.com/r/linux/comments/1tlyi28/longterm_support_doesnt_mean_what_you_think/onjlqbt/",
@@ -2671,7 +2936,7 @@
         "id": "onjmwq8",
         "author": "leoumair",
         "body": "The author mentioned this at the end but an LTS distro with flatpak and snaps really is the best combo.\n\n\nI don't want my system components to live at the edge and get constantly updated. I have been burned by major bugs in new kernels (that for example caused the entire OS to freeze) or by a major component change that wasn't quite ready for prime time (e.g. some distros pushing Wayland as default very early on).\n\n\n\n\nAt least if it's a bad update through flatpak/snap only that app is affected. If it's a bad system update my entire PC becomes unusable. Plus you can usually rollback the app update if it's packaged through flatpak/snap or switch release channels.\n\n\nFor a beginner I would only ever recommend Ubuntu and its LTS release. Ubuntu themselves recommended their LTS over interim releases for most use cases:\n\n\nhttps://ubuntu.com/about/release-cycle\n\n\n\"For long-term stability, production environments should use the LTS version, while interim releases suit those prioritizing speed and rapid feature testing.\"",
-        "score": 8,
+        "score": 10,
         "created_utc_ts": 1779595076,
         "created_utc": "2026-05-24T03:57:56",
         "permalink": "https://reddit.com/r/linux/comments/1tlyi28/longterm_support_doesnt_mean_what_you_think/onjmwq8/",
@@ -2704,7 +2969,7 @@
         "id": "onjw677",
         "author": "gordonmessmer",
         "body": "Although it's difficult to define \"LTS\" in brief, I think the details matter a lot, and I think a lot of your readers are getting the details wrong. On two points, it's important not to infer the inverse from the distribution's statements.\n\n\\&gt; Those updates *will* include fixes for security issues.\n\nUpdates to free LTS distributions will include security fixes, but not all security issues will get fixes.\n\n\\&gt; Those updates will *not* include any new features, UI improvements, or other non-bug-fix releases from the software’s developers\n\nFree LTS distributions don't promise any new features, but they also don't promise \"no new features.\"\n\nRegarding security:\n\nUpdates will typically include the most critical security issues for the most common packages, but the labor required to issue security fixes is limited, so users should not expect full coverage. Important packages might not get patches for less important issues, and less important packages might not get ANY patches at all.\n\nThat's important for KDE and their users, because Qt appears to fall into the distribution's definition of \"less important\" packages. Both Debian 12 and Ubuntu 24.04 were affected by CVE-2023-51714 and CVE-2024-36048. Qt published a patch for each of those issues, but neither distribution fixed either one.\n\nUbuntu is a little more clear about this than Debian. On Ubuntu, KDE and Qt appear in the \"Universe\" component, about which Canonical says, \"Canonical does not provide a guarantee of regular security updates for software in the universe component.\"\n\nThe vast majority of software on an Ubuntu system is in the \"Universe\" component, where even security fixes aren't expected. Debian doesn't differentiate, so users have less information about what to expect, but we can infer their prioritization based on the lack of patches .\n\nRegarding features:\n\nFree LTS distributions tend to be very conservative about feature updates, and while upstream projects are still maintaining the components they ship, feature updates will be infrequent. As time goes on, it becomes more difficult to patch security issues without upstream support, and feature updates will become more common.\n\nDebian users can read the NEWS posts that accompany minor releases for information about updates, including feature updates.\n\n[https://security-tracker.debian.org/tracker/CVE-2023-51714](https://security-tracker.debian.org/tracker/CVE-2023-51714)\n\n[https://security-tracker.debian.org/tracker/CVE-2024-36048](https://security-tracker.debian.org/tracker/CVE-2024-36048)\n\n[https://help.ubuntu.com/community/Repositories](https://help.ubuntu.com/community/Repositories)\n\n[https://www.debian.org/News/](https://www.debian.org/News/)",
-        "score": 52,
+        "score": 55,
         "created_utc_ts": 1779599469,
         "created_utc": "2026-05-24T05:11:09",
         "permalink": "https://reddit.com/r/linux/comments/1tlyi28/longterm_support_doesnt_mean_what_you_think/onjw677/",
@@ -2737,7 +3002,7 @@
         "id": "onkbxjl",
         "author": "gmes78",
         "body": "This post is obviously meant to clear up the confusion for newer users.\n\nBut you already knew that, you just wanted to make a gatekeeping comment to show how smart you are.",
-        "score": 17,
+        "score": 16,
         "created_utc_ts": 1779607586,
         "created_utc": "2026-05-24T07:26:26",
         "permalink": "https://reddit.com/r/linux/comments/1tlyi28/longterm_support_doesnt_mean_what_you_think/onkbxjl/",
@@ -2759,7 +3024,7 @@
         "id": "onkfjbp",
         "author": "Skogspingvin",
         "body": "This, and Qt/KDE's hostility towards open source long term support distributions, makes me want to pen some articles called: \"Users don't want what you think they want\" directed at the chuds that make these kind of pointless masturbatory posts.",
-        "score": -9,
+        "score": -10,
         "created_utc_ts": 1779609508,
         "created_utc": "2026-05-24T07:58:28",
         "permalink": "https://reddit.com/r/linux/comments/1tlyi28/longterm_support_doesnt_mean_what_you_think/onkfjbp/",
@@ -2770,7 +3035,7 @@
         "id": "onkn2rs",
         "author": "fallenguru",
         "body": "Reliability and stableness are the same thing, though. You can rely on a stable/LTS distro not changing its behaviour. The things that work will keep working in exactly the same way, the things that don't work will keep not working in exactly the same way. Which means you can work around the latter and rely on the fact that your workarounds will keep working as well.\n\nThe stable/LTS distros are also the most well-tested and have the most rigorous QA standards. Doesn't mean they don't crash, doesn't mean they're bug-free—the point is that no non-stable/LTS distro has a chance of doing better on that front.\n\nAssuming the new users you're referring to are people who just want to sit down in front of their PC and do some work or play some games, stable/LTS distros are exactly what they should be using. Everything else is for developers, testers, people for whom tinkering with their computer is a fun activity in and of itself.\n\n*EDIT: The OP has blocked me, so I'm barred from participating in this thread.*",
-        "score": 1,
+        "score": 2,
         "created_utc_ts": 1779613622,
         "created_utc": "2026-05-24T09:07:02",
         "permalink": "https://reddit.com/r/linux/comments/1tlyi28/longterm_support_doesnt_mean_what_you_think/onkn2rs/",
@@ -2792,7 +3057,7 @@
         "id": "onlemd5",
         "author": "gmes78",
         "body": "The only hostile thing in this scenario is LTS distro's distrust in the developers of the software they ship.",
-        "score": 4,
+        "score": 3,
         "created_utc_ts": 1779626578,
         "created_utc": "2026-05-24T12:42:58",
         "permalink": "https://reddit.com/r/linux/comments/1tlyi28/longterm_support_doesnt_mean_what_you_think/onlemd5/",
@@ -2803,7 +3068,7 @@
         "id": "onljlkx",
         "author": "Maerskian",
         "body": "Thank you **very** much for taking the time to write this. Hope it doesn't get buried &amp; lost among drama-addict posts.",
-        "score": 8,
+        "score": 9,
         "created_utc_ts": 1779628358,
         "created_utc": "2026-05-24T13:12:38",
         "permalink": "https://reddit.com/r/linux/comments/1tlyi28/longterm_support_doesnt_mean_what_you_think/onljlkx/",
@@ -2814,7 +3079,7 @@
         "id": "onlphwu",
         "author": "whosdr",
         "body": "&gt; Free LTS distributions tend to be very conservative about feature updates, and while upstream projects are still maintaining the components they ship, feature updates will be infrequent. As time goes on, it becomes more difficult to patch security issues without upstream support, and feature updates will become more common. \n\nThat's actually what I like about LTS myself. I'm too stubborn about things working as I'd like. But by the end of the release cycle, the stale software does get to me a bit. (Flatpak does help though.)\n\nMaybe I'm biased, but I still think it's fine to pick an LTS distro. What matters is just being informed on the choices you are making.",
-        "score": 2,
+        "score": 3,
         "created_utc_ts": 1779630347,
         "created_utc": "2026-05-24T13:45:47",
         "permalink": "https://reddit.com/r/linux/comments/1tlyi28/longterm_support_doesnt_mean_what_you_think/onlphwu/",
@@ -2825,7 +3090,7 @@
         "id": "onn5wu6",
         "author": "redundant78",
         "body": "the stable vs reliable distinction trips up so many people. in distro land \"stable\" literally just means \"stuff won't change,\" not \"stuff won't break.\" and ironically, older frozen packages can actually be *less* reliable on a desktop because you're stuck with bugs that were fixed upstream months ago.",
-        "score": 6,
+        "score": 9,
         "created_utc_ts": 1779645485,
         "created_utc": "2026-05-24T17:58:05",
         "permalink": "https://reddit.com/r/linux/comments/1tlyi28/longterm_support_doesnt_mean_what_you_think/onn5wu6/",
@@ -2878,7 +3143,7 @@
         "id": "onijiy5",
         "author": "mtutty",
         "body": "Technically correct, which is the most satisfying kind.  Can't wait for the backlash on this, though.",
-        "score": 7,
+        "score": 9,
         "created_utc_ts": 1779579590,
         "created_utc": "2026-05-23T23:39:50",
         "permalink": "https://reddit.com/r/PHP/comments/1tlvnxt/the_solution_to_all_the_supply_chain_problems_is/onijiy5/",
@@ -2911,7 +3176,7 @@
         "id": "onikkhg",
         "author": "NeoThermic",
         "body": "Or... fix your versions to specific numbers and commit the lockfile as well. Then you can't have your packages swapped under your nose. The lockfile will then never change.\n\nWe lock all our package versions to a specific version upon install. Upgrades are then done on a per-package basis with a review of the upstream changes. \n\nWhile this is a lot of work, this also means that we don't have a lot of packages installed. If you want a package, do the legwork on it.\n\n  \nHonestly, if you're not doing this anyway, then if there's a time delay between when you write your new code, or fix a bug, and when the tests run on your CI/CD pipeline, and when it gets deployed, you're at risk anyway from a package upgrade breaking something in that process. Repeatable builds is part of that flow, and as a useful side effect makes you basically immune from supply chain attacks.\n\n  \n(Note: basically immune does require you to still be able to trust that the git *history* of your packages can't be tainted. If that holds true, then you become immune. If an attacker can somehow alter history like that, then you have *other larger problems*.)",
-        "score": 11,
+        "score": 12,
         "created_utc_ts": 1779579971,
         "created_utc": "2026-05-23T23:46:11",
         "permalink": "https://reddit.com/r/PHP/comments/1tlvnxt/the_solution_to_all_the_supply_chain_problems_is/onikkhg/",
@@ -2922,7 +3187,7 @@
         "id": "onikout",
         "author": "schizoduckie",
         "body": "No. The package lock is too obtrusive. Worms like the Shai Hulud family specifically target lockfiles to pull in compromised dependencies. This is compounded by the most hilarous longstanding bug on github itself where you can attribute your own commmit to a fork of vendor/ to their original owner by just appending the commit hash to the original repository url instead of your own. Cooldown periods in package managers rely on everybody having the most uptodate package manger and base dependencies which could go as far as having to upgarde for instance node to run the latest npm. \n\nChecking in node\\_modules would bypass all of those concerns.\n\nYou can still run your favorite  npm audit commands or scanners after clone, but you just don't need to reinstall and re-clone that source because you already have a known good version.",
-        "score": -5,
+        "score": -4,
         "created_utc_ts": 1779580017,
         "created_utc": "2026-05-23T23:46:57",
         "permalink": "https://reddit.com/r/PHP/comments/1tlvnxt/the_solution_to_all_the_supply_chain_problems_is/onikout/",
@@ -2933,7 +3198,7 @@
         "id": "onikus9",
         "author": "schizoduckie",
         "body": "Negative. Lockfiles get targeted by worms.",
-        "score": -6,
+        "score": -7,
         "created_utc_ts": 1779580077,
         "created_utc": "2026-05-23T23:47:57",
         "permalink": "https://reddit.com/r/PHP/comments/1tlvnxt/the_solution_to_all_the_supply_chain_problems_is/onikus9/",
@@ -2966,7 +3231,7 @@
         "id": "onimlr5",
         "author": "Samurai_Mac1",
         "body": "This is literally fixed by committing your lock files.",
-        "score": 6,
+        "score": 7,
         "created_utc_ts": 1779580730,
         "created_utc": "2026-05-23T23:58:50",
         "permalink": "https://reddit.com/r/PHP/comments/1tlvnxt/the_solution_to_all_the_supply_chain_problems_is/onimlr5/",
@@ -3070,8 +3335,8 @@
     "tag": null,
     "tags": [],
     "title": "The solution to all the supply chain problems is removing your dependencies from .gitignore",
-    "updatedAt": "2026-05-27T05:13:11.707Z",
-    "upvote_ratio": 0.27,
+    "updatedAt": "2026-05-27T19:23:03.339Z",
+    "upvote_ratio": 0.19,
     "url": "https://reddit.com/r/PHP/comments/1tlvnxt/the_solution_to_all_the_supply_chain_problems_is/",
     "versionList": [],
     "isAboutCve": true,
@@ -3086,13 +3351,13 @@
     "created_utc": "2026-05-23T20:07:12",
     "first_author_comment": null,
     "num_comments": 0,
-    "score": 4,
+    "score": 3,
     "subreddit": "PHP",
     "tag": null,
     "tags": [],
     "title": "The Perforce Driver You Never Knew You Had: Composer CVE-2026-40261 and CVE-2026-40176",
-    "updatedAt": "2026-05-27T05:13:07.813Z",
-    "upvote_ratio": 0.67,
+    "updatedAt": "2026-05-28T03:06:52.338Z",
+    "upvote_ratio": 0.62,
     "url": "https://reddit.com/r/PHP/comments/1tlqqk9/the_perforce_driver_you_never_knew_you_had/",
     "versionList": [
       "2026.0.0",
@@ -3136,12 +3401,12 @@
     "created_utc": "2026-05-22T19:45:42",
     "first_author_comment": "Discovered by Nebula Security:\n\nhttps://x.com/nebusecurity/status/2057071579876753643\n\nThe previous vulnerability was CVE-2026-42945 and was nicknamed \"Nginx Rift\":\n\nhttps://my.f5.com/manage/s/article/K000161019",
     "num_comments": 2,
-    "score": 51,
+    "score": 53,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-9256 - \"nginx-poolslip\", another new vulnerability in the rewrite module",
-    "updatedAt": "2026-05-27T04:47:52.100Z",
+    "updatedAt": "2026-05-28T04:47:20.064Z",
     "upvote_ratio": 0.98,
     "url": "https://reddit.com/r/netsec/comments/1tktr0o/cve20269256_nginxpoolslip_another_new/",
     "versionList": [
@@ -3158,6 +3423,94 @@
     },
     "commentCount": 2,
     "detectedCVEs": [
+      {
+        "cveId": "CVE-2026-42945",
+        "cveIds": [
+          "CVE-2026-42945"
+        ],
+        "source": "Comment",
+        "commentText": "Discovered by Nebula Security:\n\nhttps://x.com/nebusecurity/status/2057071579876753643\n\nThe previous vulnerability was CVE-2026-42945 and was nicknamed \"Nginx Rift\":\n\nhttps://my.f5.com/manage/s/article/K000161019",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1tktr0o/cve20269256_nginxpoolslip_another_new/onb0bw3/",
+        "commentDate": "2026-05-22T19:46:33+00:00",
+        "cvePublishedDate": "2026-05-13T16:16:50.190000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 9,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-05-21T19:16:53.100 | CVE Modified | source=f5sirt@f5.com | changeId=23ABF488-2164-4BF1-8B3C-B9336BEC341F\n   - Changed Description: NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_rewrite_module module. This vulnerability exists when the rewrite directive is followed by a rewrite, if, or set directive and an unnamed Perl-Compatible Regular Expression (PCRE) capture (for example, $1, $2) with a replacement string that includes a question mark (?). An unauthenticated attacker along with conditions beyond its control can exploit this vulnerability by sending crafted HTTP requests. This may cause a heap buffer overflow in the NGINX worker process leading to a restart. Additionally, for systems with Address Space Layout Randomization (ASLR ) disabled, code execution is possible.  Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated. -> NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_rewrite_module module. This vulnerability exists when the rewrite directive is followed by a rewrite, if, or set directive and an unnamed Perl-Compatible Regular Expression (PCRE) capture (for example, $1, $2) with a replacement string that includes a question mark (?). An unauthenticated attacker along with conditions beyond its control can exploit this vulnerability by sending crafted HTTP requests. This may cause a heap buffer overflow in the NGINX worker process leading to a restart. Additionally, attackers can execute code on systems with Address Space Layout Randomization (ASLR) disabled or when the attacker can bypass ASLR.  Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated.\n2. 2026-05-14T20:17:05.413 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=242D38B3-D949-4CBD-A216-408FFE1E9138\n   - Added Reference: https://github.com/DepthFirstDisclosures/Nginx-Rift\n3. 2026-05-14T02:17:21.637 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=F8E54A13-588C-4758-936C-40FD4F589D69\n   - Added Reference: https://depthfirst.com/nginx-rift\n4. 2026-05-13T16:16:50.190 | New CVE Received | source=f5sirt@f5.com | changeId=CD7BC79C-E661-406A-8BB4-654CEDF60BF2\n   - Added Description: NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_rewrite_module module. This vulnerability exists when the rewrite directive is followed by a rewrite, if, or set directive and an unnamed Perl-Compatible Regular Expression (PCRE) capture (for example, $1, $2) with a replacement string that includes a question mark (?). An unauthenticated attacker along with conditions beyond its control can exploit this vulnerability by sending crafted HTTP requests. This may cause a heap buffer overflow in the NGINX worker process leading to a restart. Additionally, for systems with Address Space Layout Randomization (ASLR ) disabled, code execution is possible.  Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated.\n   - Added CVSS V4.0: AV:N/AC:H/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CVSS V3.1: AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-122\n   - Added Reference: https://my.f5.com/manage/s/article/K000161019\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-42945",
+        "cveIds": [
+          "CVE-2026-42945"
+        ],
+        "source": "Comment",
+        "commentText": "Discovered by Nebula Security:\n\nhttps://x.com/nebusecurity/status/2057071579876753643\n\nThe previous vulnerability was CVE-2026-42945 and was nicknamed \"Nginx Rift\":\n\nhttps://my.f5.com/manage/s/article/K000161019",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1tktr0o/cve20269256_nginxpoolslip_another_new/onb0bw3/",
+        "commentDate": "2026-05-22T19:46:33+00:00",
+        "cvePublishedDate": "2026-05-13T16:16:50.190000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 9,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-05-21T19:16:53.100 | CVE Modified | source=f5sirt@f5.com | changeId=23ABF488-2164-4BF1-8B3C-B9336BEC341F\n   - Changed Description: NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_rewrite_module module. This vulnerability exists when the rewrite directive is followed by a rewrite, if, or set directive and an unnamed Perl-Compatible Regular Expression (PCRE) capture (for example, $1, $2) with a replacement string that includes a question mark (?). An unauthenticated attacker along with conditions beyond its control can exploit this vulnerability by sending crafted HTTP requests. This may cause a heap buffer overflow in the NGINX worker process leading to a restart. Additionally, for systems with Address Space Layout Randomization (ASLR ) disabled, code execution is possible.  Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated. -> NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_rewrite_module module. This vulnerability exists when the rewrite directive is followed by a rewrite, if, or set directive and an unnamed Perl-Compatible Regular Expression (PCRE) capture (for example, $1, $2) with a replacement string that includes a question mark (?). An unauthenticated attacker along with conditions beyond its control can exploit this vulnerability by sending crafted HTTP requests. This may cause a heap buffer overflow in the NGINX worker process leading to a restart. Additionally, attackers can execute code on systems with Address Space Layout Randomization (ASLR) disabled or when the attacker can bypass ASLR.  Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated.\n2. 2026-05-14T20:17:05.413 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=242D38B3-D949-4CBD-A216-408FFE1E9138\n   - Added Reference: https://github.com/DepthFirstDisclosures/Nginx-Rift\n3. 2026-05-14T02:17:21.637 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=F8E54A13-588C-4758-936C-40FD4F589D69\n   - Added Reference: https://depthfirst.com/nginx-rift\n4. 2026-05-13T16:16:50.190 | New CVE Received | source=f5sirt@f5.com | changeId=CD7BC79C-E661-406A-8BB4-654CEDF60BF2\n   - Added Description: NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_rewrite_module module. This vulnerability exists when the rewrite directive is followed by a rewrite, if, or set directive and an unnamed Perl-Compatible Regular Expression (PCRE) capture (for example, $1, $2) with a replacement string that includes a question mark (?). An unauthenticated attacker along with conditions beyond its control can exploit this vulnerability by sending crafted HTTP requests. This may cause a heap buffer overflow in the NGINX worker process leading to a restart. Additionally, for systems with Address Space Layout Randomization (ASLR ) disabled, code execution is possible.  Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated.\n   - Added CVSS V4.0: AV:N/AC:H/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CVSS V3.1: AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-122\n   - Added Reference: https://my.f5.com/manage/s/article/K000161019\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-42945",
+        "cveIds": [
+          "CVE-2026-42945"
+        ],
+        "source": "Comment",
+        "commentText": "Discovered by Nebula Security:\n\nhttps://x.com/nebusecurity/status/2057071579876753643\n\nThe previous vulnerability was CVE-2026-42945 and was nicknamed \"Nginx Rift\":\n\nhttps://my.f5.com/manage/s/article/K000161019",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1tktr0o/cve20269256_nginxpoolslip_another_new/onb0bw3/",
+        "commentDate": "2026-05-22T19:46:33+00:00",
+        "cvePublishedDate": "2026-05-13T16:16:50.190000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 9,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-05-21T19:16:53.100 | CVE Modified | source=f5sirt@f5.com | changeId=23ABF488-2164-4BF1-8B3C-B9336BEC341F\n   - Changed Description: NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_rewrite_module module. This vulnerability exists when the rewrite directive is followed by a rewrite, if, or set directive and an unnamed Perl-Compatible Regular Expression (PCRE) capture (for example, $1, $2) with a replacement string that includes a question mark (?). An unauthenticated attacker along with conditions beyond its control can exploit this vulnerability by sending crafted HTTP requests. This may cause a heap buffer overflow in the NGINX worker process leading to a restart. Additionally, for systems with Address Space Layout Randomization (ASLR ) disabled, code execution is possible.  Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated. -> NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_rewrite_module module. This vulnerability exists when the rewrite directive is followed by a rewrite, if, or set directive and an unnamed Perl-Compatible Regular Expression (PCRE) capture (for example, $1, $2) with a replacement string that includes a question mark (?). An unauthenticated attacker along with conditions beyond its control can exploit this vulnerability by sending crafted HTTP requests. This may cause a heap buffer overflow in the NGINX worker process leading to a restart. Additionally, attackers can execute code on systems with Address Space Layout Randomization (ASLR) disabled or when the attacker can bypass ASLR.  Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated.\n2. 2026-05-14T20:17:05.413 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=242D38B3-D949-4CBD-A216-408FFE1E9138\n   - Added Reference: https://github.com/DepthFirstDisclosures/Nginx-Rift\n3. 2026-05-14T02:17:21.637 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=F8E54A13-588C-4758-936C-40FD4F589D69\n   - Added Reference: https://depthfirst.com/nginx-rift\n4. 2026-05-13T16:16:50.190 | New CVE Received | source=f5sirt@f5.com | changeId=CD7BC79C-E661-406A-8BB4-654CEDF60BF2\n   - Added Description: NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_rewrite_module module. This vulnerability exists when the rewrite directive is followed by a rewrite, if, or set directive and an unnamed Perl-Compatible Regular Expression (PCRE) capture (for example, $1, $2) with a replacement string that includes a question mark (?). An unauthenticated attacker along with conditions beyond its control can exploit this vulnerability by sending crafted HTTP requests. This may cause a heap buffer overflow in the NGINX worker process leading to a restart. Additionally, for systems with Address Space Layout Randomization (ASLR ) disabled, code execution is possible.  Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated.\n   - Added CVSS V4.0: AV:N/AC:H/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CVSS V3.1: AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-122\n   - Added Reference: https://my.f5.com/manage/s/article/K000161019\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-42945",
+        "cveIds": [
+          "CVE-2026-42945"
+        ],
+        "source": "Comment",
+        "commentText": "Discovered by Nebula Security:\n\nhttps://x.com/nebusecurity/status/2057071579876753643\n\nThe previous vulnerability was CVE-2026-42945 and was nicknamed \"Nginx Rift\":\n\nhttps://my.f5.com/manage/s/article/K000161019",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1tktr0o/cve20269256_nginxpoolslip_another_new/onb0bw3/",
+        "commentDate": "2026-05-22T19:46:33+00:00",
+        "cvePublishedDate": "2026-05-13T16:16:50.190000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 9,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-05-21T19:16:53.100 | CVE Modified | source=f5sirt@f5.com | changeId=23ABF488-2164-4BF1-8B3C-B9336BEC341F\n   - Changed Description: NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_rewrite_module module. This vulnerability exists when the rewrite directive is followed by a rewrite, if, or set directive and an unnamed Perl-Compatible Regular Expression (PCRE) capture (for example, $1, $2) with a replacement string that includes a question mark (?). An unauthenticated attacker along with conditions beyond its control can exploit this vulnerability by sending crafted HTTP requests. This may cause a heap buffer overflow in the NGINX worker process leading to a restart. Additionally, for systems with Address Space Layout Randomization (ASLR ) disabled, code execution is possible.  Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated. -> NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_rewrite_module module. This vulnerability exists when the rewrite directive is followed by a rewrite, if, or set directive and an unnamed Perl-Compatible Regular Expression (PCRE) capture (for example, $1, $2) with a replacement string that includes a question mark (?). An unauthenticated attacker along with conditions beyond its control can exploit this vulnerability by sending crafted HTTP requests. This may cause a heap buffer overflow in the NGINX worker process leading to a restart. Additionally, attackers can execute code on systems with Address Space Layout Randomization (ASLR) disabled or when the attacker can bypass ASLR.  Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated.\n2. 2026-05-14T20:17:05.413 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=242D38B3-D949-4CBD-A216-408FFE1E9138\n   - Added Reference: https://github.com/DepthFirstDisclosures/Nginx-Rift\n3. 2026-05-14T02:17:21.637 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=F8E54A13-588C-4758-936C-40FD4F589D69\n   - Added Reference: https://depthfirst.com/nginx-rift\n4. 2026-05-13T16:16:50.190 | New CVE Received | source=f5sirt@f5.com | changeId=CD7BC79C-E661-406A-8BB4-654CEDF60BF2\n   - Added Description: NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_rewrite_module module. This vulnerability exists when the rewrite directive is followed by a rewrite, if, or set directive and an unnamed Perl-Compatible Regular Expression (PCRE) capture (for example, $1, $2) with a replacement string that includes a question mark (?). An unauthenticated attacker along with conditions beyond its control can exploit this vulnerability by sending crafted HTTP requests. This may cause a heap buffer overflow in the NGINX worker process leading to a restart. Additionally, for systems with Address Space Layout Randomization (ASLR ) disabled, code execution is possible.  Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated.\n   - Added CVSS V4.0: AV:N/AC:H/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CVSS V3.1: AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-122\n   - Added Reference: https://my.f5.com/manage/s/article/K000161019\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
       {
         "cveId": "CVE-2026-42945",
         "cveIds": [
@@ -3629,13 +3982,13 @@
     "created_utc": "2026-05-22T14:31:22",
     "first_author_comment": null,
     "num_comments": 0,
-    "score": 16,
+    "score": 14,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Zyxel low-priv account leaked super-admin, FTPS, and TR-069 secrets across router fleets",
-    "updatedAt": "2026-05-27T04:48:00.758Z",
-    "upvote_ratio": 0.76,
+    "updatedAt": "2026-05-28T04:47:24.328Z",
+    "upvote_ratio": 0.74,
     "url": "https://reddit.com/r/netsec/comments/1tkkq0m/zyxel_lowpriv_account_leaked_superadmin_ftps_and/",
     "versionList": [
       "069.0.0"
@@ -4055,7 +4408,7 @@
         "id": "on30gzb",
         "author": "Fox_Season",
         "body": "I'm tired boss",
-        "score": 82,
+        "score": 79,
         "created_utc_ts": 1779380608,
         "created_utc": "2026-05-21T16:23:28",
         "permalink": "https://reddit.com/r/netsec/comments/1tjow98/cve202640369_twelve_bytes_to_escape_the_browser/on30gzb/",
@@ -4088,12 +4441,12 @@
     "created_utc": "2026-05-21T15:58:41",
     "first_author_comment": "Tired of? ",
     "num_comments": 9,
-    "score": 122,
+    "score": 124,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-40369: Twelve Bytes to Escape the Browser Sandbox",
-    "updatedAt": "2026-05-27T04:48:05.019Z",
+    "updatedAt": "2026-05-28T04:47:28.390Z",
     "upvote_ratio": 0.96,
     "url": "https://reddit.com/r/netsec/comments/1tjow98/cve202640369_twelve_bytes_to_escape_the_browser/",
     "versionList": [
@@ -4127,13 +4480,13 @@
     "created_utc": "2026-05-21T15:46:53",
     "first_author_comment": null,
     "num_comments": 0,
-    "score": 11,
+    "score": 9,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-34474: Pre-auth credential disclosure in ZTE H298A / H108N via ETHCheat",
-    "updatedAt": "2026-05-27T04:48:06.457Z",
-    "upvote_ratio": 0.87,
+    "updatedAt": "2026-05-28T04:47:29.800Z",
+    "upvote_ratio": 0.81,
     "url": "https://reddit.com/r/netsec/comments/1tjojra/cve202634474_preauth_credential_disclosure_in_zte/",
     "versionList": [
       "2026.0.0",
@@ -4164,13 +4517,13 @@
     "created_utc": "2026-05-21T15:25:22",
     "first_author_comment": null,
     "num_comments": 0,
-    "score": 8,
+    "score": 10,
     "subreddit": "netsec",
-    "tag": "Pending Moderation",
+    "tag": null,
     "tags": [],
     "title": "Keys to the Kingdom: Anonymous SQL Injection in Drupal Core (CVE-2026-9082)",
-    "updatedAt": "2026-05-27T04:48:09.072Z",
-    "upvote_ratio": 0.91,
+    "updatedAt": "2026-05-28T04:47:37.199Z",
+    "upvote_ratio": 1,
     "url": "https://reddit.com/r/netsec/comments/1tjnwy1/keys_to_the_kingdom_anonymous_sql_injection_in/",
     "versionList": [
       "2026.0.0",
@@ -5086,7 +5439,7 @@
     "tag": null,
     "tags": [],
     "title": "What is the status of the fix for the Dirty Frag exploit on Ubuntu?",
-    "updatedAt": "2026-05-27T00:29:00.495Z",
+    "updatedAt": "2026-05-27T07:26:44.637Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/Ubuntu/comments/1tiu4ja/what_is_the_status_of_the_fix_for_the_dirty_frag/",
     "versionList": [],
@@ -5112,6 +5465,26 @@
     },
     "commentCount": 8,
     "detectedCVEs": [
+      {
+        "cveId": "CVE-2026-43500",
+        "cveIds": [
+          "CVE-2026-43500",
+          "CVE-2026-43284"
+        ],
+        "source": "Comment",
+        "commentText": "If you check [here](https://ubuntu.com/security/CVE-2026-43500) and [here](https://ubuntu.com/security/CVE-2026-43284) I wouldn't be surprised to see some \"work in progress\" action within the next couple days.",
+        "linkToComment": "https://reddit.com/r/Ubuntu/comments/1tiu4ja/what_is_the_status_of_the_fix_for_the_dirty_frag/omx0hc7/",
+        "commentDate": "2026-05-20T18:52:05+00:00",
+        "cvePublishedDate": "2026-05-11T08:16:16.077000+00:00",
+        "initialAnalysisDate": "2026-05-11T12:17:27.930",
+        "daysAfterPublication": 9,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-05-17T16:16:16.740 | CVE Modified | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=6A6B9EF8-7C2B-48FC-B5F1-ACFE581D3ECA\n   - Added Reference: https://git.kernel.org/stable/c/7c504ffab3efce8f7e4f463b314ae31030bdf18b\n2. 2026-05-14T15:16:47.447 | CVE Modified | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=C8C40D58-C9FA-4714-8A60-F22F56CFA605\n   - Added Reference: https://git.kernel.org/stable/c/3711382a77342a9a1c3d2e7330dcfc7ea927f568\n3. 2026-05-11T17:16:34.290 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=86BF5D53-5F72-4920-850E-06E4B28F20C4\n   - Added CVSS V3.1: AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-787\n   - Added Reference: https://github.com/V4bel/dirtyfrag\n4. 2026-05-11T12:17:27.930 | Initial Analysis | source=nvd@nist.gov | changeId=9098C1B8-B72E-450E-A925-5F0A025F0300\n   - Added CVSS V3.1: AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-787\n   - Added CPE Configuration: OR\n          *cpe:2.3:o:linux:linux_kernel:5.3:-:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:5.3:rc8:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc1:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc2:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (excluding) 5.3 up to (excluding) 6.18.29\n          *cpe:2.3:o:linux:linux_kernel:5.3:rc7:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.19 up to (excluding) 7.0.6\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/3eae0f4f9f7206a4801efa5e0235c25bbd5a412c Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/aa54b1d27fe0c2b78e664a34fd0fdf7cd1960d71 Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/d45179f8795222ce858770dc619abe51f9d24411 Types: Patch\n5. 2026-05-11T08:16:16.077 | New CVE Received | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=A57DDE42-199F-49BC-8174-BB21453D9097\n   - Added Description: In the Linux kernel, the following vulnerability has been resolved:\n\nrxrpc: Also unshare DATA/RESPONSE packets when paged frags are present\n\nThe DATA-packet handler in rxrpc_input_call_event() and the RESPONSE\nhandler in rxrpc_verify_response() copy the skb to a linear one before\ncalling into the security ops only when skb_cloned() is true.  An skb\nthat is not cloned but still carries externally-owned paged fragments\n(e.g. SKBFL_SHARED_FRAG set by splice() into a UDP socket via\n__ip_append_data, or a chained skb_has_frag_list()) falls through to\nthe in-place decryption path, which binds the frag pages directly into\nthe AEAD/skcipher SGL via skb_to_sgvec().\n\nExtend the gate to also unshare when skb_has_frag_list() or\nskb_has_shared_frag() is true.  This catches the splice-loopback vector\nand other externally-shared frag sources while preserving the\nzero-copy fast path for skbs whose frags are kernel-private (e.g. NIC\npage_pool RX, GRO).  The OOM/trace handling already in place is reused.\n   - Added Reference: https://git.kernel.org/stable/c/3eae0f4f9f7206a4801efa5e0235c25bbd5a412c\n   - Added Reference: https://git.kernel.org/stable/c/aa54b1d27fe0c2b78e664a34fd0fdf7cd1960d71\n   - Added Reference: https://git.kernel.org/stable/c/d45179f8795222ce858770dc619abe51f9d24411\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received"
+        ]
+      },
       {
         "cveId": "CVE-2026-43500",
         "cveIds": [
@@ -5675,13 +6048,13 @@
     "created_utc": "2026-05-20T13:49:55",
     "first_author_comment": "Thx. But for your information you shouldn't hide the router's ssid. Since it forces ur devices to keep broadcasting the name all the time it would make u a target to any one sniffing.\n\n&gt;Every exploit we found was downplayed by the offshore devs\n\nTypical Chinese \n",
     "num_comments": 7,
-    "score": 8,
+    "score": 6,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-34472: Pre-auth credential exposure and auth bypass in ZTE H188A V6 routers",
-    "updatedAt": "2026-05-27T04:48:10.427Z",
-    "upvote_ratio": 0.9,
+    "updatedAt": "2026-05-28T04:47:38.562Z",
+    "upvote_ratio": 0.81,
     "url": "https://reddit.com/r/netsec/comments/1timb3b/cve202634472_preauth_credential_exposure_and_auth/",
     "versionList": [
       "2026.0.0",
@@ -5960,8 +6333,8 @@
     "tag": null,
     "tags": [],
     "title": "CVE-2026-34473: Pre-auth ZTE H-series router DoS via CGILua request-body parsing",
-    "updatedAt": "2026-05-27T04:48:19.998Z",
-    "upvote_ratio": 0.81,
+    "updatedAt": "2026-05-28T04:47:47.705Z",
+    "upvote_ratio": 0.76,
     "url": "https://reddit.com/r/netsec/comments/1thjmen/cve202634473_preauth_zte_hseries_router_dos_via/",
     "versionList": [
       "2026.0.0",
@@ -5996,13 +6369,13 @@
     "created_utc": "2026-05-19T02:23:33",
     "first_author_comment": null,
     "num_comments": 0,
-    "score": 21,
+    "score": 19,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "New Age of Collisions: Reading Arbitrary Files Pre-Auth as root in cPanel (CVE-2026-29205)",
-    "updatedAt": "2026-05-27T04:48:22.487Z",
-    "upvote_ratio": 0.86,
+    "updatedAt": "2026-05-28T04:47:50.034Z",
+    "upvote_ratio": 0.83,
     "url": "https://reddit.com/r/netsec/comments/1th9bpu/new_age_of_collisions_reading_arbitrary_files/",
     "versionList": [
       "2026.0.0",
@@ -7849,7 +8222,7 @@
       "News"
     ],
     "title": "GitHub Action for PHP (shivammathur/setup-php) v2.37.1 released",
-    "updatedAt": "2026-05-27T05:09:06.406Z",
+    "updatedAt": "2026-05-27T23:19:01.472Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/laravel/comments/1td739z/github_action_for_php_shivammathursetupphp_v2371/",
     "versionList": [
@@ -7946,8 +8319,8 @@
     "tag": null,
     "tags": [],
     "title": "Detecting Exploitation of CrushFTP Vulnerability (CVE-2025-31161) With PacketSmith Yara Detection Module - Using track_state and flow_state",
-    "updatedAt": "2026-05-27T04:48:28.283Z",
-    "upvote_ratio": 0.92,
+    "updatedAt": "2026-05-28T04:47:55.123Z",
+    "upvote_ratio": 0.86,
     "url": "https://reddit.com/r/netsec/comments/1td2igk/detecting_exploitation_of_crushftp_vulnerability/",
     "versionList": [
       "2025.0.0",
@@ -8025,7 +8398,7 @@
         "id": "olqo8ns",
         "author": "TyrHeimdal",
         "body": "Ouch, this one might actually be quite bad. ",
-        "score": 25,
+        "score": 27,
         "created_utc_ts": 1778757531,
         "created_utc": "2026-05-14T11:18:51",
         "permalink": "https://reddit.com/r/netsec/comments/1tctw53/cve202642945_nginx_heap_buffer_overflow_in/olqo8ns/",
@@ -8047,7 +8420,7 @@
         "id": "olqun7y",
         "author": "1esproc",
         "body": "Since I was looking for a succinct description of the configuration case, from F5:\n\n&gt; NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_rewrite_module module. This vulnerability exists when the rewrite directive is followed by a rewrite, if, or set directive and an unnamed Perl-Compatible Regular Expression (PCRE) capture (for example, $1, $2) with a replacement string that includes a question mark (?)",
-        "score": 9,
+        "score": 7,
         "created_utc_ts": 1778759914,
         "created_utc": "2026-05-14T11:58:34",
         "permalink": "https://reddit.com/r/netsec/comments/1tctw53/cve202642945_nginx_heap_buffer_overflow_in/olqun7y/",
@@ -8069,7 +8442,7 @@
         "id": "olr5g6z",
         "author": "syncsynchalt",
         "body": "The caption says it’s output from the `depthfirst` scanner. ",
-        "score": 6,
+        "score": 7,
         "created_utc_ts": 1778763563,
         "created_utc": "2026-05-14T12:59:23",
         "permalink": "https://reddit.com/r/netsec/comments/1tctw53/cve202642945_nginx_heap_buffer_overflow_in/olr5g6z/",
@@ -8080,7 +8453,7 @@
         "id": "olr5i6d",
         "author": "RespectCertain2643",
         "body": "Just check your configs it’s not so widely used ",
-        "score": 18,
+        "score": 17,
         "created_utc_ts": 1778763580,
         "created_utc": "2026-05-14T12:59:40",
         "permalink": "https://reddit.com/r/netsec/comments/1tctw53/cve202642945_nginx_heap_buffer_overflow_in/olr5i6d/",
@@ -8091,7 +8464,7 @@
         "id": "olr9m10",
         "author": "fuckredditlol69",
         "body": "Article gets published at 12PM/noon UTC yesterday\n\nFixes land in nginx Git at 18PM UTC yesterday and 1.30.1 released at the same time... :') \n\nResearcher makes no reference to the more trivial workaround of using named capture groups, noted on the F5 advisory\n\nVery responsible disclosure this! ",
-        "score": 30,
+        "score": 31,
         "created_utc_ts": 1778764865,
         "created_utc": "2026-05-14T13:21:05",
         "permalink": "https://reddit.com/r/netsec/comments/1tctw53/cve202642945_nginx_heap_buffer_overflow_in/olr9m10/",
@@ -8113,7 +8486,7 @@
         "id": "olvqpd6",
         "author": "Reelix",
         "body": "Requires ASLR disabled.  \n  \nGood luck finding a host with that seeing as how it's been the standard for the past 20 odd years :p",
-        "score": 7,
+        "score": 8,
         "created_utc_ts": 1778813712,
         "created_utc": "2026-05-15T02:55:12",
         "permalink": "https://reddit.com/r/netsec/comments/1tctw53/cve202642945_nginx_heap_buffer_overflow_in/olvqpd6/",
@@ -8157,12 +8530,12 @@
     "created_utc": "2026-05-14T10:18:03",
     "first_author_comment": null,
     "num_comments": 19,
-    "score": 129,
+    "score": 134,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-42945 : NGINX Heap Buffer Overflow in rewrite module - Writeup and PoC",
-    "updatedAt": "2026-05-27T04:48:31.831Z",
+    "updatedAt": "2026-05-28T04:47:57.760Z",
     "upvote_ratio": 0.99,
     "url": "https://reddit.com/r/netsec/comments/1tctw53/cve202642945_nginx_heap_buffer_overflow_in/",
     "versionList": [
@@ -8478,6 +8851,27 @@
     "isAboutLatestUpdate": true
   },
   {
+    "_id": "6a174525074684288beb7f11",
+    "redditId": "1tbx8sa",
+    "author": "eshard-cybersec",
+    "author_description": "We hit a wall analyzing CVE-2019-14192 on real Raspberry Pi 3B+ firmware, so we added the missing driver to QEMU. Register by register, using U-Boot's own source as the spec.",
+    "awards": [],
+    "created_utc": "2026-05-13T11:48:09",
+    "first_author_comment": null,
+    "num_comments": 0,
+    "score": 2,
+    "subreddit": "QEMU",
+    "tag": null,
+    "tags": [],
+    "title": "How to add a peripheral to QEMU",
+    "updatedAt": "2026-05-27T23:30:33.645Z",
+    "upvote_ratio": 1,
+    "url": "https://reddit.com/r/QEMU/comments/1tbx8sa/how_to_add_a_peripheral_to_qemu/",
+    "versionList": [],
+    "isAboutCve": true,
+    "isAboutLatestUpdate": false
+  },
+  {
     "_id": "6a1363e2074684288be9d78e",
     "redditId": "1tb8vj3",
     "author": "fede_k",
@@ -8499,7 +8893,7 @@
         "id": "olg7yct",
         "author": "_vavkamil_",
         "body": "TL;DR: XBOW says their automated bug-hunter found a specific SMTP/TLS command sequence that makes Exim write a single newline byte into already-freed memory. That one-byte overwrite changes allocator metadata, memory chunk boundaries get miscalculated, attacker-controlled data reaches sensitive pointers, and the bug becomes RCE.\n\nThe article is very good on exploitation details, but the “how XBOW found it” part is basically “we ran our tool on Exim and investigated the bug it found”; most of the post is about proving exploitability, not the original discovery process.",
-        "score": 15,
+        "score": 16,
         "created_utc_ts": 1778621226,
         "created_utc": "2026-05-12T21:27:06",
         "permalink": "https://reddit.com/r/netsec/comments/1tb8vj3/deadletter_cve202645185_how_xbow_found_an/olg7yct/",
@@ -8510,7 +8904,7 @@
         "id": "olis52x",
         "author": "melissaleidygarcia",
         "body": "really interesting find, exim has had a long history of subtle but serious rce issues ",
-        "score": 4,
+        "score": 5,
         "created_utc_ts": 1778655251,
         "created_utc": "2026-05-13T06:54:11",
         "permalink": "https://reddit.com/r/netsec/comments/1tb8vj3/deadletter_cve202645185_how_xbow_found_an/olis52x/",
@@ -8521,13 +8915,13 @@
     "created_utc": "2026-05-12T17:41:33",
     "first_author_comment": null,
     "num_comments": 3,
-    "score": 20,
+    "score": 21,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Dead.Letter (CVE-2026-45185) How XBOW found an unauthenticated RCE on Exim",
-    "updatedAt": "2026-05-27T04:48:35.641Z",
-    "upvote_ratio": 0.75,
+    "updatedAt": "2026-05-27T12:48:17.476Z",
+    "upvote_ratio": 0.77,
     "url": "https://reddit.com/r/netsec/comments/1tb8vj3/deadletter_cve202645185_how_xbow_found_an/",
     "versionList": [
       "2026.0.0",
@@ -8582,6 +8976,32 @@
     "isAboutLatestUpdate": false
   },
   {
+    "_id": "6a1709be074684288beb55b1",
+    "redditId": "1t81nu1",
+    "author": "Crackalacking_Z",
+    "author_description": "~~It's serious, don't wait it out. Temporary mitigation is available, see included link for details.~~\n\nEDIT: the latest Stable Branch Update comes with fixes: [https://forum.manjaro.org/t/stable-update-2026-05-19-kernels-plasma-6-kde-gear-kde-frameworks-cosmic-vulkan/187782](https://forum.manjaro.org/t/stable-update-2026-05-19-kernels-plasma-6-kde-gear-kde-frameworks-cosmic-vulkan/187782)\n\n&gt;Notable Package Updates  \nKernel updates  \nNote: linux510 and linux515 series got removed from our repos. Please adopt to linux6x series.  \n\\-this includes security fixes for Dirty Frag (CVE-2026-43284, CVE-2026-43500)  \n\\-including initial fixes for \\[ALERT\\] CopyFail 3.0 - Fragnesia - Unpatched vulnerability  \n\\-including fixes for \\[ALERT\\] ssh-keysign-pwn, unprivileged users are able to read root-owned files  \nNote: not all kernel series are patched. It is recommended to keep the suggested mitigations active",
+    "awards": [],
+    "created_utc": "2026-05-09T10:49:52",
+    "first_author_comment": null,
+    "num_comments": 0,
+    "score": 5,
+    "subreddit": "manjaro",
+    "tag": null,
+    "tags": [],
+    "title": "[ALERT] Dirty Frag (CVE-2026-43284, CVE-2026-43500) - Root Privilege Vulnerability",
+    "updatedAt": "2026-05-27T23:19:35.804Z",
+    "upvote_ratio": 1,
+    "url": "https://reddit.com/r/manjaro/comments/1t81nu1/alert_dirty_frag_cve202643284_cve202643500_root/",
+    "versionList": [
+      "2026.0.0",
+      "43284.0.0",
+      "2026.0.0",
+      "43500.0.0"
+    ],
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true
+  },
+  {
     "_id": "6a1362d1074684288be9d6b6",
     "redditId": "1t7fxgj",
     "author": "Fuck_Birches",
@@ -8592,7 +9012,7 @@
         "id": "okoohdf",
         "author": "AdInevitable8483",
         "body": "Definitely not. FreeBSD is much much more secure than linux. ",
-        "score": -5,
+        "score": -4,
         "created_utc_ts": 1778264144,
         "created_utc": "2026-05-08T18:15:44",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1t7fxgj/is_pfsense_affected_by_the_copy_fail_or_dirty/okoohdf/",
@@ -8603,7 +9023,7 @@
         "id": "okopv76",
         "author": "Floppie7th",
         "body": "Those are Linux kernel vulnerabilities.  pfSense doesn't use the Linux kernel.",
-        "score": 52,
+        "score": 51,
         "created_utc_ts": 1778264527,
         "created_utc": "2026-05-08T18:22:07",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1t7fxgj/is_pfsense_affected_by_the_copy_fail_or_dirty/okopv76/",
@@ -8647,7 +9067,7 @@
         "id": "okp2q6z",
         "author": "zer04ll",
         "body": "no, there is a reason networking equipment runs BSD.  Packages go through a lot of vetting to be added to BSD so in general it is is more secure than linux is.  Linux kernel vulns are not BSD vulns.  Sometimes a package does get compromised though its just not as likely as it is with linux.",
-        "score": 10,
+        "score": 9,
         "created_utc_ts": 1778268169,
         "created_utc": "2026-05-08T19:22:49",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1t7fxgj/is_pfsense_affected_by_the_copy_fail_or_dirty/okp2q6z/",
@@ -8729,7 +9149,7 @@
     "tag": null,
     "tags": [],
     "title": "Is PFsense affected by the Copy Fail or Dirty Frag vulnerabilities?",
-    "updatedAt": "2026-05-27T04:43:20.779Z",
+    "updatedAt": "2026-05-28T04:42:53.091Z",
     "upvote_ratio": 0.71,
     "url": "https://reddit.com/r/PFSENSE/comments/1t7fxgj/is_pfsense_affected_by_the_copy_fail_or_dirty/",
     "versionList": [],
@@ -11650,368 +12070,6 @@
         "isUpdateRelated": null
       }
     },
-    "isAboutCve": true,
-    "isAboutLatestUpdate": true
-  },
-  {
-    "_id": "69f3150080b350a49f1a7edb",
-    "redditId": "1szn6p1",
-    "author": "JulietSecurity",
-    "author_description": "Copy Fail is the recent Linux kernel issue involving `AF_ALG`, the kernel crypto socket interface, and page-cache-backed file data. The short version: it is kernel attack surface reachable through a syscall path, not an application dependency inside an image.\n\nThat matters for Kubernetes because pods share the host kernel. If a node kernel is affected, the question is not just \"is my container image vulnerable?\" It is \"can a workload on this node reach the vulnerable kernel interface?\"\n\nThe specific Kubernetes question I wanted to answer was:\n\nif a pod is running with common hardening like PSS Restricted and `RuntimeDefault` seccomp, is the relevant kernel interface still reachable from inside the pod?\n\nIn our Talos and EKS lab clusters, the answer was yes. `RuntimeDefault` did not deny `socket(AF_ALG, ...)`.\n\nThat does not mean \"every pod is an instant host-root shell.\" It means the default Kubernetes hardening most people reach for does not remove this kernel attack surface. If the node kernel is affected, a non-root pod can still reach `AF_ALG` unless you patch the kernel or apply a seccomp profile that explicitly blocks it.\n\nWhat we found from the Kubernetes side:\n\n- `RuntimeDefault` seccomp did not block `AF_ALG` in our Talos or EKS lab tests\n- PSS Restricted does not require blocking `AF_ALG`\n- `runAsNonRoot` does not matter much for this specific question, because the syscall path is reachable before you get to normal user/group assumptions\n- image scanning is not the right primary control for this class of issue\n- file-integrity monitoring is also not the right primary control, because the interesting behavior is page-cache mutation rather than a normal modified file on disk\n\nWhat I would check in a cluster:\n\n- which nodes are running kernels affected by CVE-2026-31431\n- which pods are scheduled on those nodes\n- whether those pods are using `RuntimeDefault`, `Unconfined`, or a Localhost seccomp profile\n- whether any Localhost seccomp profile actually denies `socket(AF_ALG, ...)`\n\nMitigations:\n\n- patch node kernels when your distro ships the fix\n- if patching is delayed, use a Localhost seccomp profile that explicitly denies `AF_ALG`\n- do not assume `RuntimeDefault` blocks this unless you have checked the actual runtime profile on your node OS\n- treat \"affected kernel + pod can create AF_ALG sockets\" as an exposure signal worth inventorying\n\nWe are not publishing exploit code or exploit steps. The writeup is focused on the Kubernetes validation and defensive checks:\n\nFull Write Up: https://juliet.sh/blog/we-tested-copy-fail-in-kubernetes-pss-restricted-runtime-default-af-alg\n\nDisclosure: I work on Juliet, a Kubernetes security vendor.",
-    "awards": [],
-    "comments": [],
-    "created_utc": "2026-04-30T05:43:25",
-    "first_author_comment": null,
-    "num_comments": 22,
-    "score": 62,
-    "subreddit": "kubernetes",
-    "tag": null,
-    "tags": [],
-    "title": "We tested Copy Fail in Kubernetes: RuntimeDefault seccomp still allowed AF_ALG from pods",
-    "updatedAt": "2026-05-03T22:38:01.280Z",
-    "upvote_ratio": 0.96,
-    "url": "https://reddit.com/r/kubernetes/comments/1szn6p1/we_tested_copy_fail_in_kubernetes_runtimedefault/",
-    "versionList": [],
-    "classification": {
-      "securityType": [
-        "UNKNOWN"
-      ],
-      "componentType": [
-        "CONTAINERIZATION"
-      ]
-    },
-    "metadata": {
-      "predicted": {
-        "isUpdateRelated": false,
-        "positiveScore": 0.000863249743670905,
-        "timestampPredicted": "2026-04-30T16:01:20.679695+00:00"
-      },
-      "labeled": {
-        "isUpdateRelated": null
-      }
-    },
-    "isAboutCve": true,
-    "isAboutLatestUpdate": true
-  },
-  {
-    "_id": "69f2f5c780b350a49f1a369b",
-    "redditId": "1szmzb0",
-    "author": "DominusDraco",
-    "author_description": "cPanel and WHM versions after 11.40 contain an authentication bypass vulnerability in the login flow that allows unauthenticated remote attackers to gain unauthorized access to the control panel.\n\nTime to get patching.\n\nhttps://nvd.nist.gov/vuln/detail/CVE-2026-41940\n\nhttps://support.cpanel.net/hc/en-us/articles/40073787579671-Security-CVE-2026-41940-cPanel-WHM-WP2-Security-Update-04-28-2026",
-    "awards": [],
-    "comments": [],
-    "created_utc": "2026-04-30T05:32:16",
-    "first_author_comment": null,
-    "num_comments": 4,
-    "score": 10,
-    "subreddit": "sysadmin",
-    "tag": null,
-    "tags": [],
-    "title": "CVE-2026-41940 rating 9.8 - cPanel and WHM versions after 11.40 authentication bypass vulnerability",
-    "updatedAt": "2026-04-30T18:25:23.957Z",
-    "upvote_ratio": 0.81,
-    "url": "https://reddit.com/r/sysadmin/comments/1szmzb0/cve202641940_rating_98_cpanel_and_whm_versions/",
-    "versionList": [
-      "2026.0.0",
-      "41940.0.0",
-      "9.8.0",
-      "11.40.0"
-    ],
-    "classification": {
-      "securityType": [
-        "SECURITY",
-        "IDENTITY_AND_ACCESS"
-      ],
-      "componentType": []
-    },
-    "metadata": {
-      "predicted": {
-        "isUpdateRelated": false,
-        "positiveScore": 0.04899483476495616,
-        "timestampPredicted": "2026-04-30T16:01:20.679695+00:00"
-      },
-      "labeled": {
-        "isUpdateRelated": null
-      }
-    },
-    "isAboutCve": true,
-    "isAboutLatestUpdate": true
-  },
-  {
-    "_id": "69f2db4d80b350a49f1a33d9",
-    "redditId": "1szkj0p",
-    "author": "encouragingSN",
-    "author_description": "When will we learn if AWS Managed EKS and ECS nodes are vulnerable?",
-    "awards": [],
-    "comments": [],
-    "created_utc": "2026-04-30T03:26:50",
-    "first_author_comment": null,
-    "num_comments": 5,
-    "score": 0,
-    "subreddit": "aws",
-    "tag": "security",
-    "tags": [],
-    "title": "CVE-2026-31431 and Bottlerocket OS",
-    "updatedAt": "2026-04-30T14:32:43.444Z",
-    "upvote_ratio": 0.5,
-    "url": "https://reddit.com/r/aws/comments/1szkj0p/cve202631431_and_bottlerocket_os/",
-    "versionList": [
-      "2026.0.0",
-      "31431.0.0"
-    ],
-    "classification": {
-      "componentType": [
-        "OS"
-      ],
-      "securityType": [
-        "SECURITY"
-      ]
-    },
-    "metadata": {
-      "predicted": {
-        "isUpdateRelated": false,
-        "positiveScore": 0.00013529359389141752,
-        "timestampPredicted": "2026-04-30T12:00:56.278169+00:00"
-      },
-      "labeled": {
-        "isUpdateRelated": null
-      }
-    },
-    "isAboutCve": true,
-    "isAboutLatestUpdate": false
-  },
-  {
-    "_id": "69f2dc7380b350a49f1a33f3",
-    "redditId": "1szk6jd",
-    "author": "Expert_Sort7434",
-    "author_description": "Wiz Research dropped their full write-up on CVE-2026-3854 yesterday, and the technical details are worth a careful read for anyone who works on or operates multi-service backend infrastructure — not just GitHub customers.  \n  \nThe short version: GitHub's internal babeld service constructs an X-Stat header by embedding git push option values directly, semicolons and all. Semicolons are the field delimiter. Downstream services consume this header with last-write-wins logic. So a crafted push option lets you silently override any field in the header that downstream services treat as authoritative internal config.  \n  \nWiz chained three injections to go from that header flaw to full RCE:  \n1. Override \\`rails\\_env\\` to escape the production sandbox  \n2. Override \\`custom\\_hooks\\_dir\\` to point to an attacker-controlled directory  \n3. Inject a hook path containing a traversal sequence → arbitrary binary execution as the git service user  \n  \nOn [GitHub.com](http://GitHub.com) (multi-tenant), this meant cross-tenant read access to millions of repos on the affected shared storage node.  \nOn GHES, it means full server compromise.  \n  \nThe part that interests me: Wiz notes this is among the first critical closed-source vulnerabilities found using AI-assisted analysis. That seems like it's going to compress the discovery timeline for this class of flaw significantly.  \n  \n\\*\\*Questions for the community:\\*\\*  \n  \n1. For those running GHES on-premise: how quickly can you realistically apply a platform-version upgrade in your environment? Is this a change-control-week situation or a same-day emergency patch?  \n2. How should multi-service architectures handle internal protocol data from \"trusted\" upstream services — strict re-validation at every hop, or accept trust from prior hops?  \n3. Is the 88% unpatched GHES figure surprising to you, or is that expected given typical enterprise patching cadence for developer infrastructure?  \n  \nFor more background on the broader trend of developer toolchain attacks, I previously covered the Shai-Hulud worm targeting the Bitwarden CLI and npm: [https://www.techgines.com/post/bitwarden-cli-supply-chain-attack-shai-hulud-npm-cicd](https://www.techgines.com/post/bitwarden-cli-supply-chain-attack-shai-hulud-npm-cicd)  \n  \nTechnical deep-dive on CVE-2026-3854 itself: [https://www.techgines.com/post/cve-2026-3854-github-rce-git-push-command-injection](https://www.techgines.com/post/cve-2026-3854-github-rce-git-push-command-injection)",
-    "awards": [],
-    "comments": [],
-    "created_utc": "2026-04-30T03:10:08",
-    "first_author_comment": null,
-    "num_comments": 0,
-    "score": 3,
-    "subreddit": "github",
-    "tag": "News / Announcements",
-    "tags": [],
-    "title": "CVE-2026-3854 — GitHub RCE via a single git push: what does this tell us about implicit trust in multi-service internal protocols?",
-    "updatedAt": "2026-04-30T12:00:56.889Z",
-    "upvote_ratio": 0.81,
-    "url": "https://reddit.com/r/github/comments/1szk6jd/cve20263854_github_rce_via_a_single_git_push_what/",
-    "versionList": [
-      "2026.0.0",
-      "3854.0.0"
-    ],
-    "classification": {
-      "componentType": [
-        "VERSIONING",
-        "REPOSITORY"
-      ],
-      "securityType": [
-        "SECURITY"
-      ]
-    },
-    "metadata": {
-      "predicted": {
-        "isUpdateRelated": false,
-        "positiveScore": 0.0018443247142195425,
-        "timestampPredicted": "2026-04-30T12:00:56.278169+00:00"
-      },
-      "labeled": {
-        "isUpdateRelated": null
-      }
-    },
-    "isAboutCve": true,
-    "isAboutLatestUpdate": true
-  },
-  {
-    "_id": "6a15ee7c074684288beae1ec",
-    "redditId": "1szjrkd",
-    "author": "LowIncident694",
-    "author_description": "CVE-2026-31431 (Copy Fail) -- any ETA for updated kernel RPMs?",
-    "awards": [],
-    "comments": [
-      {
-        "id": "oj2a9y9",
-        "author": "ABotelho23",
-        "body": "Wasn't the fix already included upstream a while ago? I presume Red Hat long fixed their kernels too.",
-        "score": 1,
-        "created_utc_ts": 1777517690,
-        "created_utc": "2026-04-30T02:54:50",
-        "permalink": "https://reddit.com/r/AlmaLinux/comments/1szjrkd/cve202631431_copy_fail_any_eta_for_updated_kernel/oj2a9y9/",
-        "parent_id": "t3_1szjrkd",
-        "is_submitter": false
-      },
-      {
-        "id": "oj2bjws",
-        "author": "LowIncident694",
-        "body": "Nope.\n\nhttps://access.redhat.com/security/cve/cve-2026-31431\n\nI can confirm Alma 8 and 9 systems are affected. Didn't try 10.",
-        "score": 1,
-        "created_utc_ts": 1777518165,
-        "created_utc": "2026-04-30T03:02:45",
-        "permalink": "https://reddit.com/r/AlmaLinux/comments/1szjrkd/cve202631431_copy_fail_any_eta_for_updated_kernel/oj2bjws/",
-        "parent_id": "t1_oj2a9y9",
-        "is_submitter": true
-      },
-      {
-        "id": "oj2boxo",
-        "author": "jonspw",
-        "body": "The builds that will go to testing repos are in progress right now with a blog post coming out shortly (as soon as the builds finish and are in testing repos).",
-        "score": 11,
-        "created_utc_ts": 1777518218,
-        "created_utc": "2026-04-30T03:03:38",
-        "permalink": "https://reddit.com/r/AlmaLinux/comments/1szjrkd/cve202631431_copy_fail_any_eta_for_updated_kernel/oj2boxo/",
-        "parent_id": "t3_1szjrkd",
-        "is_submitter": false
-      },
-      {
-        "id": "oj2c5tn",
-        "author": "LowIncident694",
-        "body": "Great thank you! Looking forward to it.",
-        "score": 2,
-        "created_utc_ts": 1777518394,
-        "created_utc": "2026-04-30T03:06:34",
-        "permalink": "https://reddit.com/r/AlmaLinux/comments/1szjrkd/cve202631431_copy_fail_any_eta_for_updated_kernel/oj2c5tn/",
-        "parent_id": "t1_oj2boxo",
-        "is_submitter": true
-      },
-      {
-        "id": "oj2rhvk",
-        "author": "_more_",
-        "body": "Here's a possible workaround while we wait for patched kernels:\n\nhttps://www.openwall.com/lists/oss-security/2026/04/30/2",
-        "score": 3,
-        "created_utc_ts": 1777524705,
-        "created_utc": "2026-04-30T04:51:45",
-        "permalink": "https://reddit.com/r/AlmaLinux/comments/1szjrkd/cve202631431_copy_fail_any_eta_for_updated_kernel/oj2rhvk/",
-        "parent_id": "t3_1szjrkd",
-        "is_submitter": false
-      },
-      {
-        "id": "oj2wxoi",
-        "author": "redbaron_4",
-        "body": "The big reveal (with domain and catchy name) happened Apr 29. RedHat made the vulnerability public on Apr 22. So they (and Ubuntu and other major flavors) knew about the vulnerability and had 7-8 days to backport patches for affected OS (RHEL8+). Do have any idea why patches for such a big LPE were not backported in time upstream?",
-        "score": 3,
-        "created_utc_ts": 1777527214,
-        "created_utc": "2026-04-30T05:33:34",
-        "permalink": "https://reddit.com/r/AlmaLinux/comments/1szjrkd/cve202631431_copy_fail_any_eta_for_updated_kernel/oj2wxoi/",
-        "parent_id": "t1_oj2boxo",
-        "is_submitter": false
-      },
-      {
-        "id": "oj3hjpt",
-        "author": "Additional-Lab2771",
-        "body": "Stressed out and looking for that blog post and to update. Please let us know what kernel version we should be on to be safe",
-        "score": 2,
-        "created_utc_ts": 1777538041,
-        "created_utc": "2026-04-30T08:34:01",
-        "permalink": "https://reddit.com/r/AlmaLinux/comments/1szjrkd/cve202631431_copy_fail_any_eta_for_updated_kernel/oj3hjpt/",
-        "parent_id": "t1_oj2boxo",
-        "is_submitter": false
-      },
-      {
-        "id": "oj3q23b",
-        "author": "Top-Use-8234",
-        "body": "For Almalinux 10 i tested both fixes and doesn't work. For Debian the solution with rmmod algif\\_aead works.",
-        "score": 2,
-        "created_utc_ts": 1777542759,
-        "created_utc": "2026-04-30T09:52:39",
-        "permalink": "https://reddit.com/r/AlmaLinux/comments/1szjrkd/cve202631431_copy_fail_any_eta_for_updated_kernel/oj3q23b/",
-        "parent_id": "t1_oj2rhvk",
-        "is_submitter": false
-      },
-      {
-        "id": "oj4twwj",
-        "author": "dchepishev",
-        "body": "the kernel param works flawlessly ",
-        "score": 1,
-        "created_utc_ts": 1777557685,
-        "created_utc": "2026-04-30T14:01:25",
-        "permalink": "https://reddit.com/r/AlmaLinux/comments/1szjrkd/cve202631431_copy_fail_any_eta_for_updated_kernel/oj4twwj/",
-        "parent_id": "t1_oj2rhvk",
-        "is_submitter": false
-      },
-      {
-        "id": "oj5qbfg",
-        "author": "jonspw",
-        "body": "Round 1 of testing found some issues.  We've got some new builds finishing up (just waiting on ARM builds to finish) and they should be going to testing repos with a call for testing blog post alongside.",
-        "score": 8,
-        "created_utc_ts": 1777566950,
-        "created_utc": "2026-04-30T16:35:50",
-        "permalink": "https://reddit.com/r/AlmaLinux/comments/1szjrkd/cve202631431_copy_fail_any_eta_for_updated_kernel/oj5qbfg/",
-        "parent_id": "t3_1szjrkd",
-        "is_submitter": false
-      },
-      {
-        "id": "oj6joxq",
-        "author": "SuperbNewspaper4251",
-        "body": "Keeping an eye on [https://errata.almalinux.org/](https://errata.almalinux.org/) ",
-        "score": 1,
-        "created_utc_ts": 1777574997,
-        "created_utc": "2026-04-30T18:49:57",
-        "permalink": "https://reddit.com/r/AlmaLinux/comments/1szjrkd/cve202631431_copy_fail_any_eta_for_updated_kernel/oj6joxq/",
-        "parent_id": "t3_1szjrkd",
-        "is_submitter": false
-      },
-      {
-        "id": "oj6l34q",
-        "author": "RetroGrid_io",
-        "body": "Can you confirm where the \"blog post\" will be? Should I look in /r/almalinux or in this thread? \n\nThank you",
-        "score": 1,
-        "created_utc_ts": 1777575376,
-        "created_utc": "2026-04-30T18:56:16",
-        "permalink": "https://reddit.com/r/AlmaLinux/comments/1szjrkd/cve202631431_copy_fail_any_eta_for_updated_kernel/oj6l34q/",
-        "parent_id": "t1_oj2boxo",
-        "is_submitter": false
-      },
-      {
-        "id": "ojavbr0",
-        "author": "LowIncident694",
-        "body": "https://almalinux.org/blog/2026-05-01-cve-2026-31431-copy-fail/",
-        "score": 3,
-        "created_utc_ts": 1777635514,
-        "created_utc": "2026-05-01T11:38:34",
-        "permalink": "https://reddit.com/r/AlmaLinux/comments/1szjrkd/cve202631431_copy_fail_any_eta_for_updated_kernel/ojavbr0/",
-        "parent_id": "t3_1szjrkd",
-        "is_submitter": true
-      },
-      {
-        "id": "ojbal35",
-        "author": "jmydorff",
-        "body": "These are working fine on the systems I've deployed them to.",
-        "score": 2,
-        "created_utc_ts": 1777640909,
-        "created_utc": "2026-05-01T13:08:29",
-        "permalink": "https://reddit.com/r/AlmaLinux/comments/1szjrkd/cve202631431_copy_fail_any_eta_for_updated_kernel/ojbal35/",
-        "parent_id": "t1_ojavbr0",
-        "is_submitter": false
-      },
-      {
-        "id": "ojbd7dg",
-        "author": "jenlain",
-        "body": "Almalinux wrote a patch before Redhat and they are testing it : [https://almalinux.org/blog/2026-05-01-cve-2026-31431-copy-fail/](https://almalinux.org/blog/2026-05-01-cve-2026-31431-copy-fail/)",
-        "score": 2,
-        "created_utc_ts": 1777641741,
-        "created_utc": "2026-05-01T13:22:21",
-        "permalink": "https://reddit.com/r/AlmaLinux/comments/1szjrkd/cve202631431_copy_fail_any_eta_for_updated_kernel/ojbd7dg/",
-        "parent_id": "t3_1szjrkd",
-        "is_submitter": false
-      }
-    ],
-    "created_utc": "2026-04-30T02:51:03",
-    "first_author_comment": "https://almalinux.org/blog/2026-05-01-cve-2026-31431-copy-fail/",
-    "num_comments": 31,
-    "score": 16,
-    "subreddit": "AlmaLinux",
-    "tag": null,
-    "tags": [],
-    "title": "CVE-2026-31431 (Copy Fail) -- any ETA for updated kernel RPMs?",
-    "updatedAt": "2026-05-26T23:00:54.645Z",
-    "upvote_ratio": 0.95,
-    "url": "https://reddit.com/r/AlmaLinux/comments/1szjrkd/cve202631431_copy_fail_any_eta_for_updated_kernel/",
-    "versionList": [
-      "2026.0.0",
-      "31431.0.0"
-    ],
     "isAboutCve": true,
     "isAboutLatestUpdate": true
   }
