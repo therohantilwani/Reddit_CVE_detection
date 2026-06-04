@@ -16,7 +16,12 @@
     "updatedAt": "2026-05-28T18:41:46.207Z",
     "upvote_ratio": 0.22,
     "url": "https://reddit.com/r/homelab/comments/1tqa701/show_rhomelab_i_built_a_wifi_honeypot_esp32/",
-    "versionList": []
+    "versionList": [],
+    "classification": {
+      "componentType": [
+        "LANGUAGE"
+      ]
+    }
   },
   {
     "_id": "6a172394074684288beb62e9",
