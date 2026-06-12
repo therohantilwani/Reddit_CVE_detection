@@ -15,6 +15,7 @@ CVE-2022-0492,1,2026-06-09T14:23:52+00:00,1781015032,sysadmin,https://reddit.com
 CVE-2024-30098,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2024-6174,1,2026-05-27T16:16:31+00:00,1779898591,ansible,https://reddit.com/r/ansible/comments/1tpachm/aiops_patch_rhel_cves_in_minutes_with_red_hat/
 CVE-2025-30399,1,2025-09-15T19:24:23+00:00,1757964263,tenable,https://reddit.com/r/tenable/comments/1nhvfck/security_update_for_microsoft_net_core_june_2025/
+CVE-2025-3248,1,2026-06-12T01:37:04+00:00,1781228224,AZURE,https://reddit.com/r/AZURE/comments/1u3hqco/cve20265027_langflow_path_traversal/
 CVE-2025-5419,1,2025-06-04T08:02:09+00:00,1749024129,chrome,https://reddit.com/r/chrome/comments/1l2zxcb/update_chrome_today_new_0day_vulnerability/
 CVE-2025-54368,1,2025-10-11T07:12:35+00:00,1760166755,Python,https://reddit.com/r/Python/comments/1o3p4bf/best_practices_for_using_python_uv_inside_docker/
 CVE-2025-62518,1,2025-10-26T08:51:20+00:00,1761468680,rust,https://reddit.com/r/rust/comments/1ogfpk5/tarmageddon_cve202562518_rce_vulnerability/
@@ -51,6 +52,7 @@ CVE-2026-47291,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.co
 CVE-2026-48710,1,2026-05-29T15:40:48+00:00,1780069248,Python,https://reddit.com/r/Python/comments/1tr5s1c/cve202648710_a_maintainers_perspective/
 CVE-2026-49160,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2026-49975,1,2026-06-04T16:08:00+00:00,1780589280,apache,https://reddit.com/r/apache/comments/1tws4w7/the_http2_bomb_that_knocks_nginx_and_apache/
+CVE-2026-5027,1,2026-06-12T01:37:04+00:00,1781228224,AZURE,https://reddit.com/r/AZURE/comments/1u3hqco/cve20265027_langflow_path_traversal/
 CVE-2026-50507,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2026-50751,1,2026-06-09T14:23:52+00:00,1781015032,sysadmin,https://reddit.com/r/sysadmin/comments/1u16gsm/top_enterprise_cves_from_last_week_worth_your/
 CVE-2026-6973,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/

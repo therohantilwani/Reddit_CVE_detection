@@ -1,5 +1,64 @@
 [
   {
+    "_id": "6a2b742ec08e7acc03539410",
+    "redditId": "1u3hqco",
+    "author": "Expert_Sort7434",
+    "author_description": "CVE-2026-5027 dropped yesterday and exploitation is already confirmed in the wild per VulnCheck and BleepingComputer. Quick technical summary for those who haven't seen it:  \n  \n\\*\\*The Vuln:\\*\\*  \nLangflow's \\`POST /api/v2/files\\` endpoint takes a \\`filename\\` parameter from multipart form data and passes it directly to the storage layer without sanitizing \\`../\\` sequences. Attacker writes a cron job to \\`/etc/cron.d/\\` → gets a shell at next cron execution.  \n  \nCVSS 8.8, and with Langflow's default \\`auto-login=true\\`, no auth is needed. The GitHub PoC already shows reverse shell via cron injection working cleanly on exposed instances.  \n  \n\\*\\*What makes this interesting from a threat intel perspective:\\*\\*  \n\\- This is the 5th exploited Langflow CVE in under 18 months (CVE-2025-3248, 0770, 21445, 33017, now 5027)  \n\\- CISA and VulnCheck confirmed MuddyWater (Iranian APT) was actively using the earlier CVE-2025-3248. The same platform, again.  \n\\- Censys found \\~7,000 publicly accessible instances (their own caveat: 12-month historical data, current exposure may differ)  \n  \n\\*\\*The broader question I keep coming back to:\\*\\*  \nAre your blue teams actually monitoring your AI dev tooling infrastructure — Langflow, Flowise, Open WebUI, etc. — with the same rigor as production apps? Because in most environments I've seen, these platforms sit in \"shadow AI\" territory — deployed by devs, no network controls, no log monitoring.  \n  \nPatch: Langflow 1.10.0. Disable auto-login. Network-isolate port 7860.  \n  \nI previously covered the AI tooling attack surface problem when the Malware-Slop npm campaign targeted Claude Code's working directory: [https://www.techgines.com/post/malware-slop-the-malicious-npm-package-that-targeted-anthropic-s-claude-ai-supply-chain-and-lea](https://www.techgines.com/post/malware-slop-the-malicious-npm-package-that-targeted-anthropic-s-claude-ai-supply-chain-and-lea)  \n  \nCurious — for those working in larger orgs, how are you handling inventory and monitoring for AI dev platforms? Are they under IT/security ownership or still living in the developer \"move fast\" zone?\n\n[https://www.techgines.com/post/langflow-cve-2026-5027-path-traversal-rce](https://www.techgines.com/post/langflow-cve-2026-5027-path-traversal-rce)",
+    "awards": [],
+    "comments": [
+      {
+        "id": "or5eci7",
+        "author": "Otherwise_Wave9374",
+        "body": "This is exactly the kind of \"shadow AI\" surface area that bites you in an audit later, not because the app is evil, but because nobody can answer basic questions like: who owns it, where are the logs, what data can it touch, and what evidence proves the controls are working.\n\nIf youre trying to make this SOC 2 friendly, I like treating AI dev tooling like any other prod-adjacent service: inventory it, network isolate it, require SSO, log everything, and keep a simple control-to-evidence map (patch status, access reviews, config baselines, vuln scanning).\n\nFor quick evidence ideas and control mapping patterns, this page has a few good templates: https://www.wisdomprompt.com/",
+        "score": 0,
+        "created_utc_ts": 1781228879,
+        "created_utc": "2026-06-12T01:47:59",
+        "permalink": "https://reddit.com/r/AZURE/comments/1u3hqco/cve20265027_langflow_path_traversal/or5eci7/",
+        "parent_id": "t3_1u3hqco",
+        "is_submitter": false
+      }
+    ],
+    "created_utc": "2026-06-12T01:37:04",
+    "first_author_comment": null,
+    "num_comments": 1,
+    "score": 1,
+    "subreddit": "AZURE",
+    "tag": "News",
+    "tags": [
+      "News"
+    ],
+    "title": "CVE-2026-5027 (Langflow Path Traversal → Unauthenticated RCE) — Active Exploitation. Who's tracking exposure in enterprise AI dev environments?",
+    "updatedAt": "2026-06-12T04:51:27.103Z",
+    "upvote_ratio": 0.6,
+    "url": "https://reddit.com/r/AZURE/comments/1u3hqco/cve20265027_langflow_path_traversal/",
+    "versionList": [
+      "2026.0.0",
+      "5027.0.0"
+    ],
+    "classification": {
+      "securityType": [
+        "SECURITY",
+        "PRIVACY"
+      ],
+      "componentType": [
+        "MACHINE_LEARNING",
+        "GPT"
+      ]
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 1.0174179691293928e-05,
+        "timestampPredicted": "2026-06-12T04:00:21.848719+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true
+  },
+  {
     "_id": "6a2a04d7c08e7acc03531688",
     "redditId": "1u2iw9t",
     "author": "Mindless_Pandemic",
@@ -15,161 +74,281 @@
         "created_utc": "2026-06-10T23:47:11",
         "permalink": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/oqxra3a/",
         "parent_id": "t3_1u2iw9t",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.948,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.042,
+          "neu": 0.78,
+          "pos": 0.178,
+          "compound": 0.9483
+        }
       },
       {
         "id": "oqxs57d",
         "author": "Ok_Equipment4514",
         "body": "In the age of AI, probably it is.",
-        "score": 73,
+        "score": 93,
         "created_utc_ts": 1781135525,
         "created_utc": "2026-06-10T23:52:05",
         "permalink": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/oqxs57d/",
         "parent_id": "t3_1u2iw9t",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "oqxs5sy",
         "author": "unkz0r",
         "body": "Its normal from time to time with any software",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1781135530,
         "created_utc": "2026-06-10T23:52:10",
         "permalink": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/oqxs5sy/",
         "parent_id": "t3_1u2iw9t",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "oqxs7p4",
         "author": "No_Mind_5132",
         "body": "I personally believe the emergence of AI models with high security abilities (Mythos) has given 2026 a very high CVE count as vendors/developers leverage their abilities to find and fix holes. Check out the CVE numbers this year vs last year: [https://cvefeed.io/vulnerability-cve-metrics/](https://cvefeed.io/vulnerability-cve-metrics/)",
-        "score": 28,
+        "score": 33,
         "created_utc_ts": 1781135548,
         "created_utc": "2026-06-10T23:52:28",
         "permalink": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/oqxs7p4/",
         "parent_id": "t3_1u2iw9t",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.66,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.853,
+          "pos": 0.147,
+          "compound": 0.6597
+        }
       },
       {
         "id": "oqxskqt",
         "author": "No_Sail3732",
         "body": "I am glad to see them being proactive and addressing the issues.  There is another network company I was excited about and worked with for a year or so that was new on the scene that has never posted anything about nor addressed any issues like this.",
-        "score": 30,
+        "score": 40,
         "created_utc_ts": 1781135672,
         "created_utc": "2026-06-10T23:54:32",
         "permalink": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/oqxskqt/",
         "parent_id": "t3_1u2iw9t",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.866,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.789,
+          "pos": 0.211,
+          "compound": 0.8658
+        }
       },
       {
         "id": "oqxti01",
         "author": "damien09",
         "body": "What’s the new one? I knew about the one that got fixed just a bit ago at the end of may. ",
-        "score": 2,
+        "score": 3,
         "created_utc_ts": 1781135996,
         "created_utc": "2026-06-10T23:59:56",
         "permalink": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/oqxti01/",
         "parent_id": "t3_1u2iw9t",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "oqxtm29",
         "author": "GroovyMelodicBliss",
         "body": "The more fixes the better.\n\nDirect link to the announcement - https://community.ui.com/releases/Security-Advisory-Bulletin-065-065/aa46a22b-fc43-4eae-9382-6fc8feda967a",
-        "score": 57,
+        "score": 115,
         "created_utc_ts": 1781136034,
         "created_utc": "2026-06-11T00:00:34",
         "permalink": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/oqxtm29/",
         "parent_id": "t3_1u2iw9t",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.488,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.76,
+          "pos": 0.24,
+          "compound": 0.4877
+        }
       },
       {
         "id": "oqxukdz",
         "author": "FuckinHighGuy",
         "body": "Yes!  Another!  These are good!",
-        "score": 6,
+        "score": 11,
         "created_utc_ts": 1781136366,
         "created_utc": "2026-06-11T00:06:06",
         "permalink": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/oqxukdz/",
         "parent_id": "t3_1u2iw9t",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.756,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.317,
+          "pos": 0.683,
+          "compound": 0.7562
+        }
       },
       {
         "id": "oqxwm7l",
         "author": "Extreme-Yoghurt3728",
         "body": "It’s the new normal in the age of AI. UI being proactive is a good thing. ",
-        "score": 6,
+        "score": 12,
         "created_utc_ts": 1781137083,
         "created_utc": "2026-06-11T00:18:03",
         "permalink": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/oqxwm7l/",
         "parent_id": "t3_1u2iw9t",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.691,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.695,
+          "pos": 0.305,
+          "compound": 0.6908
+        }
       },
       {
         "id": "oqxwxfz",
         "author": "ZookeepergameSalty10",
         "body": "In the old internet no its unprecedented but in the age of ai and vibe coding script kiddies, its just normal. Unifi is doing better than most companies by trying to fix any vulnerabilities that arise and if its a critical one they try to alert users. The age of ai is gonna do more to push self hosting than years of paranoid nerds could ever achieve. Anything not on your servers might as well not be yours and should be considered a time bomb till it gets hacked. Think about how many routers netgear or tp link sells and they may release an update once a year. If someone finds a cve  in one of those, it could be nasty. Plus the average consumer of those routers is not likely to keep up with news and update the router. There has been a new cve in some software basically every week for the last 8 months and its getting far more advanced and worse. The scariest part is the already good hackers that are now enhanced by ai and your seeing worms that go through github packages. Wild times to be an IT guy",
-        "score": 5,
+        "score": 7,
         "created_utc_ts": 1781137193,
         "created_utc": "2026-06-11T00:19:53",
         "permalink": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/oqxwxfz/",
         "parent_id": "t3_1u2iw9t",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.879,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.12,
+          "neu": 0.806,
+          "pos": 0.074,
+          "compound": -0.8795
+        }
       },
       {
         "id": "oqxwzli",
         "author": "thebemusedmuse",
         "body": "It’s 100% Mythos. And this is a peak while advanced AI models find the quick wins. ",
-        "score": 9,
+        "score": 15,
         "created_utc_ts": 1781137214,
         "created_utc": "2026-06-11T00:20:14",
         "permalink": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/oqxwzli/",
         "parent_id": "t1_oqxs7p4",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.691,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.695,
+          "pos": 0.305,
+          "compound": 0.6908
+        }
       },
       {
         "id": "oqxy14v",
         "author": "lostmojo",
         "body": "Vulnerabilities are a part of life. They are handling them well. That is what is important.  You use Microsoft in your life, I’m sure, just look up how often they patch, but more importantly, look up how often they state “it’s a feature, not a bug”.  It allows for take over of the system, but it’s just a feature.  That’s not an acceptable response.  ",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1781137583,
         "created_utc": "2026-06-11T00:26:23",
         "permalink": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/oqxy14v/",
         "parent_id": "t3_1u2iw9t",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.502,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.057,
+          "neu": 0.822,
+          "pos": 0.122,
+          "compound": 0.5017
+        }
       },
       {
         "id": "oqxya7s",
         "author": "QPC414",
         "body": "Thanks!  Wish more people would provide a link to the CVE and manufacturer's remediation info.\n\n  \nToo many to keep track of, thought this was a repost of the CVEs from earlier this year.",
-        "score": 10,
+        "score": 21,
         "created_utc_ts": 1781137672,
         "created_utc": "2026-06-11T00:27:52",
         "permalink": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/oqxya7s/",
         "parent_id": "t1_oqxtm29",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.709,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.831,
+          "pos": 0.169,
+          "compound": 0.7088
+        }
       },
       {
         "id": "oqxytxx",
         "author": "gigantischemeteor",
         "body": "It's only going to get worse, and I say that as a realist, not a pessimist. I'm just thankful that Ubiquiti is staying on top of things. It's the companies that don't push security updates that I'd be more concerned about.",
-        "score": 25,
+        "score": 32,
         "created_utc_ts": 1781137866,
         "created_utc": "2026-06-11T00:31:06",
         "permalink": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/oqxytxx/",
         "parent_id": "t1_oqxs57d",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.356,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.112,
+          "neu": 0.721,
+          "pos": 0.166,
+          "compound": 0.3557
+        }
       },
       {
         "id": "oqxyxrk",
         "author": "TangerineAlpaca",
         "body": "Getting closer and closer to Fortinet",
-        "score": 2,
+        "score": 1,
         "created_utc_ts": 1781137903,
         "created_utc": "2026-06-11T00:31:43",
         "permalink": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/oqxyxrk/",
         "parent_id": "t3_1u2iw9t",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "oqxz17e",
@@ -180,7 +359,15 @@
         "created_utc": "2026-06-11T00:32:17",
         "permalink": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/oqxz17e/",
         "parent_id": "t3_1u2iw9t",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.44,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.818,
+          "pos": 0.182,
+          "compound": 0.4404
+        }
       },
       {
         "id": "oqy0e3j",
@@ -191,29 +378,53 @@
         "created_utc": "2026-06-11T00:40:09",
         "permalink": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/oqy0e3j/",
         "parent_id": "t3_1u2iw9t",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.459,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.056,
+          "neu": 0.794,
+          "pos": 0.15,
+          "compound": 0.4588
+        }
       },
       {
         "id": "oqy33gc",
-        "author": "trekxtrider",
-        "body": "Only thing I don’t like is having to 2FA daily.",
-        "score": -2,
+        "author": "[deleted]",
+        "body": "[deleted]",
+        "score": -4,
         "created_utc_ts": 1781139311,
         "created_utc": "2026-06-11T00:55:11",
         "permalink": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/oqy33gc/",
         "parent_id": "t3_1u2iw9t",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "oqy37i9",
         "author": "TeutonJon78",
         "body": "I knew this was going to be announced once 5.1.15 can out so fast after 5.1.12 with little to RC phase.",
-        "score": 2,
+        "score": 6,
         "created_utc_ts": 1781139347,
         "created_utc": "2026-06-11T00:55:47",
         "permalink": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/oqy37i9/",
         "parent_id": "t3_1u2iw9t",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "oqy3n1z",
@@ -224,73 +435,129 @@
         "created_utc": "2026-06-11T00:58:11",
         "permalink": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/oqy3n1z/",
         "parent_id": "t3_1u2iw9t",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.439,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.175,
+          "neu": 0.438,
+          "pos": 0.387,
+          "compound": 0.4389
+        }
       },
       {
         "id": "oqy3vj6",
         "author": "Wokkabilly",
         "body": "Thanks for actually being informative rather than OP's excuse of a post.",
-        "score": 28,
+        "score": 79,
         "created_utc_ts": 1781139572,
         "created_utc": "2026-06-11T00:59:32",
         "permalink": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/oqy3vj6/",
         "parent_id": "t1_oqxtm29",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.494,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.682,
+          "pos": 0.318,
+          "compound": 0.4939
+        }
       },
       {
         "id": "oqy4ccp",
         "author": "SF_Dubs",
         "body": "Across the board we are seeing both adversaries and threat researchers using AI to scan platforms and systems for vulnerabilities. I would expect this usage to increase in the number of known vulnerabilities to go up. Exponentially. Doesn't necessarily mean they're being actively exploited. I haven't looked into the details on this one however. \n\n",
-        "score": 7,
+        "score": 9,
         "created_utc_ts": 1781139732,
         "created_utc": "2026-06-11T01:02:12",
         "permalink": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/oqy4ccp/",
         "parent_id": "t3_1u2iw9t",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.691,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.189,
+          "neu": 0.715,
+          "pos": 0.096,
+          "compound": -0.6908
+        }
       },
       {
         "id": "oqy4wcb",
         "author": "ilovenyc",
         "body": "This only affects the following products:\n\n**Affected Products:**  \nUID Enterprise Agent (Version 1.61.3 and earlier)",
-        "score": -3,
+        "score": -6,
         "created_utc_ts": 1781139922,
         "created_utc": "2026-06-11T01:05:22",
         "permalink": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/oqy4wcb/",
         "parent_id": "t3_1u2iw9t",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "oqy82ts",
         "author": "Billy_Bob_Joe_Mcoy",
         "body": "It's 2026 how are you not used to this by now . ",
-        "score": 4,
+        "score": 5,
         "created_utc_ts": 1781140951,
         "created_utc": "2026-06-11T01:22:31",
         "permalink": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/oqy82ts/",
         "parent_id": "t1_oqy33gc",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "oqy97zf",
         "author": "Billy_Bob_Joe_Mcoy",
         "body": "Exactly, it's when they stop patching or release patches very slowly is when it's a problem ",
-        "score": 4,
+        "score": 5,
         "created_utc_ts": 1781141309,
         "created_utc": "2026-06-11T01:28:29",
         "permalink": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/oqy97zf/",
         "parent_id": "t1_oqxtm29",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.599,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.274,
+          "neu": 0.726,
+          "pos": 0,
+          "compound": -0.5994
+        }
       },
       {
         "id": "oqybvmo",
         "author": "gigantischemeteor",
         "body": "That last sentence.",
-        "score": 2,
+        "score": 1,
         "created_utc_ts": 1781142165,
         "created_utc": "2026-06-11T01:42:45",
         "permalink": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/oqybvmo/",
         "parent_id": "t1_oqxwxfz",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.077,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.606,
+          "pos": 0.394,
+          "compound": 0.0772
+        }
       },
       {
         "id": "oqydflq",
@@ -301,40 +568,72 @@
         "created_utc": "2026-06-11T01:51:19",
         "permalink": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/oqydflq/",
         "parent_id": "t1_oqxukdz",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "oqyei12",
         "author": "darthnsupreme",
         "body": "At least actual security researchers have found a legitimate use for the thing.\n\nMeanwhile The Bubble™ is busy eating all our RAM chips and doubling-or-worse people's utility bills.",
-        "score": 3,
+        "score": 6,
         "created_utc_ts": 1781143031,
         "created_utc": "2026-06-11T01:57:11",
         "permalink": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/oqyei12/",
         "parent_id": "t1_oqxs57d",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.34,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.915,
+          "pos": 0.085,
+          "compound": 0.34
+        }
       },
       {
         "id": "oqyfgzw",
         "author": "PolicyElectrical1757",
         "body": "Baby’s first time playing with tech",
-        "score": 1,
+        "score": 4,
         "created_utc_ts": 1781143351,
         "created_utc": "2026-06-11T02:02:31",
         "permalink": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/oqyfgzw/",
         "parent_id": "t3_1u2iw9t",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.202,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.735,
+          "pos": 0.265,
+          "compound": 0.2023
+        }
       },
       {
         "id": "oqyhcpb",
         "author": "vesikk",
         "body": "You may want to scroll down the page. that is summary 1 of 5. The other 4 summaries affect almost all their other gateway/NVR/NAS products.",
-        "score": 3,
+        "score": 5,
         "created_utc_ts": 1781143973,
         "created_utc": "2026-06-11T02:12:53",
         "permalink": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/oqyhcpb/",
         "parent_id": "t1_oqy4wcb",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.077,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.944,
+          "pos": 0.056,
+          "compound": 0.0772
+        }
       },
       {
         "id": "oqykrud",
@@ -345,52 +644,179 @@
         "created_utc": "2026-06-11T02:32:12",
         "permalink": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/oqykrud/",
         "parent_id": "t3_1u2iw9t",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.906,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.236,
+          "neu": 0.669,
+          "pos": 0.095,
+          "compound": -0.9062
+        }
       },
       {
         "id": "oqytk6k",
         "author": "therealgromer",
         "body": "Yup, updates are going to be coming out constantly now since folks are using things like Mythos to find the exploits.",
-        "score": 1,
+        "score": 3,
         "created_utc_ts": 1781148308,
         "created_utc": "2026-06-11T03:25:08",
         "permalink": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/oqytk6k/",
         "parent_id": "t1_oqxs7p4",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.026,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0.1,
+          "neu": 0.795,
+          "pos": 0.105,
+          "compound": 0.0258
+        }
       },
       {
         "id": "oqyu156",
         "author": "Vectors2_Final",
         "body": "As someone in the research space, this does happen quite often. Especially with network equipment. This stuff is also happening to other blue chip brands as well and at this very moment.  \n\nJust be glad you have something that gets patched, and doesn't end in \"gear\" or \"link\".  ",
-        "score": 1,
+        "score": 3,
         "created_utc_ts": 1781148475,
         "created_utc": "2026-06-11T03:27:55",
         "permalink": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/oqyu156/",
         "parent_id": "t3_1u2iw9t",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.625,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.9,
+          "pos": 0.1,
+          "compound": 0.6249
+        }
       },
       {
         "id": "oqyxng6",
         "author": "soopafly",
         "body": "I’m currently on 5.0.16 on my Cloud Gateway Max. The comments on the release notes of the latest patch scares the crap outta me. 5.0.16 has been solid, and with the family home on summer break, I’m a little reluctant to update. Am I being unreasonable?",
-        "score": 1,
+        "score": -1,
         "created_utc_ts": 1781149711,
         "created_utc": "2026-06-11T03:48:31",
         "permalink": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/oqyxng6/",
         "parent_id": "t3_1u2iw9t",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.626,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.139,
+          "neu": 0.828,
+          "pos": 0.033,
+          "compound": -0.6258
+        }
+      },
+      {
+        "id": "oqzfb2i",
+        "author": "BreezyBlazer",
+        "body": "Have you checked if there's a new super admin account named John Sim? 5.0.16 is vulnerable to three critical maximum-severity flaws. You should update immediately!",
+        "score": 5,
+        "created_utc_ts": 1781157186,
+        "created_utc": "2026-06-11T05:53:06",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/oqzfb2i/",
+        "parent_id": "t1_oqyxng6",
+        "is_submitter": false,
+        "sentiment_score": 0.248,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.153,
+          "neu": 0.714,
+          "pos": 0.133,
+          "compound": 0.2481
+        }
+      },
+      {
+        "id": "oqzpnn8",
+        "author": "vsurresh",
+        "body": "Who is it then?",
+        "score": 2,
+        "created_utc_ts": 1781162286,
+        "created_utc": "2026-06-11T07:18:06",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/oqzpnn8/",
+        "parent_id": "t1_oqxskqt",
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
+      },
+      {
+        "id": "oqzxhpj",
+        "author": "ProfessorFunky",
+        "body": "Crikey. Another firmware update I’ll have to roll the dice on. :/",
+        "score": 3,
+        "created_utc_ts": 1781166426,
+        "created_utc": "2026-06-11T08:27:06",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/oqzxhpj/",
+        "parent_id": "t3_1u2iw9t",
+        "is_submitter": false,
+        "sentiment_score": -0.34,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.179,
+          "neu": 0.821,
+          "pos": 0,
+          "compound": -0.34
+        }
+      },
+      {
+        "id": "or0odsm",
+        "author": "bcredeur97",
+        "body": "I find this happens with a lot of manufacturers. One big bug gets uncovered and suddenly every security researcher starts looking hard at that companies’ products. Then it’s like one CVE after another \n\nHappened with Fortinet a couple years ago ",
+        "score": 1,
+        "created_utc_ts": 1781178860,
+        "created_utc": "2026-06-11T11:54:20",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/or0odsm/",
+        "parent_id": "t3_1u2iw9t",
+        "is_submitter": false,
+        "sentiment_score": 0.542,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.035,
+          "neu": 0.844,
+          "pos": 0.122,
+          "compound": 0.5423
+        }
+      },
+      {
+        "id": "or0vbbm",
+        "author": "endockhq",
+        "body": "This will be the norm going forward with all software. The ability of AI to find potential vulnerabilities is very advanced now days.",
+        "score": 2,
+        "created_utc_ts": 1781181278,
+        "created_utc": "2026-06-11T12:34:38",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/or0vbbm/",
+        "parent_id": "t3_1u2iw9t",
+        "is_submitter": false,
+        "sentiment_score": 0.458,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.061,
+          "neu": 0.764,
+          "pos": 0.175,
+          "compound": 0.4576
+        }
       }
     ],
     "created_utc": "2026-06-10T23:47:10",
     "first_author_comment": null,
-    "num_comments": 53,
-    "score": 27,
+    "num_comments": 60,
+    "score": 41,
     "subreddit": "Ubiquiti",
     "tag": "Whine / Complaint",
     "tags": [],
     "title": "Another Critical Security Advisory",
-    "updatedAt": "2026-06-11T04:43:10.699Z",
-    "upvote_ratio": 0.74,
+    "updatedAt": "2026-06-12T00:30:20.000Z",
+    "upvote_ratio": 0.67,
     "url": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/",
     "versionList": [],
     "classification": {
@@ -403,14 +829,26 @@
       "predicted": {
         "isUpdateRelated": false,
         "positiveScore": 0.00010796435567413241,
-        "timestampPredicted": "2026-06-11T04:00:38.573235+00:00"
+        "timestampPredicted": "2026-06-11T12:01:29.545867+00:00"
       },
       "labeled": {
         "isUpdateRelated": null
       }
     },
     "isAboutCve": true,
-    "isAboutLatestUpdate": false
+    "isAboutLatestUpdate": false,
+    "author_description_sentiment": {
+      "score": 0,
+      "detail": {
+        "neg": 0,
+        "neu": 1,
+        "pos": 0,
+        "compound": 0
+      }
+    },
+    "category": "Neutral",
+    "comments_avg_sentiment_score": 0.181,
+    "sentiment_score": 0.09
   },
   {
     "_id": "6a2973d19dc5fd76398353f1",
@@ -428,7 +866,7 @@
       "Question"
     ],
     "title": "XP SP3 systems not getting AD Group Policies",
-    "updatedAt": "2026-06-11T06:25:51.863Z",
+    "updatedAt": "2026-06-12T00:33:17.615Z",
     "upvote_ratio": 0.48,
     "url": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/",
     "versionList": [],
@@ -450,8 +888,88 @@
     },
     "isAboutCve": true,
     "isAboutLatestUpdate": true,
-    "commentCount": 40,
+    "commentCount": 42,
     "detectedCVEs": [
+      {
+        "cveId": "CVE-2026-20833",
+        "cveIds": [
+          "CVE-2026-20833",
+          "CVE-2026-20833"
+        ],
+        "source": "Comment",
+        "commentText": "Microsoft reading: [https://support.microsoft.com/en-us/topic/how-to-manage-kerberos-kdc-usage-of-rc4-for-service-account-ticket-issuance-changes-related-to-cve-2026-20833-1ebcda33-720a-4da8-93c1-b0496e1910dc](https://support.microsoft.com/en-us/topic/how-to-manage-kerberos-kdc-usage-of-rc4-for-service-account-ticket-issuance-changes-related-to-cve-2026-20833-1ebcda33-720a-4da8-93c1-b0496e1910dc)",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oquv0h8/",
+        "commentDate": "2026-06-10T15:41:34+00:00",
+        "cvePublishedDate": "2026-01-13T18:16:11.320000+00:00",
+        "initialAnalysisDate": "2026-01-15T14:40:20.963",
+        "daysAfterPublication": 147,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-01-15T14:40:20.963 | Initial Analysis | source=nvd@nist.gov | changeId=1ABC7FD6-156A-450E-A226-FC42DE4A72DF\n   - Added CPE Configuration: OR\n          *cpe:2.3:o:microsoft:windows_server_2008:r2:sp1:*:*:*:*:x64:*\n          *cpe:2.3:o:microsoft:windows_server_2012:r2:*:*:*:*:*:*:*\n          *cpe:2.3:o:microsoft:windows_server_2012:-:*:*:*:*:*:*:*\n          *cpe:2.3:o:microsoft:windows_server_2008:-:sp2:*:*:*:*:x64:*\n          *cpe:2.3:o:microsoft:windows_server_2008:-:sp2:*:*:*:*:x86:*\n          *cpe:2.3:o:microsoft:windows_server_2016:*:*:*:*:*:*:*:* versions up to (excluding) 10.0.14393.8783\n          *cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:*:*:*:* versions up to (excluding) 10.0.17763.8276\n          *cpe:2.3:o:microsoft:windows_server_2022:*:*:*:*:*:*:*:* versions up to (excluding) 10.0.20348.4648\n          *cpe:2.3:o:microsoft:windows_server_2022_23h2:*:*:*:*:*:*:*:* versions up to (excluding) 10.0.25398.2092\n          *cpe:2.3:o:microsoft:windows_server_2025:*:*:*:*:*:*:*:* versions up to (excluding) 10.0.26100.32230\n   - Added Reference Type: Microsoft Corporation: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-20833 Types: Vendor Advisory\n2. 2026-01-13T18:16:11.320 | New CVE Received | source=secure@microsoft.com | changeId=CA6A6931-BF65-4902-9561-C6D7AF8E3287\n   - Added Description: Use of a broken or risky cryptographic algorithm in Windows Kerberos allows an authorized attacker to disclose information locally.\n   - Added CVSS V3.1: AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N\n   - Added CWE: CWE-327\n   - Added Reference: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-20833\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-20833",
+        "cveIds": [
+          "CVE-2026-20833",
+          "CVE-2026-20833"
+        ],
+        "source": "Comment",
+        "commentText": "Microsoft reading: [https://support.microsoft.com/en-us/topic/how-to-manage-kerberos-kdc-usage-of-rc4-for-service-account-ticket-issuance-changes-related-to-cve-2026-20833-1ebcda33-720a-4da8-93c1-b0496e1910dc](https://support.microsoft.com/en-us/topic/how-to-manage-kerberos-kdc-usage-of-rc4-for-service-account-ticket-issuance-changes-related-to-cve-2026-20833-1ebcda33-720a-4da8-93c1-b0496e1910dc)",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oquv0h8/",
+        "commentDate": "2026-06-10T15:41:34+00:00",
+        "cvePublishedDate": "2026-01-13T18:16:11.320000+00:00",
+        "initialAnalysisDate": "2026-01-15T14:40:20.963",
+        "daysAfterPublication": 147,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-01-15T14:40:20.963 | Initial Analysis | source=nvd@nist.gov | changeId=1ABC7FD6-156A-450E-A226-FC42DE4A72DF\n   - Added CPE Configuration: OR\n          *cpe:2.3:o:microsoft:windows_server_2008:r2:sp1:*:*:*:*:x64:*\n          *cpe:2.3:o:microsoft:windows_server_2012:r2:*:*:*:*:*:*:*\n          *cpe:2.3:o:microsoft:windows_server_2012:-:*:*:*:*:*:*:*\n          *cpe:2.3:o:microsoft:windows_server_2008:-:sp2:*:*:*:*:x64:*\n          *cpe:2.3:o:microsoft:windows_server_2008:-:sp2:*:*:*:*:x86:*\n          *cpe:2.3:o:microsoft:windows_server_2016:*:*:*:*:*:*:*:* versions up to (excluding) 10.0.14393.8783\n          *cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:*:*:*:* versions up to (excluding) 10.0.17763.8276\n          *cpe:2.3:o:microsoft:windows_server_2022:*:*:*:*:*:*:*:* versions up to (excluding) 10.0.20348.4648\n          *cpe:2.3:o:microsoft:windows_server_2022_23h2:*:*:*:*:*:*:*:* versions up to (excluding) 10.0.25398.2092\n          *cpe:2.3:o:microsoft:windows_server_2025:*:*:*:*:*:*:*:* versions up to (excluding) 10.0.26100.32230\n   - Added Reference Type: Microsoft Corporation: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-20833 Types: Vendor Advisory\n2. 2026-01-13T18:16:11.320 | New CVE Received | source=secure@microsoft.com | changeId=CA6A6931-BF65-4902-9561-C6D7AF8E3287\n   - Added Description: Use of a broken or risky cryptographic algorithm in Windows Kerberos allows an authorized attacker to disclose information locally.\n   - Added CVSS V3.1: AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N\n   - Added CWE: CWE-327\n   - Added Reference: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-20833\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-20833",
+        "cveIds": [
+          "CVE-2026-20833",
+          "CVE-2026-20833"
+        ],
+        "source": "Comment",
+        "commentText": "Microsoft reading: [https://support.microsoft.com/en-us/topic/how-to-manage-kerberos-kdc-usage-of-rc4-for-service-account-ticket-issuance-changes-related-to-cve-2026-20833-1ebcda33-720a-4da8-93c1-b0496e1910dc](https://support.microsoft.com/en-us/topic/how-to-manage-kerberos-kdc-usage-of-rc4-for-service-account-ticket-issuance-changes-related-to-cve-2026-20833-1ebcda33-720a-4da8-93c1-b0496e1910dc)",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oquv0h8/",
+        "commentDate": "2026-06-10T15:41:34+00:00",
+        "cvePublishedDate": "2026-01-13T18:16:11.320000+00:00",
+        "initialAnalysisDate": "2026-01-15T14:40:20.963",
+        "daysAfterPublication": 147,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-01-15T14:40:20.963 | Initial Analysis | source=nvd@nist.gov | changeId=1ABC7FD6-156A-450E-A226-FC42DE4A72DF\n   - Added CPE Configuration: OR\n          *cpe:2.3:o:microsoft:windows_server_2008:r2:sp1:*:*:*:*:x64:*\n          *cpe:2.3:o:microsoft:windows_server_2012:r2:*:*:*:*:*:*:*\n          *cpe:2.3:o:microsoft:windows_server_2012:-:*:*:*:*:*:*:*\n          *cpe:2.3:o:microsoft:windows_server_2008:-:sp2:*:*:*:*:x64:*\n          *cpe:2.3:o:microsoft:windows_server_2008:-:sp2:*:*:*:*:x86:*\n          *cpe:2.3:o:microsoft:windows_server_2016:*:*:*:*:*:*:*:* versions up to (excluding) 10.0.14393.8783\n          *cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:*:*:*:* versions up to (excluding) 10.0.17763.8276\n          *cpe:2.3:o:microsoft:windows_server_2022:*:*:*:*:*:*:*:* versions up to (excluding) 10.0.20348.4648\n          *cpe:2.3:o:microsoft:windows_server_2022_23h2:*:*:*:*:*:*:*:* versions up to (excluding) 10.0.25398.2092\n          *cpe:2.3:o:microsoft:windows_server_2025:*:*:*:*:*:*:*:* versions up to (excluding) 10.0.26100.32230\n   - Added Reference Type: Microsoft Corporation: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-20833 Types: Vendor Advisory\n2. 2026-01-13T18:16:11.320 | New CVE Received | source=secure@microsoft.com | changeId=CA6A6931-BF65-4902-9561-C6D7AF8E3287\n   - Added Description: Use of a broken or risky cryptographic algorithm in Windows Kerberos allows an authorized attacker to disclose information locally.\n   - Added CVSS V3.1: AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N\n   - Added CWE: CWE-327\n   - Added Reference: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-20833\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-20833",
+        "cveIds": [
+          "CVE-2026-20833",
+          "CVE-2026-20833"
+        ],
+        "source": "Comment",
+        "commentText": "Microsoft reading: [https://support.microsoft.com/en-us/topic/how-to-manage-kerberos-kdc-usage-of-rc4-for-service-account-ticket-issuance-changes-related-to-cve-2026-20833-1ebcda33-720a-4da8-93c1-b0496e1910dc](https://support.microsoft.com/en-us/topic/how-to-manage-kerberos-kdc-usage-of-rc4-for-service-account-ticket-issuance-changes-related-to-cve-2026-20833-1ebcda33-720a-4da8-93c1-b0496e1910dc)",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oquv0h8/",
+        "commentDate": "2026-06-10T15:41:34+00:00",
+        "cvePublishedDate": "2026-01-13T18:16:11.320000+00:00",
+        "initialAnalysisDate": "2026-01-15T14:40:20.963",
+        "daysAfterPublication": 147,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-01-15T14:40:20.963 | Initial Analysis | source=nvd@nist.gov | changeId=1ABC7FD6-156A-450E-A226-FC42DE4A72DF\n   - Added CPE Configuration: OR\n          *cpe:2.3:o:microsoft:windows_server_2008:r2:sp1:*:*:*:*:x64:*\n          *cpe:2.3:o:microsoft:windows_server_2012:r2:*:*:*:*:*:*:*\n          *cpe:2.3:o:microsoft:windows_server_2012:-:*:*:*:*:*:*:*\n          *cpe:2.3:o:microsoft:windows_server_2008:-:sp2:*:*:*:*:x64:*\n          *cpe:2.3:o:microsoft:windows_server_2008:-:sp2:*:*:*:*:x86:*\n          *cpe:2.3:o:microsoft:windows_server_2016:*:*:*:*:*:*:*:* versions up to (excluding) 10.0.14393.8783\n          *cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:*:*:*:* versions up to (excluding) 10.0.17763.8276\n          *cpe:2.3:o:microsoft:windows_server_2022:*:*:*:*:*:*:*:* versions up to (excluding) 10.0.20348.4648\n          *cpe:2.3:o:microsoft:windows_server_2022_23h2:*:*:*:*:*:*:*:* versions up to (excluding) 10.0.25398.2092\n          *cpe:2.3:o:microsoft:windows_server_2025:*:*:*:*:*:*:*:* versions up to (excluding) 10.0.26100.32230\n   - Added Reference Type: Microsoft Corporation: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-20833 Types: Vendor Advisory\n2. 2026-01-13T18:16:11.320 | New CVE Received | source=secure@microsoft.com | changeId=CA6A6931-BF65-4902-9561-C6D7AF8E3287\n   - Added Description: Use of a broken or risky cryptographic algorithm in Windows Kerberos allows an authorized attacker to disclose information locally.\n   - Added CVSS V3.1: AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N\n   - Added CWE: CWE-327\n   - Added Reference: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-20833\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received"
+        ]
+      },
       {
         "cveId": "CVE-2026-20833",
         "cveIds": [
@@ -503,8 +1021,8 @@
       }
     },
     "category": "Positive",
-    "comments_avg_sentiment_score": 0.437,
-    "sentiment_score": 0.704,
+    "comments_avg_sentiment_score": 0.432,
+    "sentiment_score": 0.702,
     "comments": [
       {
         "id": "oqu6hei",
@@ -515,7 +1033,15 @@
         "created_utc": "2026-06-10T13:50:18",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oqu6hei/",
         "parent_id": "t3_1u20zra",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.875,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.04,
+          "neu": 0.74,
+          "pos": 0.22,
+          "compound": 0.875
+        }
       },
       {
         "id": "oqu6w1j",
@@ -526,7 +1052,15 @@
         "created_utc": "2026-06-10T13:52:14",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oqu6w1j/",
         "parent_id": "t3_1u20zra",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.382,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.927,
+          "pos": 0.073,
+          "compound": 0.3818
+        }
       },
       {
         "id": "oqu9kw5",
@@ -537,7 +1071,15 @@
         "created_utc": "2026-06-10T14:04:55",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oqu9kw5/",
         "parent_id": "t3_1u20zra",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.852,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.064,
+          "neu": 0.835,
+          "pos": 0.101,
+          "compound": 0.8521
+        }
       },
       {
         "id": "oqubwiz",
@@ -548,7 +1090,15 @@
         "created_utc": "2026-06-10T14:15:45",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oqubwiz/",
         "parent_id": "t3_1u20zra",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.904,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.724,
+          "pos": 0.276,
+          "compound": 0.9042
+        }
       },
       {
         "id": "oqudf9v",
@@ -559,7 +1109,15 @@
         "created_utc": "2026-06-10T14:22:45",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oqudf9v/",
         "parent_id": "t3_1u20zra",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.852,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.072,
+          "neu": 0.726,
+          "pos": 0.202,
+          "compound": 0.852
+        }
       },
       {
         "id": "oqudjlv",
@@ -570,7 +1128,15 @@
         "created_utc": "2026-06-10T14:23:18",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oqudjlv/",
         "parent_id": "t3_1u20zra",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.402,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.213,
+          "neu": 0.787,
+          "pos": 0,
+          "compound": -0.4019
+        }
       },
       {
         "id": "oquewtf",
@@ -581,7 +1147,15 @@
         "created_utc": "2026-06-10T14:29:33",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oquewtf/",
         "parent_id": "t1_oqu6hei",
-        "is_submitter": true
+        "is_submitter": true,
+        "sentiment_score": 0.44,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.029,
+          "neu": 0.912,
+          "pos": 0.059,
+          "compound": 0.4403
+        }
       },
       {
         "id": "oquf27o",
@@ -592,7 +1166,15 @@
         "created_utc": "2026-06-10T14:30:14",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oquf27o/",
         "parent_id": "t1_oqubwiz",
-        "is_submitter": true
+        "is_submitter": true,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "oqufse6",
@@ -603,7 +1185,15 @@
         "created_utc": "2026-06-10T14:33:35",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oqufse6/",
         "parent_id": "t1_oqu9kw5",
-        "is_submitter": true
+        "is_submitter": true,
+        "sentiment_score": 0.565,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.043,
+          "neu": 0.848,
+          "pos": 0.109,
+          "compound": 0.5653
+        }
       },
       {
         "id": "oqug3f8",
@@ -614,7 +1204,15 @@
         "created_utc": "2026-06-10T14:35:00",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oqug3f8/",
         "parent_id": "t3_1u20zra",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.281,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.125,
+          "neu": 0.684,
+          "pos": 0.19,
+          "compound": 0.2808
+        }
       },
       {
         "id": "oqug3dl",
@@ -625,7 +1223,15 @@
         "created_utc": "2026-06-10T14:35:00",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oqug3dl/",
         "parent_id": "t3_1u20zra",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.981,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.058,
+          "neu": 0.782,
+          "pos": 0.16,
+          "compound": 0.9805
+        }
       },
       {
         "id": "oqugr0b",
@@ -636,7 +1242,15 @@
         "created_utc": "2026-06-10T14:37:59",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oqugr0b/",
         "parent_id": "t3_1u20zra",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.142,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0.023,
+          "neu": 0.943,
+          "pos": 0.034,
+          "compound": 0.1419
+        }
       },
       {
         "id": "oqugxu3",
@@ -647,7 +1261,15 @@
         "created_utc": "2026-06-10T14:38:51",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oqugxu3/",
         "parent_id": "t3_1u20zra",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.878,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.035,
+          "neu": 0.804,
+          "pos": 0.161,
+          "compound": 0.8779
+        }
       },
       {
         "id": "oquhalo",
@@ -658,7 +1280,15 @@
         "created_utc": "2026-06-10T14:40:27",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oquhalo/",
         "parent_id": "t1_oqu9kw5",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.7,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.655,
+          "pos": 0.345,
+          "compound": 0.7003
+        }
       },
       {
         "id": "oqupnuw",
@@ -669,7 +1299,15 @@
         "created_utc": "2026-06-10T15:18:08",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oqupnuw/",
         "parent_id": "t3_1u20zra",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.67,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.313,
+          "neu": 0.481,
+          "pos": 0.205,
+          "compound": -0.6697
+        }
       },
       {
         "id": "oqupqwt",
@@ -680,7 +1318,15 @@
         "created_utc": "2026-06-10T15:18:30",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oqupqwt/",
         "parent_id": "t3_1u20zra",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.226,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.087,
+          "neu": 0.788,
+          "pos": 0.124,
+          "compound": 0.2263
+        }
       },
       {
         "id": "oqurw02",
@@ -691,7 +1337,15 @@
         "created_utc": "2026-06-10T15:27:52",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oqurw02/",
         "parent_id": "t3_1u20zra",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.01,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0.118,
+          "neu": 0.772,
+          "pos": 0.109,
+          "compound": 0.0103
+        }
       },
       {
         "id": "oqusxe8",
@@ -702,7 +1356,15 @@
         "created_utc": "2026-06-10T15:32:25",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oqusxe8/",
         "parent_id": "t3_1u20zra",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "oquv0h8",
@@ -713,7 +1375,15 @@
         "created_utc": "2026-06-10T15:41:34",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oquv0h8/",
         "parent_id": "t3_1u20zra",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.904,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.07,
+          "neu": 0.819,
+          "pos": 0.11,
+          "compound": 0.9044
+        }
       },
       {
         "id": "oquwjsr",
@@ -724,7 +1394,15 @@
         "created_utc": "2026-06-10T15:48:13",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oquwjsr/",
         "parent_id": "t3_1u20zra",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.516,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.796,
+          "pos": 0.204,
+          "compound": 0.516
+        }
       },
       {
         "id": "oquy8f9",
@@ -735,7 +1413,15 @@
         "created_utc": "2026-06-10T15:55:28",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oquy8f9/",
         "parent_id": "t3_1u20zra",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.434,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.098,
+          "neu": 0.79,
+          "pos": 0.112,
+          "compound": 0.434
+        }
       },
       {
         "id": "oquz0xy",
@@ -746,7 +1432,15 @@
         "created_utc": "2026-06-10T15:58:51",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oquz0xy/",
         "parent_id": "t1_oqug3f8",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.713,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.055,
+          "neu": 0.744,
+          "pos": 0.202,
+          "compound": 0.7125
+        }
       },
       {
         "id": "oqv0tgy",
@@ -757,7 +1451,15 @@
         "created_utc": "2026-06-10T16:06:40",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oqv0tgy/",
         "parent_id": "t1_oqu9kw5",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.374,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.066,
+          "neu": 0.841,
+          "pos": 0.093,
+          "compound": 0.3736
+        }
       },
       {
         "id": "oqv1aox",
@@ -768,7 +1470,15 @@
         "created_utc": "2026-06-10T16:08:44",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oqv1aox/",
         "parent_id": "t3_1u20zra",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.824,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.026,
+          "neu": 0.869,
+          "pos": 0.104,
+          "compound": 0.824
+        }
       },
       {
         "id": "oqv3xk2",
@@ -779,7 +1489,15 @@
         "created_utc": "2026-06-10T16:20:11",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oqv3xk2/",
         "parent_id": "t3_1u20zra",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.161,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0.087,
+          "neu": 0.806,
+          "pos": 0.107,
+          "compound": 0.1613
+        }
       },
       {
         "id": "oqv54vo",
@@ -790,7 +1508,15 @@
         "created_utc": "2026-06-10T16:25:29",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oqv54vo/",
         "parent_id": "t3_1u20zra",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.516,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.863,
+          "pos": 0.137,
+          "compound": 0.516
+        }
       },
       {
         "id": "oqv6pxe",
@@ -801,7 +1527,15 @@
         "created_utc": "2026-06-10T16:32:24",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oqv6pxe/",
         "parent_id": "t1_oqu9kw5",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "oqv8e49",
@@ -812,7 +1546,15 @@
         "created_utc": "2026-06-10T16:39:39",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oqv8e49/",
         "parent_id": "t3_1u20zra",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.632,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.716,
+          "pos": 0.284,
+          "compound": 0.6322
+        }
       },
       {
         "id": "oqvc7ig",
@@ -823,7 +1565,15 @@
         "created_utc": "2026-06-10T16:56:10",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oqvc7ig/",
         "parent_id": "t3_1u20zra",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.784,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.753,
+          "pos": 0.247,
+          "compound": 0.7841
+        }
       },
       {
         "id": "oqvcbfq",
@@ -834,7 +1584,15 @@
         "created_utc": "2026-06-10T16:56:38",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oqvcbfq/",
         "parent_id": "t1_oqudf9v",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "oqvcjv7",
@@ -845,7 +1603,15 @@
         "created_utc": "2026-06-10T16:57:38",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oqvcjv7/",
         "parent_id": "t1_oqv8e49",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.052,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0.084,
+          "neu": 0.839,
+          "pos": 0.077,
+          "compound": -0.0516
+        }
       },
       {
         "id": "oqvpht9",
@@ -856,7 +1622,15 @@
         "created_utc": "2026-06-10T17:53:16",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oqvpht9/",
         "parent_id": "t3_1u20zra",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.71,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.404,
+          "pos": 0.596,
+          "compound": 0.7096
+        }
       },
       {
         "id": "oqvsn5e",
@@ -867,7 +1641,15 @@
         "created_utc": "2026-06-10T18:06:47",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oqvsn5e/",
         "parent_id": "t3_1u20zra",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.96,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.03,
+          "neu": 0.833,
+          "pos": 0.137,
+          "compound": 0.9602
+        }
       },
       {
         "id": "oqvubxv",
@@ -878,7 +1660,15 @@
         "created_utc": "2026-06-10T18:14:11",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oqvubxv/",
         "parent_id": "t1_oquv0h8",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.431,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.054,
+          "neu": 0.879,
+          "pos": 0.068,
+          "compound": 0.431
+        }
       },
       {
         "id": "oqvv2ao",
@@ -889,7 +1679,15 @@
         "created_utc": "2026-06-10T18:17:25",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oqvv2ao/",
         "parent_id": "t1_oqv1aox",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.938,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.827,
+          "pos": 0.173,
+          "compound": 0.9378
+        }
       },
       {
         "id": "oqvvhg6",
@@ -900,7 +1698,15 @@
         "created_utc": "2026-06-10T18:19:16",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oqvvhg6/",
         "parent_id": "t3_1u20zra",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.434,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.101,
+          "neu": 0.836,
+          "pos": 0.063,
+          "compound": -0.4342
+        }
       },
       {
         "id": "oqvvm9l",
@@ -911,7 +1717,15 @@
         "created_utc": "2026-06-10T18:19:51",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oqvvm9l/",
         "parent_id": "t1_oqvpht9",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "oqvxkjc",
@@ -922,7 +1736,15 @@
         "created_utc": "2026-06-10T18:28:27",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oqvxkjc/",
         "parent_id": "t3_1u20zra",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.78,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.034,
+          "neu": 0.786,
+          "pos": 0.18,
+          "compound": 0.7804
+        }
       },
       {
         "id": "oqw3lcx",
@@ -933,7 +1755,15 @@
         "created_utc": "2026-06-10T18:55:01",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oqw3lcx/",
         "parent_id": "t3_1u20zra",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.875,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.875,
+          "pos": 0.125,
+          "compound": 0.875
+        }
       },
       {
         "id": "oqxb91x",
@@ -944,7 +1774,15 @@
         "created_utc": "2026-06-10T22:19:10",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oqxb91x/",
         "parent_id": "t3_1u20zra",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.421,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.163,
+          "neu": 0.465,
+          "pos": 0.372,
+          "compound": 0.4215
+        }
       },
       {
         "id": "oqxpmll",
@@ -955,7 +1793,15 @@
         "created_utc": "2026-06-10T23:37:41",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oqxpmll/",
         "parent_id": "t3_1u20zra",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "oqyeygz",
@@ -966,7 +1812,15 @@
         "created_utc": "2026-06-11T01:59:44",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oqyeygz/",
         "parent_id": "t3_1u20zra",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.65,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.102,
+          "neu": 0.767,
+          "pos": 0.131,
+          "compound": 0.6498
+        }
       }
     ]
   },
@@ -978,14 +1832,14 @@
     "awards": [],
     "created_utc": "2026-06-10T00:54:34",
     "first_author_comment": null,
-    "num_comments": 1,
-    "score": 39,
+    "num_comments": 2,
+    "score": 45,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "More Evidence That Words Don't Mean What We Thought They Meant (Ivanti Sentry Pre-Auth OS Command Injection CVE-2026-10520) - watchTowr Labs",
-    "updatedAt": "2026-06-11T04:46:33.871Z",
-    "upvote_ratio": 0.87,
+    "updatedAt": "2026-06-12T04:45:57.904Z",
+    "upvote_ratio": 0.89,
     "url": "https://reddit.com/r/netsec/comments/1u1neao/more_evidence_that_words_dont_mean_what_we/",
     "versionList": [
       "2026.0.0",
@@ -1027,16 +1881,27 @@
         "id": "oqwo8te",
         "author": "GruePwnr",
         "body": "A bit too much sauce on the prose, I want information not entertainment.",
-        "score": -1,
+        "score": 2,
         "created_utc_ts": 1781123277,
         "created_utc": "2026-06-10T20:27:57",
         "permalink": "https://reddit.com/r/netsec/comments/1u1neao/more_evidence_that_words_dont_mean_what_we/oqwo8te/",
         "parent_id": "t3_1u1neao",
         "is_submitter": false
+      },
+      {
+        "id": "or0q556",
+        "author": "Allen_Koholic",
+        "body": "Who wrote this? ",
+        "score": 1,
+        "created_utc_ts": 1781179502,
+        "created_utc": "2026-06-11T12:05:02",
+        "permalink": "https://reddit.com/r/netsec/comments/1u1neao/more_evidence_that_words_dont_mean_what_we/or0q556/",
+        "parent_id": "t3_1u1neao",
+        "is_submitter": false
       }
     ],
-    "comments_avg_sentiment_score": -0.258,
-    "sentiment_score": -0.129
+    "comments_avg_sentiment_score": -0.129,
+    "sentiment_score": -0.064
   },
   {
     "_id": "6a28760e9dc5fd763982ec1e",
@@ -1360,7 +2225,7 @@
       "Microsoft"
     ],
     "title": "Microsoft has released a patch for the bitlocker bypass",
-    "updatedAt": "2026-06-11T00:30:07.336Z",
+    "updatedAt": "2026-06-12T00:36:49.566Z",
     "upvote_ratio": 0.98,
     "url": "https://reddit.com/r/sysadmin/comments/1u1dlpy/microsoft_has_released_a_patch_for_the_bitlocker/",
     "versionList": [],
@@ -1489,7 +2354,7 @@
       "General Discussion"
     ],
     "title": "Top enterprise CVEs from last week worth your patch queue (May 31 - Jun 6)",
-    "updatedAt": "2026-06-11T00:31:17.289Z",
+    "updatedAt": "2026-06-12T00:37:59.146Z",
     "upvote_ratio": 0.83,
     "url": "https://reddit.com/r/sysadmin/comments/1u16gsm/top_enterprise_cves_from_last_week_worth_your/",
     "versionList": [
@@ -1530,7 +2395,7 @@
       "General Discussion"
     ],
     "title": "Patch Tuesday Megathread - (June 09, 2026)",
-    "updatedAt": "2026-06-11T00:31:23.548Z",
+    "updatedAt": "2026-06-12T00:38:05.416Z",
     "upvote_ratio": 0.97,
     "url": "https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/",
     "versionList": [
@@ -3086,7 +3951,15 @@
         "created_utc": "2026-06-09T13:09:48",
         "permalink": "https://reddit.com/r/Ubuntu/comments/1u14eyz/ubuntu_2404_lts_nginx_segfaults_after_installing/oqmv4ba/",
         "parent_id": "t3_1u14eyz",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.796,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.111,
+          "neu": 0.889,
+          "pos": 0,
+          "compound": -0.7964
+        }
       },
       {
         "id": "oqmzhil",
@@ -3097,7 +3970,15 @@
         "created_utc": "2026-06-09T13:31:47",
         "permalink": "https://reddit.com/r/Ubuntu/comments/1u14eyz/ubuntu_2404_lts_nginx_segfaults_after_installing/oqmzhil/",
         "parent_id": "t1_oqmv4ba",
-        "is_submitter": true
+        "is_submitter": true,
+        "sentiment_score": -0.477,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.437,
+          "neu": 0.563,
+          "pos": 0,
+          "compound": -0.4767
+        }
       },
       {
         "id": "oqn2bht",
@@ -3108,7 +3989,15 @@
         "created_utc": "2026-06-09T13:45:40",
         "permalink": "https://reddit.com/r/Ubuntu/comments/1u14eyz/ubuntu_2404_lts_nginx_segfaults_after_installing/oqn2bht/",
         "parent_id": "t3_1u14eyz",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0.175,
+          "neu": 0.649,
+          "pos": 0.175,
+          "compound": 0
+        }
       },
       {
         "id": "oqn2o9a",
@@ -3119,7 +4008,15 @@
         "created_utc": "2026-06-09T13:47:23",
         "permalink": "https://reddit.com/r/Ubuntu/comments/1u14eyz/ubuntu_2404_lts_nginx_segfaults_after_installing/oqn2o9a/",
         "parent_id": "t3_1u14eyz",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.052,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0.118,
+          "neu": 0.773,
+          "pos": 0.109,
+          "compound": -0.0516
+        }
       },
       {
         "id": "oqng3rt",
@@ -3130,7 +4027,15 @@
         "created_utc": "2026-06-09T14:49:37",
         "permalink": "https://reddit.com/r/Ubuntu/comments/1u14eyz/ubuntu_2404_lts_nginx_segfaults_after_installing/oqng3rt/",
         "parent_id": "t1_oqn2bht",
-        "is_submitter": true
+        "is_submitter": true,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "oqng6go",
@@ -3141,7 +4046,15 @@
         "created_utc": "2026-06-09T14:49:57",
         "permalink": "https://reddit.com/r/Ubuntu/comments/1u14eyz/ubuntu_2404_lts_nginx_segfaults_after_installing/oqng6go/",
         "parent_id": "t1_oqn2bht",
-        "is_submitter": true
+        "is_submitter": true,
+        "sentiment_score": -0.477,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.237,
+          "neu": 0.763,
+          "pos": 0,
+          "compound": -0.4767
+        }
       },
       {
         "id": "oqni86m",
@@ -3152,7 +4065,15 @@
         "created_utc": "2026-06-09T14:58:49",
         "permalink": "https://reddit.com/r/Ubuntu/comments/1u14eyz/ubuntu_2404_lts_nginx_segfaults_after_installing/oqni86m/",
         "parent_id": "t3_1u14eyz",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.178,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.805,
+          "pos": 0.195,
+          "compound": 0.1779
+        }
       },
       {
         "id": "oqpf7ug",
@@ -3163,7 +4084,15 @@
         "created_utc": "2026-06-09T19:59:09",
         "permalink": "https://reddit.com/r/Ubuntu/comments/1u14eyz/ubuntu_2404_lts_nginx_segfaults_after_installing/oqpf7ug/",
         "parent_id": "t3_1u14eyz",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.178,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0.138,
+          "neu": 0.751,
+          "pos": 0.111,
+          "compound": -0.1779
+        }
       },
       {
         "id": "oqpg4c2",
@@ -3174,7 +4103,15 @@
         "created_utc": "2026-06-09T20:03:14",
         "permalink": "https://reddit.com/r/Ubuntu/comments/1u14eyz/ubuntu_2404_lts_nginx_segfaults_after_installing/oqpg4c2/",
         "parent_id": "t3_1u14eyz",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.654,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.085,
+          "neu": 0.822,
+          "pos": 0.092,
+          "compound": 0.6542
+        }
       },
       {
         "id": "oqpghmj",
@@ -3185,7 +4122,15 @@
         "created_utc": "2026-06-09T20:04:54",
         "permalink": "https://reddit.com/r/Ubuntu/comments/1u14eyz/ubuntu_2404_lts_nginx_segfaults_after_installing/oqpghmj/",
         "parent_id": "t1_oqni86m",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.013,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0.089,
+          "neu": 0.799,
+          "pos": 0.112,
+          "compound": -0.0129
+        }
       },
       {
         "id": "oqphh0i",
@@ -3196,7 +4141,15 @@
         "created_utc": "2026-06-09T20:09:23",
         "permalink": "https://reddit.com/r/Ubuntu/comments/1u14eyz/ubuntu_2404_lts_nginx_segfaults_after_installing/oqphh0i/",
         "parent_id": "t3_1u14eyz",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.74,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.752,
+          "pos": 0.248,
+          "compound": 0.7399
+        }
       }
     ],
     "created_utc": "2026-06-09T13:04:38",
@@ -3207,7 +4160,7 @@
     "tag": null,
     "tags": [],
     "title": "Ubuntu 24.04 LTS - nginx segfaults after installing updates",
-    "updatedAt": "2026-06-11T04:54:56.613Z",
+    "updatedAt": "2026-06-12T00:38:19.023Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/Ubuntu/comments/1u14eyz/ubuntu_2404_lts_nginx_segfaults_after_installing/",
     "versionList": [
@@ -3245,7 +4198,7 @@
         "id": "oqlljqm",
         "author": "WhoRedd_IT",
         "body": "Mines hosted in Cisco’s cloud (their AWS account). We have patched the original exploits that allow someone root access to the box so therefore I think we are covered from the latest vuln, as you said.\n\nVery sick of patching these components as it’s time consuming!\n\nNot really sure how to better secure these as they kind of lose their entire thrill if there not sitting on the public internet.\n\nI also have routers that check in from random sites so IPs of my sites change quite often meaning allowlisting is not going to be fun.\n\nI’m open to ideas!",
-        "score": 10,
+        "score": 11,
         "created_utc_ts": 1780990716,
         "created_utc": "2026-06-09T07:38:36",
         "permalink": "https://reddit.com/r/networking/comments/1u0xug8/another_cisco_sdwan_manager_bug_is_being/oqlljqm/",
@@ -3278,7 +4231,7 @@
         "id": "oqlo8jy",
         "author": "PacketLePew",
         "body": "And those are just the bugs we know about ¯\\\\\\_(ツ)\\_/¯ ",
-        "score": 15,
+        "score": 14,
         "created_utc_ts": 1780992139,
         "created_utc": "2026-06-09T08:02:19",
         "permalink": "https://reddit.com/r/networking/comments/1u0xug8/another_cisco_sdwan_manager_bug_is_being/oqlo8jy/",
@@ -3322,7 +4275,7 @@
         "id": "oqnn6mp",
         "author": "ninjapackets",
         "body": "You should be using ACLs to at least limit vManage access from trusted IPs. We are patched from previous issues, but vManage does not need to be open to the entire internet.",
-        "score": 4,
+        "score": 3,
         "created_utc_ts": 1781018401,
         "created_utc": "2026-06-09T15:20:01",
         "permalink": "https://reddit.com/r/networking/comments/1u0xug8/another_cisco_sdwan_manager_bug_is_being/oqnn6mp/",
@@ -3372,18 +4325,29 @@
         "permalink": "https://reddit.com/r/networking/comments/1u0xug8/another_cisco_sdwan_manager_bug_is_being/oqstk1s/",
         "parent_id": "t1_oqlljqm",
         "is_submitter": false
+      },
+      {
+        "id": "oqztl1q",
+        "author": "Severe_Part_5120",
+        "body": "We need to challenge the assumption that running a private or vendor managed virtual appliance cluster in AWS on prem is inherently more secure than a true cloud native service. This is the 7th actively exploited Cisco SD WAN flaw this year, and the urgency from CISA shows how systemic the issue is. The vulnerability surface exists because these legacy systems treat the orchestrator as a separate, heavy monolithic OS that requires traditional hardening, SSH isolation, and manual file handling policies. Chaining an auth bypass like CVE 2026 20182 with this new root level injection means any internet facing control port is a liability. Transitioning to a unified, single pass cloud architecture like Cato Networks eliminates this class of risk because you aren't managing or patching the underlying orchestration infrastructure at all. The control plane is fully abstracted into the cloud fabric, shifting the burden of infrastructure security completely onto the service provider.",
+        "score": 1,
+        "created_utc_ts": 1781164340,
+        "created_utc": "2026-06-11T07:52:20",
+        "permalink": "https://reddit.com/r/networking/comments/1u0xug8/another_cisco_sdwan_manager_bug_is_being/oqztl1q/",
+        "parent_id": "t3_1u0xug8",
+        "is_submitter": false
       }
     ],
     "created_utc": "2026-06-09T07:13:33",
     "first_author_comment": null,
-    "num_comments": 22,
-    "score": 34,
+    "num_comments": 23,
+    "score": 35,
     "subreddit": "networking",
     "tag": "Security",
     "tags": [],
     "title": "Another Cisco SD-WAN Manager bug is being exploited, no patch yet. How exposed is your controller?",
-    "updatedAt": "2026-06-11T06:40:44.692Z",
-    "upvote_ratio": 0.93,
+    "updatedAt": "2026-06-12T04:40:22.257Z",
+    "upvote_ratio": 0.96,
     "url": "https://reddit.com/r/networking/comments/1u0xug8/another_cisco_sdwan_manager_bug_is_being/",
     "versionList": [],
     "author_description_sentiment": {
@@ -3396,8 +4360,8 @@
       }
     },
     "category": "Neutral",
-    "comments_avg_sentiment_score": 0.146,
-    "sentiment_score": 0.089,
+    "comments_avg_sentiment_score": 0.194,
+    "sentiment_score": 0.113,
     "isAboutCve": true,
     "isAboutLatestUpdate": true
   },
@@ -3415,7 +4379,7 @@
     "tag": null,
     "tags": [],
     "title": "CVE-2026-46640: Developing payloads for Twig sandbox bypass",
-    "updatedAt": "2026-06-11T04:46:39.618Z",
+    "updatedAt": "2026-06-12T04:46:03.711Z",
     "upvote_ratio": 0.79,
     "url": "https://reddit.com/r/netsec/comments/1tywxh9/cve202646640_developing_payloads_for_twig_sandbox/",
     "versionList": [
@@ -3449,7 +4413,7 @@
         "id": "oprf3cd",
         "author": "throwaway234f32423df",
         "body": "fixed on Ubuntu about an hour ago even though they haven't put up a CVE page for it yet",
-        "score": 4,
+        "score": 3,
         "created_utc_ts": 1780598242,
         "created_utc": "2026-06-04T18:37:22",
         "permalink": "https://reddit.com/r/apache/comments/1tws4w7/the_http2_bomb_that_knocks_nginx_and_apache/oprf3cd/",
@@ -3465,7 +4429,7 @@
     "tag": null,
     "tags": [],
     "title": "The HTTP/2 Bomb That Knocks nginx and Apache Offline With a Single Connection",
-    "updatedAt": "2026-06-11T04:52:02.381Z",
+    "updatedAt": "2026-06-12T04:52:13.450Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/apache/comments/1tws4w7/the_http2_bomb_that_knocks_nginx_and_apache/",
     "versionList": [
@@ -3884,7 +4848,7 @@
       "Discussion"
     ],
     "title": "CVE-2026-48710: A Maintainer's Perspective",
-    "updatedAt": "2026-06-11T00:40:43.317Z",
+    "updatedAt": "2026-06-12T00:47:43.174Z",
     "upvote_ratio": 0.96,
     "url": "https://reddit.com/r/Python/comments/1tr5s1c/cve202648710_a_maintainers_perspective/",
     "versionList": [
@@ -3917,7 +4881,7 @@
         "id": "oojet31",
         "author": "Youknowimtheman",
         "body": "Hey nice research and writeup.\n\nThis coincides with a lot of our internal testing data. Which includes the latest Anthropic models and Deepseek v4 as well.\n\nThere's still a long way to go on the coding side to do things well enough. On the analysis side for finding bad patterns things are going great though.\n\nIt's creating a pretty bad asymmetry in the open source world, where fixing things takes orders of magnitude more effort than finding problems.",
-        "score": 24,
+        "score": 23,
         "created_utc_ts": 1780047656,
         "created_utc": "2026-05-29T09:40:56",
         "permalink": "https://reddit.com/r/netsec/comments/1tquesx/i_evaluated_5_llm_agents_on_patching_realworld/oojet31/",
@@ -3928,7 +4892,7 @@
         "id": "oojxp7v",
         "author": "Fickle-Box1433",
         "body": "So AI is great at finding bugs but terrible at fixing them. I guess security researchers have their job security back again. 😂\n\nThe silent failure is the real finding though. A patch that passes every test but leaves the hole open is worse than nothing. False confidence at scale is a new attack surface.\n\nCurious what you're seeing. Happy to compare notes.",
-        "score": 8,
+        "score": 7,
         "created_utc_ts": 1780055560,
         "created_utc": "2026-05-29T11:52:40",
         "permalink": "https://reddit.com/r/netsec/comments/1tquesx/i_evaluated_5_llm_agents_on_patching_realworld/oojxp7v/",
@@ -3961,7 +4925,7 @@
         "id": "oopkoz6",
         "author": "vhthc",
         "body": "IMHO the setup is not realistic which makes the experiment results inconclusive.\n\nIn the real world you either have a complete issue description (not only where the bug is but also the description what the bug is and maybe a proof of concept) or you have an exploit (so when you are at the point of triage which would result in the issue description).\n\nThe triage part is not something I would recommend to measure because of easy contamination, but this could be a benchmark on its own.\n\nSo I recommend to give the full CVE information and then see how well it is able to fix the vulnerability completely.\n\nThe numbers for opus and sonnet would also be great to see btw (and maybe DeepSeek 4 pro and Kimi 2.6) because the are the models (in addition to gpt 5.5 + -codex) that are being used.\n",
-        "score": 4,
+        "score": 3,
         "created_utc_ts": 1780118622,
         "created_utc": "2026-05-30T05:23:42",
         "permalink": "https://reddit.com/r/netsec/comments/1tquesx/i_evaluated_5_llm_agents_on_patching_realworld/oopkoz6/",
@@ -4044,17 +5008,28 @@
         "permalink": "https://reddit.com/r/netsec/comments/1tquesx/i_evaluated_5_llm_agents_on_patching_realworld/opymyvy/",
         "parent_id": "t1_opwpk0a",
         "is_submitter": true
+      },
+      {
+        "id": "or3elb6",
+        "author": "marshalhq",
+        "body": "This is the same problem as tests that pass even if the production code is deleted. Coverage numbers look fine, confidence is high, the hole is still there. False confidence at scale is worse than no confidence.",
+        "score": 1,
+        "created_utc_ts": 1781206354,
+        "created_utc": "2026-06-11T19:32:34",
+        "permalink": "https://reddit.com/r/netsec/comments/1tquesx/i_evaluated_5_llm_agents_on_patching_realworld/or3elb6/",
+        "parent_id": "t3_1tquesx",
+        "is_submitter": false
       }
     ],
     "created_utc": "2026-05-29T07:32:36",
     "first_author_comment": "So AI is great at finding bugs but terrible at fixing them. I guess security researchers have their job security back again. 😂\n\nThe silent failure is the real finding though. A patch that passes every test but leaves the hole open is worse than nothing. False confidence at scale is a new attack surface.\n\nCurious what you're seeing. Happy to compare notes.",
-    "num_comments": 21,
+    "num_comments": 22,
     "score": 47,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "I evaluated 5 LLM agents on patching real-world CVEs. Here is what I found.",
-    "updatedAt": "2026-06-11T04:46:53.298Z",
+    "updatedAt": "2026-06-12T04:46:16.640Z",
     "upvote_ratio": 0.77,
     "url": "https://reddit.com/r/netsec/comments/1tquesx/i_evaluated_5_llm_agents_on_patching_realworld/",
     "versionList": [
@@ -4070,8 +5045,8 @@
       }
     },
     "category": "Positive",
-    "comments_avg_sentiment_score": 0.388,
-    "sentiment_score": 0.404,
+    "comments_avg_sentiment_score": 0.402,
+    "sentiment_score": 0.411,
     "isAboutCve": true,
     "isAboutLatestUpdate": true
   },
@@ -4086,7 +5061,7 @@
         "id": "oo8w4db",
         "author": "tapioca_slaughter",
         "body": "lol pretty tone deaf when you’re running this on a set that is at least hundreds of thousands of dollars.",
-        "score": 1,
+        "score": 0,
         "created_utc_ts": 1779914932,
         "created_utc": "2026-05-27T20:48:52",
         "permalink": "https://reddit.com/r/ansible/comments/1tpachm/aiops_patch_rhel_cves_in_minutes_with_red_hat/oo8w4db/",
@@ -4105,7 +5080,7 @@
         "id": "ood9zlg",
         "author": "n473-",
         "body": "&gt; AIOps\n\nCome the fuck on now this is just getting silly.",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1779974706,
         "created_utc": "2026-05-28T13:25:06",
         "permalink": "https://reddit.com/r/ansible/comments/1tpachm/aiops_patch_rhel_cves_in_minutes_with_red_hat/ood9zlg/",
@@ -4186,8 +5161,8 @@
     "tag": null,
     "tags": [],
     "title": "AIOps: Patch RHEL CVEs in Minutes with Red Hat Lightspeed MCP and Ansible Automation Platform",
-    "updatedAt": "2026-06-11T00:41:06.256Z",
-    "upvote_ratio": 0.69,
+    "updatedAt": "2026-06-12T00:48:07.051Z",
+    "upvote_ratio": 0.7,
     "url": "https://reddit.com/r/ansible/comments/1tpachm/aiops_patch_rhel_cves_in_minutes_with_red_hat/",
     "versionList": [],
     "author_description_sentiment": {
@@ -4227,7 +5202,7 @@
         "id": "oo8hy5h",
         "author": "TeramindTeam",
         "body": "i remember seeing similar behavior back when they tried to pull the plug on other botnet infrastructure, its wild how often the traffic just shifts instead of stopping. its definately worth checking if the routing is actually being handled by a different upstream provider now or if they just have some automated failover still running",
-        "score": 5,
+        "score": 7,
         "created_utc_ts": 1779911117,
         "created_utc": "2026-05-27T19:45:17",
         "permalink": "https://reddit.com/r/netsec/comments/1tp6dz0/a_week_after_dutch_fiod_seized_800_servers_the/oo8hy5h/",
@@ -4238,13 +5213,13 @@
     "created_utc": "2026-05-27T13:58:10",
     "first_author_comment": null,
     "num_comments": 4,
-    "score": 81,
+    "score": 80,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "A week after Dutch FIOD seized 800+ servers, the hosting network's ASN (AS209847) is still scanning at its normal daily rate",
-    "updatedAt": "2026-06-11T04:47:02.095Z",
-    "upvote_ratio": 0.97,
+    "updatedAt": "2026-06-12T04:46:25.534Z",
+    "upvote_ratio": 0.96,
     "url": "https://reddit.com/r/netsec/comments/1tp6dz0/a_week_after_dutch_fiod_seized_800_servers_the/",
     "versionList": [
       "800.0.0"
@@ -4302,8 +5277,8 @@
     "tag": null,
     "tags": [],
     "title": "CVE-2021-21735: ZTE H168N wizard whitelist exposed PPPoE and WLAN secrets pre-auth",
-    "updatedAt": "2026-06-11T04:47:13.689Z",
-    "upvote_ratio": 0.8,
+    "updatedAt": "2026-06-12T04:46:35.886Z",
+    "upvote_ratio": 0.84,
     "url": "https://reddit.com/r/netsec/comments/1tnbcp1/cve202121735_zte_h168n_wizard_whitelist_exposed/",
     "versionList": [
       "2021.0.0",
@@ -4333,13 +5308,13 @@
     "created_utc": "2026-05-22T19:45:42",
     "first_author_comment": "Discovered by Nebula Security:\n\nhttps://x.com/nebusecurity/status/2057071579876753643\n\nThe previous vulnerability was CVE-2026-42945 and was nicknamed \"Nginx Rift\":\n\nhttps://my.f5.com/manage/s/article/K000161019",
     "num_comments": 3,
-    "score": 52,
+    "score": 49,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-9256 - \"nginx-poolslip\", another new vulnerability in the rewrite module",
-    "updatedAt": "2026-06-11T04:47:17.983Z",
-    "upvote_ratio": 0.98,
+    "updatedAt": "2026-06-12T00:49:11.933Z",
+    "upvote_ratio": 0.96,
     "url": "https://reddit.com/r/netsec/comments/1tktr0o/cve20269256_nginxpoolslip_another_new/",
     "versionList": [
       "2026.0.0",
@@ -4347,6 +5322,94 @@
     ],
     "commentCount": 3,
     "detectedCVEs": [
+      {
+        "cveId": "CVE-2026-42945",
+        "cveIds": [
+          "CVE-2026-42945"
+        ],
+        "source": "Comment",
+        "commentText": "Discovered by Nebula Security:\n\nhttps://x.com/nebusecurity/status/2057071579876753643\n\nThe previous vulnerability was CVE-2026-42945 and was nicknamed \"Nginx Rift\":\n\nhttps://my.f5.com/manage/s/article/K000161019",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1tktr0o/cve20269256_nginxpoolslip_another_new/onb0bw3/",
+        "commentDate": "2026-05-22T19:46:33+00:00",
+        "cvePublishedDate": "2026-05-13T16:16:50.190000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 9,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-05-21T19:16:53.100 | CVE Modified | source=f5sirt@f5.com | changeId=23ABF488-2164-4BF1-8B3C-B9336BEC341F\n   - Changed Description: NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_rewrite_module module. This vulnerability exists when the rewrite directive is followed by a rewrite, if, or set directive and an unnamed Perl-Compatible Regular Expression (PCRE) capture (for example, $1, $2) with a replacement string that includes a question mark (?). An unauthenticated attacker along with conditions beyond its control can exploit this vulnerability by sending crafted HTTP requests. This may cause a heap buffer overflow in the NGINX worker process leading to a restart. Additionally, for systems with Address Space Layout Randomization (ASLR ) disabled, code execution is possible.  Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated. -> NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_rewrite_module module. This vulnerability exists when the rewrite directive is followed by a rewrite, if, or set directive and an unnamed Perl-Compatible Regular Expression (PCRE) capture (for example, $1, $2) with a replacement string that includes a question mark (?). An unauthenticated attacker along with conditions beyond its control can exploit this vulnerability by sending crafted HTTP requests. This may cause a heap buffer overflow in the NGINX worker process leading to a restart. Additionally, attackers can execute code on systems with Address Space Layout Randomization (ASLR) disabled or when the attacker can bypass ASLR.  Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated.\n2. 2026-05-14T20:17:05.413 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=242D38B3-D949-4CBD-A216-408FFE1E9138\n   - Added Reference: https://github.com/DepthFirstDisclosures/Nginx-Rift\n3. 2026-05-14T02:17:21.637 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=F8E54A13-588C-4758-936C-40FD4F589D69\n   - Added Reference: https://depthfirst.com/nginx-rift\n4. 2026-05-13T16:16:50.190 | New CVE Received | source=f5sirt@f5.com | changeId=CD7BC79C-E661-406A-8BB4-654CEDF60BF2\n   - Added Description: NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_rewrite_module module. This vulnerability exists when the rewrite directive is followed by a rewrite, if, or set directive and an unnamed Perl-Compatible Regular Expression (PCRE) capture (for example, $1, $2) with a replacement string that includes a question mark (?). An unauthenticated attacker along with conditions beyond its control can exploit this vulnerability by sending crafted HTTP requests. This may cause a heap buffer overflow in the NGINX worker process leading to a restart. Additionally, for systems with Address Space Layout Randomization (ASLR ) disabled, code execution is possible.  Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated.\n   - Added CVSS V4.0: AV:N/AC:H/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CVSS V3.1: AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-122\n   - Added Reference: https://my.f5.com/manage/s/article/K000161019\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-42945",
+        "cveIds": [
+          "CVE-2026-42945"
+        ],
+        "source": "Comment",
+        "commentText": "Discovered by Nebula Security:\n\nhttps://x.com/nebusecurity/status/2057071579876753643\n\nThe previous vulnerability was CVE-2026-42945 and was nicknamed \"Nginx Rift\":\n\nhttps://my.f5.com/manage/s/article/K000161019",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1tktr0o/cve20269256_nginxpoolslip_another_new/onb0bw3/",
+        "commentDate": "2026-05-22T19:46:33+00:00",
+        "cvePublishedDate": "2026-05-13T16:16:50.190000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 9,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-05-21T19:16:53.100 | CVE Modified | source=f5sirt@f5.com | changeId=23ABF488-2164-4BF1-8B3C-B9336BEC341F\n   - Changed Description: NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_rewrite_module module. This vulnerability exists when the rewrite directive is followed by a rewrite, if, or set directive and an unnamed Perl-Compatible Regular Expression (PCRE) capture (for example, $1, $2) with a replacement string that includes a question mark (?). An unauthenticated attacker along with conditions beyond its control can exploit this vulnerability by sending crafted HTTP requests. This may cause a heap buffer overflow in the NGINX worker process leading to a restart. Additionally, for systems with Address Space Layout Randomization (ASLR ) disabled, code execution is possible.  Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated. -> NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_rewrite_module module. This vulnerability exists when the rewrite directive is followed by a rewrite, if, or set directive and an unnamed Perl-Compatible Regular Expression (PCRE) capture (for example, $1, $2) with a replacement string that includes a question mark (?). An unauthenticated attacker along with conditions beyond its control can exploit this vulnerability by sending crafted HTTP requests. This may cause a heap buffer overflow in the NGINX worker process leading to a restart. Additionally, attackers can execute code on systems with Address Space Layout Randomization (ASLR) disabled or when the attacker can bypass ASLR.  Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated.\n2. 2026-05-14T20:17:05.413 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=242D38B3-D949-4CBD-A216-408FFE1E9138\n   - Added Reference: https://github.com/DepthFirstDisclosures/Nginx-Rift\n3. 2026-05-14T02:17:21.637 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=F8E54A13-588C-4758-936C-40FD4F589D69\n   - Added Reference: https://depthfirst.com/nginx-rift\n4. 2026-05-13T16:16:50.190 | New CVE Received | source=f5sirt@f5.com | changeId=CD7BC79C-E661-406A-8BB4-654CEDF60BF2\n   - Added Description: NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_rewrite_module module. This vulnerability exists when the rewrite directive is followed by a rewrite, if, or set directive and an unnamed Perl-Compatible Regular Expression (PCRE) capture (for example, $1, $2) with a replacement string that includes a question mark (?). An unauthenticated attacker along with conditions beyond its control can exploit this vulnerability by sending crafted HTTP requests. This may cause a heap buffer overflow in the NGINX worker process leading to a restart. Additionally, for systems with Address Space Layout Randomization (ASLR ) disabled, code execution is possible.  Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated.\n   - Added CVSS V4.0: AV:N/AC:H/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CVSS V3.1: AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-122\n   - Added Reference: https://my.f5.com/manage/s/article/K000161019\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-42945",
+        "cveIds": [
+          "CVE-2026-42945"
+        ],
+        "source": "Comment",
+        "commentText": "Discovered by Nebula Security:\n\nhttps://x.com/nebusecurity/status/2057071579876753643\n\nThe previous vulnerability was CVE-2026-42945 and was nicknamed \"Nginx Rift\":\n\nhttps://my.f5.com/manage/s/article/K000161019",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1tktr0o/cve20269256_nginxpoolslip_another_new/onb0bw3/",
+        "commentDate": "2026-05-22T19:46:33+00:00",
+        "cvePublishedDate": "2026-05-13T16:16:50.190000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 9,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-05-21T19:16:53.100 | CVE Modified | source=f5sirt@f5.com | changeId=23ABF488-2164-4BF1-8B3C-B9336BEC341F\n   - Changed Description: NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_rewrite_module module. This vulnerability exists when the rewrite directive is followed by a rewrite, if, or set directive and an unnamed Perl-Compatible Regular Expression (PCRE) capture (for example, $1, $2) with a replacement string that includes a question mark (?). An unauthenticated attacker along with conditions beyond its control can exploit this vulnerability by sending crafted HTTP requests. This may cause a heap buffer overflow in the NGINX worker process leading to a restart. Additionally, for systems with Address Space Layout Randomization (ASLR ) disabled, code execution is possible.  Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated. -> NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_rewrite_module module. This vulnerability exists when the rewrite directive is followed by a rewrite, if, or set directive and an unnamed Perl-Compatible Regular Expression (PCRE) capture (for example, $1, $2) with a replacement string that includes a question mark (?). An unauthenticated attacker along with conditions beyond its control can exploit this vulnerability by sending crafted HTTP requests. This may cause a heap buffer overflow in the NGINX worker process leading to a restart. Additionally, attackers can execute code on systems with Address Space Layout Randomization (ASLR) disabled or when the attacker can bypass ASLR.  Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated.\n2. 2026-05-14T20:17:05.413 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=242D38B3-D949-4CBD-A216-408FFE1E9138\n   - Added Reference: https://github.com/DepthFirstDisclosures/Nginx-Rift\n3. 2026-05-14T02:17:21.637 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=F8E54A13-588C-4758-936C-40FD4F589D69\n   - Added Reference: https://depthfirst.com/nginx-rift\n4. 2026-05-13T16:16:50.190 | New CVE Received | source=f5sirt@f5.com | changeId=CD7BC79C-E661-406A-8BB4-654CEDF60BF2\n   - Added Description: NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_rewrite_module module. This vulnerability exists when the rewrite directive is followed by a rewrite, if, or set directive and an unnamed Perl-Compatible Regular Expression (PCRE) capture (for example, $1, $2) with a replacement string that includes a question mark (?). An unauthenticated attacker along with conditions beyond its control can exploit this vulnerability by sending crafted HTTP requests. This may cause a heap buffer overflow in the NGINX worker process leading to a restart. Additionally, for systems with Address Space Layout Randomization (ASLR ) disabled, code execution is possible.  Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated.\n   - Added CVSS V4.0: AV:N/AC:H/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CVSS V3.1: AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-122\n   - Added Reference: https://my.f5.com/manage/s/article/K000161019\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-42945",
+        "cveIds": [
+          "CVE-2026-42945"
+        ],
+        "source": "Comment",
+        "commentText": "Discovered by Nebula Security:\n\nhttps://x.com/nebusecurity/status/2057071579876753643\n\nThe previous vulnerability was CVE-2026-42945 and was nicknamed \"Nginx Rift\":\n\nhttps://my.f5.com/manage/s/article/K000161019",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1tktr0o/cve20269256_nginxpoolslip_another_new/onb0bw3/",
+        "commentDate": "2026-05-22T19:46:33+00:00",
+        "cvePublishedDate": "2026-05-13T16:16:50.190000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 9,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-05-21T19:16:53.100 | CVE Modified | source=f5sirt@f5.com | changeId=23ABF488-2164-4BF1-8B3C-B9336BEC341F\n   - Changed Description: NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_rewrite_module module. This vulnerability exists when the rewrite directive is followed by a rewrite, if, or set directive and an unnamed Perl-Compatible Regular Expression (PCRE) capture (for example, $1, $2) with a replacement string that includes a question mark (?). An unauthenticated attacker along with conditions beyond its control can exploit this vulnerability by sending crafted HTTP requests. This may cause a heap buffer overflow in the NGINX worker process leading to a restart. Additionally, for systems with Address Space Layout Randomization (ASLR ) disabled, code execution is possible.  Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated. -> NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_rewrite_module module. This vulnerability exists when the rewrite directive is followed by a rewrite, if, or set directive and an unnamed Perl-Compatible Regular Expression (PCRE) capture (for example, $1, $2) with a replacement string that includes a question mark (?). An unauthenticated attacker along with conditions beyond its control can exploit this vulnerability by sending crafted HTTP requests. This may cause a heap buffer overflow in the NGINX worker process leading to a restart. Additionally, attackers can execute code on systems with Address Space Layout Randomization (ASLR) disabled or when the attacker can bypass ASLR.  Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated.\n2. 2026-05-14T20:17:05.413 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=242D38B3-D949-4CBD-A216-408FFE1E9138\n   - Added Reference: https://github.com/DepthFirstDisclosures/Nginx-Rift\n3. 2026-05-14T02:17:21.637 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=F8E54A13-588C-4758-936C-40FD4F589D69\n   - Added Reference: https://depthfirst.com/nginx-rift\n4. 2026-05-13T16:16:50.190 | New CVE Received | source=f5sirt@f5.com | changeId=CD7BC79C-E661-406A-8BB4-654CEDF60BF2\n   - Added Description: NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_rewrite_module module. This vulnerability exists when the rewrite directive is followed by a rewrite, if, or set directive and an unnamed Perl-Compatible Regular Expression (PCRE) capture (for example, $1, $2) with a replacement string that includes a question mark (?). An unauthenticated attacker along with conditions beyond its control can exploit this vulnerability by sending crafted HTTP requests. This may cause a heap buffer overflow in the NGINX worker process leading to a restart. Additionally, for systems with Address Space Layout Randomization (ASLR ) disabled, code execution is possible.  Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated.\n   - Added CVSS V4.0: AV:N/AC:H/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CVSS V3.1: AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-122\n   - Added Reference: https://my.f5.com/manage/s/article/K000161019\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
       {
         "cveId": "CVE-2026-42945",
         "cveIds": [
@@ -4499,12 +5562,20 @@
         "id": "onb0bw3",
         "author": "thenickdude",
         "body": "Discovered by Nebula Security:\n\nhttps://x.com/nebusecurity/status/2057071579876753643\n\nThe previous vulnerability was CVE-2026-42945 and was nicknamed \"Nginx Rift\":\n\nhttps://my.f5.com/manage/s/article/K000161019",
-        "score": 5,
+        "score": 6,
         "created_utc_ts": 1779479193,
         "created_utc": "2026-05-22T19:46:33",
         "permalink": "https://reddit.com/r/netsec/comments/1tktr0o/cve20269256_nginxpoolslip_another_new/onb0bw3/",
         "parent_id": "t3_1tktr0o",
-        "is_submitter": true
+        "is_submitter": true,
+        "sentiment_score": 0.128,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0.104,
+          "neu": 0.765,
+          "pos": 0.131,
+          "compound": 0.128
+        }
       },
       {
         "id": "onnsbhl",
@@ -4515,7 +5586,15 @@
         "created_utc": "2026-05-24T19:48:43",
         "permalink": "https://reddit.com/r/netsec/comments/1tktr0o/cve20269256_nginxpoolslip_another_new/onnsbhl/",
         "parent_id": "t3_1tktr0o",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.178,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0.043,
+          "neu": 0.932,
+          "pos": 0.025,
+          "compound": -0.1779
+        }
       },
       {
         "id": "op1nk77",
@@ -4526,7 +5605,15 @@
         "created_utc": "2026-06-01T01:08:13",
         "permalink": "https://reddit.com/r/netsec/comments/1tktr0o/cve20269256_nginxpoolslip_another_new/op1nk77/",
         "parent_id": "t3_1tktr0o",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.806,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.063,
+          "neu": 0.758,
+          "pos": 0.179,
+          "compound": 0.8058
+        }
       }
     ]
   },
@@ -4544,7 +5631,7 @@
     "tag": null,
     "tags": [],
     "title": "Zyxel low-priv account leaked super-admin, FTPS, and TR-069 secrets across router fleets",
-    "updatedAt": "2026-06-11T00:42:14.086Z",
+    "updatedAt": "2026-06-12T00:49:16.565Z",
     "upvote_ratio": 0.78,
     "url": "https://reddit.com/r/netsec/comments/1tkkq0m/zyxel_lowpriv_account_leaked_superadmin_ftps_and/",
     "versionList": [
@@ -4583,7 +5670,7 @@
       "Use Cases"
     ],
     "title": "openclaw crossed 500k downloads a day this week. here are the 5 things nobody tells you when you're one of them",
-    "updatedAt": "2026-06-11T00:46:54.204Z",
+    "updatedAt": "2026-06-12T00:53:51.261Z",
     "upvote_ratio": 0.8,
     "url": "https://reddit.com/r/openclaw/comments/1srpodd/openclaw_crossed_500k_downloads_a_day_this_week/",
     "versionList": [
@@ -4631,7 +5718,7 @@
       "General Discussion"
     ],
     "title": "Security Check Recommended (CVE-2025-55182): Please review your application's dependencies. If you are running React or Next.js",
-    "updatedAt": "2026-06-11T00:54:17.126Z",
+    "updatedAt": "2026-06-12T01:01:06.057Z",
     "upvote_ratio": 0.91,
     "url": "https://reddit.com/r/react/comments/1pfyta0/security_check_recommended_cve202555182_please/",
     "versionList": [
@@ -4902,7 +5989,7 @@
       "vercel"
     ],
     "title": "What is React Server Components vulnerability CVE-2025-55182 and how does it affect Next.js?",
-    "updatedAt": "2026-06-11T00:54:29.073Z",
+    "updatedAt": "2026-06-12T01:01:17.954Z",
     "upvote_ratio": null,
     "url": "https://stackoverflow.com/questions/79837478/what-is-react-server-components-vulnerability-cve-2025-55182-and-how-does-it-aff",
     "versionList": [
@@ -5188,7 +6275,7 @@
     "tag": null,
     "tags": [],
     "title": "TARmageddon (CVE-2025-62518): RCE Vulnerability Highlights the Challenges of Open Source Abandonware | Edera Blog",
-    "updatedAt": "2026-06-11T00:56:38.445Z",
+    "updatedAt": "2026-06-12T01:03:25.460Z",
     "upvote_ratio": 0.88,
     "url": "https://reddit.com/r/rust/comments/1ogfpk5/tarmageddon_cve202562518_rce_vulnerability/",
     "versionList": [
@@ -5321,7 +6408,7 @@
       "Tutorial"
     ],
     "title": "Best practices for using Python &amp; uv inside Docker",
-    "updatedAt": "2026-06-11T00:59:20.832Z",
+    "updatedAt": "2026-06-12T01:06:07.243Z",
     "upvote_ratio": 0.88,
     "url": "https://reddit.com/r/Python/comments/1o3p4bf/best_practices_for_using_python_uv_inside_docker/",
     "versionList": [],
@@ -5395,7 +6482,7 @@
     "tag": null,
     "tags": [],
     "title": "Security Update for Microsoft .NET Core (June 2025)",
-    "updatedAt": "2026-06-11T01:00:54.842Z",
+    "updatedAt": "2026-06-12T01:07:42.459Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/tenable/comments/1nhvfck/security_update_for_microsoft_net_core_june_2025/",
     "versionList": [
@@ -5441,7 +6528,7 @@
       "Troubleshooting | Android"
     ],
     "title": "Chromebook not updating to the new update that fixes CVE-2025-6554",
-    "updatedAt": "2026-06-11T01:01:40.935Z",
+    "updatedAt": "2026-06-12T01:08:28.811Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/chrome/comments/1lpij7v/chromebook_not_updating_to_the_new_update_that/",
     "versionList": [
@@ -5564,7 +6651,7 @@
       "News"
     ],
     "title": "🔒 Update Chrome Today! – New 0-day Vulnerability (CVE-2025-5419) Is Being Exploited in the Wild",
-    "updatedAt": "2026-06-11T01:01:51.723Z",
+    "updatedAt": "2026-06-12T01:08:40.007Z",
     "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/chrome/comments/1l2zxcb/update_chrome_today_new_0day_vulnerability/",
     "versionList": [
@@ -5746,7 +6833,7 @@
     "tag": null,
     "tags": [],
     "title": "How soon are vulns added to Insight?",
-    "updatedAt": "2026-06-11T01:03:46.744Z",
+    "updatedAt": "2026-06-12T01:10:40.391Z",
     "upvote_ratio": 0.8,
     "url": "https://reddit.com/r/rapid7/comments/boy98i/how_soon_are_vulns_added_to_insight/",
     "versionList": [],
