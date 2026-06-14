@@ -8,13 +8,13 @@
     "created_utc": "2026-06-12T20:37:06",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 37,
+    "score": 48,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Why Use App-Level Auth When Every Database Has Auth? (Splunk Enterprise CVE-2026-20253 Pre-Auth RCE) - watchTowr Labs",
-    "updatedAt": "2026-06-13T04:46:38.585Z",
-    "upvote_ratio": 0.95,
+    "updatedAt": "2026-06-14T04:46:10.044Z",
+    "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/netsec/comments/1u46wbb/why_use_applevel_auth_when_every_database_has/",
     "versionList": [
       "2026.0.0",
@@ -35,7 +35,7 @@
         "id": "orbzyo1",
         "author": "SarcasmWarning",
         "body": "Well, I now know what I'm doing Monday morning...",
-        "score": 1,
+        "score": 2,
         "created_utc_ts": 1781311099,
         "created_utc": "2026-06-13T00:38:19",
         "permalink": "https://reddit.com/r/netsec/comments/1u46wbb/why_use_applevel_auth_when_every_database_has/orbzyo1/",
@@ -43,8 +43,8 @@
         "is_submitter": false
       }
     ],
-    "comments_avg_sentiment_score": 0,
-    "sentiment_score": 0,
+    "comments_avg_sentiment_score": 0.273,
+    "sentiment_score": 0.137,
     "classification": {
       "securityType": [
         "SECURITY"
@@ -58,7 +58,7 @@
       "predicted": {
         "isUpdateRelated": false,
         "positiveScore": 0.00024438208892505365,
-        "timestampPredicted": "2026-06-13T04:01:02.572973+00:00"
+        "timestampPredicted": "2026-06-13T08:01:21.382490+00:00"
       },
       "labeled": {
         "isUpdateRelated": null
@@ -78,7 +78,7 @@
         "id": "or9albm",
         "author": "martyn_hare",
         "body": "If you need the BitLocker recovery key from Windows: `manage-bde -protectors -get C:`\n\nThen take a look at this article to understand the effect on the Windows side: [https://support.microsoft.com/de-de/topic/unternehmensbereitstellungsleitfaden-f%C3%BCr-cve-2023-24932-88b8f034-20b7-4a45-80cb-c6049b0f9967](https://support.microsoft.com/de-de/topic/unternehmensbereitstellungsleitfaden-f%C3%BCr-cve-2023-24932-88b8f034-20b7-4a45-80cb-c6049b0f9967)\n\nI hope this helps =)",
-        "score": 9,
+        "score": 10,
         "created_utc_ts": 1781281968,
         "created_utc": "2026-06-12T16:32:48",
         "permalink": "https://reddit.com/r/Ubuntu/comments/1u404ki/firmwareupdateeinforderung_verunsichert/or9albm/",
@@ -89,7 +89,7 @@
         "id": "or9awxn",
         "author": "wortsalatfinchen",
         "body": "ahhh... thanks!",
-        "score": 3,
+        "score": 4,
         "created_utc_ts": 1781282056,
         "created_utc": "2026-06-12T16:34:16",
         "permalink": "https://reddit.com/r/Ubuntu/comments/1u404ki/firmwareupdateeinforderung_verunsichert/or9awxn/",
@@ -100,7 +100,7 @@
         "id": "or9b0tc",
         "author": "Conscious-Yam2909",
         "body": "yikes dont risk it",
-        "score": 2,
+        "score": 3,
         "created_utc_ts": 1781282085,
         "created_utc": "2026-06-12T16:34:45",
         "permalink": "https://reddit.com/r/Ubuntu/comments/1u404ki/firmwareupdateeinforderung_verunsichert/or9b0tc/",
@@ -122,7 +122,7 @@
         "id": "or9x82a",
         "author": "Clocker13",
         "body": "I’d personally backup any important data, completely wipe the system then redeploy from scratch. It’s not hard to make a dual-boot system. Keep it simple, strategise your disk space, install Windows first then Linux second as Linux just pours into the unallocated space quite effortlessly.",
-        "score": 0,
+        "score": 1,
         "created_utc_ts": 1781288046,
         "created_utc": "2026-06-12T18:14:06",
         "permalink": "https://reddit.com/r/Ubuntu/comments/1u404ki/firmwareupdateeinforderung_verunsichert/or9x82a/",
@@ -133,7 +133,7 @@
         "id": "or9xilz",
         "author": "wortsalatfinchen",
         "body": "I am still havig a dual-boot....win 11 and ubuntu...",
-        "score": 1,
+        "score": 2,
         "created_utc_ts": 1781288126,
         "created_utc": "2026-06-12T18:15:26",
         "permalink": "https://reddit.com/r/Ubuntu/comments/1u404ki/firmwareupdateeinforderung_verunsichert/or9xilz/",
@@ -155,24 +155,35 @@
         "id": "orbexm1",
         "author": "wortsalatfinchen",
         "body": "Aus welchem Grund sollte ich bei so einer Meldung das System komplett neu aufsetzen? Es handelt sich dabei ja nicht um einen Angriff, sondern nur eine Sicherheitswarnung.",
-        "score": 1,
+        "score": 2,
         "created_utc_ts": 1781303736,
         "created_utc": "2026-06-12T22:35:36",
         "permalink": "https://reddit.com/r/Ubuntu/comments/1u404ki/firmwareupdateeinforderung_verunsichert/orbexm1/",
         "parent_id": "t1_or9x82a",
         "is_submitter": true
+      },
+      {
+        "id": "ordxn16",
+        "author": "wortsalatfinchen",
+        "body": "Wenn ich das aber richtig verstehe, dann besitze ich derzeit aber zwei unterschiedliche Keys? Eins für Windows, eins für Ubuntu?\n\nIch sammle jetzt also erst einmal die Kies ein, sichere sie mir natürlich ab auf einem externen Medien wie ein normales Backup und dann führe ich das Update durch? Das reguläre Windows-System Update wurde vor einigen Tagen erfolgreich durchgeführt da gab es keinerlei Abfragen zum wiederherstellungskey.",
+        "score": 0,
+        "created_utc_ts": 1781342266,
+        "created_utc": "2026-06-13T09:17:46",
+        "permalink": "https://reddit.com/r/Ubuntu/comments/1u404ki/firmwareupdateeinforderung_verunsichert/ordxn16/",
+        "parent_id": "t1_orbea7h",
+        "is_submitter": true
       }
     ],
     "created_utc": "2026-06-12T16:25:42",
     "first_author_comment": "ahhh... thanks!",
-    "num_comments": 10,
-    "score": 9,
+    "num_comments": 15,
+    "score": 12,
     "subreddit": "Ubuntu",
     "tag": null,
     "tags": [],
     "title": "Firmware-Update-Einforderung verunsichert",
-    "updatedAt": "2026-06-13T04:54:30.382Z",
-    "upvote_ratio": 0.8,
+    "updatedAt": "2026-06-14T04:54:14.336Z",
+    "upvote_ratio": 0.74,
     "url": "https://reddit.com/r/Ubuntu/comments/1u404ki/firmwareupdateeinforderung_verunsichert/",
     "versionList": [],
     "classification": {
@@ -205,8 +216,8 @@
       }
     },
     "category": "Neutral",
-    "comments_avg_sentiment_score": 0.302,
-    "sentiment_score": 0.002
+    "comments_avg_sentiment_score": 0.128,
+    "sentiment_score": -0.085
   },
   {
     "_id": "6a2bab3fc08e7acc03539faa",
@@ -217,19 +228,19 @@
     "created_utc": "2026-06-12T05:23:23",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 36,
+    "score": 35,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Marking Your Own Homework (Check Point Remote Access VPN IKEv1 Authentication Bypass CVE-2026-50751) - watchTowr Labs",
-    "updatedAt": "2026-06-13T04:46:44.044Z",
-    "upvote_ratio": 0.92,
+    "updatedAt": "2026-06-14T04:46:14.024Z",
+    "upvote_ratio": 0.9,
     "url": "https://reddit.com/r/netsec/comments/1u3m7yj/marking_your_own_homework_check_point_remote/",
     "versionList": [
       "2026.0.0",
       "50751.0.0"
     ],
-    "commentCount": 0,
+    "commentCount": 1,
     "detectedCVEs": [
       {
         "cveId": "CVE-2026-50751",
@@ -318,6 +329,89 @@
           "CVE Modified",
           "CVE CISA KEV Update"
         ]
+      },
+      {
+        "cveId": "CVE-2026-50751",
+        "cveIds": [
+          "CVE-2026-50751"
+        ],
+        "source": "Title",
+        "commentText": "Marking Your Own Homework (Check Point Remote Access VPN IKEv1 Authentication Bypass CVE-2026-50751) - watchTowr Labs",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1u3m7yj/marking_your_own_homework_check_point_remote/",
+        "commentDate": "2026-06-12T05:23:23+00:00",
+        "cvePublishedDate": "2026-06-08T12:16:32.367000+00:00",
+        "initialAnalysisDate": "2026-06-09T18:30:55.230",
+        "daysAfterPublication": 3,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-06-09T18:30:55.230 | Initial Analysis | source=nvd@nist.gov | changeId=66047A74-C872-4694-81CD-4C2CF5B95977\n   - Added CPE Configuration: OR\n          *cpe:2.3:o:checkpoint:gaia_os:*:*:*:*:*:*:*:* versions from (including) r80.40 up to (excluding) r81.20\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:-:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_10:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_101:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_103:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_105:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_111:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_113:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_115:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_118:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_119:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_120:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_122:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_126:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_127:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_14:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_141:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_24:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_26:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_38:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_41:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_43:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_45:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_53:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_54:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_65:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_70:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_76:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_79:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_8:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_84:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_89:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_90:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_92:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_96:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_98:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_99:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:-:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_10:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_103:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_12:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_14:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_18:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_19:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_25:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_33:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_34:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_36:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_39:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_41:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_43:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_44:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_60:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_73:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_91:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82.10:-:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82.10:take_19:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82.10:take_6:*:*:*:*:*:*\n   - Added CPE Configuration: AND\n     OR\n          *cpe:2.3:o:checkpoint:gaia_embedded:*:*:*:*:*:*:*:* versions from (including) r80.20.00 up to (excluding) r81.10.17\n          *cpe:2.3:o:checkpoint:gaia_embedded:r81.10.17:-:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_embedded:r81.10.17:build_996004508:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_embedded:r81.10.17:build_996004620:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_embedded:r81.10.17:build_996004653:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_embedded:r81.10.17:build_996004721:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_embedded:r81.10.17:build_996004892:*:*:*:*:*:*\n     OR\n          cpe:2.3:h:checkpoint:quantum_spark_1530:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_1550:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_1570:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_1570r:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_1590:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_1595r:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_1600:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_1800:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_1900:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_2000:-:*:*:*:*:*:*:*\n   - Added CPE Configuration: AND\n     OR\n          *cpe:2.3:o:checkpoint:gaia_embedded:*:*:*:*:*:*:*:* versions from (including) r80.20.00 up to (excluding) r82.00.10\n          *cpe:2.3:o:checkpoint:gaia_embedded:r82.00.10:-:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_embedded:r82.00.10:build_998001559:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_embedded:r82.00.10:build_998001562:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_embedded:r82.00.10:build_998002110:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_embedded:r82.00.10:build_998002112:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_embedded:r82.00.10:build_998002133:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_embedded:r82.00.10:build_998002203:*:*:*:*:*:*\n     OR\n          cpe:2.3:h:checkpoint:quantum_spark_1535:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_1555:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_1575:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_1575r:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_2530:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_2550:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_2560:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_2570:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_2580:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_2590:-:*:*:*:*:*:*:*\n   - Added Reference Type: CISA-ADP: https://blog.checkpoint.com/security/check-point-releases-important-hotfix-for-vulnerabilities-in-deprecated-ikev1-vpn-protocol/ Types: Vendor Advisory\n   - Added Reference Type: Check Point Software Technologies Ltd.: https://support.checkpoint.com/results/sk/sk185033 Types: Mitigation, Patch, Vendor Advisory\n   - Added Reference Type: CISA-ADP: https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-50751 Types: US Government Resource\n2. 2026-06-08T22:00:00.413 | CVE CISA KEV Update | source=9119a7d8-5eab-497f-8521-727c672e3725 | changeId=67BDB190-B57C-4EF2-8B14-1F8210237E60\n   - Added Date Added: 2026-06-08\n   - Added Due Date: 2026-06-08\n   - Added Required Action: 2026-06-08\n   - Added Vulnerability Name: 2026-06-08\n3. 2026-06-08T21:16:49.373 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=61D15AA0-E28A-4D06-B75E-28893BD03AD0\n   - Added Reference: https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-50751\n4. 2026-06-08T17:16:53.250 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=EB33C69B-241B-4EE8-AEFE-73E348715E15\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:L/A:N\n   - Added Reference: https://blog.checkpoint.com/security/check-point-releases-important-hotfix-for-vulnerabilities-in-deprecated-ikev1-vpn-protocol/\n5. 2026-06-08T12:16:32.367 | New CVE Received | source=cve@checkpoint.com | changeId=F598D6A5-09CB-4386-92DD-25B28C74A3E5\n   - Added Description: A logic flow weakness in Remote Access and Mobile Access certificate validation in deprecated IKEv1 key exchange allows an unauthenticated remote attacker to bypass user authentication and establish a remote access VPN connection without a valid user password.\n   - Added CWE: CWE-287\n   - Added Reference: https://support.checkpoint.com/results/sk/sk185033\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE CISA KEV Update"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-50751",
+        "cveIds": [
+          "CVE-2026-50751"
+        ],
+        "source": "Title",
+        "commentText": "Marking Your Own Homework (Check Point Remote Access VPN IKEv1 Authentication Bypass CVE-2026-50751) - watchTowr Labs",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1u3m7yj/marking_your_own_homework_check_point_remote/",
+        "commentDate": "2026-06-12T05:23:23+00:00",
+        "cvePublishedDate": "2026-06-08T12:16:32.367000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 3,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-50751",
+        "cveIds": [
+          "CVE-2026-50751"
+        ],
+        "source": "Title",
+        "commentText": "Marking Your Own Homework (Check Point Remote Access VPN IKEv1 Authentication Bypass CVE-2026-50751) - watchTowr Labs",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1u3m7yj/marking_your_own_homework_check_point_remote/",
+        "commentDate": "2026-06-12T05:23:23+00:00",
+        "cvePublishedDate": "2026-06-08T12:16:32.367000+00:00",
+        "initialAnalysisDate": "2026-06-09T18:30:55.230",
+        "daysAfterPublication": 3,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-06-09T18:30:55.230 | Initial Analysis | source=nvd@nist.gov | changeId=66047A74-C872-4694-81CD-4C2CF5B95977\n   - Added CPE Configuration: OR\n          *cpe:2.3:o:checkpoint:gaia_os:*:*:*:*:*:*:*:* versions from (including) r80.40 up to (excluding) r81.20\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:-:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_10:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_101:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_103:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_105:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_111:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_113:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_115:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_118:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_119:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_120:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_122:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_126:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_127:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_14:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_141:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_24:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_26:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_38:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_41:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_43:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_45:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_53:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_54:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_65:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_70:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_76:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_79:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_8:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_84:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_89:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_90:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_92:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_96:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_98:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_99:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:-:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_10:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_103:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_12:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_14:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_18:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_19:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_25:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_33:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_34:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_36:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_39:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_41:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_43:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_44:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_60:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_73:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_91:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82.10:-:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82.10:take_19:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82.10:take_6:*:*:*:*:*:*\n   - Added CPE Configuration: AND\n     OR\n          *cpe:2.3:o:checkpoint:gaia_embedded:*:*:*:*:*:*:*:* versions from (including) r80.20.00 up to (excluding) r81.10.17\n          *cpe:2.3:o:checkpoint:gaia_embedded:r81.10.17:-:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_embedded:r81.10.17:build_996004508:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_embedded:r81.10.17:build_996004620:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_embedded:r81.10.17:build_996004653:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_embedded:r81.10.17:build_996004721:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_embedded:r81.10.17:build_996004892:*:*:*:*:*:*\n     OR\n          cpe:2.3:h:checkpoint:quantum_spark_1530:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_1550:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_1570:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_1570r:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_1590:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_1595r:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_1600:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_1800:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_1900:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_2000:-:*:*:*:*:*:*:*\n   - Added CPE Configuration: AND\n     OR\n          *cpe:2.3:o:checkpoint:gaia_embedded:*:*:*:*:*:*:*:* versions from (including) r80.20.00 up to (excluding) r82.00.10\n          *cpe:2.3:o:checkpoint:gaia_embedded:r82.00.10:-:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_embedded:r82.00.10:build_998001559:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_embedded:r82.00.10:build_998001562:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_embedded:r82.00.10:build_998002110:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_embedded:r82.00.10:build_998002112:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_embedded:r82.00.10:build_998002133:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_embedded:r82.00.10:build_998002203:*:*:*:*:*:*\n     OR\n          cpe:2.3:h:checkpoint:quantum_spark_1535:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_1555:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_1575:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_1575r:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_2530:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_2550:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_2560:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_2570:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_2580:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_2590:-:*:*:*:*:*:*:*\n   - Added Reference Type: CISA-ADP: https://blog.checkpoint.com/security/check-point-releases-important-hotfix-for-vulnerabilities-in-deprecated-ikev1-vpn-protocol/ Types: Vendor Advisory\n   - Added Reference Type: Check Point Software Technologies Ltd.: https://support.checkpoint.com/results/sk/sk185033 Types: Mitigation, Patch, Vendor Advisory\n   - Added Reference Type: CISA-ADP: https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-50751 Types: US Government Resource\n2. 2026-06-08T22:00:00.413 | CVE CISA KEV Update | source=9119a7d8-5eab-497f-8521-727c672e3725 | changeId=67BDB190-B57C-4EF2-8B14-1F8210237E60\n   - Added Date Added: 2026-06-08\n   - Added Due Date: 2026-06-08\n   - Added Required Action: 2026-06-08\n   - Added Vulnerability Name: 2026-06-08\n3. 2026-06-08T21:16:49.373 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=61D15AA0-E28A-4D06-B75E-28893BD03AD0\n   - Added Reference: https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-50751\n4. 2026-06-08T17:16:53.250 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=EB33C69B-241B-4EE8-AEFE-73E348715E15\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:L/A:N\n   - Added Reference: https://blog.checkpoint.com/security/check-point-releases-important-hotfix-for-vulnerabilities-in-deprecated-ikev1-vpn-protocol/\n5. 2026-06-08T12:16:32.367 | New CVE Received | source=cve@checkpoint.com | changeId=F598D6A5-09CB-4386-92DD-25B28C74A3E5\n   - Added Description: A logic flow weakness in Remote Access and Mobile Access certificate validation in deprecated IKEv1 key exchange allows an unauthenticated remote attacker to bypass user authentication and establish a remote access VPN connection without a valid user password.\n   - Added CWE: CWE-287\n   - Added Reference: https://support.checkpoint.com/results/sk/sk185033\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE CISA KEV Update"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-50751",
+        "cveIds": [
+          "CVE-2026-50751"
+        ],
+        "source": "Title",
+        "commentText": "Marking Your Own Homework (Check Point Remote Access VPN IKEv1 Authentication Bypass CVE-2026-50751) - watchTowr Labs",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1u3m7yj/marking_your_own_homework_check_point_remote/",
+        "commentDate": "2026-06-12T05:23:23+00:00",
+        "cvePublishedDate": "2026-06-08T12:16:32.367000+00:00",
+        "initialAnalysisDate": "2026-06-09T18:30:55.230",
+        "daysAfterPublication": 3,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-06-09T18:30:55.230 | Initial Analysis | source=nvd@nist.gov | changeId=66047A74-C872-4694-81CD-4C2CF5B95977\n   - Added CPE Configuration: OR\n          *cpe:2.3:o:checkpoint:gaia_os:*:*:*:*:*:*:*:* versions from (including) r80.40 up to (excluding) r81.20\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:-:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_10:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_101:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_103:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_105:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_111:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_113:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_115:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_118:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_119:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_120:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_122:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_126:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_127:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_14:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_141:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_24:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_26:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_38:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_41:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_43:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_45:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_53:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_54:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_65:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_70:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_76:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_79:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_8:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_84:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_89:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_90:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_92:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_96:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_98:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r81.20:take_99:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:-:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_10:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_103:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_12:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_14:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_18:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_19:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_25:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_33:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_34:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_36:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_39:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_41:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_43:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_44:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_60:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_73:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82:take_91:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82.10:-:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82.10:take_19:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_os:r82.10:take_6:*:*:*:*:*:*\n   - Added CPE Configuration: AND\n     OR\n          *cpe:2.3:o:checkpoint:gaia_embedded:*:*:*:*:*:*:*:* versions from (including) r80.20.00 up to (excluding) r81.10.17\n          *cpe:2.3:o:checkpoint:gaia_embedded:r81.10.17:-:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_embedded:r81.10.17:build_996004508:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_embedded:r81.10.17:build_996004620:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_embedded:r81.10.17:build_996004653:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_embedded:r81.10.17:build_996004721:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_embedded:r81.10.17:build_996004892:*:*:*:*:*:*\n     OR\n          cpe:2.3:h:checkpoint:quantum_spark_1530:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_1550:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_1570:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_1570r:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_1590:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_1595r:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_1600:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_1800:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_1900:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_2000:-:*:*:*:*:*:*:*\n   - Added CPE Configuration: AND\n     OR\n          *cpe:2.3:o:checkpoint:gaia_embedded:*:*:*:*:*:*:*:* versions from (including) r80.20.00 up to (excluding) r82.00.10\n          *cpe:2.3:o:checkpoint:gaia_embedded:r82.00.10:-:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_embedded:r82.00.10:build_998001559:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_embedded:r82.00.10:build_998001562:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_embedded:r82.00.10:build_998002110:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_embedded:r82.00.10:build_998002112:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_embedded:r82.00.10:build_998002133:*:*:*:*:*:*\n          *cpe:2.3:o:checkpoint:gaia_embedded:r82.00.10:build_998002203:*:*:*:*:*:*\n     OR\n          cpe:2.3:h:checkpoint:quantum_spark_1535:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_1555:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_1575:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_1575r:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_2530:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_2550:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_2560:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_2570:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_2580:-:*:*:*:*:*:*:*\n          cpe:2.3:h:checkpoint:quantum_spark_2590:-:*:*:*:*:*:*:*\n   - Added Reference Type: CISA-ADP: https://blog.checkpoint.com/security/check-point-releases-important-hotfix-for-vulnerabilities-in-deprecated-ikev1-vpn-protocol/ Types: Vendor Advisory\n   - Added Reference Type: Check Point Software Technologies Ltd.: https://support.checkpoint.com/results/sk/sk185033 Types: Mitigation, Patch, Vendor Advisory\n   - Added Reference Type: CISA-ADP: https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-50751 Types: US Government Resource\n2. 2026-06-08T22:00:00.413 | CVE CISA KEV Update | source=9119a7d8-5eab-497f-8521-727c672e3725 | changeId=67BDB190-B57C-4EF2-8B14-1F8210237E60\n   - Added Date Added: 2026-06-08\n   - Added Due Date: 2026-06-08\n   - Added Required Action: 2026-06-08\n   - Added Vulnerability Name: 2026-06-08\n3. 2026-06-08T21:16:49.373 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=61D15AA0-E28A-4D06-B75E-28893BD03AD0\n   - Added Reference: https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-50751\n4. 2026-06-08T17:16:53.250 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=EB33C69B-241B-4EE8-AEFE-73E348715E15\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:L/A:N\n   - Added Reference: https://blog.checkpoint.com/security/check-point-releases-important-hotfix-for-vulnerabilities-in-deprecated-ikev1-vpn-protocol/\n5. 2026-06-08T12:16:32.367 | New CVE Received | source=cve@checkpoint.com | changeId=F598D6A5-09CB-4386-92DD-25B28C74A3E5\n   - Added Description: A logic flow weakness in Remote Access and Mobile Access certificate validation in deprecated IKEv1 key exchange allows an unauthenticated remote attacker to bypass user authentication and establish a remote access VPN connection without a valid user password.\n   - Added CWE: CWE-287\n   - Added Reference: https://support.checkpoint.com/results/sk/sk185033\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE CISA KEV Update"
+        ]
       }
     ],
     "author_description_sentiment": {
@@ -329,9 +423,9 @@
         "compound": 0
       }
     },
-    "category": "Neutral",
-    "comments_avg_sentiment_score": 0,
-    "sentiment_score": 0,
+    "category": "Positive",
+    "comments_avg_sentiment_score": 0.852,
+    "sentiment_score": 0.426,
     "metadata": {
       "predicted": {
         "isUpdateRelated": false,
@@ -356,7 +450,7 @@
         "id": "orcbb2k",
         "author": "scriptqzor",
         "body": "wild how many vendors still basically get to grade their own security papers and call it a day  \nprops to watchtowr for poking at the \"you’re fine, trust us\" narrative, this is the kind of stuff that actually makes everyone safer",
-        "score": 2,
+        "score": 3,
         "created_utc_ts": 1781315205,
         "created_utc": "2026-06-13T01:46:45",
         "permalink": "https://reddit.com/r/netsec/comments/1u3m7yj/marking_your_own_homework_check_point_remote/orcbb2k/",
@@ -387,15 +481,15 @@
     "created_utc": "2026-06-12T01:37:04",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 3,
+    "score": 4,
     "subreddit": "AZURE",
     "tag": "News",
     "tags": [
       "News"
     ],
     "title": "CVE-2026-5027 (Langflow Path Traversal → Unauthenticated RCE) — Active Exploitation. Who's tracking exposure in enterprise AI dev environments?",
-    "updatedAt": "2026-06-13T04:51:16.782Z",
-    "upvote_ratio": 0.62,
+    "updatedAt": "2026-06-14T04:50:53.798Z",
+    "upvote_ratio": 0.64,
     "url": "https://reddit.com/r/AZURE/comments/1u3hqco/cve20265027_langflow_path_traversal/",
     "versionList": [
       "2026.0.0",
@@ -447,23 +541,39 @@
         "id": "or153se",
         "author": "pavetheway91",
         "body": "&gt;  BUMSRAKETE is a YUUUGE kernel bug in FreeBSD. Probably the biggest. Tremendous, really.\n\nI read this with a voice of a certain president in my head",
-        "score": 24,
+        "score": 25,
         "created_utc_ts": 1781184358,
         "created_utc": "2026-06-11T13:25:58",
         "permalink": "https://reddit.com/r/freebsd/comments/1u2x6l9/bumsrakete_the_hugest_the_most_tremendous_freebsd/or153se/",
         "parent_id": "t3_1u2x6l9",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.273,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.913,
+          "pos": 0.087,
+          "compound": 0.2732
+        }
       },
       {
         "id": "or1942c",
         "author": "blobslurpbaby",
         "body": "Such a beautiful website.",
-        "score": 17,
+        "score": 15,
         "created_utc_ts": 1781185544,
         "created_utc": "2026-06-11T13:45:44",
         "permalink": "https://reddit.com/r/freebsd/comments/1u2x6l9/bumsrakete_the_hugest_the_most_tremendous_freebsd/or1942c/",
         "parent_id": "t3_1u2x6l9",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.599,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.339,
+          "pos": 0.661,
+          "compound": 0.5994
+        }
       },
       {
         "id": "or19ywr",
@@ -474,18 +584,34 @@
         "created_utc": "2026-06-11T13:49:51",
         "permalink": "https://reddit.com/r/freebsd/comments/1u2x6l9/bumsrakete_the_hugest_the_most_tremendous_freebsd/or19ywr/",
         "parent_id": "t1_or1942c",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.477,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.109,
+          "neu": 0.622,
+          "pos": 0.269,
+          "compound": 0.4767
+        }
       },
       {
         "id": "or1g041",
         "author": "ThinDrum",
         "body": "&gt; THANK YOU FOR YOUR ATTENTION TO THIS MATTER!\n\nUnmistakable.",
-        "score": 13,
+        "score": 12,
         "created_utc_ts": 1781187515,
         "created_utc": "2026-06-11T14:18:35",
         "permalink": "https://reddit.com/r/freebsd/comments/1u2x6l9/bumsrakete_the_hugest_the_most_tremendous_freebsd/or1g041/",
         "parent_id": "t1_or153se",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.655,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.599,
+          "pos": 0.401,
+          "compound": 0.6551
+        }
       },
       {
         "id": "or1kk47",
@@ -496,7 +622,15 @@
         "created_utc": "2026-06-11T14:39:45",
         "permalink": "https://reddit.com/r/freebsd/comments/1u2x6l9/bumsrakete_the_hugest_the_most_tremendous_freebsd/or1kk47/",
         "parent_id": "t3_1u2x6l9",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.477,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.383,
+          "neu": 0.617,
+          "pos": 0,
+          "compound": -0.4767
+        }
       },
       {
         "id": "or1n9dy",
@@ -507,7 +641,15 @@
         "created_utc": "2026-06-11T14:52:06",
         "permalink": "https://reddit.com/r/freebsd/comments/1u2x6l9/bumsrakete_the_hugest_the_most_tremendous_freebsd/or1n9dy/",
         "parent_id": "t3_1u2x6l9",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.458,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.7,
+          "pos": 0.3,
+          "compound": 0.4576
+        }
       },
       {
         "id": "or1vmb9",
@@ -518,7 +660,15 @@
         "created_utc": "2026-06-11T15:29:58",
         "permalink": "https://reddit.com/r/freebsd/comments/1u2x6l9/bumsrakete_the_hugest_the_most_tremendous_freebsd/or1vmb9/",
         "parent_id": "t3_1u2x6l9",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.361,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.444,
+          "pos": 0.556,
+          "compound": 0.3612
+        }
       },
       {
         "id": "or2acoq",
@@ -529,7 +679,15 @@
         "created_utc": "2026-06-11T16:35:08",
         "permalink": "https://reddit.com/r/freebsd/comments/1u2x6l9/bumsrakete_the_hugest_the_most_tremendous_freebsd/or2acoq/",
         "parent_id": "t3_1u2x6l9",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.844,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.198,
+          "pos": 0.802,
+          "compound": 0.8439
+        }
       },
       {
         "id": "or47d7q",
@@ -540,7 +698,15 @@
         "created_utc": "2026-06-11T21:43:59",
         "permalink": "https://reddit.com/r/freebsd/comments/1u2x6l9/bumsrakete_the_hugest_the_most_tremendous_freebsd/or47d7q/",
         "parent_id": "t3_1u2x6l9",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.437,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.19,
+          "neu": 0.45,
+          "pos": 0.36,
+          "compound": 0.4371
+        }
       },
       {
         "id": "or53rtf",
@@ -551,7 +717,15 @@
         "created_utc": "2026-06-12T00:44:49",
         "permalink": "https://reddit.com/r/freebsd/comments/1u2x6l9/bumsrakete_the_hugest_the_most_tremendous_freebsd/or53rtf/",
         "parent_id": "t3_1u2x6l9",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.25,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.137,
+          "neu": 0.727,
+          "pos": 0.137,
+          "compound": 0.25
+        }
       },
       {
         "id": "or54ljn",
@@ -562,7 +736,15 @@
         "created_utc": "2026-06-12T00:49:45",
         "permalink": "https://reddit.com/r/freebsd/comments/1u2x6l9/bumsrakete_the_hugest_the_most_tremendous_freebsd/or54ljn/",
         "parent_id": "t3_1u2x6l9",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.631,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.056,
+          "neu": 0.84,
+          "pos": 0.104,
+          "compound": 0.6314
+        }
       },
       {
         "id": "or56ggc",
@@ -573,7 +755,15 @@
         "created_utc": "2026-06-12T01:00:52",
         "permalink": "https://reddit.com/r/freebsd/comments/1u2x6l9/bumsrakete_the_hugest_the_most_tremendous_freebsd/or56ggc/",
         "parent_id": "t1_or53rtf",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.34,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.948,
+          "pos": 0.052,
+          "compound": 0.34
+        }
       },
       {
         "id": "or84tdy",
@@ -584,25 +774,102 @@
         "created_utc": "2026-06-12T13:28:21",
         "permalink": "https://reddit.com/r/freebsd/comments/1u2x6l9/bumsrakete_the_hugest_the_most_tremendous_freebsd/or84tdy/",
         "parent_id": "t3_1u2x6l9",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.128,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0.266,
+          "neu": 0.432,
+          "pos": 0.302,
+          "compound": 0.128
+        }
+      },
+      {
+        "id": "orduw9s",
+        "author": "Old_Hardware",
+        "body": "That could be the most intentionally hideous webpage I've seen in a very long time.  The very last line,\n\n&gt;\"© 2026 — Page intentionally written in Comic Sans. Yes, on purpose.\"\n\njust slays me since the entire page displays in some serif font (for me, at least).  Then there's this:\n\n&gt;[CVE-2026-45257: FreeBSD kTLS-RX in-place AES-GCM decrypt over sendfile(2) EXTPG mbufs to page-cache write / local root](https://seclists.org/oss-sec/2026/q2/881)\n\nLooks like it was written by James Joyce.\n\nOnly issue: it's really hard to take any of this seriously.  I think there's an actual flaw described, but it's a challenge to filter the content from the stylistic assault.",
+        "score": 2,
+        "created_utc_ts": 1781340734,
+        "created_utc": "2026-06-13T08:52:14",
+        "permalink": "https://reddit.com/r/freebsd/comments/1u2x6l9/bumsrakete_the_hugest_the_most_tremendous_freebsd/orduw9s/",
+        "parent_id": "t3_1u2x6l9",
+        "is_submitter": false,
+        "sentiment_score": -0.604,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.075,
+          "neu": 0.877,
+          "pos": 0.048,
+          "compound": -0.6038
+        }
+      },
+      {
+        "id": "ore63i8",
+        "author": "grahamperrin",
+        "body": "&gt; … the entire page displays in some serif font (for me, at least). …\n\nWell spotted. \n\nI had [Enforce Browser Fonts](https://addons.mozilla.org/addon/enforce-browser-fonts/) enabled for the site. Do you have something similar?",
+        "score": 2,
+        "created_utc_ts": 1781346747,
+        "created_utc": "2026-06-13T10:32:27",
+        "permalink": "https://reddit.com/r/freebsd/comments/1u2x6l9/bumsrakete_the_hugest_the_most_tremendous_freebsd/ore63i8/",
+        "parent_id": "t1_orduw9s",
+        "is_submitter": false,
+        "sentiment_score": 0.273,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.928,
+          "pos": 0.072,
+          "compound": 0.2732
+        }
+      },
+      {
+        "id": "ore71b1",
+        "author": "grahamperrin",
+        "body": "&gt; … like it was written by James Joyce. …\n\nI recently read [The Beast in the Jungle](https://www.gutenberg.org/files/1093/1093-h/1093-h.htm) by Henry James. Over a few days, on sunny afternoons in my local park. A Penguin *Modern Classics* promotional copy, only 75 pages, I imagined that it would short, sweet and deep. I have no particular objection to archaic styles of writing, but I deeply longed for The End. Verdict: *The Ennui in the Community Garden*.",
+        "score": 2,
+        "created_utc_ts": 1781347211,
+        "created_utc": "2026-06-13T10:40:11",
+        "permalink": "https://reddit.com/r/freebsd/comments/1u2x6l9/bumsrakete_the_hugest_the_most_tremendous_freebsd/ore71b1/",
+        "parent_id": "t1_orduw9s",
+        "is_submitter": false,
+        "sentiment_score": 0.285,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.061,
+          "neu": 0.834,
+          "pos": 0.105,
+          "compound": 0.2846
+        }
       }
     ],
     "created_utc": "2026-06-11T12:06:05",
     "first_author_comment": null,
-    "num_comments": 15,
-    "score": 89,
+    "num_comments": 19,
+    "score": 98,
     "subreddit": "freebsd",
     "tag": "fluff",
     "tags": [
       "fluff"
     ],
     "title": "BUMSRAKETE™ – The HUGEST, the MOST TREMENDOUS FreeBSD page-cache write primitive in the history of computing.",
-    "updatedAt": "2026-06-13T05:02:59.643Z",
+    "updatedAt": "2026-06-14T00:35:28.244Z",
     "upvote_ratio": 0.97,
     "url": "https://reddit.com/r/freebsd/comments/1u2x6l9/bumsrakete_the_hugest_the_most_tremendous_freebsd/",
     "versionList": [],
     "isAboutCve": false,
-    "isAboutLatestUpdate": false
+    "isAboutLatestUpdate": false,
+    "author_description_sentiment": {
+      "score": 0,
+      "detail": {
+        "neg": 0,
+        "neu": 0,
+        "pos": 0,
+        "compound": 0
+      }
+    },
+    "category": "Neutral",
+    "comments_avg_sentiment_score": 0.308,
+    "sentiment_score": 0.154
   },
   {
     "_id": "6a2a04d7c08e7acc03531688",
@@ -1361,7 +1628,7 @@
     "tag": "Whine / Complaint",
     "tags": [],
     "title": "Another Critical Security Advisory",
-    "updatedAt": "2026-06-13T00:33:24.822Z",
+    "updatedAt": "2026-06-14T00:37:31.661Z",
     "upvote_ratio": 0.67,
     "url": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/",
     "versionList": [],
@@ -1412,7 +1679,7 @@
       "Question"
     ],
     "title": "XP SP3 systems not getting AD Group Policies",
-    "updatedAt": "2026-06-13T00:36:24.051Z",
+    "updatedAt": "2026-06-14T00:40:25.994Z",
     "upvote_ratio": 0.48,
     "url": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/",
     "versionList": [],
@@ -1575,6 +1842,84 @@
         "eventNamesBeforeAnalysis": [
           "New CVE Received"
         ]
+      },
+      {
+        "cveId": "CVE-2026-20833",
+        "cveIds": [
+          "CVE-2026-20833",
+          "CVE-2026-20833"
+        ],
+        "source": "Comment",
+        "commentText": "Microsoft reading: [https://support.microsoft.com/en-us/topic/how-to-manage-kerberos-kdc-usage-of-rc4-for-service-account-ticket-issuance-changes-related-to-cve-2026-20833-1ebcda33-720a-4da8-93c1-b0496e1910dc](https://support.microsoft.com/en-us/topic/how-to-manage-kerberos-kdc-usage-of-rc4-for-service-account-ticket-issuance-changes-related-to-cve-2026-20833-1ebcda33-720a-4da8-93c1-b0496e1910dc)",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oquv0h8/",
+        "commentDate": "2026-06-10T15:41:34+00:00",
+        "cvePublishedDate": "2026-01-13T18:16:11.320000+00:00",
+        "initialAnalysisDate": "2026-01-15T14:40:20.963",
+        "daysAfterPublication": 147,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-01-15T14:40:20.963 | Initial Analysis | source=nvd@nist.gov | changeId=1ABC7FD6-156A-450E-A226-FC42DE4A72DF\n   - Added CPE Configuration: OR\n          *cpe:2.3:o:microsoft:windows_server_2008:r2:sp1:*:*:*:*:x64:*\n          *cpe:2.3:o:microsoft:windows_server_2012:r2:*:*:*:*:*:*:*\n          *cpe:2.3:o:microsoft:windows_server_2012:-:*:*:*:*:*:*:*\n          *cpe:2.3:o:microsoft:windows_server_2008:-:sp2:*:*:*:*:x64:*\n          *cpe:2.3:o:microsoft:windows_server_2008:-:sp2:*:*:*:*:x86:*\n          *cpe:2.3:o:microsoft:windows_server_2016:*:*:*:*:*:*:*:* versions up to (excluding) 10.0.14393.8783\n          *cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:*:*:*:* versions up to (excluding) 10.0.17763.8276\n          *cpe:2.3:o:microsoft:windows_server_2022:*:*:*:*:*:*:*:* versions up to (excluding) 10.0.20348.4648\n          *cpe:2.3:o:microsoft:windows_server_2022_23h2:*:*:*:*:*:*:*:* versions up to (excluding) 10.0.25398.2092\n          *cpe:2.3:o:microsoft:windows_server_2025:*:*:*:*:*:*:*:* versions up to (excluding) 10.0.26100.32230\n   - Added Reference Type: Microsoft Corporation: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-20833 Types: Vendor Advisory\n2. 2026-01-13T18:16:11.320 | New CVE Received | source=secure@microsoft.com | changeId=CA6A6931-BF65-4902-9561-C6D7AF8E3287\n   - Added Description: Use of a broken or risky cryptographic algorithm in Windows Kerberos allows an authorized attacker to disclose information locally.\n   - Added CVSS V3.1: AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N\n   - Added CWE: CWE-327\n   - Added Reference: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-20833\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-20833",
+        "cveIds": [
+          "CVE-2026-20833",
+          "CVE-2026-20833"
+        ],
+        "source": "Comment",
+        "commentText": "Microsoft reading: [https://support.microsoft.com/en-us/topic/how-to-manage-kerberos-kdc-usage-of-rc4-for-service-account-ticket-issuance-changes-related-to-cve-2026-20833-1ebcda33-720a-4da8-93c1-b0496e1910dc](https://support.microsoft.com/en-us/topic/how-to-manage-kerberos-kdc-usage-of-rc4-for-service-account-ticket-issuance-changes-related-to-cve-2026-20833-1ebcda33-720a-4da8-93c1-b0496e1910dc)",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oquv0h8/",
+        "commentDate": "2026-06-10T15:41:34+00:00",
+        "cvePublishedDate": "2026-01-13T18:16:11.320000+00:00",
+        "initialAnalysisDate": "2026-01-15T14:40:20.963",
+        "daysAfterPublication": 147,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-01-15T14:40:20.963 | Initial Analysis | source=nvd@nist.gov | changeId=1ABC7FD6-156A-450E-A226-FC42DE4A72DF\n   - Added CPE Configuration: OR\n          *cpe:2.3:o:microsoft:windows_server_2008:r2:sp1:*:*:*:*:x64:*\n          *cpe:2.3:o:microsoft:windows_server_2012:r2:*:*:*:*:*:*:*\n          *cpe:2.3:o:microsoft:windows_server_2012:-:*:*:*:*:*:*:*\n          *cpe:2.3:o:microsoft:windows_server_2008:-:sp2:*:*:*:*:x64:*\n          *cpe:2.3:o:microsoft:windows_server_2008:-:sp2:*:*:*:*:x86:*\n          *cpe:2.3:o:microsoft:windows_server_2016:*:*:*:*:*:*:*:* versions up to (excluding) 10.0.14393.8783\n          *cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:*:*:*:* versions up to (excluding) 10.0.17763.8276\n          *cpe:2.3:o:microsoft:windows_server_2022:*:*:*:*:*:*:*:* versions up to (excluding) 10.0.20348.4648\n          *cpe:2.3:o:microsoft:windows_server_2022_23h2:*:*:*:*:*:*:*:* versions up to (excluding) 10.0.25398.2092\n          *cpe:2.3:o:microsoft:windows_server_2025:*:*:*:*:*:*:*:* versions up to (excluding) 10.0.26100.32230\n   - Added Reference Type: Microsoft Corporation: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-20833 Types: Vendor Advisory\n2. 2026-01-13T18:16:11.320 | New CVE Received | source=secure@microsoft.com | changeId=CA6A6931-BF65-4902-9561-C6D7AF8E3287\n   - Added Description: Use of a broken or risky cryptographic algorithm in Windows Kerberos allows an authorized attacker to disclose information locally.\n   - Added CVSS V3.1: AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N\n   - Added CWE: CWE-327\n   - Added Reference: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-20833\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-20833",
+        "cveIds": [
+          "CVE-2026-20833",
+          "CVE-2026-20833"
+        ],
+        "source": "Comment",
+        "commentText": "Microsoft reading: [https://support.microsoft.com/en-us/topic/how-to-manage-kerberos-kdc-usage-of-rc4-for-service-account-ticket-issuance-changes-related-to-cve-2026-20833-1ebcda33-720a-4da8-93c1-b0496e1910dc](https://support.microsoft.com/en-us/topic/how-to-manage-kerberos-kdc-usage-of-rc4-for-service-account-ticket-issuance-changes-related-to-cve-2026-20833-1ebcda33-720a-4da8-93c1-b0496e1910dc)",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oquv0h8/",
+        "commentDate": "2026-06-10T15:41:34+00:00",
+        "cvePublishedDate": "2026-01-13T18:16:11.320000+00:00",
+        "initialAnalysisDate": "2026-01-15T14:40:20.963",
+        "daysAfterPublication": 147,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-01-15T14:40:20.963 | Initial Analysis | source=nvd@nist.gov | changeId=1ABC7FD6-156A-450E-A226-FC42DE4A72DF\n   - Added CPE Configuration: OR\n          *cpe:2.3:o:microsoft:windows_server_2008:r2:sp1:*:*:*:*:x64:*\n          *cpe:2.3:o:microsoft:windows_server_2012:r2:*:*:*:*:*:*:*\n          *cpe:2.3:o:microsoft:windows_server_2012:-:*:*:*:*:*:*:*\n          *cpe:2.3:o:microsoft:windows_server_2008:-:sp2:*:*:*:*:x64:*\n          *cpe:2.3:o:microsoft:windows_server_2008:-:sp2:*:*:*:*:x86:*\n          *cpe:2.3:o:microsoft:windows_server_2016:*:*:*:*:*:*:*:* versions up to (excluding) 10.0.14393.8783\n          *cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:*:*:*:* versions up to (excluding) 10.0.17763.8276\n          *cpe:2.3:o:microsoft:windows_server_2022:*:*:*:*:*:*:*:* versions up to (excluding) 10.0.20348.4648\n          *cpe:2.3:o:microsoft:windows_server_2022_23h2:*:*:*:*:*:*:*:* versions up to (excluding) 10.0.25398.2092\n          *cpe:2.3:o:microsoft:windows_server_2025:*:*:*:*:*:*:*:* versions up to (excluding) 10.0.26100.32230\n   - Added Reference Type: Microsoft Corporation: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-20833 Types: Vendor Advisory\n2. 2026-01-13T18:16:11.320 | New CVE Received | source=secure@microsoft.com | changeId=CA6A6931-BF65-4902-9561-C6D7AF8E3287\n   - Added Description: Use of a broken or risky cryptographic algorithm in Windows Kerberos allows an authorized attacker to disclose information locally.\n   - Added CVSS V3.1: AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N\n   - Added CWE: CWE-327\n   - Added Reference: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-20833\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-20833",
+        "cveIds": [
+          "CVE-2026-20833",
+          "CVE-2026-20833"
+        ],
+        "source": "Comment",
+        "commentText": "Microsoft reading: [https://support.microsoft.com/en-us/topic/how-to-manage-kerberos-kdc-usage-of-rc4-for-service-account-ticket-issuance-changes-related-to-cve-2026-20833-1ebcda33-720a-4da8-93c1-b0496e1910dc](https://support.microsoft.com/en-us/topic/how-to-manage-kerberos-kdc-usage-of-rc4-for-service-account-ticket-issuance-changes-related-to-cve-2026-20833-1ebcda33-720a-4da8-93c1-b0496e1910dc)",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/oquv0h8/",
+        "commentDate": "2026-06-10T15:41:34+00:00",
+        "cvePublishedDate": "2026-01-13T18:16:11.320000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 147,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
       },
       {
         "cveId": "CVE-2026-20833",
@@ -2459,13 +2804,13 @@
     "created_utc": "2026-06-10T00:54:34",
     "first_author_comment": null,
     "num_comments": 3,
-    "score": 41,
+    "score": 40,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "More Evidence That Words Don't Mean What We Thought They Meant (Ivanti Sentry Pre-Auth OS Command Injection CVE-2026-10520) - watchTowr Labs",
-    "updatedAt": "2026-06-13T04:46:50.067Z",
-    "upvote_ratio": 0.88,
+    "updatedAt": "2026-06-14T04:46:19.768Z",
+    "upvote_ratio": 0.86,
     "url": "https://reddit.com/r/netsec/comments/1u1neao/more_evidence_that_words_dont_mean_what_we/",
     "versionList": [
       "2026.0.0",
@@ -2507,7 +2852,7 @@
         "id": "oqwo8te",
         "author": "GruePwnr",
         "body": "A bit too much sauce on the prose, I want information not entertainment.",
-        "score": 1,
+        "score": 2,
         "created_utc_ts": 1781123277,
         "created_utc": "2026-06-10T20:27:57",
         "permalink": "https://reddit.com/r/netsec/comments/1u1neao/more_evidence_that_words_dont_mean_what_we/oqwo8te/",
@@ -2518,7 +2863,7 @@
         "id": "or0q556",
         "author": "Allen_Koholic",
         "body": "Who wrote this? ",
-        "score": 0,
+        "score": 1,
         "created_utc_ts": 1781179502,
         "created_utc": "2026-06-11T12:05:02",
         "permalink": "https://reddit.com/r/netsec/comments/1u1neao/more_evidence_that_words_dont_mean_what_we/or0q556/",
@@ -2537,8 +2882,8 @@
         "is_submitter": false
       }
     ],
-    "comments_avg_sentiment_score": -0.129,
-    "sentiment_score": -0.064
+    "comments_avg_sentiment_score": 0.178,
+    "sentiment_score": 0.089
   },
   {
     "_id": "6a2cc858c08e7acc0353e423",
@@ -2546,17 +2891,143 @@
     "author": "mirror176",
     "author_description": "In short, few users can justify not installing these updates immediately.\n\n&lt;edit:Formal pages released. I added brief summary notes here&gt;.\n\n[https://www.freebsd.org/security/advisories/](https://www.freebsd.org/security/advisories/)\n\n[https://www.freebsd.org/security/notices/](https://www.freebsd.org/security/notices/)\n\n* EN-26:14.syslogd (memory leak; workaround is restart syslogd to reclaim unreleased memory)\n* EN-26:15.openssl (errata is about security and bug fixes and covers unrelated ones to SA-26:35; not sure why this is EN and not SA but says its limited to a crash or denial of service so assume its just being considered bugs and not security issues/exploits, no workaround given)\n* SA-26:25.thr (unprivileged users can send any process+thread any signal if they know or can guess the proper process+thread ID; this can cross in/out past jails as IDs are globally handled. Result is any process can be stopped or killed by an attacker. No workaround)\n* SA-26:26.ktls (users who can read a file can actually write to that file despite permissions; full control of system can be gained if they can read+modify a file such as a setuid and I'd assume they can just change the system into whatever they want as long as they can read the necessary parts they would replace. no workaround)\n* SA-26:27.sound (unprivileged local user can read+write kernel memory; anything from crashes to full escalation of privileges are possible. no workaround but only impacts systems with sound devices)\n* SA-26:28.capsicum (processes in capability mode could send signals to other processes outside the sandbox. no workaround)\n* SA-26:29.ip6\\_multicast (use after free could be used to escalate privileges)\n* SA-26:30.linux (unprivileged local user can inject a shared library via LD_PRELOAD into\na set-user-ID/set-group-ID Linux binary and gain the privileges of that\nbinary. No workaround but only applies to systems with linux.ko, linux64.ko loaded and have Linux executables with the set-uid/set-gid bits set)\n* SA-26:31.arm64 (privilege escalation: software allowed to write to a previously writable location after the page table is modified to forbid writes to that location. No workaround, only impacts specific CPUs)\n* SA-26:32.elf (Unprivileged local user can disable ASLR for a setuid PIE binary. Exploitation of separate memory corruption vulnerabilities in that binary become significantly easier. No workaround)\n* SA-26:33.unbound (Many issues documented upstream: denial of service through resource exhaustion / crashes to possible remote code execution. No workaround but only impacts users of local_unbound service)\n* SA-26:34.vt (unprivileged local user with access to a vt(4) device can trigger an\nout-of-bounds write in the kernel, potentially escalating privileges. No workaround. Not stated but I assume this doesn't apply to the scons users but that is not an option for UEFI users and is planned for removal if it didn't yet happen)\n* SA-26:35.openssl (Many issues documented upstream: denial of service to potential remote code execution. no workaround)\n* SA-26:36.ldns (UDP packets can be forged as UDP responses that ldns will accept as genuine causing arbitrary DNS data to be injected into workflows. No workaround)\n\nLatest OpenSSL specific commits per branch (fixes covered varies some per branch). You can view other changes to the branches by deleting the ?id=\\* part of the URL.&lt;edit&gt; and change 'commit' to 'log'; easier to just click on 'log' but you still need to delete the id to make sure you see all commits to the branch.&lt;/edit&gt; These OpenSSL updates hit different trees at different times varying from today to days ago.\n\n[https://cgit.freebsd.org/src/commit/?id=e508c3431d8e1ace6118e150837a0d0d67f1672a](https://cgit.freebsd.org/src/commit/?id=e508c3431d8e1ace6118e150837a0d0d67f1672a)\n\n[https://cgit.freebsd.org/src/commit/?h=stable/15&amp;id=865c8ff56693db508513599cf1e03e9c612cbce2](https://cgit.freebsd.org/src/commit/?h=stable/15&amp;id=865c8ff56693db508513599cf1e03e9c612cbce2)\n\n[https://cgit.freebsd.org/src/commit/?h=releng/15.1&amp;id=083bb80a125a5f61c07000e73d0ddb19dd248978](https://cgit.freebsd.org/src/commit/?h=releng/15.1&amp;id=083bb80a125a5f61c07000e73d0ddb19dd248978)\n\n[https://cgit.freebsd.org/src/commit/?h=releng/15.0&amp;id=0d6ccbb7524f150422861c96a87de01ab171e1d0](https://cgit.freebsd.org/src/commit/?h=releng/15.0&amp;id=0d6ccbb7524f150422861c96a87de01ab171e1d0)\n\n[https://cgit.freebsd.org/src/commit/?h=stable/14&amp;id=ec6bfa889b839645961113344186b85ed8477f48](https://cgit.freebsd.org/src/commit/?h=stable/14&amp;id=ec6bfa889b839645961113344186b85ed8477f48)\n\n[https://cgit.freebsd.org/src/commit/?h=releng/14.4&amp;id=1929d9e173e5c959be4343ddc68f75f28ac88e5c](https://cgit.freebsd.org/src/commit/?h=releng/14.4&amp;id=1929d9e173e5c959be4343ddc68f75f28ac88e5c)\n\n[https://cgit.freebsd.org/src/commit/?h=releng/14.3&amp;id=dd3096b4efe6e6b821624ede869a182e7936fc80](https://cgit.freebsd.org/src/commit/?h=releng/14.3&amp;id=dd3096b4efe6e6b821624ede869a182e7936fc80)\n\nOnly update recently to 13 was [https://cgit.freebsd.org/src/commit/?h=stable/13&amp;id=b1ad74074d4d5139106680ac766348f5d8b6873a](https://cgit.freebsd.org/src/commit/?h=stable/13&amp;id=b1ad74074d4d5139106680ac766348f5d8b6873a) so I'm not sure if it was applied as a courtesy because it applied cleanly or for other reasons but seems users of 13 may want to watch this information and update if relevant. &lt;edit: Nope, was not mentioned in expected SA&gt;\n\nUsers of other versions should likely update their systems, of if unable then you may want to evaluate if these updates are important to manually try to modify/apply, shut down or block services, or switch to updated or nonvulnerable alternatives from ports (packages likely don't exist on main repositories).\n\nI hope everyone working on finding/understanding and fixing+documenting theses issues sleeps better at night. Despite the work you give me with updating its usually kept clear why its an issue, what (if anything) should be done and how to do it. Undocumented breakage happens so rarely as a result that I'm relaxed whenever I see advisories give me work to do and always appreciate it.\n\n&lt;edit: this was from when my notes were out before formal announcements&gt; I assume that all the trees publicly getting some fixes and having files referencing the advisory files before release makes it okay to draw some attention to the updates coming. If I should always wait for formal announcement of such issues before bringing them up then I apologize but do let me know.",
     "awards": [],
+    "created_utc": "2026-06-09T22:16:37",
+    "first_author_comment": "I had 1062 ports out of 3200 to go on my major update I was building for; as I didn't have 'some' of these fixes it seems I'm doing a system update as a few of these issues are things I do not want lurking on my system. Then its back to building for me.",
+    "num_comments": 13,
+    "score": 22,
+    "subreddit": "freebsd",
+    "tag": "discussion",
+    "tags": [
+      "discussion"
+    ],
+    "title": "Upcoming security advisories and errata, hopefully soon.",
+    "updatedAt": "2026-06-14T00:42:57.072Z",
+    "upvote_ratio": 0.96,
+    "url": "https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/",
+    "versionList": [],
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true,
+    "commentCount": 11,
+    "detectedCVEs": [
+      {
+        "cveId": "CVE-2025-10263",
+        "cveIds": [
+          "CVE-2025-10263",
+          "CVE-2025-10263"
+        ],
+        "source": "Comment",
+        "commentText": "****\n\nFreeBSD bug [295488 - syslogd: memory leak in casper_ttymsg\\(\\) via nvlist_take_string_array](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=295488)\n\n* FreeBSD-EN-26:14.syslogd\n\n[**CVE-2025-10263**](https://www.cve.org/CVERecord?id=CVE-2025-10263)\n\n* identified by Arm\n* FreeBSD-SA-26:31.arm64\n* [Arm C1-Ultra, C1-Premium, Neoverse V3 & V3AE, Neoverse V2...",
+        "linkToComment": "https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/oqs062g/",
+        "commentDate": "2026-06-10T04:31:34+00:00",
+        "cvePublishedDate": "2026-06-09T10:16:33.003000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2025-10263",
+        "cveIds": [
+          "CVE-2025-10263",
+          "CVE-2025-10263"
+        ],
+        "source": "Comment",
+        "commentText": "****\n\nFreeBSD bug [295488 - syslogd: memory leak in casper_ttymsg\\(\\) via nvlist_take_string_array](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=295488)\n\n* FreeBSD-EN-26:14.syslogd\n\n[**CVE-2025-10263**](https://www.cve.org/CVERecord?id=CVE-2025-10263)\n\n* identified by Arm\n* FreeBSD-SA-26:31.arm64\n* [Arm C1-Ultra, C1-Premium, Neoverse V3 & V3AE, Neoverse V2...",
+        "linkToComment": "https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/oqs062g/",
+        "commentDate": "2026-06-10T04:31:34+00:00",
+        "cvePublishedDate": "2026-06-09T10:16:33.003000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-06-09T17:16:56.930 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=D7D3727E-4BD1-4C6B-AAE5-851CB8D87076\n   - Added Reference: http://www.openwall.com/lists/oss-security/2026/06/09/13\n2. 2026-06-09T16:16:34.680 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=E6493829-2226-4DA8-89A0-711673686C24\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N\n3. 2026-06-09T14:16:33.773 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=B2D8318F-BE57-4194-9087-C5CA57ACF612\n   - Added Reference: http://xenbits.xen.org/xsa/advisory-493.html\n4. 2026-06-09T10:16:33.003 | New CVE Received | source=arm-security@arm.com | changeId=EDFD27D0-2C28-4D8B-99C4-B0F22C1F38C3\n   - Added Description: Arm C1-Ultra, C1-Premium, Neoverse V3 & V3AE, Neoverse V2, Neoverse V1, Neoverse-N2, Neoverse-N1, Cortex-X925, Cortex-X4, Cortex-X3, Cortex-X2, Cortex-X1 & X1C, Cortex-A710, Cortex-A78, A78AE & A78C, Cortex-A77, Cortex-A76 & A76A may allow writes to resources owned by a higher exception level.\n   - Added CWE: CWE-362\n   - Added Reference: https://developer.arm.com/documentation/112137\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2025-10263",
+        "cveIds": [
+          "CVE-2025-10263",
+          "CVE-2025-10263"
+        ],
+        "source": "Comment",
+        "commentText": "****\n\nFreeBSD bug [295488 - syslogd: memory leak in casper_ttymsg\\(\\) via nvlist_take_string_array](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=295488)\n\n* FreeBSD-EN-26:14.syslogd\n\n[**CVE-2025-10263**](https://www.cve.org/CVERecord?id=CVE-2025-10263)\n\n* identified by Arm\n* FreeBSD-SA-26:31.arm64\n* [Arm C1-Ultra, C1-Premium, Neoverse V3 & V3AE, Neoverse V2...",
+        "linkToComment": "https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/oqs062g/",
+        "commentDate": "2026-06-10T04:31:34+00:00",
+        "cvePublishedDate": "2026-06-09T10:16:33.003000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-06-09T17:16:56.930 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=D7D3727E-4BD1-4C6B-AAE5-851CB8D87076\n   - Added Reference: http://www.openwall.com/lists/oss-security/2026/06/09/13\n2. 2026-06-09T16:16:34.680 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=E6493829-2226-4DA8-89A0-711673686C24\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N\n3. 2026-06-09T14:16:33.773 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=B2D8318F-BE57-4194-9087-C5CA57ACF612\n   - Added Reference: http://xenbits.xen.org/xsa/advisory-493.html\n4. 2026-06-09T10:16:33.003 | New CVE Received | source=arm-security@arm.com | changeId=EDFD27D0-2C28-4D8B-99C4-B0F22C1F38C3\n   - Added Description: Arm C1-Ultra, C1-Premium, Neoverse V3 & V3AE, Neoverse V2, Neoverse V1, Neoverse-N2, Neoverse-N1, Cortex-X925, Cortex-X4, Cortex-X3, Cortex-X2, Cortex-X1 & X1C, Cortex-A710, Cortex-A78, A78AE & A78C, Cortex-A77, Cortex-A76 & A76A may allow writes to resources owned by a higher exception level.\n   - Added CWE: CWE-362\n   - Added Reference: https://developer.arm.com/documentation/112137\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2025-10263",
+        "cveIds": [
+          "CVE-2025-10263",
+          "CVE-2025-10263"
+        ],
+        "source": "Comment",
+        "commentText": "****\n\nFreeBSD bug [295488 - syslogd: memory leak in casper_ttymsg\\(\\) via nvlist_take_string_array](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=295488)\n\n* FreeBSD-EN-26:14.syslogd\n\n[**CVE-2025-10263**](https://www.cve.org/CVERecord?id=CVE-2025-10263)\n\n* identified by Arm\n* FreeBSD-SA-26:31.arm64\n* [Arm C1-Ultra, C1-Premium, Neoverse V3 & V3AE, Neoverse V2...",
+        "linkToComment": "https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/oqs062g/",
+        "commentDate": "2026-06-10T04:31:34+00:00",
+        "cvePublishedDate": "2026-06-09T10:16:33.003000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-06-09T17:16:56.930 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=D7D3727E-4BD1-4C6B-AAE5-851CB8D87076\n   - Added Reference: http://www.openwall.com/lists/oss-security/2026/06/09/13\n2. 2026-06-09T16:16:34.680 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=E6493829-2226-4DA8-89A0-711673686C24\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N\n3. 2026-06-09T14:16:33.773 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=B2D8318F-BE57-4194-9087-C5CA57ACF612\n   - Added Reference: http://xenbits.xen.org/xsa/advisory-493.html\n4. 2026-06-09T10:16:33.003 | New CVE Received | source=arm-security@arm.com | changeId=EDFD27D0-2C28-4D8B-99C4-B0F22C1F38C3\n   - Added Description: Arm C1-Ultra, C1-Premium, Neoverse V3 & V3AE, Neoverse V2, Neoverse V1, Neoverse-N2, Neoverse-N1, Cortex-X925, Cortex-X4, Cortex-X3, Cortex-X2, Cortex-X1 & X1C, Cortex-A710, Cortex-A78, A78AE & A78C, Cortex-A77, Cortex-A76 & A76A may allow writes to resources owned by a higher exception level.\n   - Added CWE: CWE-362\n   - Added Reference: https://developer.arm.com/documentation/112137\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      }
+    ],
+    "author_description_sentiment": {
+      "score": 0.979,
+      "detail": {
+        "neg": 0.07,
+        "neu": 0.824,
+        "pos": 0.106,
+        "compound": 0.9794
+      }
+    },
+    "category": "Positive",
+    "comments_avg_sentiment_score": 0.424,
+    "sentiment_score": 0.702,
     "comments": [
       {
         "id": "oqreijs",
         "author": "mirror176",
         "body": "I had 1062 ports out of 3200 to go on my major update I was building for; as I didn't have 'some' of these fixes it seems I'm doing a system update as a few of these issues are things I do not want lurking on my system. Then its back to building for me.",
-        "score": 4,
+        "score": 5,
         "created_utc_ts": 1781057622,
         "created_utc": "2026-06-10T02:13:42",
         "permalink": "https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/oqreijs/",
         "parent_id": "t3_1u1jpl9",
-        "is_submitter": true
+        "is_submitter": true,
+        "sentiment_score": 0.038,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0.025,
+          "neu": 0.948,
+          "pos": 0.028,
+          "compound": 0.0382
+        }
       },
       {
         "id": "oqs062g",
@@ -2567,7 +3038,15 @@
         "created_utc": "2026-06-10T04:31:34",
         "permalink": "https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/oqs062g/",
         "parent_id": "t3_1u1jpl9",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.565,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.006,
+          "neu": 0.979,
+          "pos": 0.015,
+          "compound": 0.565
+        }
       },
       {
         "id": "oqsr5nb",
@@ -2578,7 +3057,15 @@
         "created_utc": "2026-06-10T08:08:52",
         "permalink": "https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/oqsr5nb/",
         "parent_id": "t3_1u1jpl9",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.878,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.034,
+          "neu": 0.769,
+          "pos": 0.197,
+          "compound": 0.8779
+        }
       },
       {
         "id": "oqsuyyx",
@@ -2589,7 +3076,15 @@
         "created_utc": "2026-06-10T08:42:20",
         "permalink": "https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/oqsuyyx/",
         "parent_id": "t3_1u1jpl9",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.765,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.921,
+          "pos": 0.079,
+          "compound": 0.765
+        }
       },
       {
         "id": "oqsw7x3",
@@ -2600,7 +3095,15 @@
         "created_utc": "2026-06-10T08:53:11",
         "permalink": "https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/oqsw7x3/",
         "parent_id": "t3_1u1jpl9",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.557,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.02,
+          "neu": 0.913,
+          "pos": 0.067,
+          "compound": 0.5574
+        }
       },
       {
         "id": "oqtp9af",
@@ -2611,7 +3114,15 @@
         "created_utc": "2026-06-10T12:22:12",
         "permalink": "https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/oqtp9af/",
         "parent_id": "t1_oqsuyyx",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.34,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.037,
+          "neu": 0.878,
+          "pos": 0.084,
+          "compound": 0.34
+        }
       },
       {
         "id": "oqwa3cg",
@@ -2622,7 +3133,15 @@
         "created_utc": "2026-06-10T19:23:59",
         "permalink": "https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/oqwa3cg/",
         "parent_id": "t3_1u1jpl9",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "oqxo5s5",
@@ -2633,7 +3152,15 @@
         "created_utc": "2026-06-10T23:29:20",
         "permalink": "https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/oqxo5s5/",
         "parent_id": "t1_oqwa3cg",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.25,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.144,
+          "neu": 0.712,
+          "pos": 0.144,
+          "compound": 0.25
+        }
       },
       {
         "id": "oqxwcet",
@@ -2644,7 +3171,15 @@
         "created_utc": "2026-06-11T00:16:29",
         "permalink": "https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/oqxwcet/",
         "parent_id": "t1_oqwa3cg",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.867,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.76,
+          "pos": 0.24,
+          "compound": 0.8665
+        }
       },
       {
         "id": "orcwi5i",
@@ -2655,25 +3190,36 @@
         "created_utc": "2026-06-13T04:02:31",
         "permalink": "https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/orcwi5i/",
         "parent_id": "t3_1u1jpl9",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
+      },
+      {
+        "id": "orddj4v",
+        "author": "grahamperrin",
+        "body": "Yes, for 15.0. \n\n&gt; …\n&gt; \n&gt; `cve.org` links are also available in the patch level table at https://bokut.in/freebsd-patch-level-table/.\n\n&lt;https://bokut.in/freebsd-patch-level-table/#releng/15.0&gt;",
+        "score": 2,
+        "created_utc_ts": 1781331473,
+        "created_utc": "2026-06-13T06:17:53",
+        "permalink": "https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/orddj4v/",
+        "parent_id": "t1_orcwi5i",
+        "is_submitter": false,
+        "sentiment_score": 0.402,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.87,
+          "pos": 0.13,
+          "compound": 0.4019
+        }
       }
-    ],
-    "created_utc": "2026-06-09T22:16:37",
-    "first_author_comment": "I had 1062 ports out of 3200 to go on my major update I was building for; as I didn't have 'some' of these fixes it seems I'm doing a system update as a few of these issues are things I do not want lurking on my system. Then its back to building for me.",
-    "num_comments": 12,
-    "score": 22,
-    "subreddit": "freebsd",
-    "tag": "discussion",
-    "tags": [
-      "discussion"
-    ],
-    "title": "Upcoming security advisories and errata, hopefully soon.",
-    "updatedAt": "2026-06-13T05:03:05.122Z",
-    "upvote_ratio": 0.96,
-    "url": "https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/",
-    "versionList": [],
-    "isAboutCve": true,
-    "isAboutLatestUpdate": true
+    ]
   },
   {
     "_id": "6a28760e9dc5fd763982ec1e",
@@ -2997,7 +3543,7 @@
       "Microsoft"
     ],
     "title": "Microsoft has released a patch for the bitlocker bypass",
-    "updatedAt": "2026-06-13T00:39:53.668Z",
+    "updatedAt": "2026-06-14T00:43:52.555Z",
     "upvote_ratio": 0.98,
     "url": "https://reddit.com/r/sysadmin/comments/1u1dlpy/microsoft_has_released_a_patch_for_the_bitlocker/",
     "versionList": [],
@@ -3126,7 +3672,7 @@
       "General Discussion"
     ],
     "title": "Top enterprise CVEs from last week worth your patch queue (May 31 - Jun 6)",
-    "updatedAt": "2026-06-13T00:41:02.978Z",
+    "updatedAt": "2026-06-14T00:45:03.361Z",
     "upvote_ratio": 0.83,
     "url": "https://reddit.com/r/sysadmin/comments/1u16gsm/top_enterprise_cves_from_last_week_worth_your/",
     "versionList": [
@@ -3167,7 +3713,7 @@
       "General Discussion"
     ],
     "title": "Patch Tuesday Megathread - (June 09, 2026)",
-    "updatedAt": "2026-06-13T00:41:09.739Z",
+    "updatedAt": "2026-06-14T00:45:10.460Z",
     "upvote_ratio": 0.97,
     "url": "https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/",
     "versionList": [
@@ -4932,7 +5478,7 @@
     "tag": null,
     "tags": [],
     "title": "Ubuntu 24.04 LTS - nginx segfaults after installing updates",
-    "updatedAt": "2026-06-13T00:41:23.301Z",
+    "updatedAt": "2026-06-14T00:45:24.270Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/Ubuntu/comments/1u14eyz/ubuntu_2404_lts_nginx_segfaults_after_installing/",
     "versionList": [
@@ -4970,7 +5516,7 @@
         "id": "oqlljqm",
         "author": "WhoRedd_IT",
         "body": "Mines hosted in Cisco’s cloud (their AWS account). We have patched the original exploits that allow someone root access to the box so therefore I think we are covered from the latest vuln, as you said.\n\nVery sick of patching these components as it’s time consuming!\n\nNot really sure how to better secure these as they kind of lose their entire thrill if there not sitting on the public internet.\n\nI also have routers that check in from random sites so IPs of my sites change quite often meaning allowlisting is not going to be fun.\n\nI’m open to ideas!",
-        "score": 11,
+        "score": 13,
         "created_utc_ts": 1780990716,
         "created_utc": "2026-06-09T07:38:36",
         "permalink": "https://reddit.com/r/networking/comments/1u0xug8/another_cisco_sdwan_manager_bug_is_being/oqlljqm/",
@@ -5003,7 +5549,7 @@
         "id": "oqlo8jy",
         "author": "PacketLePew",
         "body": "And those are just the bugs we know about ¯\\\\\\_(ツ)\\_/¯ ",
-        "score": 16,
+        "score": 14,
         "created_utc_ts": 1780992139,
         "created_utc": "2026-06-09T08:02:19",
         "permalink": "https://reddit.com/r/networking/comments/1u0xug8/another_cisco_sdwan_manager_bug_is_being/oqlo8jy/",
@@ -5036,7 +5582,7 @@
         "id": "oqn8qva",
         "author": "banditoitaliano",
         "body": "We just booted Cisco out of our RFP for WAN refresh due to the consistent security issues. Pretty big global project and they were price competitive with other proposals too (surprisingly)",
-        "score": 3,
+        "score": 4,
         "created_utc_ts": 1781014571,
         "created_utc": "2026-06-09T14:16:11",
         "permalink": "https://reddit.com/r/networking/comments/1u0xug8/another_cisco_sdwan_manager_bug_is_being/oqn8qva/",
@@ -5068,7 +5614,7 @@
       {
         "id": "oqp5dxb",
         "author": "MudAccomplished5430",
-        "body": "Right and the ones nobody found yet are sitting in the same management plane with the same exposure as we speak",
+        "body": "Got paged three times in a year for the same SD WAN management plane issue, different CVE each time but same root cause because the controller had to be exposed to the internet and patching just bought time until the next one. Moved to cato after the last call and honestly that whole headache just stopped showing up.",
         "score": 3,
         "created_utc_ts": 1781032485,
         "created_utc": "2026-06-09T19:14:45",
@@ -5113,13 +5659,13 @@
     "created_utc": "2026-06-09T07:13:33",
     "first_author_comment": null,
     "num_comments": 23,
-    "score": 33,
+    "score": 36,
     "subreddit": "networking",
     "tag": "Security",
     "tags": [],
     "title": "Another Cisco SD-WAN Manager bug is being exploited, no patch yet. How exposed is your controller?",
-    "updatedAt": "2026-06-13T04:40:45.873Z",
-    "upvote_ratio": 0.94,
+    "updatedAt": "2026-06-14T04:40:36.300Z",
+    "upvote_ratio": 0.97,
     "url": "https://reddit.com/r/networking/comments/1u0xug8/another_cisco_sdwan_manager_bug_is_being/",
     "versionList": [],
     "author_description_sentiment": {
@@ -5132,8 +5678,8 @@
       }
     },
     "category": "Neutral",
-    "comments_avg_sentiment_score": 0.194,
-    "sentiment_score": 0.113,
+    "comments_avg_sentiment_score": 0.216,
+    "sentiment_score": 0.124,
     "isAboutCve": true,
     "isAboutLatestUpdate": true
   },
@@ -5146,13 +5692,13 @@
     "created_utc": "2026-06-07T00:05:33",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 6,
+    "score": 9,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-46640: Developing payloads for Twig sandbox bypass",
-    "updatedAt": "2026-06-13T04:46:55.439Z",
-    "upvote_ratio": 0.81,
+    "updatedAt": "2026-06-14T04:46:25.529Z",
+    "upvote_ratio": 1,
     "url": "https://reddit.com/r/netsec/comments/1tywxh9/cve202646640_developing_payloads_for_twig_sandbox/",
     "versionList": [
       "2026.0.0",
@@ -5213,7 +5759,7 @@
     "tag": null,
     "tags": [],
     "title": "The HTTP/2 Bomb That Knocks nginx and Apache Offline With a Single Connection",
-    "updatedAt": "2026-06-13T04:51:49.978Z",
+    "updatedAt": "2026-06-14T04:51:21.695Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/apache/comments/1tws4w7/the_http2_bomb_that_knocks_nginx_and_apache/",
     "versionList": [
@@ -5632,7 +6178,7 @@
       "Discussion"
     ],
     "title": "CVE-2026-48710: A Maintainer's Perspective",
-    "updatedAt": "2026-06-13T00:50:53.998Z",
+    "updatedAt": "2026-06-14T00:54:48.453Z",
     "upvote_ratio": 0.96,
     "url": "https://reddit.com/r/Python/comments/1tr5s1c/cve202648710_a_maintainers_perspective/",
     "versionList": [
@@ -5665,7 +6211,7 @@
         "id": "oojet31",
         "author": "Youknowimtheman",
         "body": "Hey nice research and writeup.\n\nThis coincides with a lot of our internal testing data. Which includes the latest Anthropic models and Deepseek v4 as well.\n\nThere's still a long way to go on the coding side to do things well enough. On the analysis side for finding bad patterns things are going great though.\n\nIt's creating a pretty bad asymmetry in the open source world, where fixing things takes orders of magnitude more effort than finding problems.",
-        "score": 25,
+        "score": 24,
         "created_utc_ts": 1780047656,
         "created_utc": "2026-05-29T09:40:56",
         "permalink": "https://reddit.com/r/netsec/comments/1tquesx/i_evaluated_5_llm_agents_on_patching_realworld/oojet31/",
@@ -5814,18 +6360,29 @@
         "permalink": "https://reddit.com/r/netsec/comments/1tquesx/i_evaluated_5_llm_agents_on_patching_realworld/orcerbf/",
         "parent_id": "t1_op5oyg0",
         "is_submitter": false
+      },
+      {
+        "id": "orguqmu",
+        "author": "rayferrell",
+        "body": "The location-only prompt showed a more modest decrease in success rate, around 10-15%, which was lower than the 20-30% drop I anticipated based on my experience with bug hunting.",
+        "score": 1,
+        "created_utc_ts": 1781378847,
+        "created_utc": "2026-06-13T19:27:27",
+        "permalink": "https://reddit.com/r/netsec/comments/1tquesx/i_evaluated_5_llm_agents_on_patching_realworld/orguqmu/",
+        "parent_id": "t3_1tquesx",
+        "is_submitter": false
       }
     ],
     "created_utc": "2026-05-29T07:32:36",
     "first_author_comment": "So AI is great at finding bugs but terrible at fixing them. I guess security researchers have their job security back again. 😂\n\nThe silent failure is the real finding though. A patch that passes every test but leaves the hole open is worse than nothing. False confidence at scale is a new attack surface.\n\nCurious what you're seeing. Happy to compare notes.",
-    "num_comments": 23,
-    "score": 48,
+    "num_comments": 24,
+    "score": 47,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "I evaluated 5 LLM agents on patching real-world CVEs. Here is what I found.",
-    "updatedAt": "2026-06-13T04:47:08.720Z",
-    "upvote_ratio": 0.77,
+    "updatedAt": "2026-06-14T04:46:38.790Z",
+    "upvote_ratio": 0.76,
     "url": "https://reddit.com/r/netsec/comments/1tquesx/i_evaluated_5_llm_agents_on_patching_realworld/",
     "versionList": [
       "5.0.0"
@@ -5840,8 +6397,8 @@
       }
     },
     "category": "Positive",
-    "comments_avg_sentiment_score": 0.402,
-    "sentiment_score": 0.411,
+    "comments_avg_sentiment_score": 0.398,
+    "sentiment_score": 0.409,
     "isAboutCve": true,
     "isAboutLatestUpdate": true
   },
@@ -5956,7 +6513,7 @@
     "tag": null,
     "tags": [],
     "title": "AIOps: Patch RHEL CVEs in Minutes with Red Hat Lightspeed MCP and Ansible Automation Platform",
-    "updatedAt": "2026-06-13T00:51:19.517Z",
+    "updatedAt": "2026-06-14T00:55:13.322Z",
     "upvote_ratio": 0.7,
     "url": "https://reddit.com/r/ansible/comments/1tpachm/aiops_patch_rhel_cves_in_minutes_with_red_hat/",
     "versionList": [],
@@ -5986,7 +6543,7 @@
         "id": "oo8317y",
         "author": "Top-Bed9587",
         "body": "worked on some threat intel stuff a couple years back where we were tracking a botnet that got partially sinkholed by a big provider. the scanning cadence from the associated ranges barely dipped for like 3 days after the takedown. turned out a chunk of the nodes were running autonomously without needing live C2 contact for their scan routines, so losing control of the upstream infrastructure didnt actually interrupt the behavior at all. this feels really similar to what ELLIO is documenting here. either whatever FIOD seized was more the management/billing layer rather than the operational core, or theres enough distributed automation that pulling 800 servers doesnt meaningfully dent daily output. the detail about the legacy Stark blocks (94.131.105 and 92.118.232) being the ones that got withdrawn while the main AS209847 ranges are still fully announced and scanning at normal rate is pretty telling. it suggests those old blocks were tied to arrested operators or hardware that got physically taken, but the bulk of the actual scan infrastructure just kept running. good on ELLIO for continuing to track this instead of just covering the initial seizure headline and moving on",
-        "score": 20,
+        "score": 21,
         "created_utc_ts": 1779907196,
         "created_utc": "2026-05-27T18:39:56",
         "permalink": "https://reddit.com/r/netsec/comments/1tp6dz0/a_week_after_dutch_fiod_seized_800_servers_the/oo8317y/",
@@ -6008,13 +6565,13 @@
     "created_utc": "2026-05-27T13:58:10",
     "first_author_comment": null,
     "num_comments": 4,
-    "score": 82,
+    "score": 79,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "A week after Dutch FIOD seized 800+ servers, the hosting network's ASN (AS209847) is still scanning at its normal daily rate",
-    "updatedAt": "2026-06-13T04:47:17.164Z",
-    "upvote_ratio": 0.97,
+    "updatedAt": "2026-06-14T04:46:47.478Z",
+    "upvote_ratio": 0.96,
     "url": "https://reddit.com/r/netsec/comments/1tp6dz0/a_week_after_dutch_fiod_seized_800_servers_the/",
     "versionList": [
       "800.0.0"
@@ -6088,7 +6645,7 @@
     "tag": null,
     "tags": [],
     "title": "CVE-2021-21735: ZTE H168N wizard whitelist exposed PPPoE and WLAN secrets pre-auth",
-    "updatedAt": "2026-06-13T00:51:58.204Z",
+    "updatedAt": "2026-06-14T00:55:51.297Z",
     "upvote_ratio": 0.84,
     "url": "https://reddit.com/r/netsec/comments/1tnbcp1/cve202121735_zte_h168n_wizard_whitelist_exposed/",
     "versionList": [
@@ -6124,7 +6681,7 @@
     "tag": null,
     "tags": [],
     "title": "CVE-2026-9256 - \"nginx-poolslip\", another new vulnerability in the rewrite module",
-    "updatedAt": "2026-06-13T00:52:25.156Z",
+    "updatedAt": "2026-06-14T00:56:17.857Z",
     "upvote_ratio": 0.98,
     "url": "https://reddit.com/r/netsec/comments/1tktr0o/cve20269256_nginxpoolslip_another_new/",
     "versionList": [
@@ -6133,6 +6690,94 @@
     ],
     "commentCount": 3,
     "detectedCVEs": [
+      {
+        "cveId": "CVE-2026-42945",
+        "cveIds": [
+          "CVE-2026-42945"
+        ],
+        "source": "Comment",
+        "commentText": "Discovered by Nebula Security:\n\nhttps://x.com/nebusecurity/status/2057071579876753643\n\nThe previous vulnerability was CVE-2026-42945 and was nicknamed \"Nginx Rift\":\n\nhttps://my.f5.com/manage/s/article/K000161019",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1tktr0o/cve20269256_nginxpoolslip_another_new/onb0bw3/",
+        "commentDate": "2026-05-22T19:46:33+00:00",
+        "cvePublishedDate": "2026-05-13T16:16:50.190000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 9,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-05-21T19:16:53.100 | CVE Modified | source=f5sirt@f5.com | changeId=23ABF488-2164-4BF1-8B3C-B9336BEC341F\n   - Changed Description: NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_rewrite_module module. This vulnerability exists when the rewrite directive is followed by a rewrite, if, or set directive and an unnamed Perl-Compatible Regular Expression (PCRE) capture (for example, $1, $2) with a replacement string that includes a question mark (?). An unauthenticated attacker along with conditions beyond its control can exploit this vulnerability by sending crafted HTTP requests. This may cause a heap buffer overflow in the NGINX worker process leading to a restart. Additionally, for systems with Address Space Layout Randomization (ASLR ) disabled, code execution is possible.  Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated. -> NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_rewrite_module module. This vulnerability exists when the rewrite directive is followed by a rewrite, if, or set directive and an unnamed Perl-Compatible Regular Expression (PCRE) capture (for example, $1, $2) with a replacement string that includes a question mark (?). An unauthenticated attacker along with conditions beyond its control can exploit this vulnerability by sending crafted HTTP requests. This may cause a heap buffer overflow in the NGINX worker process leading to a restart. Additionally, attackers can execute code on systems with Address Space Layout Randomization (ASLR) disabled or when the attacker can bypass ASLR.  Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated.\n2. 2026-05-14T20:17:05.413 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=242D38B3-D949-4CBD-A216-408FFE1E9138\n   - Added Reference: https://github.com/DepthFirstDisclosures/Nginx-Rift\n3. 2026-05-14T02:17:21.637 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=F8E54A13-588C-4758-936C-40FD4F589D69\n   - Added Reference: https://depthfirst.com/nginx-rift\n4. 2026-05-13T16:16:50.190 | New CVE Received | source=f5sirt@f5.com | changeId=CD7BC79C-E661-406A-8BB4-654CEDF60BF2\n   - Added Description: NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_rewrite_module module. This vulnerability exists when the rewrite directive is followed by a rewrite, if, or set directive and an unnamed Perl-Compatible Regular Expression (PCRE) capture (for example, $1, $2) with a replacement string that includes a question mark (?). An unauthenticated attacker along with conditions beyond its control can exploit this vulnerability by sending crafted HTTP requests. This may cause a heap buffer overflow in the NGINX worker process leading to a restart. Additionally, for systems with Address Space Layout Randomization (ASLR ) disabled, code execution is possible.  Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated.\n   - Added CVSS V4.0: AV:N/AC:H/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CVSS V3.1: AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-122\n   - Added Reference: https://my.f5.com/manage/s/article/K000161019\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-42945",
+        "cveIds": [
+          "CVE-2026-42945"
+        ],
+        "source": "Comment",
+        "commentText": "Discovered by Nebula Security:\n\nhttps://x.com/nebusecurity/status/2057071579876753643\n\nThe previous vulnerability was CVE-2026-42945 and was nicknamed \"Nginx Rift\":\n\nhttps://my.f5.com/manage/s/article/K000161019",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1tktr0o/cve20269256_nginxpoolslip_another_new/onb0bw3/",
+        "commentDate": "2026-05-22T19:46:33+00:00",
+        "cvePublishedDate": "2026-05-13T16:16:50.190000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 9,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-05-21T19:16:53.100 | CVE Modified | source=f5sirt@f5.com | changeId=23ABF488-2164-4BF1-8B3C-B9336BEC341F\n   - Changed Description: NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_rewrite_module module. This vulnerability exists when the rewrite directive is followed by a rewrite, if, or set directive and an unnamed Perl-Compatible Regular Expression (PCRE) capture (for example, $1, $2) with a replacement string that includes a question mark (?). An unauthenticated attacker along with conditions beyond its control can exploit this vulnerability by sending crafted HTTP requests. This may cause a heap buffer overflow in the NGINX worker process leading to a restart. Additionally, for systems with Address Space Layout Randomization (ASLR ) disabled, code execution is possible.  Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated. -> NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_rewrite_module module. This vulnerability exists when the rewrite directive is followed by a rewrite, if, or set directive and an unnamed Perl-Compatible Regular Expression (PCRE) capture (for example, $1, $2) with a replacement string that includes a question mark (?). An unauthenticated attacker along with conditions beyond its control can exploit this vulnerability by sending crafted HTTP requests. This may cause a heap buffer overflow in the NGINX worker process leading to a restart. Additionally, attackers can execute code on systems with Address Space Layout Randomization (ASLR) disabled or when the attacker can bypass ASLR.  Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated.\n2. 2026-05-14T20:17:05.413 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=242D38B3-D949-4CBD-A216-408FFE1E9138\n   - Added Reference: https://github.com/DepthFirstDisclosures/Nginx-Rift\n3. 2026-05-14T02:17:21.637 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=F8E54A13-588C-4758-936C-40FD4F589D69\n   - Added Reference: https://depthfirst.com/nginx-rift\n4. 2026-05-13T16:16:50.190 | New CVE Received | source=f5sirt@f5.com | changeId=CD7BC79C-E661-406A-8BB4-654CEDF60BF2\n   - Added Description: NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_rewrite_module module. This vulnerability exists when the rewrite directive is followed by a rewrite, if, or set directive and an unnamed Perl-Compatible Regular Expression (PCRE) capture (for example, $1, $2) with a replacement string that includes a question mark (?). An unauthenticated attacker along with conditions beyond its control can exploit this vulnerability by sending crafted HTTP requests. This may cause a heap buffer overflow in the NGINX worker process leading to a restart. Additionally, for systems with Address Space Layout Randomization (ASLR ) disabled, code execution is possible.  Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated.\n   - Added CVSS V4.0: AV:N/AC:H/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CVSS V3.1: AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-122\n   - Added Reference: https://my.f5.com/manage/s/article/K000161019\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-42945",
+        "cveIds": [
+          "CVE-2026-42945"
+        ],
+        "source": "Comment",
+        "commentText": "Discovered by Nebula Security:\n\nhttps://x.com/nebusecurity/status/2057071579876753643\n\nThe previous vulnerability was CVE-2026-42945 and was nicknamed \"Nginx Rift\":\n\nhttps://my.f5.com/manage/s/article/K000161019",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1tktr0o/cve20269256_nginxpoolslip_another_new/onb0bw3/",
+        "commentDate": "2026-05-22T19:46:33+00:00",
+        "cvePublishedDate": "2026-05-13T16:16:50.190000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 9,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-05-21T19:16:53.100 | CVE Modified | source=f5sirt@f5.com | changeId=23ABF488-2164-4BF1-8B3C-B9336BEC341F\n   - Changed Description: NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_rewrite_module module. This vulnerability exists when the rewrite directive is followed by a rewrite, if, or set directive and an unnamed Perl-Compatible Regular Expression (PCRE) capture (for example, $1, $2) with a replacement string that includes a question mark (?). An unauthenticated attacker along with conditions beyond its control can exploit this vulnerability by sending crafted HTTP requests. This may cause a heap buffer overflow in the NGINX worker process leading to a restart. Additionally, for systems with Address Space Layout Randomization (ASLR ) disabled, code execution is possible.  Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated. -> NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_rewrite_module module. This vulnerability exists when the rewrite directive is followed by a rewrite, if, or set directive and an unnamed Perl-Compatible Regular Expression (PCRE) capture (for example, $1, $2) with a replacement string that includes a question mark (?). An unauthenticated attacker along with conditions beyond its control can exploit this vulnerability by sending crafted HTTP requests. This may cause a heap buffer overflow in the NGINX worker process leading to a restart. Additionally, attackers can execute code on systems with Address Space Layout Randomization (ASLR) disabled or when the attacker can bypass ASLR.  Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated.\n2. 2026-05-14T20:17:05.413 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=242D38B3-D949-4CBD-A216-408FFE1E9138\n   - Added Reference: https://github.com/DepthFirstDisclosures/Nginx-Rift\n3. 2026-05-14T02:17:21.637 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=F8E54A13-588C-4758-936C-40FD4F589D69\n   - Added Reference: https://depthfirst.com/nginx-rift\n4. 2026-05-13T16:16:50.190 | New CVE Received | source=f5sirt@f5.com | changeId=CD7BC79C-E661-406A-8BB4-654CEDF60BF2\n   - Added Description: NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_rewrite_module module. This vulnerability exists when the rewrite directive is followed by a rewrite, if, or set directive and an unnamed Perl-Compatible Regular Expression (PCRE) capture (for example, $1, $2) with a replacement string that includes a question mark (?). An unauthenticated attacker along with conditions beyond its control can exploit this vulnerability by sending crafted HTTP requests. This may cause a heap buffer overflow in the NGINX worker process leading to a restart. Additionally, for systems with Address Space Layout Randomization (ASLR ) disabled, code execution is possible.  Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated.\n   - Added CVSS V4.0: AV:N/AC:H/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CVSS V3.1: AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-122\n   - Added Reference: https://my.f5.com/manage/s/article/K000161019\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-42945",
+        "cveIds": [
+          "CVE-2026-42945"
+        ],
+        "source": "Comment",
+        "commentText": "Discovered by Nebula Security:\n\nhttps://x.com/nebusecurity/status/2057071579876753643\n\nThe previous vulnerability was CVE-2026-42945 and was nicknamed \"Nginx Rift\":\n\nhttps://my.f5.com/manage/s/article/K000161019",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1tktr0o/cve20269256_nginxpoolslip_another_new/onb0bw3/",
+        "commentDate": "2026-05-22T19:46:33+00:00",
+        "cvePublishedDate": "2026-05-13T16:16:50.190000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 9,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-05-21T19:16:53.100 | CVE Modified | source=f5sirt@f5.com | changeId=23ABF488-2164-4BF1-8B3C-B9336BEC341F\n   - Changed Description: NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_rewrite_module module. This vulnerability exists when the rewrite directive is followed by a rewrite, if, or set directive and an unnamed Perl-Compatible Regular Expression (PCRE) capture (for example, $1, $2) with a replacement string that includes a question mark (?). An unauthenticated attacker along with conditions beyond its control can exploit this vulnerability by sending crafted HTTP requests. This may cause a heap buffer overflow in the NGINX worker process leading to a restart. Additionally, for systems with Address Space Layout Randomization (ASLR ) disabled, code execution is possible.  Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated. -> NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_rewrite_module module. This vulnerability exists when the rewrite directive is followed by a rewrite, if, or set directive and an unnamed Perl-Compatible Regular Expression (PCRE) capture (for example, $1, $2) with a replacement string that includes a question mark (?). An unauthenticated attacker along with conditions beyond its control can exploit this vulnerability by sending crafted HTTP requests. This may cause a heap buffer overflow in the NGINX worker process leading to a restart. Additionally, attackers can execute code on systems with Address Space Layout Randomization (ASLR) disabled or when the attacker can bypass ASLR.  Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated.\n2. 2026-05-14T20:17:05.413 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=242D38B3-D949-4CBD-A216-408FFE1E9138\n   - Added Reference: https://github.com/DepthFirstDisclosures/Nginx-Rift\n3. 2026-05-14T02:17:21.637 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=F8E54A13-588C-4758-936C-40FD4F589D69\n   - Added Reference: https://depthfirst.com/nginx-rift\n4. 2026-05-13T16:16:50.190 | New CVE Received | source=f5sirt@f5.com | changeId=CD7BC79C-E661-406A-8BB4-654CEDF60BF2\n   - Added Description: NGINX Plus and NGINX Open Source have a vulnerability in the ngx_http_rewrite_module module. This vulnerability exists when the rewrite directive is followed by a rewrite, if, or set directive and an unnamed Perl-Compatible Regular Expression (PCRE) capture (for example, $1, $2) with a replacement string that includes a question mark (?). An unauthenticated attacker along with conditions beyond its control can exploit this vulnerability by sending crafted HTTP requests. This may cause a heap buffer overflow in the NGINX worker process leading to a restart. Additionally, for systems with Address Space Layout Randomization (ASLR ) disabled, code execution is possible.  Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated.\n   - Added CVSS V4.0: AV:N/AC:H/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CVSS V3.1: AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-122\n   - Added Reference: https://my.f5.com/manage/s/article/K000161019\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
       {
         "cveId": "CVE-2026-42945",
         "cveIds": [
@@ -6530,7 +7175,7 @@
     "tag": null,
     "tags": [],
     "title": "Zyxel low-priv account leaked super-admin, FTPS, and TR-069 secrets across router fleets",
-    "updatedAt": "2026-06-13T00:52:29.838Z",
+    "updatedAt": "2026-06-14T00:56:22.769Z",
     "upvote_ratio": 0.78,
     "url": "https://reddit.com/r/netsec/comments/1tkkq0m/zyxel_lowpriv_account_leaked_superadmin_ftps_and/",
     "versionList": [
@@ -6569,7 +7214,7 @@
       "Use Cases"
     ],
     "title": "openclaw crossed 500k downloads a day this week. here are the 5 things nobody tells you when you're one of them",
-    "updatedAt": "2026-06-13T00:57:18.405Z",
+    "updatedAt": "2026-06-14T01:01:07.906Z",
     "upvote_ratio": 0.8,
     "url": "https://reddit.com/r/openclaw/comments/1srpodd/openclaw_crossed_500k_downloads_a_day_this_week/",
     "versionList": [
@@ -6617,7 +7262,7 @@
       "General Discussion"
     ],
     "title": "Security Check Recommended (CVE-2025-55182): Please review your application's dependencies. If you are running React or Next.js",
-    "updatedAt": "2026-06-13T01:04:42.430Z",
+    "updatedAt": "2026-06-14T01:08:31.863Z",
     "upvote_ratio": 0.91,
     "url": "https://reddit.com/r/react/comments/1pfyta0/security_check_recommended_cve202555182_please/",
     "versionList": [
@@ -6888,7 +7533,7 @@
       "vercel"
     ],
     "title": "What is React Server Components vulnerability CVE-2025-55182 and how does it affect Next.js?",
-    "updatedAt": "2026-06-13T01:04:54.519Z",
+    "updatedAt": "2026-06-14T01:08:43.978Z",
     "upvote_ratio": null,
     "url": "https://stackoverflow.com/questions/79837478/what-is-react-server-components-vulnerability-cve-2025-55182-and-how-does-it-aff",
     "versionList": [
@@ -7174,7 +7819,7 @@
     "tag": null,
     "tags": [],
     "title": "TARmageddon (CVE-2025-62518): RCE Vulnerability Highlights the Challenges of Open Source Abandonware | Edera Blog",
-    "updatedAt": "2026-06-13T01:07:06.574Z",
+    "updatedAt": "2026-06-14T01:10:50.546Z",
     "upvote_ratio": 0.88,
     "url": "https://reddit.com/r/rust/comments/1ogfpk5/tarmageddon_cve202562518_rce_vulnerability/",
     "versionList": [
@@ -7307,7 +7952,7 @@
       "Tutorial"
     ],
     "title": "Best practices for using Python &amp; uv inside Docker",
-    "updatedAt": "2026-06-13T01:09:49.812Z",
+    "updatedAt": "2026-06-14T01:13:28.972Z",
     "upvote_ratio": 0.88,
     "url": "https://reddit.com/r/Python/comments/1o3p4bf/best_practices_for_using_python_uv_inside_docker/",
     "versionList": [],
@@ -7381,7 +8026,7 @@
     "tag": null,
     "tags": [],
     "title": "Security Update for Microsoft .NET Core (June 2025)",
-    "updatedAt": "2026-06-13T01:11:24.082Z",
+    "updatedAt": "2026-06-14T01:14:58.757Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/tenable/comments/1nhvfck/security_update_for_microsoft_net_core_june_2025/",
     "versionList": [
@@ -7427,7 +8072,7 @@
       "Troubleshooting | Android"
     ],
     "title": "Chromebook not updating to the new update that fixes CVE-2025-6554",
-    "updatedAt": "2026-06-13T01:12:10.102Z",
+    "updatedAt": "2026-06-14T01:15:45.428Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/chrome/comments/1lpij7v/chromebook_not_updating_to_the_new_update_that/",
     "versionList": [
@@ -7550,7 +8195,7 @@
       "News"
     ],
     "title": "🔒 Update Chrome Today! – New 0-day Vulnerability (CVE-2025-5419) Is Being Exploited in the Wild",
-    "updatedAt": "2026-06-13T01:12:21.441Z",
+    "updatedAt": "2026-06-14T01:15:56.491Z",
     "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/chrome/comments/1l2zxcb/update_chrome_today_new_0day_vulnerability/",
     "versionList": [
@@ -7732,7 +8377,7 @@
     "tag": null,
     "tags": [],
     "title": "How soon are vulns added to Insight?",
-    "updatedAt": "2026-06-13T01:14:33.571Z",
+    "updatedAt": "2026-06-14T01:18:14.178Z",
     "upvote_ratio": 0.8,
     "url": "https://reddit.com/r/rapid7/comments/boy98i/how_soon_are_vulns_added_to_insight/",
     "versionList": [],
