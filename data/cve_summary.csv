@@ -20,12 +20,14 @@ CVE-2024-6174,1,2026-05-27T16:16:31+00:00,1779898591,ansible,https://reddit.com/
 CVE-2025-10263,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/
 CVE-2025-30399,1,2025-09-15T19:24:23+00:00,1757964263,tenable,https://reddit.com/r/tenable/comments/1nhvfck/security_update_for_microsoft_net_core_june_2025/
 CVE-2025-3248,1,2026-06-12T01:37:04+00:00,1781228224,AZURE,https://reddit.com/r/AZURE/comments/1u3hqco/cve20265027_langflow_path_traversal/
+CVE-2025-49596,1,2026-06-16T01:24:34+00:00,1781573074,AZURE,https://reddit.com/r/AZURE/comments/1u6zlof/nsa_issued_mcp_security_guidance_in_may_and_the/
 CVE-2025-5419,1,2025-06-04T08:02:09+00:00,1749024129,chrome,https://reddit.com/r/chrome/comments/1l2zxcb/update_chrome_today_new_0day_vulnerability/
 CVE-2025-54368,1,2025-10-11T07:12:35+00:00,1760166755,Python,https://reddit.com/r/Python/comments/1o3p4bf/best_practices_for_using_python_uv_inside_docker/
 CVE-2025-62518,1,2025-10-26T08:51:20+00:00,1761468680,rust,https://reddit.com/r/rust/comments/1ogfpk5/tarmageddon_cve202562518_rce_vulnerability/
 CVE-2025-6554,1,2025-07-02T00:50:53+00:00,1751417453,chrome,https://reddit.com/r/chrome/comments/1lpij7v/chromebook_not_updating_to_the_new_update_that/
 CVE-2025-66478,1,2025-12-04T02:54:02+00:00,1764816842,reactjs,https://stackoverflow.com/questions/79837478/what-is-react-server-components-vulnerability-cve-2025-55182-and-how-does-it-aff
 CVE-2026-0257,1,2026-06-09T14:23:52+00:00,1781015032,sysadmin,https://reddit.com/r/sysadmin/comments/1u16gsm/top_enterprise_cves_from_last_week_worth_your/
+CVE-2026-0755,1,2026-06-16T01:24:34+00:00,1781573074,AZURE,https://reddit.com/r/AZURE/comments/1u6zlof/nsa_issued_mcp_security_guidance_in_may_and_the/
 CVE-2026-10520,1,2026-06-10T00:54:34+00:00,1781052874,netsec,https://reddit.com/r/netsec/comments/1u1neao/more_evidence_that_words_dont_mean_what_we/
 CVE-2026-10846,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/
 CVE-2026-20127,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
@@ -42,6 +44,7 @@ CVE-2026-31789,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com
 CVE-2026-31790,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/
 CVE-2026-32201,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2026-32792,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/
+CVE-2026-33032,1,2026-06-16T01:24:34+00:00,1781573074,AZURE,https://reddit.com/r/AZURE/comments/1u6zlof/nsa_issued_mcp_security_guidance_in_may_and_the/
 CVE-2026-33278,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/
 CVE-2026-34180,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/
 CVE-2026-34181,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/
