@@ -1,4 +1,5 @@
 post_id,subreddit,created_iso_utc,title,cves,cve_paths,url
+,sysadmin,2026-06-16T17:39:54+00:00,5 enterprise CVEs from last week worth checking out this week (Jun 7–13),CVE-2026-0257;CVE-2026-10520;CVE-2026-10523;CVE-2026-35273;CVE-2026-44815;CVE-2026-47288,author_description,https://reddit.com/r/sysadmin/comments/1u7kggj/5_enterprise_cves_from_last_week_worth_checking/
 ,AZURE,2026-06-16T01:24:34+00:00,NSA issued MCP security guidance in May — and the attack paths are weirder than standard API vulnerabilities. Anyone doing threat modeling o,CVE-2025-49596;CVE-2026-0755;CVE-2026-33032,author_description,https://reddit.com/r/AZURE/comments/1u6zlof/nsa_issued_mcp_security_guidance_in_may_and_the/
 ,netsec,2026-06-12T20:37:06+00:00,Why Use App-Level Auth When Every Database Has Auth? (Splunk Enterprise CVE-2026-20253 Pre-Auth RCE) - watchTowr Labs,CVE-2026-20253,title,https://reddit.com/r/netsec/comments/1u46wbb/why_use_applevel_auth_when_every_database_has/
 ,Ubuntu,2026-06-12T16:25:42+00:00,Firmware-Update-Einforderung verunsichert,CVE-2023-24932,comments[0].body,https://reddit.com/r/Ubuntu/comments/1u404ki/firmwareupdateeinforderung_verunsichert/

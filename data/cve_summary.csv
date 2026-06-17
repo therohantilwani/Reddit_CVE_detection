@@ -1,10 +1,13 @@
 cve,post_count,earliest_post_iso_utc,earliest_post_epoch,subreddits,example_urls
 CVE-2025-55182,2,2025-12-04T02:54:02+00:00,1764816842,react;reactjs,https://reddit.com/r/react/comments/1pfyta0/security_check_recommended_cve202555182_please/;https://stackoverflow.com/questions/79837478/what-is-react-server-components-vulnerability-cve-2025-55182-and-how-does-it-aff
+CVE-2026-0257,2,2026-06-09T14:23:52+00:00,1781015032,sysadmin,https://reddit.com/r/sysadmin/comments/1u7kggj/5_enterprise_cves_from_last_week_worth_checking/;https://reddit.com/r/sysadmin/comments/1u16gsm/top_enterprise_cves_from_last_week_worth_your/
+CVE-2026-10520,2,2026-06-10T00:54:34+00:00,1781052874,netsec;sysadmin,https://reddit.com/r/sysadmin/comments/1u7kggj/5_enterprise_cves_from_last_week_worth_checking/;https://reddit.com/r/netsec/comments/1u1neao/more_evidence_that_words_dont_mean_what_we/
 CVE-2026-20182,2,2026-06-09T07:13:33+00:00,1780989213,networking;sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/;https://reddit.com/r/networking/comments/1u0xug8/another_cisco_sdwan_manager_bug_is_being/
 CVE-2026-20245,2,2026-06-09T07:13:33+00:00,1780989213,networking;sysadmin,https://reddit.com/r/sysadmin/comments/1u16gsm/top_enterprise_cves_from_last_week_worth_your/;https://reddit.com/r/networking/comments/1u0xug8/another_cisco_sdwan_manager_bug_is_being/
 CVE-2026-20833,2,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/;https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2026-41089,2,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u16gsm/top_enterprise_cves_from_last_week_worth_your/;https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2026-42945,2,2026-05-22T19:45:42+00:00,1779479142,Ubuntu;netsec,https://reddit.com/r/Ubuntu/comments/1u14eyz/ubuntu_2404_lts_nginx_segfaults_after_installing/;https://reddit.com/r/netsec/comments/1tktr0o/cve20269256_nginxpoolslip_another_new/
+CVE-2026-44815,2,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u7kggj/5_enterprise_cves_from_last_week_worth_checking/;https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2026-45257,2,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com/r/freebsd/comments/1u2x6l9/bumsrakete_the_hugest_the_most_tremendous_freebsd/;https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/
 CVE-2026-45585,2,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u1dlpy/microsoft_has_released_a_patch_for_the_bitlocker/;https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2026-50751,2,2026-06-09T14:23:52+00:00,1781015032,netsec;sysadmin,https://reddit.com/r/netsec/comments/1u3m7yj/marking_your_own_homework_check_point_remote/;https://reddit.com/r/sysadmin/comments/1u16gsm/top_enterprise_cves_from_last_week_worth_your/
@@ -26,9 +29,8 @@ CVE-2025-54368,1,2025-10-11T07:12:35+00:00,1760166755,Python,https://reddit.com/
 CVE-2025-62518,1,2025-10-26T08:51:20+00:00,1761468680,rust,https://reddit.com/r/rust/comments/1ogfpk5/tarmageddon_cve202562518_rce_vulnerability/
 CVE-2025-6554,1,2025-07-02T00:50:53+00:00,1751417453,chrome,https://reddit.com/r/chrome/comments/1lpij7v/chromebook_not_updating_to_the_new_update_that/
 CVE-2025-66478,1,2025-12-04T02:54:02+00:00,1764816842,reactjs,https://stackoverflow.com/questions/79837478/what-is-react-server-components-vulnerability-cve-2025-55182-and-how-does-it-aff
-CVE-2026-0257,1,2026-06-09T14:23:52+00:00,1781015032,sysadmin,https://reddit.com/r/sysadmin/comments/1u16gsm/top_enterprise_cves_from_last_week_worth_your/
 CVE-2026-0755,1,2026-06-16T01:24:34+00:00,1781573074,AZURE,https://reddit.com/r/AZURE/comments/1u6zlof/nsa_issued_mcp_security_guidance_in_may_and_the/
-CVE-2026-10520,1,2026-06-10T00:54:34+00:00,1781052874,netsec,https://reddit.com/r/netsec/comments/1u1neao/more_evidence_that_words_dont_mean_what_we/
+CVE-2026-10523,1,2026-06-16T17:39:54+00:00,1781631594,sysadmin,https://reddit.com/r/sysadmin/comments/1u7kggj/5_enterprise_cves_from_last_week_worth_checking/
 CVE-2026-10846,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/
 CVE-2026-20127,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2026-20223,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
@@ -52,6 +54,7 @@ CVE-2026-34182,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com
 CVE-2026-34183,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/
 CVE-2026-34260,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2026-34263,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
+CVE-2026-35273,1,2026-06-16T17:39:54+00:00,1781631594,sysadmin,https://reddit.com/r/sysadmin/comments/1u7kggj/5_enterprise_cves_from_last_week_worth_checking/
 CVE-2026-35616,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2026-40622,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/
 CVE-2026-41292,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/
@@ -76,7 +79,6 @@ CVE-2026-43414,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.co
 CVE-2026-44277,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2026-44390,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/
 CVE-2026-44608,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/
-CVE-2026-44815,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2026-45256,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/
 CVE-2026-45258,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/
 CVE-2026-45259,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/
@@ -90,6 +92,7 @@ CVE-2026-45657,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.co
 CVE-2026-46333,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2026-46633,1,2026-06-07T00:05:33+00:00,1780790733,netsec,https://reddit.com/r/netsec/comments/1tywxh9/cve202646640_developing_payloads_for_twig_sandbox/
 CVE-2026-46640,1,2026-06-07T00:05:33+00:00,1780790733,netsec,https://reddit.com/r/netsec/comments/1tywxh9/cve202646640_developing_payloads_for_twig_sandbox/
+CVE-2026-47288,1,2026-06-16T17:39:54+00:00,1781631594,sysadmin,https://reddit.com/r/sysadmin/comments/1u7kggj/5_enterprise_cves_from_last_week_worth_checking/
 CVE-2026-47291,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2026-48710,1,2026-05-29T15:40:48+00:00,1780069248,Python,https://reddit.com/r/Python/comments/1tr5s1c/cve202648710_a_maintainers_perspective/
 CVE-2026-49160,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
