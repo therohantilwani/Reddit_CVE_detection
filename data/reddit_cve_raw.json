@@ -1,5 +1,292 @@
 [
   {
+    "_id": "6a34464e4ce8d84a7e43368c",
+    "redditId": "1u9ea81",
+    "author": "StrangeR_825",
+    "author_description": "I reported this one. If you run the Contact Form 7 PayPal &amp; Stripe Add-on at 2.4.9 or older to take PayPal payments, update to the latest version. The bug let an order be marked paid without a matching payment, because the plugin verified that the PayPal notification was genuine but never checked the amount, currency, or recipient. It is patched now. The writeup explains the root cause and the fix in plain language.",
+    "awards": [],
+    "created_utc": "2026-06-18T18:28:58",
+    "first_author_comment": null,
+    "num_comments": 0,
+    "score": 2,
+    "subreddit": "Wordpress",
+    "tag": null,
+    "tags": [],
+    "title": "CVE-2026-9189: payment bypass in the Contact Form 7 PayPal &amp; Stripe Add-on (now patched, update if you use it)",
+    "updatedAt": "2026-06-19T05:12:54.065Z",
+    "upvote_ratio": 0.75,
+    "url": "https://reddit.com/r/Wordpress/comments/1u9ea81/cve20269189_payment_bypass_in_the_contact_form_7/",
+    "versionList": [
+      "2026.0.0",
+      "9189.0.0",
+      "7.0.0"
+    ],
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": true,
+        "positiveScore": 0.8746913554774065,
+        "timestampPredicted": "2026-06-19T04:01:13.847245+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true,
+    "classification": {
+      "componentType": [],
+      "securityType": [
+        "SECURITY"
+      ]
+    }
+  },
+  {
+    "_id": "6a343d414ce8d84a7e4333e0",
+    "redditId": "1u9dncq",
+    "author": "Ecstatic_Priority514",
+    "author_description": null,
+    "awards": [],
+    "created_utc": "2026-06-18T18:05:44",
+    "first_author_comment": null,
+    "num_comments": 0,
+    "score": 18,
+    "subreddit": "netsec",
+    "tag": null,
+    "tags": [],
+    "title": "CVE-2026-5667: Unauthenticated Remote Control of Mitsubishi MAC-577IF-2E WiFi Adapters via Probe Request Reconnaissance",
+    "updatedAt": "2026-06-19T06:46:49.947Z",
+    "upvote_ratio": 0.82,
+    "url": "https://reddit.com/r/netsec/comments/1u9dncq/cve20265667_unauthenticated_remote_control_of/",
+    "versionList": [
+      "2026.0.0",
+      "5667.0.0"
+    ],
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.003598443929093537,
+        "timestampPredicted": "2026-06-19T04:01:20.465265+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": false,
+    "classification": {
+      "componentType": [],
+      "securityType": [
+        "SECURITY"
+      ]
+    }
+  },
+  {
+    "_id": "6a34445d4ce8d84a7e4335e4",
+    "redditId": "1u9de75",
+    "author": "StrangeR_825",
+    "author_description": null,
+    "awards": [],
+    "comments": [
+      {
+        "id": "osff3k4",
+        "author": "StrangeR_825",
+        "body": "    Author here. This is a small, clean teaching example of a common PHP webhook bug. The handler verifies the message is genuinely from PayPal (posts back _notify-validate, requires VERIFIED) and then trusts the payload, completing an order without comparing the amount, currency, or recipient against the stored order. The post has the broken vs fixed handler and a validation checklist. The code is the point, not the plugin.",
+        "score": 0,
+        "created_utc_ts": 1781806680,
+        "created_utc": "2026-06-18T18:18:00",
+        "permalink": "https://reddit.com/r/PHP/comments/1u9de75/authenticating_a_paypal_notification_is_not_the/osff3k4/",
+        "parent_id": "t3_1u9de75",
+        "is_submitter": true
+      },
+      {
+        "id": "osfkaaa",
+        "author": "Gribstein",
+        "body": "How does attacker change invoice id? Is it stored in some hidden field or something like that?",
+        "score": 3,
+        "created_utc_ts": 1781808050,
+        "created_utc": "2026-06-18T18:40:50",
+        "permalink": "https://reddit.com/r/PHP/comments/1u9de75/authenticating_a_paypal_notification_is_not_the/osfkaaa/",
+        "parent_id": "t1_osff3k4",
+        "is_submitter": false
+      },
+      {
+        "id": "osfswjp",
+        "author": "2019-01-03",
+        "body": "First, your blog post has no indentations of the code.\n\nYou should consider using my pure [Markdown + JavaScript blog platform: **markdown-cms**](https://github.com/AutonomoAI/markdown-cms). It has much better code snippet support.\n\nSecond, your comment is one solid block... I've never actually seen this in over 20 years on Reddit that I can remember.\n\nHere's your comment:\n\n&gt; Author here. This is a small, clean teaching example of a common PHP webhook bug. The handler verifies the message is genuinely from PayPal (posts back _notify-validate, requires VERIFIED) and then trusts the payload, completing an order without comparing the amount, currency, or recipient against the stored order. The post has the broken vs fixed handler and a validation checklist. The code is the point, not the plugin.",
+        "score": -15,
+        "created_utc_ts": 1781810366,
+        "created_utc": "2026-06-18T19:19:26",
+        "permalink": "https://reddit.com/r/PHP/comments/1u9de75/authenticating_a_paypal_notification_is_not_the/osfswjp/",
+        "parent_id": "t1_osff3k4",
+        "is_submitter": false
+      }
+    ],
+    "created_utc": "2026-06-18T17:56:47",
+    "first_author_comment": "    Author here. This is a small, clean teaching example of a common PHP webhook bug. The handler verifies the message is genuinely from PayPal (posts back _notify-validate, requires VERIFIED) and then trusts the payload, completing an order without comparing the amount, currency, or recipient against the stored order. The post has the broken vs fixed handler and a validation checklist. The code is the point, not the plugin.",
+    "num_comments": 3,
+    "score": 6,
+    "subreddit": "PHP",
+    "tag": "Article",
+    "tags": [
+      "Article"
+    ],
+    "title": "Authenticating a PayPal notification is not the same as trusting what it says (CVE-2026-9189)",
+    "updatedAt": "2026-06-19T05:09:48.559Z",
+    "upvote_ratio": 1,
+    "url": "https://reddit.com/r/PHP/comments/1u9de75/authenticating_a_paypal_notification_is_not_the/",
+    "versionList": [
+      "2026.0.0",
+      "9189.0.0"
+    ],
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.0002071962821362948,
+        "timestampPredicted": "2026-06-19T04:01:20.465265+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": false,
+    "classification": {
+      "componentType": [],
+      "securityType": [
+        "SECURITY"
+      ]
+    }
+  },
+  {
+    "_id": "6a33ee124ce8d84a7e431389",
+    "redditId": "1u93bkb",
+    "author": "PrincipleActive9230",
+    "author_description": "[Three FortiSandbox CVEs being exploited rn:](https://thehackernews.com/2026/06/attackers-exploit-three-fortinet.html?m=1)\n\n* CVE-2026-39813 - auth bypass, patched April\n* CVE-2026-39808 - RCE via command injection, patched April\n* CVE-2026-25089 - RCE via WEB UI, patched last week\n\nthe exploit for the last one is apparently ai generated and faulty  but still working enough to be a problem.\n\nalso, saw the FortiBleed thing: 30k+ firewalls compromised across 194 countries. Attackers just reusing leaked creds and sniffing traffic for more passwords.\n\nmakes me think:\n\n1. attackers are fast: one of these was patched days ago and already being exploited\n2. attack surface is everything\n\nSame applies to containers. Every extra package or dependency you ship is another potential entry point. less stuff = less to patch\n\nwhat others are doing to shrink attack surface in their container builds?",
+    "awards": [],
+    "comments": [
+      {
+        "id": "osd2gn6",
+        "author": "Constant-Angle-4777",
+        "body": "Multi-stage builds and slim base images are usually the highest-ROI move. Build with the kitchen sink, ship with only the runtime.",
+        "score": 2,
+        "created_utc_ts": 1781782977,
+        "created_utc": "2026-06-18T11:42:57",
+        "permalink": "https://reddit.com/r/kubernetes/comments/1u93bkb/how_are_people_reducing_container_attack_surface/osd2gn6/",
+        "parent_id": "t3_1u93bkb",
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
+      },
+      {
+        "id": "osdc6rj",
+        "author": "doublehershel_30",
+        "body": "Distroless images are the move if your app supports them, otherwise alpine with a proper inventory of what's actually running. The real win is automating CVE scanning in your pipeline so patches don't sit for weeks.",
+        "score": 1,
+        "created_utc_ts": 1781786376,
+        "created_utc": "2026-06-18T12:39:36",
+        "permalink": "https://reddit.com/r/kubernetes/comments/1u93bkb/how_are_people_reducing_container_attack_surface/osdc6rj/",
+        "parent_id": "t3_1u93bkb",
+        "is_submitter": false,
+        "sentiment_score": 0.743,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.84,
+          "pos": 0.16,
+          "compound": 0.743
+        }
+      },
+      {
+        "id": "osdc8id",
+        "author": "SomethingAboutUsers",
+        "body": "Defense in depth helps too. Make sure there's a WAF in front of your traffic because shipping new images is expensive and WAF definition updates happen several times a day.",
+        "score": 1,
+        "created_utc_ts": 1781786392,
+        "created_utc": "2026-06-18T12:39:52",
+        "permalink": "https://reddit.com/r/kubernetes/comments/1u93bkb/how_are_people_reducing_container_attack_surface/osdc8id/",
+        "parent_id": "t3_1u93bkb",
+        "is_submitter": false,
+        "sentiment_score": 0.66,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.796,
+          "pos": 0.204,
+          "compound": 0.6597
+        }
+      },
+      {
+        "id": "osdeqy3",
+        "author": "daedalus_structure",
+        "body": "The same as we were doing before this or any of the named CVEs. \n\nWe ship minimal images without shells or package managers, and have layers of defenses in front and behind of the container in addition to runtime defense. \n\nIf your defense ever relies on a single layer you've already committed to the loss, it's just a matter of time.\n\nEdit: Case in point for FortiBleed, these are management interfaces of firewalls exposed to the public internet with no MFA, they are asking to be a problem.",
+        "score": 1,
+        "created_utc_ts": 1781787184,
+        "created_utc": "2026-06-18T12:53:04",
+        "permalink": "https://reddit.com/r/kubernetes/comments/1u93bkb/how_are_people_reducing_container_attack_surface/osdeqy3/",
+        "parent_id": "t3_1u93bkb",
+        "is_submitter": false,
+        "sentiment_score": -0.382,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.092,
+          "neu": 0.823,
+          "pos": 0.085,
+          "compound": -0.3818
+        }
+      }
+    ],
+    "created_utc": "2026-06-18T11:09:07",
+    "first_author_comment": null,
+    "num_comments": 5,
+    "score": 6,
+    "subreddit": "kubernetes",
+    "tag": null,
+    "tags": [],
+    "title": "How are people reducing container attack surface after the latest Fortinet CVEs?",
+    "updatedAt": "2026-06-19T00:27:13.864Z",
+    "upvote_ratio": 0.88,
+    "url": "https://reddit.com/r/kubernetes/comments/1u93bkb/how_are_people_reducing_container_attack_surface/",
+    "versionList": [],
+    "classification": {
+      "componentType": [
+        "CONTAINERIZATION"
+      ],
+      "securityType": [
+        "UNKNOWN"
+      ]
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 4.600854383335563e-05,
+        "timestampPredicted": "2026-06-18T16:00:54.580484+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true,
+    "author_description_sentiment": {
+      "score": -0.987,
+      "detail": {
+        "neg": 0.232,
+        "neu": 0.768,
+        "pos": 0,
+        "compound": -0.9873
+      }
+    },
+    "category": "Negative",
+    "comments_avg_sentiment_score": 0.255,
+    "sentiment_score": -0.366
+  },
+  {
     "_id": "6a331ec84ce8d84a7e42f506",
     "redditId": "1u8m7z8",
     "author": "404UsernameFoundNot",
@@ -15,7 +302,15 @@
         "created_utc": "2026-06-17T20:54:14",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u8m7z8/microsoft_announces_exciting_new_windows_features/os9bah6/",
         "parent_id": "t3_1u8m7z8",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.778,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.128,
+          "pos": 0.872,
+          "compound": 0.7777
+        }
       },
       {
         "id": "os9bedu",
@@ -26,7 +321,15 @@
         "created_utc": "2026-06-17T20:54:42",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u8m7z8/microsoft_announces_exciting_new_windows_features/os9bedu/",
         "parent_id": "t3_1u8m7z8",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "os9bewe",
@@ -37,7 +340,15 @@
         "created_utc": "2026-06-17T20:54:46",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u8m7z8/microsoft_announces_exciting_new_windows_features/os9bewe/",
         "parent_id": "t3_1u8m7z8",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.318,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.85,
+          "pos": 0.15,
+          "compound": 0.3182
+        }
       },
       {
         "id": "os9bgjx",
@@ -48,7 +359,15 @@
         "created_utc": "2026-06-17T20:54:57",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u8m7z8/microsoft_announces_exciting_new_windows_features/os9bgjx/",
         "parent_id": "t3_1u8m7z8",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.421,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0,
+          "pos": 1,
+          "compound": 0.4215
+        }
       },
       {
         "id": "os9cfsy",
@@ -59,7 +378,15 @@
         "created_utc": "2026-06-17T20:59:13",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u8m7z8/microsoft_announces_exciting_new_windows_features/os9cfsy/",
         "parent_id": "t3_1u8m7z8",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "os9d7hq",
@@ -70,7 +397,15 @@
         "created_utc": "2026-06-17T21:02:34",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u8m7z8/microsoft_announces_exciting_new_windows_features/os9d7hq/",
         "parent_id": "t1_os9bedu",
-        "is_submitter": true
+        "is_submitter": true,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "os9e636",
@@ -81,7 +416,15 @@
         "created_utc": "2026-06-17T21:06:53",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u8m7z8/microsoft_announces_exciting_new_windows_features/os9e636/",
         "parent_id": "t3_1u8m7z8",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.421,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.186,
+          "neu": 0.449,
+          "pos": 0.365,
+          "compound": 0.4215
+        }
       },
       {
         "id": "os9g554",
@@ -92,7 +435,15 @@
         "created_utc": "2026-06-17T21:15:50",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u8m7z8/microsoft_announces_exciting_new_windows_features/os9g554/",
         "parent_id": "t3_1u8m7z8",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.44,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.256,
+          "pos": 0.744,
+          "compound": 0.4404
+        }
       },
       {
         "id": "os9gn5m",
@@ -103,7 +454,15 @@
         "created_utc": "2026-06-17T21:18:10",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u8m7z8/microsoft_announces_exciting_new_windows_features/os9gn5m/",
         "parent_id": "t3_1u8m7z8",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "os9j7t5",
@@ -114,7 +473,15 @@
         "created_utc": "2026-06-17T21:30:07",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u8m7z8/microsoft_announces_exciting_new_windows_features/os9j7t5/",
         "parent_id": "t3_1u8m7z8",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.571,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.187,
+          "neu": 0.281,
+          "pos": 0.532,
+          "compound": 0.5707
+        }
       },
       {
         "id": "os9p99j",
@@ -125,7 +492,15 @@
         "created_utc": "2026-06-17T21:58:45",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u8m7z8/microsoft_announces_exciting_new_windows_features/os9p99j/",
         "parent_id": "t1_os9bewe",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.026,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0.242,
+          "neu": 0.526,
+          "pos": 0.232,
+          "compound": -0.0258
+        }
       },
       {
         "id": "os9qcdz",
@@ -136,7 +511,15 @@
         "created_utc": "2026-06-17T22:04:00",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u8m7z8/microsoft_announces_exciting_new_windows_features/os9qcdz/",
         "parent_id": "t1_os9bedu",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "os9ssy8",
@@ -147,7 +530,15 @@
         "created_utc": "2026-06-17T22:16:17",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u8m7z8/microsoft_announces_exciting_new_windows_features/os9ssy8/",
         "parent_id": "t3_1u8m7z8",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.153,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 1,
+          "neu": 0,
+          "pos": 0,
+          "compound": -0.1531
+        }
       },
       {
         "id": "os9twll",
@@ -158,7 +549,15 @@
         "created_utc": "2026-06-17T22:21:53",
         "permalink": "https://reddit.com/r/sysadmin/comments/1u8m7z8/microsoft_announces_exciting_new_windows_features/os9twll/",
         "parent_id": "t3_1u8m7z8",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.44,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.58,
+          "pos": 0.42,
+          "compound": 0.4404
+        }
       }
     ],
     "created_utc": "2026-06-17T20:50:37",
@@ -171,7 +570,7 @@
       "Microsoft"
     ],
     "title": "Microsoft Announces Exciting New Windows Features Under Corresponding CVE Numbers",
-    "updatedAt": "2026-06-18T04:01:02.450Z",
+    "updatedAt": "2026-06-19T00:29:40.401Z",
     "upvote_ratio": 0.84,
     "url": "https://reddit.com/r/sysadmin/comments/1u8m7z8/microsoft_announces_exciting_new_windows_features/",
     "versionList": [],
@@ -179,7 +578,7 @@
       "predicted": {
         "isUpdateRelated": false,
         "positiveScore": 0.00563527039502933,
-        "timestampPredicted": "2026-06-18T04:01:01.866582+00:00"
+        "timestampPredicted": "2026-06-18T08:01:22.160711+00:00"
       },
       "labeled": {
         "isUpdateRelated": null
@@ -194,7 +593,19 @@
       "securityType": [
         "SECURITY"
       ]
-    }
+    },
+    "author_description_sentiment": {
+      "score": 0.891,
+      "detail": {
+        "neg": 0.057,
+        "neu": 0.857,
+        "pos": 0.086,
+        "compound": 0.8911
+      }
+    },
+    "category": "Positive",
+    "comments_avg_sentiment_score": 0.229,
+    "sentiment_score": 0.56
   },
   {
     "_id": "6a32f1bf4ce8d84a7e42e874",
@@ -204,15 +615,15 @@
     "awards": [],
     "created_utc": "2026-06-17T18:12:40",
     "first_author_comment": null,
-    "num_comments": 7,
-    "score": 79,
+    "num_comments": 9,
+    "score": 118,
     "subreddit": "firefox",
     "tag": "Discussion",
     "tags": [
       "Discussion"
     ],
     "title": "Don't use Firefox Focus on iOS: Vulnerable to zero-day Mozilla failed to patch for 11 months",
-    "updatedAt": "2026-06-18T05:04:43.316Z",
+    "updatedAt": "2026-06-19T00:30:24.812Z",
     "upvote_ratio": 0.9,
     "url": "https://reddit.com/r/firefox/comments/1u8hwod/dont_use_firefox_focus_on_ios_vulnerable_to/",
     "versionList": [
@@ -235,34 +646,58 @@
         "id": "os8p7ky",
         "author": "MozRyanVM",
         "body": "This was fixed in last week's 151.3.1 release.",
-        "score": 28,
+        "score": 59,
         "created_utc_ts": 1781723824,
         "created_utc": "2026-06-17T19:17:04",
         "permalink": "https://reddit.com/r/firefox/comments/1u8hwod/dont_use_firefox_focus_on_ios_vulnerable_to/os8p7ky/",
         "parent_id": "t3_1u8hwod",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "os8w8yz",
         "author": "HammyHavoc",
         "body": "Why such a long turnaround time?",
-        "score": 25,
+        "score": 46,
         "created_utc_ts": 1781725673,
         "created_utc": "2026-06-17T19:47:53",
         "permalink": "https://reddit.com/r/firefox/comments/1u8hwod/dont_use_firefox_focus_on_ios_vulnerable_to/os8w8yz/",
         "parent_id": "t1_os8p7ky",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "os8yhrk",
         "author": "BakerStSavvy",
         "body": "People use focus for logging in and not just temp web browsing? Ive literally never logged into anything on focus. Crazy an exploit like this lasted this long though",
-        "score": 14,
+        "score": 23,
         "created_utc_ts": 1781726269,
         "created_utc": "2026-06-17T19:57:49",
         "permalink": "https://reddit.com/r/firefox/comments/1u8hwod/dont_use_firefox_focus_on_ios_vulnerable_to/os8yhrk/",
         "parent_id": "t3_1u8hwod",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.077,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0.118,
+          "neu": 0.805,
+          "pos": 0.077,
+          "compound": -0.0772
+        }
       },
       {
         "id": "osaajxz",
@@ -273,18 +708,34 @@
         "created_utc": "2026-06-17T23:51:59",
         "permalink": "https://reddit.com/r/firefox/comments/1u8hwod/dont_use_firefox_focus_on_ios_vulnerable_to/osaajxz/",
         "parent_id": "t1_os8yhrk",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "osb58qv",
         "author": "LogicTrolley",
         "body": "The github page you linked seems to think it hasn't been fixed when it was fixed [https://www.mozilla.org/en-US/security/advisories/mfsa2026-12/](https://www.mozilla.org/en-US/security/advisories/mfsa2026-12/) in February.\n\nThat sounds like 7 months instead of the 11 claimed.  Just sayin.\n\nSource:  Here is the CVE for that vuln:  [https://www.sentinelone.com/vulnerability-database/cve-2026-2634/](https://www.sentinelone.com/vulnerability-database/cve-2026-2634/)",
-        "score": 1,
+        "score": 17,
         "created_utc_ts": 1781751100,
         "created_utc": "2026-06-18T02:51:40",
         "permalink": "https://reddit.com/r/firefox/comments/1u8hwod/dont_use_firefox_focus_on_ios_vulnerable_to/osb58qv/",
         "parent_id": "t3_1u8hwod",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.361,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.938,
+          "pos": 0.062,
+          "compound": 0.3612
+        }
       },
       {
         "id": "osbdb1c",
@@ -295,7 +746,15 @@
         "created_utc": "2026-06-18T03:44:00",
         "permalink": "https://reddit.com/r/firefox/comments/1u8hwod/dont_use_firefox_focus_on_ios_vulnerable_to/osbdb1c/",
         "parent_id": "t1_osb58qv",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.494,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.512,
+          "neu": 0.488,
+          "pos": 0,
+          "compound": -0.4939
+        }
       }
     ],
     "classification": {
@@ -318,8 +777,8 @@
       }
     },
     "category": "Neutral",
-    "comments_avg_sentiment_score": -0.026,
-    "sentiment_score": -0.147
+    "comments_avg_sentiment_score": -0.035,
+    "sentiment_score": -0.152
   },
   {
     "_id": "6a319513c08e7acc03566629",
@@ -335,7 +794,7 @@
     "tag": null,
     "tags": [],
     "title": "5 enterprise CVEs from last week worth checking out this week (Jun 7–13)",
-    "updatedAt": "2026-06-18T00:31:34.372Z",
+    "updatedAt": "2026-06-19T00:36:26.065Z",
     "upvote_ratio": 0.89,
     "url": "https://reddit.com/r/sysadmin/comments/1u7kggj/5_enterprise_cves_from_last_week_worth_checking/",
     "versionList": [
@@ -482,7 +941,7 @@
         "id": "orwlcht",
         "author": "Otherwise_Wave9374",
         "body": "This is a great breakdown, and it highlights a governance gap I keep seeing with agentic setups: you can have decent model guardrails, but if you do not capture tool-invocation evidence (who/what called which MCP tool, with what args, what data was touched, what was returned, and the policy decision) you are basically flying blind for audit and incident response.\n\nWhat has worked for us is treating MCP/tool calls like privileged API calls: immutable logs, correlation IDs end-to-end, and a simple control map (access control, output filtering, approval gates, retention, and periodic review) you can point to in SOC 2 evidence.\n\nIf you are building this out, https://www.wisdomprompt.com/ has a few practical notes on keeping AI usage auditable without killing velocity.",
-        "score": 7,
+        "score": 8,
         "created_utc_ts": 1781574513,
         "created_utc": "2026-06-16T01:48:33",
         "permalink": "https://reddit.com/r/AZURE/comments/1u6zlof/nsa_issued_mcp_security_guidance_in_may_and_the/orwlcht/",
@@ -515,14 +974,14 @@
     "created_utc": "2026-06-16T01:24:34",
     "first_author_comment": null,
     "num_comments": 4,
-    "score": 50,
+    "score": 53,
     "subreddit": "AZURE",
     "tag": "Media",
     "tags": [
       "Media"
     ],
     "title": "NSA issued MCP security guidance in May — and the attack paths are weirder than standard API vulnerabilities. Anyone doing threat modeling on this?",
-    "updatedAt": "2026-06-18T04:51:30.358Z",
+    "updatedAt": "2026-06-19T06:52:00.328Z",
     "upvote_ratio": 0.96,
     "url": "https://reddit.com/r/AZURE/comments/1u6zlof/nsa_issued_mcp_security_guidance_in_may_and_the/",
     "versionList": [],
@@ -568,13 +1027,13 @@
     "created_utc": "2026-06-12T20:37:06",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 49,
+    "score": 50,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Why Use App-Level Auth When Every Database Has Auth? (Splunk Enterprise CVE-2026-20253 Pre-Auth RCE) - watchTowr Labs",
-    "updatedAt": "2026-06-18T04:46:42.359Z",
-    "upvote_ratio": 0.92,
+    "updatedAt": "2026-06-19T06:46:59.248Z",
+    "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/netsec/comments/1u46wbb/why_use_applevel_auth_when_every_database_has/",
     "versionList": [
       "2026.0.0",
@@ -814,7 +1273,7 @@
     "tag": null,
     "tags": [],
     "title": "Firmware-Update-Einforderung verunsichert",
-    "updatedAt": "2026-06-18T00:51:25.608Z",
+    "updatedAt": "2026-06-19T00:55:36.125Z",
     "upvote_ratio": 0.74,
     "url": "https://reddit.com/r/Ubuntu/comments/1u404ki/firmwareupdateeinforderung_verunsichert/",
     "versionList": [],
@@ -860,13 +1319,13 @@
     "created_utc": "2026-06-12T05:23:23",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 35,
+    "score": 34,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Marking Your Own Homework (Check Point Remote Access VPN IKEv1 Authentication Bypass CVE-2026-50751) - watchTowr Labs",
-    "updatedAt": "2026-06-18T04:46:45.394Z",
-    "upvote_ratio": 0.87,
+    "updatedAt": "2026-06-19T06:47:03.847Z",
+    "upvote_ratio": 0.86,
     "url": "https://reddit.com/r/netsec/comments/1u3m7yj/marking_your_own_homework_check_point_remote/",
     "versionList": [
       "2026.0.0",
@@ -1144,6 +1603,40 @@
         "isAnalyzed": false,
         "cveChangeHistory": "No change history returned.\n",
         "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-50751",
+        "cveIds": [
+          "CVE-2026-50751"
+        ],
+        "source": "Title",
+        "commentText": "Marking Your Own Homework (Check Point Remote Access VPN IKEv1 Authentication Bypass CVE-2026-50751) - watchTowr Labs",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1u3m7yj/marking_your_own_homework_check_point_remote/",
+        "commentDate": "2026-06-12T05:23:23+00:00",
+        "cvePublishedDate": "2026-06-08T12:16:32.367000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 3,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-50751",
+        "cveIds": [
+          "CVE-2026-50751"
+        ],
+        "source": "Title",
+        "commentText": "Marking Your Own Homework (Check Point Remote Access VPN IKEv1 Authentication Bypass CVE-2026-50751) - watchTowr Labs",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1u3m7yj/marking_your_own_homework_check_point_remote/",
+        "commentDate": "2026-06-12T05:23:23+00:00",
+        "cvePublishedDate": "2026-06-08T12:16:32.367000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 3,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
       }
     ],
     "author_description_sentiment": {
@@ -1239,7 +1732,7 @@
       "News"
     ],
     "title": "CVE-2026-5027 (Langflow Path Traversal → Unauthenticated RCE) — Active Exploitation. Who's tracking exposure in enterprise AI dev environments?",
-    "updatedAt": "2026-06-18T00:54:18.842Z",
+    "updatedAt": "2026-06-19T00:58:23.895Z",
     "upvote_ratio": 0.69,
     "url": "https://reddit.com/r/AZURE/comments/1u3hqco/cve20265027_langflow_path_traversal/",
     "versionList": [
@@ -1603,7 +2096,7 @@
       "fluff"
     ],
     "title": "BUMSRAKETE™ – The HUGEST, the MOST TREMENDOUS FreeBSD page-cache write primitive in the history of computing.",
-    "updatedAt": "2026-06-18T00:57:48.393Z",
+    "updatedAt": "2026-06-19T01:01:44.950Z",
     "upvote_ratio": 0.97,
     "url": "https://reddit.com/r/freebsd/comments/1u2x6l9/bumsrakete_the_hugest_the_most_tremendous_freebsd/",
     "versionList": [],
@@ -2379,7 +2872,7 @@
     "tag": "Whine / Complaint",
     "tags": [],
     "title": "Another Critical Security Advisory",
-    "updatedAt": "2026-06-18T00:59:59.427Z",
+    "updatedAt": "2026-06-19T01:03:52.033Z",
     "upvote_ratio": 0.67,
     "url": "https://reddit.com/r/Ubiquiti/comments/1u2iw9t/another_critical_security_advisory/",
     "versionList": [],
@@ -2430,7 +2923,7 @@
       "Question"
     ],
     "title": "XP SP3 systems not getting AD Group Policies",
-    "updatedAt": "2026-06-18T01:03:05.485Z",
+    "updatedAt": "2026-06-19T01:06:54.019Z",
     "upvote_ratio": 0.48,
     "url": "https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/",
     "versionList": [],
@@ -3791,13 +4284,13 @@
     "created_utc": "2026-06-10T00:54:34",
     "first_author_comment": null,
     "num_comments": 6,
-    "score": 47,
+    "score": 42,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "More Evidence That Words Don't Mean What We Thought They Meant (Ivanti Sentry Pre-Auth OS Command Injection CVE-2026-10520) - watchTowr Labs",
-    "updatedAt": "2026-06-18T04:46:48.785Z",
-    "upvote_ratio": 0.9,
+    "updatedAt": "2026-06-19T06:47:07.406Z",
+    "upvote_ratio": 0.87,
     "url": "https://reddit.com/r/netsec/comments/1u1neao/more_evidence_that_words_dont_mean_what_we/",
     "versionList": [
       "2026.0.0",
@@ -3850,7 +4343,7 @@
         "id": "or0q556",
         "author": "Allen_Koholic",
         "body": "Who wrote this? ",
-        "score": 2,
+        "score": 1,
         "created_utc_ts": 1781179502,
         "created_utc": "2026-06-11T12:05:02",
         "permalink": "https://reddit.com/r/netsec/comments/1u1neao/more_evidence_that_words_dont_mean_what_we/or0q556/",
@@ -3883,7 +4376,7 @@
         "id": "orvwdk2",
         "author": "scriptqzor",
         "body": "author is listed as watchTowr Labs, but the writing style screams “one very caffeinated researcher having fun” tbh",
-        "score": 2,
+        "score": 3,
         "created_utc_ts": 1781566058,
         "created_utc": "2026-06-15T23:27:38",
         "permalink": "https://reddit.com/r/netsec/comments/1u1neao/more_evidence_that_words_dont_mean_what_we/orvwdk2/",
@@ -3921,7 +4414,7 @@
       "discussion"
     ],
     "title": "Upcoming security advisories and errata, hopefully soon.",
-    "updatedAt": "2026-06-18T01:08:24.309Z",
+    "updatedAt": "2026-06-19T01:09:27.584Z",
     "upvote_ratio": 0.96,
     "url": "https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/",
     "versionList": [],
@@ -4350,6 +4843,92 @@
         "isAnalyzed": false,
         "cveChangeHistory": "No change history returned.\n",
         "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2025-10263",
+        "cveIds": [
+          "CVE-2025-10263",
+          "CVE-2025-10263"
+        ],
+        "source": "Comment",
+        "commentText": "****\n\nFreeBSD bug [295488 - syslogd: memory leak in casper_ttymsg\\(\\) via nvlist_take_string_array](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=295488)\n\n* FreeBSD-EN-26:14.syslogd\n\n[**CVE-2025-10263**](https://www.cve.org/CVERecord?id=CVE-2025-10263)\n\n* identified by Arm\n* FreeBSD-SA-26:31.arm64\n* [Arm C1-Ultra, C1-Premium, Neoverse V3 & V3AE, Neoverse V2...",
+        "linkToComment": "https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/oqs062g/",
+        "commentDate": "2026-06-10T04:31:34+00:00",
+        "cvePublishedDate": "2026-06-09T10:16:33.003000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-06-17T08:28:01.150 | CVE Modified | source=arm-security@arm.com | changeId=5F2E2FA1-A384-41A3-8BEF-F6315A6158E4\n   - Added Affected: [{'vendor': 'Arm', 'product': 'C1-Ultra', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'C1-Premium', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Neoverse V3', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Neoverse V3AE', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Neoverse V1', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Neoverse N2', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Neoverse N1', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-X925', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-X4', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-X3', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-X2', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-X1', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-X1C', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A710', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A78', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A78AE', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A78C', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A77', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A76', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A76AE', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}]\n2. 2026-06-17T08:28:01.150 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=30460436-DFCC-4CDB-9842-3C8AE4052888\n   - Added SSVC: {'timestamp': '2026-06-09T14:11:21.775441Z', 'id': 'CVE-2025-10263', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n3. 2026-06-09T17:16:56.930 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=D7D3727E-4BD1-4C6B-AAE5-851CB8D87076\n   - Added Reference: http://www.openwall.com/lists/oss-security/2026/06/09/13\n4. 2026-06-09T16:16:34.680 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=E6493829-2226-4DA8-89A0-711673686C24\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N\n5. 2026-06-09T14:16:33.773 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=B2D8318F-BE57-4194-9087-C5CA57ACF612\n   - Added Reference: http://xenbits.xen.org/xsa/advisory-493.html\n6. 2026-06-09T10:16:33.003 | New CVE Received | source=arm-security@arm.com | changeId=EDFD27D0-2C28-4D8B-99C4-B0F22C1F38C3\n   - Added Description: Arm C1-Ultra, C1-Premium, Neoverse V3 & V3AE, Neoverse V2, Neoverse V1, Neoverse-N2, Neoverse-N1, Cortex-X925, Cortex-X4, Cortex-X3, Cortex-X2, Cortex-X1 & X1C, Cortex-A710, Cortex-A78, A78AE & A78C, Cortex-A77, Cortex-A76 & A76A may allow writes to resources owned by a higher exception level.\n   - Added CWE: CWE-362\n   - Added Reference: https://developer.arm.com/documentation/112137\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2025-10263",
+        "cveIds": [
+          "CVE-2025-10263",
+          "CVE-2025-10263"
+        ],
+        "source": "Comment",
+        "commentText": "****\n\nFreeBSD bug [295488 - syslogd: memory leak in casper_ttymsg\\(\\) via nvlist_take_string_array](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=295488)\n\n* FreeBSD-EN-26:14.syslogd\n\n[**CVE-2025-10263**](https://www.cve.org/CVERecord?id=CVE-2025-10263)\n\n* identified by Arm\n* FreeBSD-SA-26:31.arm64\n* [Arm C1-Ultra, C1-Premium, Neoverse V3 & V3AE, Neoverse V2...",
+        "linkToComment": "https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/oqs062g/",
+        "commentDate": "2026-06-10T04:31:34+00:00",
+        "cvePublishedDate": "2026-06-09T10:16:33.003000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2025-10263",
+        "cveIds": [
+          "CVE-2025-10263",
+          "CVE-2025-10263"
+        ],
+        "source": "Comment",
+        "commentText": "****\n\nFreeBSD bug [295488 - syslogd: memory leak in casper_ttymsg\\(\\) via nvlist_take_string_array](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=295488)\n\n* FreeBSD-EN-26:14.syslogd\n\n[**CVE-2025-10263**](https://www.cve.org/CVERecord?id=CVE-2025-10263)\n\n* identified by Arm\n* FreeBSD-SA-26:31.arm64\n* [Arm C1-Ultra, C1-Premium, Neoverse V3 & V3AE, Neoverse V2...",
+        "linkToComment": "https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/oqs062g/",
+        "commentDate": "2026-06-10T04:31:34+00:00",
+        "cvePublishedDate": "2026-06-09T10:16:33.003000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2025-10263",
+        "cveIds": [
+          "CVE-2025-10263",
+          "CVE-2025-10263"
+        ],
+        "source": "Comment",
+        "commentText": "****\n\nFreeBSD bug [295488 - syslogd: memory leak in casper_ttymsg\\(\\) via nvlist_take_string_array](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=295488)\n\n* FreeBSD-EN-26:14.syslogd\n\n[**CVE-2025-10263**](https://www.cve.org/CVERecord?id=CVE-2025-10263)\n\n* identified by Arm\n* FreeBSD-SA-26:31.arm64\n* [Arm C1-Ultra, C1-Premium, Neoverse V3 & V3AE, Neoverse V2...",
+        "linkToComment": "https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/oqs062g/",
+        "commentDate": "2026-06-10T04:31:34+00:00",
+        "cvePublishedDate": "2026-06-09T10:16:33.003000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-06-17T08:28:01.150 | CVE Modified | source=arm-security@arm.com | changeId=5F2E2FA1-A384-41A3-8BEF-F6315A6158E4\n   - Added Affected: [{'vendor': 'Arm', 'product': 'C1-Ultra', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'C1-Premium', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Neoverse V3', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Neoverse V3AE', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Neoverse V1', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Neoverse N2', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Neoverse N1', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-X925', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-X4', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-X3', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-X2', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-X1', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-X1C', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A710', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A78', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A78AE', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A78C', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A77', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A76', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A76AE', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}]\n2. 2026-06-17T08:28:01.150 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=30460436-DFCC-4CDB-9842-3C8AE4052888\n   - Added SSVC: {'timestamp': '2026-06-09T14:11:21.775441Z', 'id': 'CVE-2025-10263', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n3. 2026-06-09T17:16:56.930 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=D7D3727E-4BD1-4C6B-AAE5-851CB8D87076\n   - Added Reference: http://www.openwall.com/lists/oss-security/2026/06/09/13\n4. 2026-06-09T16:16:34.680 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=E6493829-2226-4DA8-89A0-711673686C24\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N\n5. 2026-06-09T14:16:33.773 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=B2D8318F-BE57-4194-9087-C5CA57ACF612\n   - Added Reference: http://xenbits.xen.org/xsa/advisory-493.html\n6. 2026-06-09T10:16:33.003 | New CVE Received | source=arm-security@arm.com | changeId=EDFD27D0-2C28-4D8B-99C4-B0F22C1F38C3\n   - Added Description: Arm C1-Ultra, C1-Premium, Neoverse V3 & V3AE, Neoverse V2, Neoverse V1, Neoverse-N2, Neoverse-N1, Cortex-X925, Cortex-X4, Cortex-X3, Cortex-X2, Cortex-X1 & X1C, Cortex-A710, Cortex-A78, A78AE & A78C, Cortex-A77, Cortex-A76 & A76A may allow writes to resources owned by a higher exception level.\n   - Added CWE: CWE-362\n   - Added Reference: https://developer.arm.com/documentation/112137\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
       },
       {
         "cveId": "CVE-2025-10263",
@@ -4923,7 +5502,7 @@
       "Microsoft"
     ],
     "title": "Microsoft has released a patch for the bitlocker bypass",
-    "updatedAt": "2026-06-18T01:06:40.830Z",
+    "updatedAt": "2026-06-19T01:10:23.052Z",
     "upvote_ratio": 0.98,
     "url": "https://reddit.com/r/sysadmin/comments/1u1dlpy/microsoft_has_released_a_patch_for_the_bitlocker/",
     "versionList": [],
@@ -5052,7 +5631,7 @@
       "General Discussion"
     ],
     "title": "Top enterprise CVEs from last week worth your patch queue (May 31 - Jun 6)",
-    "updatedAt": "2026-06-18T01:07:55.189Z",
+    "updatedAt": "2026-06-19T01:11:31.815Z",
     "upvote_ratio": 0.83,
     "url": "https://reddit.com/r/sysadmin/comments/1u16gsm/top_enterprise_cves_from_last_week_worth_your/",
     "versionList": [
@@ -5093,7 +5672,7 @@
       "General Discussion"
     ],
     "title": "Patch Tuesday Megathread - (June 09, 2026)",
-    "updatedAt": "2026-06-18T01:08:02.472Z",
+    "updatedAt": "2026-06-19T01:11:38.404Z",
     "upvote_ratio": 0.97,
     "url": "https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/",
     "versionList": [
@@ -6858,7 +7437,7 @@
     "tag": null,
     "tags": [],
     "title": "Ubuntu 24.04 LTS - nginx segfaults after installing updates",
-    "updatedAt": "2026-06-18T01:08:17.092Z",
+    "updatedAt": "2026-06-19T01:11:51.440Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/Ubuntu/comments/1u14eyz/ubuntu_2404_lts_nginx_segfaults_after_installing/",
     "versionList": [
@@ -7148,7 +7727,7 @@
     "tag": "Security",
     "tags": [],
     "title": "Another Cisco SD-WAN Manager bug is being exploited, no patch yet. How exposed is your controller?",
-    "updatedAt": "2026-06-18T01:09:24.738Z",
+    "updatedAt": "2026-06-19T01:12:54.541Z",
     "upvote_ratio": 0.95,
     "url": "https://reddit.com/r/networking/comments/1u0xug8/another_cisco_sdwan_manager_bug_is_being/",
     "versionList": [],
@@ -7176,13 +7755,13 @@
     "created_utc": "2026-06-07T00:05:33",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 7,
+    "score": 9,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-46640: Developing payloads for Twig sandbox bypass",
-    "updatedAt": "2026-06-18T04:46:53.901Z",
-    "upvote_ratio": 0.9,
+    "updatedAt": "2026-06-19T06:47:12.402Z",
+    "upvote_ratio": 1,
     "url": "https://reddit.com/r/netsec/comments/1tywxh9/cve202646640_developing_payloads_for_twig_sandbox/",
     "versionList": [
       "2026.0.0",
@@ -7238,7 +7817,7 @@
         "id": "oprf3cd",
         "author": "throwaway234f32423df",
         "body": "fixed on Ubuntu about an hour ago even though they haven't put up a CVE page for it yet",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1780598242,
         "created_utc": "2026-06-04T18:37:22",
         "permalink": "https://reddit.com/r/apache/comments/1tws4w7/the_http2_bomb_that_knocks_nginx_and_apache/oprf3cd/",
@@ -7254,7 +7833,7 @@
     "tag": null,
     "tags": [],
     "title": "The HTTP/2 Bomb That Knocks nginx and Apache Offline With a Single Connection",
-    "updatedAt": "2026-06-18T04:51:55.932Z",
+    "updatedAt": "2026-06-19T06:52:18.325Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/apache/comments/1tws4w7/the_http2_bomb_that_knocks_nginx_and_apache/",
     "versionList": [
@@ -7673,7 +8252,7 @@
       "Discussion"
     ],
     "title": "CVE-2026-48710: A Maintainer's Perspective",
-    "updatedAt": "2026-06-18T01:17:58.154Z",
+    "updatedAt": "2026-06-19T01:21:07.584Z",
     "upvote_ratio": 0.96,
     "url": "https://reddit.com/r/Python/comments/1tr5s1c/cve202648710_a_maintainers_perspective/",
     "versionList": [
@@ -7750,7 +8329,7 @@
         "id": "oopkoz6",
         "author": "vhthc",
         "body": "IMHO the setup is not realistic which makes the experiment results inconclusive.\n\nIn the real world you either have a complete issue description (not only where the bug is but also the description what the bug is and maybe a proof of concept) or you have an exploit (so when you are at the point of triage which would result in the issue description).\n\nThe triage part is not something I would recommend to measure because of easy contamination, but this could be a benchmark on its own.\n\nSo I recommend to give the full CVE information and then see how well it is able to fix the vulnerability completely.\n\nThe numbers for opus and sonnet would also be great to see btw (and maybe DeepSeek 4 pro and Kimi 2.6) because the are the models (in addition to gpt 5.5 + -codex) that are being used.\n",
-        "score": 4,
+        "score": 3,
         "created_utc_ts": 1780118622,
         "created_utc": "2026-05-30T05:23:42",
         "permalink": "https://reddit.com/r/netsec/comments/1tquesx/i_evaluated_5_llm_agents_on_patching_realworld/oopkoz6/",
@@ -7871,12 +8450,12 @@
     "created_utc": "2026-05-29T07:32:36",
     "first_author_comment": "So AI is great at finding bugs but terrible at fixing them. I guess security researchers have their job security back again. 😂\n\nThe silent failure is the real finding though. A patch that passes every test but leaves the hole open is worse than nothing. False confidence at scale is a new attack surface.\n\nCurious what you're seeing. Happy to compare notes.",
     "num_comments": 25,
-    "score": 52,
+    "score": 49,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "I evaluated 5 LLM agents on patching real-world CVEs. Here is what I found.",
-    "updatedAt": "2026-06-18T04:47:07.285Z",
+    "updatedAt": "2026-06-19T06:47:26.331Z",
     "upvote_ratio": 0.78,
     "url": "https://reddit.com/r/netsec/comments/1tquesx/i_evaluated_5_llm_agents_on_patching_realworld/",
     "versionList": [
@@ -8008,7 +8587,7 @@
     "tag": null,
     "tags": [],
     "title": "AIOps: Patch RHEL CVEs in Minutes with Red Hat Lightspeed MCP and Ansible Automation Platform",
-    "updatedAt": "2026-06-18T01:18:24.423Z",
+    "updatedAt": "2026-06-19T01:21:33.376Z",
     "upvote_ratio": 0.7,
     "url": "https://reddit.com/r/ansible/comments/1tpachm/aiops_patch_rhel_cves_in_minutes_with_red_hat/",
     "versionList": [],
@@ -8038,7 +8617,7 @@
         "id": "oo8317y",
         "author": "Top-Bed9587",
         "body": "worked on some threat intel stuff a couple years back where we were tracking a botnet that got partially sinkholed by a big provider. the scanning cadence from the associated ranges barely dipped for like 3 days after the takedown. turned out a chunk of the nodes were running autonomously without needing live C2 contact for their scan routines, so losing control of the upstream infrastructure didnt actually interrupt the behavior at all. this feels really similar to what ELLIO is documenting here. either whatever FIOD seized was more the management/billing layer rather than the operational core, or theres enough distributed automation that pulling 800 servers doesnt meaningfully dent daily output. the detail about the legacy Stark blocks (94.131.105 and 92.118.232) being the ones that got withdrawn while the main AS209847 ranges are still fully announced and scanning at normal rate is pretty telling. it suggests those old blocks were tied to arrested operators or hardware that got physically taken, but the bulk of the actual scan infrastructure just kept running. good on ELLIO for continuing to track this instead of just covering the initial seizure headline and moving on",
-        "score": 21,
+        "score": 20,
         "created_utc_ts": 1779907196,
         "created_utc": "2026-05-27T18:39:56",
         "permalink": "https://reddit.com/r/netsec/comments/1tp6dz0/a_week_after_dutch_fiod_seized_800_servers_the/oo8317y/",
@@ -8049,7 +8628,7 @@
         "id": "oo8hy5h",
         "author": "TeramindTeam",
         "body": "i remember seeing similar behavior back when they tried to pull the plug on other botnet infrastructure, its wild how often the traffic just shifts instead of stopping. its definately worth checking if the routing is actually being handled by a different upstream provider now or if they just have some automated failover still running",
-        "score": 5,
+        "score": 7,
         "created_utc_ts": 1779911117,
         "created_utc": "2026-05-27T19:45:17",
         "permalink": "https://reddit.com/r/netsec/comments/1tp6dz0/a_week_after_dutch_fiod_seized_800_servers_the/oo8hy5h/",
@@ -8065,7 +8644,7 @@
     "tag": null,
     "tags": [],
     "title": "A week after Dutch FIOD seized 800+ servers, the hosting network's ASN (AS209847) is still scanning at its normal daily rate",
-    "updatedAt": "2026-06-18T04:47:16.256Z",
+    "updatedAt": "2026-06-19T06:47:35.128Z",
     "upvote_ratio": 0.97,
     "url": "https://reddit.com/r/netsec/comments/1tp6dz0/a_week_after_dutch_fiod_seized_800_servers_the/",
     "versionList": [
@@ -8140,7 +8719,7 @@
     "tag": null,
     "tags": [],
     "title": "CVE-2021-21735: ZTE H168N wizard whitelist exposed PPPoE and WLAN secrets pre-auth",
-    "updatedAt": "2026-06-18T01:19:03.966Z",
+    "updatedAt": "2026-06-19T01:22:11.882Z",
     "upvote_ratio": 0.84,
     "url": "https://reddit.com/r/netsec/comments/1tnbcp1/cve202121735_zte_h168n_wizard_whitelist_exposed/",
     "versionList": [
@@ -8176,7 +8755,7 @@
     "tag": null,
     "tags": [],
     "title": "CVE-2026-9256 - \"nginx-poolslip\", another new vulnerability in the rewrite module",
-    "updatedAt": "2026-06-18T01:19:31.670Z",
+    "updatedAt": "2026-06-19T01:22:39.074Z",
     "upvote_ratio": 0.98,
     "url": "https://reddit.com/r/netsec/comments/1tktr0o/cve20269256_nginxpoolslip_another_new/",
     "versionList": [
@@ -8724,6 +9303,23 @@
         "isAnalyzed": false,
         "cveChangeHistory": "No change history returned.\n",
         "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-42945",
+        "cveIds": [
+          "CVE-2026-42945"
+        ],
+        "source": "Comment",
+        "commentText": "Discovered by Nebula Security:\n\nhttps://x.com/nebusecurity/status/2057071579876753643\n\nThe previous vulnerability was CVE-2026-42945 and was nicknamed \"Nginx Rift\":\n\nhttps://my.f5.com/manage/s/article/K000161019",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1tktr0o/cve20269256_nginxpoolslip_another_new/onb0bw3/",
+        "commentDate": "2026-05-22T19:46:33+00:00",
+        "cvePublishedDate": "2026-05-13T16:16:50.190000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 9,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
       }
     ],
     "author_description_sentiment": {
@@ -8814,7 +9410,7 @@
     "tag": null,
     "tags": [],
     "title": "Zyxel low-priv account leaked super-admin, FTPS, and TR-069 secrets across router fleets",
-    "updatedAt": "2026-06-18T01:19:36.915Z",
+    "updatedAt": "2026-06-19T01:22:43.959Z",
     "upvote_ratio": 0.78,
     "url": "https://reddit.com/r/netsec/comments/1tkkq0m/zyxel_lowpriv_account_leaked_superadmin_ftps_and/",
     "versionList": [
@@ -8853,7 +9449,7 @@
       "Use Cases"
     ],
     "title": "openclaw crossed 500k downloads a day this week. here are the 5 things nobody tells you when you're one of them",
-    "updatedAt": "2026-06-18T01:24:40.537Z",
+    "updatedAt": "2026-06-19T01:27:39.341Z",
     "upvote_ratio": 0.8,
     "url": "https://reddit.com/r/openclaw/comments/1srpodd/openclaw_crossed_500k_downloads_a_day_this_week/",
     "versionList": [
@@ -8900,7 +9496,7 @@
       "General Discussion"
     ],
     "title": "Security Check Recommended (CVE-2025-55182): Please review your application's dependencies. If you are running React or Next.js",
-    "updatedAt": "2026-06-18T01:32:36.681Z",
+    "updatedAt": "2026-06-19T01:35:24.013Z",
     "upvote_ratio": 0.91,
     "url": "https://reddit.com/r/react/comments/1pfyta0/security_check_recommended_cve202555182_please/",
     "versionList": [
@@ -9187,6 +9783,40 @@
         "isAnalyzed": false,
         "cveChangeHistory": "No change history returned.\n",
         "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2025-55182",
+        "cveIds": [
+          "CVE-2025-55182"
+        ],
+        "source": "Title",
+        "commentText": "Security Check Recommended (CVE-2025-55182): Please review your application's dependencies. If you are running React or Next.js",
+        "linkToComment": "https://reddit.com/r/react/comments/1pfyta0/security_check_recommended_cve202555182_please/",
+        "commentDate": "2025-12-06T20:14:02+00:00",
+        "cvePublishedDate": "2025-12-03T16:15:56.463000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 3,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2025-55182",
+        "cveIds": [
+          "CVE-2025-55182"
+        ],
+        "source": "Title",
+        "commentText": "Security Check Recommended (CVE-2025-55182): Please review your application's dependencies. If you are running React or Next.js",
+        "linkToComment": "https://reddit.com/r/react/comments/1pfyta0/security_check_recommended_cve202555182_please/",
+        "commentDate": "2025-12-06T20:14:02+00:00",
+        "cvePublishedDate": "2025-12-03T16:15:56.463000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 3,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
       }
     ],
     "author_description_sentiment": {
@@ -9224,7 +9854,7 @@
       "vercel"
     ],
     "title": "What is React Server Components vulnerability CVE-2025-55182 and how does it affect Next.js?",
-    "updatedAt": "2026-06-18T01:32:49.208Z",
+    "updatedAt": "2026-06-19T01:35:36.248Z",
     "upvote_ratio": null,
     "url": "https://stackoverflow.com/questions/79837478/what-is-react-server-components-vulnerability-cve-2025-55182-and-how-does-it-aff",
     "versionList": [
@@ -9510,7 +10140,7 @@
     "tag": null,
     "tags": [],
     "title": "TARmageddon (CVE-2025-62518): RCE Vulnerability Highlights the Challenges of Open Source Abandonware | Edera Blog",
-    "updatedAt": "2026-06-18T01:35:03.620Z",
+    "updatedAt": "2026-06-19T01:37:48.517Z",
     "upvote_ratio": 0.88,
     "url": "https://reddit.com/r/rust/comments/1ogfpk5/tarmageddon_cve202562518_rce_vulnerability/",
     "versionList": [
@@ -9643,7 +10273,7 @@
       "Tutorial"
     ],
     "title": "Best practices for using Python &amp; uv inside Docker",
-    "updatedAt": "2026-06-18T01:37:46.656Z",
+    "updatedAt": "2026-06-19T01:40:27.081Z",
     "upvote_ratio": 0.88,
     "url": "https://reddit.com/r/Python/comments/1o3p4bf/best_practices_for_using_python_uv_inside_docker/",
     "versionList": [],
@@ -9717,7 +10347,7 @@
     "tag": null,
     "tags": [],
     "title": "Security Update for Microsoft .NET Core (June 2025)",
-    "updatedAt": "2026-06-18T01:39:20.329Z",
+    "updatedAt": "2026-06-19T01:41:58.915Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/tenable/comments/1nhvfck/security_update_for_microsoft_net_core_june_2025/",
     "versionList": [
@@ -9763,7 +10393,7 @@
       "Troubleshooting | Android"
     ],
     "title": "Chromebook not updating to the new update that fixes CVE-2025-6554",
-    "updatedAt": "2026-06-18T01:40:11.744Z",
+    "updatedAt": "2026-06-19T01:42:49.719Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/chrome/comments/1lpij7v/chromebook_not_updating_to_the_new_update_that/",
     "versionList": [
@@ -9886,7 +10516,7 @@
       "News"
     ],
     "title": "🔒 Update Chrome Today! – New 0-day Vulnerability (CVE-2025-5419) Is Being Exploited in the Wild",
-    "updatedAt": "2026-06-18T01:40:25.997Z",
+    "updatedAt": "2026-06-19T01:43:03.736Z",
     "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/chrome/comments/1l2zxcb/update_chrome_today_new_0day_vulnerability/",
     "versionList": [
@@ -10068,7 +10698,7 @@
     "tag": null,
     "tags": [],
     "title": "How soon are vulns added to Insight?",
-    "updatedAt": "2026-06-18T01:44:19.891Z",
+    "updatedAt": "2026-06-19T01:46:52.591Z",
     "upvote_ratio": 0.8,
     "url": "https://reddit.com/r/rapid7/comments/boy98i/how_soon_are_vulns_added_to_insight/",
     "versionList": [],
