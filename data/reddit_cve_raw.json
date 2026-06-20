@@ -1,5 +1,1291 @@
 [
   {
+    "_id": "6a35aabc4ce8d84a7e43a49b",
+    "redditId": "1uab0j6",
+    "author": "everping",
+    "author_description": null,
+    "awards": [],
+    "created_utc": "2026-06-19T19:15:45",
+    "first_author_comment": null,
+    "num_comments": 0,
+    "score": 21,
+    "subreddit": "netsec",
+    "tag": null,
+    "tags": [],
+    "title": "Use-after-free in the QPACK encoder of nginx HTTP/3 - CVE-2026-42530",
+    "updatedAt": "2026-06-20T04:46:02.741Z",
+    "upvote_ratio": 0.91,
+    "url": "https://reddit.com/r/netsec/comments/1uab0j6/useafterfree_in_the_qpack_encoder_of_nginx_http3/",
+    "versionList": [
+      "3.0.0",
+      "2026.0.0",
+      "42530.0.0"
+    ],
+    "classification": {
+      "componentType": [
+        "SERVER"
+      ],
+      "securityType": [
+        "SECURITY"
+      ]
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.000899902932697813,
+        "timestampPredicted": "2026-06-20T04:00:56.799864+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": false
+  },
+  {
+    "_id": "6a356d6b4ce8d84a7e438d65",
+    "redditId": "1ua3v93",
+    "author": "TrustSig",
+    "author_description": "CISA dropped an alert on June 18 telling everyone with internet-facing FortiGate firewalls and SSL VPN gateways to lock things down. The campaign is being called FortiBleed.\n\nThe important part: this is NOT a new zero-day. CISA and Fortinet both say it comes from reused and un-rotated credentials from earlier infostealer leaks, combined with brute-force activity. Fortinet says no new vulnerability exists in their products.\n\nCISA says the activity \"involves the exposure of leaked credentials associated with approximately 74,000 Fortinet devices.\" SOCRadar says it is worse, citing \"over 86,644 confirmed working credentials across 194 countries.\"\n\nResearcher Bob Diachenko found an exposed server with valid VPN creds, usernames, emails, and plaintext passwords, attributed to a Russian-speaking cybercrime group.\n\nKevin Beaumont, working with Hudson Rock, verified the data is real: \"I have worked with several orgs listed, and can confirm the logins and passwords are real. Many of the devices sampled are on fairly recent patches.\"\n\nEven 25+ character passwords showed up in plaintext, so these were pulled from harvested infostealer logs, not cracked.\n\nHuntress identified 845 impacted partner orgs. TechCrunch named alleged victims including Accenture, Comcast, Foxconn, Lenovo, Oracle, Samsung, Siemens, and PwC. Bitsight confirmed active exploitation with tunneling tools Chisel and Neo-reGeorg.\n\nNCSC, Canada's Cyber Centre (AL26-014), the FBI, and HKCERT all put out warnings too.\n\nWhat CISA wants you to do now: kill all SSL VPN and admin sessions, reset every VPN and admin password, turn on phishing-resistant MFA, and dig through logs for unauthorized access or lateral movement. Canada also says audit for rogue accounts like forticloud-sync and forticloud-tech, and verify patches for CVE-2024-55591, CVE-2025-59718, and CVE-2025-59719.\n\nSo basically, if you run Fortinet edge gear, today is a password rotation day whether you planned one or not.\n\nhttps://www.cisa.gov/news-events/alerts/2026/06/18/cisa-urges-hardening-fortinet-devices-after-reports-credential-exposure",
+    "awards": [],
+    "comments": [
+      {
+        "id": "osl7acy",
+        "author": "Hauber_RBLX",
+        "body": "looks like a bad day for any fortinet admins that have it publicly exposed",
+        "score": 1,
+        "created_utc_ts": 1781881331,
+        "created_utc": "2026-06-19T15:02:11",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1ua3v93/cisa_warns_fortinet_shops_over_fortibleed_74k/osl7acy/",
+        "parent_id": "t3_1ua3v93",
+        "is_submitter": false
+      },
+      {
+        "id": "oslg0fr",
+        "author": "Kyky_Geek",
+        "body": "I saw that alert yesterday and this morning I saw that the Hudson Rock group has a page you can search to see if you are on the list. I was shocked at how many big names were on that list. Tis wild. ",
+        "score": 1,
+        "created_utc_ts": 1781883739,
+        "created_utc": "2026-06-19T15:42:19",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1ua3v93/cisa_warns_fortinet_shops_over_fortibleed_74k/oslg0fr/",
+        "parent_id": "t3_1ua3v93",
+        "is_submitter": false
+      },
+      {
+        "id": "osli3m8",
+        "author": "xendr0me",
+        "body": "When you wakeup and the infrastructure fairy hasn't replaced your Fortinet gear overnight, it's always a bad day.",
+        "score": 1,
+        "created_utc_ts": 1781884307,
+        "created_utc": "2026-06-19T15:51:47",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1ua3v93/cisa_warns_fortinet_shops_over_fortibleed_74k/osli3m8/",
+        "parent_id": "t1_osl7acy",
+        "is_submitter": false
+      },
+      {
+        "id": "oslnhyg",
+        "author": "Ssakaa",
+        "body": "It's a good thing they didn't try a coverup. The FortiGate headlines just wouldn't have landed very hard...",
+        "score": 1,
+        "created_utc_ts": 1781885780,
+        "created_utc": "2026-06-19T16:16:20",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1ua3v93/cisa_warns_fortinet_shops_over_fortibleed_74k/oslnhyg/",
+        "parent_id": "t3_1ua3v93",
+        "is_submitter": false
+      },
+      {
+        "id": "oslwu3b",
+        "author": "Fallingdamage",
+        "body": "Fortinet is pretty good about being up front on their issues.  \n  \nWhen all the new firewall vulns started pouring in over the last 4 months with help from AI, I braced for the worst, but was surprised that the company that was melting down the worst was Palo Alto. Its like all the CVEs they just quietly swept under the rung suddenly got their chance to shine. Check on the number of curren CVEs from fortinet over the last 4 months vs PA, Cisco, Sonicwall, etc. Its surprisingly low.  \n  \nThis disclosure is about stolen credentials from a year ago. Nothing new. Its all been patched. Admins just havent done their due diligence. Thats a people problem.",
+        "score": 1,
+        "created_utc_ts": 1781888296,
+        "created_utc": "2026-06-19T16:58:16",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1ua3v93/cisa_warns_fortinet_shops_over_fortibleed_74k/oslwu3b/",
+        "parent_id": "t1_oslnhyg",
+        "is_submitter": false
+      },
+      {
+        "id": "osm68ij",
+        "author": "ghosfto",
+        "body": "Fuck you Fortinet",
+        "score": 1,
+        "created_utc_ts": 1781890857,
+        "created_utc": "2026-06-19T17:40:57",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1ua3v93/cisa_warns_fortinet_shops_over_fortibleed_74k/osm68ij/",
+        "parent_id": "t3_1ua3v93",
+        "is_submitter": false
+      },
+      {
+        "id": "osn7sv2",
+        "author": "Crisp-Glade-2849",
+        "body": "rotating creds on 74k boxes is not a quick script. there goes weekend uptime and my sleephalf of those 74k devices havent seen update since 2021 anyway. spent morning resetting service accounts, pager is already screaming",
+        "score": 1,
+        "created_utc_ts": 1781901300,
+        "created_utc": "2026-06-19T20:35:00",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1ua3v93/cisa_warns_fortinet_shops_over_fortibleed_74k/osn7sv2/",
+        "parent_id": "t3_1ua3v93",
+        "is_submitter": false
+      },
+      {
+        "id": "oso8e34",
+        "author": "plump-lamp",
+        "body": " Why are their management ports exposed to the internet? And why is ssl vpn still being used in this day and age",
+        "score": 1,
+        "created_utc_ts": 1781912727,
+        "created_utc": "2026-06-19T23:45:27",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1ua3v93/cisa_warns_fortinet_shops_over_fortibleed_74k/oso8e34/",
+        "parent_id": "t1_osn7sv2",
+        "is_submitter": false
+      }
+    ],
+    "created_utc": "2026-06-19T14:43:01",
+    "first_author_comment": null,
+    "num_comments": 19,
+    "score": 111,
+    "subreddit": "sysadmin",
+    "tag": "General Discussion",
+    "tags": [
+      "General Discussion"
+    ],
+    "title": "CISA warns Fortinet shops over FortiBleed: 74k+ devices with leaked creds, rotate everything now",
+    "updatedAt": "2026-06-20T04:25:27.499Z",
+    "upvote_ratio": 0.9,
+    "url": "https://reddit.com/r/sysadmin/comments/1ua3v93/cisa_warns_fortinet_shops_over_fortibleed_74k/",
+    "versionList": [],
+    "classification": {
+      "componentType": [],
+      "securityType": [
+        "UNKNOWN"
+      ]
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.0008615935197100599,
+        "timestampPredicted": "2026-06-19T20:01:01.392496+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true
+  },
+  {
+    "_id": "6a3556784ce8d84a7e438768",
+    "redditId": "1ua20fg",
+    "author": "Emergency_Stable_923",
+    "author_description": "A crafted MPLS packet can trigger an out-of-bounds read in mpls\\_do\\_error, leaking 4 bytes of adjacent kernel stack memory back in an ICMP/MPLS error response. \n\nIt requires MPLS enabled, but the leak is remote and repeatable. Fixed in OpenBSD-current on 2026-06-18.",
+    "awards": [],
+    "created_utc": "2026-06-19T13:27:18",
+    "first_author_comment": null,
+    "num_comments": 3,
+    "score": 30,
+    "subreddit": "netsec",
+    "tag": null,
+    "tags": [],
+    "title": "OpenBSD MPLS kernel stack leaks remotely (CVE-2026-56099)",
+    "updatedAt": "2026-06-20T04:46:03.542Z",
+    "upvote_ratio": 0.92,
+    "url": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/",
+    "versionList": [
+      "2026.0.0",
+      "56099.0.0"
+    ],
+    "classification": {
+      "componentType": [
+        "OS"
+      ],
+      "securityType": [
+        "SECURITY"
+      ]
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.005565879177605351,
+        "timestampPredicted": "2026-06-19T20:01:15.558143+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true,
+    "commentCount": 3,
+    "detectedCVEs": [
+      {
+        "cveId": "CVE-2026-56099",
+        "cveIds": [
+          "CVE-2026-56099"
+        ],
+        "source": "Title",
+        "commentText": "OpenBSD MPLS kernel stack leaks remotely (CVE-2026-56099)",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/",
+        "commentDate": "2026-06-19T13:27:18+00:00",
+        "cvePublishedDate": "2026-06-18T20:16:15.370000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-06-19T17:16:30.197 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=C0825BFE-49C7-4CAB-9843-8E9B665F3E90\n   - Added Reference: http://www.openwall.com/lists/oss-security/2026/06/19/3\n2. 2026-06-18T20:16:15.370 | New CVE Received | source=disclosure@vulncheck.com | changeId=A17A5005-8BB0-468E-B899-559266AF370C\n   - Added Affected: [{'vendor': 'openbsd', 'product': 'src', 'defaultStatus': 'affected', 'repo': 'https://github.com/openbsd/src', 'versions': [{'version': '0', 'lessThan': '6a23123ec05f1eb29cfcaae0f3a468b2e1983cfd', 'versionType': 'git', 'status': 'affected'}]}]\n   - Added Description: OpenBSD before commit 6a23123 (2026-06-18) contains an out-of-bounds read vulnerability in the mpls_do_error function within sys/netmpls/mpls_input.c that allows remote attackers to disclose kernel stack memory by sending crafted MPLS frames with 16 labels and no Bottom-of-Stack bit set.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N\n   - Added CWE: CWE-125\n   - Added Reference: https://github.com/openbsd/src/commit/6a23123ec05f1eb29cfcaae0f3a468b2e1983cfd\n   - Added Reference: https://pop.argus-systems.ai/advisory/adv-040.html\n   - Added Reference: https://www.vulncheck.com/advisories/openbsd-mpls-do-error-kernel-stack-memory-disclosure-via-mpls-input\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-56099",
+        "cveIds": [
+          "CVE-2026-56099"
+        ],
+        "source": "Title",
+        "commentText": "OpenBSD MPLS kernel stack leaks remotely (CVE-2026-56099)",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/",
+        "commentDate": "2026-06-19T13:27:18+00:00",
+        "cvePublishedDate": "2026-06-18T20:16:15.370000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-06-19T17:16:30.197 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=C0825BFE-49C7-4CAB-9843-8E9B665F3E90\n   - Added Reference: http://www.openwall.com/lists/oss-security/2026/06/19/3\n2. 2026-06-18T20:16:15.370 | New CVE Received | source=disclosure@vulncheck.com | changeId=A17A5005-8BB0-468E-B899-559266AF370C\n   - Added Affected: [{'vendor': 'openbsd', 'product': 'src', 'defaultStatus': 'affected', 'repo': 'https://github.com/openbsd/src', 'versions': [{'version': '0', 'lessThan': '6a23123ec05f1eb29cfcaae0f3a468b2e1983cfd', 'versionType': 'git', 'status': 'affected'}]}]\n   - Added Description: OpenBSD before commit 6a23123 (2026-06-18) contains an out-of-bounds read vulnerability in the mpls_do_error function within sys/netmpls/mpls_input.c that allows remote attackers to disclose kernel stack memory by sending crafted MPLS frames with 16 labels and no Bottom-of-Stack bit set.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N\n   - Added CWE: CWE-125\n   - Added Reference: https://github.com/openbsd/src/commit/6a23123ec05f1eb29cfcaae0f3a468b2e1983cfd\n   - Added Reference: https://pop.argus-systems.ai/advisory/adv-040.html\n   - Added Reference: https://www.vulncheck.com/advisories/openbsd-mpls-do-error-kernel-stack-memory-disclosure-via-mpls-input\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      }
+    ],
+    "comments": [
+      {
+        "id": "oskwcx1",
+        "author": "Important_Story_5685",
+        "body": "The \"Only two remote holes in the default install\" slogan lives to fight another day. Looks like a nice little KASLR bypass primitive.",
+        "score": 2,
+        "created_utc_ts": 1781878244,
+        "created_utc": "2026-06-19T14:10:44",
+        "permalink": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/oskwcx1/",
+        "parent_id": "t3_1ua20fg",
+        "is_submitter": false
+      },
+      {
+        "id": "oskyfq1",
+        "author": "Due_Sea_6439",
+        "body": "Great write up. While a 4-byte information disclosure might seem minor on the surface, the fact that it is a **remote and repeatable kernel stack leak** means it’s highly valuable for attackers attempting to defeat KASLR (Kernel Address Space Layout Randomization). It will likely be paired in a chain with a separate remote code execution (RCE) vulnerability. If you run OpenBSD with MPLS enabled, check your patch level immediately against the June 18, 2026 commit.",
+        "score": 4,
+        "created_utc_ts": 1781878840,
+        "created_utc": "2026-06-19T14:20:40",
+        "permalink": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/oskyfq1/",
+        "parent_id": "t3_1ua20fg",
+        "is_submitter": false
+      },
+      {
+        "id": "oso9uro",
+        "author": "ephemeralsynth",
+        "body": "Who remembers HeartBleed? 😹",
+        "score": 1,
+        "created_utc_ts": 1781913231,
+        "created_utc": "2026-06-19T23:53:51",
+        "permalink": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/oso9uro/",
+        "parent_id": "t3_1ua20fg",
+        "is_submitter": false
+      }
+    ]
+  },
+  {
+    "_id": "6a351e0a4ce8d84a7e4360a4",
+    "redditId": "1u9y7yw",
+    "author": "qwerty0x41",
+    "author_description": null,
+    "awards": [],
+    "comments": [
+      {
+        "id": "osjvvp7",
+        "author": "netsec_burn",
+        "body": "&gt; bc01\n\nWestJet? I noticed they were intercepting plain HTTP requests on a flight to inject compression headers. Same hostname returned by Squid.",
+        "score": 6,
+        "created_utc_ts": 1781865481,
+        "created_utc": "2026-06-19T10:38:01",
+        "permalink": "https://reddit.com/r/netsec/comments/1u9y7yw/squidbleed_cve202647729_heartbleedstyle/osjvvp7/",
+        "parent_id": "t3_1u9y7yw",
+        "is_submitter": false
+      }
+    ],
+    "created_utc": "2026-06-19T10:21:41",
+    "first_author_comment": null,
+    "num_comments": 2,
+    "score": 66,
+    "subreddit": "netsec",
+    "tag": "Contains AI",
+    "tags": [],
+    "title": "Squidbleed (CVE-2026-47729) - Heartbleed-style vulnerability that leaks internal memory from every version of Squid Proxy, in its default configuration",
+    "updatedAt": "2026-06-20T04:46:04.508Z",
+    "upvote_ratio": 0.95,
+    "url": "https://reddit.com/r/netsec/comments/1u9y7yw/squidbleed_cve202647729_heartbleedstyle/",
+    "versionList": [
+      "2026.0.0",
+      "47729.0.0"
+    ],
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.0022754888953111767,
+        "timestampPredicted": "2026-06-19T16:00:52.531287+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true,
+    "classification": {
+      "securityType": [
+        "SECURITY"
+      ],
+      "componentType": []
+    }
+  },
+  {
+    "_id": "6a35190b4ce8d84a7e43600d",
+    "redditId": "1u9winj",
+    "author": "CaptainCatatonic",
+    "author_description": "[https://arstechnica.com/security/2026/06/massive-breach-spills-credentials-for-thousands-of-sensitive-networks/](https://arstechnica.com/security/2026/06/massive-breach-spills-credentials-for-thousands-of-sensitive-networks/)\n\n\"Researchers have uncovered a massive breach of Fortinet firewalls that has given Russian-speaking attackers near-unrestricted access to some of the world’s largest and most powerful organizations, including Oracle, Chevron, Lenovo, Federal Express, a NATO defense contractor, and Fortinet itself.\n\nNearly 74,000 Fortinet devices from more than 21,000 IP addresses in 194 countries have been compromised and their plaintext credentials exposed online\" \n\nHudson Rock has also made a search engine available [here](https://www.hudsonrock.com/fortinet) to search for domains that are known to be affected. \n\nF in chat for people using Fortigates",
+    "awards": [],
+    "comments": [
+      {
+        "id": "osjiulq",
+        "author": "burundilapp",
+        "body": "So if I am reading this correctly, it was guessable password or passwords that were too short.  Also the firewall mgmt being available to the internet, in which case two easily avoidable mistakes that any of these companies could have avoided.\n\nIf this were the case though I’d expect more than Fortinets in this list as these techniques should work with all firewalls, what specifically makes the Fortinets vulnerable?",
+        "score": 1,
+        "created_utc_ts": 1781859048,
+        "created_utc": "2026-06-19T08:50:48",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osjiulq/",
+        "parent_id": "t3_1u9winj",
+        "is_submitter": false
+      },
+      {
+        "id": "osjj01q",
+        "author": "osricson",
+        "body": "The results of exposing management interfaces &amp; multiple CVE's got bundled up in a catchy name",
+        "score": 1,
+        "created_utc_ts": 1781859129,
+        "created_utc": "2026-06-19T08:52:09",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osjj01q/",
+        "parent_id": "t1_osjiulq",
+        "is_submitter": false
+      },
+      {
+        "id": "osjj0bc",
+        "author": "datlock",
+        "body": "I believe downloading the payload also requires a CVE that was patched in April. ",
+        "score": 1,
+        "created_utc_ts": 1781859133,
+        "created_utc": "2026-06-19T08:52:13",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osjj0bc/",
+        "parent_id": "t1_osjiulq",
+        "is_submitter": false
+      },
+      {
+        "id": "osjjbab",
+        "author": "_AngryBadger_",
+        "body": "I've never understood why some people make their firewall management stuff accessible to the internet when all of these firewalls can easily deploy something like OpenVPN or WireGuard?  It takes a few minutes and you don't have to worry about it.  I remember thinking the same when I saw an article talking about how many PFSense boxed were exposed to the internet as well.",
+        "score": 1,
+        "created_utc_ts": 1781859293,
+        "created_utc": "2026-06-19T08:54:53",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osjjbab/",
+        "parent_id": "t3_1u9winj",
+        "is_submitter": false
+      },
+      {
+        "id": "osjjchy",
+        "author": "ryalln",
+        "body": "I wish they had a more detail explaining the exploit so I can work out if I need to do anything. I’m all down for major issues but fuck me this article isn’t all helpful.",
+        "score": 1,
+        "created_utc_ts": 1781859311,
+        "created_utc": "2026-06-19T08:55:11",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osjjchy/",
+        "parent_id": "t1_osjiulq",
+        "is_submitter": false
+      },
+      {
+        "id": "osjjia0",
+        "author": "DavWanna",
+        "body": "I can at least say that one of those popped companies checks both boxes.",
+        "score": 1,
+        "created_utc_ts": 1781859398,
+        "created_utc": "2026-06-19T08:56:38",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osjjia0/",
+        "parent_id": "t1_osjiulq",
+        "is_submitter": false
+      },
+      {
+        "id": "osjjpen",
+        "author": "Master_baited_817",
+        "body": "Only for remote logins. If somebody can't protect login to these devices with simplest of vpns then he needs to be removed.",
+        "score": 1,
+        "created_utc_ts": 1781859503,
+        "created_utc": "2026-06-19T08:58:23",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osjjpen/",
+        "parent_id": "t3_1u9winj",
+        "is_submitter": false
+      },
+      {
+        "id": "osjju07",
+        "author": "Master_baited_817",
+        "body": "People want ease of use not security. That is the result of that. ",
+        "score": 1,
+        "created_utc_ts": 1781859570,
+        "created_utc": "2026-06-19T08:59:30",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osjju07/",
+        "parent_id": "t1_osjjbab",
+        "is_submitter": false
+      },
+      {
+        "id": "osjl12z",
+        "author": "Patient-Cedar-7194",
+        "body": "70k is standard for these boxes. there goes weekend uptime, pager already buzzing. guess no sleep tonight.",
+        "score": 1,
+        "created_utc_ts": 1781860195,
+        "created_utc": "2026-06-19T09:09:55",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osjl12z/",
+        "parent_id": "t3_1u9winj",
+        "is_submitter": false
+      },
+      {
+        "id": "osjl4ly",
+        "author": "CaptainCatatonic",
+        "body": "Honestly from what I've read so far, seems like a whole bag of problems that contributed to the massive scale of the issue.\n\n1. Exposed management interfaces \n2. Many passwords in the dump were strong, but were previously grabbed by infostealers and were never rotated. Along with weak passwords that were bruteforced.\n3. SSL VPN on forti has been known for a long time to not be very secure, but many people still use it and the attackers were able to crack the password hashes they collected once they had access to the firewalls. \n4. Poor detection of suspicious activity on on-prem infra in cases where attackers were able to pivot into active directory etc. \n\nReally is a chain of weak links that lead to the attackers being able to go balls-deep in some of the environments",
+        "score": 1,
+        "created_utc_ts": 1781860246,
+        "created_utc": "2026-06-19T09:10:46",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osjl4ly/",
+        "parent_id": "t1_osjiulq",
+        "is_submitter": true
+      },
+      {
+        "id": "osjlfop",
+        "author": "Lesmate101",
+        "body": "Step 1. Only have your mgmt IP accessible from specific wan ips\n\nStep 2. Use complex passwords that are stored in a password manager and rotate it on a schedule \n\nIt's really not that hard people",
+        "score": 1,
+        "created_utc_ts": 1781860406,
+        "created_utc": "2026-06-19T09:13:26",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osjlfop/",
+        "parent_id": "t3_1u9winj",
+        "is_submitter": false
+      },
+      {
+        "id": "osjmi0k",
+        "author": "hadrabap",
+        "body": "You can't easily deploy a VPN in a corporate setting because (1) there is no process to do this and/or (2) the process exists but it takes decades to reach the implementation phase. 😁",
+        "score": 1,
+        "created_utc_ts": 1781860947,
+        "created_utc": "2026-06-19T09:22:27",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osjmi0k/",
+        "parent_id": "t1_osjjbab",
+        "is_submitter": false
+      },
+      {
+        "id": "osjmkud",
+        "author": "1stUserEver",
+        "body": "Still need 2fa for everything internet facing also. So all vpn accounts.  Wonder if IPsec vpns were also affected in this like the sonicwalls last year.",
+        "score": 1,
+        "created_utc_ts": 1781860987,
+        "created_utc": "2026-06-19T09:23:07",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osjmkud/",
+        "parent_id": "t1_osjlfop",
+        "is_submitter": false
+      },
+      {
+        "id": "osjmq4b",
+        "author": "disclosure5",
+        "body": "You don't protect your VPN interface with a VPN.",
+        "score": 1,
+        "created_utc_ts": 1781861062,
+        "created_utc": "2026-06-19T09:24:22",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osjmq4b/",
+        "parent_id": "t1_osjjpen",
+        "is_submitter": false
+      },
+      {
+        "id": "osjnvw1",
+        "author": "blow_slogan",
+        "body": "All brute-forced creds. This is a non-issue. The users who set the passwords for the cracked accounts and configured the access controls were morons. Turns out, there’s a lot of them.",
+        "score": 1,
+        "created_utc_ts": 1781861651,
+        "created_utc": "2026-06-19T09:34:11",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osjnvw1/",
+        "parent_id": "t1_osjiulq",
+        "is_submitter": false
+      },
+      {
+        "id": "osjnyeq",
+        "author": "Just_Call_Me_S",
+        "body": "We're fine, but our sister company is on there I've let their sysadmin know \n\nSo glad I closed that shit down first thing when I got here ",
+        "score": 1,
+        "created_utc_ts": 1781861687,
+        "created_utc": "2026-06-19T09:34:47",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osjnyeq/",
+        "parent_id": "t3_1u9winj",
+        "is_submitter": false
+      },
+      {
+        "id": "osjodmh",
+        "author": "1stUserEver",
+        "body": "Well now we know how secure most of these big corps are.  Cyber must be scrambling right now to detect breaches.",
+        "score": 1,
+        "created_utc_ts": 1781861899,
+        "created_utc": "2026-06-19T09:38:19",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osjodmh/",
+        "parent_id": "t3_1u9winj",
+        "is_submitter": false
+      },
+      {
+        "id": "osjpi73",
+        "author": "TheJesusGuy",
+        "body": "lol.\n\nlmao, even.",
+        "score": 1,
+        "created_utc_ts": 1781862464,
+        "created_utc": "2026-06-19T09:47:44",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osjpi73/",
+        "parent_id": "t3_1u9winj",
+        "is_submitter": false
+      },
+      {
+        "id": "osjsrtb",
+        "author": "Unnamed-3891",
+        "body": "If you keep your firewall mgmt open to public Internet, might as well just disable authentication entirely or do some guest/guest thing with maximum priviledges. If you’re going for a retarded free for all, go all the fucking way.",
+        "score": 1,
+        "created_utc_ts": 1781864046,
+        "created_utc": "2026-06-19T10:14:06",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osjsrtb/",
+        "parent_id": "t3_1u9winj",
+        "is_submitter": false
+      },
+      {
+        "id": "osjt9ee",
+        "author": "StoneyCalzoney",
+        "body": "For a lot of these cases, I wonder if it has to do with the head sysadmin wanting a way back in if they were to ever get fired.\n\nIt's no secret that some feel entitled to their position, and unfortunately it seems the \"unemployed vengeful sysadmin takes down infrastructure of org which fired them\" trope happens more often than it should.",
+        "score": 1,
+        "created_utc_ts": 1781864280,
+        "created_utc": "2026-06-19T10:18:00",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osjt9ee/",
+        "parent_id": "t1_osjjbab",
+        "is_submitter": false
+      },
+      {
+        "id": "osjty8z",
+        "author": "dr_Fart_Sharting",
+        "body": "There are people who expose management ports to the internet??? O_O",
+        "score": 1,
+        "created_utc_ts": 1781864606,
+        "created_utc": "2026-06-19T10:23:26",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osjty8z/",
+        "parent_id": "t1_osjlfop",
+        "is_submitter": false
+      },
+      {
+        "id": "osjuq13",
+        "author": "macro_franco_kai",
+        "body": "Amateurs using proprietary closed source GUI firewalls with  modified Linux below :)",
+        "score": 1,
+        "created_utc_ts": 1781864959,
+        "created_utc": "2026-06-19T10:29:19",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osjuq13/",
+        "parent_id": "t3_1u9winj",
+        "is_submitter": false
+      },
+      {
+        "id": "osk0kbr",
+        "author": "jamesaepp",
+        "body": "Please explain your thought process more.\n\nIf you have the mgmt interface \"\"exposed\"\", we're likely talking about SSH and/or HTTPS being enabled. Both technologies have the ability to ban naughty users/repeat login failures.\n\nIf you have a VPN \"'exposed\"\", same deal. You can ban naughty users if authentications fail.\n\nNot every implementation of SSH is perfect and may have bugs. Same for HTTPS. Same for a VPN.\n\nIn whatever case, you can use L3/L4 filtering to a list of known trusted IP addresses to mitigate the risk even further.\n\nSo the question for you is what makes a VPN *inherently* more secure than allowing the management interfaces vi?\n\nI haven't heard or seen one.\n\nEdit: To be clear, I'm talking here about in-band management, not OOB.",
+        "score": 1,
+        "created_utc_ts": 1781867503,
+        "created_utc": "2026-06-19T11:11:43",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osk0kbr/",
+        "parent_id": "t1_osjjbab",
+        "is_submitter": false
+      },
+      {
+        "id": "osk20a2",
+        "author": "i11icit",
+        "body": "70,000 companies aren’t using MFA? or have I misunderstood breach and and the scope of the compromise?\n\nSurely in 2026 MFA is just a standard that all should use ",
+        "score": 1,
+        "created_utc_ts": 1781868098,
+        "created_utc": "2026-06-19T11:21:38",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osk20a2/",
+        "parent_id": "t3_1u9winj",
+        "is_submitter": false
+      },
+      {
+        "id": "osk4t3t",
+        "author": "antisweep",
+        "body": "Rotating passwords? In this economy?! Why don’t you just use Admin/Admin at that point when so many companies seem to store them in plain text!",
+        "score": 1,
+        "created_utc_ts": 1781869210,
+        "created_utc": "2026-06-19T11:40:10",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osk4t3t/",
+        "parent_id": "t1_osjlfop",
+        "is_submitter": false
+      },
+      {
+        "id": "osk51kb",
+        "author": "solracarevir",
+        "body": "The biggest question here is: how this companies are being audited and or claim compliance with whichever Compliance Standard they adhere to?\n\nDuring a Audit mgmt exposed to the internet and no MFA on VPNs would result on a Finding.\n\nFor Cyberliability inssurance both of those would end on Coverage Denial or Claim Rejection.\n\nThis also makes you non-compliant on almost every Standard; PCI, NIST-800, CIS, ISO 27001 for example.\n\n  \nRunning internet-facing admin interfaces or VPNs without MFA is no longer just a \"bad practice\", it is viewed by auditors, insurers, and regulatory bodies as negligence; Yet we just found 74,000 fortigates not following best practices....\n\n",
+        "score": 1,
+        "created_utc_ts": 1781869303,
+        "created_utc": "2026-06-19T11:41:43",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osk51kb/",
+        "parent_id": "t3_1u9winj",
+        "is_submitter": false
+      },
+      {
+        "id": "osk5r5b",
+        "author": "_verel_",
+        "body": "Because it's way funnier to burn a metric ton of money for a worse product.\n\nBasically Microsofts Game Plan Just for VPNs",
+        "score": 1,
+        "created_utc_ts": 1781869577,
+        "created_utc": "2026-06-19T11:46:17",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osk5r5b/",
+        "parent_id": "t1_osjjbab",
+        "is_submitter": false
+      },
+      {
+        "id": "osk8ip6",
+        "author": "_paag",
+        "body": "On fortigate? To auto renew certificates for the firewall with let’s encrypt, if I’m not remembering incorrectly.\n\nIf I remember correctly, you have to leave https enabled to the outside so that the certificate manager auto renews let’s encrypt certificates. So if you use a vpn and don’t have you own certificate, you can use, and renew, free ones.",
+        "score": 1,
+        "created_utc_ts": 1781870622,
+        "created_utc": "2026-06-19T12:03:42",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osk8ip6/",
+        "parent_id": "t1_osjjbab",
+        "is_submitter": false
+      },
+      {
+        "id": "osk9c66",
+        "author": "xCharg",
+        "body": "We have a few fortigates with exposed https management interface in remote locations with no hands on site. Such locations do not have any hardware other than firewall, occasional wifi ap and some number of laptops/workstations. I mention lack of hardware not in a sense that there's nothing to protect but in a sense that I can't just deploy a VM with alternative VPN solution or make cloudflare tunnel in there or stuff like that - because there's no such infrastructural capabilities.\n\nIf something breaks - say ISP dies or site2site VPN dies or someone misconfigures something somewhere - we need a way in and remotely fix shit.\n\nAlternative is to ban incoming management traffic completely, thus getting immune to such vulnerabilities but then if something breaks someone has to spend days to travel to this remote locations all while entire location is down. Any other alternative I'm missing? Genuine question as I do in fact want to ban internet exposure of mgmt interface but then what if...?",
+        "score": 1,
+        "created_utc_ts": 1781870925,
+        "created_utc": "2026-06-19T12:08:45",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osk9c66/",
+        "parent_id": "t1_osjjbab",
+        "is_submitter": false
+      },
+      {
+        "id": "oskajs2",
+        "author": "xCharg",
+        "body": "&gt; Step 2. Use complex passwords that are stored in a password manager and rotate it on a schedule\n\nThese where the passwords in this leak https://www.infostealers.com/wp-content/uploads/2026/06/strong_passwords_found.png They are more than hard enough yet they were stolen anyway.",
+        "score": 1,
+        "created_utc_ts": 1781871363,
+        "created_utc": "2026-06-19T12:16:03",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/oskajs2/",
+        "parent_id": "t1_osjlfop",
+        "is_submitter": false
+      },
+      {
+        "id": "oskbd5l",
+        "author": "b4k4ni",
+        "body": "Who tf does expose management to the Internet please? That's one of the first rules to never do. Even if the alternative makes a lot more work. It doesn't matter. No management online on the public Internet. Period.",
+        "score": 1,
+        "created_utc_ts": 1781871653,
+        "created_utc": "2026-06-19T12:20:53",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/oskbd5l/",
+        "parent_id": "t1_osjiulq",
+        "is_submitter": false
+      },
+      {
+        "id": "oskc15i",
+        "author": "bingblangblong",
+        "body": "Yay, ours isn't on the list. Makes me feel better about myself. Probably just dumb luck though.",
+        "score": 1,
+        "created_utc_ts": 1781871884,
+        "created_utc": "2026-06-19T12:24:44",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/oskc15i/",
+        "parent_id": "t3_1u9winj",
+        "is_submitter": false
+      },
+      {
+        "id": "oskcfq3",
+        "author": "Baiteh",
+        "body": "Not affected luckily - though I'm determined to leave early for once!",
+        "score": 1,
+        "created_utc_ts": 1781872023,
+        "created_utc": "2026-06-19T12:27:03",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/oskcfq3/",
+        "parent_id": "t3_1u9winj",
+        "is_submitter": false
+      },
+      {
+        "id": "oskd80e",
+        "author": "Darthhedgeclipper",
+        "body": "Its because the mfa is pretty gash on fortigates.\n\nYou can only now use fortitokens which need a phone app. You get 2 tokens included for the admin account.\n\nIts not really scalable/manageable when you multiple sites.\n\nWe restrict the admin accounts to trusted IP with long passwords. Unfortunately the auth flow in logs is password failed/success &gt; then checks trusted IP.\n\nWe disable SSL as standard as well as this is by far the easiest way to bruteforce accounts even with SSL hardening on forti.",
+        "score": 1,
+        "created_utc_ts": 1781872292,
+        "created_utc": "2026-06-19T12:31:32",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/oskd80e/",
+        "parent_id": "t1_osk20a2",
+        "is_submitter": false
+      },
+      {
+        "id": "oskdpp2",
+        "author": "thortgot",
+        "body": "Have your management IPs available through an App proxy instead. More secure than allowing it over the VPN, better logging of attempts and more convenient.",
+        "score": 1,
+        "created_utc_ts": 1781872460,
+        "created_utc": "2026-06-19T12:34:20",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/oskdpp2/",
+        "parent_id": "t1_osjlfop",
+        "is_submitter": false
+      },
+      {
+        "id": "oskefp1",
+        "author": "imhotep1021",
+        "body": "Good thing we use Palo Alto...",
+        "score": 1,
+        "created_utc_ts": 1781872704,
+        "created_utc": "2026-06-19T12:38:24",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/oskefp1/",
+        "parent_id": "t3_1u9winj",
+        "is_submitter": false
+      },
+      {
+        "id": "oskgqer",
+        "author": "livinitup0",
+        "body": "It’s shifting liability from the org to the vendor …. Same reason enterprise software is so expensive ",
+        "score": 1,
+        "created_utc_ts": 1781873467,
+        "created_utc": "2026-06-19T12:51:07",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/oskgqer/",
+        "parent_id": "t1_osjjbab",
+        "is_submitter": false
+      },
+      {
+        "id": "oskhywb",
+        "author": "j5kDM3akVnhv",
+        "body": "&gt; talking about how many PFSense boxed were exposed to the internet as well\n\nPFSense doesn't allow this by default. Guessing these are personal users using community edition in a home lab?",
+        "score": 1,
+        "created_utc_ts": 1781873867,
+        "created_utc": "2026-06-19T12:57:47",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/oskhywb/",
+        "parent_id": "t1_osjjbab",
+        "is_submitter": false
+      },
+      {
+        "id": "oskjtbv",
+        "author": "j0mbie",
+        "body": "MSPs managing lots of firewalls, probably. Fortigate is very big in the MSP scene. That would be my guess for the biggest culprit.",
+        "score": 1,
+        "created_utc_ts": 1781874464,
+        "created_utc": "2026-06-19T13:07:44",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/oskjtbv/",
+        "parent_id": "t1_osjjbab",
+        "is_submitter": false
+      },
+      {
+        "id": "oskktdb",
+        "author": "st3inbeiss",
+        "body": "So, one from my perspective:\n\nThere HAS to be some yet not known vulnerability. Why you ask?\n\n(1) I have multiple boxes, all have 7.2.13 at the moment.\n\n(2) All of them are new-ish (6 months or younger)\n\n(3) All of them have the local admin configured with a unique, random, 20 character password from a password generator.\n\n(4) Only ONE box had the admin interface exposed to the internet by accident for a around 6 months. (shame on me)\n\nGuess which box made it into the dataset?\n\nWith point (1) and (2) the scenario \"previous leaks\" is very unlikely.\n\nWith point (2) and (3) the scenario \"credential stuffing\" is very unlikely.\n\nWith point (3) the scenario \"DuH uSeR mAkE WeAk PaSsWoRd\" is very unlikely.\n\nWhich, by adding the points (1) to (4), paints the picture that the Forti box gave out at least the password hash of the admin user itself through a vulnerability in the admin interface. And Forti seems to still search where this happens as we haven't heard anything from them yet.\n\nWhat do you think?\n\nEdit: All of them have SSLVPN configured the same.",
+        "score": 1,
+        "created_utc_ts": 1781874783,
+        "created_utc": "2026-06-19T13:13:03",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/oskktdb/",
+        "parent_id": "t3_1u9winj",
+        "is_submitter": false
+      },
+      {
+        "id": "osklwer",
+        "author": "Main_Ambassador_4985",
+        "body": "Some are deploying many firewalls and using zero touch provisioning from a management system so the management was on the outside interface.\n\nStill a sloppy failure in my books.\n\nThere are ways to accomplish this without an exposed management interface.",
+        "score": 1,
+        "created_utc_ts": 1781875125,
+        "created_utc": "2026-06-19T13:18:45",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osklwer/",
+        "parent_id": "t1_osjjbab",
+        "is_submitter": false
+      },
+      {
+        "id": "oskmz8w",
+        "author": "mahsab",
+        "body": "Because you can claim whatever you want to.\n\nAudits are just checkboxes on paper.",
+        "score": 1,
+        "created_utc_ts": 1781875457,
+        "created_utc": "2026-06-19T13:24:17",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/oskmz8w/",
+        "parent_id": "t1_osk51kb",
+        "is_submitter": false
+      },
+      {
+        "id": "oskn7zg",
+        "author": "mahsab",
+        "body": "You misunderstood. 70,000 are just those that were breached because they ALSO used trivial passwords.\n\nThere are millions of companies not using MFA.",
+        "score": 1,
+        "created_utc_ts": 1781875531,
+        "created_utc": "2026-06-19T13:25:31",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/oskn7zg/",
+        "parent_id": "t1_osk20a2",
+        "is_submitter": false
+      },
+      {
+        "id": "oskn8td",
+        "author": "st3inbeiss",
+        "body": "I had a box in the dataset which was quite new and had a 20 character password from a password generator. Credential stuffing and previous leaks are very unlikely. The admin interface was exposed to the internet by accident on this one box, so my best guess is that there has to be a vulnerability which at least gives out the password hash of the admin account freely. Wait for an emergency patch in the coming days....",
+        "score": 1,
+        "created_utc_ts": 1781875538,
+        "created_utc": "2026-06-19T13:25:38",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/oskn8td/",
+        "parent_id": "t1_osjiulq",
+        "is_submitter": false
+      },
+      {
+        "id": "osknzen",
+        "author": "Darthhedgeclipper",
+        "body": "It was actually more nuanced. There was a cve in January that was patched out right away. Sorry cant mind the actual cve number.\n\nIt allowed so forticloud access where configs were exposed and hashes cracked, simple passwords obv got done easily enough.\n\nThis was just a dump of the trivial easy to break passwords.\n\nFor instance we had had a client who insisted on a admin. Fine. Their password was in the dump and it was 123456",
+        "score": 1,
+        "created_utc_ts": 1781875763,
+        "created_utc": "2026-06-19T13:29:23",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osknzen/",
+        "parent_id": "t1_osjiulq",
+        "is_submitter": false
+      },
+      {
+        "id": "osko5fm",
+        "author": "BemusedBengal",
+        "body": "&gt; Super duper proprietary AI CRM\n\n*looks inside*\n\n&gt; LTS Linux install past EOL",
+        "score": 1,
+        "created_utc_ts": 1781875813,
+        "created_utc": "2026-06-19T13:30:13",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osko5fm/",
+        "parent_id": "t1_osjuq13",
+        "is_submitter": false
+      },
+      {
+        "id": "osktlvt",
+        "author": "maximumtesticle",
+        "body": "&gt; Use complex passwords\n\nWhy?  Is it harder to copy and paste complex password when they're plain text anyway?",
+        "score": 1,
+        "created_utc_ts": 1781877438,
+        "created_utc": "2026-06-19T13:57:18",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osktlvt/",
+        "parent_id": "t1_osjlfop",
+        "is_submitter": false
+      },
+      {
+        "id": "osku3sr",
+        "author": "bock_samson",
+        "body": "Glad we migrated off ssl based VPN ",
+        "score": 1,
+        "created_utc_ts": 1781877585,
+        "created_utc": "2026-06-19T13:59:45",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osku3sr/",
+        "parent_id": "t3_1u9winj",
+        "is_submitter": false
+      },
+      {
+        "id": "oskw9ki",
+        "author": "mustang__1",
+        "body": "Why do people leave their firewall management ports exposed? Hell, I'm nervous about it being exposed while on VPN and have considered needing a jump box to get to it.",
+        "score": 1,
+        "created_utc_ts": 1781878217,
+        "created_utc": "2026-06-19T14:10:17",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/oskw9ki/",
+        "parent_id": "t3_1u9winj",
+        "is_submitter": false
+      },
+      {
+        "id": "oskz4we",
+        "author": "Tr1pline",
+        "body": "checked for .gov, there goes my SSN again...",
+        "score": 1,
+        "created_utc_ts": 1781879042,
+        "created_utc": "2026-06-19T14:24:02",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/oskz4we/",
+        "parent_id": "t3_1u9winj",
+        "is_submitter": false
+      },
+      {
+        "id": "osl0dci",
+        "author": "Mrhiddenlotus",
+        "body": "Fortishite strikes again ",
+        "score": 1,
+        "created_utc_ts": 1781879392,
+        "created_utc": "2026-06-19T14:29:52",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osl0dci/",
+        "parent_id": "t3_1u9winj",
+        "is_submitter": false
+      },
+      {
+        "id": "osl27pz",
+        "author": "Rzah",
+        "body": "We allow management interfaces from specific fixed IP's because of those times when someone accidentally disabled the VPN service / the VPN service crashed.\n\nAllow from all is madness though.",
+        "score": 1,
+        "created_utc_ts": 1781879916,
+        "created_utc": "2026-06-19T14:38:36",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osl27pz/",
+        "parent_id": "t1_osjjbab",
+        "is_submitter": false
+      },
+      {
+        "id": "osl35ie",
+        "author": "EViLTeW",
+        "body": "We had a SaaS vendor that used Fortigates to handle IPSEC tunnels back to their DCs. We spent years complaining to them that their management interface was publicly accessible and it shouldn't be. They finally rebuilt their config using loopbacks through the tunnel in 2023 in response to CVE-2022-40684.  \n\nYes, deployments and troubleshooting issues can now require someone on-site to provide them remote access if the tunnel won't come up... but you're not begging to be compromised.",
+        "score": 1,
+        "created_utc_ts": 1781880180,
+        "created_utc": "2026-06-19T14:43:00",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osl35ie/",
+        "parent_id": "t1_osjjbab",
+        "is_submitter": false
+      },
+      {
+        "id": "osl4aqo",
+        "author": "Fallingdamage",
+        "body": "With SSLVPN basically already depreciated by Fortinet, Im sure pretty soon WAN ports wont be allowed to have admin access anymore either.  \n  \nBad admins runing the reputation of an otherwise decent product simply because fortinet let's them drive stick. Admin grinding the gears down to nothing. PanOS has its own problems but admins are given more of a stamped out config to prevent them from being idiots. More click-ops and less chance that a bad admin with deeper control does something stupid.",
+        "score": 1,
+        "created_utc_ts": 1781880501,
+        "created_utc": "2026-06-19T14:48:21",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osl4aqo/",
+        "parent_id": "t1_osjlfop",
+        "is_submitter": false
+      },
+      {
+        "id": "osl681z",
+        "author": "Fallingdamage",
+        "body": "My experience has been that some vendors let admins drive stick a bit more than others. That can lead to a lot of broken transmissions when the admin has no idea what they're doing.  \n  \nOther vendors (PanOS) make things a little more Fisher Price™ to prevent mistakes at the cost of granuar control unless you're really good at your job.  \n  \nWe run Fortinet products and other than a few big bugs like every other vendor, most CVEs never put us in a panic or out of compliance since we followed best practices. OTOH, I called a 1-man show MSP I know this week to tell him about this leak because he probably has no idea it was even a thing - but I know he uses a variant of admin1234! for all his firewalls and loves SSLVPN.  \n  \nUnfortunately, SSLVPN *is* still the more compatible, trouble-free VPN option. Encapsulating IPsec over 443 is still buggy in some cases depending on the kind of traffic filtering/processing internet hot-spots are using.",
+        "score": 1,
+        "created_utc_ts": 1781881035,
+        "created_utc": "2026-06-19T14:57:15",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osl681z/",
+        "parent_id": "t1_osjl12z",
+        "is_submitter": false
+      },
+      {
+        "id": "osl7p62",
+        "author": "Fallingdamage",
+        "body": "Nah, just bad admins.  \n  \nWe've been using fortishite for 17 years and none of these CVEs have directly affected us at announcement date. We follow best practices as much as we can and keep our security footprint small.  \n  \nPalo Alto has been dealing with a GlobalProtect SSLVPN auth bypass CVE for weeks now as well. Its both a problem with SSL as a standard and they way various companies use it for 2-way networking.  \n  \nIn this fortinet instance, nothing is new. The leak is a result of long-patched vulnerabilities and a bad combination of admins that didnt protect their shit, didnt turn off admin sign-ins on the WAN port as advised, and never rotated their passwords.",
+        "score": 1,
+        "created_utc_ts": 1781881446,
+        "created_utc": "2026-06-19T15:04:06",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osl7p62/",
+        "parent_id": "t1_osl0dci",
+        "is_submitter": false
+      },
+      {
+        "id": "osl84rh",
+        "author": "Fallingdamage",
+        "body": "When you pay $10,000-$50,000 for an audit, you usually are buying a 'pass'.",
+        "score": 1,
+        "created_utc_ts": 1781881568,
+        "created_utc": "2026-06-19T15:06:08",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osl84rh/",
+        "parent_id": "t1_osk51kb",
+        "is_submitter": false
+      },
+      {
+        "id": "osl8ff6",
+        "author": "Fallingdamage",
+        "body": "Yes, *AND* every fortigate comes with multiple free MFA options and massive documentation libraries. You cant even blame it on the vendor.",
+        "score": 1,
+        "created_utc_ts": 1781881651,
+        "created_utc": "2026-06-19T15:07:31",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osl8ff6/",
+        "parent_id": "t1_osk20a2",
+        "is_submitter": false
+      },
+      {
+        "id": "oslcwsf",
+        "author": "cryonova",
+        "body": "Its just bad admins, not Fortinet itself.",
+        "score": 1,
+        "created_utc_ts": 1781882889,
+        "created_utc": "2026-06-19T15:28:09",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/oslcwsf/",
+        "parent_id": "t3_1u9winj",
+        "is_submitter": false
+      },
+      {
+        "id": "oslh59h",
+        "author": "digital-bandit",
+        "body": "I might be dumb, but wouldnt MFA for the VPN have prevented this?",
+        "score": 1,
+        "created_utc_ts": 1781884047,
+        "created_utc": "2026-06-19T15:47:27",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/oslh59h/",
+        "parent_id": "t3_1u9winj",
+        "is_submitter": false
+      },
+      {
+        "id": "osliwkk",
+        "author": "BooleanOverflow",
+        "body": "Do you use FortiCloud?",
+        "score": 1,
+        "created_utc_ts": 1781884524,
+        "created_utc": "2026-06-19T15:55:24",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osliwkk/",
+        "parent_id": "t1_oskktdb",
+        "is_submitter": false
+      },
+      {
+        "id": "oslk69w",
+        "author": "Smith6612",
+        "body": "It's definitely to do with exposing management interfaces to the \nInternet. That's the #1 mega mistake. Doesn't matter if it is a Fortinet\n device. Those interfaces are only meant for the LAN, no matter how much patching they get. \n\nSSL-VPN gets a lot of targeting \nbecause it is SSL-VPN. The mere idea of having a web page set up to run \nAgentless VPN connectivity by simply logging in means you need to \nenforce SAML login, or at the bare minimum be using strong 2FA with plausable deniability (something Fortinet does not do). It was \ncrowned as being better than IPSec for that reason alone, and because it\n doesn't deal with the NAT Traversal and Firewall restrictions issue you\n encounter on some networks.\n\nA few months ago I\n saw a massive uptick in brute force attempts coming from data center \nIPs. We're talking tens of thousands an hour smacking a honey pot which \nmirrors Fortinet SSL-VPN trying out obvious credentials like \"admin\" and\n less obvious credentials that do appear to be either common names or \nfrom password breaches. The traffic was coming from a few cloud \nproviders, and I sent a number of those providers Abuse notices for malicious traffic coming from their IP ranges. Of course the cloud providers acknowledged my email, but did nothing about it despite their IPs (even new ones they had gotten allocated a week prior) starting to show up on AbuseIPDB. \n\nBut yeah. The #3 reason making Fortinet the target is because people are bad at patching. ",
+        "score": 1,
+        "created_utc_ts": 1781884872,
+        "created_utc": "2026-06-19T16:01:12",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/oslk69w/",
+        "parent_id": "t1_osjiulq",
+        "is_submitter": false
+      },
+      {
+        "id": "oslm1ci",
+        "author": "dritmike",
+        "body": "lol fortinet has been screwing businesses over for 20 years now.   \nYou get what you pay for",
+        "score": 1,
+        "created_utc_ts": 1781885382,
+        "created_utc": "2026-06-19T16:09:42",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/oslm1ci/",
+        "parent_id": "t3_1u9winj",
+        "is_submitter": false
+      },
+      {
+        "id": "oslpe3y",
+        "author": "omfgbrb",
+        "body": "How ironic that TP-Link is compromised by Fortibleed...",
+        "score": 1,
+        "created_utc_ts": 1781886293,
+        "created_utc": "2026-06-19T16:24:53",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/oslpe3y/",
+        "parent_id": "t3_1u9winj",
+        "is_submitter": false
+      },
+      {
+        "id": "osm9i8f",
+        "author": "Competitive-Pea-7789",
+        "body": "Quickly noting that it looks like the timeline of brute forcing leading to success was last week of February / first week of March of this year.",
+        "score": 1,
+        "created_utc_ts": 1781891751,
+        "created_utc": "2026-06-19T17:55:51",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osm9i8f/",
+        "parent_id": "t3_1u9winj",
+        "is_submitter": false
+      },
+      {
+        "id": "osmgm4t",
+        "author": "PappaFrost",
+        "body": "I find it very hard to believe that half of all internet exposed Fortinets were compromised from credential spraying.  How do you get a full 50% if rate limiting is severely cutting down on number of password attempts?  You'll get the low hanging fruit, but half?",
+        "score": 1,
+        "created_utc_ts": 1781893716,
+        "created_utc": "2026-06-19T18:28:36",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osmgm4t/",
+        "parent_id": "t3_1u9winj",
+        "is_submitter": false
+      },
+      {
+        "id": "osmihju",
+        "author": "Independent_Cash2455",
+        "body": "74k devices across 194 countries is wild scope. If your org runs any of these at the edge, assume breach and rotate every credential that touched those boxes. Dont wait for the vendor advisory to tell you what you already know.",
+        "score": 1,
+        "created_utc_ts": 1781894241,
+        "created_utc": "2026-06-19T18:37:21",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osmihju/",
+        "parent_id": "t3_1u9winj",
+        "is_submitter": false
+      },
+      {
+        "id": "osmnczz",
+        "author": "kellyrx8",
+        "body": "F for morons who still had SSLVPN and the fucking management interface open to the net.....",
+        "score": 1,
+        "created_utc_ts": 1781895587,
+        "created_utc": "2026-06-19T18:59:47",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osmnczz/",
+        "parent_id": "t3_1u9winj",
+        "is_submitter": false
+      },
+      {
+        "id": "osmpig4",
+        "author": "Twanks",
+        "body": "A lot of people are assuming willful stupidity. The most likely scenario is they accidentally checked all the boxes for which management services should be available, and did it for all interfaces (including outside).",
+        "score": 1,
+        "created_utc_ts": 1781896194,
+        "created_utc": "2026-06-19T19:09:54",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osmpig4/",
+        "parent_id": "t1_osjjbab",
+        "is_submitter": false
+      },
+      {
+        "id": "osmr929",
+        "author": "Codplay",
+        "body": "Ohh, I see three departments of my national government there (Canada) including the “Shared Services” and border services! Looks like the national cybersecurity team has put out a notice about Fortibleed, so I have no doubt the CBSA, SSC and DFO IT teams are having a busy day. \n\nAlso looks like the multinational healthcare company I work for wasn’t included, but our parent company was. We’ve been splitting out though so very little actually crosses any more, and certainly none of the medical side.\n\nLooks like some other medical equipment vendors were included, along with a bunch of healthcare providers in the US.",
+        "score": 1,
+        "created_utc_ts": 1781896680,
+        "created_utc": "2026-06-19T19:18:00",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osmr929/",
+        "parent_id": "t3_1u9winj",
+        "is_submitter": false
+      },
+      {
+        "id": "osmszsn",
+        "author": "seidler2547",
+        "body": "Right? I don't understand why this company still exists. ",
+        "score": 1,
+        "created_utc_ts": 1781897169,
+        "created_utc": "2026-06-19T19:26:09",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osmszsn/",
+        "parent_id": "t1_oslm1ci",
+        "is_submitter": false
+      },
+      {
+        "id": "osmtdt7",
+        "author": "981flacht6",
+        "body": "Don't leave your management interface open on the web. We were all told this a while ago when the exploits began.",
+        "score": 1,
+        "created_utc_ts": 1781897276,
+        "created_utc": "2026-06-19T19:27:56",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osmtdt7/",
+        "parent_id": "t3_1u9winj",
+        "is_submitter": false
+      },
+      {
+        "id": "osmtusl",
+        "author": "fastlerner",
+        "body": "From what I understand, this isn't a new Fortinet exploit. The issue is that Fortinet had several major vulnerabilities over the years that allowed attackers to harvest VPN credentials and other authentication data from vulnerable firewalls.\n\nSome of the big ones were:\n\n* CVE-2018-13379\n* CVE-2022-40684\n* CVE-2023-27997\n\nThe recent news appears to be that someone aggregated a huge collection of credentials gathered from those past compromises and shared them with other threat actors.  \n\nBut patching the firewall doesn't do anything about credentials that were already stolen. A lot of organizations patched their FortiGates but never forced password changes or rotated accounts, so years later some of those credentials were apparently still valid. And even when the passwords weren't, the attackers still had a list of valid usernames. At that point they can just start password spraying those accounts until somebody is still using \"Winter2026!\" or some other variation of the company password policy.\n\nFor organizations using Active Directory authentication on their VPN, that means attackers weren't just getting access through the firewall. They potentially had valid AD credentials that could be used elsewhere in the environment as well.\n\nMy guess is that many of the organizations impacted either didn't have MFA enabled on their VPNs, or weren't enforcing it consistently. A stolen password is a lot less useful when there's a second factor standing in the way.",
+        "score": 1,
+        "created_utc_ts": 1781897410,
+        "created_utc": "2026-06-19T19:30:10",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osmtusl/",
+        "parent_id": "t1_osjiulq",
+        "is_submitter": false
+      },
+      {
+        "id": "osmykad",
+        "author": "DoctorOctagonapus",
+        "body": "Hm we've got one that we're not quite ready to decomm since it runs one critical system that we still need to migrate away. Our domain isn't in the search, but I'd better have a chat with my boss.",
+        "score": 1,
+        "created_utc_ts": 1781898733,
+        "created_utc": "2026-06-19T19:52:13",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osmykad/",
+        "parent_id": "t3_1u9winj",
+        "is_submitter": false
+      },
+      {
+        "id": "osmzvcv",
+        "author": "Top_Boysenberry_7784",
+        "body": "What likely makes it so large is there is a large amount of organizations utilizing fortinet that have almost no idea of security let alone managing a firewall. Not saying that there are not a lot of fortinets being managed properly. Just that there are more fortinets treated like a set it and forget it device than likely say Cisco, Check Point, or Palo Alto.",
+        "score": 1,
+        "created_utc_ts": 1781899094,
+        "created_utc": "2026-06-19T19:58:14",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osmzvcv/",
+        "parent_id": "t1_osjiulq",
+        "is_submitter": false
+      },
+      {
+        "id": "osn9ljw",
+        "author": "rektone666",
+        "body": "\n&gt; https://www.acn.gov.it/portale/w/fortibleed-esposizione-di-credenziali-ssl-vpn-associate-a-dispositivi-fortinet-esposti-su-internet\n\n\npretty detalieted analysis ",
+        "score": 1,
+        "created_utc_ts": 1781901800,
+        "created_utc": "2026-06-19T20:43:20",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osn9ljw/",
+        "parent_id": "t3_1u9winj",
+        "is_submitter": false
+      },
+      {
+        "id": "osne25v",
+        "author": "Aggressive_Cook_4061",
+        "body": "Dont do this",
+        "score": 1,
+        "created_utc_ts": 1781903039,
+        "created_utc": "2026-06-19T21:03:59",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osne25v/",
+        "parent_id": "t1_osjlfop",
+        "is_submitter": false
+      },
+      {
+        "id": "osne3m7",
+        "author": "spin81",
+        "body": "From what I hear there are regularly patches for Forti stuff because they found some more zero days. With that said, I don't know about any other brands so for all I know they could be just as vulnerable.",
+        "score": 1,
+        "created_utc_ts": 1781903051,
+        "created_utc": "2026-06-19T21:04:11",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osne3m7/",
+        "parent_id": "t1_osjiulq",
+        "is_submitter": false
+      },
+      {
+        "id": "osp7bl5",
+        "author": "Nik_Tesla",
+        "body": "Yeah, this seems less deserving of the name FortiBleed and more worthy of being called FortiDiot for being configured that way by IT.",
+        "score": 1,
+        "created_utc_ts": 1781925605,
+        "created_utc": "2026-06-20T03:20:05",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osp7bl5/",
+        "parent_id": "t1_osjiulq",
+        "is_submitter": false
+      },
+      {
+        "id": "osp7zho",
+        "author": "pjustmd",
+        "body": "FortiFucked",
+        "score": 1,
+        "created_utc_ts": 1781925876,
+        "created_utc": "2026-06-20T03:24:36",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osp7zho/",
+        "parent_id": "t3_1u9winj",
+        "is_submitter": false
+      },
+      {
+        "id": "osp9gdk",
+        "author": "Natural-Nectarine-56",
+        "body": "You obviously didn’t read the article. Not Fortinet’s fault that admins suck.",
+        "score": 1,
+        "created_utc_ts": 1781926474,
+        "created_utc": "2026-06-20T03:34:34",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/osp9gdk/",
+        "parent_id": "t1_oslm1ci",
+        "is_submitter": false
+      },
+      {
+        "id": "ospal5k",
+        "author": "DarkAlman",
+        "body": "Fortinet doesn't release statistics on how many devices are out in the world, but last year they released an announcement to their shareholders that they had a record refresh cycle.\n\nThey stated 650,000 firewalls are due to go EOL in 2026, and that represented around 25% of their active devices.\n\nSo that means Fortinet has around 2.6 million gates out there.\n\n75,000 devices represents around 3% of the Gates in the world.\n\nIf the 50% figure is how many web exposed devices were compromised that would mean around 150,000 devices are out there with their management exposed to the web, or around 6%.\n\n6% isn't 50%... that's still a pretty terrifying number.\n\nSo that's 75,000 devices that were compromised due to a combination of easy to brute force password, credential theft, and unpatched vulnerabilities.\n\nIf those devices had web management enabled to begin with, it looks like half of them also had dumb easy to guess passwords.",
+        "score": 1,
+        "created_utc_ts": 1781926940,
+        "created_utc": "2026-06-20T03:42:20",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/ospal5k/",
+        "parent_id": "t1_osmgm4t",
+        "is_submitter": false
+      }
+    ],
+    "created_utc": "2026-06-19T08:41:10",
+    "first_author_comment": "Honestly from what I've read so far, seems like a whole bag of problems that contributed to the massive scale of the issue.\n\n1. Exposed management interfaces \n2. Many passwords in the dump were strong, but were previously grabbed by infostealers and were never rotated. Along with weak passwords that were bruteforced.\n3. SSL VPN on forti has been known for a long time to not be very secure, but many people still use it and the attackers were able to crack the password hashes they collected once they had access to the firewalls. \n4. Poor detection of suspicious activity on on-prem infra in cases where attackers were able to pivot into active directory etc. \n\nReally is a chain of weak links that lead to the attackers being able to go balls-deep in some of the environments",
+    "num_comments": 171,
+    "score": 555,
+    "subreddit": "sysadmin",
+    "tag": null,
+    "tags": [],
+    "title": "Fortibleed - over 70k Fortinet firewalls compromised",
+    "updatedAt": "2026-06-20T04:25:36.860Z",
+    "upvote_ratio": 0.95,
+    "url": "https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/",
+    "versionList": [],
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.0002455786058635639,
+        "timestampPredicted": "2026-06-19T16:01:06.356033+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": false,
+    "classification": {
+      "securityType": [
+        "UNKNOWN"
+      ],
+      "componentType": []
+    }
+  },
+  {
     "_id": "6a34464e4ce8d84a7e43368c",
     "redditId": "1u9ea81",
     "author": "StrangeR_825",
@@ -8,13 +1294,13 @@
     "created_utc": "2026-06-18T18:28:58",
     "first_author_comment": null,
     "num_comments": 0,
-    "score": 2,
+    "score": 6,
     "subreddit": "Wordpress",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-9189: payment bypass in the Contact Form 7 PayPal &amp; Stripe Add-on (now patched, update if you use it)",
-    "updatedAt": "2026-06-19T05:12:54.065Z",
-    "upvote_ratio": 0.75,
+    "updatedAt": "2026-06-20T05:10:50.210Z",
+    "upvote_ratio": 0.87,
     "url": "https://reddit.com/r/Wordpress/comments/1u9ea81/cve20269189_payment_bypass_in_the_contact_form_7/",
     "versionList": [
       "2026.0.0",
@@ -48,14 +1334,14 @@
     "awards": [],
     "created_utc": "2026-06-18T18:05:44",
     "first_author_comment": null,
-    "num_comments": 0,
-    "score": 18,
+    "num_comments": 1,
+    "score": 29,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-5667: Unauthenticated Remote Control of Mitsubishi MAC-577IF-2E WiFi Adapters via Probe Request Reconnaissance",
-    "updatedAt": "2026-06-19T06:46:49.947Z",
-    "upvote_ratio": 0.82,
+    "updatedAt": "2026-06-20T04:46:05.330Z",
+    "upvote_ratio": 0.91,
     "url": "https://reddit.com/r/netsec/comments/1u9dncq/cve20265667_unauthenticated_remote_control_of/",
     "versionList": [
       "2026.0.0",
@@ -78,7 +1364,20 @@
       "securityType": [
         "SECURITY"
       ]
-    }
+    },
+    "comments": [
+      {
+        "id": "osmm24s",
+        "author": "ni5arga",
+        "body": "wow, this was an awesome read",
+        "score": 2,
+        "created_utc_ts": 1781895228,
+        "created_utc": "2026-06-19T18:53:48",
+        "permalink": "https://reddit.com/r/netsec/comments/1u9dncq/cve20265667_unauthenticated_remote_control_of/osmm24s/",
+        "parent_id": "t3_1u9dncq",
+        "is_submitter": false
+      }
+    ]
   },
   {
     "_id": "6a34445d4ce8d84a7e4335e4",
@@ -113,26 +1412,37 @@
         "id": "osfswjp",
         "author": "2019-01-03",
         "body": "First, your blog post has no indentations of the code.\n\nYou should consider using my pure [Markdown + JavaScript blog platform: **markdown-cms**](https://github.com/AutonomoAI/markdown-cms). It has much better code snippet support.\n\nSecond, your comment is one solid block... I've never actually seen this in over 20 years on Reddit that I can remember.\n\nHere's your comment:\n\n&gt; Author here. This is a small, clean teaching example of a common PHP webhook bug. The handler verifies the message is genuinely from PayPal (posts back _notify-validate, requires VERIFIED) and then trusts the payload, completing an order without comparing the amount, currency, or recipient against the stored order. The post has the broken vs fixed handler and a validation checklist. The code is the point, not the plugin.",
-        "score": -15,
+        "score": -17,
         "created_utc_ts": 1781810366,
         "created_utc": "2026-06-18T19:19:26",
         "permalink": "https://reddit.com/r/PHP/comments/1u9de75/authenticating_a_paypal_notification_is_not_the/osfswjp/",
         "parent_id": "t1_osff3k4",
         "is_submitter": false
+      },
+      {
+        "id": "oslpxdl",
+        "author": "mensink",
+        "body": "I remember peer-reviewing a payment integration some 20 years ago. A redirect to the payment provider was done, with all the details in the URL (except the callback URL, which some payment providers put in the URL at the time). A user could easily change the payable amount and get their order to the paid status. I''m glad to say we implemented the amount check before it went into production.",
+        "score": 2,
+        "created_utc_ts": 1781886436,
+        "created_utc": "2026-06-19T16:27:16",
+        "permalink": "https://reddit.com/r/PHP/comments/1u9de75/authenticating_a_paypal_notification_is_not_the/oslpxdl/",
+        "parent_id": "t3_1u9de75",
+        "is_submitter": false
       }
     ],
     "created_utc": "2026-06-18T17:56:47",
     "first_author_comment": "    Author here. This is a small, clean teaching example of a common PHP webhook bug. The handler verifies the message is genuinely from PayPal (posts back _notify-validate, requires VERIFIED) and then trusts the payload, completing an order without comparing the amount, currency, or recipient against the stored order. The post has the broken vs fixed handler and a validation checklist. The code is the point, not the plugin.",
-    "num_comments": 3,
-    "score": 6,
+    "num_comments": 4,
+    "score": 7,
     "subreddit": "PHP",
     "tag": "Article",
     "tags": [
       "Article"
     ],
     "title": "Authenticating a PayPal notification is not the same as trusting what it says (CVE-2026-9189)",
-    "updatedAt": "2026-06-19T05:09:48.559Z",
-    "upvote_ratio": 1,
+    "updatedAt": "2026-06-20T05:07:22.651Z",
+    "upvote_ratio": 0.9,
     "url": "https://reddit.com/r/PHP/comments/1u9de75/authenticating_a_paypal_notification_is_not_the/",
     "versionList": [
       "2026.0.0",
@@ -974,15 +2284,15 @@
     "created_utc": "2026-06-16T01:24:34",
     "first_author_comment": null,
     "num_comments": 4,
-    "score": 53,
+    "score": 56,
     "subreddit": "AZURE",
     "tag": "Media",
     "tags": [
       "Media"
     ],
     "title": "NSA issued MCP security guidance in May — and the attack paths are weirder than standard API vulnerabilities. Anyone doing threat modeling on this?",
-    "updatedAt": "2026-06-19T06:52:00.328Z",
-    "upvote_ratio": 0.96,
+    "updatedAt": "2026-06-20T04:52:13.593Z",
+    "upvote_ratio": 0.98,
     "url": "https://reddit.com/r/AZURE/comments/1u6zlof/nsa_issued_mcp_security_guidance_in_may_and_the/",
     "versionList": [],
     "classification": {
@@ -1032,8 +2342,8 @@
     "tag": null,
     "tags": [],
     "title": "Why Use App-Level Auth When Every Database Has Auth? (Splunk Enterprise CVE-2026-20253 Pre-Auth RCE) - watchTowr Labs",
-    "updatedAt": "2026-06-19T06:46:59.248Z",
-    "upvote_ratio": 0.93,
+    "updatedAt": "2026-06-20T04:46:13.925Z",
+    "upvote_ratio": 0.94,
     "url": "https://reddit.com/r/netsec/comments/1u46wbb/why_use_applevel_auth_when_every_database_has/",
     "versionList": [
       "2026.0.0",
@@ -1319,13 +2629,13 @@
     "created_utc": "2026-06-12T05:23:23",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 34,
+    "score": 36,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Marking Your Own Homework (Check Point Remote Access VPN IKEv1 Authentication Bypass CVE-2026-50751) - watchTowr Labs",
-    "updatedAt": "2026-06-19T06:47:03.847Z",
-    "upvote_ratio": 0.86,
+    "updatedAt": "2026-06-20T04:46:17.107Z",
+    "upvote_ratio": 0.91,
     "url": "https://reddit.com/r/netsec/comments/1u3m7yj/marking_your_own_homework_check_point_remote/",
     "versionList": [
       "2026.0.0",
@@ -1637,6 +2947,40 @@
         "isAnalyzed": false,
         "cveChangeHistory": "No change history returned.\n",
         "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-50751",
+        "cveIds": [
+          "CVE-2026-50751"
+        ],
+        "source": "Title",
+        "commentText": "Marking Your Own Homework (Check Point Remote Access VPN IKEv1 Authentication Bypass CVE-2026-50751) - watchTowr Labs",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1u3m7yj/marking_your_own_homework_check_point_remote/",
+        "commentDate": "2026-06-12T05:23:23+00:00",
+        "cvePublishedDate": "2026-06-08T12:16:32.367000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 3,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-50751",
+        "cveIds": [
+          "CVE-2026-50751"
+        ],
+        "source": "Title",
+        "commentText": "Marking Your Own Homework (Check Point Remote Access VPN IKEv1 Authentication Bypass CVE-2026-50751) - watchTowr Labs",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1u3m7yj/marking_your_own_homework_check_point_remote/",
+        "commentDate": "2026-06-12T05:23:23+00:00",
+        "cvePublishedDate": "2026-06-08T12:16:32.367000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 3,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
       }
     ],
     "author_description_sentiment": {
@@ -1675,7 +3019,7 @@
         "id": "orcbb2k",
         "author": "scriptqzor",
         "body": "wild how many vendors still basically get to grade their own security papers and call it a day  \nprops to watchtowr for poking at the \"you’re fine, trust us\" narrative, this is the kind of stuff that actually makes everyone safer",
-        "score": 4,
+        "score": 3,
         "created_utc_ts": 1781315205,
         "created_utc": "2026-06-13T01:46:45",
         "permalink": "https://reddit.com/r/netsec/comments/1u3m7yj/marking_your_own_homework_check_point_remote/orcbb2k/",
@@ -4289,7 +5633,7 @@
     "tag": null,
     "tags": [],
     "title": "More Evidence That Words Don't Mean What We Thought They Meant (Ivanti Sentry Pre-Auth OS Command Injection CVE-2026-10520) - watchTowr Labs",
-    "updatedAt": "2026-06-19T06:47:07.406Z",
+    "updatedAt": "2026-06-20T04:46:20.546Z",
     "upvote_ratio": 0.87,
     "url": "https://reddit.com/r/netsec/comments/1u1neao/more_evidence_that_words_dont_mean_what_we/",
     "versionList": [
@@ -4365,7 +5709,7 @@
         "id": "ormdd9w",
         "author": "psych0fish",
         "body": "Ivanti has been private equity slop for a really long time. They are not a serious company and they don’t make serious software. Their shit doesn’t work, is littered with bugs and barely usable. ",
-        "score": 4,
+        "score": 5,
         "created_utc_ts": 1781453230,
         "created_utc": "2026-06-14T16:07:10",
         "permalink": "https://reddit.com/r/netsec/comments/1u1neao/more_evidence_that_words_dont_mean_what_we/ormdd9w/",
@@ -4414,7 +5758,7 @@
       "discussion"
     ],
     "title": "Upcoming security advisories and errata, hopefully soon.",
-    "updatedAt": "2026-06-19T01:09:27.584Z",
+    "updatedAt": "2026-06-20T00:54:03.251Z",
     "upvote_ratio": 0.96,
     "url": "https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/",
     "versionList": [],
@@ -4904,6 +6248,106 @@
         "isAnalyzed": false,
         "cveChangeHistory": "No change history returned.\n",
         "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2025-10263",
+        "cveIds": [
+          "CVE-2025-10263",
+          "CVE-2025-10263"
+        ],
+        "source": "Comment",
+        "commentText": "****\n\nFreeBSD bug [295488 - syslogd: memory leak in casper_ttymsg\\(\\) via nvlist_take_string_array](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=295488)\n\n* FreeBSD-EN-26:14.syslogd\n\n[**CVE-2025-10263**](https://www.cve.org/CVERecord?id=CVE-2025-10263)\n\n* identified by Arm\n* FreeBSD-SA-26:31.arm64\n* [Arm C1-Ultra, C1-Premium, Neoverse V3 & V3AE, Neoverse V2...",
+        "linkToComment": "https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/oqs062g/",
+        "commentDate": "2026-06-10T04:31:34+00:00",
+        "cvePublishedDate": "2026-06-09T10:16:33.003000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-06-17T08:28:01.150 | CVE Modified | source=arm-security@arm.com | changeId=5F2E2FA1-A384-41A3-8BEF-F6315A6158E4\n   - Added Affected: [{'vendor': 'Arm', 'product': 'C1-Ultra', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'C1-Premium', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Neoverse V3', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Neoverse V3AE', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Neoverse V1', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Neoverse N2', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Neoverse N1', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-X925', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-X4', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-X3', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-X2', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-X1', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-X1C', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A710', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A78', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A78AE', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A78C', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A77', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A76', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A76AE', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}]\n2. 2026-06-17T08:28:01.150 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=30460436-DFCC-4CDB-9842-3C8AE4052888\n   - Added SSVC: {'timestamp': '2026-06-09T14:11:21.775441Z', 'id': 'CVE-2025-10263', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n3. 2026-06-09T17:16:56.930 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=D7D3727E-4BD1-4C6B-AAE5-851CB8D87076\n   - Added Reference: http://www.openwall.com/lists/oss-security/2026/06/09/13\n4. 2026-06-09T16:16:34.680 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=E6493829-2226-4DA8-89A0-711673686C24\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N\n5. 2026-06-09T14:16:33.773 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=B2D8318F-BE57-4194-9087-C5CA57ACF612\n   - Added Reference: http://xenbits.xen.org/xsa/advisory-493.html\n6. 2026-06-09T10:16:33.003 | New CVE Received | source=arm-security@arm.com | changeId=EDFD27D0-2C28-4D8B-99C4-B0F22C1F38C3\n   - Added Description: Arm C1-Ultra, C1-Premium, Neoverse V3 & V3AE, Neoverse V2, Neoverse V1, Neoverse-N2, Neoverse-N1, Cortex-X925, Cortex-X4, Cortex-X3, Cortex-X2, Cortex-X1 & X1C, Cortex-A710, Cortex-A78, A78AE & A78C, Cortex-A77, Cortex-A76 & A76A may allow writes to resources owned by a higher exception level.\n   - Added CWE: CWE-362\n   - Added Reference: https://developer.arm.com/documentation/112137\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2025-10263",
+        "cveIds": [
+          "CVE-2025-10263",
+          "CVE-2025-10263"
+        ],
+        "source": "Comment",
+        "commentText": "****\n\nFreeBSD bug [295488 - syslogd: memory leak in casper_ttymsg\\(\\) via nvlist_take_string_array](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=295488)\n\n* FreeBSD-EN-26:14.syslogd\n\n[**CVE-2025-10263**](https://www.cve.org/CVERecord?id=CVE-2025-10263)\n\n* identified by Arm\n* FreeBSD-SA-26:31.arm64\n* [Arm C1-Ultra, C1-Premium, Neoverse V3 & V3AE, Neoverse V2...",
+        "linkToComment": "https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/oqs062g/",
+        "commentDate": "2026-06-10T04:31:34+00:00",
+        "cvePublishedDate": "2026-06-09T10:16:33.003000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-06-17T08:28:01.150 | CVE Modified | source=arm-security@arm.com | changeId=5F2E2FA1-A384-41A3-8BEF-F6315A6158E4\n   - Added Affected: [{'vendor': 'Arm', 'product': 'C1-Ultra', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'C1-Premium', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Neoverse V3', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Neoverse V3AE', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Neoverse V1', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Neoverse N2', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Neoverse N1', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-X925', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-X4', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-X3', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-X2', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-X1', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-X1C', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A710', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A78', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A78AE', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A78C', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A77', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A76', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A76AE', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}]\n2. 2026-06-17T08:28:01.150 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=30460436-DFCC-4CDB-9842-3C8AE4052888\n   - Added SSVC: {'timestamp': '2026-06-09T14:11:21.775441Z', 'id': 'CVE-2025-10263', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n3. 2026-06-09T17:16:56.930 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=D7D3727E-4BD1-4C6B-AAE5-851CB8D87076\n   - Added Reference: http://www.openwall.com/lists/oss-security/2026/06/09/13\n4. 2026-06-09T16:16:34.680 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=E6493829-2226-4DA8-89A0-711673686C24\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N\n5. 2026-06-09T14:16:33.773 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=B2D8318F-BE57-4194-9087-C5CA57ACF612\n   - Added Reference: http://xenbits.xen.org/xsa/advisory-493.html\n6. 2026-06-09T10:16:33.003 | New CVE Received | source=arm-security@arm.com | changeId=EDFD27D0-2C28-4D8B-99C4-B0F22C1F38C3\n   - Added Description: Arm C1-Ultra, C1-Premium, Neoverse V3 & V3AE, Neoverse V2, Neoverse V1, Neoverse-N2, Neoverse-N1, Cortex-X925, Cortex-X4, Cortex-X3, Cortex-X2, Cortex-X1 & X1C, Cortex-A710, Cortex-A78, A78AE & A78C, Cortex-A77, Cortex-A76 & A76A may allow writes to resources owned by a higher exception level.\n   - Added CWE: CWE-362\n   - Added Reference: https://developer.arm.com/documentation/112137\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2025-10263",
+        "cveIds": [
+          "CVE-2025-10263",
+          "CVE-2025-10263"
+        ],
+        "source": "Comment",
+        "commentText": "****\n\nFreeBSD bug [295488 - syslogd: memory leak in casper_ttymsg\\(\\) via nvlist_take_string_array](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=295488)\n\n* FreeBSD-EN-26:14.syslogd\n\n[**CVE-2025-10263**](https://www.cve.org/CVERecord?id=CVE-2025-10263)\n\n* identified by Arm\n* FreeBSD-SA-26:31.arm64\n* [Arm C1-Ultra, C1-Premium, Neoverse V3 & V3AE, Neoverse V2...",
+        "linkToComment": "https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/oqs062g/",
+        "commentDate": "2026-06-10T04:31:34+00:00",
+        "cvePublishedDate": "2026-06-09T10:16:33.003000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-06-17T08:28:01.150 | CVE Modified | source=arm-security@arm.com | changeId=5F2E2FA1-A384-41A3-8BEF-F6315A6158E4\n   - Added Affected: [{'vendor': 'Arm', 'product': 'C1-Ultra', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'C1-Premium', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Neoverse V3', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Neoverse V3AE', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Neoverse V1', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Neoverse N2', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Neoverse N1', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-X925', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-X4', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-X3', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-X2', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-X1', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-X1C', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A710', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A78', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A78AE', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A78C', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A77', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A76', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A76AE', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}]\n2. 2026-06-17T08:28:01.150 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=30460436-DFCC-4CDB-9842-3C8AE4052888\n   - Added SSVC: {'timestamp': '2026-06-09T14:11:21.775441Z', 'id': 'CVE-2025-10263', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n3. 2026-06-09T17:16:56.930 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=D7D3727E-4BD1-4C6B-AAE5-851CB8D87076\n   - Added Reference: http://www.openwall.com/lists/oss-security/2026/06/09/13\n4. 2026-06-09T16:16:34.680 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=E6493829-2226-4DA8-89A0-711673686C24\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N\n5. 2026-06-09T14:16:33.773 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=B2D8318F-BE57-4194-9087-C5CA57ACF612\n   - Added Reference: http://xenbits.xen.org/xsa/advisory-493.html\n6. 2026-06-09T10:16:33.003 | New CVE Received | source=arm-security@arm.com | changeId=EDFD27D0-2C28-4D8B-99C4-B0F22C1F38C3\n   - Added Description: Arm C1-Ultra, C1-Premium, Neoverse V3 & V3AE, Neoverse V2, Neoverse V1, Neoverse-N2, Neoverse-N1, Cortex-X925, Cortex-X4, Cortex-X3, Cortex-X2, Cortex-X1 & X1C, Cortex-A710, Cortex-A78, A78AE & A78C, Cortex-A77, Cortex-A76 & A76A may allow writes to resources owned by a higher exception level.\n   - Added CWE: CWE-362\n   - Added Reference: https://developer.arm.com/documentation/112137\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2025-10263",
+        "cveIds": [
+          "CVE-2025-10263",
+          "CVE-2025-10263"
+        ],
+        "source": "Comment",
+        "commentText": "****\n\nFreeBSD bug [295488 - syslogd: memory leak in casper_ttymsg\\(\\) via nvlist_take_string_array](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=295488)\n\n* FreeBSD-EN-26:14.syslogd\n\n[**CVE-2025-10263**](https://www.cve.org/CVERecord?id=CVE-2025-10263)\n\n* identified by Arm\n* FreeBSD-SA-26:31.arm64\n* [Arm C1-Ultra, C1-Premium, Neoverse V3 & V3AE, Neoverse V2...",
+        "linkToComment": "https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/oqs062g/",
+        "commentDate": "2026-06-10T04:31:34+00:00",
+        "cvePublishedDate": "2026-06-09T10:16:33.003000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-06-17T08:28:01.150 | CVE Modified | source=arm-security@arm.com | changeId=5F2E2FA1-A384-41A3-8BEF-F6315A6158E4\n   - Added Affected: [{'vendor': 'Arm', 'product': 'C1-Ultra', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'C1-Premium', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Neoverse V3', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Neoverse V3AE', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Neoverse V1', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Neoverse N2', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Neoverse N1', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-X925', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-X4', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-X3', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-X2', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-X1', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-X1C', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A710', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A78', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A78AE', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A78C', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A77', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A76', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}, {'vendor': 'Arm', 'product': 'Cortex-A76AE', 'defaultStatus': 'unaffected', 'versions': [{'version': '0', 'status': 'affected'}]}]\n2. 2026-06-17T08:28:01.150 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=30460436-DFCC-4CDB-9842-3C8AE4052888\n   - Added SSVC: {'timestamp': '2026-06-09T14:11:21.775441Z', 'id': 'CVE-2025-10263', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n3. 2026-06-09T17:16:56.930 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=D7D3727E-4BD1-4C6B-AAE5-851CB8D87076\n   - Added Reference: http://www.openwall.com/lists/oss-security/2026/06/09/13\n4. 2026-06-09T16:16:34.680 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=E6493829-2226-4DA8-89A0-711673686C24\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N\n5. 2026-06-09T14:16:33.773 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=B2D8318F-BE57-4194-9087-C5CA57ACF612\n   - Added Reference: http://xenbits.xen.org/xsa/advisory-493.html\n6. 2026-06-09T10:16:33.003 | New CVE Received | source=arm-security@arm.com | changeId=EDFD27D0-2C28-4D8B-99C4-B0F22C1F38C3\n   - Added Description: Arm C1-Ultra, C1-Premium, Neoverse V3 & V3AE, Neoverse V2, Neoverse V1, Neoverse-N2, Neoverse-N1, Cortex-X925, Cortex-X4, Cortex-X3, Cortex-X2, Cortex-X1 & X1C, Cortex-A710, Cortex-A78, A78AE & A78C, Cortex-A77, Cortex-A76 & A76A may allow writes to resources owned by a higher exception level.\n   - Added CWE: CWE-362\n   - Added Reference: https://developer.arm.com/documentation/112137\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
       },
       {
         "cveId": "CVE-2025-10263",
@@ -7755,12 +9199,12 @@
     "created_utc": "2026-06-07T00:05:33",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 9,
+    "score": 8,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-46640: Developing payloads for Twig sandbox bypass",
-    "updatedAt": "2026-06-19T06:47:12.402Z",
+    "updatedAt": "2026-06-20T04:46:25.300Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/netsec/comments/1tywxh9/cve202646640_developing_payloads_for_twig_sandbox/",
     "versionList": [
@@ -7833,7 +9277,7 @@
     "tag": null,
     "tags": [],
     "title": "The HTTP/2 Bomb That Knocks nginx and Apache Offline With a Single Connection",
-    "updatedAt": "2026-06-19T06:52:18.325Z",
+    "updatedAt": "2026-06-20T04:52:22.471Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/apache/comments/1tws4w7/the_http2_bomb_that_knocks_nginx_and_apache/",
     "versionList": [
@@ -8450,12 +9894,12 @@
     "created_utc": "2026-05-29T07:32:36",
     "first_author_comment": "So AI is great at finding bugs but terrible at fixing them. I guess security researchers have their job security back again. 😂\n\nThe silent failure is the real finding though. A patch that passes every test but leaves the hole open is worse than nothing. False confidence at scale is a new attack surface.\n\nCurious what you're seeing. Happy to compare notes.",
     "num_comments": 25,
-    "score": 49,
+    "score": 51,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "I evaluated 5 LLM agents on patching real-world CVEs. Here is what I found.",
-    "updatedAt": "2026-06-19T06:47:26.331Z",
+    "updatedAt": "2026-06-20T04:46:38.249Z",
     "upvote_ratio": 0.78,
     "url": "https://reddit.com/r/netsec/comments/1tquesx/i_evaluated_5_llm_agents_on_patching_realworld/",
     "versionList": [
@@ -8644,8 +10088,8 @@
     "tag": null,
     "tags": [],
     "title": "A week after Dutch FIOD seized 800+ servers, the hosting network's ASN (AS209847) is still scanning at its normal daily rate",
-    "updatedAt": "2026-06-19T06:47:35.128Z",
-    "upvote_ratio": 0.97,
+    "updatedAt": "2026-06-19T16:47:46.875Z",
+    "upvote_ratio": 0.96,
     "url": "https://reddit.com/r/netsec/comments/1tp6dz0/a_week_after_dutch_fiod_seized_800_servers_the/",
     "versionList": [
       "800.0.0"
@@ -9496,7 +10940,7 @@
       "General Discussion"
     ],
     "title": "Security Check Recommended (CVE-2025-55182): Please review your application's dependencies. If you are running React or Next.js",
-    "updatedAt": "2026-06-19T01:35:24.013Z",
+    "updatedAt": "2026-06-20T00:54:04.389Z",
     "upvote_ratio": 0.91,
     "url": "https://reddit.com/r/react/comments/1pfyta0/security_check_recommended_cve202555182_please/",
     "versionList": [
@@ -9732,6 +11176,23 @@
           "CVE Modified",
           "CVE Modified"
         ]
+      },
+      {
+        "cveId": "CVE-2025-55182",
+        "cveIds": [
+          "CVE-2025-55182"
+        ],
+        "source": "Title",
+        "commentText": "Security Check Recommended (CVE-2025-55182): Please review your application's dependencies. If you are running React or Next.js",
+        "linkToComment": "https://reddit.com/r/react/comments/1pfyta0/security_check_recommended_cve202555182_please/",
+        "commentDate": "2025-12-06T20:14:02+00:00",
+        "cvePublishedDate": "2025-12-03T16:15:56.463000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 3,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
       },
       {
         "cveId": "CVE-2025-55182",
