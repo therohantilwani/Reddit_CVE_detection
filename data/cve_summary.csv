@@ -51,6 +51,8 @@ CVE-2026-28318,1,2026-06-09T14:23:52+00:00,1781015032,sysadmin,https://reddit.co
 CVE-2026-28387,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/
 CVE-2026-28388,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/
 CVE-2026-28389,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/
+CVE-2026-30792,1,2026-06-20T19:33:03+00:00,1781983983,rustdesk,https://reddit.com/r/rustdesk/comments/1ub5cdv/weird_rustdesk_request_from_my_own_macbook/
+CVE-2026-30797,1,2026-06-20T19:33:03+00:00,1781983983,rustdesk,https://reddit.com/r/rustdesk/comments/1ub5cdv/weird_rustdesk_request_from_my_own_macbook/
 CVE-2026-31789,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/
 CVE-2026-31790,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/
 CVE-2026-32201,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
