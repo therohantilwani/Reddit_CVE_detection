@@ -1,5 +1,296 @@
 [
   {
+    "_id": "6a39f2644ce8d84a7e45f5aa",
+    "redditId": "1ud3msv",
+    "author": "Kahz3l",
+    "author_description": "Attention, dear community:\n\nFor all guys who didn't notice it (like me who just updated with my regular update cycle), Jellyfin had a pretty serious security vulnerability in its ffmpeg version in all Jellyfin versions under 10.11.7.\n\nIn a nutshell if someone crafted a malicious video file and you scan that file with the Jellyfin automated scan, the attacker can run code on your Jellyfin Server at worst or in the less severe case make it crash. \n\n  \nThis can be abused for example by uploading a malicious video file as a torrent or nzb and having your sonarr or radarr automatically download it...\n\n  \nUpdate ASAP if you haven't yet.\n\nSources:\n\n[https://www.sentinelone.com/vulnerability-database/cve-2026-35033/](https://www.sentinelone.com/vulnerability-database/cve-2026-35033/)\n\n[https://github.com/jellyfin/jellyfin/releases/tag/v10.11.7](https://github.com/jellyfin/jellyfin/releases/tag/v10.11.7)",
+    "awards": [],
+    "created_utc": "2026-06-23T01:42:11",
+    "first_author_comment": null,
+    "num_comments": 0,
+    "score": 3,
+    "subreddit": "homelab",
+    "tag": "News",
+    "tags": [],
+    "title": "PSA: Jellyfin RCE vulnerability over network with version lower then 10.11.7",
+    "updatedAt": "2026-06-23T04:41:09.783Z",
+    "upvote_ratio": 0.67,
+    "url": "https://reddit.com/r/homelab/comments/1ud3msv/psa_jellyfin_rce_vulnerability_over_network_with/",
+    "versionList": [
+      "10.11.7"
+    ],
+    "classification": {
+      "componentType": []
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.31772319929989684,
+        "timestampPredicted": "2026-06-23T04:00:22.657921+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true
+  },
+  {
+    "_id": "6a39837d4ce8d84a7e45d8d9",
+    "redditId": "1ucsrw0",
+    "author": "AlbatrossMaximum4489",
+    "author_description": null,
+    "awards": [],
+    "created_utc": "2026-06-22T18:31:27",
+    "first_author_comment": null,
+    "num_comments": 0,
+    "score": 10,
+    "subreddit": "netsec",
+    "tag": null,
+    "tags": [],
+    "title": "CVE-2026-25860 turn XSS to RCE",
+    "updatedAt": "2026-06-23T04:46:35.093Z",
+    "upvote_ratio": 0.92,
+    "url": "https://reddit.com/r/netsec/comments/1ucsrw0/cve202625860_turn_xss_to_rce/",
+    "versionList": [
+      "2026.0.0",
+      "25860.0.0"
+    ],
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.016128291420846697,
+        "timestampPredicted": "2026-06-23T04:01:17.401408+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": false,
+    "classification": {
+      "componentType": [],
+      "securityType": [
+        "SECURITY"
+      ]
+    }
+  },
+  {
+    "_id": "6a394c724ce8d84a7e45c10b",
+    "redditId": "1ucjru0",
+    "author": "FryBoyter",
+    "author_description": null,
+    "awards": [],
+    "comments": [
+      {
+        "id": "ot4dlhr",
+        "author": "elatllat",
+        "body": "https://www.cve.org/CVERecord?id=CVE-2026-55200",
+        "score": 12,
+        "created_utc_ts": 1782133714,
+        "created_utc": "2026-06-22T13:08:34",
+        "permalink": "https://reddit.com/r/linux/comments/1ucjru0/security_vulnerabilities_endanger_connections_via/ot4dlhr/",
+        "parent_id": "t3_1ucjru0",
+        "is_submitter": false
+      },
+      {
+        "id": "ot4ejhm",
+        "author": "Barafu",
+        "body": "Ridiculously bad link. Does not say what use cases are affected, in what situations? \n\nEveryone? Do you say I can connect to any unpatched server on the Internet right now?",
+        "score": 46,
+        "created_utc_ts": 1782134010,
+        "created_utc": "2026-06-22T13:13:30",
+        "permalink": "https://reddit.com/r/linux/comments/1ucjru0/security_vulnerabilities_endanger_connections_via/ot4ejhm/",
+        "parent_id": "t3_1ucjru0",
+        "is_submitter": false
+      },
+      {
+        "id": "ot4h628",
+        "author": "FryBoyter",
+        "body": "The article refers to the advisories and the commits that fix the vulnerabilities. As far as I know, there isn't any more information available at this time. I'd rather warn people now, even with limited information, than wait until all the details are known and some people have already been affected by the vulnerabilities.\n\nFurthermore, I find it strange that Kali is apparently already offering updates while other distributions, such as Arch, are not yet offering any.",
+        "score": 5,
+        "created_utc_ts": 1782134814,
+        "created_utc": "2026-06-22T13:26:54",
+        "permalink": "https://reddit.com/r/linux/comments/1ucjru0/security_vulnerabilities_endanger_connections_via/ot4h628/",
+        "parent_id": "t1_ot4ejhm",
+        "is_submitter": true
+      },
+      {
+        "id": "ot4jcum",
+        "author": "Anxious_Archer_7402",
+        "body": "glad this got coverage but the headline is pretty vague - libssh2 is used in so many places that knowing which specific use cases are at risk actually matters a lot here. still worth knowing about tho, just wish the article did more than gesture at the problem",
+        "score": 4,
+        "created_utc_ts": 1782135482,
+        "created_utc": "2026-06-22T13:38:02",
+        "permalink": "https://reddit.com/r/linux/comments/1ucjru0/security_vulnerabilities_endanger_connections_via/ot4jcum/",
+        "parent_id": "t3_1ucjru0",
+        "is_submitter": false
+      },
+      {
+        "id": "ot4lob9",
+        "author": "TheBendit",
+        "body": "libssh2 is client side only. It stands to reason that the only way to exploit it is to either impersonate an existing server that someone connects to with libssh2, or somehow make a libssh2 client connect to your malicious server.",
+        "score": 9,
+        "created_utc_ts": 1782136187,
+        "created_utc": "2026-06-22T13:49:47",
+        "permalink": "https://reddit.com/r/linux/comments/1ucjru0/security_vulnerabilities_endanger_connections_via/ot4lob9/",
+        "parent_id": "t1_ot4ejhm",
+        "is_submitter": false
+      },
+      {
+        "id": "ot4nsgx",
+        "author": "natermer",
+        "body": "This is for ssh client libraries. If you are writing software using libssh2 that might connect to malicious SSH servers, then this is something you have to worry about. \n\nRunning this:\n\n    dnf repoquery --whatrequires libssh2\n\nshows some concerning packages for Fedora. Nmap is one, for example, that you might be concerned about running if you are doing security stuff. \n\nA big one looks like 'libgit2' which is used in a bunch of different software related to GUI git software and packaging stuff. Cargo, nix-libs, kicad, python libraries, etc. ",
+        "score": 21,
+        "created_utc_ts": 1782136819,
+        "created_utc": "2026-06-22T14:00:19",
+        "permalink": "https://reddit.com/r/linux/comments/1ucjru0/security_vulnerabilities_endanger_connections_via/ot4nsgx/",
+        "parent_id": "t1_ot4ejhm",
+        "is_submitter": false
+      },
+      {
+        "id": "ot4ufmw",
+        "author": "BinkReddit",
+        "body": "Just so that it doesn't confuse anyone, this has nothing to do with the SSH/OpenSSH that's installed on almost all systems.",
+        "score": 26,
+        "created_utc_ts": 1782138708,
+        "created_utc": "2026-06-22T14:31:48",
+        "permalink": "https://reddit.com/r/linux/comments/1ucjru0/security_vulnerabilities_endanger_connections_via/ot4ufmw/",
+        "parent_id": "t3_1ucjru0",
+        "is_submitter": false
+      }
+    ],
+    "created_utc": "2026-06-22T12:53:22",
+    "first_author_comment": "The article refers to the advisories and the commits that fix the vulnerabilities. As far as I know, there isn't any more information available at this time. I'd rather warn people now, even with limited information, than wait until all the details are known and some people have already been affected by the vulnerabilities.\n\nFurthermore, I find it strange that Kali is apparently already offering updates while other distributions, such as Arch, are not yet offering any.",
+    "num_comments": 7,
+    "score": 116,
+    "subreddit": "linux",
+    "tag": "Security",
+    "tags": [
+      "Security"
+    ],
+    "title": "Security vulnerabilities endanger connections via libssh2",
+    "updatedAt": "2026-06-23T04:52:53.007Z",
+    "upvote_ratio": 0.96,
+    "url": "https://reddit.com/r/linux/comments/1ucjru0/security_vulnerabilities_endanger_connections_via/",
+    "versionList": [],
+    "classification": {
+      "componentType": [],
+      "securityType": [
+        "UNKNOWN"
+      ]
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.0003941327375347811,
+        "timestampPredicted": "2026-06-22T20:01:23.517414+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": false
+  },
+  {
+    "_id": "6a390d8a4ce8d84a7e45aca8",
+    "redditId": "1ucezrg",
+    "author": "Budget-Half7493",
+    "author_description": "Hey, \n\nWe just received an alert this weekend for CVE-2023-36010 in Microsoft Defender for Endpoint, and I’m trying to understand if this is expected behavior.\n\nOn the affected servers I currently have:\n\n* AMEngineVersion: 1.1.26050.11\n* AMProductVersion (Platform): 4.18.26050.15\n* AntivirusSignatureVersion: 1.453.221.0\n\nAccording to Microsoft’s latest published security intelligence update, the current versions are:\n\n* Engine Version: 1.1.26050.11\n* Platform Version: 4.18.26050.15\n* Signature Version: 1.453.224.0\n\nSo it looks like engine and platform are already on the latest available versions, only signatures are slightly behind (and updating fine).\n\nHowever, MDE is still flagging the CVE on multiple devices.\n\nHas anyone else seen this recently (especially since this weekend)?  \nIs this just a detection/mapping issue in Defender, or is there some additional mitigation/config required beyond version updates?\n\nWould appreciate any insights\n\nThank you :)",
+    "awards": [],
+    "comments": [
+      {
+        "id": "ot3h1ip",
+        "author": "xMr-Tea",
+        "body": "This also appeared in my tenant on the 18th June. All our endpoints/servers are up-to-date.\n\nThinking this might be a bug. The affected software for the CVE shows \"Microsoft Windows Defender 4.18.23110.3 (excluding) and earlier versions\" as vulnerable versions but our endpoints are all running 4.18.26050.15.",
+        "score": 1,
+        "created_utc_ts": 1782120454,
+        "created_utc": "2026-06-22T09:27:34",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1ucezrg/defender_av_cve202336010_still_flagged_even_on/ot3h1ip/",
+        "parent_id": "t3_1ucezrg",
+        "is_submitter": false
+      },
+      {
+        "id": "ot3hrs5",
+        "author": "cacheqzor",
+        "body": "same here, seeing it on fully up to date boxes and it makes zero sense with that version range in the CVE notes  \nkinda leaning toward bad mapping / bug in Defender rather than an actual vuln, hoping MS silently fixes it in the next sig or platform push",
+        "score": 1,
+        "created_utc_ts": 1782120830,
+        "created_utc": "2026-06-22T09:33:50",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1ucezrg/defender_av_cve202336010_still_flagged_even_on/ot3hrs5/",
+        "parent_id": "t1_ot3h1ip",
+        "is_submitter": false
+      },
+      {
+        "id": "ot3wou7",
+        "author": "InvisibleTextArea",
+        "body": "Me too. Ignored it as a false positive and moved on with life.",
+        "score": 1,
+        "created_utc_ts": 1782127669,
+        "created_utc": "2026-06-22T11:27:49",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1ucezrg/defender_av_cve202336010_still_flagged_even_on/ot3wou7/",
+        "parent_id": "t3_1ucezrg",
+        "is_submitter": false
+      },
+      {
+        "id": "ot55u90",
+        "author": "Independent_Yak_6273",
+        "body": "It seems to be another MS fup!  \nmy OCD is triggered! ",
+        "score": 1,
+        "created_utc_ts": 1782141853,
+        "created_utc": "2026-06-22T15:24:13",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1ucezrg/defender_av_cve202336010_still_flagged_even_on/ot55u90/",
+        "parent_id": "t3_1ucezrg",
+        "is_submitter": false
+      },
+      {
+        "id": "ot5rsmk",
+        "author": "Zgame200",
+        "body": "Man I love Microsoft so much",
+        "score": 1,
+        "created_utc_ts": 1782147873,
+        "created_utc": "2026-06-22T17:04:33",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1ucezrg/defender_av_cve202336010_still_flagged_even_on/ot5rsmk/",
+        "parent_id": "t3_1ucezrg",
+        "is_submitter": false
+      }
+    ],
+    "created_utc": "2026-06-22T08:38:34",
+    "first_author_comment": null,
+    "num_comments": 5,
+    "score": 5,
+    "subreddit": "sysadmin",
+    "tag": null,
+    "tags": [],
+    "title": "Defender AV CVE-2023-36010 still flagged even on latest engine/platform?",
+    "updatedAt": "2026-06-22T22:25:57.010Z",
+    "upvote_ratio": 0.78,
+    "url": "https://reddit.com/r/sysadmin/comments/1ucezrg/defender_av_cve202336010_still_flagged_even_on/",
+    "versionList": [
+      "2023.0.0",
+      "36010.0.0"
+    ],
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": true,
+        "positiveScore": 0.6398855299469433,
+        "timestampPredicted": "2026-06-22T16:01:05.270379+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true,
+    "classification": {
+      "componentType": [],
+      "securityType": [
+        "SECURITY"
+      ]
+    }
+  },
+  {
     "_id": "6a3703004ce8d84a7e43fabe",
     "redditId": "1ub5cdv",
     "author": "Khang5687",
@@ -54,12 +345,12 @@
     "created_utc": "2026-06-20T19:33:03",
     "first_author_comment": null,
     "num_comments": 4,
-    "score": 9,
+    "score": 10,
     "subreddit": "rustdesk",
     "tag": null,
     "tags": [],
     "title": "WEIRD RUSTDESK REQUEST FROM MY OWN MACBOOK",
-    "updatedAt": "2026-06-21T23:15:30.386Z",
+    "updatedAt": "2026-06-23T05:10:27.465Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/rustdesk/comments/1ub5cdv/weird_rustdesk_request_from_my_own_macbook/",
     "versionList": [],
@@ -91,13 +382,13 @@
     "created_utc": "2026-06-19T19:15:45",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 26,
+    "score": 27,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Use-after-free in the QPACK encoder of nginx HTTP/3 - CVE-2026-42530",
-    "updatedAt": "2026-06-22T06:47:04.290Z",
-    "upvote_ratio": 0.85,
+    "updatedAt": "2026-06-23T04:46:38.946Z",
+    "upvote_ratio": 0.87,
     "url": "https://reddit.com/r/netsec/comments/1uab0j6/useafterfree_in_the_qpack_encoder_of_nginx_http3/",
     "versionList": [
       "3.0.0",
@@ -149,7 +440,7 @@
         "id": "osl7acy",
         "author": "Hauber_RBLX",
         "body": "looks like a bad day for any fortinet admins that have it publicly exposed",
-        "score": 29,
+        "score": 28,
         "created_utc_ts": 1781881331,
         "created_utc": "2026-06-19T15:02:11",
         "permalink": "https://reddit.com/r/sysadmin/comments/1ua3v93/cisa_warns_fortinet_shops_over_fortibleed_74k/osl7acy/",
@@ -171,7 +462,7 @@
         "id": "osli3m8",
         "author": "xendr0me",
         "body": "When you wakeup and the infrastructure fairy hasn't replaced your Fortinet gear overnight, it's always a bad day.",
-        "score": 16,
+        "score": 17,
         "created_utc_ts": 1781884307,
         "created_utc": "2026-06-19T15:51:47",
         "permalink": "https://reddit.com/r/sysadmin/comments/1ua3v93/cisa_warns_fortinet_shops_over_fortibleed_74k/osli3m8/",
@@ -182,7 +473,7 @@
         "id": "oslnhyg",
         "author": "Ssakaa",
         "body": "It's a good thing they didn't try a coverup. The FortiGate headlines just wouldn't have landed very hard...",
-        "score": 7,
+        "score": 6,
         "created_utc_ts": 1781885780,
         "created_utc": "2026-06-19T16:16:20",
         "permalink": "https://reddit.com/r/sysadmin/comments/1ua3v93/cisa_warns_fortinet_shops_over_fortibleed_74k/oslnhyg/",
@@ -193,7 +484,7 @@
         "id": "oslwu3b",
         "author": "Fallingdamage",
         "body": "Fortinet is pretty good about being up front on their issues.  \n  \nWhen all the new firewall vulns started pouring in over the last 4 months with help from AI, I braced for the worst, but was surprised that the company that was melting down the worst was Palo Alto. Its like all the CVEs they just quietly swept under the rung suddenly got their chance to shine. Check on the number of curren CVEs from fortinet over the last 4 months vs PA, Cisco, Sonicwall, etc. Its surprisingly low.  \n  \nThis disclosure is about stolen credentials from a year ago. Nothing new. Its all been patched. Admins just havent done their due diligence. Thats a people problem.",
-        "score": 9,
+        "score": 8,
         "created_utc_ts": 1781888296,
         "created_utc": "2026-06-19T16:58:16",
         "permalink": "https://reddit.com/r/sysadmin/comments/1ua3v93/cisa_warns_fortinet_shops_over_fortibleed_74k/oslwu3b/",
@@ -215,7 +506,7 @@
         "id": "osn7sv2",
         "author": "Crisp-Glade-2849",
         "body": "rotating creds on 74k boxes is not a quick script. there goes weekend uptime and my sleephalf of those 74k devices havent seen update since 2021 anyway. spent morning resetting service accounts, pager is already screaming",
-        "score": -2,
+        "score": 0,
         "created_utc_ts": 1781901300,
         "created_utc": "2026-06-19T20:35:00",
         "permalink": "https://reddit.com/r/sysadmin/comments/1ua3v93/cisa_warns_fortinet_shops_over_fortibleed_74k/osn7sv2/",
@@ -226,7 +517,7 @@
         "id": "oso8e34",
         "author": "plump-lamp",
         "body": " Why are their management ports exposed to the internet? And why is ssl vpn still being used in this day and age",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1781912727,
         "created_utc": "2026-06-19T23:45:27",
         "permalink": "https://reddit.com/r/sysadmin/comments/1ua3v93/cisa_warns_fortinet_shops_over_fortibleed_74k/oso8e34/",
@@ -259,15 +550,15 @@
     "created_utc": "2026-06-19T14:43:01",
     "first_author_comment": null,
     "num_comments": 21,
-    "score": 174,
+    "score": 183,
     "subreddit": "sysadmin",
     "tag": "General Discussion",
     "tags": [
       "General Discussion"
     ],
     "title": "CISA warns Fortinet shops over FortiBleed: 74k+ devices with leaked creds, rotate everything now",
-    "updatedAt": "2026-06-22T06:25:52.137Z",
-    "upvote_ratio": 0.92,
+    "updatedAt": "2026-06-22T10:25:51.276Z",
+    "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/sysadmin/comments/1ua3v93/cisa_warns_fortinet_shops_over_fortibleed_74k/",
     "versionList": [],
     "classification": {
@@ -298,13 +589,13 @@
     "created_utc": "2026-06-19T13:27:18",
     "first_author_comment": null,
     "num_comments": 5,
-    "score": 38,
+    "score": 43,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "OpenBSD MPLS kernel stack leaks remotely (CVE-2026-56099)",
-    "updatedAt": "2026-06-22T06:47:05.129Z",
-    "upvote_ratio": 0.91,
+    "updatedAt": "2026-06-23T04:46:39.777Z",
+    "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/",
     "versionList": [
       "2026.0.0",
@@ -522,6 +813,86 @@
         "isAnalyzed": false,
         "cveChangeHistory": "No change history returned.\n",
         "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-56099",
+        "cveIds": [
+          "CVE-2026-56099"
+        ],
+        "source": "Title",
+        "commentText": "OpenBSD MPLS kernel stack leaks remotely (CVE-2026-56099)",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/",
+        "commentDate": "2026-06-19T13:27:18+00:00",
+        "cvePublishedDate": "2026-06-18T20:16:15.370000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-56099",
+        "cveIds": [
+          "CVE-2026-56099"
+        ],
+        "source": "Title",
+        "commentText": "OpenBSD MPLS kernel stack leaks remotely (CVE-2026-56099)",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/",
+        "commentDate": "2026-06-19T13:27:18+00:00",
+        "cvePublishedDate": "2026-06-18T20:16:15.370000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-06-21T09:16:26.140 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=CBAAE2A8-FEC1-4E84-9B19-C45D61BE1E03\n   - Added Reference: http://seclists.org/fulldisclosure/2026/Jun/17\n2. 2026-06-19T17:16:30.197 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=C0825BFE-49C7-4CAB-9843-8E9B665F3E90\n   - Added Reference: http://www.openwall.com/lists/oss-security/2026/06/19/3\n3. 2026-06-18T20:16:15.370 | New CVE Received | source=disclosure@vulncheck.com | changeId=A17A5005-8BB0-468E-B899-559266AF370C\n   - Added Affected: [{'vendor': 'openbsd', 'product': 'src', 'defaultStatus': 'affected', 'repo': 'https://github.com/openbsd/src', 'versions': [{'version': '0', 'lessThan': '6a23123ec05f1eb29cfcaae0f3a468b2e1983cfd', 'versionType': 'git', 'status': 'affected'}]}]\n   - Added Description: OpenBSD before commit 6a23123 (2026-06-18) contains an out-of-bounds read vulnerability in the mpls_do_error function within sys/netmpls/mpls_input.c that allows remote attackers to disclose kernel stack memory by sending crafted MPLS frames with 16 labels and no Bottom-of-Stack bit set.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N\n   - Added CWE: CWE-125\n   - Added Reference: https://github.com/openbsd/src/commit/6a23123ec05f1eb29cfcaae0f3a468b2e1983cfd\n   - Added Reference: https://pop.argus-systems.ai/advisory/adv-040.html\n   - Added Reference: https://www.vulncheck.com/advisories/openbsd-mpls-do-error-kernel-stack-memory-disclosure-via-mpls-input\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-56099",
+        "cveIds": [
+          "CVE-2026-56099"
+        ],
+        "source": "Title",
+        "commentText": "OpenBSD MPLS kernel stack leaks remotely (CVE-2026-56099)",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/",
+        "commentDate": "2026-06-19T13:27:18+00:00",
+        "cvePublishedDate": "2026-06-18T20:16:15.370000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-06-21T09:16:26.140 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=CBAAE2A8-FEC1-4E84-9B19-C45D61BE1E03\n   - Added Reference: http://seclists.org/fulldisclosure/2026/Jun/17\n2. 2026-06-19T17:16:30.197 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=C0825BFE-49C7-4CAB-9843-8E9B665F3E90\n   - Added Reference: http://www.openwall.com/lists/oss-security/2026/06/19/3\n3. 2026-06-18T20:16:15.370 | New CVE Received | source=disclosure@vulncheck.com | changeId=A17A5005-8BB0-468E-B899-559266AF370C\n   - Added Affected: [{'vendor': 'openbsd', 'product': 'src', 'defaultStatus': 'affected', 'repo': 'https://github.com/openbsd/src', 'versions': [{'version': '0', 'lessThan': '6a23123ec05f1eb29cfcaae0f3a468b2e1983cfd', 'versionType': 'git', 'status': 'affected'}]}]\n   - Added Description: OpenBSD before commit 6a23123 (2026-06-18) contains an out-of-bounds read vulnerability in the mpls_do_error function within sys/netmpls/mpls_input.c that allows remote attackers to disclose kernel stack memory by sending crafted MPLS frames with 16 labels and no Bottom-of-Stack bit set.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N\n   - Added CWE: CWE-125\n   - Added Reference: https://github.com/openbsd/src/commit/6a23123ec05f1eb29cfcaae0f3a468b2e1983cfd\n   - Added Reference: https://pop.argus-systems.ai/advisory/adv-040.html\n   - Added Reference: https://www.vulncheck.com/advisories/openbsd-mpls-do-error-kernel-stack-memory-disclosure-via-mpls-input\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-56099",
+        "cveIds": [
+          "CVE-2026-56099"
+        ],
+        "source": "Title",
+        "commentText": "OpenBSD MPLS kernel stack leaks remotely (CVE-2026-56099)",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/",
+        "commentDate": "2026-06-19T13:27:18+00:00",
+        "cvePublishedDate": "2026-06-18T20:16:15.370000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-06-21T09:16:26.140 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=CBAAE2A8-FEC1-4E84-9B19-C45D61BE1E03\n   - Added Reference: http://seclists.org/fulldisclosure/2026/Jun/17\n2. 2026-06-19T17:16:30.197 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=C0825BFE-49C7-4CAB-9843-8E9B665F3E90\n   - Added Reference: http://www.openwall.com/lists/oss-security/2026/06/19/3\n3. 2026-06-18T20:16:15.370 | New CVE Received | source=disclosure@vulncheck.com | changeId=A17A5005-8BB0-468E-B899-559266AF370C\n   - Added Affected: [{'vendor': 'openbsd', 'product': 'src', 'defaultStatus': 'affected', 'repo': 'https://github.com/openbsd/src', 'versions': [{'version': '0', 'lessThan': '6a23123ec05f1eb29cfcaae0f3a468b2e1983cfd', 'versionType': 'git', 'status': 'affected'}]}]\n   - Added Description: OpenBSD before commit 6a23123 (2026-06-18) contains an out-of-bounds read vulnerability in the mpls_do_error function within sys/netmpls/mpls_input.c that allows remote attackers to disclose kernel stack memory by sending crafted MPLS frames with 16 labels and no Bottom-of-Stack bit set.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N\n   - Added CWE: CWE-125\n   - Added Reference: https://github.com/openbsd/src/commit/6a23123ec05f1eb29cfcaae0f3a468b2e1983cfd\n   - Added Reference: https://pop.argus-systems.ai/advisory/adv-040.html\n   - Added Reference: https://www.vulncheck.com/advisories/openbsd-mpls-do-error-kernel-stack-memory-disclosure-via-mpls-input\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified"
+        ]
       }
     ],
     "comments": [
@@ -540,7 +911,7 @@
         "id": "oskyfq1",
         "author": "[deleted]",
         "body": "[removed]",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1781878840,
         "created_utc": "2026-06-19T14:20:40",
         "permalink": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/oskyfq1/",
@@ -551,7 +922,7 @@
         "id": "oso9uro",
         "author": "ephemeralsynth",
         "body": "Who remembers HeartBleed? 😹",
-        "score": 2,
+        "score": 3,
         "created_utc_ts": 1781913231,
         "created_utc": "2026-06-19T23:53:51",
         "permalink": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/oso9uro/",
@@ -599,17 +970,39 @@
         "permalink": "https://reddit.com/r/netsec/comments/1u9y7yw/squidbleed_cve202647729_heartbleedstyle/osjvvp7/",
         "parent_id": "t3_1u9y7yw",
         "is_submitter": false
+      },
+      {
+        "id": "ot3pe6g",
+        "author": "hashclyx",
+        "body": "airline wifi man in the middle shenanigans are such a classic at this point  \nwouldn’t be surprised if they’re running some crusty squid setup that nobody’s dared touch in years",
+        "score": 1,
+        "created_utc_ts": 1782124525,
+        "created_utc": "2026-06-22T10:35:25",
+        "permalink": "https://reddit.com/r/netsec/comments/1u9y7yw/squidbleed_cve202647729_heartbleedstyle/ot3pe6g/",
+        "parent_id": "t1_osjvvp7",
+        "is_submitter": false
+      },
+      {
+        "id": "ot5lygu",
+        "author": "beckstarlow",
+        "body": "the ftp port 21 thing gets glossed over a lot in these writeups but enterprise proxies reaching arbitrary outbound ports is genuinely more common than people want to admit, especially when acls haven't been touched in years\n\nsquid deployments that have been running since 2018 on autopilot are probably not the ones with tight egress rules",
+        "score": 1,
+        "created_utc_ts": 1782146354,
+        "created_utc": "2026-06-22T16:39:14",
+        "permalink": "https://reddit.com/r/netsec/comments/1u9y7yw/squidbleed_cve202647729_heartbleedstyle/ot5lygu/",
+        "parent_id": "t3_1u9y7yw",
+        "is_submitter": false
       }
     ],
     "created_utc": "2026-06-19T10:21:41",
     "first_author_comment": null,
-    "num_comments": 2,
-    "score": 103,
+    "num_comments": 4,
+    "score": 104,
     "subreddit": "netsec",
     "tag": "Contains AI",
     "tags": [],
     "title": "Squidbleed (CVE-2026-47729) - Heartbleed-style vulnerability that leaks internal memory from every version of Squid Proxy, in its default configuration",
-    "updatedAt": "2026-06-22T06:47:06.087Z",
+    "updatedAt": "2026-06-23T04:46:40.720Z",
     "upvote_ratio": 0.97,
     "url": "https://reddit.com/r/netsec/comments/1u9y7yw/squidbleed_cve202647729_heartbleedstyle/",
     "versionList": [
@@ -1659,13 +2052,13 @@
     "created_utc": "2026-06-18T18:05:44",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 35,
+    "score": 41,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-5667: Unauthenticated Remote Control of Mitsubishi MAC-577IF-2E WiFi Adapters via Probe Request Reconnaissance",
-    "updatedAt": "2026-06-22T06:47:06.937Z",
-    "upvote_ratio": 0.88,
+    "updatedAt": "2026-06-23T02:47:13.018Z",
+    "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/netsec/comments/1u9dncq/cve20265667_unauthenticated_remote_control_of/",
     "versionList": [
       "2026.0.0",
@@ -1733,17 +2126,6 @@
         "is_submitter": false
       },
       {
-        "id": "osfswjp",
-        "author": "2019-01-03",
-        "body": "First, your blog post has no indentations of the code.\n\nYou should consider using my pure [Markdown + JavaScript blog platform: **markdown-cms**](https://github.com/AutonomoAI/markdown-cms). It has much better code snippet support.\n\nSecond, your comment is one solid block... I've never actually seen this in over 20 years on Reddit that I can remember.\n\nHere's your comment:\n\n&gt; Author here. This is a small, clean teaching example of a common PHP webhook bug. The handler verifies the message is genuinely from PayPal (posts back _notify-validate, requires VERIFIED) and then trusts the payload, completing an order without comparing the amount, currency, or recipient against the stored order. The post has the broken vs fixed handler and a validation checklist. The code is the point, not the plugin.",
-        "score": -17,
-        "created_utc_ts": 1781810366,
-        "created_utc": "2026-06-18T19:19:26",
-        "permalink": "https://reddit.com/r/PHP/comments/1u9de75/authenticating_a_paypal_notification_is_not_the/osfswjp/",
-        "parent_id": "t1_osff3k4",
-        "is_submitter": false
-      },
-      {
         "id": "oslpxdl",
         "author": "mensink",
         "body": "I remember peer-reviewing a payment integration some 20 years ago. A redirect to the payment provider was done, with all the details in the URL (except the callback URL, which some payment providers put in the URL at the time). A user could easily change the payable amount and get their order to the paid status. I''m glad to say we implemented the amount check before it went into production.",
@@ -1765,7 +2147,7 @@
       "Article"
     ],
     "title": "Authenticating a PayPal notification is not the same as trusting what it says (CVE-2026-9189)",
-    "updatedAt": "2026-06-22T07:09:01.679Z",
+    "updatedAt": "2026-06-23T05:09:32.718Z",
     "upvote_ratio": 0.78,
     "url": "https://reddit.com/r/PHP/comments/1u9de75/authenticating_a_paypal_notification_is_not_the/",
     "versionList": [
@@ -2661,13 +3043,13 @@
     "created_utc": "2026-06-12T20:37:06",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 53,
+    "score": 50,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Why Use App-Level Auth When Every Database Has Auth? (Splunk Enterprise CVE-2026-20253 Pre-Auth RCE) - watchTowr Labs",
-    "updatedAt": "2026-06-22T06:47:18.135Z",
-    "upvote_ratio": 0.94,
+    "updatedAt": "2026-06-23T04:46:49.445Z",
+    "upvote_ratio": 0.91,
     "url": "https://reddit.com/r/netsec/comments/1u46wbb/why_use_applevel_auth_when_every_database_has/",
     "versionList": [
       "2026.0.0",
@@ -2964,13 +3346,13 @@
     "created_utc": "2026-06-12T05:23:23",
     "first_author_comment": null,
     "num_comments": 3,
-    "score": 34,
+    "score": 39,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Marking Your Own Homework (Check Point Remote Access VPN IKEv1 Authentication Bypass CVE-2026-50751) - watchTowr Labs",
-    "updatedAt": "2026-06-22T06:47:21.354Z",
-    "upvote_ratio": 0.89,
+    "updatedAt": "2026-06-23T02:47:27.144Z",
+    "upvote_ratio": 0.91,
     "url": "https://reddit.com/r/netsec/comments/1u3m7yj/marking_your_own_homework_check_point_remote/",
     "versionList": [
       "2026.0.0",
@@ -3371,7 +3753,7 @@
         "id": "orcbb2k",
         "author": "scriptqzor",
         "body": "wild how many vendors still basically get to grade their own security papers and call it a day  \nprops to watchtowr for poking at the \"you’re fine, trust us\" narrative, this is the kind of stuff that actually makes everyone safer",
-        "score": 4,
+        "score": 3,
         "created_utc_ts": 1781315205,
         "created_utc": "2026-06-13T01:46:45",
         "permalink": "https://reddit.com/r/netsec/comments/1u3m7yj/marking_your_own_homework_check_point_remote/orcbb2k/",
@@ -5991,12 +6373,12 @@
     "created_utc": "2026-06-10T00:54:34",
     "first_author_comment": null,
     "num_comments": 6,
-    "score": 47,
+    "score": 46,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "More Evidence That Words Don't Mean What We Thought They Meant (Ivanti Sentry Pre-Auth OS Command Injection CVE-2026-10520) - watchTowr Labs",
-    "updatedAt": "2026-06-22T06:47:26.662Z",
+    "updatedAt": "2026-06-23T04:46:55.126Z",
     "upvote_ratio": 0.9,
     "url": "https://reddit.com/r/netsec/comments/1u1neao/more_evidence_that_words_dont_mean_what_we/",
     "versionList": [
@@ -9616,12 +9998,12 @@
     "created_utc": "2026-06-07T00:05:33",
     "first_author_comment": null,
     "num_comments": 3,
-    "score": 8,
+    "score": 9,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-46640: Developing payloads for Twig sandbox bypass",
-    "updatedAt": "2026-06-22T06:47:31.724Z",
+    "updatedAt": "2026-06-23T04:47:00.715Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/netsec/comments/1tywxh9/cve202646640_developing_payloads_for_twig_sandbox/",
     "versionList": [
@@ -9705,7 +10087,7 @@
     "tag": null,
     "tags": [],
     "title": "The HTTP/2 Bomb That Knocks nginx and Apache Offline With a Single Connection",
-    "updatedAt": "2026-06-22T06:52:38.831Z",
+    "updatedAt": "2026-06-23T04:51:57.610Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/apache/comments/1tws4w7/the_http2_bomb_that_knocks_nginx_and_apache/",
     "versionList": [
@@ -10168,7 +10550,7 @@
         "id": "oojxp7v",
         "author": "Fickle-Box1433",
         "body": "So AI is great at finding bugs but terrible at fixing them. I guess security researchers have their job security back again. 😂\n\nThe silent failure is the real finding though. A patch that passes every test but leaves the hole open is worse than nothing. False confidence at scale is a new attack surface.\n\nCurious what you're seeing. Happy to compare notes.",
-        "score": 8,
+        "score": 7,
         "created_utc_ts": 1780055560,
         "created_utc": "2026-05-29T11:52:40",
         "permalink": "https://reddit.com/r/netsec/comments/1tquesx/i_evaluated_5_llm_agents_on_patching_realworld/oojxp7v/",
@@ -10201,7 +10583,7 @@
         "id": "oopkoz6",
         "author": "vhthc",
         "body": "IMHO the setup is not realistic which makes the experiment results inconclusive.\n\nIn the real world you either have a complete issue description (not only where the bug is but also the description what the bug is and maybe a proof of concept) or you have an exploit (so when you are at the point of triage which would result in the issue description).\n\nThe triage part is not something I would recommend to measure because of easy contamination, but this could be a benchmark on its own.\n\nSo I recommend to give the full CVE information and then see how well it is able to fix the vulnerability completely.\n\nThe numbers for opus and sonnet would also be great to see btw (and maybe DeepSeek 4 pro and Kimi 2.6) because the are the models (in addition to gpt 5.5 + -codex) that are being used.\n",
-        "score": 4,
+        "score": 3,
         "created_utc_ts": 1780118622,
         "created_utc": "2026-05-30T05:23:42",
         "permalink": "https://reddit.com/r/netsec/comments/1tquesx/i_evaluated_5_llm_agents_on_patching_realworld/oopkoz6/",
@@ -10321,14 +10703,14 @@
     ],
     "created_utc": "2026-05-29T07:32:36",
     "first_author_comment": "So AI is great at finding bugs but terrible at fixing them. I guess security researchers have their job security back again. 😂\n\nThe silent failure is the real finding though. A patch that passes every test but leaves the hole open is worse than nothing. False confidence at scale is a new attack surface.\n\nCurious what you're seeing. Happy to compare notes.",
-    "num_comments": 25,
-    "score": 47,
+    "num_comments": 26,
+    "score": 51,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "I evaluated 5 LLM agents on patching real-world CVEs. Here is what I found.",
-    "updatedAt": "2026-06-22T06:47:47.748Z",
-    "upvote_ratio": 0.77,
+    "updatedAt": "2026-06-23T04:47:13.874Z",
+    "upvote_ratio": 0.78,
     "url": "https://reddit.com/r/netsec/comments/1tquesx/i_evaluated_5_llm_agents_on_patching_realworld/",
     "versionList": [
       "5.0.0"
@@ -11368,7 +11750,7 @@
       "General Discussion"
     ],
     "title": "Security Check Recommended (CVE-2025-55182): Please review your application's dependencies. If you are running React or Next.js",
-    "updatedAt": "2026-06-22T01:10:10.226Z",
+    "updatedAt": "2026-06-22T08:07:01.353Z",
     "upvote_ratio": 0.91,
     "url": "https://reddit.com/r/react/comments/1pfyta0/security_check_recommended_cve202555182_please/",
     "versionList": [
@@ -11604,6 +11986,23 @@
           "CVE Modified",
           "CVE Modified"
         ]
+      },
+      {
+        "cveId": "CVE-2025-55182",
+        "cveIds": [
+          "CVE-2025-55182"
+        ],
+        "source": "Title",
+        "commentText": "Security Check Recommended (CVE-2025-55182): Please review your application's dependencies. If you are running React or Next.js",
+        "linkToComment": "https://reddit.com/r/react/comments/1pfyta0/security_check_recommended_cve202555182_please/",
+        "commentDate": "2025-12-06T20:14:02+00:00",
+        "cvePublishedDate": "2025-12-03T16:15:56.463000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 3,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
       },
       {
         "cveId": "CVE-2025-55182",
