@@ -1,32 +1,488 @@
 [
   {
-    "_id": "6a39f2644ce8d84a7e45f5aa",
-    "redditId": "1ud3msv",
-    "author": "Kahz3l",
-    "author_description": "Attention, dear community:\n\nFor all guys who didn't notice it (like me who just updated with my regular update cycle), Jellyfin had a pretty serious security vulnerability in its ffmpeg version in all Jellyfin versions under 10.11.7.\n\nIn a nutshell if someone crafted a malicious video file and you scan that file with the Jellyfin automated scan, the attacker can run code on your Jellyfin Server at worst or in the less severe case make it crash. \n\n  \nThis can be abused for example by uploading a malicious video file as a torrent or nzb and having your sonarr or radarr automatically download it...\n\n  \nUpdate ASAP if you haven't yet.\n\nSources:\n\n[https://www.sentinelone.com/vulnerability-database/cve-2026-35033/](https://www.sentinelone.com/vulnerability-database/cve-2026-35033/)\n\n[https://github.com/jellyfin/jellyfin/releases/tag/v10.11.7](https://github.com/jellyfin/jellyfin/releases/tag/v10.11.7)",
+    "_id": "6a3acf8b4ce8d84a7e46236c",
+    "redditId": "1udoilq",
+    "author": "TrustSig",
+    "author_description": "Saw the latest numbers on FortiBleed and figured the patch-now crowd would want them. The campaign turned compromised FortiGates into credential stealers using a Golang sniffer, and the latest tally is around 430k boxes touched and roughly 110 million credentials scooped up.\n\nThe part that stings is the firewall, the thing you put up to protect everything else, becomes the thing harvesting your creds. So now I'm side-eyeing every appliance with a management interface anywhere near the open internet.\n\nGood reminder that patch cadence on edge gear is not optional and that internet-facing admin panels are a ticking clock. Time to go audit some configs I'd rather not look at.\n\nhttps://www.darkreading.com/cyberattacks-data-breaches/fortibleed-attackers-firewalls-credentials-stealers",
     "awards": [],
-    "created_utc": "2026-06-23T01:42:11",
+    "comments": [
+      {
+        "id": "otdcygo",
+        "author": "Next-Nobody-745",
+        "body": "Ticking clock. lol",
+        "score": 1,
+        "created_utc_ts": 1782237934,
+        "created_utc": "2026-06-23T18:05:34",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1udoilq/fortibleed_update_now_430k_fortigates_hit_and_110/otdcygo/",
+        "parent_id": "t3_1udoilq",
+        "is_submitter": false
+      },
+      {
+        "id": "otddpux",
+        "author": "zoltrix999",
+        "body": "The funny thing is that FortiGate even has videos on Reddit explaining how difficult it is to explore.",
+        "score": 1,
+        "created_utc_ts": 1782238128,
+        "created_utc": "2026-06-23T18:08:48",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1udoilq/fortibleed_update_now_430k_fortigates_hit_and_110/otddpux/",
+        "parent_id": "t3_1udoilq",
+        "is_submitter": false
+      },
+      {
+        "id": "otdemwe",
+        "author": "Bane8080",
+        "body": "Gee, it's almost like you shouldn't expose your admin interface to the internet without IP filters.",
+        "score": 1,
+        "created_utc_ts": 1782238363,
+        "created_utc": "2026-06-23T18:12:43",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1udoilq/fortibleed_update_now_430k_fortigates_hit_and_110/otdemwe/",
+        "parent_id": "t3_1udoilq",
+        "is_submitter": false
+      },
+      {
+        "id": "otdfkoy",
+        "author": "Frisnfruitig",
+        "body": "IP filters? Half of them still use \"admin\" and \"password\" as login creds. Lots of these small businesses just don't know wtf they are doing and don't care to find out until -inevitably- they get breached. ",
+        "score": 1,
+        "created_utc_ts": 1782238602,
+        "created_utc": "2026-06-23T18:16:42",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1udoilq/fortibleed_update_now_430k_fortigates_hit_and_110/otdfkoy/",
+        "parent_id": "t1_otdemwe",
+        "is_submitter": false
+      },
+      {
+        "id": "otdh65x",
+        "author": "SuccessFearless2102",
+        "body": "😄 Exactly. I never liked FortiGate products anyway. Too expensive ",
+        "score": 1,
+        "created_utc_ts": 1782239011,
+        "created_utc": "2026-06-23T18:23:31",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1udoilq/fortibleed_update_now_430k_fortigates_hit_and_110/otdh65x/",
+        "parent_id": "t1_otdemwe",
+        "is_submitter": false
+      },
+      {
+        "id": "otdhu2w",
+        "author": "nethack47",
+        "body": "I saw them come a knocking a few months ago. Once the more clever ones got going we took the plunge and went all out on the security.\n\nThe setting that stopped credential stuffing attacks was the realm string.\n\n[https://community.fortinet.com/fortigate-3/technical-tip-prevent-ssl-vpn-login-attempts-from-locking-out-user-accounts-on-a-remote-authentication-server-via-the-use-of-ssl-vpn-realms-194068](https://community.fortinet.com/fortigate-3/technical-tip-prevent-ssl-vpn-login-attempts-from-locking-out-user-accounts-on-a-remote-authentication-server-via-the-use-of-ssl-vpn-realms-194068)\n\nIf  you have an exposed VPN, use this and geoblocking. Allow countries on-demand if you can.",
+        "score": 1,
+        "created_utc_ts": 1782239179,
+        "created_utc": "2026-06-23T18:26:19",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1udoilq/fortibleed_update_now_430k_fortigates_hit_and_110/otdhu2w/",
+        "parent_id": "t3_1udoilq",
+        "is_submitter": false
+      },
+      {
+        "id": "otdjbze",
+        "author": "Helpjuice",
+        "body": "It appears the best approach would be to stop using their products all together and migrate to a vendor that takes security more seriously.  Too many massive issues over a long period of time coming from this company for critical infrastructure.  \n\nFrom helping someone deal with the deathblow of these critical issues all companies should remove all public management access, disable SSL-VPN, require MFA, rotate all VPN, admin, service, LDAP, RADIUS, and shared creds involved with the device.  Then review all configs for leaked secrets, review potential downstream compromises, treat vulnerable fortigates as compromised until proven otherwise, build a replacement and migration strategy to a new vendor instead of just waiting for the next patch.\n\nCheap and affordable have had too great of a cost.  Fortinet should no longer be considered an acceptable default edge infrastructure for high trust environments.  If you do choose to keep it you need additional compensating controls, defense in depth, and high end monitoring, IPS, secrets rotation, and an exceptionally short patch SLA as in hours not days, or weeks.  Without having the discipline to do this it is accepting that these perimeter devices are perfectly fine for attackers to continue taking advantage of for large scale attacks.\n\nUpdating for those that are missing the big picture:\n- SSL-VPN repeated blast radius problems due to SSL-VPN which is by it's nature internet facing this is the entire purpose of it to be exposed to the internet.  They have had multiple high vulnerabilities with this capability that have been exploited in attack campaigns ~ CVE-2023-27997, CVE-2024-21762 which allowed unauthenticated execution of arbitrary code exploited in the wild.  The VPN service itself has repeatedly been the attacker's target and had vulnerabilities within it exploited.\n\n- CISA has warned that the post-exploitation persistence tied to FortiOS vulnerabilities continuously.  Due to the low quality of the patching of FortiOS attacks have and normally do maintain persistence even after patches have been applied.  This has also been noted by the Canadian Centre for Cyber Security.  So the regular patch, reboot, has not been a solid solution to resolve these issues every time and requires a deep dive, config diff, known good config review and more to remove post exploitation persistence.\n\n- FortiManager is even worse as it allows bulk compromise of the entire fleet of FortiGates, enables mass exfil of configurations, admin work flows, policy objects, credentials, internal topology for future attacks, and enables change-control authority.  This is a large risk and a serious issue that enables mass attack of FortiGates.\n\n- FortiCloud SSO issues are not fixed by disabling the public access to the management interface.  These issues enabled authentication bypass impacting FortiOS, FortiWeb, FortiProxy, and FortiSwitchManager.  They even put this in their own advisories that an unauthenticated attack could bypass their FortiCloud SSO login using crafted SAML messages if the feature was enabled and [known to have been exploited](https://fortiguard.fortinet.com/psirt/FG-IR-25-647).\n\nThey also disclosed an additional issue impacting FortiCloud SSO authentication bypass that impacted FortiOS, FortiManager, FortiAnalyzer, FortiProxy, FortiSwitchManager, and FortiWeb.  These issues were exploited in the wild and enabled customer configs to be downloaded and enabled the ability to [add local admin accounts to enable persistence](https://fortiguard.fortinet.com/psirt/FG-IR-26-060).  Again this is not fixed by just not enabling public access to the management interface.\n\nIt is best to just read from Fortigate themselves about all the problems their products have across the [board](https://fortiguard.fortinet.com/psirt?filter=1&amp;product=FortiOS-6K7K%2CFortiOS&amp;product=FortiSwitchManager&amp;product=FortiSwitch&amp;product=FortiSwitchAXFixed&amp;product=FortiAP&amp;product=FortiAP-U&amp;product=FortiAP-W2&amp;product=FortiAP-C&amp;product=FortiAP-S&amp;product=FortiManager&amp;product=FortiAnalyzer&amp;product=FortiManager+Cloud&amp;product=FortiAnalyzer-BigData&amp;product=FortiAnalyzer+Cloud&amp;product=FortiSandbox&amp;product=FortiExtender&amp;product=FortiSandbox+PaaS&amp;product=FortiSandbox+Cloud&amp;version=&amp;date=2026&amp;severity=5&amp;severity=4&amp;attack_type=Unauthenticated&amp;keyword=).\n\n- FortiWeb is supposed to be able to help protect web applications, but it has actively been used for exploitation too CVE-2025-64446 enabling remote unauthenticated attackers to execute admin commands and known to be on the CISA KEV.\n\n- MFA is great but doesn't solve the problems that have been known in the technology that enables authentication bypass and SSO Trust issues (CVE-2025-59718, CVE-2025-59719) that involved FortiCloud SSO login authentication bypass via crafted SAML messaged when enabled.",
+        "score": 1,
+        "created_utc_ts": 1782239563,
+        "created_utc": "2026-06-23T18:32:43",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1udoilq/fortibleed_update_now_430k_fortigates_hit_and_110/otdjbze/",
+        "parent_id": "t3_1udoilq",
+        "is_submitter": false
+      },
+      {
+        "id": "otdliwz",
+        "author": "wAvelulz",
+        "body": "Not really, just don't expose management to the whole world ",
+        "score": 1,
+        "created_utc_ts": 1782240118,
+        "created_utc": "2026-06-23T18:41:58",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1udoilq/fortibleed_update_now_430k_fortigates_hit_and_110/otdliwz/",
+        "parent_id": "t1_otdjbze",
+        "is_submitter": false
+      },
+      {
+        "id": "otdnnat",
+        "author": "Secret_Account07",
+        "body": "So this is bad.\n\nBut there are so many that are bad it almost doesn’t phase me anymore.\n\nI’m still pissed at Orion/Solarwinds for making me do all that work many years ago. That was 754 bad compromises ago",
+        "score": 1,
+        "created_utc_ts": 1782240660,
+        "created_utc": "2026-06-23T18:51:00",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1udoilq/fortibleed_update_now_430k_fortigates_hit_and_110/otdnnat/",
+        "parent_id": "t3_1udoilq",
+        "is_submitter": false
+      },
+      {
+        "id": "otdnuhv",
+        "author": "RestartRebootRetire",
+        "body": "People keep telling me to move from Sonicwall to Fortinet.\n\nThat being said, I don't touch the Sonicwall VPN.",
+        "score": 1,
+        "created_utc_ts": 1782240712,
+        "created_utc": "2026-06-23T18:51:52",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1udoilq/fortibleed_update_now_430k_fortigates_hit_and_110/otdnuhv/",
+        "parent_id": "t3_1udoilq",
+        "is_submitter": false
+      },
+      {
+        "id": "otdp9tm",
+        "author": "apumpernickel",
+        "body": "Sonicwalls nail in the coffin for me was their backup service being compromised. At this is customer negligence for fortinet appliances.",
+        "score": 1,
+        "created_utc_ts": 1782241081,
+        "created_utc": "2026-06-23T18:58:01",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1udoilq/fortibleed_update_now_430k_fortigates_hit_and_110/otdp9tm/",
+        "parent_id": "t1_otdnuhv",
+        "is_submitter": false
+      },
+      {
+        "id": "otds8vg",
+        "author": "andwork",
+        "body": "so, let's say that forti make cars. unfortunately, since they're not the best manufacturer, some cars don't drive straight, it continue to turn left.\n\nA frontal crash happened with another car. Manufacturer and police blame driver because he forgot to continue to steer right.\n\nis that are you saying?  we all know that best practice says that driver have to keep hands on steer, but there's also the manufacturer responsability to make cars without defect.\n\nso please stop blaming drivers (sysadmin) at first, and let's start complaining to fortinet, because at the moment they're making the most insecure products. \n\nThat's the reality.\n\n",
+        "score": 1,
+        "created_utc_ts": 1782241854,
+        "created_utc": "2026-06-23T19:10:54",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1udoilq/fortibleed_update_now_430k_fortigates_hit_and_110/otds8vg/",
+        "parent_id": "t1_otdemwe",
+        "is_submitter": false
+      },
+      {
+        "id": "otdsxdj",
+        "author": "andwork",
+        "body": "yes, admins must stop using their product, because is not secure. A firewall with CVE &gt; 9 quite every months? come on, they need to change work. Threy demostrated that they're not able to do security.\n\n",
+        "score": 1,
+        "created_utc_ts": 1782242031,
+        "created_utc": "2026-06-23T19:13:51",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1udoilq/fortibleed_update_now_430k_fortigates_hit_and_110/otdsxdj/",
+        "parent_id": "t1_otdjbze",
+        "is_submitter": false
+      },
+      {
+        "id": "otdvaui",
+        "author": "Nysyr",
+        "body": "Why are you posting 3rd party info about this. This is from old compromises, not a new campaign.\n\nhttps://www.fortinet.com/blog/psirt-blogs/analysis-of-reported-credential-compromise-of-fortigate-devices",
+        "score": 1,
+        "created_utc_ts": 1782242645,
+        "created_utc": "2026-06-23T19:24:05",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1udoilq/fortibleed_update_now_430k_fortigates_hit_and_110/otdvaui/",
+        "parent_id": "t3_1udoilq",
+        "is_submitter": false
+      },
+      {
+        "id": "otdvlu8",
+        "author": "Bane8080",
+        "body": "I mean, it's been an IT rule to not expose your management interface unrestricted since the early 2000s at least. Goes right along with \"The server is not a desktop PC, don't use it like one.\"\n\nShould the flaw be there? No. But you shouldn't be be breaking 20+ year old rules. ",
+        "score": 1,
+        "created_utc_ts": 1782242724,
+        "created_utc": "2026-06-23T19:25:24",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1udoilq/fortibleed_update_now_430k_fortigates_hit_and_110/otdvlu8/",
+        "parent_id": "t1_otdjbze",
+        "is_submitter": false
+      },
+      {
+        "id": "otdvnd5",
+        "author": "Nysyr",
+        "body": "PAN just had a Zero day, you gonna drop them too? PAN doesn't publish anything they find internally.",
+        "score": 1,
+        "created_utc_ts": 1782242735,
+        "created_utc": "2026-06-23T19:25:35",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1udoilq/fortibleed_update_now_430k_fortigates_hit_and_110/otdvnd5/",
+        "parent_id": "t1_otdjbze",
+        "is_submitter": false
+      },
+      {
+        "id": "otdw6nw",
+        "author": "Arkios",
+        "body": "The really “fun” part about this is the trickle effect this will have on other companies that think they’re safe because they don’t run Fortigate.\n\nHow many companies have B2B VPNs and don’t realize the other side is running a Fortigate that’s been pwned and now your own environment is at risk because of it? Big oof.",
+        "score": 1,
+        "created_utc_ts": 1782242875,
+        "created_utc": "2026-06-23T19:27:55",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1udoilq/fortibleed_update_now_430k_fortigates_hit_and_110/otdw6nw/",
+        "parent_id": "t3_1udoilq",
+        "is_submitter": false
+      },
+      {
+        "id": "otdyxb9",
+        "author": "Bane8080",
+        "body": "It really isn't. The people/companies affected have been lax in their security implementation. They were going to get hit by something regardless. If they let this happen, what other holes do they have open?\n\nIt just happened to be this for them. ",
+        "score": 1,
+        "created_utc_ts": 1782243599,
+        "created_utc": "2026-06-23T19:39:59",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1udoilq/fortibleed_update_now_430k_fortigates_hit_and_110/otdyxb9/",
+        "parent_id": "t1_otdnnat",
+        "is_submitter": false
+      },
+      {
+        "id": "ote0fyu",
+        "author": "solracarevir",
+        "body": "For me the big problem here is this wasn't 100% result of exploited vulnerabilities. This was mostly result of bad security practices.\n\n* Exposing Management Interfaces to the internet\n* Poor Credential Hygiene and Password Reuse\n* Missing Multi-Factor Authentication\n\nPatching your shit is just part of the equation.\n\n[SOCRadar published a whitepaper ](https://socradar.io/resources/whitepapers/dismantling-fortibleed-inside-a-russian-fortinet-compromise-operation/)that goes into a very detailed analysis on how the attackers worked. I checked the IP's they published as part of the attacker infrastructure and found out my org was probed by the bad actors:\n\n* 27 Times on 80 / 443\n* 6 times on 5001 / 3306\n* 6 times on 2082/2083\n* 6 times on 5904–5909\n\n...but luckily for us we weren't compromised. But local companies known to us did.\n\nPull your admin interfaces from the internet. MFA everything accessible from outside and monitor your password leaks / act upon a leak notification. And almost forgot, geoblock  everything that can be geoblocked. Pretty sure that login attempt from bulgaria is not James from your Dev team.",
+        "score": 1,
+        "created_utc_ts": 1782243996,
+        "created_utc": "2026-06-23T19:46:36",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1udoilq/fortibleed_update_now_430k_fortigates_hit_and_110/ote0fyu/",
+        "parent_id": "t3_1udoilq",
+        "is_submitter": false
+      },
+      {
+        "id": "ote6ohj",
+        "author": "thortgot",
+        "body": "Fortinet is vastly more secure than Sonicwall. Their entire cloud management plane was compromised for months!",
+        "score": 1,
+        "created_utc_ts": 1782245662,
+        "created_utc": "2026-06-23T20:14:22",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1udoilq/fortibleed_update_now_430k_fortigates_hit_and_110/ote6ohj/",
+        "parent_id": "t1_otdnuhv",
+        "is_submitter": false
+      },
+      {
+        "id": "ote8h9o",
+        "author": "PappaFrost",
+        "body": "Having such a huge number of compromised devices makes me think that by default SSH is exposed to the internet and has no rate limiting, can anyone confirm?  There is no way that high number of people would go out of their way to expose management interfaces to the internet.  It must be the default setup?",
+        "score": 1,
+        "created_utc_ts": 1782246137,
+        "created_utc": "2026-06-23T20:22:17",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1udoilq/fortibleed_update_now_430k_fortigates_hit_and_110/ote8h9o/",
+        "parent_id": "t3_1udoilq",
+        "is_submitter": false
+      },
+      {
+        "id": "oteav57",
+        "author": "mnvoronin",
+        "body": "No, it's not the default setup. You *have* to tick the box.",
+        "score": 1,
+        "created_utc_ts": 1782246750,
+        "created_utc": "2026-06-23T20:32:30",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1udoilq/fortibleed_update_now_430k_fortigates_hit_and_110/oteav57/",
+        "parent_id": "t1_ote8h9o",
+        "is_submitter": false
+      },
+      {
+        "id": "otebxau",
+        "author": "mnvoronin",
+        "body": "Cisco CVE-2025-20309 is hardcoded SSH root credential.\n\nDrop Cisco as well?",
+        "score": 1,
+        "created_utc_ts": 1782247030,
+        "created_utc": "2026-06-23T20:37:10",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1udoilq/fortibleed_update_now_430k_fortigates_hit_and_110/otebxau/",
+        "parent_id": "t1_otdjbze",
+        "is_submitter": false
+      },
+      {
+        "id": "otepx05",
+        "author": "lastlaughlane1",
+        "body": "Our MSP is on the list for this compromise. 4 leaked IPs. Their initial reaction was very blasé and said it was most likely old servers that are not in use. How worried should I be? ",
+        "score": 1,
+        "created_utc_ts": 1782250711,
+        "created_utc": "2026-06-23T21:38:31",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1udoilq/fortibleed_update_now_430k_fortigates_hit_and_110/otepx05/",
+        "parent_id": "t3_1udoilq",
+        "is_submitter": false
+      },
+      {
+        "id": "otes4xc",
+        "author": "darguskelen",
+        "body": "Because CISA issued a warning on Friday about it.",
+        "score": 1,
+        "created_utc_ts": 1782251287,
+        "created_utc": "2026-06-23T21:48:07",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1udoilq/fortibleed_update_now_430k_fortigates_hit_and_110/otes4xc/",
+        "parent_id": "t1_otdvaui",
+        "is_submitter": false
+      },
+      {
+        "id": "otev13i",
+        "author": "_bx2_",
+        "body": "What is your take on admin credentials and ad/LDAP authentication? \n\nI get all your points above but I'm not sure if FW admin credentials should be domain controlled credentials via security group or something.",
+        "score": 1,
+        "created_utc_ts": 1782252057,
+        "created_utc": "2026-06-23T22:00:57",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1udoilq/fortibleed_update_now_430k_fortigates_hit_and_110/otev13i/",
+        "parent_id": "t1_ote0fyu",
+        "is_submitter": false
+      },
+      {
+        "id": "otf0f9v",
+        "author": "etherealenergy",
+        "body": "Does anyone have a list of the source IPs/networks that were used for the probing/validating the compromise? Where did the threat actors come from?",
+        "score": 1,
+        "created_utc_ts": 1782253555,
+        "created_utc": "2026-06-23T22:25:55",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1udoilq/fortibleed_update_now_430k_fortigates_hit_and_110/otf0f9v/",
+        "parent_id": "t3_1udoilq",
+        "is_submitter": false
+      },
+      {
+        "id": "otfce5x",
+        "author": "YOLOSWAGBROLOL",
+        "body": "https://doublepulsar.com/an-update-on-fortibleed-whats-happening-with-victim-orgs-c0671a50e7f4\n\nDepends what party you believe!",
+        "score": 1,
+        "created_utc_ts": 1782257258,
+        "created_utc": "2026-06-23T23:27:38",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1udoilq/fortibleed_update_now_430k_fortigates_hit_and_110/otfce5x/",
+        "parent_id": "t1_otdvaui",
+        "is_submitter": false
+      },
+      {
+        "id": "otff13d",
+        "author": "Nysyr",
+        "body": "Guarantee these orgs didn't patch or workaround the SSO exploit Fortinet linked in the article before exploitation. Their admin interface being exposed already proves that.",
+        "score": 1,
+        "created_utc_ts": 1782258103,
+        "created_utc": "2026-06-23T23:41:43",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1udoilq/fortibleed_update_now_430k_fortigates_hit_and_110/otff13d/",
+        "parent_id": "t3_1udoilq",
+        "is_submitter": false
+      },
+      {
+        "id": "otfmqdx",
+        "author": "screampuff",
+        "body": "what are the public IPs on the list? Their own office?",
+        "score": 1,
+        "created_utc_ts": 1782260608,
+        "created_utc": "2026-06-24T00:23:28",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1udoilq/fortibleed_update_now_430k_fortigates_hit_and_110/otfmqdx/",
+        "parent_id": "t1_otepx05",
+        "is_submitter": false
+      },
+      {
+        "id": "otg7q8s",
+        "author": "Bane8080",
+        "body": "No, it's not at all. It's people not following best practices. ",
+        "score": 1,
+        "created_utc_ts": 1782267540,
+        "created_utc": "2026-06-24T02:19:00",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1udoilq/fortibleed_update_now_430k_fortigates_hit_and_110/otg7q8s/",
+        "parent_id": "t1_ote8h9o",
+        "is_submitter": false
+      },
+      {
+        "id": "otg8wgq",
+        "author": "Bane8080",
+        "body": "If they're treating their network that way, imagine how they're treating yours... You should probably be firing them. ",
+        "score": 1,
+        "created_utc_ts": 1782267937,
+        "created_utc": "2026-06-24T02:25:37",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1udoilq/fortibleed_update_now_430k_fortigates_hit_and_110/otg8wgq/",
+        "parent_id": "t1_otepx05",
+        "is_submitter": false
+      }
+    ],
+    "created_utc": "2026-06-23T18:00:43",
     "first_author_comment": null,
-    "num_comments": 0,
-    "score": 3,
-    "subreddit": "homelab",
-    "tag": "News",
-    "tags": [],
-    "title": "PSA: Jellyfin RCE vulnerability over network with version lower then 10.11.7",
-    "updatedAt": "2026-06-23T04:41:09.783Z",
-    "upvote_ratio": 0.67,
-    "url": "https://reddit.com/r/homelab/comments/1ud3msv/psa_jellyfin_rce_vulnerability_over_network_with/",
+    "num_comments": 55,
+    "score": 142,
+    "subreddit": "sysadmin",
+    "tag": "General Discussion",
+    "tags": [
+      "General Discussion"
+    ],
+    "title": "FortiBleed update - now ~430k FortiGates hit and 110 million credentials harvested",
+    "updatedAt": "2026-06-24T04:25:30.985Z",
+    "upvote_ratio": 0.95,
+    "url": "https://reddit.com/r/sysadmin/comments/1udoilq/fortibleed_update_now_430k_fortigates_hit_and_110/",
     "versionList": [
-      "10.11.7"
+      "110.0.0"
     ],
     "classification": {
+      "securityType": [
+        "UNKNOWN"
+      ],
       "componentType": []
     },
     "metadata": {
       "predicted": {
         "isUpdateRelated": false,
-        "positiveScore": 0.31772319929989684,
-        "timestampPredicted": "2026-06-23T04:00:22.657921+00:00"
+        "positiveScore": 0.2417853811927025,
+        "timestampPredicted": "2026-06-24T04:01:23.352298+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true
+  },
+  {
+    "_id": "6a3a26cf4ce8d84a7e4602cc",
+    "redditId": "1ud8goc",
+    "author": "Impressive_Emu5708",
+    "author_description": "Hey everyone,\n\nSeeing a lot of developers spinning up AI gateways lately, and I wanted to drop a technical heads-up about the LiteLLM command injection flaw (CVE-2026-42271) that CISA just added to the KEV catalog today.\n\nIf you are hosting LiteLLM for your org, you need to treat it like a highly sensitive asset. Here is a breakdown of how the exploit chain actually works and why it's so nasty.\n\n**The Exploit Chain** Threat actors are chaining two distinct vulnerabilities to achieve zero-click Remote Code Execution:\n\n1. **Authentication Bypass (CVE-2026-48710):** The vulnerability begins in the SSO integration layer. Attackers are manipulating JSON Web Token (JWT) headers during the OAuth callback phase. This allows an unauthenticated external attacker to forge a valid administrative session and bypass the login screen entirely.\n2. **YAML Command Injection (CVE-2026-42271):** Once they have admin access, the attacker navigates to the model routing configuration panel. LiteLLM relies on Python libraries to dynamically parse YAML/JSON config files. The administrative API endpoints fail to sanitize user-supplied input before passing it to the OS shell. The attacker submits a malicious YAML string containing bash commands wrapped in template tags.\n\n**The Impact for SysAdmins** The backend parser processes the YAML and executes the commands. Because many teams are deploying these gateways quickly in Docker containers running as root, the attacker gets an instant root shell on the host.\n\nBut the blast radius is massive. Because this gateway sits directly between your corporate apps and external AI models (OpenAI, Azure, Bedrock):\n\n* **Stolen API Keys:** The attacker can steal the master API billing keys stored in the database.\n* **Data Exfiltration:** Every internal prompt (source code, financial data, HR records) passes through this gateway in plaintext. The attacker can silently mirror this traffic to an external C2 server, and traditional DLP won't catch it because the gateway is *supposed* to talk to external APIs.\n\n**Mitigation Steps**\n\n1. Patch immediately. The vendor has fixed the YAML sanitization.\n2. If you can't patch, completely isolate the administrative dashboard behind a strict VPN or ZTNA. Do not rely on the built-in SSO.\n3. Drop root privileges on your Docker containers.\n4. If your admin panel was exposed to the web, assume breach and rotate ALL of your OpenAI/Azure API keys immediately.\n\nHope this helps some of you secure your environments before the weekend. Stay safe out there!",
+    "awards": [],
+    "created_utc": "2026-06-23T05:41:09",
+    "first_author_comment": "Full technical breakdown &amp; mitigation guide here: 👉 [https://cyberupdates365.com/litellm-critical-rce-vulnerability-cve-2026-42271/](https://cyberupdates365.com/litellm-critical-rce-vulnerability-cve-2026-42271/)",
+    "num_comments": 1,
+    "score": 2,
+    "subreddit": "sysadmin",
+    "tag": "General Discussion",
+    "tags": [
+      "General Discussion"
+    ],
+    "title": "PSA: Critical LiteLLM AI Gateway RCE (CVE-2026-42271) added to CISA KEV. A technical breakdown of the exploit chain.",
+    "updatedAt": "2026-06-23T16:01:28.111Z",
+    "upvote_ratio": 0.67,
+    "url": "https://reddit.com/r/sysadmin/comments/1ud8goc/psa_critical_litellm_ai_gateway_rce_cve202642271/",
+    "versionList": [
+      "2026.0.0",
+      "42271.0.0"
+    ],
+    "classification": {
+      "securityType": [
+        "SECURITY"
+      ],
+      "componentType": [
+        "MACHINE_LEARNING",
+        "GPT"
+      ]
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 7.78685367096198e-05,
+        "timestampPredicted": "2026-06-23T16:01:27.543237+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true,
+    "comments": [
+      {
+        "id": "otadxq6",
+        "author": "Impressive_Emu5708",
+        "body": "Full technical breakdown &amp; mitigation guide here: 👉 [https://cyberupdates365.com/litellm-critical-rce-vulnerability-cve-2026-42271/](https://cyberupdates365.com/litellm-critical-rce-vulnerability-cve-2026-42271/)",
+        "score": 1,
+        "created_utc_ts": 1782203468,
+        "created_utc": "2026-06-23T08:31:08",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1ud8goc/psa_critical_litellm_ai_gateway_rce_cve202642271/otadxq6/",
+        "parent_id": "t3_1ud8goc",
+        "is_submitter": true
+      }
+    ]
+  },
+  {
+    "_id": "6a39f2644ce8d84a7e45f5aa",
+    "redditId": "1ud3msv",
+    "author": "Kahz3l",
+    "author_description": "Attention, dear community:\n\nFor all guys who didn't notice it (like me who just updated with my regular update cycle), Jellyfin had a pretty serious security vulnerability in its ffmpeg version in all Jellyfin versions under 10.11.7.\n\nIn a nutshell if someone crafted a malicious video file and you scan that file with the Jellyfin automated scan, the attacker can run code on your Jellyfin Server at worst or in the less severe case make it crash.\n\nThis can be abused for example by uploading a malicious video file as a torrent or nzb and having your sonarr or radarr automatically download it...\n\nUpdate ASAP if you haven't yet.\n\nSources:\n\n[https://www.sentinelone.com/vulnerability-database/cve-2026-35033/](https://www.sentinelone.com/vulnerability-database/cve-2026-35033/)\n\n[https://github.com/jellyfin/jellyfin/releases/tag/v10.11.7](https://github.com/jellyfin/jellyfin/releases/tag/v10.11.7)\n\nEdit:\n\nAdditional source:\n\n[https://www.bleepingcomputer.com/news/security/ffmpeg-fixes-pixelsmash-flaw-in-widely-used-video-decoder/](https://www.bleepingcomputer.com/news/security/ffmpeg-fixes-pixelsmash-flaw-in-widely-used-video-decoder/)",
+    "awards": [],
+    "created_utc": "2026-06-23T01:42:11",
+    "first_author_comment": null,
+    "num_comments": 0,
+    "score": 5,
+    "subreddit": "homelab",
+    "tag": "News",
+    "tags": [],
+    "title": "PSA: Jellyfin RCE vulnerability over network with version lower then 10.11.7",
+    "updatedAt": "2026-06-23T16:42:18.052Z",
+    "upvote_ratio": 0.78,
+    "url": "https://reddit.com/r/homelab/comments/1ud3msv/psa_jellyfin_rce_vulnerability_over_network_with/",
+    "versionList": [
+      "10.11.7"
+    ],
+    "classification": {
+      "componentType": [],
+      "securityType": [
+        "SECURITY"
+      ]
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.16896339360055598,
+        "timestampPredicted": "2026-06-23T12:01:10.483377+00:00"
       },
       "labeled": {
         "isUpdateRelated": null
@@ -43,14 +499,14 @@
     "awards": [],
     "created_utc": "2026-06-22T18:31:27",
     "first_author_comment": null,
-    "num_comments": 0,
-    "score": 10,
+    "num_comments": 2,
+    "score": 17,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-25860 turn XSS to RCE",
-    "updatedAt": "2026-06-23T04:46:35.093Z",
-    "upvote_ratio": 0.92,
+    "updatedAt": "2026-06-24T04:46:13.757Z",
+    "upvote_ratio": 0.86,
     "url": "https://reddit.com/r/netsec/comments/1ucsrw0/cve202625860_turn_xss_to_rce/",
     "versionList": [
       "2026.0.0",
@@ -76,6 +532,29 @@
     }
   },
   {
+    "_id": "6a3aa3eb4ce8d84a7e46154b",
+    "redditId": "1uck37x",
+    "author": "justintxdave",
+    "author_description": "\\- SQL Editor:\n\n\\- Fixed autocomplete after SELECT with table with alias\n\n\\- Fixed column highlighting with typecasts\n\n\\- Fixed single/multiple tab mode toggle state when several editors are opened\n\n\\- Fixed an issue where SQL templates showed an incorrect list of columns\n\n\\- Disabled spell checking for annotations\n\n\\- Added autocomplete suggestions for dialect-specific global variables, such as SYSDATE, SYSTIMESTAMP, current\\_date, and current\\_timestamp (thanks to u/alonfaraj)\n\n\\- AI Assistant: Fixed prompt of AI command results\n\n\\- Data Editor:\n\n\\- Added the ability to save the current filter as the default and reset it\n\n\\- Fixed total row count calculation in the toolbar (thanks to u/odegroot1234)\n\n\\- Data Transfer:\n\n\\- Fixed CSV import with multi-character delimiters, quotes, and escape values\n\n\\- Added XML escaping for JSON and JSONB columns when exporting data to DBUnit format\n\n\\- Database Tasks: Fixed task failures when using newly created or recreated database objects\n\n\\- Navigator:\n\n\\- Fixed schema filter dialog opening in Simple view mode(thanks to u/xingxing21)\n\n\\- Fixed the delete objects dialog layout for large database selections\n\n\\- New driver: Added connector for Apache Doris(thanks to u/xylaaaaa)\n\n\\- Security:\n\n\\- Fixed the high vulnerability (CVE-2026-44249) in the netty-handler library. The netty-bom library was updated to version 4.2.15.\n\n\\- General:\n\n\\- Application was migrated to Eclipse 2026-05\n\n\\- Tycho library was updated to version 5.0.3\n\n\\- Databases:\n\n\\- CockroachDB: Fixed SSL connection issues\n\n\\- CUBRID: Fixed table list opening when connecting with a generic JDBC driver (thanks to u/Srltas)\n\n\\- Databricks driver was updated to version 3.4.1\n\n\\- Firebird: Fixed SQL injection vulnerabilities (thanks to u/fdcastel)\n\n\\- Oracle:\n\n\\- Added an option to show column comments in the data grid (thanks to u/EastLord)\n\n\\- Fixed the ability to CREATE VIEW statements ending with CASE...END (thanks to u/a3894281)\n\n\\- Added details into NO\\_DATA\\_FOUND error message (thanks to u/mgustimz)\n\n\\- Redshift: Improved performance for queries with many columns by reducing unnecessary metadata calls during result set loading\n\n\\- Snowflake: Fixed an issue where the connection failed due to an incorrect URL template\n\n\\- Localization:\n\n\\- German localization was improved (thanks to u/polluks)\n\n\\- Fixed pluralization in the auto-refresh interval label in the Data Editor (thanks to u/Jashan66)",
+    "awards": [],
+    "created_utc": "2026-06-22T13:06:47",
+    "first_author_comment": null,
+    "num_comments": 0,
+    "score": 3,
+    "subreddit": "SQL",
+    "tag": "Discussion",
+    "tags": [],
+    "title": "DBeaver Community Edition 26.1.1 is now available",
+    "updatedAt": "2026-06-23T23:26:04.297Z",
+    "upvote_ratio": 0.81,
+    "url": "https://reddit.com/r/SQL/comments/1uck37x/dbeaver_community_edition_2611_is_now_available/",
+    "versionList": [
+      "26.1.1"
+    ],
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true
+  },
+  {
     "_id": "6a394c724ce8d84a7e45c10b",
     "redditId": "1ucjru0",
     "author": "FryBoyter",
@@ -86,7 +565,7 @@
         "id": "ot4dlhr",
         "author": "elatllat",
         "body": "https://www.cve.org/CVERecord?id=CVE-2026-55200",
-        "score": 12,
+        "score": 14,
         "created_utc_ts": 1782133714,
         "created_utc": "2026-06-22T13:08:34",
         "permalink": "https://reddit.com/r/linux/comments/1ucjru0/security_vulnerabilities_endanger_connections_via/ot4dlhr/",
@@ -97,7 +576,7 @@
         "id": "ot4ejhm",
         "author": "Barafu",
         "body": "Ridiculously bad link. Does not say what use cases are affected, in what situations? \n\nEveryone? Do you say I can connect to any unpatched server on the Internet right now?",
-        "score": 46,
+        "score": 55,
         "created_utc_ts": 1782134010,
         "created_utc": "2026-06-22T13:13:30",
         "permalink": "https://reddit.com/r/linux/comments/1ucjru0/security_vulnerabilities_endanger_connections_via/ot4ejhm/",
@@ -108,7 +587,7 @@
         "id": "ot4h628",
         "author": "FryBoyter",
         "body": "The article refers to the advisories and the commits that fix the vulnerabilities. As far as I know, there isn't any more information available at this time. I'd rather warn people now, even with limited information, than wait until all the details are known and some people have already been affected by the vulnerabilities.\n\nFurthermore, I find it strange that Kali is apparently already offering updates while other distributions, such as Arch, are not yet offering any.",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1782134814,
         "created_utc": "2026-06-22T13:26:54",
         "permalink": "https://reddit.com/r/linux/comments/1ucjru0/security_vulnerabilities_endanger_connections_via/ot4h628/",
@@ -119,7 +598,7 @@
         "id": "ot4jcum",
         "author": "Anxious_Archer_7402",
         "body": "glad this got coverage but the headline is pretty vague - libssh2 is used in so many places that knowing which specific use cases are at risk actually matters a lot here. still worth knowing about tho, just wish the article did more than gesture at the problem",
-        "score": 4,
+        "score": 6,
         "created_utc_ts": 1782135482,
         "created_utc": "2026-06-22T13:38:02",
         "permalink": "https://reddit.com/r/linux/comments/1ucjru0/security_vulnerabilities_endanger_connections_via/ot4jcum/",
@@ -130,7 +609,7 @@
         "id": "ot4lob9",
         "author": "TheBendit",
         "body": "libssh2 is client side only. It stands to reason that the only way to exploit it is to either impersonate an existing server that someone connects to with libssh2, or somehow make a libssh2 client connect to your malicious server.",
-        "score": 9,
+        "score": 11,
         "created_utc_ts": 1782136187,
         "created_utc": "2026-06-22T13:49:47",
         "permalink": "https://reddit.com/r/linux/comments/1ucjru0/security_vulnerabilities_endanger_connections_via/ot4lob9/",
@@ -141,7 +620,7 @@
         "id": "ot4nsgx",
         "author": "natermer",
         "body": "This is for ssh client libraries. If you are writing software using libssh2 that might connect to malicious SSH servers, then this is something you have to worry about. \n\nRunning this:\n\n    dnf repoquery --whatrequires libssh2\n\nshows some concerning packages for Fedora. Nmap is one, for example, that you might be concerned about running if you are doing security stuff. \n\nA big one looks like 'libgit2' which is used in a bunch of different software related to GUI git software and packaging stuff. Cargo, nix-libs, kicad, python libraries, etc. ",
-        "score": 21,
+        "score": 30,
         "created_utc_ts": 1782136819,
         "created_utc": "2026-06-22T14:00:19",
         "permalink": "https://reddit.com/r/linux/comments/1ucjru0/security_vulnerabilities_endanger_connections_via/ot4nsgx/",
@@ -152,7 +631,7 @@
         "id": "ot4ufmw",
         "author": "BinkReddit",
         "body": "Just so that it doesn't confuse anyone, this has nothing to do with the SSH/OpenSSH that's installed on almost all systems.",
-        "score": 26,
+        "score": 29,
         "created_utc_ts": 1782138708,
         "created_utc": "2026-06-22T14:31:48",
         "permalink": "https://reddit.com/r/linux/comments/1ucjru0/security_vulnerabilities_endanger_connections_via/ot4ufmw/",
@@ -162,15 +641,15 @@
     ],
     "created_utc": "2026-06-22T12:53:22",
     "first_author_comment": "The article refers to the advisories and the commits that fix the vulnerabilities. As far as I know, there isn't any more information available at this time. I'd rather warn people now, even with limited information, than wait until all the details are known and some people have already been affected by the vulnerabilities.\n\nFurthermore, I find it strange that Kali is apparently already offering updates while other distributions, such as Arch, are not yet offering any.",
-    "num_comments": 7,
-    "score": 116,
+    "num_comments": 10,
+    "score": 145,
     "subreddit": "linux",
     "tag": "Security",
     "tags": [
       "Security"
     ],
     "title": "Security vulnerabilities endanger connections via libssh2",
-    "updatedAt": "2026-06-23T04:52:53.007Z",
+    "updatedAt": "2026-06-24T04:53:25.782Z",
     "upvote_ratio": 0.96,
     "url": "https://reddit.com/r/linux/comments/1ucjru0/security_vulnerabilities_endanger_connections_via/",
     "versionList": [],
@@ -345,13 +824,13 @@
     "created_utc": "2026-06-20T19:33:03",
     "first_author_comment": null,
     "num_comments": 4,
-    "score": 10,
+    "score": 8,
     "subreddit": "rustdesk",
     "tag": null,
     "tags": [],
     "title": "WEIRD RUSTDESK REQUEST FROM MY OWN MACBOOK",
-    "updatedAt": "2026-06-23T05:10:27.465Z",
-    "upvote_ratio": 1,
+    "updatedAt": "2026-06-23T23:25:35.396Z",
+    "upvote_ratio": 0.91,
     "url": "https://reddit.com/r/rustdesk/comments/1ub5cdv/weird_rustdesk_request_from_my_own_macbook/",
     "versionList": [],
     "classification": {
@@ -381,13 +860,13 @@
     "awards": [],
     "created_utc": "2026-06-19T19:15:45",
     "first_author_comment": null,
-    "num_comments": 1,
-    "score": 27,
+    "num_comments": 2,
+    "score": 28,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Use-after-free in the QPACK encoder of nginx HTTP/3 - CVE-2026-42530",
-    "updatedAt": "2026-06-23T04:46:38.946Z",
+    "updatedAt": "2026-06-24T04:46:17.067Z",
     "upvote_ratio": 0.87,
     "url": "https://reddit.com/r/netsec/comments/1uab0j6/useafterfree_in_the_qpack_encoder_of_nginx_http3/",
     "versionList": [
@@ -417,13 +896,13 @@
     "isAboutLatestUpdate": false,
     "comments": [
       {
-        "id": "osumjvz",
-        "author": "Primary-Writing-8880",
-        "body": "Nice catch, bookmarking this to read the patch and diff later.",
+        "id": "otb2mck",
+        "author": "binaryvexe",
+        "body": "wild how \"experimental\" always somehow means \"will segfault in production at 3am\" too  \nguess it's time to double check every nginx h3 flag before someone’s scanner shows up",
         "score": 1,
-        "created_utc_ts": 1781997776,
-        "created_utc": "2026-06-20T23:22:56",
-        "permalink": "https://reddit.com/r/netsec/comments/1uab0j6/useafterfree_in_the_qpack_encoder_of_nginx_http3/osumjvz/",
+        "created_utc_ts": 1782214845,
+        "created_utc": "2026-06-23T11:40:45",
+        "permalink": "https://reddit.com/r/netsec/comments/1uab0j6/useafterfree_in_the_qpack_encoder_of_nginx_http3/otb2mck/",
         "parent_id": "t3_1uab0j6",
         "is_submitter": false
       }
@@ -589,12 +1068,12 @@
     "created_utc": "2026-06-19T13:27:18",
     "first_author_comment": null,
     "num_comments": 5,
-    "score": 43,
+    "score": 41,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "OpenBSD MPLS kernel stack leaks remotely (CVE-2026-56099)",
-    "updatedAt": "2026-06-23T04:46:39.777Z",
+    "updatedAt": "2026-06-24T04:46:17.884Z",
     "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/",
     "versionList": [
@@ -893,6 +1372,88 @@
           "CVE Modified",
           "CVE Modified"
         ]
+      },
+      {
+        "cveId": "CVE-2026-56099",
+        "cveIds": [
+          "CVE-2026-56099"
+        ],
+        "source": "Title",
+        "commentText": "OpenBSD MPLS kernel stack leaks remotely (CVE-2026-56099)",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/",
+        "commentDate": "2026-06-19T13:27:18+00:00",
+        "cvePublishedDate": "2026-06-18T20:16:15.370000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-06-21T09:16:26.140 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=CBAAE2A8-FEC1-4E84-9B19-C45D61BE1E03\n   - Added Reference: http://seclists.org/fulldisclosure/2026/Jun/17\n2. 2026-06-19T17:16:30.197 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=C0825BFE-49C7-4CAB-9843-8E9B665F3E90\n   - Added Reference: http://www.openwall.com/lists/oss-security/2026/06/19/3\n3. 2026-06-18T20:16:15.370 | New CVE Received | source=disclosure@vulncheck.com | changeId=A17A5005-8BB0-468E-B899-559266AF370C\n   - Added Affected: [{'vendor': 'openbsd', 'product': 'src', 'defaultStatus': 'affected', 'repo': 'https://github.com/openbsd/src', 'versions': [{'version': '0', 'lessThan': '6a23123ec05f1eb29cfcaae0f3a468b2e1983cfd', 'versionType': 'git', 'status': 'affected'}]}]\n   - Added Description: OpenBSD before commit 6a23123 (2026-06-18) contains an out-of-bounds read vulnerability in the mpls_do_error function within sys/netmpls/mpls_input.c that allows remote attackers to disclose kernel stack memory by sending crafted MPLS frames with 16 labels and no Bottom-of-Stack bit set.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N\n   - Added CWE: CWE-125\n   - Added Reference: https://github.com/openbsd/src/commit/6a23123ec05f1eb29cfcaae0f3a468b2e1983cfd\n   - Added Reference: https://pop.argus-systems.ai/advisory/adv-040.html\n   - Added Reference: https://www.vulncheck.com/advisories/openbsd-mpls-do-error-kernel-stack-memory-disclosure-via-mpls-input\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-56099",
+        "cveIds": [
+          "CVE-2026-56099"
+        ],
+        "source": "Title",
+        "commentText": "OpenBSD MPLS kernel stack leaks remotely (CVE-2026-56099)",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/",
+        "commentDate": "2026-06-19T13:27:18+00:00",
+        "cvePublishedDate": "2026-06-18T20:16:15.370000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-56099",
+        "cveIds": [
+          "CVE-2026-56099"
+        ],
+        "source": "Title",
+        "commentText": "OpenBSD MPLS kernel stack leaks remotely (CVE-2026-56099)",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/",
+        "commentDate": "2026-06-19T13:27:18+00:00",
+        "cvePublishedDate": "2026-06-18T20:16:15.370000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-06-23T21:17:03.097 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=816F5D40-16F6-454C-880B-67F5636B11DF\n   - Added SSVC: {'timestamp': '2026-06-23T20:44:12.654787Z', 'id': 'CVE-2026-56099', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-06-21T09:16:26.140 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=CBAAE2A8-FEC1-4E84-9B19-C45D61BE1E03\n   - Added Reference: http://seclists.org/fulldisclosure/2026/Jun/17\n3. 2026-06-19T17:16:30.197 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=C0825BFE-49C7-4CAB-9843-8E9B665F3E90\n   - Added Reference: http://www.openwall.com/lists/oss-security/2026/06/19/3\n4. 2026-06-18T20:16:15.370 | New CVE Received | source=disclosure@vulncheck.com | changeId=A17A5005-8BB0-468E-B899-559266AF370C\n   - Added Affected: [{'vendor': 'openbsd', 'product': 'src', 'defaultStatus': 'affected', 'repo': 'https://github.com/openbsd/src', 'versions': [{'version': '0', 'lessThan': '6a23123ec05f1eb29cfcaae0f3a468b2e1983cfd', 'versionType': 'git', 'status': 'affected'}]}]\n   - Added Description: OpenBSD before commit 6a23123 (2026-06-18) contains an out-of-bounds read vulnerability in the mpls_do_error function within sys/netmpls/mpls_input.c that allows remote attackers to disclose kernel stack memory by sending crafted MPLS frames with 16 labels and no Bottom-of-Stack bit set.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N\n   - Added CWE: CWE-125\n   - Added Reference: https://github.com/openbsd/src/commit/6a23123ec05f1eb29cfcaae0f3a468b2e1983cfd\n   - Added Reference: https://pop.argus-systems.ai/advisory/adv-040.html\n   - Added Reference: https://www.vulncheck.com/advisories/openbsd-mpls-do-error-kernel-stack-memory-disclosure-via-mpls-input\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-56099",
+        "cveIds": [
+          "CVE-2026-56099"
+        ],
+        "source": "Title",
+        "commentText": "OpenBSD MPLS kernel stack leaks remotely (CVE-2026-56099)",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/",
+        "commentDate": "2026-06-19T13:27:18+00:00",
+        "cvePublishedDate": "2026-06-18T20:16:15.370000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-06-23T21:17:03.097 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=816F5D40-16F6-454C-880B-67F5636B11DF\n   - Added SSVC: {'timestamp': '2026-06-23T20:44:12.654787Z', 'id': 'CVE-2026-56099', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-06-21T09:16:26.140 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=CBAAE2A8-FEC1-4E84-9B19-C45D61BE1E03\n   - Added Reference: http://seclists.org/fulldisclosure/2026/Jun/17\n3. 2026-06-19T17:16:30.197 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=C0825BFE-49C7-4CAB-9843-8E9B665F3E90\n   - Added Reference: http://www.openwall.com/lists/oss-security/2026/06/19/3\n4. 2026-06-18T20:16:15.370 | New CVE Received | source=disclosure@vulncheck.com | changeId=A17A5005-8BB0-468E-B899-559266AF370C\n   - Added Affected: [{'vendor': 'openbsd', 'product': 'src', 'defaultStatus': 'affected', 'repo': 'https://github.com/openbsd/src', 'versions': [{'version': '0', 'lessThan': '6a23123ec05f1eb29cfcaae0f3a468b2e1983cfd', 'versionType': 'git', 'status': 'affected'}]}]\n   - Added Description: OpenBSD before commit 6a23123 (2026-06-18) contains an out-of-bounds read vulnerability in the mpls_do_error function within sys/netmpls/mpls_input.c that allows remote attackers to disclose kernel stack memory by sending crafted MPLS frames with 16 labels and no Bottom-of-Stack bit set.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N\n   - Added CWE: CWE-125\n   - Added Reference: https://github.com/openbsd/src/commit/6a23123ec05f1eb29cfcaae0f3a468b2e1983cfd\n   - Added Reference: https://pop.argus-systems.ai/advisory/adv-040.html\n   - Added Reference: https://www.vulncheck.com/advisories/openbsd-mpls-do-error-kernel-stack-memory-disclosure-via-mpls-input\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
       }
     ],
     "comments": [
@@ -900,7 +1461,7 @@
         "id": "oskwcx1",
         "author": "Important_Story_5685",
         "body": "The \"Only two remote holes in the default install\" slogan lives to fight another day. Looks like a nice little KASLR bypass primitive.",
-        "score": 3,
+        "score": 5,
         "created_utc_ts": 1781878244,
         "created_utc": "2026-06-19T14:10:44",
         "permalink": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/oskwcx1/",
@@ -911,7 +1472,7 @@
         "id": "oskyfq1",
         "author": "[deleted]",
         "body": "[removed]",
-        "score": 4,
+        "score": 3,
         "created_utc_ts": 1781878840,
         "created_utc": "2026-06-19T14:20:40",
         "permalink": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/oskyfq1/",
@@ -964,7 +1525,7 @@
         "id": "osjvvp7",
         "author": "netsec_burn",
         "body": "&gt; bc01\n\nWestJet? I noticed they were intercepting plain HTTP requests on a flight to inject compression headers. Same hostname returned by Squid.",
-        "score": 8,
+        "score": 7,
         "created_utc_ts": 1781865481,
         "created_utc": "2026-06-19T10:38:01",
         "permalink": "https://reddit.com/r/netsec/comments/1u9y7yw/squidbleed_cve202647729_heartbleedstyle/osjvvp7/",
@@ -997,12 +1558,12 @@
     "created_utc": "2026-06-19T10:21:41",
     "first_author_comment": null,
     "num_comments": 4,
-    "score": 104,
+    "score": 106,
     "subreddit": "netsec",
     "tag": "Contains AI",
     "tags": [],
     "title": "Squidbleed (CVE-2026-47729) - Heartbleed-style vulnerability that leaks internal memory from every version of Squid Proxy, in its default configuration",
-    "updatedAt": "2026-06-23T04:46:40.720Z",
+    "updatedAt": "2026-06-24T04:46:19.192Z",
     "upvote_ratio": 0.97,
     "url": "https://reddit.com/r/netsec/comments/1u9y7yw/squidbleed_cve202647729_heartbleedstyle/",
     "versionList": [
@@ -2052,13 +2613,13 @@
     "created_utc": "2026-06-18T18:05:44",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 41,
+    "score": 39,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-5667: Unauthenticated Remote Control of Mitsubishi MAC-577IF-2E WiFi Adapters via Probe Request Reconnaissance",
-    "updatedAt": "2026-06-23T02:47:13.018Z",
-    "upvote_ratio": 0.93,
+    "updatedAt": "2026-06-24T04:46:19.983Z",
+    "upvote_ratio": 0.91,
     "url": "https://reddit.com/r/netsec/comments/1u9dncq/cve20265667_unauthenticated_remote_control_of/",
     "versionList": [
       "2026.0.0",
@@ -2147,7 +2708,7 @@
       "Article"
     ],
     "title": "Authenticating a PayPal notification is not the same as trusting what it says (CVE-2026-9189)",
-    "updatedAt": "2026-06-23T05:09:32.718Z",
+    "updatedAt": "2026-06-24T05:11:29.588Z",
     "upvote_ratio": 0.78,
     "url": "https://reddit.com/r/PHP/comments/1u9de75/authenticating_a_paypal_notification_is_not_the/",
     "versionList": [
@@ -3043,13 +3604,13 @@
     "created_utc": "2026-06-12T20:37:06",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 50,
+    "score": 52,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Why Use App-Level Auth When Every Database Has Auth? (Splunk Enterprise CVE-2026-20253 Pre-Auth RCE) - watchTowr Labs",
-    "updatedAt": "2026-06-23T04:46:49.445Z",
-    "upvote_ratio": 0.91,
+    "updatedAt": "2026-06-24T04:46:30.731Z",
+    "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/netsec/comments/1u46wbb/why_use_applevel_auth_when_every_database_has/",
     "versionList": [
       "2026.0.0",
@@ -3346,19 +3907,19 @@
     "created_utc": "2026-06-12T05:23:23",
     "first_author_comment": null,
     "num_comments": 3,
-    "score": 39,
+    "score": 36,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Marking Your Own Homework (Check Point Remote Access VPN IKEv1 Authentication Bypass CVE-2026-50751) - watchTowr Labs",
-    "updatedAt": "2026-06-23T02:47:27.144Z",
-    "upvote_ratio": 0.91,
+    "updatedAt": "2026-06-24T04:46:33.846Z",
+    "upvote_ratio": 0.88,
     "url": "https://reddit.com/r/netsec/comments/1u3m7yj/marking_your_own_homework_check_point_remote/",
     "versionList": [
       "2026.0.0",
       "50751.0.0"
     ],
-    "commentCount": 3,
+    "commentCount": 1,
     "detectedCVEs": [
       {
         "cveId": "CVE-2026-50751",
@@ -3715,6 +4276,23 @@
         "isAnalyzed": false,
         "cveChangeHistory": "No change history returned.\n",
         "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-50751",
+        "cveIds": [
+          "CVE-2026-50751"
+        ],
+        "source": "Title",
+        "commentText": "Marking Your Own Homework (Check Point Remote Access VPN IKEv1 Authentication Bypass CVE-2026-50751) - watchTowr Labs",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1u3m7yj/marking_your_own_homework_check_point_remote/",
+        "commentDate": "2026-06-12T05:23:23+00:00",
+        "cvePublishedDate": "2026-06-08T12:16:32.367000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 3,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
       }
     ],
     "author_description_sentiment": {
@@ -3758,28 +4336,6 @@
         "created_utc": "2026-06-13T01:46:45",
         "permalink": "https://reddit.com/r/netsec/comments/1u3m7yj/marking_your_own_homework_check_point_remote/orcbb2k/",
         "parent_id": "t3_1u3m7yj",
-        "is_submitter": false
-      },
-      {
-        "id": "os6beua",
-        "author": "gatewayle",
-        "body": "totally, the whole \"trust us, we audited ourselves\" thing has been the default for way too long  \nexternal folks tearing into these devices is uncomfortable, but it’s probably the only reason half these vulns ever see daylight",
-        "score": 1,
-        "created_utc_ts": 1781700854,
-        "created_utc": "2026-06-17T12:54:14",
-        "permalink": "https://reddit.com/r/netsec/comments/1u3m7yj/marking_your_own_homework_check_point_remote/os6beua/",
-        "parent_id": "t1_orcbb2k",
-        "is_submitter": false
-      },
-      {
-        "id": "osr6s8q",
-        "author": "gatewayle",
-        "body": "totally, the whole \"we did an internal review, all good\" thing is getting real old  \nexternal folks poking holes in that story is the only reason half these issues ever see daylight",
-        "score": 1,
-        "created_utc_ts": 1781959088,
-        "created_utc": "2026-06-20T12:38:08",
-        "permalink": "https://reddit.com/r/netsec/comments/1u3m7yj/marking_your_own_homework_check_point_remote/osr6s8q/",
-        "parent_id": "t1_orcbb2k",
         "is_submitter": false
       }
     ]
@@ -6373,13 +6929,13 @@
     "created_utc": "2026-06-10T00:54:34",
     "first_author_comment": null,
     "num_comments": 6,
-    "score": 46,
+    "score": 44,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "More Evidence That Words Don't Mean What We Thought They Meant (Ivanti Sentry Pre-Auth OS Command Injection CVE-2026-10520) - watchTowr Labs",
-    "updatedAt": "2026-06-23T04:46:55.126Z",
-    "upvote_ratio": 0.9,
+    "updatedAt": "2026-06-24T04:46:38.752Z",
+    "upvote_ratio": 0.88,
     "url": "https://reddit.com/r/netsec/comments/1u1neao/more_evidence_that_words_dont_mean_what_we/",
     "versionList": [
       "2026.0.0",
@@ -6432,7 +6988,7 @@
         "id": "or0q556",
         "author": "Allen_Koholic",
         "body": "Who wrote this? ",
-        "score": 2,
+        "score": 1,
         "created_utc_ts": 1781179502,
         "created_utc": "2026-06-11T12:05:02",
         "permalink": "https://reddit.com/r/netsec/comments/1u1neao/more_evidence_that_words_dont_mean_what_we/or0q556/",
@@ -6469,17 +7025,6 @@
         "created_utc_ts": 1781566058,
         "created_utc": "2026-06-15T23:27:38",
         "permalink": "https://reddit.com/r/netsec/comments/1u1neao/more_evidence_that_words_dont_mean_what_we/orvwdk2/",
-        "parent_id": "t1_or0q556",
-        "is_submitter": false
-      },
-      {
-        "id": "os1i3s8",
-        "author": "gatewayle",
-        "body": "author field literally says “watchTowr Labs” so probably one of their researchers, they usually don’t tag individual names on these blog posts  \nfeels like their usual snarky writeup style too",
-        "score": 1,
-        "created_utc_ts": 1781637018,
-        "created_utc": "2026-06-16T19:10:18",
-        "permalink": "https://reddit.com/r/netsec/comments/1u1neao/more_evidence_that_words_dont_mean_what_we/os1i3s8/",
         "parent_id": "t1_or0q556",
         "is_submitter": false
       }
@@ -9998,13 +10543,13 @@
     "created_utc": "2026-06-07T00:05:33",
     "first_author_comment": null,
     "num_comments": 3,
-    "score": 9,
+    "score": 7,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-46640: Developing payloads for Twig sandbox bypass",
-    "updatedAt": "2026-06-23T04:47:00.715Z",
-    "upvote_ratio": 1,
+    "updatedAt": "2026-06-24T04:46:43.586Z",
+    "upvote_ratio": 0.9,
     "url": "https://reddit.com/r/netsec/comments/1tywxh9/cve202646640_developing_payloads_for_twig_sandbox/",
     "versionList": [
       "2026.0.0",
@@ -10023,8 +10568,8 @@
     "comments": [
       {
         "id": "or6adth",
-        "author": "gatewayle",
-        "body": "this is super cool, feels like SSTI payload dev has basically become its own art form at this point  \ngoing straight from vuln description to an SSTImap module is such a nice touch for actual usability",
+        "author": "[deleted]",
+        "body": "[removed]",
         "score": 2,
         "created_utc_ts": 1781241607,
         "created_utc": "2026-06-12T05:20:07",
@@ -10087,7 +10632,7 @@
     "tag": null,
     "tags": [],
     "title": "The HTTP/2 Bomb That Knocks nginx and Apache Offline With a Single Connection",
-    "updatedAt": "2026-06-23T04:51:57.610Z",
+    "updatedAt": "2026-06-24T04:52:18.183Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/apache/comments/1tws4w7/the_http2_bomb_that_knocks_nginx_and_apache/",
     "versionList": [
@@ -10539,7 +11084,7 @@
         "id": "oojet31",
         "author": "Youknowimtheman",
         "body": "Hey nice research and writeup.\n\nThis coincides with a lot of our internal testing data. Which includes the latest Anthropic models and Deepseek v4 as well.\n\nThere's still a long way to go on the coding side to do things well enough. On the analysis side for finding bad patterns things are going great though.\n\nIt's creating a pretty bad asymmetry in the open source world, where fixing things takes orders of magnitude more effort than finding problems.",
-        "score": 24,
+        "score": 23,
         "created_utc_ts": 1780047656,
         "created_utc": "2026-05-29T09:40:56",
         "permalink": "https://reddit.com/r/netsec/comments/1tquesx/i_evaluated_5_llm_agents_on_patching_realworld/oojet31/",
@@ -10550,7 +11095,7 @@
         "id": "oojxp7v",
         "author": "Fickle-Box1433",
         "body": "So AI is great at finding bugs but terrible at fixing them. I guess security researchers have their job security back again. 😂\n\nThe silent failure is the real finding though. A patch that passes every test but leaves the hole open is worse than nothing. False confidence at scale is a new attack surface.\n\nCurious what you're seeing. Happy to compare notes.",
-        "score": 7,
+        "score": 8,
         "created_utc_ts": 1780055560,
         "created_utc": "2026-05-29T11:52:40",
         "permalink": "https://reddit.com/r/netsec/comments/1tquesx/i_evaluated_5_llm_agents_on_patching_realworld/oojxp7v/",
@@ -10704,13 +11249,13 @@
     "created_utc": "2026-05-29T07:32:36",
     "first_author_comment": "So AI is great at finding bugs but terrible at fixing them. I guess security researchers have their job security back again. 😂\n\nThe silent failure is the real finding though. A patch that passes every test but leaves the hole open is worse than nothing. False confidence at scale is a new attack surface.\n\nCurious what you're seeing. Happy to compare notes.",
     "num_comments": 26,
-    "score": 51,
+    "score": 47,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "I evaluated 5 LLM agents on patching real-world CVEs. Here is what I found.",
-    "updatedAt": "2026-06-23T04:47:13.874Z",
-    "upvote_ratio": 0.78,
+    "updatedAt": "2026-06-23T08:47:46.083Z",
+    "upvote_ratio": 0.77,
     "url": "https://reddit.com/r/netsec/comments/1tquesx/i_evaluated_5_llm_agents_on_patching_realworld/",
     "versionList": [
       "5.0.0"
