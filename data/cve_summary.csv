@@ -16,10 +16,12 @@ CVE-2026-45257,2,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com
 CVE-2026-45585,2,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u1dlpy/microsoft_has_released_a_patch_for_the_bitlocker/;https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2026-48710,2,2026-05-29T15:40:48+00:00,1780069248,Python;sysadmin,https://reddit.com/r/sysadmin/comments/1ud8goc/psa_critical_litellm_ai_gateway_rce_cve202642271/;https://reddit.com/r/Python/comments/1tr5s1c/cve202648710_a_maintainers_perspective/
 CVE-2026-50751,2,2026-06-09T14:23:52+00:00,1781015032,netsec;sysadmin,https://reddit.com/r/netsec/comments/1u3m7yj/marking_your_own_homework_check_point_remote/;https://reddit.com/r/sysadmin/comments/1u16gsm/top_enterprise_cves_from_last_week_worth_your/
+CVE-2026-8461,2,2026-06-23T17:05:59+00:00,1782234359,immich;jellyfin,https://reddit.com/r/immich/comments/1uds0r1/would_this_new_ffmpeg_vulnerability_affect_immich/;https://reddit.com/r/jellyfin/comments/1udn043/psa_update_ffmpeg_pixelsmash_exploit_flaw_that/
 CVE-2026-9189,2,2026-06-18T17:56:47+00:00,1781805407,PHP;Wordpress,https://reddit.com/r/Wordpress/comments/1u9ea81/cve20269189_payment_bypass_in_the_contact_form_7/;https://reddit.com/r/PHP/comments/1u9de75/authenticating_a_paypal_notification_is_not_the/
 CVE-2017-17215,1,2026-05-27T13:58:10+00:00,1779890290,netsec,https://reddit.com/r/netsec/comments/1tp6dz0/a_week_after_dutch_fiod_seized_800_servers_the/
 CVE-2018-13379,1,2026-06-19T08:41:10+00:00,1781858470,sysadmin,https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/
 CVE-2019-0984,1,2019-05-15T13:57:44+00:00,1557928664,rapid7,https://reddit.com/r/rapid7/comments/boy98i/how_soon_are_vulns_added_to_insight/
+CVE-2019-14192,1,2026-05-13T11:48:09+00:00,1778672889,QEMU,https://reddit.com/r/QEMU/comments/1tbx8sa/how_to_add_a_peripheral_to_qemu/
 CVE-2020-17103,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2021-21735,1,2026-05-25T14:47:16+00:00,1779720436,netsec,https://reddit.com/r/netsec/comments/1tnbcp1/cve202121735_zte_h168n_wizard_whitelist_exposed/
 CVE-2021-35036,1,2026-05-22T14:31:22+00:00,1779460282,netsec,https://reddit.com/r/netsec/comments/1tkkq0m/zyxel_lowpriv_account_leaked_superadmin_ftps_and/
@@ -48,6 +50,7 @@ CVE-2026-10846,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com
 CVE-2026-20127,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2026-20223,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2026-20253,1,2026-06-12T20:37:06+00:00,1781296626,netsec,https://reddit.com/r/netsec/comments/1u46wbb/why_use_applevel_auth_when_every_database_has/
+CVE-2026-20971,1,2026-06-24T10:55:20+00:00,1782298520,netsec,https://reddit.com/r/netsec/comments/1uea8bx/cve202620971_samsung_android_kernel_uaf_affecting/
 CVE-2026-25089,1,2026-06-18T11:09:07+00:00,1781780947,kubernetes,https://reddit.com/r/kubernetes/comments/1u93bkb/how_are_people_reducing_container_attack_surface/
 CVE-2026-25253,1,2026-04-21T14:42:02+00:00,1776782522,openclaw,https://reddit.com/r/openclaw/comments/1srpodd/openclaw_crossed_500k_downloads_a_day_this_week/
 CVE-2026-25860,1,2026-06-22T18:31:27+00:00,1782153087,netsec,https://reddit.com/r/netsec/comments/1ucsrw0/cve202625860_turn_xss_to_rce/
@@ -72,6 +75,9 @@ CVE-2026-34182,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com
 CVE-2026-34183,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/
 CVE-2026-34260,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2026-34263,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
+CVE-2026-34908,1,2026-06-24T14:56:44+00:00,1782313004,Ubiquiti,https://reddit.com/r/Ubiquiti/comments/1ueftvq/cisa_warns_of_max_severity_ubiquiti_flaws/
+CVE-2026-34909,1,2026-06-24T14:56:44+00:00,1782313004,Ubiquiti,https://reddit.com/r/Ubiquiti/comments/1ueftvq/cisa_warns_of_max_severity_ubiquiti_flaws/
+CVE-2026-34910,1,2026-06-24T14:56:44+00:00,1782313004,Ubiquiti,https://reddit.com/r/Ubiquiti/comments/1ueftvq/cisa_warns_of_max_severity_ubiquiti_flaws/
 CVE-2026-35033,1,2026-06-23T01:42:11+00:00,1782178931,homelab,https://reddit.com/r/homelab/comments/1ud3msv/psa_jellyfin_rce_vulnerability_over_network_with/
 CVE-2026-35273,1,2026-06-16T17:39:54+00:00,1781631594,sysadmin,https://reddit.com/r/sysadmin/comments/1u7kggj/5_enterprise_cves_from_last_week_worth_checking/
 CVE-2026-35616,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/

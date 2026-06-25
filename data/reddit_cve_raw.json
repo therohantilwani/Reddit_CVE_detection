@@ -1,5 +1,741 @@
 [
   {
+    "_id": "6a3c094c19c4c61da01e3bf1",
+    "redditId": "1ueftvq",
+    "author": "NumberwangsColoson",
+    "author_description": "Yes, these are the ones [patched in May](https://community.ui.com/releases/Security-Advisory-Bulletin-064-064/84811c09-4cf4-42ab-bd61-cc994445963b), [CVE-2026-34908](https://nvd.nist.gov/vuln/detail/CVE-2026-34908), [CVE-2026-34909](https://nvd.nist.gov/vuln/detail/CVE-2026-34909), and [CVE-2026-34910](https://nvd.nist.gov/vuln/detail/CVE-2026-34910)[,](https://nvd.nist.gov/vuln/detail/CVE-2026-34910) patched in versions 5.0.8 and later.\n\nThe [CISA warning](https://www.cisa.gov/news-events/alerts/2026/06/23/cisa-adds-four-known-exploited-vulnerabilities-catalog) confirms active exploitation, and requires federal agencies to patch within the next three days.\n\nResearchers at Bishop Fox later demonstrated that the three flaws [could be chained](https://www.bleepingcomputer.com/news/security/critical-unifi-os-bug-lets-hackers-gain-root-without-authentication/) to achieve full remote code execution with elevated privileges on vulnerable UniFi OS devices. They also released a [free detection script on GitHub](https://github.com/BishopFox/CVE-2026-34908-check) to help defenders discover vulnerable instances in their environment.",
+    "awards": [],
+    "comments": [
+      {
+        "id": "otjdk9l",
+        "author": "AutoModerator",
+        "body": "Hello!  Thanks for posting on r/Ubiquiti!\n\nThis subreddit is here to provide unofficial technical support to people who use or want to dive into the world of Ubiquiti products.  If you haven’t already been descriptive in your post, please take the time to edit it and add as many useful details as you can.\n\nUbiquiti makes a great tool to help with figuring out where to place your access points and other network design questions located at:\n\nhttps://design.ui.com\n\nIf you see people spreading misinformation or violating the \"don't be an asshole\" general rule, please report it!\n\n\n*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/Ubiquiti) if you have any questions or concerns.*",
+        "score": 1,
+        "created_utc_ts": 1782313004,
+        "created_utc": "2026-06-24T14:56:44",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1ueftvq/cisa_warns_of_max_severity_ubiquiti_flaws/otjdk9l/",
+        "parent_id": "t3_1ueftvq",
+        "is_submitter": false
+      },
+      {
+        "id": "otjf98y",
+        "author": "Previous-Low4715",
+        "body": "Federal agencies are running Unifi?",
+        "score": 112,
+        "created_utc_ts": 1782313457,
+        "created_utc": "2026-06-24T15:04:17",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1ueftvq/cisa_warns_of_max_severity_ubiquiti_flaws/otjf98y/",
+        "parent_id": "t3_1ueftvq",
+        "is_submitter": false
+      },
+      {
+        "id": "otjhb3n",
+        "author": "VestedDeveloper",
+        "body": "MAYBE for wireless but I doubt they use anything else Ubiquiti. They are/were heavy Cisco users.",
+        "score": 10,
+        "created_utc_ts": 1782314007,
+        "created_utc": "2026-06-24T15:13:27",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1ueftvq/cisa_warns_of_max_severity_ubiquiti_flaws/otjhb3n/",
+        "parent_id": "t1_otjf98y",
+        "is_submitter": false
+      },
+      {
+        "id": "otjhbnj",
+        "author": "rapp38",
+        "body": "Someone probably is in some form. Likely for public WiFi or something that has a low bar for security.",
+        "score": 43,
+        "created_utc_ts": 1782314011,
+        "created_utc": "2026-06-24T15:13:31",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1ueftvq/cisa_warns_of_max_severity_ubiquiti_flaws/otjhbnj/",
+        "parent_id": "t1_otjf98y",
+        "is_submitter": false
+      },
+      {
+        "id": "otjhlyw",
+        "author": "underdonk",
+        "body": "Trust me, I'm sure it's out there somewhere (I work in that space). There are also likely a good chunk of feds and contractors teleworking some portion of the time that use this gear, so that's a factor in the equation. ",
+        "score": 25,
+        "created_utc_ts": 1782314086,
+        "created_utc": "2026-06-24T15:14:46",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1ueftvq/cisa_warns_of_max_severity_ubiquiti_flaws/otjhlyw/",
+        "parent_id": "t1_otjf98y",
+        "is_submitter": false
+      },
+      {
+        "id": "otjih0t",
+        "author": "TeeOhDoubleDeee",
+        "body": "I've seen FRP the last couple of years from NASA and Air Force. Cameras, gateways, switches, and AP. ",
+        "score": 6,
+        "created_utc_ts": 1782314315,
+        "created_utc": "2026-06-24T15:18:35",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1ueftvq/cisa_warns_of_max_severity_ubiquiti_flaws/otjih0t/",
+        "parent_id": "t1_otjf98y",
+        "is_submitter": false
+      },
+      {
+        "id": "otjiik6",
+        "author": "Cause_and_Effect",
+        "body": "Not for anything core. But for random satellite offices that don't have as much security clearance needed they might.",
+        "score": 4,
+        "created_utc_ts": 1782314326,
+        "created_utc": "2026-06-24T15:18:46",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1ueftvq/cisa_warns_of_max_severity_ubiquiti_flaws/otjiik6/",
+        "parent_id": "t1_otjf98y",
+        "is_submitter": false
+      },
+      {
+        "id": "otjjmkd",
+        "author": "_f0CUS_",
+        "body": "Based on the description in the script repo, you are safe if you are patched to version 5.0.8+\n\nMeaning you dont need to understand and run an unknown script - just check your OS version.\n\nOP could have included that... ",
+        "score": 71,
+        "created_utc_ts": 1782314620,
+        "created_utc": "2026-06-24T15:23:40",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1ueftvq/cisa_warns_of_max_severity_ubiquiti_flaws/otjjmkd/",
+        "parent_id": "t3_1ueftvq",
+        "is_submitter": false
+      },
+      {
+        "id": "otjjuio",
+        "author": "anthonyg45157",
+        "body": "Right? 😆 Weird to me to share this info with seemingly good intentions then include a GitHub link to a script \n\nWild ",
+        "score": 19,
+        "created_utc_ts": 1782314679,
+        "created_utc": "2026-06-24T15:24:39",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1ueftvq/cisa_warns_of_max_severity_ubiquiti_flaws/otjjuio/",
+        "parent_id": "t1_otjjmkd",
+        "is_submitter": false
+      },
+      {
+        "id": "otjklg2",
+        "author": "yoshilurker",
+        "body": "The Known Exploited Vulnerabilities (KEV) catalog is a resource for everyone, not just the govt.",
+        "score": 6,
+        "created_utc_ts": 1782314877,
+        "created_utc": "2026-06-24T15:27:57",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1ueftvq/cisa_warns_of_max_severity_ubiquiti_flaws/otjklg2/",
+        "parent_id": "t1_otjf98y",
+        "is_submitter": false
+      },
+      {
+        "id": "otjl5qg",
+        "author": "NumberwangsColoson",
+        "body": "In the first sentence “patched in May”",
+        "score": 12,
+        "created_utc_ts": 1782315025,
+        "created_utc": "2026-06-24T15:30:25",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1ueftvq/cisa_warns_of_max_severity_ubiquiti_flaws/otjl5qg/",
+        "parent_id": "t1_otjjmkd",
+        "is_submitter": true
+      },
+      {
+        "id": "otjlkto",
+        "author": "archlich",
+        "body": "Why not? Not everything is a government network. Lots of guest networks and public wifi access points exist. ",
+        "score": 11,
+        "created_utc_ts": 1782315136,
+        "created_utc": "2026-06-24T15:32:16",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1ueftvq/cisa_warns_of_max_severity_ubiquiti_flaws/otjlkto/",
+        "parent_id": "t1_otjf98y",
+        "is_submitter": false
+      },
+      {
+        "id": "otjmsdf",
+        "author": "gambl",
+        "body": "If it’s good enough for Epstein, it’s good enough for the Epstein class",
+        "score": 4,
+        "created_utc_ts": 1782315456,
+        "created_utc": "2026-06-24T15:37:36",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1ueftvq/cisa_warns_of_max_severity_ubiquiti_flaws/otjmsdf/",
+        "parent_id": "t1_otjf98y",
+        "is_submitter": false
+      },
+      {
+        "id": "otjnc38",
+        "author": "TBT_TBT",
+        "body": "Guys, this is the time to set your automatic updates.",
+        "score": 15,
+        "created_utc_ts": 1782315599,
+        "created_utc": "2026-06-24T15:39:59",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1ueftvq/cisa_warns_of_max_severity_ubiquiti_flaws/otjnc38/",
+        "parent_id": "t3_1ueftvq",
+        "is_submitter": false
+      },
+      {
+        "id": "otjo92h",
+        "author": "AleksHop",
+        "body": "auto updates patched this looong time ago",
+        "score": 9,
+        "created_utc_ts": 1782315838,
+        "created_utc": "2026-06-24T15:43:58",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1ueftvq/cisa_warns_of_max_severity_ubiquiti_flaws/otjo92h/",
+        "parent_id": "t3_1ueftvq",
+        "is_submitter": false
+      },
+      {
+        "id": "otjqjpm",
+        "author": "D1TAC",
+        "body": "“Enterprise” \n\nBut yeah, I’d guess it’s the access points their running. ",
+        "score": 3,
+        "created_utc_ts": 1782316434,
+        "created_utc": "2026-06-24T15:53:54",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1ueftvq/cisa_warns_of_max_severity_ubiquiti_flaws/otjqjpm/",
+        "parent_id": "t1_otjf98y",
+        "is_submitter": false
+      },
+      {
+        "id": "otjtsy9",
+        "author": "lost_your_fill",
+        "body": "Yes, some agencies/departments rely on lower-cost COTS and commercial internet and focus on VPN/ZT/client or endpoint-based technology rather than having to go through the wonderful process of ATOs and other fun things.",
+        "score": 3,
+        "created_utc_ts": 1782317294,
+        "created_utc": "2026-06-24T16:08:14",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1ueftvq/cisa_warns_of_max_severity_ubiquiti_flaws/otjtsy9/",
+        "parent_id": "t1_otjf98y",
+        "is_submitter": false
+      },
+      {
+        "id": "otjuc7g",
+        "author": "DilbsOnline",
+        "body": "...and risk taking your network offline due to the plethora of bugs they introduce sometimes.\n\nThat's good advice for basic home users, but not a great idea for anything important or corporate.",
+        "score": 17,
+        "created_utc_ts": 1782317435,
+        "created_utc": "2026-06-24T16:10:35",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1ueftvq/cisa_warns_of_max_severity_ubiquiti_flaws/otjuc7g/",
+        "parent_id": "t1_otjnc38",
+        "is_submitter": false
+      },
+      {
+        "id": "otjyrmt",
+        "author": "e2346437",
+        "body": "Oh yeah, I’m in the process of quoting UniFi camera systems for a medium-sized campus of federal buildings and a federally-funded airport. It’s an easy sell since all UniFi products have the required NDAA documentation, and are cheaper than the other NDAA-certified options.",
+        "score": 63,
+        "created_utc_ts": 1782318581,
+        "created_utc": "2026-06-24T16:29:41",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1ueftvq/cisa_warns_of_max_severity_ubiquiti_flaws/otjyrmt/",
+        "parent_id": "t1_otjf98y",
+        "is_submitter": false
+      },
+      {
+        "id": "otjyykz",
+        "author": "netw0rkpenguin",
+        "body": "I have seen ubiquiti as public wifi in national parks and state parks.",
+        "score": 14,
+        "created_utc_ts": 1782318631,
+        "created_utc": "2026-06-24T16:30:31",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1ueftvq/cisa_warns_of_max_severity_ubiquiti_flaws/otjyykz/",
+        "parent_id": "t3_1ueftvq",
+        "is_submitter": false
+      },
+      {
+        "id": "otku7i1",
+        "author": "VAReloader",
+        "body": "I know at least one that is.  ",
+        "score": 1,
+        "created_utc_ts": 1782326876,
+        "created_utc": "2026-06-24T18:47:56",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1ueftvq/cisa_warns_of_max_severity_ubiquiti_flaws/otku7i1/",
+        "parent_id": "t1_otjf98y",
+        "is_submitter": false
+      },
+      {
+        "id": "otl3hvz",
+        "author": "airinato",
+        "body": "Yes?  Congress generally makes government agencies utilize independent companies to stimulate the economy (free handout to businesses instead of cost effective bulk ordering and standardization)",
+        "score": 1,
+        "created_utc_ts": 1782329360,
+        "created_utc": "2026-06-24T19:29:20",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1ueftvq/cisa_warns_of_max_severity_ubiquiti_flaws/otl3hvz/",
+        "parent_id": "t1_otjf98y",
+        "is_submitter": false
+      },
+      {
+        "id": "otl41el",
+        "author": "n55_6mt",
+        "body": "CISA is a government service not just for other agencies but also the general public. Gov doesn’t even need to be directly affected but they will still report out vulnerabilities.",
+        "score": 6,
+        "created_utc_ts": 1782329502,
+        "created_utc": "2026-06-24T19:31:42",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1ueftvq/cisa_warns_of_max_severity_ubiquiti_flaws/otl41el/",
+        "parent_id": "t1_otjf98y",
+        "is_submitter": false
+      },
+      {
+        "id": "otl4pks",
+        "author": "Smith6612",
+        "body": "Yes. They are NDAA certified after all. That's the biggest hurdle to get over before any government funds can be put into a hardware solution. ",
+        "score": 2,
+        "created_utc_ts": 1782329678,
+        "created_utc": "2026-06-24T19:34:38",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1ueftvq/cisa_warns_of_max_severity_ubiquiti_flaws/otl4pks/",
+        "parent_id": "t1_otjf98y",
+        "is_submitter": false
+      },
+      {
+        "id": "otl6stq",
+        "author": "Foreign-Chocolate86",
+        "body": "I wish you could set auto updates to install after a delay, like 7 days or something. ",
+        "score": 4,
+        "created_utc_ts": 1782330227,
+        "created_utc": "2026-06-24T19:43:47",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1ueftvq/cisa_warns_of_max_severity_ubiquiti_flaws/otl6stq/",
+        "parent_id": "t1_otjnc38",
+        "is_submitter": false
+      },
+      {
+        "id": "otl6w01",
+        "author": "Foreign-Chocolate86",
+        "body": "Does the firewall not just block any incoming packet trying to hit the management interface outright?",
+        "score": 2,
+        "created_utc_ts": 1782330250,
+        "created_utc": "2026-06-24T19:44:10",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1ueftvq/cisa_warns_of_max_severity_ubiquiti_flaws/otl6w01/",
+        "parent_id": "t3_1ueftvq",
+        "is_submitter": false
+      },
+      {
+        "id": "otl8ec2",
+        "author": "Obvious_Word873",
+        "body": "CISA advises on cybersecurity at large, not just for federal agencies. Also, they are resources available for the general public. ",
+        "score": 2,
+        "created_utc_ts": 1782330647,
+        "created_utc": "2026-06-24T19:50:47",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1ueftvq/cisa_warns_of_max_severity_ubiquiti_flaws/otl8ec2/",
+        "parent_id": "t1_otjf98y",
+        "is_submitter": false
+      },
+      {
+        "id": "otlgejh",
+        "author": "Mindless_Pandemic",
+        "body": "Responsible owners subscribe to relevant news feeds from Ubiquity to know this stuff immediately. ",
+        "score": 5,
+        "created_utc_ts": 1782332758,
+        "created_utc": "2026-06-24T20:25:58",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1ueftvq/cisa_warns_of_max_severity_ubiquiti_flaws/otlgejh/",
+        "parent_id": "t3_1ueftvq",
+        "is_submitter": false
+      },
+      {
+        "id": "otllprg",
+        "author": "tatDK94",
+        "body": "Have the old Unifi Express been patched too?",
+        "score": 5,
+        "created_utc_ts": 1782334168,
+        "created_utc": "2026-06-24T20:49:28",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1ueftvq/cisa_warns_of_max_severity_ubiquiti_flaws/otllprg/",
+        "parent_id": "t3_1ueftvq",
+        "is_submitter": false
+      },
+      {
+        "id": "otln8i6",
+        "author": "gioraffe32",
+        "body": "Yup. There are smaller networks and groups where it makes way more sense to use Unifi than the traditional enterprise stuff, like, Cisco. Mainly because of cost, but also the unnecessary complexity, relatively speaking.\n\nI work within one of these groups within the federal government. I suspect in the future, we will move to something truly more enterprise, as our network expands and the needs get more complex. But for now, Unifi works pretty well.",
+        "score": 1,
+        "created_utc_ts": 1782334578,
+        "created_utc": "2026-06-24T20:56:18",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1ueftvq/cisa_warns_of_max_severity_ubiquiti_flaws/otln8i6/",
+        "parent_id": "t1_otjf98y",
+        "is_submitter": false
+      },
+      {
+        "id": "otltxk0",
+        "author": "parkertyler",
+        "body": "A major airport I was working in once was using them.",
+        "score": 1,
+        "created_utc_ts": 1782336395,
+        "created_utc": "2026-06-24T21:26:35",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1ueftvq/cisa_warns_of_max_severity_ubiquiti_flaws/otltxk0/",
+        "parent_id": "t1_otjf98y",
+        "is_submitter": false
+      },
+      {
+        "id": "otlueqt",
+        "author": "BootAffectionate6750",
+        "body": "As opposed to Fortinet, given Fortibleed??? You'd be surprised how many agencies are using Unifi equipment. And then there's the universities...",
+        "score": 5,
+        "created_utc_ts": 1782336531,
+        "created_utc": "2026-06-24T21:28:51",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1ueftvq/cisa_warns_of_max_severity_ubiquiti_flaws/otlueqt/",
+        "parent_id": "t1_otjf98y",
+        "is_submitter": false
+      },
+      {
+        "id": "otme2au",
+        "author": "Wooden-Reward4317",
+        "body": "So... update... and unifi has already fixed and patched... so ... okay.",
+        "score": 2,
+        "created_utc_ts": 1782342218,
+        "created_utc": "2026-06-24T23:03:38",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1ueftvq/cisa_warns_of_max_severity_ubiquiti_flaws/otme2au/",
+        "parent_id": "t3_1ueftvq",
+        "is_submitter": false
+      },
+      {
+        "id": "otmkb1v",
+        "author": "skipdigitydog",
+        "body": "I’ve been wondering if FIPS is on Ubiquitis roadmap.  This is important in the fed space. ",
+        "score": 2,
+        "created_utc_ts": 1782344175,
+        "created_utc": "2026-06-24T23:36:15",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1ueftvq/cisa_warns_of_max_severity_ubiquiti_flaws/otmkb1v/",
+        "parent_id": "t3_1ueftvq",
+        "is_submitter": false
+      },
+      {
+        "id": "otmt4h7",
+        "author": "ryguy28896",
+        "body": "I work at the VA and our specific facility runs a handful of PoE switches.",
+        "score": 1,
+        "created_utc_ts": 1782347005,
+        "created_utc": "2026-06-25T00:23:25",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1ueftvq/cisa_warns_of_max_severity_ubiquiti_flaws/otmt4h7/",
+        "parent_id": "t1_otjf98y",
+        "is_submitter": false
+      },
+      {
+        "id": "otn2rbj",
+        "author": "OptimalTime5339",
+        "body": "With firewall rules it does, people who have it exposed are vulnerable I believe\n\nBasically anyone who had port 443/80 allowed for their firewall from WAN were easily attacked. With default settings the attacker would need to already be on the network with those ports allowed",
+        "score": 1,
+        "created_utc_ts": 1782350230,
+        "created_utc": "2026-06-25T01:17:10",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1ueftvq/cisa_warns_of_max_severity_ubiquiti_flaws/otn2rbj/",
+        "parent_id": "t1_otl6w01",
+        "is_submitter": false
+      },
+      {
+        "id": "otn2s9t",
+        "author": "magic6435",
+        "body": "Why not?",
+        "score": 1,
+        "created_utc_ts": 1782350239,
+        "created_utc": "2026-06-25T01:17:19",
+        "permalink": "https://reddit.com/r/Ubiquiti/comments/1ueftvq/cisa_warns_of_max_severity_ubiquiti_flaws/otn2s9t/",
+        "parent_id": "t1_otjf98y",
+        "is_submitter": false
+      }
+    ],
+    "created_utc": "2026-06-24T14:56:44",
+    "first_author_comment": "In the first sentence “patched in May”",
+    "num_comments": 75,
+    "score": 188,
+    "subreddit": "Ubiquiti",
+    "tag": "Solved",
+    "tags": [],
+    "title": "CISA warns of max severity Ubiquiti flaws exploited in attacks",
+    "updatedAt": "2026-06-25T04:42:51.020Z",
+    "upvote_ratio": 0.93,
+    "url": "https://reddit.com/r/Ubiquiti/comments/1ueftvq/cisa_warns_of_max_severity_ubiquiti_flaws/",
+    "versionList": [],
+    "classification": {
+      "componentType": [],
+      "securityType": [
+        "UNKNOWN"
+      ]
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true
+  },
+  {
+    "_id": "6a3bd1ed4ce8d84a7e465f69",
+    "redditId": "1uea8bx",
+    "author": "sutf61",
+    "author_description": "[https://lucidbitlabs.com/blog/when-defenses-become-attack-surface/](https://lucidbitlabs.com/blog/when-defenses-become-attack-surface/)",
+    "awards": [],
+    "comments": [
+      {
+        "id": "oti5ttw",
+        "author": "freemen_os",
+        "body": "The real lesson here isn't Samsung-specific  it's that integrity/trust subsystems living in the kernel inherit kernel-level risk just by existing there. KCFI did its job and blocked the obvious arbitrary call path, but the researchers pivoted to a non-ELF file trick to bypass the refcount blocker entirely. That's the part worth sitting with: a mitigation can work exactly as designed and still not be the thing that stops the chain.\n\n8 years dormant across S9 to S25 is also a good reminder that \"this code hasn't been touched in years\" is not a safety signal  it just means nobody's looked hard enough yet.",
+        "score": 9,
+        "created_utc_ts": 1782299190,
+        "created_utc": "2026-06-24T11:06:30",
+        "permalink": "https://reddit.com/r/netsec/comments/1uea8bx/cve202620971_samsung_android_kernel_uaf_affecting/oti5ttw/",
+        "parent_id": "t3_1uea8bx",
+        "is_submitter": false
+      },
+      {
+        "id": "otiest7",
+        "author": "AlwaysUpvotesScience",
+        "body": "This is not an issue for patched devices. The fixed was issued in the January update. If your phone is up to date then you're already patched for this vulnerability. ",
+        "score": 13,
+        "created_utc_ts": 1782302614,
+        "created_utc": "2026-06-24T12:03:34",
+        "permalink": "https://reddit.com/r/netsec/comments/1uea8bx/cve202620971_samsung_android_kernel_uaf_affecting/otiest7/",
+        "parent_id": "t3_1uea8bx",
+        "is_submitter": false
+      },
+      {
+        "id": "otkbham",
+        "author": "Low-Mathematician137",
+        "body": "8 years across that many device generations is the part that gets me. the code just sat there, untouched, and everyone treated that as a good sign. it wasnt. it was a gap in attention.\n\nthe KCFI bypass via nonELF file is genuinely clever in a frustrating way. the mitigation worked and still wasnt enough. patch is out but that detail deserves more attention than it's getting in this thread.",
+        "score": 1,
+        "created_utc_ts": 1782321883,
+        "created_utc": "2026-06-24T17:24:43",
+        "permalink": "https://reddit.com/r/netsec/comments/1uea8bx/cve202620971_samsung_android_kernel_uaf_affecting/otkbham/",
+        "parent_id": "t3_1uea8bx",
+        "is_submitter": false
+      }
+    ],
+    "created_utc": "2026-06-24T10:55:20",
+    "first_author_comment": null,
+    "num_comments": 5,
+    "score": 26,
+    "subreddit": "netsec",
+    "tag": null,
+    "tags": [],
+    "title": "CVE-2026-20971: Samsung Android kernel UAF affecting Galaxy S9-S25",
+    "updatedAt": "2026-06-24T18:47:32.534Z",
+    "upvote_ratio": 0.89,
+    "url": "https://reddit.com/r/netsec/comments/1uea8bx/cve202620971_samsung_android_kernel_uaf_affecting/",
+    "versionList": [
+      "2026.0.0",
+      "20971.0.0"
+    ],
+    "classification": {
+      "componentType": [
+        "MOBILE",
+        "OS"
+      ],
+      "securityType": [
+        "SECURITY"
+      ]
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 4.927787976829353e-05,
+        "timestampPredicted": "2026-06-24T16:00:58.267787+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": false
+  },
+  {
+    "_id": "6a3bb0894ce8d84a7e465a8d",
+    "redditId": "1ue7zgw",
+    "author": "Substantial-Low-8382",
+    "author_description": "Hey r/sysadmin,\n\nWorking on a vulnerability management platform for (internal) networks, mainly targeting SMBs and MSPs. The core idea: deploy lightweight agents on your network that do port scanning, service fingerprinting, and match findings against NVD/KEV/EPSS data. So instead of just “port 3389 open” you get “this RDP service is likely running Windows Server 2019 and has CVE-2024-XXXX with CVSS 9.8 and it’s actively exploited in the wild.”\n\nThe agent also runs Nuclei templates for active checks like misconfigured services, exposed databases, SSL issues, but non-intrusive only.\n\nCurrent features:\n\n\t•\tMulti-tenant (built for MSPs managing multiple clients)  \n\t•\tCVE matching with confidence scoring  \n\t•\tCISA KEV integration (alerts when a known exploited CVE hits your network)  \n\t•\tEPSS scores  \n\t•\tFinding lifecycle management (triage, accept risk, false positive)  \n\t•\tDashboard with trends over time  \n\t•\tScheduled scanning\n\nMost tools in this space (Tenable, Qualys, Rapid7) are either too expensive for SMBs, too complex to deploy, or give you a wall of CVEs with no context on what actually matters.\n\nWhat features would make something like this actually useful day to day? What do you wish existed that none of the current tools do well? Thinking things like reporting, integrations, alerting, remediation workflows, whatever.\n\nCurious what gaps people actually feel in practice.",
+    "awards": [],
+    "created_utc": "2026-06-24T08:46:18",
+    "first_author_comment": null,
+    "num_comments": 0,
+    "score": 0,
+    "subreddit": "sysadmin",
+    "tag": "General Discussion",
+    "tags": [
+      "General Discussion"
+    ],
+    "title": "What's missing from vuln scanners today?",
+    "updatedAt": "2026-06-24T16:01:12.264Z",
+    "upvote_ratio": 0.13,
+    "url": "https://reddit.com/r/sysadmin/comments/1ue7zgw/whats_missing_from_vuln_scanners_today/",
+    "versionList": [],
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 8.857336959089258e-05,
+        "timestampPredicted": "2026-06-24T16:01:12.098914+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": false,
+    "classification": {
+      "securityType": [
+        "UNKNOWN"
+      ],
+      "componentType": []
+    }
+  },
+  {
+    "_id": "6a3af5f44ce8d84a7e462edf",
+    "redditId": "1uds0r1",
+    "author": "Catsrules",
+    "author_description": "I am seeing a lot of talk on the Jellyfin subreddit about the \"Pixelsmash\" vulnerability in FFmpeg. \n\nIt is my understanding Immich can use FFmpeg on it's backend for transcoding. Is this something we need to be worried about? \n\nhttps://www.bleepingcomputer.com/news/security/ffmpeg-fixes-pixelsmash-flaw-in-widely-used-video-decoder/",
+    "awards": [],
+    "created_utc": "2026-06-23T20:08:39",
+    "first_author_comment": "Ahh makes sense. So I guess anyone that has a user account that can upload videos could potentially upload something bad and gain access to the server. But you would need a user that has been compromised themselves or a malicious user that whats to compromise your system.  \nBoth seems to be very unlikely for the vast majority of immich user base.",
+    "num_comments": 11,
+    "score": 40,
+    "subreddit": "immich",
+    "tag": null,
+    "tags": [],
+    "title": "Would this new FFMpeg vulnerability affect Immich at all.",
+    "updatedAt": "2026-06-25T05:05:23.575Z",
+    "upvote_ratio": 0.94,
+    "url": "https://reddit.com/r/immich/comments/1uds0r1/would_this_new_ffmpeg_vulnerability_affect_immich/",
+    "versionList": [],
+    "classification": {
+      "componentType": [],
+      "securityType": [
+        "SECURITY"
+      ]
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 1.849024381008254e-05,
+        "timestampPredicted": "2026-06-24T04:01:03.991144+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true,
+    "commentCount": 9,
+    "detectedCVEs": [
+      {
+        "cveId": "CVE-2026-8461",
+        "cveIds": [
+          "CVE-2026-8461"
+        ],
+        "source": "Comment",
+        "commentText": "\"However, Moravchick noted that the RCE exploit requires ASLR (Address Space Layout Randomization) to be disabled, and that CVE-2026-8461 alone does not bypass this memory protection.\"\n\nOn most operating systems ASLR is enabled by default exactly to prevent the type of security problems like these.",
+        "linkToComment": "https://reddit.com/r/immich/comments/1uds0r1/would_this_new_ffmpeg_vulnerability_affect_immich/otiy8ky/",
+        "commentDate": "2026-06-24T13:45:51+00:00",
+        "cvePublishedDate": "2026-06-18T14:17:36.660000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 5,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-06-19T06:17:10.807 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=AC48033C-C3F6-40D7-8780-093780BE88C3\n   - Changed SSVC: {'timestamp': '2026-06-18T12:26:45.287776Z', 'id': 'CVE-2026-8461', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'} -> {'timestamp': '2026-06-18T00:00:00+00:00', 'id': 'CVE-2026-8461', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-06-18T14:17:36.660 | New CVE Received | source=reefs@jfrog.com | changeId=6E4EBED0-0F5B-4180-B869-C55C952E2947\n   - Added Affected: [{'vendor': 'FFmpeg', 'product': 'FFmpeg', 'defaultStatus': 'unaffected', 'modules': ['libavcodec'], 'programFiles': ['libavcodec/magicyuv.c'], 'versions': [{'version': '0', 'lessThan': '8.1.2', 'versionType': 'custom', 'status': 'affected'}]}]\n   - Added Description: An out-of-bounds write vulnerability in FFmpeg's libavcodec library, specifically in the MagicYUV decoder, allows denial-of-service and, in some cases, can be exploited for remote code execution.\n\n This vulnerability is associated with the file libavcodec/magicyuv.C.\n\n\n\nThis issue affects FFmpeg before version 8.1.2.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-787\n   - Added Reference: https://code.ffmpeg.org/FFmpeg/FFmpeg/pulls/23159\n3. 2026-06-18T14:17:36.660 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=15349C6B-EF44-40FC-B1C0-D749FAF7EDA9\n   - Added SSVC: {'timestamp': '2026-06-18T12:26:45.287776Z', 'id': 'CVE-2026-8461', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-8461",
+        "cveIds": [
+          "CVE-2026-8461"
+        ],
+        "source": "Comment",
+        "commentText": "\"However, Moravchick noted that the RCE exploit requires ASLR (Address Space Layout Randomization) to be disabled, and that CVE-2026-8461 alone does not bypass this memory protection.\"\n\nOn most operating systems ASLR is enabled by default exactly to prevent the type of security problems like these.",
+        "linkToComment": "https://reddit.com/r/immich/comments/1uds0r1/would_this_new_ffmpeg_vulnerability_affect_immich/otiy8ky/",
+        "commentDate": "2026-06-24T13:45:51+00:00",
+        "cvePublishedDate": "2026-06-18T14:17:36.660000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 5,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-06-19T06:17:10.807 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=AC48033C-C3F6-40D7-8780-093780BE88C3\n   - Changed SSVC: {'timestamp': '2026-06-18T12:26:45.287776Z', 'id': 'CVE-2026-8461', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'} -> {'timestamp': '2026-06-18T00:00:00+00:00', 'id': 'CVE-2026-8461', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-06-18T14:17:36.660 | New CVE Received | source=reefs@jfrog.com | changeId=6E4EBED0-0F5B-4180-B869-C55C952E2947\n   - Added Affected: [{'vendor': 'FFmpeg', 'product': 'FFmpeg', 'defaultStatus': 'unaffected', 'modules': ['libavcodec'], 'programFiles': ['libavcodec/magicyuv.c'], 'versions': [{'version': '0', 'lessThan': '8.1.2', 'versionType': 'custom', 'status': 'affected'}]}]\n   - Added Description: An out-of-bounds write vulnerability in FFmpeg's libavcodec library, specifically in the MagicYUV decoder, allows denial-of-service and, in some cases, can be exploited for remote code execution.\n\n This vulnerability is associated with the file libavcodec/magicyuv.C.\n\n\n\nThis issue affects FFmpeg before version 8.1.2.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-787\n   - Added Reference: https://code.ffmpeg.org/FFmpeg/FFmpeg/pulls/23159\n3. 2026-06-18T14:17:36.660 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=15349C6B-EF44-40FC-B1C0-D749FAF7EDA9\n   - Added SSVC: {'timestamp': '2026-06-18T12:26:45.287776Z', 'id': 'CVE-2026-8461', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      }
+    ],
+    "comments": [
+      {
+        "id": "otecbvq",
+        "author": "lveatch",
+        "body": "Yes if you torrent / download random videos from the internet and store them in Immich. If you are creating your own videos, then the risk is low to zero.  Your video creation app would then need be compromised to create a malicious video file",
+        "score": 35,
+        "created_utc_ts": 1782247141,
+        "created_utc": "2026-06-23T20:39:01",
+        "permalink": "https://reddit.com/r/immich/comments/1uds0r1/would_this_new_ffmpeg_vulnerability_affect_immich/otecbvq/",
+        "parent_id": "t3_1uds0r1",
+        "is_submitter": false
+      },
+      {
+        "id": "otef9wx",
+        "author": "Catsrules",
+        "body": "Ahh makes sense. So I guess anyone that has a user account that can upload videos could potentially upload something bad and gain access to the server. But you would need a user that has been compromised themselves or a malicious user that whats to compromise your system.  \nBoth seems to be very unlikely for the vast majority of immich user base.",
+        "score": 6,
+        "created_utc_ts": 1782247913,
+        "created_utc": "2026-06-23T20:51:53",
+        "permalink": "https://reddit.com/r/immich/comments/1uds0r1/would_this_new_ffmpeg_vulnerability_affect_immich/otef9wx/",
+        "parent_id": "t1_otecbvq",
+        "is_submitter": true
+      },
+      {
+        "id": "oteitc5",
+        "author": "duerra",
+        "body": "FFmpeg is at the backbone of the content-powered internet.  Any ffmpeg vuln is worth keeping an eye on, particularly if you're operating a service.",
+        "score": 28,
+        "created_utc_ts": 1782248833,
+        "created_utc": "2026-06-23T21:07:13",
+        "permalink": "https://reddit.com/r/immich/comments/1uds0r1/would_this_new_ffmpeg_vulnerability_affect_immich/oteitc5/",
+        "parent_id": "t3_1uds0r1",
+        "is_submitter": false
+      },
+      {
+        "id": "otenbja",
+        "author": "Catsrules",
+        "body": "Exactly, that is why I am trying to think of all of my programs I use that might have it under the hood.",
+        "score": 6,
+        "created_utc_ts": 1782250034,
+        "created_utc": "2026-06-23T21:27:14",
+        "permalink": "https://reddit.com/r/immich/comments/1uds0r1/would_this_new_ffmpeg_vulnerability_affect_immich/otenbja/",
+        "parent_id": "t1_oteitc5",
+        "is_submitter": true
+      },
+      {
+        "id": "otez58f",
+        "author": "ShakataGaNai",
+        "body": "Emphasis on this. If you are the only one uploading to your immich, your risk of this vuln is nearly non-existent. Unless someone crafted a compromised video, sent it to you, you then saved it/backed it up to immich. \n\nSo should this vuln be watched and and patched ASAP? Yes. Should you worry about it? Depends on your use case.",
+        "score": 2,
+        "created_utc_ts": 1782253191,
+        "created_utc": "2026-06-23T22:19:51",
+        "permalink": "https://reddit.com/r/immich/comments/1uds0r1/would_this_new_ffmpeg_vulnerability_affect_immich/otez58f/",
+        "parent_id": "t1_otecbvq",
+        "is_submitter": false
+      },
+      {
+        "id": "otf2cvq",
+        "author": "ghanit",
+        "body": "Does immich allow/use the MagicYUV decoder? Plex is not voulnerable to PixelSmash because they don't allow all decoders. ",
+        "score": 4,
+        "created_utc_ts": 1782254124,
+        "created_utc": "2026-06-23T22:35:24",
+        "permalink": "https://reddit.com/r/immich/comments/1uds0r1/would_this_new_ffmpeg_vulnerability_affect_immich/otf2cvq/",
+        "parent_id": "t3_1uds0r1",
+        "is_submitter": false
+      },
+      {
+        "id": "otikkic",
+        "author": "SamSausages",
+        "body": "```\nffmpeg -encoders \n\nffmpeg -decoders\n\n```\n\nWill show you what's all enabled.",
+        "score": 1,
+        "created_utc_ts": 1782304590,
+        "created_utc": "2026-06-24T12:36:30",
+        "permalink": "https://reddit.com/r/immich/comments/1uds0r1/would_this_new_ffmpeg_vulnerability_affect_immich/otikkic/",
+        "parent_id": "t1_otf2cvq",
+        "is_submitter": false
+      },
+      {
+        "id": "otitmrn",
+        "author": "FlyingCookieBrigade",
+        "body": "It looks like MagicYUV is listed in the decoder list so I imagine it would be. It shouldn't be an issue really due to how Immich is used but should probably be taken care of regardless. ",
+        "score": 3,
+        "created_utc_ts": 1782307409,
+        "created_utc": "2026-06-24T13:23:29",
+        "permalink": "https://reddit.com/r/immich/comments/1uds0r1/would_this_new_ffmpeg_vulnerability_affect_immich/otitmrn/",
+        "parent_id": "t3_1uds0r1",
+        "is_submitter": false
+      },
+      {
+        "id": "otiy8ky",
+        "author": "Cornicum",
+        "body": "\"However, Moravchick noted that the RCE exploit requires ASLR (Address Space Layout Randomization) to be disabled, and that CVE-2026-8461 alone does not bypass this memory protection.\"\n\nOn most operating systems ASLR is enabled by default exactly to prevent the type of security problems like these.\n\nWhile this doesn't mean it can't use a different exploit to bypass ASLR, I want to mention this cause it makes the exploit harder to execute.\n\nHOWEVER it's still better to either update your FFMpeg or if not possible implement the patch described by Jfrog:\n\nhttps://jfrog.com/blog/pixelsmash-critical-ffmpeg-vulnerability-turns-media-files-into-weapons/",
+        "score": 2,
+        "created_utc_ts": 1782308751,
+        "created_utc": "2026-06-24T13:45:51",
+        "permalink": "https://reddit.com/r/immich/comments/1uds0r1/would_this_new_ffmpeg_vulnerability_affect_immich/otiy8ky/",
+        "parent_id": "t3_1uds0r1",
+        "is_submitter": false
+      }
+    ]
+  },
+  {
     "_id": "6a3acf8b4ce8d84a7e46236c",
     "redditId": "1udoilq",
     "author": "TrustSig",
@@ -357,19 +1093,63 @@
         "permalink": "https://reddit.com/r/sysadmin/comments/1udoilq/fortibleed_update_now_430k_fortigates_hit_and_110/otg8wgq/",
         "parent_id": "t1_otepx05",
         "is_submitter": false
+      },
+      {
+        "id": "otgtqeq",
+        "author": "Ferretau",
+        "body": "I think we've reached a point where public admin interfaces should really be behind something like a wireguard connection by default and support MFA out of the box without having to use a vendors proprietary tool or dongle. ",
+        "score": 1,
+        "created_utc_ts": 1782275737,
+        "created_utc": "2026-06-24T04:35:37",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1udoilq/fortibleed_update_now_430k_fortigates_hit_and_110/otgtqeq/",
+        "parent_id": "t3_1udoilq",
+        "is_submitter": false
+      },
+      {
+        "id": "otij00a",
+        "author": "Root_kun",
+        "body": "where to find these data breach? ",
+        "score": 1,
+        "created_utc_ts": 1782304067,
+        "created_utc": "2026-06-24T12:27:47",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1udoilq/fortibleed_update_now_430k_fortigates_hit_and_110/otij00a/",
+        "parent_id": "t3_1udoilq",
+        "is_submitter": false
+      },
+      {
+        "id": "otix651",
+        "author": "MalletNGrease",
+        "body": "They shouldn't be public at all.",
+        "score": 1,
+        "created_utc_ts": 1782308443,
+        "created_utc": "2026-06-24T13:40:43",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1udoilq/fortibleed_update_now_430k_fortigates_hit_and_110/otix651/",
+        "parent_id": "t1_otgtqeq",
+        "is_submitter": false
+      },
+      {
+        "id": "otiyzyn",
+        "author": "eXVraW5ha2FtdXJh",
+        "body": "why many people crazy enough to set mgmt interface to face internet? crazy",
+        "score": 1,
+        "created_utc_ts": 1782308974,
+        "created_utc": "2026-06-24T13:49:34",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1udoilq/fortibleed_update_now_430k_fortigates_hit_and_110/otiyzyn/",
+        "parent_id": "t3_1udoilq",
+        "is_submitter": false
       }
     ],
     "created_utc": "2026-06-23T18:00:43",
     "first_author_comment": null,
-    "num_comments": 55,
-    "score": 142,
+    "num_comments": 68,
+    "score": 182,
     "subreddit": "sysadmin",
     "tag": "General Discussion",
     "tags": [
       "General Discussion"
     ],
     "title": "FortiBleed update - now ~430k FortiGates hit and 110 million credentials harvested",
-    "updatedAt": "2026-06-24T04:25:30.985Z",
+    "updatedAt": "2026-06-24T14:25:58.418Z",
     "upvote_ratio": 0.95,
     "url": "https://reddit.com/r/sysadmin/comments/1udoilq/fortibleed_update_now_430k_fortigates_hit_and_110/",
     "versionList": [
@@ -391,6 +1171,194 @@
         "isUpdateRelated": null
       }
     },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true
+  },
+  {
+    "_id": "6a3c647e19c4c61da01e569c",
+    "redditId": "1udn043",
+    "author": "onyxblack",
+    "author_description": null,
+    "awards": [],
+    "comments": [
+      {
+        "id": "otcypdl",
+        "author": "AutoModerator",
+        "body": "**Reminder: /r/jellyfin is a community space, not an official user support space for the project.**\n\nUsers are welcome to ask other users for help and support with their Jellyfin installations and other related topics, but **this subreddit is not an official support channel**. We have extensive, official documentation on our website here: [https://jellyfin.org/docs/](https://jellyfin.org/docs/). Requests for support via modmail will be ignored. Our official support channels are listed on our contact page here: https://jellyfin.org/contact\n\nBug reports should be submitted on the GitHub issues pages for [the server](https://github.com/jellyfin/jellyfin/issues) or one of the other [repositories for clients and plugins](https://github.com/jellyfin). Feature requests should be submitted at [https://features.jellyfin.org/](https://features.jellyfin.org/). Bug reports and feature requests for third party clients and tools (Findroid, Jellyseerr, etc.) should be directed to their respective support channels.\n\n---\n\nIf you are sharing something you have made, please take a moment to review our LLM rules at https://jellyfin.org/docs/general/contributing/llm-policies/. Note  that anything developed or created using an LLM or other AI tooling requires community disclosure and is subject to removal.\n\n\n*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/jellyfin) if you have any questions or concerns.*",
+        "score": 1,
+        "created_utc_ts": 1782234359,
+        "created_utc": "2026-06-23T17:05:59",
+        "permalink": "https://reddit.com/r/jellyfin/comments/1udn043/psa_update_ffmpeg_pixelsmash_exploit_flaw_that/otcypdl/",
+        "parent_id": "t3_1udn043",
+        "is_submitter": false
+      },
+      {
+        "id": "otcz3tk",
+        "author": "onyxblack",
+        "body": "The vulnerability is tracked as CVE-2026-8461 and is a heap out-of-bounds write in the MagicYUV decoder. It received a high-severity score of 8.8 and can be leveraged via a malicious video file in AVI, MKV, or MOV format.",
+        "score": 21,
+        "created_utc_ts": 1782234461,
+        "created_utc": "2026-06-23T17:07:41",
+        "permalink": "https://reddit.com/r/jellyfin/comments/1udn043/psa_update_ffmpeg_pixelsmash_exploit_flaw_that/otcz3tk/",
+        "parent_id": "t3_1udn043",
+        "is_submitter": true
+      },
+      {
+        "id": "otczu1s",
+        "author": "anthonylavado",
+        "body": "PSA for anyone interested - We were contacted by this security researcher in advance and have already fixed the issue.\n\nAs noted in the article:  \n*Apart from FFmpeg releasing version 8.1.2, which fixes the flaw,* ***Jellyfin also updated its bundled FFmpeg version***, *and PhotoPrism is working to add a file format blocklist to prevent potential exploitation.*\n\n**Edit:** Changing the post flair from \"Issue Opened\" to \"Solved\" as this isn't a recently reported bug.",
+        "score": 1,
+        "created_utc_ts": 1782234644,
+        "created_utc": "2026-06-23T17:10:44",
+        "permalink": "https://reddit.com/r/jellyfin/comments/1udn043/psa_update_ffmpeg_pixelsmash_exploit_flaw_that/otczu1s/",
+        "parent_id": "t3_1udn043",
+        "is_submitter": false
+      },
+      {
+        "id": "otd3rst",
+        "author": "Spody_man",
+        "body": "Affects which jellyfin versions?",
+        "score": 48,
+        "created_utc_ts": 1782235643,
+        "created_utc": "2026-06-23T17:27:23",
+        "permalink": "https://reddit.com/r/jellyfin/comments/1udn043/psa_update_ffmpeg_pixelsmash_exploit_flaw_that/otd3rst/",
+        "parent_id": "t3_1udn043",
+        "is_submitter": false
+      },
+      {
+        "id": "otd8fq3",
+        "author": "anthonylavado",
+        "body": "Answered above for you: [https://www.reddit.com/r/jellyfin/comments/1udn043/comment/otd5awu/](https://www.reddit.com/r/jellyfin/comments/1udn043/comment/otd5awu/)",
+        "score": 19,
+        "created_utc_ts": 1782236801,
+        "created_utc": "2026-06-23T17:46:41",
+        "permalink": "https://reddit.com/r/jellyfin/comments/1udn043/psa_update_ffmpeg_pixelsmash_exploit_flaw_that/otd8fq3/",
+        "parent_id": "t1_otd3rst",
+        "is_submitter": false
+      },
+      {
+        "id": "otd8ugn",
+        "author": "SubSeaHollow",
+        "body": "Fix already bundled with the latest v10.11.11, it affected the previous ones.\n\nbut you should be on the latest build anyway since it fixed a lot of security flaws as well. ",
+        "score": 54,
+        "created_utc_ts": 1782236903,
+        "created_utc": "2026-06-23T17:48:23",
+        "permalink": "https://reddit.com/r/jellyfin/comments/1udn043/psa_update_ffmpeg_pixelsmash_exploit_flaw_that/otd8ugn/",
+        "parent_id": "t1_otd3rst",
+        "is_submitter": false
+      },
+      {
+        "id": "otdeu59",
+        "author": "ninjadude93",
+        "body": "Is the fix included in the v12.0 rc1 release?",
+        "score": 1,
+        "created_utc_ts": 1782238415,
+        "created_utc": "2026-06-23T18:13:35",
+        "permalink": "https://reddit.com/r/jellyfin/comments/1udn043/psa_update_ffmpeg_pixelsmash_exploit_flaw_that/otdeu59/",
+        "parent_id": "t3_1udn043",
+        "is_submitter": false
+      },
+      {
+        "id": "otdewgo",
+        "author": "slimscsi",
+        "body": "It’s not a RCE if ASLR is enabled (which it almost certainly is) so while it’s not great, It’s not likely to do anything more than crash if exploited. ",
+        "score": 13,
+        "created_utc_ts": 1782238431,
+        "created_utc": "2026-06-23T18:13:51",
+        "permalink": "https://reddit.com/r/jellyfin/comments/1udn043/psa_update_ffmpeg_pixelsmash_exploit_flaw_that/otdewgo/",
+        "parent_id": "t3_1udn043",
+        "is_submitter": false
+      },
+      {
+        "id": "otdgd6t",
+        "author": "Tomi97_origin",
+        "body": "It's included in 10.11.11.",
+        "score": 2,
+        "created_utc_ts": 1782238804,
+        "created_utc": "2026-06-23T18:20:04",
+        "permalink": "https://reddit.com/r/jellyfin/comments/1udn043/psa_update_ffmpeg_pixelsmash_exploit_flaw_that/otdgd6t/",
+        "parent_id": "t1_otdeu59",
+        "is_submitter": false
+      },
+      {
+        "id": "ote284h",
+        "author": "Chillifarm99",
+        "body": "Any tips on how to move my Jellyfin from UGREEN container to the latest Jellyfin container in docker and maintain all the settings and user accounts?\n\nThe UGREEN Jellyfin container is version 10.10.3 so vulnerable to this issue with FFmpeg",
+        "score": 5,
+        "created_utc_ts": 1782244467,
+        "created_utc": "2026-06-23T19:54:27",
+        "permalink": "https://reddit.com/r/jellyfin/comments/1udn043/psa_update_ffmpeg_pixelsmash_exploit_flaw_that/ote284h/",
+        "parent_id": "t3_1udn043",
+        "is_submitter": false
+      },
+      {
+        "id": "oteu1n3",
+        "author": "ScorchedWonderer",
+        "body": "It’s easy, I’m also a fellow Ugreen NAS user. Go to the docker folder and look for jellyfin, then make a copy somewhere else of the “config” folder. Uninstall AppStore version jellyfin and start your docker compose. Then put back the config folder on the jellyfin folder you make when making the docker compose and point the config path to it on the jellyfin compose ",
+        "score": 5,
+        "created_utc_ts": 1782251788,
+        "created_utc": "2026-06-23T21:56:28",
+        "permalink": "https://reddit.com/r/jellyfin/comments/1udn043/psa_update_ffmpeg_pixelsmash_exploit_flaw_that/oteu1n3/",
+        "parent_id": "t1_ote284h",
+        "is_submitter": false
+      },
+      {
+        "id": "otexyqf",
+        "author": "mikeyyve",
+        "body": "All the people I’ve seen commenting about how they’re running an older version are going to love this.",
+        "score": 8,
+        "created_utc_ts": 1782252855,
+        "created_utc": "2026-06-23T22:14:15",
+        "permalink": "https://reddit.com/r/jellyfin/comments/1udn043/psa_update_ffmpeg_pixelsmash_exploit_flaw_that/otexyqf/",
+        "parent_id": "t3_1udn043",
+        "is_submitter": false
+      },
+      {
+        "id": "otik709",
+        "author": "SolarPoweredKeyboard",
+        "body": "If they get their video files from reputable sources, they don't need to worry.",
+        "score": 1,
+        "created_utc_ts": 1782304466,
+        "created_utc": "2026-06-24T12:34:26",
+        "permalink": "https://reddit.com/r/jellyfin/comments/1udn043/psa_update_ffmpeg_pixelsmash_exploit_flaw_that/otik709/",
+        "parent_id": "t1_otexyqf",
+        "is_submitter": false
+      },
+      {
+        "id": "otjirgr",
+        "author": "rizzninja",
+        "body": "That's scary ",
+        "score": 1,
+        "created_utc_ts": 1782314392,
+        "created_utc": "2026-06-24T15:19:52",
+        "permalink": "https://reddit.com/r/jellyfin/comments/1udn043/psa_update_ffmpeg_pixelsmash_exploit_flaw_that/otjirgr/",
+        "parent_id": "t1_otcz3tk",
+        "is_submitter": false
+      },
+      {
+        "id": "otk55yg",
+        "author": "ThePurpleShift",
+        "body": "Has anyone seen if Linuxserver’s docker\\_mod image has implemented the fix yet? Or do I need to migrate to the official image…",
+        "score": 1,
+        "created_utc_ts": 1782320231,
+        "created_utc": "2026-06-24T16:57:11",
+        "permalink": "https://reddit.com/r/jellyfin/comments/1udn043/psa_update_ffmpeg_pixelsmash_exploit_flaw_that/otk55yg/",
+        "parent_id": "t3_1udn043",
+        "is_submitter": false
+      }
+    ],
+    "created_utc": "2026-06-23T17:05:59",
+    "first_author_comment": "The vulnerability is tracked as CVE-2026-8461 and is a heap out-of-bounds write in the MagicYUV decoder. It received a high-severity score of 8.8 and can be leveraged via a malicious video file in AVI, MKV, or MOV format.",
+    "num_comments": 28,
+    "score": 254,
+    "subreddit": "jellyfin",
+    "tag": "Solved",
+    "tags": [],
+    "title": "PSA: Update FFmpeg | PixelSmash Exploit - Flaw that allows remote code execution (Jellyfin | Emby | Kodi | PhotoPrism - at risk)",
+    "updatedAt": "2026-06-24T23:13:02.834Z",
+    "upvote_ratio": 0.98,
+    "url": "https://reddit.com/r/jellyfin/comments/1udn043/psa_update_ffmpeg_pixelsmash_exploit_flaw_that/",
+    "versionList": [],
     "isAboutCve": true,
     "isAboutLatestUpdate": true
   },
@@ -500,13 +1468,13 @@
     "created_utc": "2026-06-22T18:31:27",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 17,
+    "score": 18,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-25860 turn XSS to RCE",
-    "updatedAt": "2026-06-24T04:46:13.757Z",
-    "upvote_ratio": 0.86,
+    "updatedAt": "2026-06-25T04:45:58.520Z",
+    "upvote_ratio": 0.87,
     "url": "https://reddit.com/r/netsec/comments/1ucsrw0/cve202625860_turn_xss_to_rce/",
     "versionList": [
       "2026.0.0",
@@ -576,7 +1544,7 @@
         "id": "ot4ejhm",
         "author": "Barafu",
         "body": "Ridiculously bad link. Does not say what use cases are affected, in what situations? \n\nEveryone? Do you say I can connect to any unpatched server on the Internet right now?",
-        "score": 55,
+        "score": 59,
         "created_utc_ts": 1782134010,
         "created_utc": "2026-06-22T13:13:30",
         "permalink": "https://reddit.com/r/linux/comments/1ucjru0/security_vulnerabilities_endanger_connections_via/ot4ejhm/",
@@ -595,21 +1563,10 @@
         "is_submitter": true
       },
       {
-        "id": "ot4jcum",
-        "author": "Anxious_Archer_7402",
-        "body": "glad this got coverage but the headline is pretty vague - libssh2 is used in so many places that knowing which specific use cases are at risk actually matters a lot here. still worth knowing about tho, just wish the article did more than gesture at the problem",
-        "score": 6,
-        "created_utc_ts": 1782135482,
-        "created_utc": "2026-06-22T13:38:02",
-        "permalink": "https://reddit.com/r/linux/comments/1ucjru0/security_vulnerabilities_endanger_connections_via/ot4jcum/",
-        "parent_id": "t3_1ucjru0",
-        "is_submitter": false
-      },
-      {
         "id": "ot4lob9",
         "author": "TheBendit",
         "body": "libssh2 is client side only. It stands to reason that the only way to exploit it is to either impersonate an existing server that someone connects to with libssh2, or somehow make a libssh2 client connect to your malicious server.",
-        "score": 11,
+        "score": 12,
         "created_utc_ts": 1782136187,
         "created_utc": "2026-06-22T13:49:47",
         "permalink": "https://reddit.com/r/linux/comments/1ucjru0/security_vulnerabilities_endanger_connections_via/ot4lob9/",
@@ -631,7 +1588,7 @@
         "id": "ot4ufmw",
         "author": "BinkReddit",
         "body": "Just so that it doesn't confuse anyone, this has nothing to do with the SSH/OpenSSH that's installed on almost all systems.",
-        "score": 29,
+        "score": 28,
         "created_utc_ts": 1782138708,
         "created_utc": "2026-06-22T14:31:48",
         "permalink": "https://reddit.com/r/linux/comments/1ucjru0/security_vulnerabilities_endanger_connections_via/ot4ufmw/",
@@ -642,14 +1599,14 @@
     "created_utc": "2026-06-22T12:53:22",
     "first_author_comment": "The article refers to the advisories and the commits that fix the vulnerabilities. As far as I know, there isn't any more information available at this time. I'd rather warn people now, even with limited information, than wait until all the details are known and some people have already been affected by the vulnerabilities.\n\nFurthermore, I find it strange that Kali is apparently already offering updates while other distributions, such as Arch, are not yet offering any.",
     "num_comments": 10,
-    "score": 145,
+    "score": 153,
     "subreddit": "linux",
     "tag": "Security",
     "tags": [
       "Security"
     ],
     "title": "Security vulnerabilities endanger connections via libssh2",
-    "updatedAt": "2026-06-24T04:53:25.782Z",
+    "updatedAt": "2026-06-25T04:52:40.723Z",
     "upvote_ratio": 0.96,
     "url": "https://reddit.com/r/linux/comments/1ucjru0/security_vulnerabilities_endanger_connections_via/",
     "versionList": [],
@@ -824,13 +1781,13 @@
     "created_utc": "2026-06-20T19:33:03",
     "first_author_comment": null,
     "num_comments": 4,
-    "score": 8,
+    "score": 9,
     "subreddit": "rustdesk",
     "tag": null,
     "tags": [],
     "title": "WEIRD RUSTDESK REQUEST FROM MY OWN MACBOOK",
-    "updatedAt": "2026-06-23T23:25:35.396Z",
-    "upvote_ratio": 0.91,
+    "updatedAt": "2026-06-25T05:12:39.027Z",
+    "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/rustdesk/comments/1ub5cdv/weird_rustdesk_request_from_my_own_macbook/",
     "versionList": [],
     "classification": {
@@ -861,13 +1818,13 @@
     "created_utc": "2026-06-19T19:15:45",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 28,
+    "score": 29,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Use-after-free in the QPACK encoder of nginx HTTP/3 - CVE-2026-42530",
-    "updatedAt": "2026-06-24T04:46:17.067Z",
-    "upvote_ratio": 0.87,
+    "updatedAt": "2026-06-25T04:46:02.377Z",
+    "upvote_ratio": 0.86,
     "url": "https://reddit.com/r/netsec/comments/1uab0j6/useafterfree_in_the_qpack_encoder_of_nginx_http3/",
     "versionList": [
       "3.0.0",
@@ -1067,14 +2024,14 @@
     "awards": [],
     "created_utc": "2026-06-19T13:27:18",
     "first_author_comment": null,
-    "num_comments": 5,
-    "score": 41,
+    "num_comments": 6,
+    "score": 47,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "OpenBSD MPLS kernel stack leaks remotely (CVE-2026-56099)",
-    "updatedAt": "2026-06-24T04:46:17.884Z",
-    "upvote_ratio": 0.93,
+    "updatedAt": "2026-06-25T04:46:03.480Z",
+    "upvote_ratio": 0.95,
     "url": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/",
     "versionList": [
       "2026.0.0",
@@ -1100,7 +2057,7 @@
     },
     "isAboutCve": true,
     "isAboutLatestUpdate": true,
-    "commentCount": 5,
+    "commentCount": 6,
     "detectedCVEs": [
       {
         "cveId": "CVE-2026-56099",
@@ -1454,6 +2411,94 @@
           "CVE Modified",
           "CVE Modified"
         ]
+      },
+      {
+        "cveId": "CVE-2026-56099",
+        "cveIds": [
+          "CVE-2026-56099"
+        ],
+        "source": "Title",
+        "commentText": "OpenBSD MPLS kernel stack leaks remotely (CVE-2026-56099)",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/",
+        "commentDate": "2026-06-19T13:27:18+00:00",
+        "cvePublishedDate": "2026-06-18T20:16:15.370000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-06-23T21:17:03.097 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=816F5D40-16F6-454C-880B-67F5636B11DF\n   - Added SSVC: {'timestamp': '2026-06-23T20:44:12.654787Z', 'id': 'CVE-2026-56099', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-06-21T09:16:26.140 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=CBAAE2A8-FEC1-4E84-9B19-C45D61BE1E03\n   - Added Reference: http://seclists.org/fulldisclosure/2026/Jun/17\n3. 2026-06-19T17:16:30.197 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=C0825BFE-49C7-4CAB-9843-8E9B665F3E90\n   - Added Reference: http://www.openwall.com/lists/oss-security/2026/06/19/3\n4. 2026-06-18T20:16:15.370 | New CVE Received | source=disclosure@vulncheck.com | changeId=A17A5005-8BB0-468E-B899-559266AF370C\n   - Added Affected: [{'vendor': 'openbsd', 'product': 'src', 'defaultStatus': 'affected', 'repo': 'https://github.com/openbsd/src', 'versions': [{'version': '0', 'lessThan': '6a23123ec05f1eb29cfcaae0f3a468b2e1983cfd', 'versionType': 'git', 'status': 'affected'}]}]\n   - Added Description: OpenBSD before commit 6a23123 (2026-06-18) contains an out-of-bounds read vulnerability in the mpls_do_error function within sys/netmpls/mpls_input.c that allows remote attackers to disclose kernel stack memory by sending crafted MPLS frames with 16 labels and no Bottom-of-Stack bit set.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N\n   - Added CWE: CWE-125\n   - Added Reference: https://github.com/openbsd/src/commit/6a23123ec05f1eb29cfcaae0f3a468b2e1983cfd\n   - Added Reference: https://pop.argus-systems.ai/advisory/adv-040.html\n   - Added Reference: https://www.vulncheck.com/advisories/openbsd-mpls-do-error-kernel-stack-memory-disclosure-via-mpls-input\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-56099",
+        "cveIds": [
+          "CVE-2026-56099"
+        ],
+        "source": "Title",
+        "commentText": "OpenBSD MPLS kernel stack leaks remotely (CVE-2026-56099)",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/",
+        "commentDate": "2026-06-19T13:27:18+00:00",
+        "cvePublishedDate": "2026-06-18T20:16:15.370000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-06-23T21:17:03.097 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=816F5D40-16F6-454C-880B-67F5636B11DF\n   - Added SSVC: {'timestamp': '2026-06-23T20:44:12.654787Z', 'id': 'CVE-2026-56099', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-06-21T09:16:26.140 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=CBAAE2A8-FEC1-4E84-9B19-C45D61BE1E03\n   - Added Reference: http://seclists.org/fulldisclosure/2026/Jun/17\n3. 2026-06-19T17:16:30.197 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=C0825BFE-49C7-4CAB-9843-8E9B665F3E90\n   - Added Reference: http://www.openwall.com/lists/oss-security/2026/06/19/3\n4. 2026-06-18T20:16:15.370 | New CVE Received | source=disclosure@vulncheck.com | changeId=A17A5005-8BB0-468E-B899-559266AF370C\n   - Added Affected: [{'vendor': 'openbsd', 'product': 'src', 'defaultStatus': 'affected', 'repo': 'https://github.com/openbsd/src', 'versions': [{'version': '0', 'lessThan': '6a23123ec05f1eb29cfcaae0f3a468b2e1983cfd', 'versionType': 'git', 'status': 'affected'}]}]\n   - Added Description: OpenBSD before commit 6a23123 (2026-06-18) contains an out-of-bounds read vulnerability in the mpls_do_error function within sys/netmpls/mpls_input.c that allows remote attackers to disclose kernel stack memory by sending crafted MPLS frames with 16 labels and no Bottom-of-Stack bit set.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N\n   - Added CWE: CWE-125\n   - Added Reference: https://github.com/openbsd/src/commit/6a23123ec05f1eb29cfcaae0f3a468b2e1983cfd\n   - Added Reference: https://pop.argus-systems.ai/advisory/adv-040.html\n   - Added Reference: https://www.vulncheck.com/advisories/openbsd-mpls-do-error-kernel-stack-memory-disclosure-via-mpls-input\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-56099",
+        "cveIds": [
+          "CVE-2026-56099"
+        ],
+        "source": "Title",
+        "commentText": "OpenBSD MPLS kernel stack leaks remotely (CVE-2026-56099)",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/",
+        "commentDate": "2026-06-19T13:27:18+00:00",
+        "cvePublishedDate": "2026-06-18T20:16:15.370000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-06-23T21:17:03.097 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=816F5D40-16F6-454C-880B-67F5636B11DF\n   - Added SSVC: {'timestamp': '2026-06-23T20:44:12.654787Z', 'id': 'CVE-2026-56099', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-06-21T09:16:26.140 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=CBAAE2A8-FEC1-4E84-9B19-C45D61BE1E03\n   - Added Reference: http://seclists.org/fulldisclosure/2026/Jun/17\n3. 2026-06-19T17:16:30.197 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=C0825BFE-49C7-4CAB-9843-8E9B665F3E90\n   - Added Reference: http://www.openwall.com/lists/oss-security/2026/06/19/3\n4. 2026-06-18T20:16:15.370 | New CVE Received | source=disclosure@vulncheck.com | changeId=A17A5005-8BB0-468E-B899-559266AF370C\n   - Added Affected: [{'vendor': 'openbsd', 'product': 'src', 'defaultStatus': 'affected', 'repo': 'https://github.com/openbsd/src', 'versions': [{'version': '0', 'lessThan': '6a23123ec05f1eb29cfcaae0f3a468b2e1983cfd', 'versionType': 'git', 'status': 'affected'}]}]\n   - Added Description: OpenBSD before commit 6a23123 (2026-06-18) contains an out-of-bounds read vulnerability in the mpls_do_error function within sys/netmpls/mpls_input.c that allows remote attackers to disclose kernel stack memory by sending crafted MPLS frames with 16 labels and no Bottom-of-Stack bit set.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N\n   - Added CWE: CWE-125\n   - Added Reference: https://github.com/openbsd/src/commit/6a23123ec05f1eb29cfcaae0f3a468b2e1983cfd\n   - Added Reference: https://pop.argus-systems.ai/advisory/adv-040.html\n   - Added Reference: https://www.vulncheck.com/advisories/openbsd-mpls-do-error-kernel-stack-memory-disclosure-via-mpls-input\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-56099",
+        "cveIds": [
+          "CVE-2026-56099"
+        ],
+        "source": "Title",
+        "commentText": "OpenBSD MPLS kernel stack leaks remotely (CVE-2026-56099)",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/",
+        "commentDate": "2026-06-19T13:27:18+00:00",
+        "cvePublishedDate": "2026-06-18T20:16:15.370000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-06-23T21:17:03.097 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=816F5D40-16F6-454C-880B-67F5636B11DF\n   - Added SSVC: {'timestamp': '2026-06-23T20:44:12.654787Z', 'id': 'CVE-2026-56099', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-06-21T09:16:26.140 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=CBAAE2A8-FEC1-4E84-9B19-C45D61BE1E03\n   - Added Reference: http://seclists.org/fulldisclosure/2026/Jun/17\n3. 2026-06-19T17:16:30.197 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=C0825BFE-49C7-4CAB-9843-8E9B665F3E90\n   - Added Reference: http://www.openwall.com/lists/oss-security/2026/06/19/3\n4. 2026-06-18T20:16:15.370 | New CVE Received | source=disclosure@vulncheck.com | changeId=A17A5005-8BB0-468E-B899-559266AF370C\n   - Added Affected: [{'vendor': 'openbsd', 'product': 'src', 'defaultStatus': 'affected', 'repo': 'https://github.com/openbsd/src', 'versions': [{'version': '0', 'lessThan': '6a23123ec05f1eb29cfcaae0f3a468b2e1983cfd', 'versionType': 'git', 'status': 'affected'}]}]\n   - Added Description: OpenBSD before commit 6a23123 (2026-06-18) contains an out-of-bounds read vulnerability in the mpls_do_error function within sys/netmpls/mpls_input.c that allows remote attackers to disclose kernel stack memory by sending crafted MPLS frames with 16 labels and no Bottom-of-Stack bit set.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N\n   - Added CWE: CWE-125\n   - Added Reference: https://github.com/openbsd/src/commit/6a23123ec05f1eb29cfcaae0f3a468b2e1983cfd\n   - Added Reference: https://pop.argus-systems.ai/advisory/adv-040.html\n   - Added Reference: https://www.vulncheck.com/advisories/openbsd-mpls-do-error-kernel-stack-memory-disclosure-via-mpls-input\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
       }
     ],
     "comments": [
@@ -1511,6 +2556,17 @@
         "permalink": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/osz1vyp/",
         "parent_id": "t3_1ua20fg",
         "is_submitter": false
+      },
+      {
+        "id": "oti9140",
+        "author": "scriptvexy",
+        "body": "that sounds like someone mashed together “mpls fast reroute” and “ttl propagation” into one fuzzy memory lol. mpls can mess with ttl behavior but it’s not some magic “never expires” tunnel, and in this case the openbsd bug is just about what happens when it chokes on a bad label stack.",
+        "score": 1,
+        "created_utc_ts": 1782300476,
+        "created_utc": "2026-06-24T11:27:56",
+        "permalink": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/oti9140/",
+        "parent_id": "t1_osz1vyp",
+        "is_submitter": false
       }
     ]
   },
@@ -1525,7 +2581,7 @@
         "id": "osjvvp7",
         "author": "netsec_burn",
         "body": "&gt; bc01\n\nWestJet? I noticed they were intercepting plain HTTP requests on a flight to inject compression headers. Same hostname returned by Squid.",
-        "score": 7,
+        "score": 9,
         "created_utc_ts": 1781865481,
         "created_utc": "2026-06-19T10:38:01",
         "permalink": "https://reddit.com/r/netsec/comments/1u9y7yw/squidbleed_cve202647729_heartbleedstyle/osjvvp7/",
@@ -1536,7 +2592,7 @@
         "id": "ot3pe6g",
         "author": "hashclyx",
         "body": "airline wifi man in the middle shenanigans are such a classic at this point  \nwouldn’t be surprised if they’re running some crusty squid setup that nobody’s dared touch in years",
-        "score": 1,
+        "score": 2,
         "created_utc_ts": 1782124525,
         "created_utc": "2026-06-22T10:35:25",
         "permalink": "https://reddit.com/r/netsec/comments/1u9y7yw/squidbleed_cve202647729_heartbleedstyle/ot3pe6g/",
@@ -1547,7 +2603,7 @@
         "id": "ot5lygu",
         "author": "beckstarlow",
         "body": "the ftp port 21 thing gets glossed over a lot in these writeups but enterprise proxies reaching arbitrary outbound ports is genuinely more common than people want to admit, especially when acls haven't been touched in years\n\nsquid deployments that have been running since 2018 on autopilot are probably not the ones with tight egress rules",
-        "score": 1,
+        "score": 2,
         "created_utc_ts": 1782146354,
         "created_utc": "2026-06-22T16:39:14",
         "permalink": "https://reddit.com/r/netsec/comments/1u9y7yw/squidbleed_cve202647729_heartbleedstyle/ot5lygu/",
@@ -1558,12 +2614,12 @@
     "created_utc": "2026-06-19T10:21:41",
     "first_author_comment": null,
     "num_comments": 4,
-    "score": 106,
+    "score": 105,
     "subreddit": "netsec",
     "tag": "Contains AI",
     "tags": [],
     "title": "Squidbleed (CVE-2026-47729) - Heartbleed-style vulnerability that leaks internal memory from every version of Squid Proxy, in its default configuration",
-    "updatedAt": "2026-06-24T04:46:19.192Z",
+    "updatedAt": "2026-06-25T04:46:04.700Z",
     "upvote_ratio": 0.97,
     "url": "https://reddit.com/r/netsec/comments/1u9y7yw/squidbleed_cve202647729_heartbleedstyle/",
     "versionList": [
@@ -2613,13 +3669,13 @@
     "created_utc": "2026-06-18T18:05:44",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 39,
+    "score": 43,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-5667: Unauthenticated Remote Control of Mitsubishi MAC-577IF-2E WiFi Adapters via Probe Request Reconnaissance",
-    "updatedAt": "2026-06-24T04:46:19.983Z",
-    "upvote_ratio": 0.91,
+    "updatedAt": "2026-06-25T04:46:05.742Z",
+    "upvote_ratio": 0.94,
     "url": "https://reddit.com/r/netsec/comments/1u9dncq/cve20265667_unauthenticated_remote_control_of/",
     "versionList": [
       "2026.0.0",
@@ -2708,7 +3764,7 @@
       "Article"
     ],
     "title": "Authenticating a PayPal notification is not the same as trusting what it says (CVE-2026-9189)",
-    "updatedAt": "2026-06-24T05:11:29.588Z",
+    "updatedAt": "2026-06-25T05:11:27.427Z",
     "upvote_ratio": 0.78,
     "url": "https://reddit.com/r/PHP/comments/1u9de75/authenticating_a_paypal_notification_is_not_the/",
     "versionList": [
@@ -3604,12 +4660,12 @@
     "created_utc": "2026-06-12T20:37:06",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 52,
+    "score": 51,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Why Use App-Level Auth When Every Database Has Auth? (Splunk Enterprise CVE-2026-20253 Pre-Auth RCE) - watchTowr Labs",
-    "updatedAt": "2026-06-24T04:46:30.731Z",
+    "updatedAt": "2026-06-25T04:46:18.354Z",
     "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/netsec/comments/1u46wbb/why_use_applevel_auth_when_every_database_has/",
     "versionList": [
@@ -3907,12 +4963,12 @@
     "created_utc": "2026-06-12T05:23:23",
     "first_author_comment": null,
     "num_comments": 3,
-    "score": 36,
+    "score": 35,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Marking Your Own Homework (Check Point Remote Access VPN IKEv1 Authentication Bypass CVE-2026-50751) - watchTowr Labs",
-    "updatedAt": "2026-06-24T04:46:33.846Z",
+    "updatedAt": "2026-06-25T04:46:22.476Z",
     "upvote_ratio": 0.88,
     "url": "https://reddit.com/r/netsec/comments/1u3m7yj/marking_your_own_homework_check_point_remote/",
     "versionList": [
@@ -4331,7 +5387,7 @@
         "id": "orcbb2k",
         "author": "scriptqzor",
         "body": "wild how many vendors still basically get to grade their own security papers and call it a day  \nprops to watchtowr for poking at the \"you’re fine, trust us\" narrative, this is the kind of stuff that actually makes everyone safer",
-        "score": 3,
+        "score": 4,
         "created_utc_ts": 1781315205,
         "created_utc": "2026-06-13T01:46:45",
         "permalink": "https://reddit.com/r/netsec/comments/1u3m7yj/marking_your_own_homework_check_point_remote/orcbb2k/",
@@ -6929,13 +7985,13 @@
     "created_utc": "2026-06-10T00:54:34",
     "first_author_comment": null,
     "num_comments": 6,
-    "score": 44,
+    "score": 46,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "More Evidence That Words Don't Mean What We Thought They Meant (Ivanti Sentry Pre-Auth OS Command Injection CVE-2026-10520) - watchTowr Labs",
-    "updatedAt": "2026-06-24T04:46:38.752Z",
-    "upvote_ratio": 0.88,
+    "updatedAt": "2026-06-25T04:46:28.335Z",
+    "upvote_ratio": 0.9,
     "url": "https://reddit.com/r/netsec/comments/1u1neao/more_evidence_that_words_dont_mean_what_we/",
     "versionList": [
       "2026.0.0",
@@ -10543,13 +11599,13 @@
     "created_utc": "2026-06-07T00:05:33",
     "first_author_comment": null,
     "num_comments": 3,
-    "score": 7,
+    "score": 9,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-46640: Developing payloads for Twig sandbox bypass",
-    "updatedAt": "2026-06-24T04:46:43.586Z",
-    "upvote_ratio": 0.9,
+    "updatedAt": "2026-06-25T04:46:34.171Z",
+    "upvote_ratio": 1,
     "url": "https://reddit.com/r/netsec/comments/1tywxh9/cve202646640_developing_payloads_for_twig_sandbox/",
     "versionList": [
       "2026.0.0",
@@ -10616,7 +11672,7 @@
         "id": "oprf3cd",
         "author": "throwaway234f32423df",
         "body": "fixed on Ubuntu about an hour ago even though they haven't put up a CVE page for it yet",
-        "score": 3,
+        "score": 4,
         "created_utc_ts": 1780598242,
         "created_utc": "2026-06-04T18:37:22",
         "permalink": "https://reddit.com/r/apache/comments/1tws4w7/the_http2_bomb_that_knocks_nginx_and_apache/oprf3cd/",
@@ -10632,7 +11688,7 @@
     "tag": null,
     "tags": [],
     "title": "The HTTP/2 Bomb That Knocks nginx and Apache Offline With a Single Connection",
-    "updatedAt": "2026-06-24T04:52:18.183Z",
+    "updatedAt": "2026-06-25T04:51:20.519Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/apache/comments/1tws4w7/the_http2_bomb_that_knocks_nginx_and_apache/",
     "versionList": [
@@ -12228,6 +13284,27 @@
     "comments": [],
     "comments_avg_sentiment_score": 0,
     "sentiment_score": 0.448,
+    "isAboutCve": true,
+    "isAboutLatestUpdate": false
+  },
+  {
+    "_id": "6a3bbc1a4ce8d84a7e465c80",
+    "redditId": "1tbx8sa",
+    "author": "eshard-cybersec",
+    "author_description": "We hit a wall analyzing CVE-2019-14192 on real Raspberry Pi 3B+ firmware, so we added the missing driver to QEMU. Register by register, using U-Boot's own source as the spec.",
+    "awards": [],
+    "created_utc": "2026-05-13T11:48:09",
+    "first_author_comment": null,
+    "num_comments": 0,
+    "score": 2,
+    "subreddit": "QEMU",
+    "tag": null,
+    "tags": [],
+    "title": "How to add a peripheral to QEMU",
+    "updatedAt": "2026-06-24T23:24:29.573Z",
+    "upvote_ratio": 1,
+    "url": "https://reddit.com/r/QEMU/comments/1tbx8sa/how_to_add_a_peripheral_to_qemu/",
+    "versionList": [],
     "isAboutCve": true,
     "isAboutLatestUpdate": false
   },
