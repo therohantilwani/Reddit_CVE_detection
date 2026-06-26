@@ -38,6 +38,7 @@ CVE-2025-20309,1,2026-06-23T18:00:43+00:00,1782237643,sysadmin,https://reddit.co
 CVE-2025-30399,1,2025-09-15T19:24:23+00:00,1757964263,tenable,https://reddit.com/r/tenable/comments/1nhvfck/security_update_for_microsoft_net_core_june_2025/
 CVE-2025-3248,1,2026-06-12T01:37:04+00:00,1781228224,AZURE,https://reddit.com/r/AZURE/comments/1u3hqco/cve20265027_langflow_path_traversal/
 CVE-2025-49596,1,2026-06-16T01:24:34+00:00,1781573074,AZURE,https://reddit.com/r/AZURE/comments/1u6zlof/nsa_issued_mcp_security_guidance_in_may_and_the/
+CVE-2025-52465,1,2026-06-25T15:30:44+00:00,1782401444,netsec,https://reddit.com/r/netsec/comments/1ufdc3k/cve202552465_geoserver_arbitrary_file_write/
 CVE-2025-5419,1,2025-06-04T08:02:09+00:00,1749024129,chrome,https://reddit.com/r/chrome/comments/1l2zxcb/update_chrome_today_new_0day_vulnerability/
 CVE-2025-54368,1,2025-10-11T07:12:35+00:00,1760166755,Python,https://reddit.com/r/Python/comments/1o3p4bf/best_practices_for_using_python_uv_inside_docker/
 CVE-2025-62518,1,2025-10-26T08:51:20+00:00,1761468680,rust,https://reddit.com/r/rust/comments/1ogfpk5/tarmageddon_cve202562518_rce_vulnerability/
