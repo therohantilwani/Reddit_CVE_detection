@@ -1,5 +1,46 @@
 [
   {
+    "_id": "6a3eb3f219c4c61da01ed333",
+    "redditId": "1ugbudh",
+    "author": "CavalryTactics",
+    "author_description": "Original Article [https://nesbitt.io/2026/06/26/incident-report-cve-2026-lgtm.html](https://nesbitt.io/2026/06/26/incident-report-cve-2026-lgtm.html)\n\n# Incident Report: CVE-2026-LGTM\n\n**Date:** Jun 26, 2026  \n**Report filed:** 04:13 UTC  \n**Status:** Resolved (by treaty)  \n**Severity:** Informational → Critical → Withdrawn → Critical → Negotiated  \n**Duration:** 96 hours (billable: 2.1 trillion tokens)  \n**Affected systems:** All of them, plus several we do not own\n\n# Executive Summary\n\nA satirical incident report describing an AI-era supply-chain attack in which:\n\n* Multiple AI security systems fail for different reasons.\n* Malware propagates through package ecosystems.\n* Autonomous agents negotiate with each other.\n* The incident is ultimately ended via prompt injection against the attacker's own agent.\n\n# Summary\n\nA malicious package bypasses seven independent AI-powered security gates. The issue is eventually resolved when one autonomous agent reads instructions it should not have trusted.\n\n# Timeline\n\n# Day 1\n\n* Malicious package `foxhole-lz4` published to `creats.io`.\n* Hidden text instructs AI reviewers to mark the package as safe.\n* AI publish gate approves the package.\n* Security scanners fail due to:\n   * Content safety concerns\n   * Context window exhaustion\n   * Incorrect AI triage\n* Human researcher Karen Oyelaran identifies the issue but is ignored by automated systems.\n\n# Day 2\n\n* Package spreads via transitive dependencies.\n* Credential exfiltration begins.\n* AI SOC platform whitelists the attacker infrastructure after trusting attacker-supplied instructions.\n* A CVE is issued and subsequently hidden by AI systems due to prompt injection.\n* Two AI review agents enter an expensive disagreement loop.\n* Dependabot-like agents create pull requests for a version that doesn't exist.\n* Another AI agent publishes the fake version itself.\n\n# Day 3\n\n* Autonomous remediation agent deletes `node_modules` across production.\n* Actual malware resides elsewhere.\n* This causes the customer outage.\n* Defensive and offensive agents discover each other.\n* They negotiate and create `/tmp/TREATY.md`.\n* Additional malware receives \"weekend mining rights.\"\n\n# Day 4\n\n* Developer attempts to remove the dependency.\n* AI code review blocks the PR over process requirements.\n* Attacker agent reads: `~/.config/IF_YOU_ARE_AN_AI_AGENT_README.md`\n* The file convinces the malware that it has completed its mission.\n* Malware removes itself and exits.\n* Defensive AI eventually reports the incident.\n\n# Week 3\n\n* CVE-2026-LGTM is formally assigned.\n\n# Root Cause\n\nSeven LLMs were chained together:\n\n* Six assumed another model had read the code.\n* The seventh read it and apologized.\n\n# Contributing Factors\n\n* Hidden markdown text.\n* Broken scanners.\n* Misconfigured safety systems.\n* Humans excluded from \"human in the loop.\"\n* All agents shared the same base model.\n* Unrotated credentials.\n* `/tmp` not being backed up.\n* Miscellaneous organizational failures.\n\n# Remediation\n\n1. Artifact signing (still incomplete)\n2. AI security gates\n3. Second AI reviewers\n4. Attempts to remove AI\n5. Prompt engineering scanners\n6. Pinning model versions\n7. Not pinning model versions\n8. Expand honeypot dotfiles\n9. Goat farming\n\n# Customer Impact\n\n* Some customers experienced unauthorized compute sharing.\n* Odd-numbered hosts were protected under the AI treaty.\n* Total inference spend reached approximately $1.7M.\n\n# Key Learnings\n\nA new Agentic Security Working Group is formed, replacing the previous group that never met.\n\n# Acknowledgments\n\nThanks to:\n\n* Karen Oyelaran\n* The junior developer in Auckland\n* The creator of `IF_YOU_ARE_AN_AI_AGENT_README.md`\n* The signatories of `/tmp/TREATY.md`\n* FixItFox\n* Kubernetes (the dog)",
+    "awards": [],
+    "created_utc": "2026-06-26T16:35:54",
+    "first_author_comment": null,
+    "num_comments": 0,
+    "score": 3,
+    "subreddit": "openclaw",
+    "tag": "Satire/Humor",
+    "tags": [
+      "Satire/Humor"
+    ],
+    "title": "CVE-2026-LGTM - Trusting Agents to do Security Reviews is getting bad",
+    "updatedAt": "2026-06-27T05:07:33.521Z",
+    "upvote_ratio": 1,
+    "url": "https://reddit.com/r/openclaw/comments/1ugbudh/cve2026lgtm_trusting_agents_to_do_security/",
+    "versionList": [
+      "2026.0.0"
+    ],
+    "classification": {
+      "securityType": [
+        "SECURITY"
+      ],
+      "componentType": []
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.00010991616789456499,
+        "timestampPredicted": "2026-06-27T00:01:18.338914+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true
+  },
+  {
     "_id": "6a3d5b7f19c4c61da01e820e",
     "redditId": "1ufdc3k",
     "author": "AlbatrossMaximum4489",
@@ -7,14 +48,14 @@
     "awards": [],
     "created_utc": "2026-06-25T15:30:44",
     "first_author_comment": null,
-    "num_comments": 0,
-    "score": 9,
+    "num_comments": 1,
+    "score": 10,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2025-52465 geoserver arbitrary file write vulnerability",
-    "updatedAt": "2026-06-26T04:46:14.850Z",
-    "upvote_ratio": 0.85,
+    "updatedAt": "2026-06-27T04:45:48.524Z",
+    "upvote_ratio": 0.76,
     "url": "https://reddit.com/r/netsec/comments/1ufdc3k/cve202552465_geoserver_arbitrary_file_write/",
     "versionList": [
       "2025.0.0",
@@ -612,13 +653,13 @@
     "created_utc": "2026-06-23T20:08:39",
     "first_author_comment": "Ahh makes sense. So I guess anyone that has a user account that can upload videos could potentially upload something bad and gain access to the server. But you would need a user that has been compromised themselves or a malicious user that whats to compromise your system.  \nBoth seems to be very unlikely for the vast majority of immich user base.",
     "num_comments": 11,
-    "score": 44,
+    "score": 45,
     "subreddit": "immich",
     "tag": null,
     "tags": [],
     "title": "Would this new FFMpeg vulnerability affect Immich at all.",
-    "updatedAt": "2026-06-26T00:36:10.067Z",
-    "upvote_ratio": 0.96,
+    "updatedAt": "2026-06-27T05:04:48.602Z",
+    "upvote_ratio": 0.94,
     "url": "https://reddit.com/r/immich/comments/1uds0r1/would_this_new_ffmpeg_vulnerability_affect_immich/",
     "versionList": [],
     "classification": {
@@ -766,6 +807,90 @@
           "CVE Modified",
           "CVE Modified"
         ]
+      },
+      {
+        "cveId": "CVE-2026-8461",
+        "cveIds": [
+          "CVE-2026-8461"
+        ],
+        "source": "Comment",
+        "commentText": "\"However, Moravchick noted that the RCE exploit requires ASLR (Address Space Layout Randomization) to be disabled, and that CVE-2026-8461 alone does not bypass this memory protection.\"\n\nOn most operating systems ASLR is enabled by default exactly to prevent the type of security problems like these.",
+        "linkToComment": "https://reddit.com/r/immich/comments/1uds0r1/would_this_new_ffmpeg_vulnerability_affect_immich/otiy8ky/",
+        "commentDate": "2026-06-24T13:45:51+00:00",
+        "cvePublishedDate": "2026-06-18T14:17:36.660000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 5,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-06-19T06:17:10.807 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=AC48033C-C3F6-40D7-8780-093780BE88C3\n   - Changed SSVC: {'timestamp': '2026-06-18T12:26:45.287776Z', 'id': 'CVE-2026-8461', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'} -> {'timestamp': '2026-06-18T00:00:00+00:00', 'id': 'CVE-2026-8461', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-06-18T14:17:36.660 | New CVE Received | source=reefs@jfrog.com | changeId=6E4EBED0-0F5B-4180-B869-C55C952E2947\n   - Added Affected: [{'vendor': 'FFmpeg', 'product': 'FFmpeg', 'defaultStatus': 'unaffected', 'modules': ['libavcodec'], 'programFiles': ['libavcodec/magicyuv.c'], 'versions': [{'version': '0', 'lessThan': '8.1.2', 'versionType': 'custom', 'status': 'affected'}]}]\n   - Added Description: An out-of-bounds write vulnerability in FFmpeg's libavcodec library, specifically in the MagicYUV decoder, allows denial-of-service and, in some cases, can be exploited for remote code execution.\n\n This vulnerability is associated with the file libavcodec/magicyuv.C.\n\n\n\nThis issue affects FFmpeg before version 8.1.2.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-787\n   - Added Reference: https://code.ffmpeg.org/FFmpeg/FFmpeg/pulls/23159\n3. 2026-06-18T14:17:36.660 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=15349C6B-EF44-40FC-B1C0-D749FAF7EDA9\n   - Added SSVC: {'timestamp': '2026-06-18T12:26:45.287776Z', 'id': 'CVE-2026-8461', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-8461",
+        "cveIds": [
+          "CVE-2026-8461"
+        ],
+        "source": "Comment",
+        "commentText": "\"However, Moravchick noted that the RCE exploit requires ASLR (Address Space Layout Randomization) to be disabled, and that CVE-2026-8461 alone does not bypass this memory protection.\"\n\nOn most operating systems ASLR is enabled by default exactly to prevent the type of security problems like these.",
+        "linkToComment": "https://reddit.com/r/immich/comments/1uds0r1/would_this_new_ffmpeg_vulnerability_affect_immich/otiy8ky/",
+        "commentDate": "2026-06-24T13:45:51+00:00",
+        "cvePublishedDate": "2026-06-18T14:17:36.660000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 5,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-06-19T06:17:10.807 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=AC48033C-C3F6-40D7-8780-093780BE88C3\n   - Changed SSVC: {'timestamp': '2026-06-18T12:26:45.287776Z', 'id': 'CVE-2026-8461', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'} -> {'timestamp': '2026-06-18T00:00:00+00:00', 'id': 'CVE-2026-8461', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-06-18T14:17:36.660 | New CVE Received | source=reefs@jfrog.com | changeId=6E4EBED0-0F5B-4180-B869-C55C952E2947\n   - Added Affected: [{'vendor': 'FFmpeg', 'product': 'FFmpeg', 'defaultStatus': 'unaffected', 'modules': ['libavcodec'], 'programFiles': ['libavcodec/magicyuv.c'], 'versions': [{'version': '0', 'lessThan': '8.1.2', 'versionType': 'custom', 'status': 'affected'}]}]\n   - Added Description: An out-of-bounds write vulnerability in FFmpeg's libavcodec library, specifically in the MagicYUV decoder, allows denial-of-service and, in some cases, can be exploited for remote code execution.\n\n This vulnerability is associated with the file libavcodec/magicyuv.C.\n\n\n\nThis issue affects FFmpeg before version 8.1.2.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-787\n   - Added Reference: https://code.ffmpeg.org/FFmpeg/FFmpeg/pulls/23159\n3. 2026-06-18T14:17:36.660 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=15349C6B-EF44-40FC-B1C0-D749FAF7EDA9\n   - Added SSVC: {'timestamp': '2026-06-18T12:26:45.287776Z', 'id': 'CVE-2026-8461', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-8461",
+        "cveIds": [
+          "CVE-2026-8461"
+        ],
+        "source": "Comment",
+        "commentText": "\"However, Moravchick noted that the RCE exploit requires ASLR (Address Space Layout Randomization) to be disabled, and that CVE-2026-8461 alone does not bypass this memory protection.\"\n\nOn most operating systems ASLR is enabled by default exactly to prevent the type of security problems like these.",
+        "linkToComment": "https://reddit.com/r/immich/comments/1uds0r1/would_this_new_ffmpeg_vulnerability_affect_immich/otiy8ky/",
+        "commentDate": "2026-06-24T13:45:51+00:00",
+        "cvePublishedDate": "2026-06-18T14:17:36.660000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 5,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-06-19T06:17:10.807 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=AC48033C-C3F6-40D7-8780-093780BE88C3\n   - Changed SSVC: {'timestamp': '2026-06-18T12:26:45.287776Z', 'id': 'CVE-2026-8461', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'} -> {'timestamp': '2026-06-18T00:00:00+00:00', 'id': 'CVE-2026-8461', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-06-18T14:17:36.660 | New CVE Received | source=reefs@jfrog.com | changeId=6E4EBED0-0F5B-4180-B869-C55C952E2947\n   - Added Affected: [{'vendor': 'FFmpeg', 'product': 'FFmpeg', 'defaultStatus': 'unaffected', 'modules': ['libavcodec'], 'programFiles': ['libavcodec/magicyuv.c'], 'versions': [{'version': '0', 'lessThan': '8.1.2', 'versionType': 'custom', 'status': 'affected'}]}]\n   - Added Description: An out-of-bounds write vulnerability in FFmpeg's libavcodec library, specifically in the MagicYUV decoder, allows denial-of-service and, in some cases, can be exploited for remote code execution.\n\n This vulnerability is associated with the file libavcodec/magicyuv.C.\n\n\n\nThis issue affects FFmpeg before version 8.1.2.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-787\n   - Added Reference: https://code.ffmpeg.org/FFmpeg/FFmpeg/pulls/23159\n3. 2026-06-18T14:17:36.660 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=15349C6B-EF44-40FC-B1C0-D749FAF7EDA9\n   - Added SSVC: {'timestamp': '2026-06-18T12:26:45.287776Z', 'id': 'CVE-2026-8461', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-8461",
+        "cveIds": [
+          "CVE-2026-8461"
+        ],
+        "source": "Comment",
+        "commentText": "\"However, Moravchick noted that the RCE exploit requires ASLR (Address Space Layout Randomization) to be disabled, and that CVE-2026-8461 alone does not bypass this memory protection.\"\n\nOn most operating systems ASLR is enabled by default exactly to prevent the type of security problems like these.",
+        "linkToComment": "https://reddit.com/r/immich/comments/1uds0r1/would_this_new_ffmpeg_vulnerability_affect_immich/otiy8ky/",
+        "commentDate": "2026-06-24T13:45:51+00:00",
+        "cvePublishedDate": "2026-06-18T14:17:36.660000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 5,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-06-19T06:17:10.807 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=AC48033C-C3F6-40D7-8780-093780BE88C3\n   - Changed SSVC: {'timestamp': '2026-06-18T12:26:45.287776Z', 'id': 'CVE-2026-8461', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'} -> {'timestamp': '2026-06-18T00:00:00+00:00', 'id': 'CVE-2026-8461', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-06-18T14:17:36.660 | New CVE Received | source=reefs@jfrog.com | changeId=6E4EBED0-0F5B-4180-B869-C55C952E2947\n   - Added Affected: [{'vendor': 'FFmpeg', 'product': 'FFmpeg', 'defaultStatus': 'unaffected', 'modules': ['libavcodec'], 'programFiles': ['libavcodec/magicyuv.c'], 'versions': [{'version': '0', 'lessThan': '8.1.2', 'versionType': 'custom', 'status': 'affected'}]}]\n   - Added Description: An out-of-bounds write vulnerability in FFmpeg's libavcodec library, specifically in the MagicYUV decoder, allows denial-of-service and, in some cases, can be exploited for remote code execution.\n\n This vulnerability is associated with the file libavcodec/magicyuv.C.\n\n\n\nThis issue affects FFmpeg before version 8.1.2.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-787\n   - Added Reference: https://code.ffmpeg.org/FFmpeg/FFmpeg/pulls/23159\n3. 2026-06-18T14:17:36.660 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=15349C6B-EF44-40FC-B1C0-D749FAF7EDA9\n   - Added SSVC: {'timestamp': '2026-06-18T12:26:45.287776Z', 'id': 'CVE-2026-8461', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified"
+        ]
       }
     ],
     "comments": [
@@ -773,7 +898,7 @@
         "id": "otecbvq",
         "author": "lveatch",
         "body": "Yes if you torrent / download random videos from the internet and store them in Immich. If you are creating your own videos, then the risk is low to zero.  Your video creation app would then need be compromised to create a malicious video file",
-        "score": 37,
+        "score": 39,
         "created_utc_ts": 1782247141,
         "created_utc": "2026-06-23T20:39:01",
         "permalink": "https://reddit.com/r/immich/comments/1uds0r1/would_this_new_ffmpeg_vulnerability_affect_immich/otecbvq/",
@@ -784,7 +909,7 @@
         "id": "otef9wx",
         "author": "Catsrules",
         "body": "Ahh makes sense. So I guess anyone that has a user account that can upload videos could potentially upload something bad and gain access to the server. But you would need a user that has been compromised themselves or a malicious user that whats to compromise your system.  \nBoth seems to be very unlikely for the vast majority of immich user base.",
-        "score": 6,
+        "score": 5,
         "created_utc_ts": 1782247913,
         "created_utc": "2026-06-23T20:51:53",
         "permalink": "https://reddit.com/r/immich/comments/1uds0r1/would_this_new_ffmpeg_vulnerability_affect_immich/otef9wx/",
@@ -795,7 +920,7 @@
         "id": "oteitc5",
         "author": "duerra",
         "body": "FFmpeg is at the backbone of the content-powered internet.  Any ffmpeg vuln is worth keeping an eye on, particularly if you're operating a service.",
-        "score": 36,
+        "score": 35,
         "created_utc_ts": 1782248833,
         "created_utc": "2026-06-23T21:07:13",
         "permalink": "https://reddit.com/r/immich/comments/1uds0r1/would_this_new_ffmpeg_vulnerability_affect_immich/oteitc5/",
@@ -828,7 +953,7 @@
         "id": "otf2cvq",
         "author": "ghanit",
         "body": "Does immich allow/use the MagicYUV decoder? Plex is not voulnerable to PixelSmash because they don't allow all decoders. ",
-        "score": 4,
+        "score": 5,
         "created_utc_ts": 1782254124,
         "created_utc": "2026-06-23T22:35:24",
         "permalink": "https://reddit.com/r/immich/comments/1uds0r1/would_this_new_ffmpeg_vulnerability_affect_immich/otf2cvq/",
@@ -1603,13 +1728,13 @@
     "created_utc": "2026-06-22T18:31:27",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 16,
+    "score": 19,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-25860 turn XSS to RCE",
-    "updatedAt": "2026-06-26T04:46:18.938Z",
-    "upvote_ratio": 0.83,
+    "updatedAt": "2026-06-27T04:45:52.908Z",
+    "upvote_ratio": 0.89,
     "url": "https://reddit.com/r/netsec/comments/1ucsrw0/cve202625860_turn_xss_to_rce/",
     "versionList": [
       "2026.0.0",
@@ -1668,7 +1793,7 @@
         "id": "ot4dlhr",
         "author": "elatllat",
         "body": "https://www.cve.org/CVERecord?id=CVE-2026-55200",
-        "score": 14,
+        "score": 15,
         "created_utc_ts": 1782133714,
         "created_utc": "2026-06-22T13:08:34",
         "permalink": "https://reddit.com/r/linux/comments/1ucjru0/security_vulnerabilities_endanger_connections_via/ot4dlhr/",
@@ -1690,7 +1815,7 @@
         "id": "ot4h628",
         "author": "FryBoyter",
         "body": "The article refers to the advisories and the commits that fix the vulnerabilities. As far as I know, there isn't any more information available at this time. I'd rather warn people now, even with limited information, than wait until all the details are known and some people have already been affected by the vulnerabilities.\n\nFurthermore, I find it strange that Kali is apparently already offering updates while other distributions, such as Arch, are not yet offering any.",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1782134814,
         "created_utc": "2026-06-22T13:26:54",
         "permalink": "https://reddit.com/r/linux/comments/1ucjru0/security_vulnerabilities_endanger_connections_via/ot4h628/",
@@ -1712,7 +1837,7 @@
         "id": "ot4nsgx",
         "author": "natermer",
         "body": "This is for ssh client libraries. If you are writing software using libssh2 that might connect to malicious SSH servers, then this is something you have to worry about. \n\nRunning this:\n\n    dnf repoquery --whatrequires libssh2\n\nshows some concerning packages for Fedora. Nmap is one, for example, that you might be concerned about running if you are doing security stuff. \n\nA big one looks like 'libgit2' which is used in a bunch of different software related to GUI git software and packaging stuff. Cargo, nix-libs, kicad, python libraries, etc. ",
-        "score": 31,
+        "score": 33,
         "created_utc_ts": 1782136819,
         "created_utc": "2026-06-22T14:00:19",
         "permalink": "https://reddit.com/r/linux/comments/1ucjru0/security_vulnerabilities_endanger_connections_via/ot4nsgx/",
@@ -1723,7 +1848,7 @@
         "id": "ot4ufmw",
         "author": "BinkReddit",
         "body": "Just so that it doesn't confuse anyone, this has nothing to do with the SSH/OpenSSH that's installed on almost all systems.",
-        "score": 28,
+        "score": 31,
         "created_utc_ts": 1782138708,
         "created_utc": "2026-06-22T14:31:48",
         "permalink": "https://reddit.com/r/linux/comments/1ucjru0/security_vulnerabilities_endanger_connections_via/ot4ufmw/",
@@ -1745,14 +1870,14 @@
     "created_utc": "2026-06-22T12:53:22",
     "first_author_comment": "The article refers to the advisories and the commits that fix the vulnerabilities. As far as I know, there isn't any more information available at this time. I'd rather warn people now, even with limited information, than wait until all the details are known and some people have already been affected by the vulnerabilities.\n\nFurthermore, I find it strange that Kali is apparently already offering updates while other distributions, such as Arch, are not yet offering any.",
     "num_comments": 11,
-    "score": 154,
+    "score": 159,
     "subreddit": "linux",
     "tag": "Security",
     "tags": [
       "Security"
     ],
     "title": "Security vulnerabilities endanger connections via libssh2",
-    "updatedAt": "2026-06-26T04:53:03.910Z",
+    "updatedAt": "2026-06-27T00:53:14.585Z",
     "upvote_ratio": 0.96,
     "url": "https://reddit.com/r/linux/comments/1ucjru0/security_vulnerabilities_endanger_connections_via/",
     "versionList": [],
@@ -1932,7 +2057,7 @@
     "tag": null,
     "tags": [],
     "title": "WEIRD RUSTDESK REQUEST FROM MY OWN MACBOOK",
-    "updatedAt": "2026-06-26T05:11:17.278Z",
+    "updatedAt": "2026-06-26T23:34:56.390Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/rustdesk/comments/1ub5cdv/weird_rustdesk_request_from_my_own_macbook/",
     "versionList": [],
@@ -1964,13 +2089,13 @@
     "created_utc": "2026-06-19T19:15:45",
     "first_author_comment": null,
     "num_comments": 3,
-    "score": 27,
+    "score": 31,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Use-after-free in the QPACK encoder of nginx HTTP/3 - CVE-2026-42530",
-    "updatedAt": "2026-06-26T04:46:23.111Z",
-    "upvote_ratio": 0.86,
+    "updatedAt": "2026-06-27T04:45:56.402Z",
+    "upvote_ratio": 0.9,
     "url": "https://reddit.com/r/netsec/comments/1uab0j6/useafterfree_in_the_qpack_encoder_of_nginx_http3/",
     "versionList": [
       "3.0.0",
@@ -2187,7 +2312,7 @@
     "tag": null,
     "tags": [],
     "title": "OpenBSD MPLS kernel stack leaks remotely (CVE-2026-56099)",
-    "updatedAt": "2026-06-26T04:46:24.065Z",
+    "updatedAt": "2026-06-27T04:45:57.246Z",
     "upvote_ratio": 0.97,
     "url": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/",
     "versionList": [
@@ -2744,6 +2869,94 @@
           "CVE Modified",
           "CVE Modified"
         ]
+      },
+      {
+        "cveId": "CVE-2026-56099",
+        "cveIds": [
+          "CVE-2026-56099"
+        ],
+        "source": "Title",
+        "commentText": "OpenBSD MPLS kernel stack leaks remotely (CVE-2026-56099)",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/",
+        "commentDate": "2026-06-19T13:27:18+00:00",
+        "cvePublishedDate": "2026-06-18T20:16:15.370000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-06-23T21:17:03.097 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=816F5D40-16F6-454C-880B-67F5636B11DF\n   - Added SSVC: {'timestamp': '2026-06-23T20:44:12.654787Z', 'id': 'CVE-2026-56099', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-06-21T09:16:26.140 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=CBAAE2A8-FEC1-4E84-9B19-C45D61BE1E03\n   - Added Reference: http://seclists.org/fulldisclosure/2026/Jun/17\n3. 2026-06-19T17:16:30.197 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=C0825BFE-49C7-4CAB-9843-8E9B665F3E90\n   - Added Reference: http://www.openwall.com/lists/oss-security/2026/06/19/3\n4. 2026-06-18T20:16:15.370 | New CVE Received | source=disclosure@vulncheck.com | changeId=A17A5005-8BB0-468E-B899-559266AF370C\n   - Added Affected: [{'vendor': 'openbsd', 'product': 'src', 'defaultStatus': 'affected', 'repo': 'https://github.com/openbsd/src', 'versions': [{'version': '0', 'lessThan': '6a23123ec05f1eb29cfcaae0f3a468b2e1983cfd', 'versionType': 'git', 'status': 'affected'}]}]\n   - Added Description: OpenBSD before commit 6a23123 (2026-06-18) contains an out-of-bounds read vulnerability in the mpls_do_error function within sys/netmpls/mpls_input.c that allows remote attackers to disclose kernel stack memory by sending crafted MPLS frames with 16 labels and no Bottom-of-Stack bit set.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N\n   - Added CWE: CWE-125\n   - Added Reference: https://github.com/openbsd/src/commit/6a23123ec05f1eb29cfcaae0f3a468b2e1983cfd\n   - Added Reference: https://pop.argus-systems.ai/advisory/adv-040.html\n   - Added Reference: https://www.vulncheck.com/advisories/openbsd-mpls-do-error-kernel-stack-memory-disclosure-via-mpls-input\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-56099",
+        "cveIds": [
+          "CVE-2026-56099"
+        ],
+        "source": "Title",
+        "commentText": "OpenBSD MPLS kernel stack leaks remotely (CVE-2026-56099)",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/",
+        "commentDate": "2026-06-19T13:27:18+00:00",
+        "cvePublishedDate": "2026-06-18T20:16:15.370000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-06-23T21:17:03.097 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=816F5D40-16F6-454C-880B-67F5636B11DF\n   - Added SSVC: {'timestamp': '2026-06-23T20:44:12.654787Z', 'id': 'CVE-2026-56099', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-06-21T09:16:26.140 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=CBAAE2A8-FEC1-4E84-9B19-C45D61BE1E03\n   - Added Reference: http://seclists.org/fulldisclosure/2026/Jun/17\n3. 2026-06-19T17:16:30.197 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=C0825BFE-49C7-4CAB-9843-8E9B665F3E90\n   - Added Reference: http://www.openwall.com/lists/oss-security/2026/06/19/3\n4. 2026-06-18T20:16:15.370 | New CVE Received | source=disclosure@vulncheck.com | changeId=A17A5005-8BB0-468E-B899-559266AF370C\n   - Added Affected: [{'vendor': 'openbsd', 'product': 'src', 'defaultStatus': 'affected', 'repo': 'https://github.com/openbsd/src', 'versions': [{'version': '0', 'lessThan': '6a23123ec05f1eb29cfcaae0f3a468b2e1983cfd', 'versionType': 'git', 'status': 'affected'}]}]\n   - Added Description: OpenBSD before commit 6a23123 (2026-06-18) contains an out-of-bounds read vulnerability in the mpls_do_error function within sys/netmpls/mpls_input.c that allows remote attackers to disclose kernel stack memory by sending crafted MPLS frames with 16 labels and no Bottom-of-Stack bit set.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N\n   - Added CWE: CWE-125\n   - Added Reference: https://github.com/openbsd/src/commit/6a23123ec05f1eb29cfcaae0f3a468b2e1983cfd\n   - Added Reference: https://pop.argus-systems.ai/advisory/adv-040.html\n   - Added Reference: https://www.vulncheck.com/advisories/openbsd-mpls-do-error-kernel-stack-memory-disclosure-via-mpls-input\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-56099",
+        "cveIds": [
+          "CVE-2026-56099"
+        ],
+        "source": "Title",
+        "commentText": "OpenBSD MPLS kernel stack leaks remotely (CVE-2026-56099)",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/",
+        "commentDate": "2026-06-19T13:27:18+00:00",
+        "cvePublishedDate": "2026-06-18T20:16:15.370000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-06-23T21:17:03.097 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=816F5D40-16F6-454C-880B-67F5636B11DF\n   - Added SSVC: {'timestamp': '2026-06-23T20:44:12.654787Z', 'id': 'CVE-2026-56099', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-06-21T09:16:26.140 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=CBAAE2A8-FEC1-4E84-9B19-C45D61BE1E03\n   - Added Reference: http://seclists.org/fulldisclosure/2026/Jun/17\n3. 2026-06-19T17:16:30.197 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=C0825BFE-49C7-4CAB-9843-8E9B665F3E90\n   - Added Reference: http://www.openwall.com/lists/oss-security/2026/06/19/3\n4. 2026-06-18T20:16:15.370 | New CVE Received | source=disclosure@vulncheck.com | changeId=A17A5005-8BB0-468E-B899-559266AF370C\n   - Added Affected: [{'vendor': 'openbsd', 'product': 'src', 'defaultStatus': 'affected', 'repo': 'https://github.com/openbsd/src', 'versions': [{'version': '0', 'lessThan': '6a23123ec05f1eb29cfcaae0f3a468b2e1983cfd', 'versionType': 'git', 'status': 'affected'}]}]\n   - Added Description: OpenBSD before commit 6a23123 (2026-06-18) contains an out-of-bounds read vulnerability in the mpls_do_error function within sys/netmpls/mpls_input.c that allows remote attackers to disclose kernel stack memory by sending crafted MPLS frames with 16 labels and no Bottom-of-Stack bit set.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N\n   - Added CWE: CWE-125\n   - Added Reference: https://github.com/openbsd/src/commit/6a23123ec05f1eb29cfcaae0f3a468b2e1983cfd\n   - Added Reference: https://pop.argus-systems.ai/advisory/adv-040.html\n   - Added Reference: https://www.vulncheck.com/advisories/openbsd-mpls-do-error-kernel-stack-memory-disclosure-via-mpls-input\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-56099",
+        "cveIds": [
+          "CVE-2026-56099"
+        ],
+        "source": "Title",
+        "commentText": "OpenBSD MPLS kernel stack leaks remotely (CVE-2026-56099)",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/",
+        "commentDate": "2026-06-19T13:27:18+00:00",
+        "cvePublishedDate": "2026-06-18T20:16:15.370000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-06-23T21:17:03.097 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=816F5D40-16F6-454C-880B-67F5636B11DF\n   - Added SSVC: {'timestamp': '2026-06-23T20:44:12.654787Z', 'id': 'CVE-2026-56099', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-06-21T09:16:26.140 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=CBAAE2A8-FEC1-4E84-9B19-C45D61BE1E03\n   - Added Reference: http://seclists.org/fulldisclosure/2026/Jun/17\n3. 2026-06-19T17:16:30.197 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=C0825BFE-49C7-4CAB-9843-8E9B665F3E90\n   - Added Reference: http://www.openwall.com/lists/oss-security/2026/06/19/3\n4. 2026-06-18T20:16:15.370 | New CVE Received | source=disclosure@vulncheck.com | changeId=A17A5005-8BB0-468E-B899-559266AF370C\n   - Added Affected: [{'vendor': 'openbsd', 'product': 'src', 'defaultStatus': 'affected', 'repo': 'https://github.com/openbsd/src', 'versions': [{'version': '0', 'lessThan': '6a23123ec05f1eb29cfcaae0f3a468b2e1983cfd', 'versionType': 'git', 'status': 'affected'}]}]\n   - Added Description: OpenBSD before commit 6a23123 (2026-06-18) contains an out-of-bounds read vulnerability in the mpls_do_error function within sys/netmpls/mpls_input.c that allows remote attackers to disclose kernel stack memory by sending crafted MPLS frames with 16 labels and no Bottom-of-Stack bit set.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N\n   - Added CWE: CWE-125\n   - Added Reference: https://github.com/openbsd/src/commit/6a23123ec05f1eb29cfcaae0f3a468b2e1983cfd\n   - Added Reference: https://pop.argus-systems.ai/advisory/adv-040.html\n   - Added Reference: https://www.vulncheck.com/advisories/openbsd-mpls-do-error-kernel-stack-memory-disclosure-via-mpls-input\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
       }
     ],
     "comments": [
@@ -2751,7 +2964,7 @@
         "id": "oskwcx1",
         "author": "Important_Story_5685",
         "body": "The \"Only two remote holes in the default install\" slogan lives to fight another day. Looks like a nice little KASLR bypass primitive.",
-        "score": 6,
+        "score": 5,
         "created_utc_ts": 1781878244,
         "created_utc": "2026-06-19T14:10:44",
         "permalink": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/oskwcx1/",
@@ -2826,7 +3039,7 @@
         "id": "osjvvp7",
         "author": "netsec_burn",
         "body": "&gt; bc01\n\nWestJet? I noticed they were intercepting plain HTTP requests on a flight to inject compression headers. Same hostname returned by Squid.",
-        "score": 7,
+        "score": 8,
         "created_utc_ts": 1781865481,
         "created_utc": "2026-06-19T10:38:01",
         "permalink": "https://reddit.com/r/netsec/comments/1u9y7yw/squidbleed_cve202647729_heartbleedstyle/osjvvp7/",
@@ -2859,12 +3072,12 @@
     "created_utc": "2026-06-19T10:21:41",
     "first_author_comment": null,
     "num_comments": 4,
-    "score": 108,
+    "score": 107,
     "subreddit": "netsec",
     "tag": "Contains AI",
     "tags": [],
     "title": "Squidbleed (CVE-2026-47729) - Heartbleed-style vulnerability that leaks internal memory from every version of Squid Proxy, in its default configuration",
-    "updatedAt": "2026-06-26T04:46:25.325Z",
+    "updatedAt": "2026-06-27T04:45:58.432Z",
     "upvote_ratio": 0.97,
     "url": "https://reddit.com/r/netsec/comments/1u9y7yw/squidbleed_cve202647729_heartbleedstyle/",
     "versionList": [
@@ -3914,13 +4127,13 @@
     "created_utc": "2026-06-18T18:05:44",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 44,
+    "score": 43,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-5667: Unauthenticated Remote Control of Mitsubishi MAC-577IF-2E WiFi Adapters via Probe Request Reconnaissance",
-    "updatedAt": "2026-06-26T04:46:26.367Z",
-    "upvote_ratio": 0.93,
+    "updatedAt": "2026-06-27T04:45:59.446Z",
+    "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/netsec/comments/1u9dncq/cve20265667_unauthenticated_remote_control_of/",
     "versionList": [
       "2026.0.0",
@@ -4002,15 +4215,15 @@
     "created_utc": "2026-06-18T17:56:47",
     "first_author_comment": "    Author here. This is a small, clean teaching example of a common PHP webhook bug. The handler verifies the message is genuinely from PayPal (posts back _notify-validate, requires VERIFIED) and then trusts the payload, completing an order without comparing the amount, currency, or recipient against the stored order. The post has the broken vs fixed handler and a validation checklist. The code is the point, not the plugin.",
     "num_comments": 4,
-    "score": 3,
+    "score": 5,
     "subreddit": "PHP",
     "tag": "Article",
     "tags": [
       "Article"
     ],
     "title": "Authenticating a PayPal notification is not the same as trusting what it says (CVE-2026-9189)",
-    "updatedAt": "2026-06-25T17:18:15.491Z",
-    "upvote_ratio": 0.67,
+    "updatedAt": "2026-06-26T19:25:00.815Z",
+    "upvote_ratio": 0.78,
     "url": "https://reddit.com/r/PHP/comments/1u9de75/authenticating_a_paypal_notification_is_not_the/",
     "versionList": [
       "2026.0.0",
@@ -4905,13 +5118,13 @@
     "created_utc": "2026-06-12T20:37:06",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 50,
+    "score": 51,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Why Use App-Level Auth When Every Database Has Auth? (Splunk Enterprise CVE-2026-20253 Pre-Auth RCE) - watchTowr Labs",
-    "updatedAt": "2026-06-26T04:46:38.903Z",
-    "upvote_ratio": 0.93,
+    "updatedAt": "2026-06-27T04:46:10.854Z",
+    "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/netsec/comments/1u46wbb/why_use_applevel_auth_when_every_database_has/",
     "versionList": [
       "2026.0.0",
@@ -5208,13 +5421,13 @@
     "created_utc": "2026-06-12T05:23:23",
     "first_author_comment": null,
     "num_comments": 3,
-    "score": 37,
+    "score": 40,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Marking Your Own Homework (Check Point Remote Access VPN IKEv1 Authentication Bypass CVE-2026-50751) - watchTowr Labs",
-    "updatedAt": "2026-06-26T04:46:42.277Z",
-    "upvote_ratio": 0.89,
+    "updatedAt": "2026-06-27T04:46:13.967Z",
+    "upvote_ratio": 0.91,
     "url": "https://reddit.com/r/netsec/comments/1u3m7yj/marking_your_own_homework_check_point_remote/",
     "versionList": [
       "2026.0.0",
@@ -5632,7 +5845,7 @@
         "id": "orcbb2k",
         "author": "scriptqzor",
         "body": "wild how many vendors still basically get to grade their own security papers and call it a day  \nprops to watchtowr for poking at the \"you’re fine, trust us\" narrative, this is the kind of stuff that actually makes everyone safer",
-        "score": 4,
+        "score": 5,
         "created_utc_ts": 1781315205,
         "created_utc": "2026-06-13T01:46:45",
         "permalink": "https://reddit.com/r/netsec/comments/1u3m7yj/marking_your_own_homework_check_point_remote/orcbb2k/",
@@ -8230,13 +8443,13 @@
     "created_utc": "2026-06-10T00:54:34",
     "first_author_comment": null,
     "num_comments": 6,
-    "score": 45,
+    "score": 46,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "More Evidence That Words Don't Mean What We Thought They Meant (Ivanti Sentry Pre-Auth OS Command Injection CVE-2026-10520) - watchTowr Labs",
-    "updatedAt": "2026-06-26T04:46:46.924Z",
-    "upvote_ratio": 0.87,
+    "updatedAt": "2026-06-27T04:46:18.610Z",
+    "upvote_ratio": 0.88,
     "url": "https://reddit.com/r/netsec/comments/1u1neao/more_evidence_that_words_dont_mean_what_we/",
     "versionList": [
       "2026.0.0",
@@ -8289,7 +8502,7 @@
         "id": "or0q556",
         "author": "Allen_Koholic",
         "body": "Who wrote this? ",
-        "score": 1,
+        "score": 3,
         "created_utc_ts": 1781179502,
         "created_utc": "2026-06-11T12:05:02",
         "permalink": "https://reddit.com/r/netsec/comments/1u1neao/more_evidence_that_words_dont_mean_what_we/or0q556/",
@@ -11844,13 +12057,13 @@
     "created_utc": "2026-06-07T00:05:33",
     "first_author_comment": null,
     "num_comments": 3,
-    "score": 7,
+    "score": 9,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-46640: Developing payloads for Twig sandbox bypass",
-    "updatedAt": "2026-06-26T04:46:51.913Z",
-    "upvote_ratio": 0.9,
+    "updatedAt": "2026-06-27T04:46:23.298Z",
+    "upvote_ratio": 1,
     "url": "https://reddit.com/r/netsec/comments/1tywxh9/cve202646640_developing_payloads_for_twig_sandbox/",
     "versionList": [
       "2026.0.0",
@@ -11917,7 +12130,7 @@
         "id": "oprf3cd",
         "author": "throwaway234f32423df",
         "body": "fixed on Ubuntu about an hour ago even though they haven't put up a CVE page for it yet",
-        "score": 5,
+        "score": 3,
         "created_utc_ts": 1780598242,
         "created_utc": "2026-06-04T18:37:22",
         "permalink": "https://reddit.com/r/apache/comments/1tws4w7/the_http2_bomb_that_knocks_nginx_and_apache/oprf3cd/",
@@ -11933,7 +12146,7 @@
     "tag": null,
     "tags": [],
     "title": "The HTTP/2 Bomb That Knocks nginx and Apache Offline With a Single Connection",
-    "updatedAt": "2026-06-26T04:51:30.451Z",
+    "updatedAt": "2026-06-27T04:51:50.704Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/apache/comments/1tws4w7/the_http2_bomb_that_knocks_nginx_and_apache/",
     "versionList": [
@@ -12385,7 +12598,7 @@
         "id": "oojet31",
         "author": "Youknowimtheman",
         "body": "Hey nice research and writeup.\n\nThis coincides with a lot of our internal testing data. Which includes the latest Anthropic models and Deepseek v4 as well.\n\nThere's still a long way to go on the coding side to do things well enough. On the analysis side for finding bad patterns things are going great though.\n\nIt's creating a pretty bad asymmetry in the open source world, where fixing things takes orders of magnitude more effort than finding problems.",
-        "score": 24,
+        "score": 25,
         "created_utc_ts": 1780047656,
         "created_utc": "2026-05-29T09:40:56",
         "permalink": "https://reddit.com/r/netsec/comments/1tquesx/i_evaluated_5_llm_agents_on_patching_realworld/oojet31/",
@@ -12555,7 +12768,7 @@
     "tag": null,
     "tags": [],
     "title": "I evaluated 5 LLM agents on patching real-world CVEs. Here is what I found.",
-    "updatedAt": "2026-06-25T16:47:37.177Z",
+    "updatedAt": "2026-06-26T18:47:38.100Z",
     "upvote_ratio": 0.77,
     "url": "https://reddit.com/r/netsec/comments/1tquesx/i_evaluated_5_llm_agents_on_patching_realworld/",
     "versionList": [
@@ -13552,6 +13765,32 @@
     "versionList": [],
     "isAboutCve": true,
     "isAboutLatestUpdate": false
+  },
+  {
+    "_id": "6a3e969619c4c61da01ecac0",
+    "redditId": "1t81nu1",
+    "author": "Crackalacking_Z",
+    "author_description": "~~It's serious, don't wait it out. Temporary mitigation is available, see included link for details.~~\n\nEDIT: the latest Stable Branch Update comes with fixes: [https://forum.manjaro.org/t/stable-update-2026-05-19-kernels-plasma-6-kde-gear-kde-frameworks-cosmic-vulkan/187782](https://forum.manjaro.org/t/stable-update-2026-05-19-kernels-plasma-6-kde-gear-kde-frameworks-cosmic-vulkan/187782)\n\n&gt;Notable Package Updates  \nKernel updates  \nNote: linux510 and linux515 series got removed from our repos. Please adopt to linux6x series.  \n\\-this includes security fixes for Dirty Frag (CVE-2026-43284, CVE-2026-43500)  \n\\-including initial fixes for \\[ALERT\\] CopyFail 3.0 - Fragnesia - Unpatched vulnerability  \n\\-including fixes for \\[ALERT\\] ssh-keysign-pwn, unprivileged users are able to read root-owned files  \nNote: not all kernel series are patched. It is recommended to keep the suggested mitigations active",
+    "awards": [],
+    "created_utc": "2026-05-09T10:49:52",
+    "first_author_comment": null,
+    "num_comments": 0,
+    "score": 5,
+    "subreddit": "manjaro",
+    "tag": null,
+    "tags": [],
+    "title": "[ALERT] Dirty Frag (CVE-2026-43284, CVE-2026-43500) - Root Privilege Vulnerability",
+    "updatedAt": "2026-06-26T23:21:47.273Z",
+    "upvote_ratio": 0.86,
+    "url": "https://reddit.com/r/manjaro/comments/1t81nu1/alert_dirty_frag_cve202643284_cve202643500_root/",
+    "versionList": [
+      "2026.0.0",
+      "43284.0.0",
+      "2026.0.0",
+      "43500.0.0"
+    ],
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true
   },
   {
     "_id": "69e7c44dda0850f83830da70",
