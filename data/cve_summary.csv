@@ -64,6 +64,7 @@ CVE-2026-28388,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com
 CVE-2026-28389,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/
 CVE-2026-30792,1,2026-06-20T19:33:03+00:00,1781983983,rustdesk,https://reddit.com/r/rustdesk/comments/1ub5cdv/weird_rustdesk_request_from_my_own_macbook/
 CVE-2026-30797,1,2026-06-20T19:33:03+00:00,1781983983,rustdesk,https://reddit.com/r/rustdesk/comments/1ub5cdv/weird_rustdesk_request_from_my_own_macbook/
+CVE-2026-31431,1,2026-06-29T01:47:38+00:00,1782697658,AZURE,https://reddit.com/r/AZURE/comments/1uif39c/dirtyclone_cve202643503_jfrog_published_a_working/
 CVE-2026-31789,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/
 CVE-2026-31790,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/
 CVE-2026-32201,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
@@ -106,6 +107,7 @@ CVE-2026-43125,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.co
 CVE-2026-43284,1,2026-05-09T10:49:52+00:00,1778323792,manjaro,https://reddit.com/r/manjaro/comments/1t81nu1/alert_dirty_frag_cve202643284_cve202643500_root/
 CVE-2026-43414,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2026-43500,1,2026-05-09T10:49:52+00:00,1778323792,manjaro,https://reddit.com/r/manjaro/comments/1t81nu1/alert_dirty_frag_cve202643284_cve202643500_root/
+CVE-2026-43503,1,2026-06-29T01:47:38+00:00,1782697658,AZURE,https://reddit.com/r/AZURE/comments/1uif39c/dirtyclone_cve202643503_jfrog_published_a_working/
 CVE-2026-44249,1,2026-06-22T13:06:47+00:00,1782133607,SQL,https://reddit.com/r/SQL/comments/1uck37x/dbeaver_community_edition_2611_is_now_available/
 CVE-2026-44277,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2026-44390,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/
@@ -120,6 +122,7 @@ CVE-2026-45586,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.co
 CVE-2026-45602,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2026-45648,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2026-45657,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
+CVE-2026-46331,1,2026-06-29T01:47:38+00:00,1782697658,AZURE,https://reddit.com/r/AZURE/comments/1uif39c/dirtyclone_cve202643503_jfrog_published_a_working/
 CVE-2026-46333,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2026-46633,1,2026-06-07T00:05:33+00:00,1780790733,netsec,https://reddit.com/r/netsec/comments/1tywxh9/cve202646640_developing_payloads_for_twig_sandbox/
 CVE-2026-46640,1,2026-06-07T00:05:33+00:00,1780790733,netsec,https://reddit.com/r/netsec/comments/1tywxh9/cve202646640_developing_payloads_for_twig_sandbox/
