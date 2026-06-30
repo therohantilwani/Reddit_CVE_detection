@@ -1,4 +1,6 @@
 post_id,subreddit,created_iso_utc,title,cves,cve_paths,url
+,netsec,2026-06-29T19:27:02+00:00,"Enterprise Tech In, Shell Out (Progress Kemp LoadMaster Uninitialized Heap to Pre-Auth RCE CVE-2026-8037) - watchTowr Labs",CVE-2026-8037,title,https://reddit.com/r/netsec/comments/1uj2a4w/enterprise_tech_in_shell_out_progress_kemp/
+,linux,2026-06-29T09:35:36+00:00,DirtyClone (CVE-2026-43503): The Linux Kernel Flaw That Leaves No Trace,CVE-2026-43503,author_description;title,https://reddit.com/r/linux/comments/1uinqoc/dirtyclone_cve202643503_the_linux_kernel_flaw/
 ,AZURE,2026-06-29T01:47:38+00:00,"DirtyClone (CVE-2026-43503) — JFrog published a working Linux kernel LPE walkthrough June 25. CVSS 8.8, zero log trace, file integrity tools",CVE-2026-31431;CVE-2026-43503;CVE-2026-46331,author_description;title,https://reddit.com/r/AZURE/comments/1uif39c/dirtyclone_cve202643503_jfrog_published_a_working/
 ,openclaw,2026-06-26T16:35:54+00:00,CVE-2026-LGTM - Trusting Agents to do Security Reviews is getting bad,,,https://reddit.com/r/openclaw/comments/1ugbudh/cve2026lgtm_trusting_agents_to_do_security/
 ,netsec,2026-06-25T15:30:44+00:00,CVE-2025-52465 geoserver arbitrary file write vulnerability,CVE-2025-52465,title,https://reddit.com/r/netsec/comments/1ufdc3k/cve202552465_geoserver_arbitrary_file_write/
