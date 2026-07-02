@@ -1,5 +1,372 @@
 [
   {
+    "_id": "6a45ee171806aee644edf5d3",
+    "redditId": "1ul7lyd",
+    "author": "Expert_Sort7434",
+    "author_description": "Adversa AI just published research on something they're calling GuardFall — not a single CVE, but a structural gap in how AI coding agents (Hermes, OpenCode, Roo-Code, and others) validate shell commands before execution.\n\nThe core issue: these agents filter the *literal text* of a command against regex/wildcard patterns. But Bash rewrites that text at runtime — quote removal, `$IFS` substitution, command substitution — so a string that passes the filter can still evaluate to the exact dangerous command the filter was supposed to block. Tested against 11 agents, 10 failed in at least one of four bypass classes. Only Continue reportedly closed the majority of the surface.\n\nThe worst variant doesn't even need the operator to opt into anything — a malicious repo's config (e.g. an `.aider.conf.yml` with `auto-test: true` and a poisoned test command) can fire on first accepted edit.\n\nI previously covered a related failure mode here if you want more background: [CISA Confirms Langflow RCE CVE-2026-33017](https://www.techgines.com/post/cisa-confirms-langflow-rce-cve-2026-33017-attackers-had-working-exploits-before-the-world-had-a-poc) — different mechanism, same root problem: AI tooling given privileged execution with a safety layer that doesn't actually model what the underlying interpreter will do.\n\nCurious what this sub thinks: is sandboxing/credential isolation the only real fix here, or is there a filtering approach that could actually work against a shell that rewrites its own input?\n\n[https://www.techgines.com/post/guardfall-ai-coding-agent-shell-injection-vulnerability](https://www.techgines.com/post/guardfall-ai-coding-agent-shell-injection-vulnerability)",
+    "awards": [],
+    "created_utc": "2026-07-02T04:03:58",
+    "first_author_comment": null,
+    "num_comments": 1,
+    "score": 2,
+    "subreddit": "AZURE",
+    "tag": "Media",
+    "tags": [
+      "Media"
+    ],
+    "title": "GuardFall: 10/11 open-source AI coding agents fail a shell trick that's been public since Bash 1.0 (1989)",
+    "updatedAt": "2026-07-02T04:50:31.472Z",
+    "upvote_ratio": 0.75,
+    "url": "https://reddit.com/r/AZURE/comments/1ul7lyd/guardfall_1011_opensource_ai_coding_agents_fail_a/",
+    "versionList": [
+      "10.0.0",
+      "11.0.0",
+      "1.0.0",
+      "1989.0.0"
+    ]
+  },
+  {
+    "_id": "6a4577ac1806aee644edb6ec",
+    "redditId": "1uku5tc",
+    "author": "luky90",
+    "author_description": "I cannot make win11 to join the domain. The answer file runs automatically the only thing is that i have to choose disk but rest runs without confirmation. WDS however creates a Computer object in AD PC-NINJA001 according to AD DS Naming Policy in WDS however when i log on with local user after autounattend.xml has finished the computer name is somehow different and has COMPANY-RANDOMCHARS in it and it's in Workgroup instead of Domain.\n\nI set WDS to allow DomainJoin under Client -&gt; Joining a Domain and unchecked that checkbox. Also i specified the OU where the computer object should be created under AD DS -&gt; The following Location. Where its created.\n\nCan anyone tell me where my issue is?\n\nThis is how my answer file looks like:\n\n    &lt;?xml version=\"1.0\" encoding=\"utf-8\"?&gt;\n    &lt;unattend xmlns=\"urn:schemas-microsoft-com:unattend\"&gt;\n    \n      &lt;settings pass=\"windowsPE\"&gt;\n    \n        &lt;component name=\"Microsoft-Windows-Setup\"\n                   processorArchitecture=\"amd64\"\n                   publicKeyToken=\"31bf3856ad364e35\"\n                   language=\"neutral\"\n                   versionScope=\"nonSxS\"\n                   xmlns:wcm=\"http://schemas.microsoft.com/WMIConfig/2002/State\"&gt;\n    \n          &lt;EnableFirewall&gt;false&lt;/EnableFirewall&gt;\n          &lt;LogPath&gt;C:\\Log&lt;/LogPath&gt;\n    \n          &lt;UserData&gt;\n            &lt;AcceptEula&gt;true&lt;/AcceptEula&gt;\n    \n            &lt;ProductKey&gt;\n              &lt;Key&gt;W269N-WFGWX-YVC9B-4J6C9-T83GX&lt;/Key&gt;\n              &lt;WillShowUI&gt;OnError&lt;/WillShowUI&gt;\n            &lt;/ProductKey&gt;\n    \n          &lt;/UserData&gt;\n    \n        &lt;/component&gt;\n    \n        &lt;component name=\"Microsoft-Windows-International-Core-WinPE\"\n                   processorArchitecture=\"amd64\"\n                   publicKeyToken=\"31bf3856ad364e35\"\n                   language=\"neutral\"\n                   versionScope=\"nonSxS\"&gt;\n    \n          &lt;SetupUILanguage&gt;\n            &lt;UILanguage&gt;de-DE&lt;/UILanguage&gt;\n          &lt;/SetupUILanguage&gt;\n    \n          &lt;InputLocale&gt;de-DE&lt;/InputLocale&gt;\n          &lt;SystemLocale&gt;de-DE&lt;/SystemLocale&gt;\n          &lt;UILanguage&gt;de-DE&lt;/UILanguage&gt;\n          &lt;UserLocale&gt;de-DE&lt;/UserLocale&gt;\n          &lt;UILanguageFallback&gt;de-DE&lt;/UILanguageFallback&gt;\n    \n        &lt;/component&gt;\n    \n      &lt;/settings&gt;\n    \n      &lt;settings pass=\"specialize\"&gt;\n    \n        &lt;component name=\"Microsoft-Windows-Shell-Setup\"\n                   processorArchitecture=\"amd64\"\n                   publicKeyToken=\"31bf3856ad364e35\"\n                   language=\"neutral\"\n                   versionScope=\"nonSxS\"&gt;\n    \n          &lt;ComputerName&gt;*&lt;/ComputerName&gt;\n    \n          &lt;RegisteredOrganization&gt;Company GmbH&lt;/RegisteredOrganization&gt;\n          &lt;RegisteredOwner&gt;Company GmbH&lt;/RegisteredOwner&gt;\n    \n          &lt;TimeZone&gt;W. Europe Standard Time&lt;/TimeZone&gt;\n    \n          &lt;ProductKey&gt;W269N-WFGWX-YVC9B-4J6C9-T83GX&lt;/ProductKey&gt;\n    \n        &lt;/component&gt;\n    \n        &lt;component name=\"Microsoft-Windows-Security-SPP-UX\"\n                   processorArchitecture=\"amd64\"\n                   publicKeyToken=\"31bf3856ad364e35\"\n                   language=\"neutral\"\n                   versionScope=\"nonSxS\"&gt;\n    \n          &lt;SkipAutoActivation&gt;true&lt;/SkipAutoActivation&gt;\n    \n        &lt;/component&gt;\n    \n        &lt;component name=\"Microsoft-Windows-Deployment\"\n                   processorArchitecture=\"amd64\"\n                   publicKeyToken=\"31bf3856ad364e35\"\n                   language=\"neutral\"\n                   versionScope=\"nonSxS\"\n                   xmlns:wcm=\"http://schemas.microsoft.com/WMIConfig/2002/State\"&gt;\n    \n          &lt;RunSynchronous&gt;\n    \n            &lt;RunSynchronousCommand wcm:action=\"add\"&gt;\n              &lt;Order&gt;1&lt;/Order&gt;\n              &lt;Description&gt;Enable Administrator&lt;/Description&gt;\n              &lt;Path&gt;cmd /c net user administrator /active:yes&lt;/Path&gt;\n            &lt;/RunSynchronousCommand&gt;\n    \n            &lt;RunSynchronousCommand wcm:action=\"add\"&gt;\n              &lt;Order&gt;2&lt;/Order&gt;\n              &lt;Description&gt;bMA ICMPv4&lt;/Description&gt;\n              &lt;Path&gt;netsh advfirewall firewall add rule name=\"bMA All ICMP V4\" profile=\"domain,private\" protocol=icmpv4 dir=in action=allow&lt;/Path&gt;\n            &lt;/RunSynchronousCommand&gt;\n    \n            &lt;RunSynchronousCommand wcm:action=\"add\"&gt;\n              &lt;Order&gt;3&lt;/Order&gt;\n              &lt;Description&gt;bMA SMB&lt;/Description&gt;\n              &lt;Path&gt;netsh advfirewall firewall add rule name=\"bMA SMBIn\" profile=\"domain,private\" protocol=TCP dir=in localport=445 action=allow&lt;/Path&gt;\n            &lt;/RunSynchronousCommand&gt;\n    \n          &lt;/RunSynchronous&gt;\n    \n        &lt;/component&gt;\n    \n    &lt;component name=\"Microsoft-Windows-UnattendedJoin\"\n               processorArchitecture=\"amd64\"\n               publicKeyToken=\"31bf3856ad364e35\"\n               language=\"neutral\"\n               versionScope=\"nonSxS\"&gt;\n    \n        &lt;Identification&gt;\n    \n        &lt;Credentials&gt;\n          &lt;Domain&gt;COMPANY&lt;/Domain&gt;\n          &lt;Username&gt;uberboss&lt;/Username&gt;\n          &lt;Password&gt;FullSecurePassword&lt;/Password&gt;\n        &lt;/Credentials&gt;\n    \n        &lt;JoinDomain&gt;company.local&lt;/JoinDomain&gt;\n    \n        &lt;MachineObjectOU&gt;OU=ClientSetup,OU=MGMT,OU=Win11,OU=Computers,OU=OU1,DC=company,DC=local&lt;/MachineObjectOU&gt;\n    \n        &lt;/Identification&gt;\n    \n        &lt;/component&gt;\n    \n      &lt;/settings&gt;\n    \n      &lt;settings pass=\"oobeSystem\"&gt;\n    \n        &lt;component name=\"Microsoft-Windows-International-Core\"\n                   processorArchitecture=\"amd64\"\n                   publicKeyToken=\"31bf3856ad364e35\"\n                   language=\"neutral\"\n                   versionScope=\"nonSxS\"&gt;\n    \n          &lt;InputLocale&gt;de-DE&lt;/InputLocale&gt;\n          &lt;SystemLocale&gt;de-DE&lt;/SystemLocale&gt;\n          &lt;UILanguage&gt;de-DE&lt;/UILanguage&gt;\n          &lt;UserLocale&gt;de-DE&lt;/UserLocale&gt;\n          &lt;UILanguageFallback&gt;de-DE&lt;/UILanguageFallback&gt;\n    \n        &lt;/component&gt;\n    \n        &lt;component name=\"Microsoft-Windows-Shell-Setup\"\n                   processorArchitecture=\"amd64\"\n                   publicKeyToken=\"31bf3856ad364e35\"\n                   language=\"neutral\"\n                   versionScope=\"nonSxS\"\n                   xmlns:wcm=\"http://schemas.microsoft.com/WMIConfig/2002/State\"&gt;\n    \n          &lt;RegisteredOrganization&gt;Company GmbH&lt;/RegisteredOrganization&gt;\n          &lt;RegisteredOwner&gt;Company GmbH&lt;/RegisteredOwner&gt;\n    \n          &lt;OOBE&gt;\n            &lt;HideEULAPage&gt;true&lt;/HideEULAPage&gt;\n            &lt;HideWirelessSetupInOOBE&gt;true&lt;/HideWirelessSetupInOOBE&gt;\n            &lt;HideOnlineAccountScreens&gt;true&lt;/HideOnlineAccountScreens&gt;\n            &lt;NetworkLocation&gt;Work&lt;/NetworkLocation&gt;\n            &lt;ProtectYourPC&gt;3&lt;/ProtectYourPC&gt;\n          &lt;/OOBE&gt;\n    \n          &lt;UserAccounts&gt;\n    \n            &lt;AdministratorPassword&gt;\n              &lt;Value&gt;DummyPassword&lt;/Value&gt;\n              &lt;PlainText&gt;true&lt;/PlainText&gt;\n            &lt;/AdministratorPassword&gt;\n    \n            &lt;LocalAccounts&gt;\n    \n              &lt;LocalAccount wcm:action=\"add\"&gt;\n    \n                &lt;Name&gt;admin&lt;/Name&gt;\n    \n                &lt;DisplayName&gt;admin&lt;/DisplayName&gt;\n    \n                &lt;Group&gt;Administrators&lt;/Group&gt;\n    \n                &lt;Password&gt;\n                  &lt;Value&gt;DummyPassword&lt;/Value&gt;\n                  &lt;PlainText&gt;true&lt;/PlainText&gt;\n                &lt;/Password&gt;\n    \n              &lt;/LocalAccount&gt;\n    \n            &lt;/LocalAccounts&gt;\n    \n          &lt;/UserAccounts&gt;\n    \n        &lt;/component&gt;\n    \n      &lt;/settings&gt;\n    \n    &lt;/unattend&gt;",
+    "awards": [],
+    "comments": [
+      {
+        "id": "ouyv4ep",
+        "author": "gpraveen23",
+        "body": "https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/active-directory-domain-join-troubleshooting-guidance\n\nThis should point you the reason.\n\nAlso review Panther logs\n\nAlso check this. https://support.microsoft.com/en-us/topic/windows-deployment-services-wds-hands-free-deployment-hardening-guidance-related-to-cve-2026-0386-0daa3a3c-f3cd-4291-9147-a459c290c462",
+        "score": 1,
+        "created_utc_ts": 1782932202,
+        "created_utc": "2026-07-01T18:56:42",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1uku5tc/struggle_with_win11_and_wds_answer_file_domain/ouyv4ep/",
+        "parent_id": "t3_1uku5tc",
+        "is_submitter": false
+      },
+      {
+        "id": "ouyxo63",
+        "author": "Cormacolinde",
+        "body": "You need to look at netsetup.err and netsetup.log on the machine to start with. Are you reusing the same computername? If you are you will need to add the service account to a group and a GPO to allow that.",
+        "score": 1,
+        "created_utc_ts": 1782932835,
+        "created_utc": "2026-07-01T19:07:15",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1uku5tc/struggle_with_win11_and_wds_answer_file_domain/ouyxo63/",
+        "parent_id": "t3_1uku5tc",
+        "is_submitter": false
+      },
+      {
+        "id": "ouyy4ig",
+        "author": "Leasj",
+        "body": "[Automate Windows Server 2025 Installation with Unattend.xml](https://www.starwindsoftware.com/blog/windows-server-2025-unattend-xml-answer-file-creation/)\n\nHave you used the WSIM tool? Sounds like your autounattend is not formatted for the right windows version correctly or something. When I was dealing with WDS a few years ago I was finally able to get it to work when I used the WSIM and created the autounattend for my specific ISO. This should also help you fix the manual disk selection.\n\nBest of luck. Autounattend is a bitch to work with sometimes...",
+        "score": 1,
+        "created_utc_ts": 1782932949,
+        "created_utc": "2026-07-01T19:09:09",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1uku5tc/struggle_with_win11_and_wds_answer_file_domain/ouyy4ig/",
+        "parent_id": "t3_1uku5tc",
+        "is_submitter": false
+      },
+      {
+        "id": "ouyybgw",
+        "author": "luky90",
+        "body": "I have deleted the newly created computer object after deployment has been finished just to start over. So I guess the answer \"to reuse\" is no since technically WDS created a new computer object instead of reusing it.",
+        "score": 1,
+        "created_utc_ts": 1782932998,
+        "created_utc": "2026-07-01T19:09:58",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1uku5tc/struggle_with_win11_and_wds_answer_file_domain/ouyybgw/",
+        "parent_id": "t1_ouyxo63",
+        "is_submitter": true
+      }
+    ],
+    "created_utc": "2026-07-01T18:41:41",
+    "first_author_comment": "I have deleted the newly created computer object after deployment has been finished just to start over. So I guess the answer \"to reuse\" is no since technically WDS created a new computer object instead of reusing it.",
+    "num_comments": 4,
+    "score": 1,
+    "subreddit": "sysadmin",
+    "tag": null,
+    "tags": [],
+    "title": "Struggle with Win11 and WDS Answer File Domain Join",
+    "updatedAt": "2026-07-02T04:25:20.551Z",
+    "upvote_ratio": 0.6,
+    "url": "https://reddit.com/r/sysadmin/comments/1uku5tc/struggle_with_win11_and_wds_answer_file_domain/",
+    "versionList": [],
+    "classification": {
+      "componentType": [],
+      "securityType": [
+        "UNKNOWN"
+      ]
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.00012292188834361334,
+        "timestampPredicted": "2026-07-02T04:01:30.959293+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true
+  },
+  {
+    "_id": "6a4544b819c4c61da020f403",
+    "redditId": "1ukqaam",
+    "author": "bscottrosen21",
+    "author_description": "Cato AI Labs just disclosed DuneSlide, two critical RCE vulnerabilities found in Cursor IDE: CVE-2026-50548 and CVE-2026-50549. Both are rated Critical.\n\nThe interesting part is the attack path. This was not just prompt injection changing model output. The agent could ingest untrusted content from sources like MCP servers or web search results, then act through the app around it.\n\nWith DuneSlide, zero-click prompt injection could become a path to:\n\n* sandbox escape\n* arbitrary file write\n* unsandboxed remote code execution\n\nA user does not need to open a malicious file or run attacker-controlled code. The exploit can start when a normal-looking prompt causes the agent to ingest attacker-controlled content from an untrusted source.\n\nThe main thing this research shows is the sandbox matters, but so do the inputs, permissions, execution paths, and boundaries around it.\n\nFull writeup: [https://bit.ly/4vMylp8](https://bit.ly/4vMylp8)",
+    "awards": [],
+    "created_utc": "2026-07-01T16:19:42",
+    "first_author_comment": null,
+    "num_comments": 0,
+    "score": 7,
+    "subreddit": "netsec",
+    "tag": null,
+    "tags": [],
+    "title": "Zero-Click Prompt Injection to RCE in Cursor IDE: DuneSlide",
+    "updatedAt": "2026-07-02T00:01:42.016Z",
+    "upvote_ratio": 0.82,
+    "url": "https://reddit.com/r/netsec/comments/1ukqaam/zeroclick_prompt_injection_to_rce_in_cursor_ide/",
+    "versionList": [],
+    "classification": {
+      "componentType": [
+        "IDE"
+      ],
+      "securityType": [
+        "UNKNOWN"
+      ]
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.00010362262782518814,
+        "timestampPredicted": "2026-07-02T00:01:41.234096+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true
+  },
+  {
+    "_id": "6a45460619c4c61da020f4a2",
+    "redditId": "1ukppye",
+    "author": "elatllat",
+    "author_description": "https://github.com/CVEProject/cvelistV5\n\n- CVE-2026-53309\n- CVE-2026-53260\n- CVE-2026-53247\n- CVE-2026-53246\n- CVE-2026-53228\n- CVE-2026-53221\n- CVE-2026-53216\n- CVE-2026-53215\n- CVE-2026-53176\n- CVE-2026-53175\n- CVE-2026-53151\n- CVE-2026-53088\n- CVE-2026-53086\n- CVE-2026-53055\n- CVE-2026-53049\n- CVE-2026-53046\n- CVE-2026-53045\n- CVE-2026-53010\n- CVE-2026-53006\n- CVE-2026-53002\n- CVE-2026-52993\n- CVE-2026-52989\n- CVE-2026-52986\n- CVE-2026-52955\n- CVE-2026-52931\n- CVE-2026-52924\n- CVE-2026-52914\n- CVE-2026-46325\n- CVE-2026-46289\n\nAnd updates to some older ones:\n\n- CVE-2026-52982\n- CVE-2026-46195\n- CVE-2026-45972\n- CVE-2026-45898\n- CVE-2026-43501\n- CVE-2026-43198\n- CVE-2026-43125\n- CVE-2026-43038\n- CVE-2026-43037\n- CVE-2026-31607\n- CVE-2026-31402",
+    "awards": [],
+    "comments": [
+      {
+        "id": "ouxzdh1",
+        "author": "FlukyS",
+        "body": "What is interesting about them? Great to see that things are being detected but just wondering what was found\n\nEDIT: Oh you just mean a bunch of high severity CVEs were all found at once in general, great to see, I went down through the list and quite a lot of the changes are quite small but super important",
+        "score": 32,
+        "created_utc_ts": 1782924712,
+        "created_utc": "2026-07-01T16:51:52",
+        "permalink": "https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/ouxzdh1/",
+        "parent_id": "t3_1ukppye",
+        "is_submitter": false
+      },
+      {
+        "id": "ouyfgpp",
+        "author": "580083351",
+        "body": "This is nuts.. CVEs are speeding up. I wonder if we will have to end up going back to an airgapped PC without a network connection, and another one with one that we don't care if it gets trashed.",
+        "score": 37,
+        "created_utc_ts": 1782928424,
+        "created_utc": "2026-07-01T17:53:44",
+        "permalink": "https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/ouyfgpp/",
+        "parent_id": "t3_1ukppye",
+        "is_submitter": false
+      },
+      {
+        "id": "ouyl9da",
+        "author": "x0wl",
+        "body": "CVEs are speeding up because the tools for their detection (namely, in this case, AI based code analysis and fuzzers) are getting better at finding them. There's fundamentally a finite number of them though, and unless we see constant development of the capabilities of such tools, it will die down after some time, especially since running them on your code to get a security review will become standard / required / expected at some point.",
+        "score": 43,
+        "created_utc_ts": 1782929790,
+        "created_utc": "2026-07-01T18:16:30",
+        "permalink": "https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/ouyl9da/",
+        "parent_id": "t1_ouyfgpp",
+        "is_submitter": false
+      },
+      {
+        "id": "ouyppxq",
+        "author": "KnowZeroX",
+        "body": "Do note that many of these so called CVEs aren't as urgent as it makes it out to be, some even target specific hardware and require higher privileges already. Taking a random one like CVE-2026-53247, you first need to have a mediatek ethernet driver, then you need a user with root and CAP\\_SYS\\_ADMIN privileges",
+        "score": 23,
+        "created_utc_ts": 1782930872,
+        "created_utc": "2026-07-01T18:34:32",
+        "permalink": "https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/ouyppxq/",
+        "parent_id": "t1_ouyfgpp",
+        "is_submitter": false
+      },
+      {
+        "id": "ouz8lzn",
+        "author": "Slight_Manufacturer6",
+        "body": "Air gapped PCs are still a thing and have never completely left the enterprise.",
+        "score": 22,
+        "created_utc_ts": 1782935620,
+        "created_utc": "2026-07-01T19:53:40",
+        "permalink": "https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/ouz8lzn/",
+        "parent_id": "t1_ouyfgpp",
+        "is_submitter": false
+      },
+      {
+        "id": "ouz9b6k",
+        "author": "2rad0",
+        "body": "The big losers in todays episode were: ipv6, smb, with the 3'rd place contender being sctp. Most others are miscellaneous bugs in filesystems and networking.",
+        "score": 16,
+        "created_utc_ts": 1782935795,
+        "created_utc": "2026-07-01T19:56:35",
+        "permalink": "https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/ouz9b6k/",
+        "parent_id": "t3_1ukppye",
+        "is_submitter": false
+      },
+      {
+        "id": "ouzh3p7",
+        "author": "ilep",
+        "body": "That is essentially what virtual machines are for..",
+        "score": 3,
+        "created_utc_ts": 1782937802,
+        "created_utc": "2026-07-01T20:30:02",
+        "permalink": "https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/ouzh3p7/",
+        "parent_id": "t1_ouyfgpp",
+        "is_submitter": false
+      },
+      {
+        "id": "ov03oce",
+        "author": "elrata_",
+        "body": "Which cves are that? Do you have them handy?",
+        "score": 1,
+        "created_utc_ts": 1782943887,
+        "created_utc": "2026-07-01T22:11:27",
+        "permalink": "https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/ov03oce/",
+        "parent_id": "t1_ouz9b6k",
+        "is_submitter": false
+      },
+      {
+        "id": "ov071se",
+        "author": "580083351",
+        "body": "OpenWrt pushed 25.12.5 today with a lot of ipv6 cve fixes which is nice since I run dual-stack.",
+        "score": 8,
+        "created_utc_ts": 1782944861,
+        "created_utc": "2026-07-01T22:27:41",
+        "permalink": "https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/ov071se/",
+        "parent_id": "t1_ouz9b6k",
+        "is_submitter": false
+      },
+      {
+        "id": "ov0x4td",
+        "author": "ready_or_not_3434",
+        "body": "Usually when a massive batch of 9.8s drops all at once its because someone ran a new scaner across a bunch of packages and found a common pattern. The actual code diffs are almost always tiny, like just adding a missing bounds check that nobody noticed for years.",
+        "score": 13,
+        "created_utc_ts": 1782952943,
+        "created_utc": "2026-07-02T00:42:23",
+        "permalink": "https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/ov0x4td/",
+        "parent_id": "t1_ouxzdh1",
+        "is_submitter": false
+      },
+      {
+        "id": "ov1x7o8",
+        "author": "BibianaAudris",
+        "body": "The CVE reports look like someone ran LLM over some not-very-commonly-used kernel code, like cluster filesystems, SoC driver stacks, and low-use network protocols.\n\nA recent program seems to match this pattern: https://www.linuxfoundation.org/press/linux-foundation-and-industry-leaders-launch-akrites-to-defend-critical-open-source-software-against-ai-enabled-cyber-threats\n\nOverall I think this is a good evelopment: most likely LLM-equipped attackers would have already found those bugs and just didn't find them economical to exploit. Now they're getting fixed. They would likely improve stability and maybe performance (e.g. CVE-2026-53086) too, for people who actually use the relevant code.",
+        "score": 1,
+        "created_utc_ts": 1782964931,
+        "created_utc": "2026-07-02T04:02:11",
+        "permalink": "https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/ov1x7o8/",
+        "parent_id": "t3_1ukppye",
+        "is_submitter": false
+      }
+    ],
+    "created_utc": "2026-07-01T15:59:24",
+    "first_author_comment": "&gt; need a user with root ***and*** CAP_SYS_ADMIN privileges\n\nIncorrect; it's \n\n&gt; need a user with root ***or*** CAP_SYS_ADMIN privileges\n\nor more simply \n\n&gt; need a user with CAP_SYS_ADMIN privileges\n\nWhy would any user have that you ask?\n\nWell; common use cases for CAP_SYS_ADMIN without root include\n\n- containers (like podman and docker)\n- and filesystems (like nfsd)\n- and disk tools (like smartmontools)\n- and kernel tools (like perf and eBPF tracers)\n- and network configuration (like keepalived and strongswan)",
+    "num_comments": 20,
+    "score": 92,
+    "subreddit": "linux",
+    "tag": "Kernel",
+    "tags": [
+      "Kernel"
+    ],
+    "title": "Interestingly long list of 9.8 scoring CVEs Today",
+    "updatedAt": "2026-07-02T04:52:03.633Z",
+    "upvote_ratio": 0.89,
+    "url": "https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/",
+    "versionList": [
+      "9.8.0"
+    ],
+    "classification": {
+      "componentType": [
+        "OS"
+      ],
+      "securityType": [
+        "UNKNOWN"
+      ]
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.001812227187402357,
+        "timestampPredicted": "2026-07-01T20:00:53.734137+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true
+  },
+  {
+    "_id": "6a4544ba19c4c61da020f405",
+    "redditId": "1uknvr4",
+    "author": "Sandwich_1337",
+    "author_description": null,
+    "awards": [],
+    "created_utc": "2026-07-01T14:52:02",
+    "first_author_comment": null,
+    "num_comments": 1,
+    "score": 14,
+    "subreddit": "netsec",
+    "tag": "Contains AI",
+    "tags": [],
+    "title": "Privilege escalation to root in Lima QEMU guests via a world-writable agent socket (CVE-2026-53657)",
+    "updatedAt": "2026-07-02T04:45:49.858Z",
+    "upvote_ratio": 0.9,
+    "url": "https://reddit.com/r/netsec/comments/1uknvr4/privilege_escalation_to_root_in_lima_qemu_guests/",
+    "versionList": [
+      "2026.0.0",
+      "53657.0.0"
+    ],
+    "classification": {
+      "componentType": [],
+      "securityType": [
+        "SECURITY"
+      ]
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.0003687025206886918,
+        "timestampPredicted": "2026-07-01T20:01:07.092320+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": false,
+    "comments": [
+      {
+        "id": "ov1afvo",
+        "author": "TheG0AT0fAllTime",
+        "body": "With QEMU vulnerabilities I'm surprised it's constantly socket related.\n\n&gt;The root-owned socket was created **world-writable**, so any local user in the guest could connect to it.\n\nsigh",
+        "score": 1,
+        "created_utc_ts": 1782957015,
+        "created_utc": "2026-07-02T01:50:15",
+        "permalink": "https://reddit.com/r/netsec/comments/1uknvr4/privilege_escalation_to_root_in_lima_qemu_guests/ov1afvo/",
+        "parent_id": "t3_1uknvr4",
+        "is_submitter": false
+      }
+    ]
+  },
+  {
     "_id": "6a442b3c19c4c61da020766c",
     "redditId": "1ujzc5y",
     "author": "dx7r__",
@@ -7,14 +374,14 @@
     "awards": [],
     "created_utc": "2026-06-30T19:40:48",
     "first_author_comment": null,
-    "num_comments": 1,
-    "score": 22,
+    "num_comments": 2,
+    "score": 35,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CitrixBleed To Infinity And Beyond (Citrix NetScaler Pre-Auth Memory Overread CVE-2026-8451) - watchTowr Labs",
-    "updatedAt": "2026-07-01T04:45:53.628Z",
-    "upvote_ratio": 0.91,
+    "updatedAt": "2026-07-02T04:45:52.601Z",
+    "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/netsec/comments/1ujzc5y/citrixbleed_to_infinity_and_beyond_citrix/",
     "versionList": [
       "2026.0.0",
@@ -37,7 +404,20 @@
       }
     },
     "isAboutCve": true,
-    "isAboutLatestUpdate": false
+    "isAboutLatestUpdate": false,
+    "comments": [
+      {
+        "id": "ov0q36b",
+        "author": "LakeSage1994",
+        "body": "Another pre-auth memory overread on NetScaler, because apparently we learned nothing the first time around. Curious how long this one was being exploited in the wild before disclosure.",
+        "score": 1,
+        "created_utc_ts": 1782950625,
+        "created_utc": "2026-07-02T00:03:45",
+        "permalink": "https://reddit.com/r/netsec/comments/1ujzc5y/citrixbleed_to_infinity_and_beyond_citrix/ov0q36b/",
+        "parent_id": "t3_1ujzc5y",
+        "is_submitter": false
+      }
+    ]
   },
   {
     "_id": "6a43edeb19c4c61da0206133",
@@ -67,11 +447,22 @@
         "permalink": "https://reddit.com/r/sysadmin/comments/1ujsqrj/what_is_the_best_practice_to_mass_deploy_win11/ouq81as/",
         "parent_id": "t1_ouq6tno",
         "is_submitter": true
+      },
+      {
+        "id": "ouwlc80",
+        "author": "thebigshoe247",
+        "body": "I still use WDS with MDT and W11?",
+        "score": 1,
+        "created_utc_ts": 1782911965,
+        "created_utc": "2026-07-01T13:19:25",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1ujsqrj/what_is_the_best_practice_to_mass_deploy_win11/ouwlc80/",
+        "parent_id": "t3_1ujsqrj",
+        "is_submitter": false
       }
     ],
     "created_utc": "2026-06-30T15:41:57",
     "first_author_comment": "according to that kb [https://learn.microsoft.com/en-us/windows/deployment/wds-boot-support](https://learn.microsoft.com/en-us/windows/deployment/wds-boot-support) win11 is blocked. Also this kb [https://support.microsoft.com/en-us/topic/windows-deployment-services-wds-hands-free-deployment-hardening-guidance-related-to-cve-2026-0386-0daa3a3c-f3cd-4291-9147-a459c290c462](https://support.microsoft.com/en-us/topic/windows-deployment-services-wds-hands-free-deployment-hardening-guidance-related-to-cve-2026-0386-0daa3a3c-f3cd-4291-9147-a459c290c462) states that hand free deployment wont be supported after latest patches.",
-    "num_comments": 3,
+    "num_comments": 4,
     "score": 0,
     "subreddit": "sysadmin",
     "tag": "Question",
@@ -79,7 +470,7 @@
       "Question"
     ],
     "title": "What is the best practice to mass deploy Win11 over NinjaOne with PXE?",
-    "updatedAt": "2026-07-01T04:25:35.624Z",
+    "updatedAt": "2026-07-01T14:25:57.944Z",
     "upvote_ratio": 0.33,
     "url": "https://reddit.com/r/sysadmin/comments/1ujsqrj/what_is_the_best_practice_to_mass_deploy_win11/",
     "versionList": [],
@@ -113,7 +504,7 @@
         "id": "oupqv11",
         "author": "noop_noob",
         "body": "The cargo fix fixes a regression where, in rust 1.96.0, cargo wouldn't retry some stuff properly. This caused cargo to sometimes fail to fetch stuff in poor network conditions, such as github actions.",
-        "score": 72,
+        "score": 101,
         "created_utc_ts": 1782830395,
         "created_utc": "2026-06-30T14:39:55",
         "permalink": "https://reddit.com/r/rust/comments/1ujqvqx/rust_1961_is_out/oupqv11/",
@@ -124,7 +515,7 @@
         "id": "oupugfd",
         "author": "manpacket",
         "body": "I would say miscompilation fix is more important.",
-        "score": 37,
+        "score": 53,
         "created_utc_ts": 1782831333,
         "created_utc": "2026-06-30T14:55:33",
         "permalink": "https://reddit.com/r/rust/comments/1ujqvqx/rust_1961_is_out/oupugfd/",
@@ -135,7 +526,7 @@
         "id": "ouq0hra",
         "author": "paulqq",
         "body": "Just curious. Will they do 1.101.1 or raisento rust 2. After we reach a 100 on minor release. I know semver allows 1.2047.1 and so on",
-        "score": 4,
+        "score": 0,
         "created_utc_ts": 1782832917,
         "created_utc": "2026-06-30T15:21:57",
         "permalink": "https://reddit.com/r/rust/comments/1ujqvqx/rust_1961_is_out/ouq0hra/",
@@ -146,7 +537,7 @@
         "id": "ouq1637",
         "author": "KingofGamesYami",
         "body": "Zero chance they do Rust 2 for that reason. If they do a major semver change, it'll have a lot more thought put into it than \"version number got big\".",
-        "score": 48,
+        "score": 61,
         "created_utc_ts": 1782833092,
         "created_utc": "2026-06-30T15:24:52",
         "permalink": "https://reddit.com/r/rust/comments/1ujqvqx/rust_1961_is_out/ouq1637/",
@@ -157,7 +548,7 @@
         "id": "ouq1bug",
         "author": "pali6",
         "body": "The plan is for Rust 2 to never exist as that would mean a breaking change (the Rust ecosystem adheres to semver for the most part) and you can look at Python 3 to see how well those go.",
-        "score": 20,
+        "score": 24,
         "created_utc_ts": 1782833134,
         "created_utc": "2026-06-30T15:25:34",
         "permalink": "https://reddit.com/r/rust/comments/1ujqvqx/rust_1961_is_out/ouq1bug/",
@@ -179,7 +570,7 @@
         "id": "ouq2gkw",
         "author": "Solumin",
         "body": "In semver, the three parts of the version number are independent. The major version only changes for major breaking changes that are incompatible with the current major version, and Rust avoids doing that. There's a good chance we'll never see a 2.x version of Rust, frankly, because editions are the preferred mechanism for possibly-breaking changes.",
-        "score": 8,
+        "score": 10,
         "created_utc_ts": 1782833428,
         "created_utc": "2026-06-30T15:30:28",
         "permalink": "https://reddit.com/r/rust/comments/1ujqvqx/rust_1961_is_out/ouq2gkw/",
@@ -212,7 +603,7 @@
         "id": "ouql06y",
         "author": "Compux72",
         "body": "&gt; \nIt also\n \nfixes\n \nthree CVEs affecting libssh2 (which is compiled into Cargo):\nCVE-2025-15661\nCVE-2026-55199\nCVE-2026-55200\n\n\n\n\nStill amazes me how they refuse to remove the built in git fetcher. Not only it doesn't work (I’ve never seen a pipeline/docker/setup without CARGO_NET_FETCH_WITH_CLI lol), but it is also a frequent source of vulnerabilities.",
-        "score": 10,
+        "score": 23,
         "created_utc_ts": 1782838073,
         "created_utc": "2026-06-30T16:47:53",
         "permalink": "https://reddit.com/r/rust/comments/1ujqvqx/rust_1961_is_out/ouql06y/",
@@ -223,23 +614,34 @@
         "id": "ouqzrtx",
         "author": "JoshTriplett",
         "body": "Compatibility is a heck of a thing. If we removed the built-in git support, we'd break on anyone's system that didn't have git installed (or didn't have it in the path). That includes cloud systems and sandboxed build environments.\n\nThat doesn't mean we *couldn't* do that (cargo does *sometimes* carefully make incompatible changes in this kind of environmental assumption), but it'd need a lot of forewarning.",
-        "score": 31,
+        "score": 60,
         "created_utc_ts": 1782841734,
         "created_utc": "2026-06-30T17:48:54",
         "permalink": "https://reddit.com/r/rust/comments/1ujqvqx/rust_1961_is_out/ouqzrtx/",
         "parent_id": "t1_ouql06y",
         "is_submitter": false
+      },
+      {
+        "id": "outfqyl",
+        "author": "CocktailPerson",
+        "body": "Well, semver _does_ indicate that it's a patch release, yes.",
+        "score": 15,
+        "created_utc_ts": 1782866363,
+        "created_utc": "2026-07-01T00:39:23",
+        "permalink": "https://reddit.com/r/rust/comments/1ujqvqx/rust_1961_is_out/outfqyl/",
+        "parent_id": "t1_ouq6qcg",
+        "is_submitter": false
       }
     ],
     "created_utc": "2026-06-30T14:31:37",
     "first_author_comment": "I would say miscompilation fix is more important.",
-    "num_comments": 38,
-    "score": 242,
+    "num_comments": 50,
+    "score": 350,
     "subreddit": "rust",
     "tag": "📡 official blog",
     "tags": [],
     "title": "Rust 1.96.1 is out",
-    "updatedAt": "2026-06-30T23:23:26.709Z",
+    "updatedAt": "2026-07-01T23:23:51.336Z",
     "upvote_ratio": 0.99,
     "url": "https://reddit.com/r/rust/comments/1ujqvqx/rust_1961_is_out/",
     "versionList": [
@@ -409,15 +811,15 @@
     "created_utc": "2026-06-30T10:01:22",
     "first_author_comment": "thats really helpful thanks mate",
     "num_comments": 16,
-    "score": 3,
+    "score": 2,
     "subreddit": "sysadmin",
     "tag": "Question",
     "tags": [
       "Question"
     ],
     "title": "vulnerabilities popping up before cyber essentials plus audit",
-    "updatedAt": "2026-07-01T04:25:44.671Z",
-    "upvote_ratio": 0.67,
+    "updatedAt": "2026-07-01T06:25:54.807Z",
+    "upvote_ratio": 0.6,
     "url": "https://reddit.com/r/sysadmin/comments/1ujkxm5/vulnerabilities_popping_up_before_cyber/",
     "versionList": [],
     "metadata": {
@@ -440,6 +842,30 @@
     }
   },
   {
+    "_id": "6a44ba7319c4c61da020b53f",
+    "redditId": "1ujjs9l",
+    "author": "Sensitive-Bison-8192",
+    "author_description": "[https://github.com/kasnria001/pwnage24mtk](https://github.com/kasnria001/pwnage24mtk)",
+    "awards": [],
+    "created_utc": "2026-06-30T08:53:18",
+    "first_author_comment": null,
+    "num_comments": 0,
+    "score": 8,
+    "subreddit": "Android",
+    "tag": null,
+    "tags": [],
+    "title": "Cert exploit for MTK devices.There is a logic flaw in MTK cert verification process.Similar to CVE-2023-20696.",
+    "updatedAt": "2026-07-02T04:57:46.432Z",
+    "upvote_ratio": 1,
+    "url": "https://reddit.com/r/Android/comments/1ujjs9l/cert_exploit_for_mtk_devicesthere_is_a_logic_flaw/",
+    "versionList": [
+      "2023.0.0",
+      "20696.0.0"
+    ],
+    "isAboutCve": true,
+    "isAboutLatestUpdate": false
+  },
+  {
     "_id": "6a42d9ca19c4c61da01fde3a",
     "redditId": "1uj2a4w",
     "author": "dx7r__",
@@ -453,8 +879,8 @@
     "tag": null,
     "tags": [],
     "title": "Enterprise Tech In, Shell Out (Progress Kemp LoadMaster Uninitialized Heap to Pre-Auth RCE CVE-2026-8037) - watchTowr Labs",
-    "updatedAt": "2026-07-01T04:45:55.688Z",
-    "upvote_ratio": 0.95,
+    "updatedAt": "2026-07-02T04:45:54.668Z",
+    "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/netsec/comments/1uj2a4w/enterprise_tech_in_shell_out_progress_kemp/",
     "versionList": [
       "2026.0.0",
@@ -505,15 +931,15 @@
     "created_utc": "2026-06-29T11:34:36",
     "first_author_comment": "That's a good addition. I'm planning to write a separate guide on defense against supply-chain attacks with digest-pinning, minimum-release-age / cooldown periods, automated updating with Dependabot / Renovate, etc.\n\nBut I think it deserves an update of this guide as well.",
     "num_comments": 12,
-    "score": 39,
+    "score": 42,
     "subreddit": "PHP",
     "tag": "Article",
     "tags": [
       "Article"
     ],
     "title": "Composer in Docker: best practices for production images",
-    "updatedAt": "2026-07-01T05:09:55.843Z",
-    "upvote_ratio": 0.88,
+    "updatedAt": "2026-07-02T05:08:23.618Z",
+    "upvote_ratio": 0.91,
     "url": "https://reddit.com/r/PHP/comments/1uipydy/composer_in_docker_best_practices_for_production/",
     "versionList": [],
     "classification": {
@@ -591,6 +1017,78 @@
         "isAnalyzed": true,
         "cveChangeHistory": "1. 2026-06-17T01:29:01.517 | CVE Modified | source=cve@mitre.org | changeId=79A801F1-A6C7-4B0B-9505-76A65977254A\n   - Added Affected: [{'vendor': 'n/a', 'product': 'n/a', 'versions': [{'version': 'n/a', 'status': 'affected'}]}]\n2. 2026-06-17T01:29:01.517 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=AA47541E-D864-410D-ACD2-B23278FD60E4\n   - Added SSVC: {'timestamp': '2025-02-07T14:09:44.475817Z', 'id': 'CVE-2017-9841', 'options': [{'exploitation': 'active'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n3. 2026-04-21T18:00:56.903 | Modified Analysis | source=nvd@nist.gov | changeId=63D966B2-37CA-40F9-B519-C9D402711DFA\n   - Added Reference Type: CISA-ADP: https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2017-9841 Types: US Government Resource\n4. 2025-10-22T00:16:13.163 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=21BEDD54-6624-4BC5-8B8C-71E8DB9421D2\n   - Added Reference: https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2017-9841\n5. 2025-10-21T20:17:02.740 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=5625E17F-C887-40F7-970F-C0B1755DE53A\n   - Removed Reference: https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2017-9841 -> None\n6. 2025-10-21T19:17:18.450 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=636E2773-FAB7-4CEB-A0AE-2A0BF4EDCA8D\n   - Added Reference: https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2017-9841\n7. 2025-04-03T20:26:59.540 | Modified Analysis | source=nvd@nist.gov | changeId=F3DD4190-DC95-4C0A-B41B-39E4B5A80C47\n8. 2025-02-07T15:15:15.160 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=B2A829BA-481E-4862-9E60-4E8FA01A9370\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-94\n9. 2025-01-22T20:12:20.513 | Modified Analysis | source=nvd@nist.gov | changeId=A1227E04-8775-4EF1-BCC2-5E5CAB799A5F\n10. 2024-11-21T03:36:57.930 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=793FCBDA-14EF-4EA5-8F28-A61E83B88207\n   - Added Reference: http://web.archive.org/web/20170701212357/http://phpunit.vulnbusters.com/\n   - Added Reference: http://www.securityfocus.com/bid/101798\n   - Added Reference: http://www.securitytracker.com/id/1039812\n   - Added Reference: https://github.com/sebastianbergmann/phpunit/commit/284a69fb88a2d0845d23f42974a583d8f59bf5a5\n   - Added Reference: https://github.com/sebastianbergmann/phpunit/pull/1956\n   - Added Reference: https://security.gentoo.org/glsa/201711-15\n   - Added Reference: https://www.oracle.com/security-alerts/cpuoct2021.html\n11. 2024-05-14T04:49:52.733 | CVE Modified | source=cve@mitre.org | changeId=58574AB4-E8AD-4194-90AE-03F5518EECE1\n12. 2022-04-18T17:57:47.430 | Modified Analysis | source=nvd@nist.gov | changeId=10166FEA-DFB0-4FF1-BB62-8A8A675A102E\n   - Changed Reference Type: http://www.securityfocus.com/bid/101798 Third Party Advisory, VDB Entry -> http://www.securityfocus.com/bid/101798 Broken Link\n   - Changed Reference Type: http://www.securitytracker.com/id/1039812 Third Party Advisory, VDB Entry -> http://www.securitytracker.com/id/1039812 Broken Link\n   - Changed Reference Type: https://github.com/sebastianbergmann/phpunit/commit/284a69fb88a2d0845d23f42974a583d8f59bf5a5 Third Party Advisory -> https://github.com/sebastianbergmann/phpunit/commit/284a69fb88a2d0845d23f42974a583d8f59bf5a5 Patch, Third Party Advisory\n   - Changed Reference Type: https://github.com/sebastianbergmann/phpunit/pull/1956 Third Party Advisory -> https://github.com/sebastianbergmann/phpunit/pull/1956 Patch, Third Party Advisory\n   - Changed Reference Type: https://www.oracle.com/security-alerts/cpuoct2021.html No Types Assigned -> https://www.oracle.com/security-alerts/cpuoct2021.html Patch, Third Party Advisory\n   - Added CPE Configuration: OR\n     *cpe:2.3:a:oracle:communications_diameter_signaling_router:*:*:*:*:*:*:*:* versions from (including) 8.0.0 up to (including) 8.5.0\n13. 2021-10-20T11:15:28.207 | CVE Modified | source=cve@mitre.org | changeId=FBBF1C2E-98F2-47FC-82F3-35BC2E21F93D\n   - Added Reference: https://www.oracle.com/security-alerts/cpuoct2021.html [No Types Assigned]\n14. 2020-01-14T16:39:00.873 | Modified Analysis | source=nvd@nist.gov | changeId=E637B5E6-FF3B-4162-B03E-27DA496105CA\n   - Removed CVSS V3: NIST AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H -> None\n   - Added CVSS V3.1: NIST AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Changed Reference Type: http://web.archive.org/web/20170701212357/http://phpunit.vulnbusters.com/ No Types Assigned -> http://web.archive.org/web/20170701212357/http://phpunit.vulnbusters.com/ Third Party Advisory\n   - Changed Reference Type: http://www.securityfocus.com/bid/101798 No Types Assigned -> http://www.securityfocus.com/bid/101798 Third Party Advisory, VDB Entry\n   - Changed Reference Type: http://www.securitytracker.com/id/1039812 No Types Assigned -> http://www.securitytracker.com/id/1039812 Third Party Advisory, VDB Entry\n   - Changed Reference Type: https://security.gentoo.org/glsa/201711-15 No Types Assigned -> https://security.gentoo.org/glsa/201711-15 Third Party Advisory\n   - Changed CPE Configuration: OR\n     *cpe:2.3:a:phpunit_project:phpunit:*:*:*:*:*:*:*:* versions up to (including) 4.8.27\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.8:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.9:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.10:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.8:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.9:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.10:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.11:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.12:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.8:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.6.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.6.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.6.2:*:*:*:*:*:*:* -> OR\n     *cpe:2.3:a:phpunit_project:phpunit:*:*:*:*:*:*:*:* versions up to (including) 4.8.27\n     *cpe:2.3:a:phpunit_project:phpunit:*:*:*:*:*:*:*:* versions from (including) 5.0.0 up to (excluding) 5.6.3\n15. 2020-01-10T15:15:11.583 | CVE Modified | source=cve@mitre.org | changeId=A396148D-C269-4407-ABE7-A2A0E23FB5CA\n   - Removed Reference: http://phpunit.vulnbusters.com/ [Exploit, Mitigation, Patch, Vendor Advisory] -> None\n   - Added Reference: http://web.archive.org/web/20170701212357/http://phpunit.vulnbusters.com/ [No Types Assigned]\n16. 2017-11-21T02:29:08.980 | CVE Modified | source=cve@mitre.org | changeId=DB3B4639-EB31-442A-81CA-865B347FA398\n   - Added Reference: https://security.gentoo.org/glsa/201711-15 [No Types Assigned]\n17. 2017-11-17T02:29:03.863 | CVE Modified | source=cve@mitre.org | changeId=553B410A-EFDC-4600-8FB2-874BEDE675CD\n   - Added Reference: http://www.securitytracker.com/id/1039812 [No Types Assigned]\n18. 2017-11-15T02:29:10.813 | CVE Modified | source=cve@mitre.org | changeId=16A1E8E9-D76D-4802-8F93-05F458B38722\n   - Added Reference: http://www.securityfocus.com/bid/101798 [No Types Assigned]\n19. 2017-07-06T18:34:16.497 | Initial Analysis | source=nvd@nist.gov | changeId=C81F7D75-A601-4DC8-A995-00FEDFB92FD0\n   - Added CVSS V2: (AV:N/AC:L/Au:N/C:P/I:P/A:P)\n   - Added CVSS V3: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Changed Reference Type: https://github.com/sebastianbergmann/phpunit/pull/1956 No Types Assigned -> https://github.com/sebastianbergmann/phpunit/pull/1956 Third Party Advisory\n   - Changed Reference Type: http://phpunit.vulnbusters.com/ No Types Assigned -> http://phpunit.vulnbusters.com/ Exploit, Mitigation, Patch, Vendor Advisory\n   - Changed Reference Type: https://github.com/sebastianbergmann/phpunit/commit/284a69fb88a2d0845d23f42974a583d8f59bf5a5 No Types Assigned -> https://github.com/sebastianbergmann/phpunit/commit/284a69fb88a2d0845d23f42974a583d8f59bf5a5 Third Party Advisory\n   - Added CWE: CWE-94\n   - Added CPE Configuration: OR\n     *cpe:2.3:a:phpunit_project:phpunit:4.8.27:*:*:*:*:*:*:* (and previous)\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.8:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.9:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.10:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.8:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.9:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.10:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.11:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.12:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.8:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.6.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.6.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.6.2:*:*:*:*:*:*:*\n",
         "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2017-9841",
+        "cveIds": [
+          "CVE-2017-9841",
+          "CVE-2017-9841"
+        ],
+        "source": "Comment",
+        "commentText": "But don't forget how a CVE can surprise you, like with PHPUnit which should also be only accessible from the command line, but then [CVE-2017-9841](https://nvd.nist.gov/vuln/detail/cve-2017-9841) was found where `Util/PHP/eval-stdin.php` allowed remote code execution.",
+        "linkToComment": "https://reddit.com/r/PHP/comments/1uipydy/composer_in_docker_best_practices_for_production/ouo0v67/",
+        "commentDate": "2026-06-30T08:15:31+00:00",
+        "cvePublishedDate": "2017-06-27T17:29:00.177000+00:00",
+        "initialAnalysisDate": "2017-07-06T18:34:16.497",
+        "daysAfterPublication": 3289,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-06-17T01:29:01.517 | CVE Modified | source=cve@mitre.org | changeId=79A801F1-A6C7-4B0B-9505-76A65977254A\n   - Added Affected: [{'vendor': 'n/a', 'product': 'n/a', 'versions': [{'version': 'n/a', 'status': 'affected'}]}]\n2. 2026-06-17T01:29:01.517 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=AA47541E-D864-410D-ACD2-B23278FD60E4\n   - Added SSVC: {'timestamp': '2025-02-07T14:09:44.475817Z', 'id': 'CVE-2017-9841', 'options': [{'exploitation': 'active'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n3. 2026-04-21T18:00:56.903 | Modified Analysis | source=nvd@nist.gov | changeId=63D966B2-37CA-40F9-B519-C9D402711DFA\n   - Added Reference Type: CISA-ADP: https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2017-9841 Types: US Government Resource\n4. 2025-10-22T00:16:13.163 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=21BEDD54-6624-4BC5-8B8C-71E8DB9421D2\n   - Added Reference: https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2017-9841\n5. 2025-10-21T20:17:02.740 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=5625E17F-C887-40F7-970F-C0B1755DE53A\n   - Removed Reference: https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2017-9841 -> None\n6. 2025-10-21T19:17:18.450 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=636E2773-FAB7-4CEB-A0AE-2A0BF4EDCA8D\n   - Added Reference: https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2017-9841\n7. 2025-04-03T20:26:59.540 | Modified Analysis | source=nvd@nist.gov | changeId=F3DD4190-DC95-4C0A-B41B-39E4B5A80C47\n8. 2025-02-07T15:15:15.160 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=B2A829BA-481E-4862-9E60-4E8FA01A9370\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-94\n9. 2025-01-22T20:12:20.513 | Modified Analysis | source=nvd@nist.gov | changeId=A1227E04-8775-4EF1-BCC2-5E5CAB799A5F\n10. 2024-11-21T03:36:57.930 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=793FCBDA-14EF-4EA5-8F28-A61E83B88207\n   - Added Reference: http://web.archive.org/web/20170701212357/http://phpunit.vulnbusters.com/\n   - Added Reference: http://www.securityfocus.com/bid/101798\n   - Added Reference: http://www.securitytracker.com/id/1039812\n   - Added Reference: https://github.com/sebastianbergmann/phpunit/commit/284a69fb88a2d0845d23f42974a583d8f59bf5a5\n   - Added Reference: https://github.com/sebastianbergmann/phpunit/pull/1956\n   - Added Reference: https://security.gentoo.org/glsa/201711-15\n   - Added Reference: https://www.oracle.com/security-alerts/cpuoct2021.html\n11. 2024-05-14T04:49:52.733 | CVE Modified | source=cve@mitre.org | changeId=58574AB4-E8AD-4194-90AE-03F5518EECE1\n12. 2022-04-18T17:57:47.430 | Modified Analysis | source=nvd@nist.gov | changeId=10166FEA-DFB0-4FF1-BB62-8A8A675A102E\n   - Changed Reference Type: http://www.securityfocus.com/bid/101798 Third Party Advisory, VDB Entry -> http://www.securityfocus.com/bid/101798 Broken Link\n   - Changed Reference Type: http://www.securitytracker.com/id/1039812 Third Party Advisory, VDB Entry -> http://www.securitytracker.com/id/1039812 Broken Link\n   - Changed Reference Type: https://github.com/sebastianbergmann/phpunit/commit/284a69fb88a2d0845d23f42974a583d8f59bf5a5 Third Party Advisory -> https://github.com/sebastianbergmann/phpunit/commit/284a69fb88a2d0845d23f42974a583d8f59bf5a5 Patch, Third Party Advisory\n   - Changed Reference Type: https://github.com/sebastianbergmann/phpunit/pull/1956 Third Party Advisory -> https://github.com/sebastianbergmann/phpunit/pull/1956 Patch, Third Party Advisory\n   - Changed Reference Type: https://www.oracle.com/security-alerts/cpuoct2021.html No Types Assigned -> https://www.oracle.com/security-alerts/cpuoct2021.html Patch, Third Party Advisory\n   - Added CPE Configuration: OR\n     *cpe:2.3:a:oracle:communications_diameter_signaling_router:*:*:*:*:*:*:*:* versions from (including) 8.0.0 up to (including) 8.5.0\n13. 2021-10-20T11:15:28.207 | CVE Modified | source=cve@mitre.org | changeId=FBBF1C2E-98F2-47FC-82F3-35BC2E21F93D\n   - Added Reference: https://www.oracle.com/security-alerts/cpuoct2021.html [No Types Assigned]\n14. 2020-01-14T16:39:00.873 | Modified Analysis | source=nvd@nist.gov | changeId=E637B5E6-FF3B-4162-B03E-27DA496105CA\n   - Removed CVSS V3: NIST AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H -> None\n   - Added CVSS V3.1: NIST AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Changed Reference Type: http://web.archive.org/web/20170701212357/http://phpunit.vulnbusters.com/ No Types Assigned -> http://web.archive.org/web/20170701212357/http://phpunit.vulnbusters.com/ Third Party Advisory\n   - Changed Reference Type: http://www.securityfocus.com/bid/101798 No Types Assigned -> http://www.securityfocus.com/bid/101798 Third Party Advisory, VDB Entry\n   - Changed Reference Type: http://www.securitytracker.com/id/1039812 No Types Assigned -> http://www.securitytracker.com/id/1039812 Third Party Advisory, VDB Entry\n   - Changed Reference Type: https://security.gentoo.org/glsa/201711-15 No Types Assigned -> https://security.gentoo.org/glsa/201711-15 Third Party Advisory\n   - Changed CPE Configuration: OR\n     *cpe:2.3:a:phpunit_project:phpunit:*:*:*:*:*:*:*:* versions up to (including) 4.8.27\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.8:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.9:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.10:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.8:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.9:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.10:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.11:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.12:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.8:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.6.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.6.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.6.2:*:*:*:*:*:*:* -> OR\n     *cpe:2.3:a:phpunit_project:phpunit:*:*:*:*:*:*:*:* versions up to (including) 4.8.27\n     *cpe:2.3:a:phpunit_project:phpunit:*:*:*:*:*:*:*:* versions from (including) 5.0.0 up to (excluding) 5.6.3\n15. 2020-01-10T15:15:11.583 | CVE Modified | source=cve@mitre.org | changeId=A396148D-C269-4407-ABE7-A2A0E23FB5CA\n   - Removed Reference: http://phpunit.vulnbusters.com/ [Exploit, Mitigation, Patch, Vendor Advisory] -> None\n   - Added Reference: http://web.archive.org/web/20170701212357/http://phpunit.vulnbusters.com/ [No Types Assigned]\n16. 2017-11-21T02:29:08.980 | CVE Modified | source=cve@mitre.org | changeId=DB3B4639-EB31-442A-81CA-865B347FA398\n   - Added Reference: https://security.gentoo.org/glsa/201711-15 [No Types Assigned]\n17. 2017-11-17T02:29:03.863 | CVE Modified | source=cve@mitre.org | changeId=553B410A-EFDC-4600-8FB2-874BEDE675CD\n   - Added Reference: http://www.securitytracker.com/id/1039812 [No Types Assigned]\n18. 2017-11-15T02:29:10.813 | CVE Modified | source=cve@mitre.org | changeId=16A1E8E9-D76D-4802-8F93-05F458B38722\n   - Added Reference: http://www.securityfocus.com/bid/101798 [No Types Assigned]\n19. 2017-07-06T18:34:16.497 | Initial Analysis | source=nvd@nist.gov | changeId=C81F7D75-A601-4DC8-A995-00FEDFB92FD0\n   - Added CVSS V2: (AV:N/AC:L/Au:N/C:P/I:P/A:P)\n   - Added CVSS V3: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Changed Reference Type: https://github.com/sebastianbergmann/phpunit/pull/1956 No Types Assigned -> https://github.com/sebastianbergmann/phpunit/pull/1956 Third Party Advisory\n   - Changed Reference Type: http://phpunit.vulnbusters.com/ No Types Assigned -> http://phpunit.vulnbusters.com/ Exploit, Mitigation, Patch, Vendor Advisory\n   - Changed Reference Type: https://github.com/sebastianbergmann/phpunit/commit/284a69fb88a2d0845d23f42974a583d8f59bf5a5 No Types Assigned -> https://github.com/sebastianbergmann/phpunit/commit/284a69fb88a2d0845d23f42974a583d8f59bf5a5 Third Party Advisory\n   - Added CWE: CWE-94\n   - Added CPE Configuration: OR\n     *cpe:2.3:a:phpunit_project:phpunit:4.8.27:*:*:*:*:*:*:* (and previous)\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.8:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.9:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.10:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.8:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.9:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.10:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.11:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.12:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.8:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.6.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.6.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.6.2:*:*:*:*:*:*:*\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2017-9841",
+        "cveIds": [
+          "CVE-2017-9841",
+          "CVE-2017-9841"
+        ],
+        "source": "Comment",
+        "commentText": "But don't forget how a CVE can surprise you, like with PHPUnit which should also be only accessible from the command line, but then [CVE-2017-9841](https://nvd.nist.gov/vuln/detail/cve-2017-9841) was found where `Util/PHP/eval-stdin.php` allowed remote code execution.",
+        "linkToComment": "https://reddit.com/r/PHP/comments/1uipydy/composer_in_docker_best_practices_for_production/ouo0v67/",
+        "commentDate": "2026-06-30T08:15:31+00:00",
+        "cvePublishedDate": "2017-06-27T17:29:00.177000+00:00",
+        "initialAnalysisDate": "2017-07-06T18:34:16.497",
+        "daysAfterPublication": 3289,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-06-17T01:29:01.517 | CVE Modified | source=cve@mitre.org | changeId=79A801F1-A6C7-4B0B-9505-76A65977254A\n   - Added Affected: [{'vendor': 'n/a', 'product': 'n/a', 'versions': [{'version': 'n/a', 'status': 'affected'}]}]\n2. 2026-06-17T01:29:01.517 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=AA47541E-D864-410D-ACD2-B23278FD60E4\n   - Added SSVC: {'timestamp': '2025-02-07T14:09:44.475817Z', 'id': 'CVE-2017-9841', 'options': [{'exploitation': 'active'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n3. 2026-04-21T18:00:56.903 | Modified Analysis | source=nvd@nist.gov | changeId=63D966B2-37CA-40F9-B519-C9D402711DFA\n   - Added Reference Type: CISA-ADP: https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2017-9841 Types: US Government Resource\n4. 2025-10-22T00:16:13.163 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=21BEDD54-6624-4BC5-8B8C-71E8DB9421D2\n   - Added Reference: https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2017-9841\n5. 2025-10-21T20:17:02.740 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=5625E17F-C887-40F7-970F-C0B1755DE53A\n   - Removed Reference: https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2017-9841 -> None\n6. 2025-10-21T19:17:18.450 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=636E2773-FAB7-4CEB-A0AE-2A0BF4EDCA8D\n   - Added Reference: https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2017-9841\n7. 2025-04-03T20:26:59.540 | Modified Analysis | source=nvd@nist.gov | changeId=F3DD4190-DC95-4C0A-B41B-39E4B5A80C47\n8. 2025-02-07T15:15:15.160 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=B2A829BA-481E-4862-9E60-4E8FA01A9370\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-94\n9. 2025-01-22T20:12:20.513 | Modified Analysis | source=nvd@nist.gov | changeId=A1227E04-8775-4EF1-BCC2-5E5CAB799A5F\n10. 2024-11-21T03:36:57.930 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=793FCBDA-14EF-4EA5-8F28-A61E83B88207\n   - Added Reference: http://web.archive.org/web/20170701212357/http://phpunit.vulnbusters.com/\n   - Added Reference: http://www.securityfocus.com/bid/101798\n   - Added Reference: http://www.securitytracker.com/id/1039812\n   - Added Reference: https://github.com/sebastianbergmann/phpunit/commit/284a69fb88a2d0845d23f42974a583d8f59bf5a5\n   - Added Reference: https://github.com/sebastianbergmann/phpunit/pull/1956\n   - Added Reference: https://security.gentoo.org/glsa/201711-15\n   - Added Reference: https://www.oracle.com/security-alerts/cpuoct2021.html\n11. 2024-05-14T04:49:52.733 | CVE Modified | source=cve@mitre.org | changeId=58574AB4-E8AD-4194-90AE-03F5518EECE1\n12. 2022-04-18T17:57:47.430 | Modified Analysis | source=nvd@nist.gov | changeId=10166FEA-DFB0-4FF1-BB62-8A8A675A102E\n   - Changed Reference Type: http://www.securityfocus.com/bid/101798 Third Party Advisory, VDB Entry -> http://www.securityfocus.com/bid/101798 Broken Link\n   - Changed Reference Type: http://www.securitytracker.com/id/1039812 Third Party Advisory, VDB Entry -> http://www.securitytracker.com/id/1039812 Broken Link\n   - Changed Reference Type: https://github.com/sebastianbergmann/phpunit/commit/284a69fb88a2d0845d23f42974a583d8f59bf5a5 Third Party Advisory -> https://github.com/sebastianbergmann/phpunit/commit/284a69fb88a2d0845d23f42974a583d8f59bf5a5 Patch, Third Party Advisory\n   - Changed Reference Type: https://github.com/sebastianbergmann/phpunit/pull/1956 Third Party Advisory -> https://github.com/sebastianbergmann/phpunit/pull/1956 Patch, Third Party Advisory\n   - Changed Reference Type: https://www.oracle.com/security-alerts/cpuoct2021.html No Types Assigned -> https://www.oracle.com/security-alerts/cpuoct2021.html Patch, Third Party Advisory\n   - Added CPE Configuration: OR\n     *cpe:2.3:a:oracle:communications_diameter_signaling_router:*:*:*:*:*:*:*:* versions from (including) 8.0.0 up to (including) 8.5.0\n13. 2021-10-20T11:15:28.207 | CVE Modified | source=cve@mitre.org | changeId=FBBF1C2E-98F2-47FC-82F3-35BC2E21F93D\n   - Added Reference: https://www.oracle.com/security-alerts/cpuoct2021.html [No Types Assigned]\n14. 2020-01-14T16:39:00.873 | Modified Analysis | source=nvd@nist.gov | changeId=E637B5E6-FF3B-4162-B03E-27DA496105CA\n   - Removed CVSS V3: NIST AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H -> None\n   - Added CVSS V3.1: NIST AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Changed Reference Type: http://web.archive.org/web/20170701212357/http://phpunit.vulnbusters.com/ No Types Assigned -> http://web.archive.org/web/20170701212357/http://phpunit.vulnbusters.com/ Third Party Advisory\n   - Changed Reference Type: http://www.securityfocus.com/bid/101798 No Types Assigned -> http://www.securityfocus.com/bid/101798 Third Party Advisory, VDB Entry\n   - Changed Reference Type: http://www.securitytracker.com/id/1039812 No Types Assigned -> http://www.securitytracker.com/id/1039812 Third Party Advisory, VDB Entry\n   - Changed Reference Type: https://security.gentoo.org/glsa/201711-15 No Types Assigned -> https://security.gentoo.org/glsa/201711-15 Third Party Advisory\n   - Changed CPE Configuration: OR\n     *cpe:2.3:a:phpunit_project:phpunit:*:*:*:*:*:*:*:* versions up to (including) 4.8.27\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.8:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.9:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.10:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.8:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.9:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.10:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.11:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.12:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.8:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.6.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.6.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.6.2:*:*:*:*:*:*:* -> OR\n     *cpe:2.3:a:phpunit_project:phpunit:*:*:*:*:*:*:*:* versions up to (including) 4.8.27\n     *cpe:2.3:a:phpunit_project:phpunit:*:*:*:*:*:*:*:* versions from (including) 5.0.0 up to (excluding) 5.6.3\n15. 2020-01-10T15:15:11.583 | CVE Modified | source=cve@mitre.org | changeId=A396148D-C269-4407-ABE7-A2A0E23FB5CA\n   - Removed Reference: http://phpunit.vulnbusters.com/ [Exploit, Mitigation, Patch, Vendor Advisory] -> None\n   - Added Reference: http://web.archive.org/web/20170701212357/http://phpunit.vulnbusters.com/ [No Types Assigned]\n16. 2017-11-21T02:29:08.980 | CVE Modified | source=cve@mitre.org | changeId=DB3B4639-EB31-442A-81CA-865B347FA398\n   - Added Reference: https://security.gentoo.org/glsa/201711-15 [No Types Assigned]\n17. 2017-11-17T02:29:03.863 | CVE Modified | source=cve@mitre.org | changeId=553B410A-EFDC-4600-8FB2-874BEDE675CD\n   - Added Reference: http://www.securitytracker.com/id/1039812 [No Types Assigned]\n18. 2017-11-15T02:29:10.813 | CVE Modified | source=cve@mitre.org | changeId=16A1E8E9-D76D-4802-8F93-05F458B38722\n   - Added Reference: http://www.securityfocus.com/bid/101798 [No Types Assigned]\n19. 2017-07-06T18:34:16.497 | Initial Analysis | source=nvd@nist.gov | changeId=C81F7D75-A601-4DC8-A995-00FEDFB92FD0\n   - Added CVSS V2: (AV:N/AC:L/Au:N/C:P/I:P/A:P)\n   - Added CVSS V3: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Changed Reference Type: https://github.com/sebastianbergmann/phpunit/pull/1956 No Types Assigned -> https://github.com/sebastianbergmann/phpunit/pull/1956 Third Party Advisory\n   - Changed Reference Type: http://phpunit.vulnbusters.com/ No Types Assigned -> http://phpunit.vulnbusters.com/ Exploit, Mitigation, Patch, Vendor Advisory\n   - Changed Reference Type: https://github.com/sebastianbergmann/phpunit/commit/284a69fb88a2d0845d23f42974a583d8f59bf5a5 No Types Assigned -> https://github.com/sebastianbergmann/phpunit/commit/284a69fb88a2d0845d23f42974a583d8f59bf5a5 Third Party Advisory\n   - Added CWE: CWE-94\n   - Added CPE Configuration: OR\n     *cpe:2.3:a:phpunit_project:phpunit:4.8.27:*:*:*:*:*:*:* (and previous)\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.8:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.9:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.10:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.8:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.9:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.10:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.11:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.12:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.8:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.6.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.6.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.6.2:*:*:*:*:*:*:*\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2017-9841",
+        "cveIds": [
+          "CVE-2017-9841",
+          "CVE-2017-9841"
+        ],
+        "source": "Comment",
+        "commentText": "But don't forget how a CVE can surprise you, like with PHPUnit which should also be only accessible from the command line, but then [CVE-2017-9841](https://nvd.nist.gov/vuln/detail/cve-2017-9841) was found where `Util/PHP/eval-stdin.php` allowed remote code execution.",
+        "linkToComment": "https://reddit.com/r/PHP/comments/1uipydy/composer_in_docker_best_practices_for_production/ouo0v67/",
+        "commentDate": "2026-06-30T08:15:31+00:00",
+        "cvePublishedDate": "2017-06-27T17:29:00.177000+00:00",
+        "initialAnalysisDate": "2017-07-06T18:34:16.497",
+        "daysAfterPublication": 3289,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-06-17T01:29:01.517 | CVE Modified | source=cve@mitre.org | changeId=79A801F1-A6C7-4B0B-9505-76A65977254A\n   - Added Affected: [{'vendor': 'n/a', 'product': 'n/a', 'versions': [{'version': 'n/a', 'status': 'affected'}]}]\n2. 2026-06-17T01:29:01.517 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=AA47541E-D864-410D-ACD2-B23278FD60E4\n   - Added SSVC: {'timestamp': '2025-02-07T14:09:44.475817Z', 'id': 'CVE-2017-9841', 'options': [{'exploitation': 'active'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n3. 2026-04-21T18:00:56.903 | Modified Analysis | source=nvd@nist.gov | changeId=63D966B2-37CA-40F9-B519-C9D402711DFA\n   - Added Reference Type: CISA-ADP: https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2017-9841 Types: US Government Resource\n4. 2025-10-22T00:16:13.163 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=21BEDD54-6624-4BC5-8B8C-71E8DB9421D2\n   - Added Reference: https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2017-9841\n5. 2025-10-21T20:17:02.740 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=5625E17F-C887-40F7-970F-C0B1755DE53A\n   - Removed Reference: https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2017-9841 -> None\n6. 2025-10-21T19:17:18.450 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=636E2773-FAB7-4CEB-A0AE-2A0BF4EDCA8D\n   - Added Reference: https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2017-9841\n7. 2025-04-03T20:26:59.540 | Modified Analysis | source=nvd@nist.gov | changeId=F3DD4190-DC95-4C0A-B41B-39E4B5A80C47\n8. 2025-02-07T15:15:15.160 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=B2A829BA-481E-4862-9E60-4E8FA01A9370\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-94\n9. 2025-01-22T20:12:20.513 | Modified Analysis | source=nvd@nist.gov | changeId=A1227E04-8775-4EF1-BCC2-5E5CAB799A5F\n10. 2024-11-21T03:36:57.930 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=793FCBDA-14EF-4EA5-8F28-A61E83B88207\n   - Added Reference: http://web.archive.org/web/20170701212357/http://phpunit.vulnbusters.com/\n   - Added Reference: http://www.securityfocus.com/bid/101798\n   - Added Reference: http://www.securitytracker.com/id/1039812\n   - Added Reference: https://github.com/sebastianbergmann/phpunit/commit/284a69fb88a2d0845d23f42974a583d8f59bf5a5\n   - Added Reference: https://github.com/sebastianbergmann/phpunit/pull/1956\n   - Added Reference: https://security.gentoo.org/glsa/201711-15\n   - Added Reference: https://www.oracle.com/security-alerts/cpuoct2021.html\n11. 2024-05-14T04:49:52.733 | CVE Modified | source=cve@mitre.org | changeId=58574AB4-E8AD-4194-90AE-03F5518EECE1\n12. 2022-04-18T17:57:47.430 | Modified Analysis | source=nvd@nist.gov | changeId=10166FEA-DFB0-4FF1-BB62-8A8A675A102E\n   - Changed Reference Type: http://www.securityfocus.com/bid/101798 Third Party Advisory, VDB Entry -> http://www.securityfocus.com/bid/101798 Broken Link\n   - Changed Reference Type: http://www.securitytracker.com/id/1039812 Third Party Advisory, VDB Entry -> http://www.securitytracker.com/id/1039812 Broken Link\n   - Changed Reference Type: https://github.com/sebastianbergmann/phpunit/commit/284a69fb88a2d0845d23f42974a583d8f59bf5a5 Third Party Advisory -> https://github.com/sebastianbergmann/phpunit/commit/284a69fb88a2d0845d23f42974a583d8f59bf5a5 Patch, Third Party Advisory\n   - Changed Reference Type: https://github.com/sebastianbergmann/phpunit/pull/1956 Third Party Advisory -> https://github.com/sebastianbergmann/phpunit/pull/1956 Patch, Third Party Advisory\n   - Changed Reference Type: https://www.oracle.com/security-alerts/cpuoct2021.html No Types Assigned -> https://www.oracle.com/security-alerts/cpuoct2021.html Patch, Third Party Advisory\n   - Added CPE Configuration: OR\n     *cpe:2.3:a:oracle:communications_diameter_signaling_router:*:*:*:*:*:*:*:* versions from (including) 8.0.0 up to (including) 8.5.0\n13. 2021-10-20T11:15:28.207 | CVE Modified | source=cve@mitre.org | changeId=FBBF1C2E-98F2-47FC-82F3-35BC2E21F93D\n   - Added Reference: https://www.oracle.com/security-alerts/cpuoct2021.html [No Types Assigned]\n14. 2020-01-14T16:39:00.873 | Modified Analysis | source=nvd@nist.gov | changeId=E637B5E6-FF3B-4162-B03E-27DA496105CA\n   - Removed CVSS V3: NIST AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H -> None\n   - Added CVSS V3.1: NIST AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Changed Reference Type: http://web.archive.org/web/20170701212357/http://phpunit.vulnbusters.com/ No Types Assigned -> http://web.archive.org/web/20170701212357/http://phpunit.vulnbusters.com/ Third Party Advisory\n   - Changed Reference Type: http://www.securityfocus.com/bid/101798 No Types Assigned -> http://www.securityfocus.com/bid/101798 Third Party Advisory, VDB Entry\n   - Changed Reference Type: http://www.securitytracker.com/id/1039812 No Types Assigned -> http://www.securitytracker.com/id/1039812 Third Party Advisory, VDB Entry\n   - Changed Reference Type: https://security.gentoo.org/glsa/201711-15 No Types Assigned -> https://security.gentoo.org/glsa/201711-15 Third Party Advisory\n   - Changed CPE Configuration: OR\n     *cpe:2.3:a:phpunit_project:phpunit:*:*:*:*:*:*:*:* versions up to (including) 4.8.27\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.8:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.9:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.10:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.8:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.9:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.10:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.11:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.12:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.8:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.6.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.6.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.6.2:*:*:*:*:*:*:* -> OR\n     *cpe:2.3:a:phpunit_project:phpunit:*:*:*:*:*:*:*:* versions up to (including) 4.8.27\n     *cpe:2.3:a:phpunit_project:phpunit:*:*:*:*:*:*:*:* versions from (including) 5.0.0 up to (excluding) 5.6.3\n15. 2020-01-10T15:15:11.583 | CVE Modified | source=cve@mitre.org | changeId=A396148D-C269-4407-ABE7-A2A0E23FB5CA\n   - Removed Reference: http://phpunit.vulnbusters.com/ [Exploit, Mitigation, Patch, Vendor Advisory] -> None\n   - Added Reference: http://web.archive.org/web/20170701212357/http://phpunit.vulnbusters.com/ [No Types Assigned]\n16. 2017-11-21T02:29:08.980 | CVE Modified | source=cve@mitre.org | changeId=DB3B4639-EB31-442A-81CA-865B347FA398\n   - Added Reference: https://security.gentoo.org/glsa/201711-15 [No Types Assigned]\n17. 2017-11-17T02:29:03.863 | CVE Modified | source=cve@mitre.org | changeId=553B410A-EFDC-4600-8FB2-874BEDE675CD\n   - Added Reference: http://www.securitytracker.com/id/1039812 [No Types Assigned]\n18. 2017-11-15T02:29:10.813 | CVE Modified | source=cve@mitre.org | changeId=16A1E8E9-D76D-4802-8F93-05F458B38722\n   - Added Reference: http://www.securityfocus.com/bid/101798 [No Types Assigned]\n19. 2017-07-06T18:34:16.497 | Initial Analysis | source=nvd@nist.gov | changeId=C81F7D75-A601-4DC8-A995-00FEDFB92FD0\n   - Added CVSS V2: (AV:N/AC:L/Au:N/C:P/I:P/A:P)\n   - Added CVSS V3: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Changed Reference Type: https://github.com/sebastianbergmann/phpunit/pull/1956 No Types Assigned -> https://github.com/sebastianbergmann/phpunit/pull/1956 Third Party Advisory\n   - Changed Reference Type: http://phpunit.vulnbusters.com/ No Types Assigned -> http://phpunit.vulnbusters.com/ Exploit, Mitigation, Patch, Vendor Advisory\n   - Changed Reference Type: https://github.com/sebastianbergmann/phpunit/commit/284a69fb88a2d0845d23f42974a583d8f59bf5a5 No Types Assigned -> https://github.com/sebastianbergmann/phpunit/commit/284a69fb88a2d0845d23f42974a583d8f59bf5a5 Third Party Advisory\n   - Added CWE: CWE-94\n   - Added CPE Configuration: OR\n     *cpe:2.3:a:phpunit_project:phpunit:4.8.27:*:*:*:*:*:*:* (and previous)\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.8:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.9:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.10:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.8:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.9:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.10:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.11:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.12:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.8:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.6.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.6.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.6.2:*:*:*:*:*:*:*\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2017-9841",
+        "cveIds": [
+          "CVE-2017-9841",
+          "CVE-2017-9841"
+        ],
+        "source": "Comment",
+        "commentText": "But don't forget how a CVE can surprise you, like with PHPUnit which should also be only accessible from the command line, but then [CVE-2017-9841](https://nvd.nist.gov/vuln/detail/cve-2017-9841) was found where `Util/PHP/eval-stdin.php` allowed remote code execution.",
+        "linkToComment": "https://reddit.com/r/PHP/comments/1uipydy/composer_in_docker_best_practices_for_production/ouo0v67/",
+        "commentDate": "2026-06-30T08:15:31+00:00",
+        "cvePublishedDate": "2017-06-27T17:29:00.177000+00:00",
+        "initialAnalysisDate": "2017-07-06T18:34:16.497",
+        "daysAfterPublication": 3289,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-06-17T01:29:01.517 | CVE Modified | source=cve@mitre.org | changeId=79A801F1-A6C7-4B0B-9505-76A65977254A\n   - Added Affected: [{'vendor': 'n/a', 'product': 'n/a', 'versions': [{'version': 'n/a', 'status': 'affected'}]}]\n2. 2026-06-17T01:29:01.517 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=AA47541E-D864-410D-ACD2-B23278FD60E4\n   - Added SSVC: {'timestamp': '2025-02-07T14:09:44.475817Z', 'id': 'CVE-2017-9841', 'options': [{'exploitation': 'active'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n3. 2026-04-21T18:00:56.903 | Modified Analysis | source=nvd@nist.gov | changeId=63D966B2-37CA-40F9-B519-C9D402711DFA\n   - Added Reference Type: CISA-ADP: https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2017-9841 Types: US Government Resource\n4. 2025-10-22T00:16:13.163 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=21BEDD54-6624-4BC5-8B8C-71E8DB9421D2\n   - Added Reference: https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2017-9841\n5. 2025-10-21T20:17:02.740 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=5625E17F-C887-40F7-970F-C0B1755DE53A\n   - Removed Reference: https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2017-9841 -> None\n6. 2025-10-21T19:17:18.450 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=636E2773-FAB7-4CEB-A0AE-2A0BF4EDCA8D\n   - Added Reference: https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2017-9841\n7. 2025-04-03T20:26:59.540 | Modified Analysis | source=nvd@nist.gov | changeId=F3DD4190-DC95-4C0A-B41B-39E4B5A80C47\n8. 2025-02-07T15:15:15.160 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=B2A829BA-481E-4862-9E60-4E8FA01A9370\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-94\n9. 2025-01-22T20:12:20.513 | Modified Analysis | source=nvd@nist.gov | changeId=A1227E04-8775-4EF1-BCC2-5E5CAB799A5F\n10. 2024-11-21T03:36:57.930 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=793FCBDA-14EF-4EA5-8F28-A61E83B88207\n   - Added Reference: http://web.archive.org/web/20170701212357/http://phpunit.vulnbusters.com/\n   - Added Reference: http://www.securityfocus.com/bid/101798\n   - Added Reference: http://www.securitytracker.com/id/1039812\n   - Added Reference: https://github.com/sebastianbergmann/phpunit/commit/284a69fb88a2d0845d23f42974a583d8f59bf5a5\n   - Added Reference: https://github.com/sebastianbergmann/phpunit/pull/1956\n   - Added Reference: https://security.gentoo.org/glsa/201711-15\n   - Added Reference: https://www.oracle.com/security-alerts/cpuoct2021.html\n11. 2024-05-14T04:49:52.733 | CVE Modified | source=cve@mitre.org | changeId=58574AB4-E8AD-4194-90AE-03F5518EECE1\n12. 2022-04-18T17:57:47.430 | Modified Analysis | source=nvd@nist.gov | changeId=10166FEA-DFB0-4FF1-BB62-8A8A675A102E\n   - Changed Reference Type: http://www.securityfocus.com/bid/101798 Third Party Advisory, VDB Entry -> http://www.securityfocus.com/bid/101798 Broken Link\n   - Changed Reference Type: http://www.securitytracker.com/id/1039812 Third Party Advisory, VDB Entry -> http://www.securitytracker.com/id/1039812 Broken Link\n   - Changed Reference Type: https://github.com/sebastianbergmann/phpunit/commit/284a69fb88a2d0845d23f42974a583d8f59bf5a5 Third Party Advisory -> https://github.com/sebastianbergmann/phpunit/commit/284a69fb88a2d0845d23f42974a583d8f59bf5a5 Patch, Third Party Advisory\n   - Changed Reference Type: https://github.com/sebastianbergmann/phpunit/pull/1956 Third Party Advisory -> https://github.com/sebastianbergmann/phpunit/pull/1956 Patch, Third Party Advisory\n   - Changed Reference Type: https://www.oracle.com/security-alerts/cpuoct2021.html No Types Assigned -> https://www.oracle.com/security-alerts/cpuoct2021.html Patch, Third Party Advisory\n   - Added CPE Configuration: OR\n     *cpe:2.3:a:oracle:communications_diameter_signaling_router:*:*:*:*:*:*:*:* versions from (including) 8.0.0 up to (including) 8.5.0\n13. 2021-10-20T11:15:28.207 | CVE Modified | source=cve@mitre.org | changeId=FBBF1C2E-98F2-47FC-82F3-35BC2E21F93D\n   - Added Reference: https://www.oracle.com/security-alerts/cpuoct2021.html [No Types Assigned]\n14. 2020-01-14T16:39:00.873 | Modified Analysis | source=nvd@nist.gov | changeId=E637B5E6-FF3B-4162-B03E-27DA496105CA\n   - Removed CVSS V3: NIST AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H -> None\n   - Added CVSS V3.1: NIST AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Changed Reference Type: http://web.archive.org/web/20170701212357/http://phpunit.vulnbusters.com/ No Types Assigned -> http://web.archive.org/web/20170701212357/http://phpunit.vulnbusters.com/ Third Party Advisory\n   - Changed Reference Type: http://www.securityfocus.com/bid/101798 No Types Assigned -> http://www.securityfocus.com/bid/101798 Third Party Advisory, VDB Entry\n   - Changed Reference Type: http://www.securitytracker.com/id/1039812 No Types Assigned -> http://www.securitytracker.com/id/1039812 Third Party Advisory, VDB Entry\n   - Changed Reference Type: https://security.gentoo.org/glsa/201711-15 No Types Assigned -> https://security.gentoo.org/glsa/201711-15 Third Party Advisory\n   - Changed CPE Configuration: OR\n     *cpe:2.3:a:phpunit_project:phpunit:*:*:*:*:*:*:*:* versions up to (including) 4.8.27\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.8:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.9:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.10:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.8:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.9:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.10:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.11:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.12:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.8:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.6.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.6.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.6.2:*:*:*:*:*:*:* -> OR\n     *cpe:2.3:a:phpunit_project:phpunit:*:*:*:*:*:*:*:* versions up to (including) 4.8.27\n     *cpe:2.3:a:phpunit_project:phpunit:*:*:*:*:*:*:*:* versions from (including) 5.0.0 up to (excluding) 5.6.3\n15. 2020-01-10T15:15:11.583 | CVE Modified | source=cve@mitre.org | changeId=A396148D-C269-4407-ABE7-A2A0E23FB5CA\n   - Removed Reference: http://phpunit.vulnbusters.com/ [Exploit, Mitigation, Patch, Vendor Advisory] -> None\n   - Added Reference: http://web.archive.org/web/20170701212357/http://phpunit.vulnbusters.com/ [No Types Assigned]\n16. 2017-11-21T02:29:08.980 | CVE Modified | source=cve@mitre.org | changeId=DB3B4639-EB31-442A-81CA-865B347FA398\n   - Added Reference: https://security.gentoo.org/glsa/201711-15 [No Types Assigned]\n17. 2017-11-17T02:29:03.863 | CVE Modified | source=cve@mitre.org | changeId=553B410A-EFDC-4600-8FB2-874BEDE675CD\n   - Added Reference: http://www.securitytracker.com/id/1039812 [No Types Assigned]\n18. 2017-11-15T02:29:10.813 | CVE Modified | source=cve@mitre.org | changeId=16A1E8E9-D76D-4802-8F93-05F458B38722\n   - Added Reference: http://www.securityfocus.com/bid/101798 [No Types Assigned]\n19. 2017-07-06T18:34:16.497 | Initial Analysis | source=nvd@nist.gov | changeId=C81F7D75-A601-4DC8-A995-00FEDFB92FD0\n   - Added CVSS V2: (AV:N/AC:L/Au:N/C:P/I:P/A:P)\n   - Added CVSS V3: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Changed Reference Type: https://github.com/sebastianbergmann/phpunit/pull/1956 No Types Assigned -> https://github.com/sebastianbergmann/phpunit/pull/1956 Third Party Advisory\n   - Changed Reference Type: http://phpunit.vulnbusters.com/ No Types Assigned -> http://phpunit.vulnbusters.com/ Exploit, Mitigation, Patch, Vendor Advisory\n   - Changed Reference Type: https://github.com/sebastianbergmann/phpunit/commit/284a69fb88a2d0845d23f42974a583d8f59bf5a5 No Types Assigned -> https://github.com/sebastianbergmann/phpunit/commit/284a69fb88a2d0845d23f42974a583d8f59bf5a5 Third Party Advisory\n   - Added CWE: CWE-94\n   - Added CPE Configuration: OR\n     *cpe:2.3:a:phpunit_project:phpunit:4.8.27:*:*:*:*:*:*:* (and previous)\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.8:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.9:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.0.10:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.1.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.8:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.9:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.10:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.11:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.2.12:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.3.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.4.8:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.2:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.3:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.4:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.5:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.6:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.5.7:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.6.0:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.6.1:*:*:*:*:*:*:*\n     *cpe:2.3:a:phpunit_project:phpunit:5.6.2:*:*:*:*:*:*:*\n",
+        "eventNamesBeforeAnalysis": []
       }
     ],
     "comments": [
@@ -598,7 +1096,7 @@
         "id": "ouhk0vq",
         "author": "ildyria",
         "body": "You are missing a crucial step. Pin the docker images via hash instead of \\`@v2\\` etc.  \nIn the current world of supply-chain attacks, this is a no-brainer.  ",
-        "score": 20,
+        "score": 19,
         "created_utc_ts": 1782734621,
         "created_utc": "2026-06-29T12:03:41",
         "permalink": "https://reddit.com/r/PHP/comments/1uipydy/composer_in_docker_best_practices_for_production/ouhk0vq/",
@@ -609,7 +1107,7 @@
         "id": "ouhxf63",
         "author": "obstreperous_troll",
         "body": "This is all great advice on multi-stage builds, and I always forget about the buildkit goodies like `RUN --mount`.  But aside from getting a few megs of space back, I'm not really sure what the benefits to this are: anything that could access composer on the image can already run arbitrary PHP, or shell commands for that matter.  \n\nA distroless PHP image would be nice, though I suspect it wouldn't be able to serve a great many PHP apps, which tend to be riddled with hidden shell_exec calls under the covers.",
-        "score": 3,
+        "score": 2,
         "created_utc_ts": 1782738993,
         "created_utc": "2026-06-29T13:16:33",
         "permalink": "https://reddit.com/r/PHP/comments/1uipydy/composer_in_docker_best_practices_for_production/ouhxf63/",
@@ -682,14 +1180,14 @@
     "created_utc": "2026-06-29T09:35:36",
     "first_author_comment": "yep I upgraded fedoras and put in that sysctl command in the distros that don't have the update yet",
     "num_comments": 18,
-    "score": 153,
+    "score": 164,
     "subreddit": "linux",
     "tag": "Security",
     "tags": [
       "Security"
     ],
     "title": "DirtyClone (CVE-2026-43503): The Linux Kernel Flaw That Leaves No Trace",
-    "updatedAt": "2026-07-01T04:52:47.257Z",
+    "updatedAt": "2026-07-02T04:52:44.136Z",
     "upvote_ratio": 0.96,
     "url": "https://reddit.com/r/linux/comments/1uinqoc/dirtyclone_cve202643503_the_linux_kernel_flaw/",
     "versionList": [
@@ -721,7 +1219,7 @@
         "id": "ouhdof0",
         "author": "HarVVVy",
         "body": "What are we doing with these names man?\n\nAre we even trying to go viral anymore?\n\nDirdyClone... who's gonna remember that sh\\*\\*\\*? Wake me up when we get to DirtyA\\*\\* and DirtyD\\*ck.",
-        "score": -49,
+        "score": -48,
         "created_utc_ts": 1782732215,
         "created_utc": "2026-06-29T11:23:35",
         "permalink": "https://reddit.com/r/linux/comments/1uinqoc/dirtyclone_cve202643503_the_linux_kernel_flaw/ouhdof0/",
@@ -732,7 +1230,7 @@
         "id": "ouhon2f",
         "author": "coolcosmos",
         "body": "You have a dirty mind.",
-        "score": 19,
+        "score": 22,
         "created_utc_ts": 1782736222,
         "created_utc": "2026-06-29T12:30:22",
         "permalink": "https://reddit.com/r/linux/comments/1uinqoc/dirtyclone_cve202643503_the_linux_kernel_flaw/ouhon2f/",
@@ -743,7 +1241,7 @@
         "id": "ouhufb9",
         "author": "[deleted]",
         "body": "[removed]",
-        "score": -30,
+        "score": -28,
         "created_utc_ts": 1782738073,
         "created_utc": "2026-06-29T13:01:13",
         "permalink": "https://reddit.com/r/linux/comments/1uinqoc/dirtyclone_cve202643503_the_linux_kernel_flaw/ouhufb9/",
@@ -754,7 +1252,7 @@
         "id": "ouhvaq4",
         "author": "CardOk755",
         "body": "Summary:  if you have the remediations for the other similar bugs you're ok.\n\nAlso, the systemd guys are right.  Setuid is probably a bad idea.\n\n",
-        "score": 54,
+        "score": 57,
         "created_utc_ts": 1782738346,
         "created_utc": "2026-06-29T13:05:46",
         "permalink": "https://reddit.com/r/linux/comments/1uinqoc/dirtyclone_cve202643503_the_linux_kernel_flaw/ouhvaq4/",
@@ -776,7 +1274,7 @@
         "id": "oui3ao8",
         "author": "TheBendit",
         "body": "You could edit the systemd daemon with the same exploit. This could be used to make run0 hand out root without checking.",
-        "score": 23,
+        "score": 27,
         "created_utc_ts": 1782740734,
         "created_utc": "2026-06-29T13:45:34",
         "permalink": "https://reddit.com/r/linux/comments/1uinqoc/dirtyclone_cve202643503_the_linux_kernel_flaw/oui3ao8/",
@@ -798,7 +1296,7 @@
         "id": "ouk2j1c",
         "author": "Dangerous-Report8517",
         "body": "Unlike some of the others, container runtimes actually defend against this one since they restrict CAP_NET_ADMIN by default, contrary to what the article implies. Still a big problem in some circumstances though",
-        "score": 18,
+        "score": 21,
         "created_utc_ts": 1782759332,
         "created_utc": "2026-06-29T18:55:32",
         "permalink": "https://reddit.com/r/linux/comments/1uinqoc/dirtyclone_cve202643503_the_linux_kernel_flaw/ouk2j1c/",
@@ -809,7 +1307,7 @@
         "id": "ouk4ah7",
         "author": "Dangerous-Report8517",
         "body": "To be clear, if you specifically mitigated DirtyFrag by disabling the affected IPsec kernel modules you're OK, if you just patched instead then you're still vulnerable without specifically mitigating this one or waiting for its patch. This one does need a little bit more privilege to exploit though, since sandboxing tools like flatpak and most container runtimes would block CAP_NET_ADMIN even in user namespaces",
-        "score": 9,
+        "score": 8,
         "created_utc_ts": 1782759777,
         "created_utc": "2026-06-29T19:02:57",
         "permalink": "https://reddit.com/r/linux/comments/1uinqoc/dirtyclone_cve202643503_the_linux_kernel_flaw/ouk4ah7/",
@@ -820,7 +1318,7 @@
         "id": "oumgny1",
         "author": "2rad0",
         "body": "&gt; Also, the systemd guys are right. Setuid is probably a bad idea.  \n  \nOn the miniscule chance this comment is NOT bait:  \n  \nThis is an escalation bug only because of user namespaces, which is the antithesis of setuid.  Both are troublesome, file capabilities too. userns *IMO* is worse because it pretends to be *safer* while they continuosly play whack-a-mole year after year with the CVE's it suffers from, and it's higher value target because it pushes exploitation from \"i have to find an exploit in $program_name that I can reproduce on binaries built by $target_distro and work with any userspace mitigations that have been setup\" over to \"i have to exploit the linux kernel, *any* kernel with `CONFIG_USER_NS=y` will do\". The latter being a much more consistent and ripe target for wide spread exploitation.  \n  \nEven if systemdbus totally abandoned support for setuid/filecaps/userns it could still be struck with one of these setuid-style programming errors because pid1 always starts off with maximum privileges, but of course they believe that would never happen so in their minds the only program you need with full capability set is systemd, \"for your protection\" no other programs can be trusted.",
-        "score": 3,
+        "score": 4,
         "created_utc_ts": 1782784158,
         "created_utc": "2026-06-30T01:49:18",
         "permalink": "https://reddit.com/r/linux/comments/1uinqoc/dirtyclone_cve202643503_the_linux_kernel_flaw/oumgny1/",
@@ -949,13 +1447,13 @@
     "created_utc": "2026-06-25T15:30:44",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 14,
+    "score": 13,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2025-52465 geoserver arbitrary file write vulnerability",
-    "updatedAt": "2026-07-01T04:46:00.405Z",
-    "upvote_ratio": 0.85,
+    "updatedAt": "2026-07-02T04:45:58.749Z",
+    "upvote_ratio": 0.82,
     "url": "https://reddit.com/r/netsec/comments/1ufdc3k/cve202552465_geoserver_arbitrary_file_write/",
     "versionList": [
       "2025.0.0",
@@ -1558,7 +2056,7 @@
     "tag": null,
     "tags": [],
     "title": "Would this new FFMpeg vulnerability affect Immich at all.",
-    "updatedAt": "2026-07-01T00:27:05.867Z",
+    "updatedAt": "2026-07-02T00:29:41.237Z",
     "upvote_ratio": 0.96,
     "url": "https://reddit.com/r/immich/comments/1uds0r1/would_this_new_ffmpeg_vulnerability_affect_immich/",
     "versionList": [],
@@ -2040,6 +2538,94 @@
         "cveChangeHistory": "1. 2026-06-19T06:17:10.807 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=AC48033C-C3F6-40D7-8780-093780BE88C3\n   - Changed SSVC: {'timestamp': '2026-06-18T12:26:45.287776Z', 'id': 'CVE-2026-8461', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'} -> {'timestamp': '2026-06-18T00:00:00+00:00', 'id': 'CVE-2026-8461', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-06-18T14:17:36.660 | New CVE Received | source=reefs@jfrog.com | changeId=6E4EBED0-0F5B-4180-B869-C55C952E2947\n   - Added Affected: [{'vendor': 'FFmpeg', 'product': 'FFmpeg', 'defaultStatus': 'unaffected', 'modules': ['libavcodec'], 'programFiles': ['libavcodec/magicyuv.c'], 'versions': [{'version': '0', 'lessThan': '8.1.2', 'versionType': 'custom', 'status': 'affected'}]}]\n   - Added Description: An out-of-bounds write vulnerability in FFmpeg's libavcodec library, specifically in the MagicYUV decoder, allows denial-of-service and, in some cases, can be exploited for remote code execution.\n\n This vulnerability is associated with the file libavcodec/magicyuv.C.\n\n\n\nThis issue affects FFmpeg before version 8.1.2.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-787\n   - Added Reference: https://code.ffmpeg.org/FFmpeg/FFmpeg/pulls/23159\n3. 2026-06-18T14:17:36.660 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=15349C6B-EF44-40FC-B1C0-D749FAF7EDA9\n   - Added SSVC: {'timestamp': '2026-06-18T12:26:45.287776Z', 'id': 'CVE-2026-8461', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n",
         "eventNamesBeforeAnalysis": [
           "New CVE Received",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-8461",
+        "cveIds": [
+          "CVE-2026-8461"
+        ],
+        "source": "Comment",
+        "commentText": "\"However, Moravchick noted that the RCE exploit requires ASLR (Address Space Layout Randomization) to be disabled, and that CVE-2026-8461 alone does not bypass this memory protection.\"\n\nOn most operating systems ASLR is enabled by default exactly to prevent the type of security problems like these.",
+        "linkToComment": "https://reddit.com/r/immich/comments/1uds0r1/would_this_new_ffmpeg_vulnerability_affect_immich/otiy8ky/",
+        "commentDate": "2026-06-24T13:45:51+00:00",
+        "cvePublishedDate": "2026-06-18T14:17:36.660000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 5,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-06-30T03:21:43.573 | CVE Modified | source=0b0ca135-0b70-47e7-9f44-1890c2a1c46c | changeId=AA1FD466-1A8B-41E3-987A-7CC4B93E782B\n   - Added Affected: [{'vendor': 'Red Hat', 'product': 'Red Hat AI Inference Server', 'defaultStatus': 'affected', 'cpes': ['cpe:/a:redhat:ai_inference_server:3']}, {'vendor': 'Red Hat', 'product': 'Red Hat Enterprise Linux AI (RHEL AI) 3', 'defaultStatus': 'affected', 'cpes': ['cpe:/a:redhat:enterprise_linux_ai:3']}, {'vendor': 'Red Hat', 'product': 'Red Hat OpenShift AI (RHOAI)', 'defaultStatus': 'affected', 'cpes': ['cpe:/a:redhat:openshift_ai']}]\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-787\n   - Added Reference: https://access.redhat.com/security/cve/CVE-2026-8461\n   - Added Reference: https://bugzilla.redhat.com/show_bug.cgi?id=2490308\n   - Added Reference: https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-8461.json\n2. 2026-06-19T06:17:10.807 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=AC48033C-C3F6-40D7-8780-093780BE88C3\n   - Changed SSVC: {'timestamp': '2026-06-18T12:26:45.287776Z', 'id': 'CVE-2026-8461', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'} -> {'timestamp': '2026-06-18T00:00:00+00:00', 'id': 'CVE-2026-8461', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n3. 2026-06-18T14:17:36.660 | New CVE Received | source=reefs@jfrog.com | changeId=6E4EBED0-0F5B-4180-B869-C55C952E2947\n   - Added Affected: [{'vendor': 'FFmpeg', 'product': 'FFmpeg', 'defaultStatus': 'unaffected', 'modules': ['libavcodec'], 'programFiles': ['libavcodec/magicyuv.c'], 'versions': [{'version': '0', 'lessThan': '8.1.2', 'versionType': 'custom', 'status': 'affected'}]}]\n   - Added Description: An out-of-bounds write vulnerability in FFmpeg's libavcodec library, specifically in the MagicYUV decoder, allows denial-of-service and, in some cases, can be exploited for remote code execution.\n\n This vulnerability is associated with the file libavcodec/magicyuv.C.\n\n\n\nThis issue affects FFmpeg before version 8.1.2.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-787\n   - Added Reference: https://code.ffmpeg.org/FFmpeg/FFmpeg/pulls/23159\n4. 2026-06-18T14:17:36.660 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=15349C6B-EF44-40FC-B1C0-D749FAF7EDA9\n   - Added SSVC: {'timestamp': '2026-06-18T12:26:45.287776Z', 'id': 'CVE-2026-8461', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-8461",
+        "cveIds": [
+          "CVE-2026-8461"
+        ],
+        "source": "Comment",
+        "commentText": "\"However, Moravchick noted that the RCE exploit requires ASLR (Address Space Layout Randomization) to be disabled, and that CVE-2026-8461 alone does not bypass this memory protection.\"\n\nOn most operating systems ASLR is enabled by default exactly to prevent the type of security problems like these.",
+        "linkToComment": "https://reddit.com/r/immich/comments/1uds0r1/would_this_new_ffmpeg_vulnerability_affect_immich/otiy8ky/",
+        "commentDate": "2026-06-24T13:45:51+00:00",
+        "cvePublishedDate": "2026-06-18T14:17:36.660000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 5,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-06-30T03:21:43.573 | CVE Modified | source=0b0ca135-0b70-47e7-9f44-1890c2a1c46c | changeId=AA1FD466-1A8B-41E3-987A-7CC4B93E782B\n   - Added Affected: [{'vendor': 'Red Hat', 'product': 'Red Hat AI Inference Server', 'defaultStatus': 'affected', 'cpes': ['cpe:/a:redhat:ai_inference_server:3']}, {'vendor': 'Red Hat', 'product': 'Red Hat Enterprise Linux AI (RHEL AI) 3', 'defaultStatus': 'affected', 'cpes': ['cpe:/a:redhat:enterprise_linux_ai:3']}, {'vendor': 'Red Hat', 'product': 'Red Hat OpenShift AI (RHOAI)', 'defaultStatus': 'affected', 'cpes': ['cpe:/a:redhat:openshift_ai']}]\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-787\n   - Added Reference: https://access.redhat.com/security/cve/CVE-2026-8461\n   - Added Reference: https://bugzilla.redhat.com/show_bug.cgi?id=2490308\n   - Added Reference: https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-8461.json\n2. 2026-06-19T06:17:10.807 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=AC48033C-C3F6-40D7-8780-093780BE88C3\n   - Changed SSVC: {'timestamp': '2026-06-18T12:26:45.287776Z', 'id': 'CVE-2026-8461', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'} -> {'timestamp': '2026-06-18T00:00:00+00:00', 'id': 'CVE-2026-8461', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n3. 2026-06-18T14:17:36.660 | New CVE Received | source=reefs@jfrog.com | changeId=6E4EBED0-0F5B-4180-B869-C55C952E2947\n   - Added Affected: [{'vendor': 'FFmpeg', 'product': 'FFmpeg', 'defaultStatus': 'unaffected', 'modules': ['libavcodec'], 'programFiles': ['libavcodec/magicyuv.c'], 'versions': [{'version': '0', 'lessThan': '8.1.2', 'versionType': 'custom', 'status': 'affected'}]}]\n   - Added Description: An out-of-bounds write vulnerability in FFmpeg's libavcodec library, specifically in the MagicYUV decoder, allows denial-of-service and, in some cases, can be exploited for remote code execution.\n\n This vulnerability is associated with the file libavcodec/magicyuv.C.\n\n\n\nThis issue affects FFmpeg before version 8.1.2.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-787\n   - Added Reference: https://code.ffmpeg.org/FFmpeg/FFmpeg/pulls/23159\n4. 2026-06-18T14:17:36.660 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=15349C6B-EF44-40FC-B1C0-D749FAF7EDA9\n   - Added SSVC: {'timestamp': '2026-06-18T12:26:45.287776Z', 'id': 'CVE-2026-8461', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-8461",
+        "cveIds": [
+          "CVE-2026-8461"
+        ],
+        "source": "Comment",
+        "commentText": "\"However, Moravchick noted that the RCE exploit requires ASLR (Address Space Layout Randomization) to be disabled, and that CVE-2026-8461 alone does not bypass this memory protection.\"\n\nOn most operating systems ASLR is enabled by default exactly to prevent the type of security problems like these.",
+        "linkToComment": "https://reddit.com/r/immich/comments/1uds0r1/would_this_new_ffmpeg_vulnerability_affect_immich/otiy8ky/",
+        "commentDate": "2026-06-24T13:45:51+00:00",
+        "cvePublishedDate": "2026-06-18T14:17:36.660000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 5,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-06-30T03:21:43.573 | CVE Modified | source=0b0ca135-0b70-47e7-9f44-1890c2a1c46c | changeId=AA1FD466-1A8B-41E3-987A-7CC4B93E782B\n   - Added Affected: [{'vendor': 'Red Hat', 'product': 'Red Hat AI Inference Server', 'defaultStatus': 'affected', 'cpes': ['cpe:/a:redhat:ai_inference_server:3']}, {'vendor': 'Red Hat', 'product': 'Red Hat Enterprise Linux AI (RHEL AI) 3', 'defaultStatus': 'affected', 'cpes': ['cpe:/a:redhat:enterprise_linux_ai:3']}, {'vendor': 'Red Hat', 'product': 'Red Hat OpenShift AI (RHOAI)', 'defaultStatus': 'affected', 'cpes': ['cpe:/a:redhat:openshift_ai']}]\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-787\n   - Added Reference: https://access.redhat.com/security/cve/CVE-2026-8461\n   - Added Reference: https://bugzilla.redhat.com/show_bug.cgi?id=2490308\n   - Added Reference: https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-8461.json\n2. 2026-06-19T06:17:10.807 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=AC48033C-C3F6-40D7-8780-093780BE88C3\n   - Changed SSVC: {'timestamp': '2026-06-18T12:26:45.287776Z', 'id': 'CVE-2026-8461', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'} -> {'timestamp': '2026-06-18T00:00:00+00:00', 'id': 'CVE-2026-8461', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n3. 2026-06-18T14:17:36.660 | New CVE Received | source=reefs@jfrog.com | changeId=6E4EBED0-0F5B-4180-B869-C55C952E2947\n   - Added Affected: [{'vendor': 'FFmpeg', 'product': 'FFmpeg', 'defaultStatus': 'unaffected', 'modules': ['libavcodec'], 'programFiles': ['libavcodec/magicyuv.c'], 'versions': [{'version': '0', 'lessThan': '8.1.2', 'versionType': 'custom', 'status': 'affected'}]}]\n   - Added Description: An out-of-bounds write vulnerability in FFmpeg's libavcodec library, specifically in the MagicYUV decoder, allows denial-of-service and, in some cases, can be exploited for remote code execution.\n\n This vulnerability is associated with the file libavcodec/magicyuv.C.\n\n\n\nThis issue affects FFmpeg before version 8.1.2.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-787\n   - Added Reference: https://code.ffmpeg.org/FFmpeg/FFmpeg/pulls/23159\n4. 2026-06-18T14:17:36.660 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=15349C6B-EF44-40FC-B1C0-D749FAF7EDA9\n   - Added SSVC: {'timestamp': '2026-06-18T12:26:45.287776Z', 'id': 'CVE-2026-8461', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-8461",
+        "cveIds": [
+          "CVE-2026-8461"
+        ],
+        "source": "Comment",
+        "commentText": "\"However, Moravchick noted that the RCE exploit requires ASLR (Address Space Layout Randomization) to be disabled, and that CVE-2026-8461 alone does not bypass this memory protection.\"\n\nOn most operating systems ASLR is enabled by default exactly to prevent the type of security problems like these.",
+        "linkToComment": "https://reddit.com/r/immich/comments/1uds0r1/would_this_new_ffmpeg_vulnerability_affect_immich/otiy8ky/",
+        "commentDate": "2026-06-24T13:45:51+00:00",
+        "cvePublishedDate": "2026-06-18T14:17:36.660000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 5,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-06-30T03:21:43.573 | CVE Modified | source=0b0ca135-0b70-47e7-9f44-1890c2a1c46c | changeId=AA1FD466-1A8B-41E3-987A-7CC4B93E782B\n   - Added Affected: [{'vendor': 'Red Hat', 'product': 'Red Hat AI Inference Server', 'defaultStatus': 'affected', 'cpes': ['cpe:/a:redhat:ai_inference_server:3']}, {'vendor': 'Red Hat', 'product': 'Red Hat Enterprise Linux AI (RHEL AI) 3', 'defaultStatus': 'affected', 'cpes': ['cpe:/a:redhat:enterprise_linux_ai:3']}, {'vendor': 'Red Hat', 'product': 'Red Hat OpenShift AI (RHOAI)', 'defaultStatus': 'affected', 'cpes': ['cpe:/a:redhat:openshift_ai']}]\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-787\n   - Added Reference: https://access.redhat.com/security/cve/CVE-2026-8461\n   - Added Reference: https://bugzilla.redhat.com/show_bug.cgi?id=2490308\n   - Added Reference: https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-8461.json\n2. 2026-06-19T06:17:10.807 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=AC48033C-C3F6-40D7-8780-093780BE88C3\n   - Changed SSVC: {'timestamp': '2026-06-18T12:26:45.287776Z', 'id': 'CVE-2026-8461', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'} -> {'timestamp': '2026-06-18T00:00:00+00:00', 'id': 'CVE-2026-8461', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n3. 2026-06-18T14:17:36.660 | New CVE Received | source=reefs@jfrog.com | changeId=6E4EBED0-0F5B-4180-B869-C55C952E2947\n   - Added Affected: [{'vendor': 'FFmpeg', 'product': 'FFmpeg', 'defaultStatus': 'unaffected', 'modules': ['libavcodec'], 'programFiles': ['libavcodec/magicyuv.c'], 'versions': [{'version': '0', 'lessThan': '8.1.2', 'versionType': 'custom', 'status': 'affected'}]}]\n   - Added Description: An out-of-bounds write vulnerability in FFmpeg's libavcodec library, specifically in the MagicYUV decoder, allows denial-of-service and, in some cases, can be exploited for remote code execution.\n\n This vulnerability is associated with the file libavcodec/magicyuv.C.\n\n\n\nThis issue affects FFmpeg before version 8.1.2.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-787\n   - Added Reference: https://code.ffmpeg.org/FFmpeg/FFmpeg/pulls/23159\n4. 2026-06-18T14:17:36.660 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=15349C6B-EF44-40FC-B1C0-D749FAF7EDA9\n   - Added SSVC: {'timestamp': '2026-06-18T12:26:45.287776Z', 'id': 'CVE-2026-8461', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
           "CVE Modified",
           "CVE Modified"
         ]
@@ -2968,13 +3554,13 @@
     "created_utc": "2026-06-22T18:31:27",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 20,
+    "score": 17,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-25860 turn XSS to RCE",
-    "updatedAt": "2026-07-01T04:46:05.274Z",
-    "upvote_ratio": 0.9,
+    "updatedAt": "2026-07-02T04:46:03.285Z",
+    "upvote_ratio": 0.84,
     "url": "https://reddit.com/r/netsec/comments/1ucsrw0/cve202625860_turn_xss_to_rce/",
     "versionList": [
       "2026.0.0",
@@ -3297,7 +3883,7 @@
     "tag": null,
     "tags": [],
     "title": "WEIRD RUSTDESK REQUEST FROM MY OWN MACBOOK",
-    "updatedAt": "2026-07-01T05:12:36.590Z",
+    "updatedAt": "2026-07-01T23:24:08.842Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/rustdesk/comments/1ub5cdv/weird_rustdesk_request_from_my_own_macbook/",
     "versionList": [],
@@ -3334,7 +3920,7 @@
     "tag": null,
     "tags": [],
     "title": "Use-after-free in the QPACK encoder of nginx HTTP/3 - CVE-2026-42530",
-    "updatedAt": "2026-07-01T04:46:09.163Z",
+    "updatedAt": "2026-07-02T04:46:06.969Z",
     "upvote_ratio": 0.88,
     "url": "https://reddit.com/r/netsec/comments/1uab0j6/useafterfree_in_the_qpack_encoder_of_nginx_http3/",
     "versionList": [
@@ -3558,13 +4144,13 @@
     "created_utc": "2026-06-19T13:27:18",
     "first_author_comment": null,
     "num_comments": 6,
-    "score": 50,
+    "score": 45,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "OpenBSD MPLS kernel stack leaks remotely (CVE-2026-56099)",
-    "updatedAt": "2026-07-01T04:46:10.385Z",
-    "upvote_ratio": 0.98,
+    "updatedAt": "2026-07-02T04:46:07.799Z",
+    "upvote_ratio": 0.94,
     "url": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/",
     "versionList": [
       "2026.0.0",
@@ -4428,6 +5014,23 @@
           "CVE Modified",
           "CVE Modified"
         ]
+      },
+      {
+        "cveId": "CVE-2026-56099",
+        "cveIds": [
+          "CVE-2026-56099"
+        ],
+        "source": "Title",
+        "commentText": "OpenBSD MPLS kernel stack leaks remotely (CVE-2026-56099)",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/",
+        "commentDate": "2026-06-19T13:27:18+00:00",
+        "cvePublishedDate": "2026-06-18T20:16:15.370000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
       }
     ],
     "comments": [
@@ -4446,7 +5049,7 @@
         "id": "oskyfq1",
         "author": "[deleted]",
         "body": "[removed]",
-        "score": 3,
+        "score": 4,
         "created_utc_ts": 1781878840,
         "created_utc": "2026-06-19T14:20:40",
         "permalink": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/oskyfq1/",
@@ -4510,7 +5113,7 @@
         "id": "osjvvp7",
         "author": "netsec_burn",
         "body": "&gt; bc01\n\nWestJet? I noticed they were intercepting plain HTTP requests on a flight to inject compression headers. Same hostname returned by Squid.",
-        "score": 9,
+        "score": 8,
         "created_utc_ts": 1781865481,
         "created_utc": "2026-06-19T10:38:01",
         "permalink": "https://reddit.com/r/netsec/comments/1u9y7yw/squidbleed_cve202647729_heartbleedstyle/osjvvp7/",
@@ -4554,12 +5157,12 @@
     "created_utc": "2026-06-19T10:21:41",
     "first_author_comment": null,
     "num_comments": 5,
-    "score": 106,
+    "score": 104,
     "subreddit": "netsec",
     "tag": "Contains AI",
     "tags": [],
     "title": "Squidbleed (CVE-2026-47729) - Heartbleed-style vulnerability that leaks internal memory from every version of Squid Proxy, in its default configuration",
-    "updatedAt": "2026-07-01T04:46:11.645Z",
+    "updatedAt": "2026-07-02T04:46:08.892Z",
     "upvote_ratio": 0.97,
     "url": "https://reddit.com/r/netsec/comments/1u9y7yw/squidbleed_cve202647729_heartbleedstyle/",
     "versionList": [
@@ -5609,13 +6212,13 @@
     "created_utc": "2026-06-18T18:05:44",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 40,
+    "score": 39,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-5667: Unauthenticated Remote Control of Mitsubishi MAC-577IF-2E WiFi Adapters via Probe Request Reconnaissance",
-    "updatedAt": "2026-07-01T04:46:12.564Z",
-    "upvote_ratio": 0.91,
+    "updatedAt": "2026-07-02T04:46:09.750Z",
+    "upvote_ratio": 0.9,
     "url": "https://reddit.com/r/netsec/comments/1u9dncq/cve20265667_unauthenticated_remote_control_of/",
     "versionList": [
       "2026.0.0",
@@ -6599,13 +7202,13 @@
     "awards": [],
     "created_utc": "2026-06-12T20:37:06",
     "first_author_comment": null,
-    "num_comments": 2,
-    "score": 54,
+    "num_comments": 3,
+    "score": 52,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Why Use App-Level Auth When Every Database Has Auth? (Splunk Enterprise CVE-2026-20253 Pre-Auth RCE) - watchTowr Labs",
-    "updatedAt": "2026-07-01T04:46:24.989Z",
+    "updatedAt": "2026-07-02T04:46:20.445Z",
     "upvote_ratio": 0.94,
     "url": "https://reddit.com/r/netsec/comments/1u46wbb/why_use_applevel_auth_when_every_database_has/",
     "versionList": [
@@ -6642,6 +7245,17 @@
         "created_utc_ts": 1781976185,
         "created_utc": "2026-06-20T17:23:05",
         "permalink": "https://reddit.com/r/netsec/comments/1u46wbb/why_use_applevel_auth_when_every_database_has/osspabr/",
+        "parent_id": "t1_orbzyo1",
+        "is_submitter": false
+      },
+      {
+        "id": "ov07oku",
+        "author": "Final-Dish",
+        "body": "rip monday productivity, enjoy the “quick check” that somehow turns into a full day of patching and incident reports",
+        "score": 1,
+        "created_utc_ts": 1782945046,
+        "created_utc": "2026-07-01T22:30:46",
+        "permalink": "https://reddit.com/r/netsec/comments/1u46wbb/why_use_applevel_auth_when_every_database_has/ov07oku/",
         "parent_id": "t1_orbzyo1",
         "is_submitter": false
       }
@@ -6908,8 +7522,8 @@
     "tag": null,
     "tags": [],
     "title": "Marking Your Own Homework (Check Point Remote Access VPN IKEv1 Authentication Bypass CVE-2026-50751) - watchTowr Labs",
-    "updatedAt": "2026-07-01T04:46:28.789Z",
-    "upvote_ratio": 0.9,
+    "updatedAt": "2026-07-02T04:46:23.458Z",
+    "upvote_ratio": 0.87,
     "url": "https://reddit.com/r/netsec/comments/1u3m7yj/marking_your_own_homework_check_point_remote/",
     "versionList": [
       "2026.0.0",
@@ -7327,7 +7941,7 @@
         "id": "orcbb2k",
         "author": "scriptqzor",
         "body": "wild how many vendors still basically get to grade their own security papers and call it a day  \nprops to watchtowr for poking at the \"you’re fine, trust us\" narrative, this is the kind of stuff that actually makes everyone safer",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1781315205,
         "created_utc": "2026-06-13T01:46:45",
         "permalink": "https://reddit.com/r/netsec/comments/1u3m7yj/marking_your_own_homework_check_point_remote/orcbb2k/",
@@ -9930,7 +10544,7 @@
     "tag": null,
     "tags": [],
     "title": "More Evidence That Words Don't Mean What We Thought They Meant (Ivanti Sentry Pre-Auth OS Command Injection CVE-2026-10520) - watchTowr Labs",
-    "updatedAt": "2026-07-01T04:46:34.520Z",
+    "updatedAt": "2026-07-02T04:46:28.218Z",
     "upvote_ratio": 0.9,
     "url": "https://reddit.com/r/netsec/comments/1u1neao/more_evidence_that_words_dont_mean_what_we/",
     "versionList": [
@@ -13539,12 +14153,12 @@
     "created_utc": "2026-06-07T00:05:33",
     "first_author_comment": null,
     "num_comments": 3,
-    "score": 8,
+    "score": 9,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-46640: Developing payloads for Twig sandbox bypass",
-    "updatedAt": "2026-07-01T04:46:40.415Z",
+    "updatedAt": "2026-07-02T04:46:33.415Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/netsec/comments/1tywxh9/cve202646640_developing_payloads_for_twig_sandbox/",
     "versionList": [
@@ -13612,7 +14226,7 @@
         "id": "oprf3cd",
         "author": "throwaway234f32423df",
         "body": "fixed on Ubuntu about an hour ago even though they haven't put up a CVE page for it yet",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1780598242,
         "created_utc": "2026-06-04T18:37:22",
         "permalink": "https://reddit.com/r/apache/comments/1tws4w7/the_http2_bomb_that_knocks_nginx_and_apache/oprf3cd/",
@@ -13628,7 +14242,7 @@
     "tag": null,
     "tags": [],
     "title": "The HTTP/2 Bomb That Knocks nginx and Apache Offline With a Single Connection",
-    "updatedAt": "2026-07-01T04:51:26.586Z",
+    "updatedAt": "2026-07-02T04:51:20.431Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/apache/comments/1tws4w7/the_http2_bomb_that_knocks_nginx_and_apache/",
     "versionList": [
