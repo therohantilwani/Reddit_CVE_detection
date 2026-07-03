@@ -27,6 +27,8 @@ CVE-2017-17215,1,2026-05-27T13:58:10+00:00,1779890290,netsec,https://reddit.com/
 CVE-2017-9841,1,2026-06-29T11:34:36+00:00,1782732876,PHP,https://reddit.com/r/PHP/comments/1uipydy/composer_in_docker_best_practices_for_production/
 CVE-2018-13379,1,2026-06-19T08:41:10+00:00,1781858470,sysadmin,https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/
 CVE-2019-0984,1,2019-05-15T13:57:44+00:00,1557928664,rapid7,https://reddit.com/r/rapid7/comments/boy98i/how_soon_are_vulns_added_to_insight/
+CVE-2019-13057,1,2019-07-24T21:02:31+00:00,1564002151,ldap,https://reddit.com/r/ldap/comments/chdyl4/openldap_2448_available_lmdb_0924_available/
+CVE-2019-13565,1,2019-07-24T21:02:31+00:00,1564002151,ldap,https://reddit.com/r/ldap/comments/chdyl4/openldap_2448_available_lmdb_0924_available/
 CVE-2019-14192,1,2026-05-13T11:48:09+00:00,1778672889,QEMU,https://reddit.com/r/QEMU/comments/1tbx8sa/how_to_add_a_peripheral_to_qemu/
 CVE-2020-17103,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2021-21735,1,2026-05-25T14:47:16+00:00,1779720436,netsec,https://reddit.com/r/netsec/comments/1tnbcp1/cve202121735_zte_h168n_wizard_whitelist_exposed/
