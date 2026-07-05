@@ -1,4 +1,5 @@
 post_id,subreddit,created_iso_utc,title,cves,cve_paths,url
+,AZURE,2026-07-04T08:11:20+00:00,"DHS confirms HSIN breach — weeks-long undetected access, no attribution yet",CVE-2026-32201,author_description,https://reddit.com/r/AZURE/comments/1un3dvn/dhs_confirms_hsin_breach_weekslong_undetected/
 ,AZURE,2026-07-02T04:03:58+00:00,GuardFall: 10/11 open-source AI coding agents fail a shell trick that's been public since Bash 1.0 (1989),CVE-2026-33017,author_description,https://reddit.com/r/AZURE/comments/1ul7lyd/guardfall_1011_opensource_ai_coding_agents_fail_a/
 ,sysadmin,2026-07-01T18:41:41+00:00,Struggle with Win11 and WDS Answer File Domain Join,CVE-2026-0386,comments[0].body,https://reddit.com/r/sysadmin/comments/1uku5tc/struggle_with_win11_and_wds_answer_file_domain/
 ,netsec,2026-07-01T16:19:42+00:00,Zero-Click Prompt Injection to RCE in Cursor IDE: DuneSlide,CVE-2026-50548;CVE-2026-50549,author_description,https://reddit.com/r/netsec/comments/1ukqaam/zeroclick_prompt_injection_to_rce_in_cursor_ide/
