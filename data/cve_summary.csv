@@ -153,6 +153,7 @@ CVE-2026-46333,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.co
 CVE-2026-46633,1,2026-06-07T00:05:33+00:00,1780790733,netsec,https://reddit.com/r/netsec/comments/1tywxh9/cve202646640_developing_payloads_for_twig_sandbox/
 CVE-2026-46640,1,2026-06-07T00:05:33+00:00,1780790733,netsec,https://reddit.com/r/netsec/comments/1tywxh9/cve202646640_developing_payloads_for_twig_sandbox/
 CVE-2026-47288,1,2026-06-16T17:39:54+00:00,1781631594,sysadmin,https://reddit.com/r/sysadmin/comments/1u7kggj/5_enterprise_cves_from_last_week_worth_checking/
+CVE-2026-47331,1,2026-07-05T14:25:53+00:00,1783261553,Ubuntu,https://reddit.com/r/Ubuntu/comments/1uo3j87/ubuntu_users_should_patch_this_linux_kernel/
 CVE-2026-47729,1,2026-06-19T10:21:41+00:00,1781864501,netsec,https://reddit.com/r/netsec/comments/1u9y7yw/squidbleed_cve202647729_heartbleedstyle/
 CVE-2026-49160,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2026-49412,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/
@@ -193,6 +194,7 @@ CVE-2026-53246,1,2026-07-01T15:59:24+00:00,1782921564,linux,https://reddit.com/r
 CVE-2026-53247,1,2026-07-01T15:59:24+00:00,1782921564,linux,https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/
 CVE-2026-53260,1,2026-07-01T15:59:24+00:00,1782921564,linux,https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/
 CVE-2026-53309,1,2026-07-01T15:59:24+00:00,1782921564,linux,https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/
+CVE-2026-53359,1,2026-07-07T03:49:30+00:00,1783396170,homelab,https://reddit.com/r/homelab/comments/1upjsdx/if_your_homelab_uses_kvmproxmox_with_nested/
 CVE-2026-53657,1,2026-07-01T14:52:02+00:00,1782917522,netsec,https://reddit.com/r/netsec/comments/1uknvr4/privilege_escalation_to_root_in_lima_qemu_guests/
 CVE-2026-55199,1,2026-06-30T14:31:37+00:00,1782829897,rust,https://reddit.com/r/rust/comments/1ujqvqx/rust_1961_is_out/
 CVE-2026-56099,1,2026-06-19T13:27:18+00:00,1781875638,netsec,https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/
