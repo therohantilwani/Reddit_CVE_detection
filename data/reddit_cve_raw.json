@@ -1,5 +1,216 @@
 [
   {
+    "_id": "6a4dbb2effd9112271259f38",
+    "redditId": "1uqfz6h",
+    "author": "Expert_Sort7434",
+    "author_description": "Wanted to flag this one because the timeline is genuinely fast even by 2026 standards.\n\nAdobe patched CVE-2026-48282 on June 30 — a path traversal in ColdFusion's RDS component that leads to unauthenticated arbitrary file write and eventually RCE. Adobe's own advisory said no known exploitation at patch time.\n\nKEVIntel's honeypot network recorded real exploitation attempts by July 2, reportedly from a single IP in India, targeting the RDS path directly. Under two hours from public technical details to live attacks.\n\nThe important nuance: this only bites when RDS is enabled *and* its own auth is disabled — non-default, but a common dev-convenience misconfiguration that tends to survive way longer than it should.\n\nI wrote up the full attack chain, the CVSS/CWE breakdown, and a remediation checklist here if useful: [https://www.techgines.com/post/adobe-coldfusion-cve-2026-48282-exploited-rds-path-traversal](https://www.techgines.com/post/adobe-coldfusion-cve-2026-48282-exploited-rds-path-traversal)\n\nI previously covered a very similar pattern with Langflow RCE CVE-2026-33017 here if you want more background: [https://www.techgines.com/post/cisa-confirms-langflow-rce-cve-2026-33017-attackers-had-working-exploits-before-the-world-had-a-poc](https://www.techgines.com/post/cisa-confirms-langflow-rce-cve-2026-33017-attackers-had-working-exploits-before-the-world-had-a-poc)\n\n**Discussion question:** with disclosure-to-exploit windows regularly collapsing under 24 hours (sometimes under 2), is patch-cadence SLA even a meaningful defense metric anymore, or should orgs be treating \"patch released\" and \"actively exploited\" as effectively simultaneous by default?",
+    "awards": [],
+    "comments": [
+      {
+        "id": "ow7qous",
+        "author": "Odd-Attention9340",
+        "body": "2 hours from disclosure to active exploit is wild, but honestly the RDS with no auth thing is such a classic dev shortcut that never gets cleaned up\n\n  \nwe had similar issue in one of our staging environments last year, someone left it wide open for weeks before anyone noticed\n\n  \ni think the patch SLA mindset is dead at this point, if you're not treating every critical CVE like it's already being hammered the moment the advisory drops you're just gambling",
+        "score": 3,
+        "created_utc_ts": 1783478590,
+        "created_utc": "2026-07-08T02:43:10",
+        "permalink": "https://reddit.com/r/AZURE/comments/1uqfz6h/adobe_coldfusion_cve202648282_cvss_100_exploited/ow7qous/",
+        "parent_id": "t3_1uqfz6h",
+        "is_submitter": false
+      },
+      {
+        "id": "ow7rjra",
+        "author": "mixduptransistor",
+        "body": "did you write this post with AI? why can't we have posts on reddit without them being written by AI",
+        "score": 4,
+        "created_utc_ts": 1783478892,
+        "created_utc": "2026-07-08T02:48:12",
+        "permalink": "https://reddit.com/r/AZURE/comments/1uqfz6h/adobe_coldfusion_cve202648282_cvss_100_exploited/ow7rjra/",
+        "parent_id": "t3_1uqfz6h",
+        "is_submitter": false
+      },
+      {
+        "id": "ow7thha",
+        "author": "Diligent-Method-785",
+        "body": "Oh my cold fusion is still a thing? What in the AS400 era tech is going on?",
+        "score": 5,
+        "created_utc_ts": 1783479595,
+        "created_utc": "2026-07-08T02:59:55",
+        "permalink": "https://reddit.com/r/AZURE/comments/1uqfz6h/adobe_coldfusion_cve202648282_cvss_100_exploited/ow7thha/",
+        "parent_id": "t3_1uqfz6h",
+        "is_submitter": false
+      },
+      {
+        "id": "ow7vfkk",
+        "author": "elpollodiablox",
+        "body": "My first thought, too. I haven't heard that name in a long time...a long time.",
+        "score": 3,
+        "created_utc_ts": 1783480319,
+        "created_utc": "2026-07-08T03:11:59",
+        "permalink": "https://reddit.com/r/AZURE/comments/1uqfz6h/adobe_coldfusion_cve202648282_cvss_100_exploited/ow7vfkk/",
+        "parent_id": "t1_ow7thha",
+        "is_submitter": false
+      }
+    ],
+    "created_utc": "2026-07-08T02:34:51",
+    "first_author_comment": null,
+    "num_comments": 4,
+    "score": 0,
+    "subreddit": "AZURE",
+    "tag": "Media",
+    "tags": [
+      "Media"
+    ],
+    "title": "Adobe ColdFusion CVE-2026-48282 (CVSS 10.0) — exploited within 2 hours of disclosure, here's the technical chain",
+    "updatedAt": "2026-07-08T04:50:47.603Z",
+    "upvote_ratio": 0.25,
+    "url": "https://reddit.com/r/AZURE/comments/1uqfz6h/adobe_coldfusion_cve202648282_cvss_100_exploited/",
+    "versionList": [
+      "2026.0.0",
+      "48282.0.0",
+      "10.0.0",
+      "2.0.0"
+    ],
+    "classification": {
+      "componentType": []
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 5.704709253539889e-05,
+        "timestampPredicted": "2026-07-08T04:00:23.160841+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true
+  },
+  {
+    "_id": "6a4d4580ffd9112271256a4d",
+    "redditId": "1uq0g9t",
+    "author": "SecureEmbedded",
+    "author_description": "Are you using FatFS in a product?  No?  Are you sure?\n\nPlease keep in mind that Zephyr, STM32Cube firmware, Espressif ESP-IDF and other platforms pull in FatFS (depending on configuration).\n\n3 of the 7 vulnerabilities are considered High Severity, at least one of which (CVE-2026-6682) can lead to arbitrary code execution. Some of you know, a stack-based buffer overflow can lead to code injection, arc injection, or worst of all, Return-Oriented Programming (ROP) attacks.\n\nRead more about the vulnerabilities at Security Affairs (I have no affiliation).\n\nRelated: are you using FreeRTOS?  lwIP?  Zephyr?  WolfSSL?  MbedTLS?  Literally \\*any\\* other off-the-shelf software (open-source or commerical/licensed)?  If so, head over to [cve.org](http://cve.org) and search for vulnerabilities that might be lurking in your code.",
+    "awards": [],
+    "comments": [
+      {
+        "id": "ow4mgpc",
+        "author": "elishaakemu",
+        "body": "Hehe I already use LittleFS. ",
+        "score": 3,
+        "created_utc_ts": 1783446602,
+        "created_utc": "2026-07-07T17:50:02",
+        "permalink": "https://reddit.com/r/embedded/comments/1uq0g9t/fatfs_7_new_security_vulnerabilities_discovered/ow4mgpc/",
+        "parent_id": "t3_1uq0g9t",
+        "is_submitter": false
+      },
+      {
+        "id": "ow5d3nu",
+        "author": "hearty_brotherhood",
+        "body": "LittleFS is solid but don't sleep on checking it for CVEs too, every off the shelf filesystem has had its turn in the vulnerability spotlight",
+        "score": 2,
+        "created_utc_ts": 1783452982,
+        "created_utc": "2026-07-07T19:36:22",
+        "permalink": "https://reddit.com/r/embedded/comments/1uq0g9t/fatfs_7_new_security_vulnerabilities_discovered/ow5d3nu/",
+        "parent_id": "t3_1uq0g9t",
+        "is_submitter": false
+      },
+      {
+        "id": "ow67nkr",
+        "author": "SkoomaDentist",
+        "body": "And absolutely _none_ of those matter if you don’t access those things over interfaces external to the device.",
+        "score": 9,
+        "created_utc_ts": 1783460996,
+        "created_utc": "2026-07-07T21:49:56",
+        "permalink": "https://reddit.com/r/embedded/comments/1uq0g9t/fatfs_7_new_security_vulnerabilities_discovered/ow67nkr/",
+        "parent_id": "t3_1uq0g9t",
+        "is_submitter": false
+      },
+      {
+        "id": "ow6c0ju",
+        "author": "fuck_icache",
+        "body": "iirc on vita/ps4/ps5 you could gain kexec from a specially crafted usb drive partition - their drivers were based on fatfs",
+        "score": 2,
+        "created_utc_ts": 1783462222,
+        "created_utc": "2026-07-07T22:10:22",
+        "permalink": "https://reddit.com/r/embedded/comments/1uq0g9t/fatfs_7_new_security_vulnerabilities_discovered/ow6c0ju/",
+        "parent_id": "t1_ow67nkr",
+        "is_submitter": false
+      }
+    ],
+    "created_utc": "2026-07-07T16:39:41",
+    "first_author_comment": null,
+    "num_comments": 5,
+    "score": 12,
+    "subreddit": "embedded",
+    "tag": null,
+    "tags": [],
+    "title": "FatFS: 7 new security vulnerabilities discovered",
+    "updatedAt": "2026-07-08T00:29:22.755Z",
+    "upvote_ratio": 0.75,
+    "url": "https://reddit.com/r/embedded/comments/1uq0g9t/fatfs_7_new_security_vulnerabilities_discovered/",
+    "versionList": [
+      "7.0.0"
+    ],
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 7.217278078650827e-05,
+        "timestampPredicted": "2026-07-08T00:01:18.623385+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": false,
+    "classification": {
+      "componentType": [],
+      "securityType": [
+        "UNKNOWN"
+      ]
+    }
+  },
+  {
+    "_id": "6a4d35baffd9112271256305",
+    "redditId": "1upzh9z",
+    "author": "TurbulentJeweler3722",
+    "author_description": "After reading that 83% of Supabase data exposures come from RLS misconfiguration (and the CVE-2025-48757 story with 170+ vibe-coded apps), I built a small open-source CLI that connects read-only to your Postgres/Supabase DB and flags common RLS mistakes: RLS disabled entirely, USING (true) policies open to anon, unauthenticated write access, and the classic \"INSERT works but .select() fails\" trap.\n\n▎ [https://github.com/redekerlouis-ai/rls-auditor](https://github.com/redekerlouis-ai/rls-auditor)\n\nRuns local, never sends your data anywhere, read-only connection. Would love feedback from anyone who's hit RLS issues before — does this catch what actually bit you?",
+    "awards": [],
+    "created_utc": "2026-07-07T16:04:37",
+    "first_author_comment": null,
+    "num_comments": 0,
+    "score": 0,
+    "subreddit": "Supabase",
+    "tag": "database",
+    "tags": [],
+    "title": "Built a free CLI tool to audit Supabase RLS policies — feedback wanted",
+    "updatedAt": "2026-07-08T05:12:35.827Z",
+    "upvote_ratio": 0.5,
+    "url": "https://reddit.com/r/Supabase/comments/1upzh9z/built_a_free_cli_tool_to_audit_supabase_rls/",
+    "versionList": [],
+    "classification": {
+      "componentType": [
+        "CLI"
+      ],
+      "securityType": [
+        "UNKNOWN"
+      ]
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 3.416411393671047e-05,
+        "timestampPredicted": "2026-07-08T00:01:25.509039+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": false
+  },
+  {
     "_id": "6a4c8358ffd91122712537ac",
     "redditId": "1upjsdx",
     "author": "NapierPalm",
@@ -10,7 +221,7 @@
         "id": "ow0rsxt",
         "author": "DelishDonutInOrbit",
         "body": "Any documentation this has been patched in the proxmox kernel yet?",
-        "score": 1,
+        "score": 10,
         "created_utc_ts": 1783397217,
         "created_utc": "2026-07-07T04:06:57",
         "permalink": "https://reddit.com/r/homelab/comments/1upjsdx/if_your_homelab_uses_kvmproxmox_with_nested/ow0rsxt/",
@@ -19,20 +230,20 @@
       },
       {
         "id": "ow0tyh4",
-        "author": "NapierPalm",
-        "body": "Nothing as of today. As it was recently disclosed....4th July",
-        "score": 1,
+        "author": "[deleted]",
+        "body": "[deleted]",
+        "score": 0,
         "created_utc_ts": 1783398093,
         "created_utc": "2026-07-07T04:21:33",
         "permalink": "https://reddit.com/r/homelab/comments/1upjsdx/if_your_homelab_uses_kvmproxmox_with_nested/ow0tyh4/",
         "parent_id": "t1_ow0rsxt",
-        "is_submitter": true
+        "is_submitter": false
       },
       {
         "id": "ow0uuum",
         "author": "randompersonx",
         "body": "As far as I can tell, the patch is in the 7.0.14-1 kernel and newer. \n\nIt is not in the 7.0.12-1 kernel and older. \n\nThere wasn’t an announcement, but I looked at the kernel diffs, and that’s where I saw the relevant patch. ",
-        "score": 1,
+        "score": 27,
         "created_utc_ts": 1783398460,
         "created_utc": "2026-07-07T04:27:40",
         "permalink": "https://reddit.com/r/homelab/comments/1upjsdx/if_your_homelab_uses_kvmproxmox_with_nested/ow0uuum/",
@@ -43,29 +254,113 @@
         "id": "ow0uwh9",
         "author": "randompersonx",
         "body": "As far as I can tell, the patch is in the 7.0.14-1 kernel and newer.\n\nIt is not in the 7.0.12-1 kernel and older.\n\nThere wasn’t an announcement, but I looked at the kernel diffs, and that’s where I saw the relevant patch.",
-        "score": 1,
+        "score": 12,
         "created_utc_ts": 1783398478,
         "created_utc": "2026-07-07T04:27:58",
         "permalink": "https://reddit.com/r/homelab/comments/1upjsdx/if_your_homelab_uses_kvmproxmox_with_nested/ow0uwh9/",
         "parent_id": "t1_ow0rsxt",
         "is_submitter": false
+      },
+      {
+        "id": "ow131uk",
+        "author": "adamant_adultery",
+        "body": "Sixteen years is kinda wild when you think about how much code review KVM gets. That bug has been sitting there across countless kernel releases, distros, and production deployments, and nobody tripped over it until now.\n\nThe shadow paging path is one of those gnarly corners nobody wants to touch because it only matters when nested virt is on, which is a pretty niche config. So in some ways I'm not shocked it hid that long, but still, 16 years of public kernels and it took this long to surface feels rough.\n\nGood call mentioning the workaround though. Plenty of homelab folks run nested virt for labs and testing, and most of those guest VMs are fully untrusted. If you can't patch today, just flipping nested off is a one liner that saves you from a host crash at 2am.\n\nCurious what the PoC actually looks like, whether it's just a malformed nested page table entry or something more involved. Either way, gonna be checking my kernel version tonight.",
+        "score": -12,
+        "created_utc_ts": 1783402013,
+        "created_utc": "2026-07-07T05:26:53",
+        "permalink": "https://reddit.com/r/homelab/comments/1upjsdx/if_your_homelab_uses_kvmproxmox_with_nested/ow131uk/",
+        "parent_id": "t3_1upjsdx",
+        "is_submitter": false
+      },
+      {
+        "id": "ow1npcn",
+        "author": "Ruben_NL",
+        "body": "AI comment.",
+        "score": 7,
+        "created_utc_ts": 1783412194,
+        "created_utc": "2026-07-07T08:16:34",
+        "permalink": "https://reddit.com/r/homelab/comments/1upjsdx/if_your_homelab_uses_kvmproxmox_with_nested/ow1npcn/",
+        "parent_id": "t1_ow131uk",
+        "is_submitter": false
+      },
+      {
+        "id": "ow1t26q",
+        "author": "catet0",
+        "body": "Reddit full of ai at this point",
+        "score": 1,
+        "created_utc_ts": 1783414993,
+        "created_utc": "2026-07-07T09:03:13",
+        "permalink": "https://reddit.com/r/homelab/comments/1upjsdx/if_your_homelab_uses_kvmproxmox_with_nested/ow1t26q/",
+        "parent_id": "t1_ow131uk",
+        "is_submitter": false
+      },
+      {
+        "id": "ow2vwjn",
+        "author": "xXNorthXx",
+        "body": "When KVM becomes more mainstream, it's a bigger target for vulnerability hunting.",
+        "score": 2,
+        "created_utc_ts": 1783430424,
+        "created_utc": "2026-07-07T13:20:24",
+        "permalink": "https://reddit.com/r/homelab/comments/1upjsdx/if_your_homelab_uses_kvmproxmox_with_nested/ow2vwjn/",
+        "parent_id": "t3_1upjsdx",
+        "is_submitter": false
+      },
+      {
+        "id": "ow2znty",
+        "author": "Personal-Work-42",
+        "body": "Patched in proxmox-kernel-6.8.12-33-pve or proxmox-kernel-7.0.14-4-pve)  \n[https://forum.proxmox.com/threads/are-there-mitigations-available-for-cve-2026-53359-januscape.184874/](https://forum.proxmox.com/threads/are-there-mitigations-available-for-cve-2026-53359-januscape.184874/)",
+        "score": 5,
+        "created_utc_ts": 1783431515,
+        "created_utc": "2026-07-07T13:38:35",
+        "permalink": "https://reddit.com/r/homelab/comments/1upjsdx/if_your_homelab_uses_kvmproxmox_with_nested/ow2znty/",
+        "parent_id": "t3_1upjsdx",
+        "is_submitter": false
+      },
+      {
+        "id": "ow31odi",
+        "author": "NapierPalm",
+        "body": "proxmox-kernel-7.0.14-4-pve was released just today a few hours ago.....7.0.14-4-pve kernel is an opt-in release so make sure to check it ",
+        "score": 3,
+        "created_utc_ts": 1783432085,
+        "created_utc": "2026-07-07T13:48:05",
+        "permalink": "https://reddit.com/r/homelab/comments/1upjsdx/if_your_homelab_uses_kvmproxmox_with_nested/ow31odi/",
+        "parent_id": "t1_ow2znty",
+        "is_submitter": true
       }
     ],
     "created_utc": "2026-07-07T03:49:30",
-    "first_author_comment": "Nothing as of today. As it was recently disclosed....4th July",
-    "num_comments": 5,
-    "score": 12,
+    "first_author_comment": "proxmox-kernel-7.0.14-4-pve was released just today a few hours ago.....7.0.14-4-pve kernel is an opt-in release so make sure to check it ",
+    "num_comments": 15,
+    "score": 113,
     "subreddit": "homelab",
     "tag": "News",
     "tags": [],
     "title": "If your homelab uses KVM/Proxmox with nested virtualization, patch for CVE-2026-53359",
-    "updatedAt": "2026-07-07T04:40:56.729Z",
-    "upvote_ratio": 0.88,
+    "updatedAt": "2026-07-07T16:42:09.594Z",
+    "upvote_ratio": 0.97,
     "url": "https://reddit.com/r/homelab/comments/1upjsdx/if_your_homelab_uses_kvmproxmox_with_nested/",
     "versionList": [
       "2026.0.0",
       "53359.0.0"
-    ]
+    ],
+    "classification": {
+      "componentType": [],
+      "securityType": [
+        "SECURITY"
+      ]
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.14320911365984998,
+        "timestampPredicted": "2026-07-07T12:00:58.556080+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true
   },
   {
     "_id": "6a4b3719ffd9112271214607",
@@ -152,7 +447,7 @@
         "id": "ovpadt5",
         "author": "GolbatsEverywhere",
         "body": "Unprivileged user namespaces are critical for both desktop and server security, so they're not going away. This is how bubblewrap, the foundation for all desktop app sandboxing, works. The alternative is setuid, which is surely far worse. bubblewrap has rightly deprecated this mode of operation, and will be removing it soon. If you don't care about desktop or flatpak, it's still required for rootless podman containers. Point is: Fedora's default configuration is not interesting. It's a no-brainer. \n\nIt's nice that AI is helping to uncover security bugs. This is incredible. Once we survive the current influx of vulnerability reports, we will be much safer.",
-        "score": 15,
+        "score": 14,
         "created_utc_ts": 1783266021,
         "created_utc": "2026-07-05T15:40:21",
         "permalink": "https://reddit.com/r/Fedora/comments/1uo4n1g/linux_kernel_cve202643456_and_fedoras/ovpadt5/",
@@ -163,7 +458,7 @@
         "id": "ovplbam",
         "author": "gordonmessmer",
         "body": "Is there a write up with less self aggrandizing?",
-        "score": 5,
+        "score": 7,
         "created_utc_ts": 1783269054,
         "created_utc": "2026-07-05T16:30:54",
         "permalink": "https://reddit.com/r/Fedora/comments/1uo4n1g/linux_kernel_cve202643456_and_fedoras/ovplbam/",
@@ -174,13 +469,13 @@
     "created_utc": "2026-07-05T15:12:22",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 40,
+    "score": 39,
     "subreddit": "Fedora",
     "tag": "Discussion",
     "tags": [],
     "title": "Linux kernel CVE-2026-43456 and Fedora's unprivileged user namespaces",
-    "updatedAt": "2026-07-07T04:55:52.074Z",
-    "upvote_ratio": 0.9,
+    "updatedAt": "2026-07-07T08:56:02.514Z",
+    "upvote_ratio": 0.89,
     "url": "https://reddit.com/r/Fedora/comments/1uo4n1g/linux_kernel_cve202643456_and_fedoras/",
     "versionList": [
       "2026.0.0",
@@ -218,7 +513,7 @@
         "id": "ovphout",
         "author": "throwaway0576995",
         "body": "Patch now if you haven't, `sudo apt update &amp;&amp; sudo apt full-upgrade` should pull it in. Race conditions like this one tend to get weaponized fast once PoCs drop.",
-        "score": 5,
+        "score": 6,
         "created_utc_ts": 1783268034,
         "created_utc": "2026-07-05T16:13:54",
         "permalink": "https://reddit.com/r/Ubuntu/comments/1uo3j87/ubuntu_users_should_patch_this_linux_kernel/ovphout/",
@@ -251,7 +546,7 @@
         "id": "ovwq7cm",
         "author": "throw0101a",
         "body": "&gt; Patch now if you haven't, sudo apt update &amp;&amp; sudo apt full-upgrade **should pull it in**.\n\nAnd which package(s) does the problem exist in? Which version of that package is the fix patched?\n\nBecause as I type this (`Mon Jul  6 16:35:41 UTC 2026`) Ubuntu does not show any fixed versions:\n\n* https://ubuntu.com/security/CVE-2026-46242\n\nCompare with another kernel CVE where fixed versions are listed:\n\n* https://ubuntu.com/security/CVE-2026-47331\n\n\"Patch now\" is not useful advice if patches/fixes have not been release. I can be *harmful* because people pulling in all the latest versions blindly may think they are safe when they are not.",
-        "score": 1,
+        "score": 2,
         "created_utc_ts": 1783355836,
         "created_utc": "2026-07-06T16:37:16",
         "permalink": "https://reddit.com/r/Ubuntu/comments/1uo3j87/ubuntu_users_should_patch_this_linux_kernel/ovwq7cm/",
@@ -262,13 +557,13 @@
     "created_utc": "2026-07-05T14:25:53",
     "first_author_comment": null,
     "num_comments": 4,
-    "score": 32,
+    "score": 33,
     "subreddit": "Ubuntu",
     "tag": null,
     "tags": [],
     "title": "Ubuntu users should patch this Linux kernel privilege escalation flaw (CVE-2026-46242)",
-    "updatedAt": "2026-07-07T04:54:26.076Z",
-    "upvote_ratio": 0.86,
+    "updatedAt": "2026-07-07T20:55:42.517Z",
+    "upvote_ratio": 0.87,
     "url": "https://reddit.com/r/Ubuntu/comments/1uo3j87/ubuntu_users_should_patch_this_linux_kernel/",
     "versionList": [
       "2026.0.0",
@@ -304,13 +599,13 @@
     "created_utc": "2026-07-05T10:46:39",
     "first_author_comment": null,
     "num_comments": 7,
-    "score": 44,
+    "score": 45,
     "subreddit": "PHP",
     "tag": null,
     "tags": [],
     "title": "PHP 8.5.8 and 8.4.23 are out - important fixes",
-    "updatedAt": "2026-07-07T05:09:23.812Z",
-    "upvote_ratio": 0.93,
+    "updatedAt": "2026-07-08T05:09:08.326Z",
+    "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/PHP/comments/1unz2iw/php_858_and_8423_are_out_important_fixes/",
     "versionList": [
       "8.5.8",
@@ -341,7 +636,7 @@
         "id": "ovnzhfh",
         "author": "zaxn1234",
         "body": "I'd like to read the article but the link fails DNS lookup.. can anyone give me a TLDR please?",
-        "score": 3,
+        "score": 5,
         "created_utc_ts": 1783249863,
         "created_utc": "2026-07-05T11:11:03",
         "permalink": "https://reddit.com/r/PHP/comments/1unz2iw/php_858_and_8423_are_out_important_fixes/ovnzhfh/",
@@ -405,15 +700,15 @@
     "created_utc": "2026-07-05T07:30:04",
     "first_author_comment": null,
     "num_comments": 3,
-    "score": 1,
+    "score": 2,
     "subreddit": "AZURE",
     "tag": "Media",
     "tags": [
       "Media"
     ],
     "title": "Sysdig documented the first ransomware op run entirely by an AI agent (JADEPUFFER) — thoughts on detection at this speed?",
-    "updatedAt": "2026-07-07T04:51:05.604Z",
-    "upvote_ratio": 0.67,
+    "updatedAt": "2026-07-08T04:51:13.527Z",
+    "upvote_ratio": 0.75,
     "url": "https://reddit.com/r/AZURE/comments/1unvut3/sysdig_documented_the_first_ransomware_op_run/",
     "versionList": [],
     "classification": {
@@ -454,7 +749,7 @@
       "Security"
     ],
     "title": "CISA adds Linux kernel zero-day CVE-2026-43456 to KEV after active exploitation",
-    "updatedAt": "2026-07-07T00:26:16.798Z",
+    "updatedAt": "2026-07-08T00:27:26.452Z",
     "upvote_ratio": 0.54,
     "url": "https://reddit.com/r/linux/comments/1unudb7/cisa_adds_linux_kernel_zeroday_cve202643456_to/",
     "versionList": [
@@ -463,6 +758,98 @@
     ],
     "commentCount": 5,
     "detectedCVEs": [
+      {
+        "cveId": "CVE-2026-43456",
+        "cveIds": [
+          "CVE-2026-43456",
+          "CVE-2026-43456",
+          "CVE-2026-43456",
+          "CVE-2026-43456"
+        ],
+        "source": "Comment",
+        "commentText": "Actually readable website: [https://access.redhat.com/security/cve/cve-2026-43456](https://access.redhat.com/security/cve/cve-2026-43456)\n\nIt is in bonding driver and it has been closed already: [https://nvd.nist.gov/vuln/detail/cve-2026-43456](https://nvd.nist.gov/vuln/detail/cve-2026-43456)\n\n",
+        "linkToComment": "https://reddit.com/r/linux/comments/1unudb7/cisa_adds_linux_kernel_zeroday_cve202643456_to/ovn2dk9/",
+        "commentDate": "2026-07-05T06:25:16+00:00",
+        "cvePublishedDate": "2026-05-08T15:16:58.387000+00:00",
+        "initialAnalysisDate": "2026-05-20T18:03:53.577",
+        "daysAfterPublication": 57,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-06-17T10:49:38.170 | CVE Modified | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=1E3CCD0D-7C58-4B15-8B68-F9DE8AC634DB\n   - Added Affected: [{'vendor': 'Linux', 'product': 'Linux', 'defaultStatus': 'unaffected', 'programFiles': ['drivers/net/bonding/bond_main.c'], 'repo': 'https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git', 'versions': [{'version': '1284cd3a2b740d0118458d2ea470a1e5bc19b187', 'lessThan': '9baf26a91565b7bb2b1d9f99aaf884a2b28c2f6d', 'versionType': 'git', 'status': 'affected'}, {'version': '1284cd3a2b740d0118458d2ea470a1e5bc19b187', 'lessThan': '6ac890f1d60ac3707ee8dae15a67d9a833e49956', 'versionType': 'git', 'status': 'affected'}, {'version': '1284cd3a2b740d0118458d2ea470a1e5bc19b187', 'lessThan': '95597d11dc8bddb2b9a051c9232000bfbb5e43ba', 'versionType': 'git', 'status': 'affected'}, {'version': '1284cd3a2b740d0118458d2ea470a1e5bc19b187', 'lessThan': '950803f7254721c1c15858fbbfae3deaaeeecb11', 'versionType': 'git', 'status': 'affected'}]}, {'vendor': 'Linux', 'product': 'Linux', 'defaultStatus': 'affected', 'programFiles': ['drivers/net/bonding/bond_main.c'], 'repo': 'https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git', 'versions': [{'version': '2.6.24', 'status': 'affected'}, {'version': '0', 'lessThan': '2.6.24', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.12.78', 'lessThanOrEqual': '6.12.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.18.19', 'lessThanOrEqual': '6.18.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.19.9', 'lessThanOrEqual': '6.19.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '7.0', 'lessThanOrEqual': '*', 'versionType': 'original_commit_for_fix', 'status': 'unaffected'}]}]\n2. 2026-05-20T18:03:53.577 | Initial Analysis | source=nvd@nist.gov | changeId=EF640C64-C379-4975-9123-757042F6A36C\n   - Added CWE: CWE-908\n   - Added CPE Configuration: OR\n          *cpe:2.3:o:linux:linux_kernel:7.0:rc1:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:7.0:rc2:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:7.0:rc3:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.13 up to (excluding) 6.18.19\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.19 up to (excluding) 6.19.9\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 2.6.24 up to (excluding) 6.12.78\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/6ac890f1d60ac3707ee8dae15a67d9a833e49956 Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/950803f7254721c1c15858fbbfae3deaaeeecb11 Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/95597d11dc8bddb2b9a051c9232000bfbb5e43ba Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/9baf26a91565b7bb2b1d9f99aaf884a2b28c2f6d Types: Patch\n3. 2026-05-11T08:16:14.960 | CVE Modified | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=6FEE96E6-BE73-4359-8D26-1FF2B16C2D40\n   - Added CVSS V3.1: AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H\n4. 2026-05-08T15:16:58.387 | New CVE Received | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=98205E7F-4247-44A5-913A-815C160AE295\n   - Added Description: In the Linux kernel, the following vulnerability has been resolved:\n\nbonding: fix type confusion in bond_setup_by_slave()\n\nkernel BUG at net/core/skbuff.c:2306!\nOops: invalid opcode: 0000 [#1] SMP KASAN NOPTI\nRIP: 0010:pskb_expand_head+0xa08/0xfe0 net/core/skbuff.c:2306\nRSP: 0018:ffffc90004aff760 EFLAGS: 00010293\nRAX: 0000000000000000 RBX: ffff88807e3c8780 RCX: ffffffff89593e0e\nRDX: ffff88807b7c4900 RSI: ffffffff89594747 RDI: ffff88807b7c4900\nRBP: 0000000000000820 R08: 0000000000000005 R09: 0000000000000000\nR10: 00000000961a63e0 R11: 0000000000000000 R12: ffff88807e3c8780\nR13: 00000000961a6560 R14: dffffc0000000000 R15: 00000000961a63e0\nCS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033\nCR2: 00007fe1a0ed8df0 CR3: 000000002d816000 CR4: 00000000003526f0\nCall Trace:\n <TASK>\n ipgre_header+0xdd/0x540 net/ipv4/ip_gre.c:900\n dev_hard_header include/linux/netdevice.h:3439 [inline]\n packet_snd net/packet/af_packet.c:3028 [inline]\n packet_sendmsg+0x3ae5/0x53c0 net/packet/af_packet.c:3108\n sock_sendmsg_nosec net/socket.c:727 [inline]\n __sock_sendmsg net/socket.c:742 [inline]\n ____sys_sendmsg+0xa54/0xc30 net/socket.c:2592\n ___sys_sendmsg+0x190/0x1e0 net/socket.c:2646\n __sys_sendmsg+0x170/0x220 net/socket.c:2678\n do_syscall_x64 arch/x86/entry/syscall_64.c:63 [inline]\n do_syscall_64+0x106/0xf80 arch/x86/entry/syscall_64.c:94\n entry_SYSCALL_64_after_hwframe+0x77/0x7f\nRIP: 0033:0x7fe1a0e6c1a9\n\nWhen a non-Ethernet device (e.g. GRE tunnel) is enslaved to a bond,\nbond_setup_by_slave() directly copies the slave's header_ops to the\nbond device:\n\n    bond_dev->header_ops = slave_dev->header_ops;\n\nThis causes a type confusion when dev_hard_header() is later called\non the bond device. Functions like ipgre_header(), ip6gre_header(),all use\nnetdev_priv(dev) to access their device-specific private data. When\ncalled with the bond device, netdev_priv() returns the bond's private\ndata (struct bonding) instead of the expected type (e.g. struct\nip_tunnel), leading to garbage values being read and kernel crashes.\n\nFix this by introducing bond_header_ops with wrapper functions that\ndelegate to the active slave's header_ops using the slave's own\ndevice. This ensures netdev_priv() in the slave's header functions\nalways receives the correct device.\n\nThe fix is placed in the bonding driver rather than individual device\ndrivers, as the root cause is bond blindly inheriting header_ops from\nthe slave without considering that these callbacks expect a specific\nnetdev_priv() layout.\n\nThe type confusion can be observed by adding a printk in\nipgre_header() and running the following commands:\n\n    ip link add dummy0 type dummy\n    ip addr add 10.0.0.1/24 dev dummy0\n    ip link set dummy0 up\n    ip link add gre1 type gre local 10.0.0.1\n    ip link add bond1 type bond mode active-backup\n    ip link set gre1 master bond1\n    ip link set gre1 up\n    ip link set bond1 up\n    ip addr add fe80::1/64 dev bond1\n   - Added Reference: https://git.kernel.org/stable/c/6ac890f1d60ac3707ee8dae15a67d9a833e49956\n   - Added Reference: https://git.kernel.org/stable/c/950803f7254721c1c15858fbbfae3deaaeeecb11\n   - Added Reference: https://git.kernel.org/stable/c/95597d11dc8bddb2b9a051c9232000bfbb5e43ba\n   - Added Reference: https://git.kernel.org/stable/c/9baf26a91565b7bb2b1d9f99aaf884a2b28c2f6d\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-43456",
+        "cveIds": [
+          "CVE-2026-43456",
+          "CVE-2026-43456",
+          "CVE-2026-43456",
+          "CVE-2026-43456"
+        ],
+        "source": "Comment",
+        "commentText": "Actually readable website: [https://access.redhat.com/security/cve/cve-2026-43456](https://access.redhat.com/security/cve/cve-2026-43456)\n\nIt is in bonding driver and it has been closed already: [https://nvd.nist.gov/vuln/detail/cve-2026-43456](https://nvd.nist.gov/vuln/detail/cve-2026-43456)\n\n",
+        "linkToComment": "https://reddit.com/r/linux/comments/1unudb7/cisa_adds_linux_kernel_zeroday_cve202643456_to/ovn2dk9/",
+        "commentDate": "2026-07-05T06:25:16+00:00",
+        "cvePublishedDate": "2026-05-08T15:16:58.387000+00:00",
+        "initialAnalysisDate": "2026-05-20T18:03:53.577",
+        "daysAfterPublication": 57,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-06-17T10:49:38.170 | CVE Modified | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=1E3CCD0D-7C58-4B15-8B68-F9DE8AC634DB\n   - Added Affected: [{'vendor': 'Linux', 'product': 'Linux', 'defaultStatus': 'unaffected', 'programFiles': ['drivers/net/bonding/bond_main.c'], 'repo': 'https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git', 'versions': [{'version': '1284cd3a2b740d0118458d2ea470a1e5bc19b187', 'lessThan': '9baf26a91565b7bb2b1d9f99aaf884a2b28c2f6d', 'versionType': 'git', 'status': 'affected'}, {'version': '1284cd3a2b740d0118458d2ea470a1e5bc19b187', 'lessThan': '6ac890f1d60ac3707ee8dae15a67d9a833e49956', 'versionType': 'git', 'status': 'affected'}, {'version': '1284cd3a2b740d0118458d2ea470a1e5bc19b187', 'lessThan': '95597d11dc8bddb2b9a051c9232000bfbb5e43ba', 'versionType': 'git', 'status': 'affected'}, {'version': '1284cd3a2b740d0118458d2ea470a1e5bc19b187', 'lessThan': '950803f7254721c1c15858fbbfae3deaaeeecb11', 'versionType': 'git', 'status': 'affected'}]}, {'vendor': 'Linux', 'product': 'Linux', 'defaultStatus': 'affected', 'programFiles': ['drivers/net/bonding/bond_main.c'], 'repo': 'https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git', 'versions': [{'version': '2.6.24', 'status': 'affected'}, {'version': '0', 'lessThan': '2.6.24', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.12.78', 'lessThanOrEqual': '6.12.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.18.19', 'lessThanOrEqual': '6.18.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.19.9', 'lessThanOrEqual': '6.19.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '7.0', 'lessThanOrEqual': '*', 'versionType': 'original_commit_for_fix', 'status': 'unaffected'}]}]\n2. 2026-05-20T18:03:53.577 | Initial Analysis | source=nvd@nist.gov | changeId=EF640C64-C379-4975-9123-757042F6A36C\n   - Added CWE: CWE-908\n   - Added CPE Configuration: OR\n          *cpe:2.3:o:linux:linux_kernel:7.0:rc1:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:7.0:rc2:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:7.0:rc3:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.13 up to (excluding) 6.18.19\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.19 up to (excluding) 6.19.9\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 2.6.24 up to (excluding) 6.12.78\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/6ac890f1d60ac3707ee8dae15a67d9a833e49956 Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/950803f7254721c1c15858fbbfae3deaaeeecb11 Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/95597d11dc8bddb2b9a051c9232000bfbb5e43ba Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/9baf26a91565b7bb2b1d9f99aaf884a2b28c2f6d Types: Patch\n3. 2026-05-11T08:16:14.960 | CVE Modified | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=6FEE96E6-BE73-4359-8D26-1FF2B16C2D40\n   - Added CVSS V3.1: AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H\n4. 2026-05-08T15:16:58.387 | New CVE Received | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=98205E7F-4247-44A5-913A-815C160AE295\n   - Added Description: In the Linux kernel, the following vulnerability has been resolved:\n\nbonding: fix type confusion in bond_setup_by_slave()\n\nkernel BUG at net/core/skbuff.c:2306!\nOops: invalid opcode: 0000 [#1] SMP KASAN NOPTI\nRIP: 0010:pskb_expand_head+0xa08/0xfe0 net/core/skbuff.c:2306\nRSP: 0018:ffffc90004aff760 EFLAGS: 00010293\nRAX: 0000000000000000 RBX: ffff88807e3c8780 RCX: ffffffff89593e0e\nRDX: ffff88807b7c4900 RSI: ffffffff89594747 RDI: ffff88807b7c4900\nRBP: 0000000000000820 R08: 0000000000000005 R09: 0000000000000000\nR10: 00000000961a63e0 R11: 0000000000000000 R12: ffff88807e3c8780\nR13: 00000000961a6560 R14: dffffc0000000000 R15: 00000000961a63e0\nCS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033\nCR2: 00007fe1a0ed8df0 CR3: 000000002d816000 CR4: 00000000003526f0\nCall Trace:\n <TASK>\n ipgre_header+0xdd/0x540 net/ipv4/ip_gre.c:900\n dev_hard_header include/linux/netdevice.h:3439 [inline]\n packet_snd net/packet/af_packet.c:3028 [inline]\n packet_sendmsg+0x3ae5/0x53c0 net/packet/af_packet.c:3108\n sock_sendmsg_nosec net/socket.c:727 [inline]\n __sock_sendmsg net/socket.c:742 [inline]\n ____sys_sendmsg+0xa54/0xc30 net/socket.c:2592\n ___sys_sendmsg+0x190/0x1e0 net/socket.c:2646\n __sys_sendmsg+0x170/0x220 net/socket.c:2678\n do_syscall_x64 arch/x86/entry/syscall_64.c:63 [inline]\n do_syscall_64+0x106/0xf80 arch/x86/entry/syscall_64.c:94\n entry_SYSCALL_64_after_hwframe+0x77/0x7f\nRIP: 0033:0x7fe1a0e6c1a9\n\nWhen a non-Ethernet device (e.g. GRE tunnel) is enslaved to a bond,\nbond_setup_by_slave() directly copies the slave's header_ops to the\nbond device:\n\n    bond_dev->header_ops = slave_dev->header_ops;\n\nThis causes a type confusion when dev_hard_header() is later called\non the bond device. Functions like ipgre_header(), ip6gre_header(),all use\nnetdev_priv(dev) to access their device-specific private data. When\ncalled with the bond device, netdev_priv() returns the bond's private\ndata (struct bonding) instead of the expected type (e.g. struct\nip_tunnel), leading to garbage values being read and kernel crashes.\n\nFix this by introducing bond_header_ops with wrapper functions that\ndelegate to the active slave's header_ops using the slave's own\ndevice. This ensures netdev_priv() in the slave's header functions\nalways receives the correct device.\n\nThe fix is placed in the bonding driver rather than individual device\ndrivers, as the root cause is bond blindly inheriting header_ops from\nthe slave without considering that these callbacks expect a specific\nnetdev_priv() layout.\n\nThe type confusion can be observed by adding a printk in\nipgre_header() and running the following commands:\n\n    ip link add dummy0 type dummy\n    ip addr add 10.0.0.1/24 dev dummy0\n    ip link set dummy0 up\n    ip link add gre1 type gre local 10.0.0.1\n    ip link add bond1 type bond mode active-backup\n    ip link set gre1 master bond1\n    ip link set gre1 up\n    ip link set bond1 up\n    ip addr add fe80::1/64 dev bond1\n   - Added Reference: https://git.kernel.org/stable/c/6ac890f1d60ac3707ee8dae15a67d9a833e49956\n   - Added Reference: https://git.kernel.org/stable/c/950803f7254721c1c15858fbbfae3deaaeeecb11\n   - Added Reference: https://git.kernel.org/stable/c/95597d11dc8bddb2b9a051c9232000bfbb5e43ba\n   - Added Reference: https://git.kernel.org/stable/c/9baf26a91565b7bb2b1d9f99aaf884a2b28c2f6d\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-43456",
+        "cveIds": [
+          "CVE-2026-43456",
+          "CVE-2026-43456",
+          "CVE-2026-43456",
+          "CVE-2026-43456"
+        ],
+        "source": "Comment",
+        "commentText": "Actually readable website: [https://access.redhat.com/security/cve/cve-2026-43456](https://access.redhat.com/security/cve/cve-2026-43456)\n\nIt is in bonding driver and it has been closed already: [https://nvd.nist.gov/vuln/detail/cve-2026-43456](https://nvd.nist.gov/vuln/detail/cve-2026-43456)\n\n",
+        "linkToComment": "https://reddit.com/r/linux/comments/1unudb7/cisa_adds_linux_kernel_zeroday_cve202643456_to/ovn2dk9/",
+        "commentDate": "2026-07-05T06:25:16+00:00",
+        "cvePublishedDate": "2026-05-08T15:16:58.387000+00:00",
+        "initialAnalysisDate": "2026-05-20T18:03:53.577",
+        "daysAfterPublication": 57,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-06-17T10:49:38.170 | CVE Modified | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=1E3CCD0D-7C58-4B15-8B68-F9DE8AC634DB\n   - Added Affected: [{'vendor': 'Linux', 'product': 'Linux', 'defaultStatus': 'unaffected', 'programFiles': ['drivers/net/bonding/bond_main.c'], 'repo': 'https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git', 'versions': [{'version': '1284cd3a2b740d0118458d2ea470a1e5bc19b187', 'lessThan': '9baf26a91565b7bb2b1d9f99aaf884a2b28c2f6d', 'versionType': 'git', 'status': 'affected'}, {'version': '1284cd3a2b740d0118458d2ea470a1e5bc19b187', 'lessThan': '6ac890f1d60ac3707ee8dae15a67d9a833e49956', 'versionType': 'git', 'status': 'affected'}, {'version': '1284cd3a2b740d0118458d2ea470a1e5bc19b187', 'lessThan': '95597d11dc8bddb2b9a051c9232000bfbb5e43ba', 'versionType': 'git', 'status': 'affected'}, {'version': '1284cd3a2b740d0118458d2ea470a1e5bc19b187', 'lessThan': '950803f7254721c1c15858fbbfae3deaaeeecb11', 'versionType': 'git', 'status': 'affected'}]}, {'vendor': 'Linux', 'product': 'Linux', 'defaultStatus': 'affected', 'programFiles': ['drivers/net/bonding/bond_main.c'], 'repo': 'https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git', 'versions': [{'version': '2.6.24', 'status': 'affected'}, {'version': '0', 'lessThan': '2.6.24', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.12.78', 'lessThanOrEqual': '6.12.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.18.19', 'lessThanOrEqual': '6.18.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.19.9', 'lessThanOrEqual': '6.19.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '7.0', 'lessThanOrEqual': '*', 'versionType': 'original_commit_for_fix', 'status': 'unaffected'}]}]\n2. 2026-05-20T18:03:53.577 | Initial Analysis | source=nvd@nist.gov | changeId=EF640C64-C379-4975-9123-757042F6A36C\n   - Added CWE: CWE-908\n   - Added CPE Configuration: OR\n          *cpe:2.3:o:linux:linux_kernel:7.0:rc1:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:7.0:rc2:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:7.0:rc3:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.13 up to (excluding) 6.18.19\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.19 up to (excluding) 6.19.9\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 2.6.24 up to (excluding) 6.12.78\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/6ac890f1d60ac3707ee8dae15a67d9a833e49956 Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/950803f7254721c1c15858fbbfae3deaaeeecb11 Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/95597d11dc8bddb2b9a051c9232000bfbb5e43ba Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/9baf26a91565b7bb2b1d9f99aaf884a2b28c2f6d Types: Patch\n3. 2026-05-11T08:16:14.960 | CVE Modified | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=6FEE96E6-BE73-4359-8D26-1FF2B16C2D40\n   - Added CVSS V3.1: AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H\n4. 2026-05-08T15:16:58.387 | New CVE Received | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=98205E7F-4247-44A5-913A-815C160AE295\n   - Added Description: In the Linux kernel, the following vulnerability has been resolved:\n\nbonding: fix type confusion in bond_setup_by_slave()\n\nkernel BUG at net/core/skbuff.c:2306!\nOops: invalid opcode: 0000 [#1] SMP KASAN NOPTI\nRIP: 0010:pskb_expand_head+0xa08/0xfe0 net/core/skbuff.c:2306\nRSP: 0018:ffffc90004aff760 EFLAGS: 00010293\nRAX: 0000000000000000 RBX: ffff88807e3c8780 RCX: ffffffff89593e0e\nRDX: ffff88807b7c4900 RSI: ffffffff89594747 RDI: ffff88807b7c4900\nRBP: 0000000000000820 R08: 0000000000000005 R09: 0000000000000000\nR10: 00000000961a63e0 R11: 0000000000000000 R12: ffff88807e3c8780\nR13: 00000000961a6560 R14: dffffc0000000000 R15: 00000000961a63e0\nCS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033\nCR2: 00007fe1a0ed8df0 CR3: 000000002d816000 CR4: 00000000003526f0\nCall Trace:\n <TASK>\n ipgre_header+0xdd/0x540 net/ipv4/ip_gre.c:900\n dev_hard_header include/linux/netdevice.h:3439 [inline]\n packet_snd net/packet/af_packet.c:3028 [inline]\n packet_sendmsg+0x3ae5/0x53c0 net/packet/af_packet.c:3108\n sock_sendmsg_nosec net/socket.c:727 [inline]\n __sock_sendmsg net/socket.c:742 [inline]\n ____sys_sendmsg+0xa54/0xc30 net/socket.c:2592\n ___sys_sendmsg+0x190/0x1e0 net/socket.c:2646\n __sys_sendmsg+0x170/0x220 net/socket.c:2678\n do_syscall_x64 arch/x86/entry/syscall_64.c:63 [inline]\n do_syscall_64+0x106/0xf80 arch/x86/entry/syscall_64.c:94\n entry_SYSCALL_64_after_hwframe+0x77/0x7f\nRIP: 0033:0x7fe1a0e6c1a9\n\nWhen a non-Ethernet device (e.g. GRE tunnel) is enslaved to a bond,\nbond_setup_by_slave() directly copies the slave's header_ops to the\nbond device:\n\n    bond_dev->header_ops = slave_dev->header_ops;\n\nThis causes a type confusion when dev_hard_header() is later called\non the bond device. Functions like ipgre_header(), ip6gre_header(),all use\nnetdev_priv(dev) to access their device-specific private data. When\ncalled with the bond device, netdev_priv() returns the bond's private\ndata (struct bonding) instead of the expected type (e.g. struct\nip_tunnel), leading to garbage values being read and kernel crashes.\n\nFix this by introducing bond_header_ops with wrapper functions that\ndelegate to the active slave's header_ops using the slave's own\ndevice. This ensures netdev_priv() in the slave's header functions\nalways receives the correct device.\n\nThe fix is placed in the bonding driver rather than individual device\ndrivers, as the root cause is bond blindly inheriting header_ops from\nthe slave without considering that these callbacks expect a specific\nnetdev_priv() layout.\n\nThe type confusion can be observed by adding a printk in\nipgre_header() and running the following commands:\n\n    ip link add dummy0 type dummy\n    ip addr add 10.0.0.1/24 dev dummy0\n    ip link set dummy0 up\n    ip link add gre1 type gre local 10.0.0.1\n    ip link add bond1 type bond mode active-backup\n    ip link set gre1 master bond1\n    ip link set gre1 up\n    ip link set bond1 up\n    ip addr add fe80::1/64 dev bond1\n   - Added Reference: https://git.kernel.org/stable/c/6ac890f1d60ac3707ee8dae15a67d9a833e49956\n   - Added Reference: https://git.kernel.org/stable/c/950803f7254721c1c15858fbbfae3deaaeeecb11\n   - Added Reference: https://git.kernel.org/stable/c/95597d11dc8bddb2b9a051c9232000bfbb5e43ba\n   - Added Reference: https://git.kernel.org/stable/c/9baf26a91565b7bb2b1d9f99aaf884a2b28c2f6d\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-43456",
+        "cveIds": [
+          "CVE-2026-43456",
+          "CVE-2026-43456",
+          "CVE-2026-43456",
+          "CVE-2026-43456"
+        ],
+        "source": "Comment",
+        "commentText": "Actually readable website: [https://access.redhat.com/security/cve/cve-2026-43456](https://access.redhat.com/security/cve/cve-2026-43456)\n\nIt is in bonding driver and it has been closed already: [https://nvd.nist.gov/vuln/detail/cve-2026-43456](https://nvd.nist.gov/vuln/detail/cve-2026-43456)\n\n",
+        "linkToComment": "https://reddit.com/r/linux/comments/1unudb7/cisa_adds_linux_kernel_zeroday_cve202643456_to/ovn2dk9/",
+        "commentDate": "2026-07-05T06:25:16+00:00",
+        "cvePublishedDate": "2026-05-08T15:16:58.387000+00:00",
+        "initialAnalysisDate": "2026-05-20T18:03:53.577",
+        "daysAfterPublication": 57,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-06-17T10:49:38.170 | CVE Modified | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=1E3CCD0D-7C58-4B15-8B68-F9DE8AC634DB\n   - Added Affected: [{'vendor': 'Linux', 'product': 'Linux', 'defaultStatus': 'unaffected', 'programFiles': ['drivers/net/bonding/bond_main.c'], 'repo': 'https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git', 'versions': [{'version': '1284cd3a2b740d0118458d2ea470a1e5bc19b187', 'lessThan': '9baf26a91565b7bb2b1d9f99aaf884a2b28c2f6d', 'versionType': 'git', 'status': 'affected'}, {'version': '1284cd3a2b740d0118458d2ea470a1e5bc19b187', 'lessThan': '6ac890f1d60ac3707ee8dae15a67d9a833e49956', 'versionType': 'git', 'status': 'affected'}, {'version': '1284cd3a2b740d0118458d2ea470a1e5bc19b187', 'lessThan': '95597d11dc8bddb2b9a051c9232000bfbb5e43ba', 'versionType': 'git', 'status': 'affected'}, {'version': '1284cd3a2b740d0118458d2ea470a1e5bc19b187', 'lessThan': '950803f7254721c1c15858fbbfae3deaaeeecb11', 'versionType': 'git', 'status': 'affected'}]}, {'vendor': 'Linux', 'product': 'Linux', 'defaultStatus': 'affected', 'programFiles': ['drivers/net/bonding/bond_main.c'], 'repo': 'https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git', 'versions': [{'version': '2.6.24', 'status': 'affected'}, {'version': '0', 'lessThan': '2.6.24', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.12.78', 'lessThanOrEqual': '6.12.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.18.19', 'lessThanOrEqual': '6.18.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.19.9', 'lessThanOrEqual': '6.19.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '7.0', 'lessThanOrEqual': '*', 'versionType': 'original_commit_for_fix', 'status': 'unaffected'}]}]\n2. 2026-05-20T18:03:53.577 | Initial Analysis | source=nvd@nist.gov | changeId=EF640C64-C379-4975-9123-757042F6A36C\n   - Added CWE: CWE-908\n   - Added CPE Configuration: OR\n          *cpe:2.3:o:linux:linux_kernel:7.0:rc1:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:7.0:rc2:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:7.0:rc3:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.13 up to (excluding) 6.18.19\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.19 up to (excluding) 6.19.9\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 2.6.24 up to (excluding) 6.12.78\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/6ac890f1d60ac3707ee8dae15a67d9a833e49956 Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/950803f7254721c1c15858fbbfae3deaaeeecb11 Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/95597d11dc8bddb2b9a051c9232000bfbb5e43ba Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/9baf26a91565b7bb2b1d9f99aaf884a2b28c2f6d Types: Patch\n3. 2026-05-11T08:16:14.960 | CVE Modified | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=6FEE96E6-BE73-4359-8D26-1FF2B16C2D40\n   - Added CVSS V3.1: AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H\n4. 2026-05-08T15:16:58.387 | New CVE Received | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=98205E7F-4247-44A5-913A-815C160AE295\n   - Added Description: In the Linux kernel, the following vulnerability has been resolved:\n\nbonding: fix type confusion in bond_setup_by_slave()\n\nkernel BUG at net/core/skbuff.c:2306!\nOops: invalid opcode: 0000 [#1] SMP KASAN NOPTI\nRIP: 0010:pskb_expand_head+0xa08/0xfe0 net/core/skbuff.c:2306\nRSP: 0018:ffffc90004aff760 EFLAGS: 00010293\nRAX: 0000000000000000 RBX: ffff88807e3c8780 RCX: ffffffff89593e0e\nRDX: ffff88807b7c4900 RSI: ffffffff89594747 RDI: ffff88807b7c4900\nRBP: 0000000000000820 R08: 0000000000000005 R09: 0000000000000000\nR10: 00000000961a63e0 R11: 0000000000000000 R12: ffff88807e3c8780\nR13: 00000000961a6560 R14: dffffc0000000000 R15: 00000000961a63e0\nCS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033\nCR2: 00007fe1a0ed8df0 CR3: 000000002d816000 CR4: 00000000003526f0\nCall Trace:\n <TASK>\n ipgre_header+0xdd/0x540 net/ipv4/ip_gre.c:900\n dev_hard_header include/linux/netdevice.h:3439 [inline]\n packet_snd net/packet/af_packet.c:3028 [inline]\n packet_sendmsg+0x3ae5/0x53c0 net/packet/af_packet.c:3108\n sock_sendmsg_nosec net/socket.c:727 [inline]\n __sock_sendmsg net/socket.c:742 [inline]\n ____sys_sendmsg+0xa54/0xc30 net/socket.c:2592\n ___sys_sendmsg+0x190/0x1e0 net/socket.c:2646\n __sys_sendmsg+0x170/0x220 net/socket.c:2678\n do_syscall_x64 arch/x86/entry/syscall_64.c:63 [inline]\n do_syscall_64+0x106/0xf80 arch/x86/entry/syscall_64.c:94\n entry_SYSCALL_64_after_hwframe+0x77/0x7f\nRIP: 0033:0x7fe1a0e6c1a9\n\nWhen a non-Ethernet device (e.g. GRE tunnel) is enslaved to a bond,\nbond_setup_by_slave() directly copies the slave's header_ops to the\nbond device:\n\n    bond_dev->header_ops = slave_dev->header_ops;\n\nThis causes a type confusion when dev_hard_header() is later called\non the bond device. Functions like ipgre_header(), ip6gre_header(),all use\nnetdev_priv(dev) to access their device-specific private data. When\ncalled with the bond device, netdev_priv() returns the bond's private\ndata (struct bonding) instead of the expected type (e.g. struct\nip_tunnel), leading to garbage values being read and kernel crashes.\n\nFix this by introducing bond_header_ops with wrapper functions that\ndelegate to the active slave's header_ops using the slave's own\ndevice. This ensures netdev_priv() in the slave's header functions\nalways receives the correct device.\n\nThe fix is placed in the bonding driver rather than individual device\ndrivers, as the root cause is bond blindly inheriting header_ops from\nthe slave without considering that these callbacks expect a specific\nnetdev_priv() layout.\n\nThe type confusion can be observed by adding a printk in\nipgre_header() and running the following commands:\n\n    ip link add dummy0 type dummy\n    ip addr add 10.0.0.1/24 dev dummy0\n    ip link set dummy0 up\n    ip link add gre1 type gre local 10.0.0.1\n    ip link add bond1 type bond mode active-backup\n    ip link set gre1 master bond1\n    ip link set gre1 up\n    ip link set bond1 up\n    ip addr add fe80::1/64 dev bond1\n   - Added Reference: https://git.kernel.org/stable/c/6ac890f1d60ac3707ee8dae15a67d9a833e49956\n   - Added Reference: https://git.kernel.org/stable/c/950803f7254721c1c15858fbbfae3deaaeeecb11\n   - Added Reference: https://git.kernel.org/stable/c/95597d11dc8bddb2b9a051c9232000bfbb5e43ba\n   - Added Reference: https://git.kernel.org/stable/c/9baf26a91565b7bb2b1d9f99aaf884a2b28c2f6d\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
       {
         "cveId": "CVE-2026-43456",
         "cveIds": [
@@ -735,15 +1122,15 @@
     "created_utc": "2026-07-04T08:11:20",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 10,
+    "score": 11,
     "subreddit": "AZURE",
     "tag": "Media",
     "tags": [
       "Media"
     ],
     "title": "DHS confirms HSIN breach — weeks-long undetected access, no attribution yet",
-    "updatedAt": "2026-07-07T04:51:08.297Z",
-    "upvote_ratio": 0.92,
+    "updatedAt": "2026-07-08T04:51:16.129Z",
+    "upvote_ratio": 1,
     "url": "https://reddit.com/r/AZURE/comments/1un3dvn/dhs_confirms_hsin_breach_weekslong_undetected/",
     "versionList": [],
     "classification": {
@@ -1007,7 +1394,7 @@
         "id": "ouxzdh1",
         "author": "FlukyS",
         "body": "What is interesting about them? Great to see that things are being detected but just wondering what was found\n\nEDIT: Oh you just mean a bunch of high severity CVEs were all found at once in general, great to see, I went down through the list and quite a lot of the changes are quite small but super important",
-        "score": 75,
+        "score": 76,
         "created_utc_ts": 1782924712,
         "created_utc": "2026-07-01T16:51:52",
         "permalink": "https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/ouxzdh1/",
@@ -1018,7 +1405,7 @@
         "id": "ouyfgpp",
         "author": "580083351",
         "body": "This is nuts.. CVEs are speeding up. I wonder if we will have to end up going back to an airgapped PC without a network connection, and another one with one that we don't care if it gets trashed.",
-        "score": 47,
+        "score": 52,
         "created_utc_ts": 1782928424,
         "created_utc": "2026-07-01T17:53:44",
         "permalink": "https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/ouyfgpp/",
@@ -1029,7 +1416,7 @@
         "id": "ouyl9da",
         "author": "x0wl",
         "body": "CVEs are speeding up because the tools for their detection (namely, in this case, AI based code analysis and fuzzers) are getting better at finding them. There's fundamentally a finite number of them though, and unless we see constant development of the capabilities of such tools, it will die down after some time, especially since running them on your code to get a security review will become standard / required / expected at some point.",
-        "score": 75,
+        "score": 69,
         "created_utc_ts": 1782929790,
         "created_utc": "2026-07-01T18:16:30",
         "permalink": "https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/ouyl9da/",
@@ -1051,7 +1438,7 @@
         "id": "ouz8lzn",
         "author": "Slight_Manufacturer6",
         "body": "Air gapped PCs are still a thing and have never completely left the enterprise.",
-        "score": 47,
+        "score": 44,
         "created_utc_ts": 1782935620,
         "created_utc": "2026-07-01T19:53:40",
         "permalink": "https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/ouz8lzn/",
@@ -1062,7 +1449,7 @@
         "id": "ouz9b6k",
         "author": "2rad0",
         "body": "The big losers in todays episode were: ipv6, smb, with the 3'rd place contender being sctp. Most others are miscellaneous bugs in filesystems and networking.",
-        "score": 60,
+        "score": 65,
         "created_utc_ts": 1782935795,
         "created_utc": "2026-07-01T19:56:35",
         "permalink": "https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/ouz9b6k/",
@@ -1095,7 +1482,7 @@
         "id": "ov071se",
         "author": "580083351",
         "body": "OpenWrt pushed 25.12.5 today with a lot of ipv6 cve fixes which is nice since I run dual-stack.",
-        "score": 29,
+        "score": 30,
         "created_utc_ts": 1782944861,
         "created_utc": "2026-07-01T22:27:41",
         "permalink": "https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/ov071se/",
@@ -1106,7 +1493,7 @@
         "id": "ov0x4td",
         "author": "ready_or_not_3434",
         "body": "Usually when a massive batch of 9.8s drops all at once its because someone ran a new scaner across a bunch of packages and found a common pattern. The actual code diffs are almost always tiny, like just adding a missing bounds check that nobody noticed for years.",
-        "score": 41,
+        "score": 44,
         "created_utc_ts": 1782952943,
         "created_utc": "2026-07-02T00:42:23",
         "permalink": "https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/ov0x4td/",
@@ -1128,7 +1515,7 @@
         "id": "ov31uwz",
         "author": "garry_the_commie",
         "body": "Ah, smb is back at it again? Not surprising",
-        "score": 13,
+        "score": 14,
         "created_utc_ts": 1782983887,
         "created_utc": "2026-07-02T09:18:07",
         "permalink": "https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/ov31uwz/",
@@ -1139,7 +1526,7 @@
         "id": "ovaqc4u",
         "author": "Dangerous-Report8517",
         "body": "There's also Greg KH's [Clanker T1000](https://www.reddit.com/r/linux/comments/1sf1nlp/greg_kroahhartman_turns_to_new_clanker_t1000/) which has been crunching away for more than 2 months, and is likely a long way from the only or first such project",
-        "score": 4,
+        "score": 5,
         "created_utc_ts": 1783077330,
         "created_utc": "2026-07-03T11:15:30",
         "permalink": "https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/ovaqc4u/",
@@ -1150,14 +1537,14 @@
     "created_utc": "2026-07-01T15:59:24",
     "first_author_comment": "&gt; need a user with root ***and*** CAP_SYS_ADMIN privileges\n\nIncorrect; it's \n\n&gt; need a user with root ***or*** CAP_SYS_ADMIN privileges\n\nor more simply \n\n&gt; need a user with CAP_SYS_ADMIN privileges\n\nWhy would any user have that you ask?\n\nWell; common use cases for CAP_SYS_ADMIN without root include\n\n- containers (like podman and docker)\n- and filesystems (like nfsd)\n- and disk tools (like smartmontools)\n- and kernel tools (like perf and eBPF tracers)\n- and network configuration (like keepalived and strongswan)",
     "num_comments": 37,
-    "score": 178,
+    "score": 182,
     "subreddit": "linux",
     "tag": "Kernel",
     "tags": [
       "Kernel"
     ],
     "title": "Interestingly long list of 9.8 scoring CVEs Today",
-    "updatedAt": "2026-07-07T04:53:01.824Z",
+    "updatedAt": "2026-07-07T22:53:12.093Z",
     "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/",
     "versionList": [
@@ -1192,14 +1579,14 @@
     "awards": [],
     "created_utc": "2026-07-01T14:52:02",
     "first_author_comment": null,
-    "num_comments": 1,
-    "score": 20,
+    "num_comments": 2,
+    "score": 18,
     "subreddit": "netsec",
     "tag": "Contains AI",
     "tags": [],
     "title": "Privilege escalation to root in Lima QEMU guests via a world-writable agent socket (CVE-2026-53657)",
-    "updatedAt": "2026-07-07T04:46:19.004Z",
-    "upvote_ratio": 0.9,
+    "updatedAt": "2026-07-08T04:46:22.768Z",
+    "upvote_ratio": 0.89,
     "url": "https://reddit.com/r/netsec/comments/1uknvr4/privilege_escalation_to_root_in_lima_qemu_guests/",
     "versionList": [
       "2026.0.0",
@@ -1234,6 +1621,17 @@
         "permalink": "https://reddit.com/r/netsec/comments/1uknvr4/privilege_escalation_to_root_in_lima_qemu_guests/ov1afvo/",
         "parent_id": "t3_1uknvr4",
         "is_submitter": false
+      },
+      {
+        "id": "ow32yr9",
+        "author": "Servola-Journal",
+        "body": "The confused-deputy angle is the real story and it survives the fix. v2.1.3 only reassigns the socket to the main user at 0600; the gRPC server still has no caller check, so on any multi-user guest, a shared-login box, or anything that hands a second uid a shell (CI runner, a compromised service account) the Tunnel RPC is still an unauthenticated root-credentialed forwarder. SO_PEERCRED reads the agent's uid 0 regardless of who dialed in, so pointing Tunnel at the docker socket is trivially \"docker exec as root\" -&gt; host-inside-guest. Permission-tightening papers over reachability but the primitive is still wrong: a root helper that opens caller-chosen destinations needs a destination allowlist, not just a stricter socket mode.",
+        "score": 1,
+        "created_utc_ts": 1783432446,
+        "created_utc": "2026-07-07T13:54:06",
+        "permalink": "https://reddit.com/r/netsec/comments/1uknvr4/privilege_escalation_to_root_in_lima_qemu_guests/ow32yr9/",
+        "parent_id": "t3_1uknvr4",
+        "is_submitter": false
       }
     ]
   },
@@ -1246,13 +1644,13 @@
     "created_utc": "2026-06-30T19:40:48",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 36,
+    "score": 40,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CitrixBleed To Infinity And Beyond (Citrix NetScaler Pre-Auth Memory Overread CVE-2026-8451) - watchTowr Labs",
-    "updatedAt": "2026-07-07T04:46:21.358Z",
-    "upvote_ratio": 0.93,
+    "updatedAt": "2026-07-08T04:46:25.024Z",
+    "upvote_ratio": 0.98,
     "url": "https://reddit.com/r/netsec/comments/1ujzc5y/citrixbleed_to_infinity_and_beyond_citrix/",
     "versionList": [
       "2026.0.0",
@@ -1721,13 +2119,13 @@
     "created_utc": "2026-06-30T08:53:18",
     "first_author_comment": null,
     "num_comments": 0,
-    "score": 13,
+    "score": 14,
     "subreddit": "Android",
     "tag": null,
     "tags": [],
     "title": "Cert exploit for MTK devices.There is a logic flaw in MTK cert verification process.Similar to CVE-2023-20696.",
-    "updatedAt": "2026-07-07T04:58:41.626Z",
-    "upvote_ratio": 0.94,
+    "updatedAt": "2026-07-07T21:00:09.570Z",
+    "upvote_ratio": 1,
     "url": "https://reddit.com/r/Android/comments/1ujjs9l/cert_exploit_for_mtk_devicesthere_is_a_logic_flaw/",
     "versionList": [
       "2023.0.0",
@@ -1745,13 +2143,13 @@
     "created_utc": "2026-06-29T19:27:02",
     "first_author_comment": null,
     "num_comments": 3,
-    "score": 33,
+    "score": 31,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Enterprise Tech In, Shell Out (Progress Kemp LoadMaster Uninitialized Heap to Pre-Auth RCE CVE-2026-8037) - watchTowr Labs",
-    "updatedAt": "2026-07-07T04:46:23.003Z",
-    "upvote_ratio": 0.97,
+    "updatedAt": "2026-07-08T04:46:26.970Z",
+    "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/netsec/comments/1uj2a4w/enterprise_tech_in_shell_out_progress_kemp/",
     "versionList": [
       "2026.0.0",
@@ -2318,13 +2716,13 @@
     "created_utc": "2026-06-25T15:30:44",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 12,
+    "score": 14,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2025-52465 geoserver arbitrary file write vulnerability",
-    "updatedAt": "2026-07-07T04:46:26.581Z",
-    "upvote_ratio": 0.78,
+    "updatedAt": "2026-07-08T04:46:30.749Z",
+    "upvote_ratio": 0.82,
     "url": "https://reddit.com/r/netsec/comments/1ufdc3k/cve202552465_geoserver_arbitrary_file_write/",
     "versionList": [
       "2025.0.0",
@@ -4469,12 +4867,12 @@
     "created_utc": "2026-06-22T18:31:27",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 18,
+    "score": 19,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-25860 turn XSS to RCE",
-    "updatedAt": "2026-07-07T04:46:30.090Z",
+    "updatedAt": "2026-07-08T04:46:34.218Z",
     "upvote_ratio": 0.89,
     "url": "https://reddit.com/r/netsec/comments/1ucsrw0/cve202625860_turn_xss_to_rce/",
     "versionList": [
@@ -4798,7 +5196,7 @@
     "tag": null,
     "tags": [],
     "title": "WEIRD RUSTDESK REQUEST FROM MY OWN MACBOOK",
-    "updatedAt": "2026-07-06T23:24:13.432Z",
+    "updatedAt": "2026-07-08T05:12:27.052Z",
     "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/rustdesk/comments/1ub5cdv/weird_rustdesk_request_from_my_own_macbook/",
     "versionList": [],
@@ -4830,12 +5228,12 @@
     "created_utc": "2026-06-19T19:15:45",
     "first_author_comment": null,
     "num_comments": 5,
-    "score": 29,
+    "score": 30,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Use-after-free in the QPACK encoder of nginx HTTP/3 - CVE-2026-42530",
-    "updatedAt": "2026-07-07T04:46:33.279Z",
+    "updatedAt": "2026-07-08T04:46:37.460Z",
     "upvote_ratio": 0.88,
     "url": "https://reddit.com/r/netsec/comments/1uab0j6/useafterfree_in_the_qpack_encoder_of_nginx_http3/",
     "versionList": [
@@ -5070,13 +5468,13 @@
     "created_utc": "2026-06-19T13:27:18",
     "first_author_comment": null,
     "num_comments": 6,
-    "score": 50,
+    "score": 47,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "OpenBSD MPLS kernel stack leaks remotely (CVE-2026-56099)",
-    "updatedAt": "2026-07-07T04:46:34.081Z",
-    "upvote_ratio": 0.98,
+    "updatedAt": "2026-07-08T04:46:38.216Z",
+    "upvote_ratio": 0.95,
     "url": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/",
     "versionList": [
       "2026.0.0",
@@ -5964,7 +6362,7 @@
         "id": "oskwcx1",
         "author": "Important_Story_5685",
         "body": "The \"Only two remote holes in the default install\" slogan lives to fight another day. Looks like a nice little KASLR bypass primitive.",
-        "score": 5,
+        "score": 6,
         "created_utc_ts": 1781878244,
         "created_utc": "2026-06-19T14:10:44",
         "permalink": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/oskwcx1/",
@@ -6039,7 +6437,7 @@
         "id": "osjvvp7",
         "author": "netsec_burn",
         "body": "&gt; bc01\n\nWestJet? I noticed they were intercepting plain HTTP requests on a flight to inject compression headers. Same hostname returned by Squid.",
-        "score": 9,
+        "score": 8,
         "created_utc_ts": 1781865481,
         "created_utc": "2026-06-19T10:38:01",
         "permalink": "https://reddit.com/r/netsec/comments/1u9y7yw/squidbleed_cve202647729_heartbleedstyle/osjvvp7/",
@@ -6083,12 +6481,12 @@
     "created_utc": "2026-06-19T10:21:41",
     "first_author_comment": null,
     "num_comments": 5,
-    "score": 105,
+    "score": 109,
     "subreddit": "netsec",
     "tag": "Contains AI",
     "tags": [],
     "title": "Squidbleed (CVE-2026-47729) - Heartbleed-style vulnerability that leaks internal memory from every version of Squid Proxy, in its default configuration",
-    "updatedAt": "2026-07-07T04:46:35.100Z",
+    "updatedAt": "2026-07-08T04:46:39.246Z",
     "upvote_ratio": 0.97,
     "url": "https://reddit.com/r/netsec/comments/1u9y7yw/squidbleed_cve202647729_heartbleedstyle/",
     "versionList": [
@@ -7138,13 +7536,13 @@
     "created_utc": "2026-06-18T18:05:44",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 42,
+    "score": 38,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-5667: Unauthenticated Remote Control of Mitsubishi MAC-577IF-2E WiFi Adapters via Probe Request Reconnaissance",
-    "updatedAt": "2026-07-07T04:46:35.968Z",
-    "upvote_ratio": 0.93,
+    "updatedAt": "2026-07-08T04:46:40.038Z",
+    "upvote_ratio": 0.89,
     "url": "https://reddit.com/r/netsec/comments/1u9dncq/cve20265667_unauthenticated_remote_control_of/",
     "versionList": [
       "2026.0.0",
@@ -8129,12 +8527,12 @@
     "created_utc": "2026-06-12T20:37:06",
     "first_author_comment": null,
     "num_comments": 4,
-    "score": 49,
+    "score": 52,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Why Use App-Level Auth When Every Database Has Auth? (Splunk Enterprise CVE-2026-20253 Pre-Auth RCE) - watchTowr Labs",
-    "updatedAt": "2026-07-07T04:46:45.810Z",
+    "updatedAt": "2026-07-08T04:46:50.262Z",
     "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/netsec/comments/1u46wbb/why_use_applevel_auth_when_every_database_has/",
     "versionList": [
@@ -8454,13 +8852,13 @@
     "created_utc": "2026-06-12T05:23:23",
     "first_author_comment": null,
     "num_comments": 3,
-    "score": 37,
+    "score": 34,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Marking Your Own Homework (Check Point Remote Access VPN IKEv1 Authentication Bypass CVE-2026-50751) - watchTowr Labs",
-    "updatedAt": "2026-07-07T04:46:48.959Z",
-    "upvote_ratio": 0.89,
+    "updatedAt": "2026-07-08T04:46:53.290Z",
+    "upvote_ratio": 0.87,
     "url": "https://reddit.com/r/netsec/comments/1u3m7yj/marking_your_own_homework_check_point_remote/",
     "versionList": [
       "2026.0.0",
@@ -8895,7 +9293,7 @@
         "id": "orcbb2k",
         "author": "scriptqzor",
         "body": "wild how many vendors still basically get to grade their own security papers and call it a day  \nprops to watchtowr for poking at the \"you’re fine, trust us\" narrative, this is the kind of stuff that actually makes everyone safer",
-        "score": 4,
+        "score": 3,
         "created_utc_ts": 1781315205,
         "created_utc": "2026-06-13T01:46:45",
         "permalink": "https://reddit.com/r/netsec/comments/1u3m7yj/marking_your_own_homework_check_point_remote/orcbb2k/",
@@ -11493,13 +11891,13 @@
     "created_utc": "2026-06-10T00:54:34",
     "first_author_comment": null,
     "num_comments": 6,
-    "score": 46,
+    "score": 45,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "More Evidence That Words Don't Mean What We Thought They Meant (Ivanti Sentry Pre-Auth OS Command Injection CVE-2026-10520) - watchTowr Labs",
-    "updatedAt": "2026-07-07T04:46:54.015Z",
-    "upvote_ratio": 0.9,
+    "updatedAt": "2026-07-08T04:46:58.313Z",
+    "upvote_ratio": 0.87,
     "url": "https://reddit.com/r/netsec/comments/1u1neao/more_evidence_that_words_dont_mean_what_we/",
     "versionList": [
       "2026.0.0",
@@ -15185,7 +15583,7 @@
     "tag": null,
     "tags": [],
     "title": "The HTTP/2 Bomb That Knocks nginx and Apache Offline With a Single Connection",
-    "updatedAt": "2026-07-07T04:51:38.467Z",
+    "updatedAt": "2026-07-08T04:51:32.785Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/apache/comments/1tws4w7/the_http2_bomb_that_knocks_nginx_and_apache/",
     "versionList": [
