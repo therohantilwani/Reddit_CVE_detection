@@ -1,5 +1,666 @@
 [
   {
+    "_id": "6a4f108dffd9112271261536",
+    "redditId": "1ur64t3",
+    "author": "UnraidOfficial",
+    "author_description": "This is a security and bugfix release. Key changes:\n\n* **Critical security fix:** CVE-2026-3838, a path-traversal command execution vulnerability in the WebGUI's update.php. Update now if you're on 7.3.1 or earlier.\n* Linux kernel upgraded to 6.18.38\n* Docker updated to 29.5.3, with a fix for VLAN containers losing outbound connectivity\n* Boot pool fixes: stale mirror members, removal regressions, false-positive target assertions\n* VM fixes: CPU usage reporting, context menu positioning, network source dropdown\n* 70+ updated base packages with CVE coverage across openssl, nginx, curl, samba, php, and more",
+    "awards": [],
+    "comments": [
+      {
+        "id": "owdchj1",
+        "author": "--Arete",
+        "body": "I am very happy to see Limetech is starting to take security more serious!",
+        "score": 135,
+        "created_utc_ts": 1783546024,
+        "created_utc": "2026-07-08T21:27:04",
+        "permalink": "https://reddit.com/r/unRAID/comments/1ur64t3/unraid_os_732_now_available/owdchj1/",
+        "parent_id": "t3_1ur64t3",
+        "is_submitter": false
+      },
+      {
+        "id": "owdd2te",
+        "author": "Cr4zy",
+        "body": "As this is heavily security based will there be a 7.2.8 as well? Last time 7.2.7 came before 7.3.1.  \nI mean I should probably go to 7.3.2 but for those who cant?",
+        "score": 14,
+        "created_utc_ts": 1783546184,
+        "created_utc": "2026-07-08T21:29:44",
+        "permalink": "https://reddit.com/r/unRAID/comments/1ur64t3/unraid_os_732_now_available/owdd2te/",
+        "parent_id": "t3_1ur64t3",
+        "is_submitter": false
+      },
+      {
+        "id": "owde0e2",
+        "author": "Eskel5",
+        "body": "Updating now to it from 7.3.1. I am also creating a USB with 7.3.2 to use with a spare PC to preclear a few drives since I'm out of hdd bays that I'm going to swap a couple with in my main server.\n\nEdit: Booted back up and all good.",
+        "score": 15,
+        "created_utc_ts": 1783546443,
+        "created_utc": "2026-07-08T21:34:03",
+        "permalink": "https://reddit.com/r/unRAID/comments/1ur64t3/unraid_os_732_now_available/owde0e2/",
+        "parent_id": "t3_1ur64t3",
+        "is_submitter": false
+      },
+      {
+        "id": "owde11i",
+        "author": "xxtkx",
+        "body": "Awesome to see the security patches, bugfixes and small updates along the path to the greater updates.",
+        "score": 24,
+        "created_utc_ts": 1783546449,
+        "created_utc": "2026-07-08T21:34:09",
+        "permalink": "https://reddit.com/r/unRAID/comments/1ur64t3/unraid_os_732_now_available/owde11i/",
+        "parent_id": "t3_1ur64t3",
+        "is_submitter": false
+      },
+      {
+        "id": "owdel1u",
+        "author": "jaysuncle",
+        "body": "I'm curious, what would keep you from going to 7.3.x?",
+        "score": 4,
+        "created_utc_ts": 1783546604,
+        "created_utc": "2026-07-08T21:36:44",
+        "permalink": "https://reddit.com/r/unRAID/comments/1ur64t3/unraid_os_732_now_available/owdel1u/",
+        "parent_id": "t1_owdd2te",
+        "is_submitter": false
+      },
+      {
+        "id": "owdf9sy",
+        "author": "UnraidOfficial",
+        "body": "Yes, see here: [https://docs.unraid.net/unraid-os/download\\_list/](https://docs.unraid.net/unraid-os/download_list/)",
+        "score": 10,
+        "created_utc_ts": 1783546797,
+        "created_utc": "2026-07-08T21:39:57",
+        "permalink": "https://reddit.com/r/unRAID/comments/1ur64t3/unraid_os_732_now_available/owdf9sy/",
+        "parent_id": "t1_owdd2te",
+        "is_submitter": true
+      },
+      {
+        "id": "owdg9s6",
+        "author": "eve-collins",
+        "body": "Given the AI madness this is the only way to operate these days. ",
+        "score": 44,
+        "created_utc_ts": 1783547075,
+        "created_utc": "2026-07-08T21:44:35",
+        "permalink": "https://reddit.com/r/unRAID/comments/1ur64t3/unraid_os_732_now_available/owdg9s6/",
+        "parent_id": "t1_owdchj1",
+        "is_submitter": false
+      },
+      {
+        "id": "owdh107",
+        "author": "Fermions",
+        "body": "VLAN containers losing outbound connectivity. That's explains my problem on 7.3.1",
+        "score": 8,
+        "created_utc_ts": 1783547289,
+        "created_utc": "2026-07-08T21:48:09",
+        "permalink": "https://reddit.com/r/unRAID/comments/1ur64t3/unraid_os_732_now_available/owdh107/",
+        "parent_id": "t3_1ur64t3",
+        "is_submitter": false
+      },
+      {
+        "id": "owdh3f5",
+        "author": "[deleted]",
+        "body": "[removed]",
+        "score": -1,
+        "created_utc_ts": 1783547308,
+        "created_utc": "2026-07-08T21:48:28",
+        "permalink": "https://reddit.com/r/unRAID/comments/1ur64t3/unraid_os_732_now_available/owdh3f5/",
+        "parent_id": "t3_1ur64t3",
+        "is_submitter": false
+      },
+      {
+        "id": "owdhd9n",
+        "author": "Ragnar0kay",
+        "body": "Updated from 7.3.1, all seems well.",
+        "score": 3,
+        "created_utc_ts": 1783547387,
+        "created_utc": "2026-07-08T21:49:47",
+        "permalink": "https://reddit.com/r/unRAID/comments/1ur64t3/unraid_os_732_now_available/owdhd9n/",
+        "parent_id": "t3_1ur64t3",
+        "is_submitter": false
+      },
+      {
+        "id": "owdhdq7",
+        "author": "94358io4897453867345",
+        "body": "You know the latest Linux kernel is 7.1 right ? Loving living in the past just like RHEL ?",
+        "score": -29,
+        "created_utc_ts": 1783547391,
+        "created_utc": "2026-07-08T21:49:51",
+        "permalink": "https://reddit.com/r/unRAID/comments/1ur64t3/unraid_os_732_now_available/owdhdq7/",
+        "parent_id": "t3_1ur64t3",
+        "is_submitter": false
+      },
+      {
+        "id": "owdhltq",
+        "author": "94358io4897453867345",
+        "body": "Wait until they discover basic security practices ...",
+        "score": -5,
+        "created_utc_ts": 1783547454,
+        "created_utc": "2026-07-08T21:50:54",
+        "permalink": "https://reddit.com/r/unRAID/comments/1ur64t3/unraid_os_732_now_available/owdhltq/",
+        "parent_id": "t1_owdd2te",
+        "is_submitter": false
+      },
+      {
+        "id": "owdi0pl",
+        "author": "xxtkx",
+        "body": "That would not be a minor update",
+        "score": 6,
+        "created_utc_ts": 1783547571,
+        "created_utc": "2026-07-08T21:52:51",
+        "permalink": "https://reddit.com/r/unRAID/comments/1ur64t3/unraid_os_732_now_available/owdi0pl/",
+        "parent_id": "t1_owdhdq7",
+        "is_submitter": false
+      },
+      {
+        "id": "owdict4",
+        "author": "mazobob66",
+        "body": "Same here.\n\nI will say the reboot took a little longer for me, and had me worried for a second.  But by the time I plugged in an HDMI cable to my server, it was sitting at the login screen.",
+        "score": 5,
+        "created_utc_ts": 1783547665,
+        "created_utc": "2026-07-08T21:54:25",
+        "permalink": "https://reddit.com/r/unRAID/comments/1ur64t3/unraid_os_732_now_available/owdict4/",
+        "parent_id": "t1_owde0e2",
+        "is_submitter": false
+      },
+      {
+        "id": "owdiw81",
+        "author": "stashtv",
+        "body": "First update after moving to internal boot, no issues.",
+        "score": 2,
+        "created_utc_ts": 1783547817,
+        "created_utc": "2026-07-08T21:56:57",
+        "permalink": "https://reddit.com/r/unRAID/comments/1ur64t3/unraid_os_732_now_available/owdiw81/",
+        "parent_id": "t3_1ur64t3",
+        "is_submitter": false
+      },
+      {
+        "id": "owdmk9x",
+        "author": "redwolfxd1",
+        "body": "I wonder if it fixes the issue of not getting a progress \"bar\" when transferring files between shares ",
+        "score": 1,
+        "created_utc_ts": 1783548874,
+        "created_utc": "2026-07-08T22:14:34",
+        "permalink": "https://reddit.com/r/unRAID/comments/1ur64t3/unraid_os_732_now_available/owdmk9x/",
+        "parent_id": "t3_1ur64t3",
+        "is_submitter": false
+      },
+      {
+        "id": "owdmklq",
+        "author": "B1tN1nja",
+        "body": "SAMEEEE. ",
+        "score": 3,
+        "created_utc_ts": 1783548876,
+        "created_utc": "2026-07-08T22:14:36",
+        "permalink": "https://reddit.com/r/unRAID/comments/1ur64t3/unraid_os_732_now_available/owdmklq/",
+        "parent_id": "t1_owdh107",
+        "is_submitter": false
+      },
+      {
+        "id": "owdnd8u",
+        "author": "faceman2k12",
+        "body": "There are a lot of reasons you dont jump straight to cutting edge kernels. Unraid tries to stick with LTS kernels wherever possible, and waits for all components to be verified as compatible before updating.\n\nOpenZFS for example has only recently been considered stable on Linux 7.0 within the last month or so. that is just one of dozens of important modules and hundred of smaller parts that all need to be guarunteed to work before they can update the kernel safely. \n\nEven my linux desktop at home that I go out of my way to tinker with is still running the 7.0 branch, not 7.1 or the now available 7.2 RCs.\n\nKernel 6.18 being the current LTS gets all the important security patches and support backported from 7x, just not the deeper more cutting edge performance tweak, next gen hardware support and such, they will have to wait for the next LTS, which wont be available until sometime around December. Generally it's the last stable release for the year that gets promoted to LTS. That is likely to be kernel 7.3 or even 7.4 depending on how things go in the next few months.",
+        "score": 10,
+        "created_utc_ts": 1783549113,
+        "created_utc": "2026-07-08T22:18:33",
+        "permalink": "https://reddit.com/r/unRAID/comments/1ur64t3/unraid_os_732_now_available/owdnd8u/",
+        "parent_id": "t1_owdhdq7",
+        "is_submitter": false
+      },
+      {
+        "id": "owdoprj",
+        "author": "MusicEmotional5354",
+        "body": "it will be even better when they switch to mainline linux distro in future release.",
+        "score": 5,
+        "created_utc_ts": 1783549521,
+        "created_utc": "2026-07-08T22:25:21",
+        "permalink": "https://reddit.com/r/unRAID/comments/1ur64t3/unraid_os_732_now_available/owdoprj/",
+        "parent_id": "t1_owdchj1",
+        "is_submitter": false
+      },
+      {
+        "id": "owdozmk",
+        "author": "prene1",
+        "body": "Nice",
+        "score": 1,
+        "created_utc_ts": 1783549603,
+        "created_utc": "2026-07-08T22:26:43",
+        "permalink": "https://reddit.com/r/unRAID/comments/1ur64t3/unraid_os_732_now_available/owdozmk/",
+        "parent_id": "t3_1ur64t3",
+        "is_submitter": false
+      },
+      {
+        "id": "owdpfi5",
+        "author": "mattyx",
+        "body": "Good stuff!  Please consider focusing on plugin security next.",
+        "score": 2,
+        "created_utc_ts": 1783549737,
+        "created_utc": "2026-07-08T22:28:57",
+        "permalink": "https://reddit.com/r/unRAID/comments/1ur64t3/unraid_os_732_now_available/owdpfi5/",
+        "parent_id": "t3_1ur64t3",
+        "is_submitter": false
+      },
+      {
+        "id": "owdqqih",
+        "author": "LayerEight_Problem",
+        "body": "I haven’t updated since internal boot. It’s the first time my system has been completely stable and working fast in a long time and I don’t want to mess with it.  lol. ",
+        "score": 1,
+        "created_utc_ts": 1783550133,
+        "created_utc": "2026-07-08T22:35:33",
+        "permalink": "https://reddit.com/r/unRAID/comments/1ur64t3/unraid_os_732_now_available/owdqqih/",
+        "parent_id": "t1_owdiw81",
+        "is_submitter": false
+      },
+      {
+        "id": "owdr3fx",
+        "author": "yuusharo",
+        "body": "That’s a LOT of CVEs… guess they’re finally clearing out their vulnerability backlog.\n\nTime for my seemingly weekly ritual now 😅",
+        "score": 2,
+        "created_utc_ts": 1783550243,
+        "created_utc": "2026-07-08T22:37:23",
+        "permalink": "https://reddit.com/r/unRAID/comments/1ur64t3/unraid_os_732_now_available/owdr3fx/",
+        "parent_id": "t3_1ur64t3",
+        "is_submitter": false
+      },
+      {
+        "id": "owdsqrg",
+        "author": "SashaG239",
+        "body": "Just sent it 7.2.5 to 7.3.2. Seems to be a-okay so far.",
+        "score": 2,
+        "created_utc_ts": 1783550751,
+        "created_utc": "2026-07-08T22:45:51",
+        "permalink": "https://reddit.com/r/unRAID/comments/1ur64t3/unraid_os_732_now_available/owdsqrg/",
+        "parent_id": "t3_1ur64t3",
+        "is_submitter": false
+      },
+      {
+        "id": "owdtlxn",
+        "author": "FishMonkeyCow",
+        "body": "Sounds like it maybe time to update.",
+        "score": 2,
+        "created_utc_ts": 1783551016,
+        "created_utc": "2026-07-08T22:50:16",
+        "permalink": "https://reddit.com/r/unRAID/comments/1ur64t3/unraid_os_732_now_available/owdtlxn/",
+        "parent_id": "t3_1ur64t3",
+        "is_submitter": false
+      },
+      {
+        "id": "owdudl9",
+        "author": "faceman2k12",
+        "body": "something tells me there are going to be many, many more CVE patches going forward.\n\nall these AI bug-finding systems just vomiting out all sorts of vulnerabilities and weird edge cases.\n\ngotta stay ontop of things more and more these days.",
+        "score": 9,
+        "created_utc_ts": 1783551251,
+        "created_utc": "2026-07-08T22:54:11",
+        "permalink": "https://reddit.com/r/unRAID/comments/1ur64t3/unraid_os_732_now_available/owdudl9/",
+        "parent_id": "t1_owdr3fx",
+        "is_submitter": false
+      },
+      {
+        "id": "owdvcgk",
+        "author": "xreyuk",
+        "body": "Updating from 7.3.1 to 7.3.2 failed and had to restore from backup.",
+        "score": 2,
+        "created_utc_ts": 1783551548,
+        "created_utc": "2026-07-08T22:59:08",
+        "permalink": "https://reddit.com/r/unRAID/comments/1ur64t3/unraid_os_732_now_available/owdvcgk/",
+        "parent_id": "t3_1ur64t3",
+        "is_submitter": false
+      },
+      {
+        "id": "owdz1w7",
+        "author": "audiocycle",
+        "body": "I just upgraded from 7.1.3 and everything looks fine. I'll update my comment if anything turns out broken.",
+        "score": 1,
+        "created_utc_ts": 1783552703,
+        "created_utc": "2026-07-08T23:18:23",
+        "permalink": "https://reddit.com/r/unRAID/comments/1ur64t3/unraid_os_732_now_available/owdz1w7/",
+        "parent_id": "t3_1ur64t3",
+        "is_submitter": false
+      },
+      {
+        "id": "owe1tu1",
+        "author": "Spazzalot",
+        "body": "Updated to 7.3.2 from 7.3.2 and it just seemed to brick itself :-(",
+        "score": 1,
+        "created_utc_ts": 1783553578,
+        "created_utc": "2026-07-08T23:32:58",
+        "permalink": "https://reddit.com/r/unRAID/comments/1ur64t3/unraid_os_732_now_available/owe1tu1/",
+        "parent_id": "t3_1ur64t3",
+        "is_submitter": false
+      },
+      {
+        "id": "owe456f",
+        "author": "sound-of-impact",
+        "body": "You're all welcome for the update. Happens every time I finally updated to 7.3.1 yesterday. ",
+        "score": 3,
+        "created_utc_ts": 1783554318,
+        "created_utc": "2026-07-08T23:45:18",
+        "permalink": "https://reddit.com/r/unRAID/comments/1ur64t3/unraid_os_732_now_available/owe456f/",
+        "parent_id": "t3_1ur64t3",
+        "is_submitter": false
+      },
+      {
+        "id": "owe6cos",
+        "author": "masteraero",
+        "body": "Hope this works better than 7.2.x to the previous patch. No matter what I did made my server unbootable till I restored from backup",
+        "score": 0,
+        "created_utc_ts": 1783555022,
+        "created_utc": "2026-07-08T23:57:02",
+        "permalink": "https://reddit.com/r/unRAID/comments/1ur64t3/unraid_os_732_now_available/owe6cos/",
+        "parent_id": "t3_1ur64t3",
+        "is_submitter": false
+      },
+      {
+        "id": "owe71am",
+        "author": "Newdles",
+        "body": "Inception update",
+        "score": 6,
+        "created_utc_ts": 1783555245,
+        "created_utc": "2026-07-09T00:00:45",
+        "permalink": "https://reddit.com/r/unRAID/comments/1ur64t3/unraid_os_732_now_available/owe71am/",
+        "parent_id": "t1_owe1tu1",
+        "is_submitter": false
+      },
+      {
+        "id": "oweivjx",
+        "author": "Various-Wing7621",
+        "body": "Just updated mine, still on usb boot (just havent switched yet) but no issues here reboot took a minute but other than that no issuues so far.",
+        "score": 1,
+        "created_utc_ts": 1783559156,
+        "created_utc": "2026-07-09T01:05:56",
+        "permalink": "https://reddit.com/r/unRAID/comments/1ur64t3/unraid_os_732_now_available/oweivjx/",
+        "parent_id": "t3_1ur64t3",
+        "is_submitter": false
+      },
+      {
+        "id": "owekgx5",
+        "author": "funkybside",
+        "body": "This is weird.  I have two servers, and i'm almost completely sure both were on 7.2.6.   I updated the backup server first and it jumped straight to 7.3.2, no issues.   I just went to go update my main box, it wants to go to 7.3.1 first, and there's no option to check for updates (just option to update to 7.3.1).  I'd prefer not to do this twice if i can avoid the hassle, any ideas?\n\nEdit:  I just did it through unraid.net and that saw the 7.3.2 version.",
+        "score": 1,
+        "created_utc_ts": 1783559688,
+        "created_utc": "2026-07-09T01:14:48",
+        "permalink": "https://reddit.com/r/unRAID/comments/1ur64t3/unraid_os_732_now_available/owekgx5/",
+        "parent_id": "t3_1ur64t3",
+        "is_submitter": false
+      },
+      {
+        "id": "owetf56",
+        "author": "enkrypt3d",
+        "body": "Isn't this old news? ",
+        "score": 0,
+        "created_utc_ts": 1783562741,
+        "created_utc": "2026-07-09T02:05:41",
+        "permalink": "https://reddit.com/r/unRAID/comments/1ur64t3/unraid_os_732_now_available/owetf56/",
+        "parent_id": "t3_1ur64t3",
+        "is_submitter": false
+      },
+      {
+        "id": "owetz9n",
+        "author": "Ck-retro",
+        "body": "Unraid you da best",
+        "score": 3,
+        "created_utc_ts": 1783562935,
+        "created_utc": "2026-07-09T02:08:55",
+        "permalink": "https://reddit.com/r/unRAID/comments/1ur64t3/unraid_os_732_now_available/owetz9n/",
+        "parent_id": "t3_1ur64t3",
+        "is_submitter": false
+      },
+      {
+        "id": "owey0iw",
+        "author": "billyfreddy",
+        "body": "I went from 7.2.6 to 7.3.2 with no problems at all.",
+        "score": 4,
+        "created_utc_ts": 1783564329,
+        "created_utc": "2026-07-09T02:32:09",
+        "permalink": "https://reddit.com/r/unRAID/comments/1ur64t3/unraid_os_732_now_available/owey0iw/",
+        "parent_id": "t3_1ur64t3",
+        "is_submitter": false
+      },
+      {
+        "id": "owf4c0x",
+        "author": "Grimmybone",
+        "body": "Updated!",
+        "score": 1,
+        "created_utc_ts": 1783566604,
+        "created_utc": "2026-07-09T03:10:04",
+        "permalink": "https://reddit.com/r/unRAID/comments/1ur64t3/unraid_os_732_now_available/owf4c0x/",
+        "parent_id": "t3_1ur64t3",
+        "is_submitter": false
+      }
+    ],
+    "created_utc": "2026-07-08T21:23:06",
+    "first_author_comment": "Yes, see here: [https://docs.unraid.net/unraid-os/download\\_list/](https://docs.unraid.net/unraid-os/download_list/)",
+    "num_comments": 52,
+    "score": 178,
+    "subreddit": "unRAID",
+    "tag": "Release",
+    "tags": [],
+    "title": "Unraid OS 7.3.2 Now Available",
+    "updatedAt": "2026-07-09T05:13:41.818Z",
+    "upvote_ratio": 0.98,
+    "url": "https://reddit.com/r/unRAID/comments/1ur64t3/unraid_os_732_now_available/",
+    "versionList": [
+      "7.3.2"
+    ],
+    "classification": {
+      "componentType": [
+        "OS"
+      ]
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.27935238260006595,
+        "timestampPredicted": "2026-07-09T04:00:53.617792+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true
+  },
+  {
+    "_id": "6a4e960effd911227125e244",
+    "redditId": "1ur0j26",
+    "author": "NoPo552",
+    "author_description": "Palo Alto put out an advisory for CVE-2026-0286, a command injection bug in the PAN-OS CLI. It's authenticated, so an attacker needs admin/CLI access, but with that they can break out of the CLI and run arbitrary commands on the underlying system. Lower urgency than an unauth RCE, but still worth patching, especially if you've got multiple admins, shared creds, or any path that could lead to CLI access getting popped.\n\nAffected: PAN-OS below 12.1.8, 11.2.13, 11.1.16, and 10.2.18-h8  \nFirst fixed releases: 12.1.8, 11.2.13, 11.1.16, 10.2.18-h8. There are earlier hotfix builds per branch too if you can't jump straight to those.  \nCloud NGFW isn't affected, no action needed there.\n\nIf you can't patch right away and you have a Threat Prevention subscription, there's a temporary mitigation via Threat ID 510036 (content version 9122-10145 or later), but it only helps if you're already decrypting inbound management traffic, so it's not a quick toggle for most setups. Patching is still the actual fix.\n\nOfficial Palo Alto advisory:  \nhttps://security.paloaltonetworks.com/CVE-2026-0286\n\nSide note, I run a small advisory tracker (VulniPulse) and there's a Discord for exactly this. If you want alerts like this hitting your inbox the second they drop, join the server and add the Palo Alto CVE alert, it'll ping you in Discord and email you the moment a new one lands, same as it did when this one hit.  \nhttps://discord.gg/r2Y5kHsfMr",
+    "awards": [],
+    "comments": [
+      {
+        "id": "owc5omc",
+        "author": "RevolutionaryWorry87",
+        "body": "They need admin already?\nSurely not that big of a deal",
+        "score": 1,
+        "created_utc_ts": 1783534738,
+        "created_utc": "2026-07-08T18:18:58",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1ur0j26/psa_panos_authenticated_command_injection_in_the/owc5omc/",
+        "parent_id": "t3_1ur0j26",
+        "is_submitter": false
+      }
+    ],
+    "created_utc": "2026-07-08T18:05:10",
+    "first_author_comment": null,
+    "num_comments": 1,
+    "score": 3,
+    "subreddit": "sysadmin",
+    "tag": "General Discussion",
+    "tags": [
+      "General Discussion"
+    ],
+    "title": "PSA: PAN-OS authenticated command injection in the CLI (CVE-2026-0286) - patches out for 12.1, 11.2, 11.1, 10.2",
+    "updatedAt": "2026-07-09T04:25:38.304Z",
+    "upvote_ratio": 0.67,
+    "url": "https://reddit.com/r/sysadmin/comments/1ur0j26/psa_panos_authenticated_command_injection_in_the/",
+    "versionList": [
+      "2026.0.0",
+      "0286.0.0",
+      "12.1.0",
+      "11.2.0",
+      "11.1.0",
+      "10.2.0"
+    ],
+    "classification": {
+      "securityType": [
+        "SECURITY"
+      ],
+      "componentType": [
+        "OS",
+        "CLI",
+        "IDE"
+      ]
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.0005899398508529204,
+        "timestampPredicted": "2026-07-09T00:01:18.822341+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true
+  },
+  {
+    "_id": "6a4df470ffd911227125b21c",
+    "redditId": "1uqk9vg",
+    "author": "csteve1",
+    "author_description": "So I was excited to upgrade the Kernel to 7.1.3 as it had a new feature I was interested in.  \nBecause 7.1 has the new NTFS driver merged, allowing to ditch ntfs3.  \nI checked the Kernel Configuration file for 7.1.3 and I see that the new NTFS\\_FS switch is not set by default.  \n  \nSo I ask is there any public discussion by Fedora maintainers for making this choice?  \nOf course I can recompile the Kernel with the NTFS\\_FS switch myself, but ultimately I rather not have to.  \nIs there any context I am missing?",
+    "awards": [],
+    "created_utc": "2026-07-08T06:11:38",
+    "first_author_comment": "Okay understood, thank you!",
+    "num_comments": 25,
+    "score": 14,
+    "subreddit": "Fedora",
+    "tag": "Discussion",
+    "tags": [],
+    "title": "Kernel Module Question",
+    "updatedAt": "2026-07-09T04:55:21.017Z",
+    "upvote_ratio": 0.85,
+    "url": "https://reddit.com/r/Fedora/comments/1uqk9vg/kernel_module_question/",
+    "versionList": [],
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.012863489464753831,
+        "timestampPredicted": "2026-07-08T16:01:24.034459+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": false,
+    "isAboutLatestUpdate": false,
+    "comments": [
+      {
+        "id": "ow8qwu9",
+        "author": "Lob0Guara",
+        "body": "There are discussion.fedoraproject.org and the test site https://bodhi.fedoraproject.org/\n\nYou should learn how to search the Internet.\n\nIf you follow Linux Kernel Mailing list and the discussion about NTFS then:\n\nThere is definitely an ongoing discussion surrounding NTFS support in recent kernel updates, and it usually boils down to a mix of architectural growing pains, strict safety checks, and security flaws.\nThe primary friction points and issues making waves in the community right now fall into three categories:\n\n1. The Strict \"Dirty Bit\" Refusal (The Most Common Desktop Issue)\nIf you are dual-booting with Windows and have Fast Startup enabled, or if you don't use \"Safely Remove Hardware\" before unplugging an external drive, Windows sets a \"dirty bit\" on the filesystem.\nThe Issue: While the older, user-space ntfs-3g driver would usually ignore this and mount the drive anyway, the kernel-level implementations (ntfs3 and the new 7.1 rewrite architecture) are incredibly strict.\nThe Result: The kernel will flat-out refuse to mount the drive to prevent data corruption. Users see an error saying the volume is unsafe, forcing them to boot back into Windows to run chkdsk /f or manually force the legacy driver in /etc/fstab.\n\n2. A Fresh Security Flaw: CVE-2026-53029\nThe implementation of the ntfs3 driver (and early iterations of the modern block-mapping rewrites using the iomap subsystem) was hit with a significant bug tracking as CVE-2026-53029:\nThe Issue: A Use-After-Free/Uninitialized Memory flaw discovered via fuzzing. Under specific conditions—such as mounting a maliciously crafted or corrupted NTFS disk image—the kernel's block-mapping logic can trigger an error path that bypasses data variable initialization.\nThe Impact: It can cause a kernel panic (oops) or potentially leak sensitive stack memory into file operations. Patches have been pushed upstream, but it's a great example of why enterprise distributions like Fedora are hesitating to enable these native drivers by default until the code matures under real-world testing.\n\n3. Maintenance and Code Architecture Drama\nThe Linux Kernel Mailing List (LKML) has had quite a bit of back-and-forth regarding who is keeping these drivers alive and how they are written.\nFor a long time, the Paragon-contributed ntfs3 driver went unmaintained for stretches, causing frustration among core developers.\nThe new 7.1 rewrite (which completely re-architected the filesystem around modern memory management structures like folios and iomap) was a massive undertaking to solve long-term stability. However, because it is essentially an entirely new codebase handling write-heavy operations on massive storage volumes, kernel maintainers are actively warning that edge-case validation will take several minor point-release cycles to fully settle.",
+        "score": 1,
+        "created_utc_ts": 1783494045,
+        "created_utc": "2026-07-08T07:00:45",
+        "permalink": "https://reddit.com/r/Fedora/comments/1uqk9vg/kernel_module_question/ow8qwu9/",
+        "parent_id": "t3_1uqk9vg",
+        "is_submitter": false
+      },
+      {
+        "id": "ow8w2dv",
+        "author": "Pdchris1",
+        "body": "Thank you very much, this is useful context with several aspects which are not widely known (especially 1+2).\n\nHowever, maybe the module/driver could also be made available as a secondary option (not default, but needing some setting by the user) and with a warning for those who may want to try this. \n\nBesides enterprise use, simpler use cases maybe also frequent for Fedora (e.g. someone with his hobby laptop/desktop at home or users with a spare drive or redundant data who want to try out the new driver themselves).\n\nThe necessary experience with the new driver that you also describe (\"edge-case validation will take several minor point-release cycles to fully settle\") is not possible for Fedora users, if the driver is not available at all...",
+        "score": 1,
+        "created_utc_ts": 1783496611,
+        "created_utc": "2026-07-08T07:43:31",
+        "permalink": "https://reddit.com/r/Fedora/comments/1uqk9vg/kernel_module_question/ow8w2dv/",
+        "parent_id": "t1_ow8qwu9",
+        "is_submitter": false
+      },
+      {
+        "id": "ow9526r",
+        "author": "ymmvxd",
+        "body": "Wall of text AI slop.\n\nIt doesn't answer the question \"is there public discussion by Fedora maintainers\" for which the real answer is likely just \"no\".\n\n1) Refusing to mount a dirty fs might actually be considered an improvement by \"the devs\" (I believe there's only a single person maintaining the kernel config). But who knows if there's no public discussion. Also the dirty bit can be cleared from Linux side using `ntfsfix`\n2) Sounding so smart but it's irrelevant. Security flaws in one driver don't automically translate to another driver.\n3) This might be the reason but again who knows. But why the fuck the AI produces this wordy obnoxious know-it-all style? \n\n&gt; You should learn how to search the Internet.\n\nYou should understand reddit is a forum for humans not for slop machines.",
+        "score": 1,
+        "created_utc_ts": 1783501184,
+        "created_utc": "2026-07-08T08:59:44",
+        "permalink": "https://reddit.com/r/Fedora/comments/1uqk9vg/kernel_module_question/ow9526r/",
+        "parent_id": "t1_ow8qwu9",
+        "is_submitter": false
+      },
+      {
+        "id": "ow9snoz",
+        "author": "gmes78",
+        "body": "This is a terrible answer, it has nothing to do with OP's question, and is entirely bullshit anyway.\n\nPoint 1 isn't an issue at all. Point 2 has nothing to do with the new driver. Point 3 is just bullshit. You don't mention Fedora's kernel configuration at all. What's the point of this wall of LLM generated text, other than to sound condescending?",
+        "score": 1,
+        "created_utc_ts": 1783511476,
+        "created_utc": "2026-07-08T11:51:16",
+        "permalink": "https://reddit.com/r/Fedora/comments/1uqk9vg/kernel_module_question/ow9snoz/",
+        "parent_id": "t1_ow8qwu9",
+        "is_submitter": false
+      },
+      {
+        "id": "ow9vt7m",
+        "author": "gmes78",
+        "body": "Note that the driver is disabled by default upstream. It wasn't disabled *by* Fedora.\n\nSomeone already filed a [bug report](https://bugzilla.redhat.com/show_bug.cgi?id=2468690) for enabling it, keep your eyes on that.",
+        "score": 1,
+        "created_utc_ts": 1783512570,
+        "created_utc": "2026-07-08T12:09:30",
+        "permalink": "https://reddit.com/r/Fedora/comments/1uqk9vg/kernel_module_question/ow9vt7m/",
+        "parent_id": "t3_1uqk9vg",
+        "is_submitter": false
+      },
+      {
+        "id": "owa0fmh",
+        "author": "Lob0Guara",
+        "body": "Right, and keep your eyes on NTFS discussion on Linux Kernel Mailing List too!\n\n [https://lore.kernel.org/lkml/?q=NTFS](https://lore.kernel.org/lkml/?q=NTFS) and [https://www.youtube.com/watch?v=zqqba7uREmY&amp;t=1156s](https://www.youtube.com/watch?v=zqqba7uREmY&amp;t=1156s)\n\nEdit: Note: the \"Red Hat Bugzilla – Bug 2468690\" is almost two months old!",
+        "score": 1,
+        "created_utc_ts": 1783514102,
+        "created_utc": "2026-07-08T12:35:02",
+        "permalink": "https://reddit.com/r/Fedora/comments/1uqk9vg/kernel_module_question/owa0fmh/",
+        "parent_id": "t1_ow9vt7m",
+        "is_submitter": false
+      },
+      {
+        "id": "owac8tk",
+        "author": "Pdchris1",
+        "body": "Thank you, I subscribed.\n\nRegarding the upstream inactivation, do you have a reference? Are you sure? Ubuntu seems to have it as a module, which suggests that the decision is probably up to Fedora and not decided upstream?\n\n[https://askubuntu.com/questions/1567859/with-ubuntu-26-04-running-kernel-7-1-1-how-do-i-enable-use-of-the-new-ntfs-dri/1567861#1567861](https://askubuntu.com/questions/1567859/with-ubuntu-26-04-running-kernel-7-1-1-how-do-i-enable-use-of-the-new-ntfs-dri/1567861#1567861)",
+        "score": 1,
+        "created_utc_ts": 1783517703,
+        "created_utc": "2026-07-08T13:35:03",
+        "permalink": "https://reddit.com/r/Fedora/comments/1uqk9vg/kernel_module_question/owac8tk/",
+        "parent_id": "t1_ow9vt7m",
+        "is_submitter": false
+      },
+      {
+        "id": "owdmb3w",
+        "author": "csteve1",
+        "body": "Okay understood, thank you!",
+        "score": 1,
+        "created_utc_ts": 1783548800,
+        "created_utc": "2026-07-08T22:13:20",
+        "permalink": "https://reddit.com/r/Fedora/comments/1uqk9vg/kernel_module_question/owdmb3w/",
+        "parent_id": "t1_ow9vt7m",
+        "is_submitter": true
+      },
+      {
+        "id": "oweppzo",
+        "author": "robstoon",
+        "body": "If someone wanted to ask an LLM for the information they could do that themselves. There's no point in you doing that and posting it. ",
+        "score": 1,
+        "created_utc_ts": 1783561480,
+        "created_utc": "2026-07-09T01:44:40",
+        "permalink": "https://reddit.com/r/Fedora/comments/1uqk9vg/kernel_module_question/oweppzo/",
+        "parent_id": "t1_ow8qwu9",
+        "is_submitter": false
+      }
+    ],
+    "classification": {
+      "componentType": [
+        "OS"
+      ],
+      "securityType": [
+        "UNKNOWN"
+      ]
+    }
+  },
+  {
     "_id": "6a4dbb2effd9112271259f38",
     "redditId": "1uqfz6h",
     "author": "Expert_Sort7434",
@@ -21,7 +682,7 @@
         "id": "ow7rjra",
         "author": "mixduptransistor",
         "body": "did you write this post with AI? why can't we have posts on reddit without them being written by AI",
-        "score": 4,
+        "score": 6,
         "created_utc_ts": 1783478892,
         "created_utc": "2026-07-08T02:48:12",
         "permalink": "https://reddit.com/r/AZURE/comments/1uqfz6h/adobe_coldfusion_cve202648282_cvss_100_exploited/ow7rjra/",
@@ -32,7 +693,7 @@
         "id": "ow7thha",
         "author": "Diligent-Method-785",
         "body": "Oh my cold fusion is still a thing? What in the AS400 era tech is going on?",
-        "score": 5,
+        "score": 9,
         "created_utc_ts": 1783479595,
         "created_utc": "2026-07-08T02:59:55",
         "permalink": "https://reddit.com/r/AZURE/comments/1uqfz6h/adobe_coldfusion_cve202648282_cvss_100_exploited/ow7thha/",
@@ -49,11 +710,33 @@
         "permalink": "https://reddit.com/r/AZURE/comments/1uqfz6h/adobe_coldfusion_cve202648282_cvss_100_exploited/ow7vfkk/",
         "parent_id": "t1_ow7thha",
         "is_submitter": false
+      },
+      {
+        "id": "ow9da1p",
+        "author": "Trakeen",
+        "body": "What does this have to do with azure?",
+        "score": 6,
+        "created_utc_ts": 1783505243,
+        "created_utc": "2026-07-08T10:07:23",
+        "permalink": "https://reddit.com/r/AZURE/comments/1uqfz6h/adobe_coldfusion_cve202648282_cvss_100_exploited/ow9da1p/",
+        "parent_id": "t3_1uqfz6h",
+        "is_submitter": false
+      },
+      {
+        "id": "ow9g13p",
+        "author": "jmk5151",
+        "body": "My immediate reaction as well - one of my first jobs was migrating off of cold fusion to asp - 20 years ago!  It was a really good product for its time though. That time was 2002....",
+        "score": 1,
+        "created_utc_ts": 1783506489,
+        "created_utc": "2026-07-08T10:28:09",
+        "permalink": "https://reddit.com/r/AZURE/comments/1uqfz6h/adobe_coldfusion_cve202648282_cvss_100_exploited/ow9g13p/",
+        "parent_id": "t1_ow7thha",
+        "is_submitter": false
       }
     ],
     "created_utc": "2026-07-08T02:34:51",
     "first_author_comment": null,
-    "num_comments": 4,
+    "num_comments": 6,
     "score": 0,
     "subreddit": "AZURE",
     "tag": "Media",
@@ -61,8 +744,8 @@
       "Media"
     ],
     "title": "Adobe ColdFusion CVE-2026-48282 (CVSS 10.0) — exploited within 2 hours of disclosure, here's the technical chain",
-    "updatedAt": "2026-07-08T04:50:47.603Z",
-    "upvote_ratio": 0.25,
+    "updatedAt": "2026-07-09T04:50:56.513Z",
+    "upvote_ratio": 0.13,
     "url": "https://reddit.com/r/AZURE/comments/1uqfz6h/adobe_coldfusion_cve202648282_cvss_100_exploited/",
     "versionList": [
       "2026.0.0",
@@ -71,13 +754,16 @@
       "2.0.0"
     ],
     "classification": {
-      "componentType": []
+      "componentType": [],
+      "securityType": [
+        "SECURITY"
+      ]
     },
     "metadata": {
       "predicted": {
         "isUpdateRelated": false,
         "positiveScore": 5.704709253539889e-05,
-        "timestampPredicted": "2026-07-08T04:00:23.160841+00:00"
+        "timestampPredicted": "2026-07-08T12:01:02.285826+00:00"
       },
       "labeled": {
         "isUpdateRelated": null
@@ -180,13 +866,13 @@
     "created_utc": "2026-07-07T16:04:37",
     "first_author_comment": null,
     "num_comments": 0,
-    "score": 0,
+    "score": 1,
     "subreddit": "Supabase",
     "tag": "database",
     "tags": [],
     "title": "Built a free CLI tool to audit Supabase RLS policies — feedback wanted",
-    "updatedAt": "2026-07-08T05:12:35.827Z",
-    "upvote_ratio": 0.5,
+    "updatedAt": "2026-07-08T23:30:26.535Z",
+    "upvote_ratio": 0.67,
     "url": "https://reddit.com/r/Supabase/comments/1upzh9z/built_a_free_cli_tool_to_audit_supabase_rls/",
     "versionList": [],
     "classification": {
@@ -599,13 +1285,13 @@
     "created_utc": "2026-07-05T10:46:39",
     "first_author_comment": null,
     "num_comments": 7,
-    "score": 45,
+    "score": 48,
     "subreddit": "PHP",
     "tag": null,
     "tags": [],
     "title": "PHP 8.5.8 and 8.4.23 are out - important fixes",
-    "updatedAt": "2026-07-08T05:09:08.326Z",
-    "upvote_ratio": 0.92,
+    "updatedAt": "2026-07-09T05:09:41.120Z",
+    "upvote_ratio": 0.95,
     "url": "https://reddit.com/r/PHP/comments/1unz2iw/php_858_and_8423_are_out_important_fixes/",
     "versionList": [
       "8.5.8",
@@ -636,7 +1322,7 @@
         "id": "ovnzhfh",
         "author": "zaxn1234",
         "body": "I'd like to read the article but the link fails DNS lookup.. can anyone give me a TLDR please?",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1783249863,
         "created_utc": "2026-07-05T11:11:03",
         "permalink": "https://reddit.com/r/PHP/comments/1unz2iw/php_858_and_8423_are_out_important_fixes/ovnzhfh/",
@@ -695,20 +1381,31 @@
         "permalink": "https://reddit.com/r/AZURE/comments/1unvut3/sysdig_documented_the_first_ransomware_op_run/ovo5tdh/",
         "parent_id": "t3_1unvut3",
         "is_submitter": false
+      },
+      {
+        "id": "owab9e0",
+        "author": "IndividualNo8423",
+        "body": "Jarvis v. Ultron, then? What could go wrong?",
+        "score": 1,
+        "created_utc_ts": 1783517415,
+        "created_utc": "2026-07-08T13:30:15",
+        "permalink": "https://reddit.com/r/AZURE/comments/1unvut3/sysdig_documented_the_first_ransomware_op_run/owab9e0/",
+        "parent_id": "t1_ovo5tdh",
+        "is_submitter": false
       }
     ],
     "created_utc": "2026-07-05T07:30:04",
     "first_author_comment": null,
-    "num_comments": 3,
-    "score": 2,
+    "num_comments": 4,
+    "score": 3,
     "subreddit": "AZURE",
     "tag": "Media",
     "tags": [
       "Media"
     ],
     "title": "Sysdig documented the first ransomware op run entirely by an AI agent (JADEPUFFER) — thoughts on detection at this speed?",
-    "updatedAt": "2026-07-08T04:51:13.527Z",
-    "upvote_ratio": 0.75,
+    "updatedAt": "2026-07-09T04:51:21.538Z",
+    "upvote_ratio": 0.72,
     "url": "https://reddit.com/r/AZURE/comments/1unvut3/sysdig_documented_the_first_ransomware_op_run/",
     "versionList": [],
     "classification": {
@@ -1122,15 +1819,15 @@
     "created_utc": "2026-07-04T08:11:20",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 11,
+    "score": 9,
     "subreddit": "AZURE",
     "tag": "Media",
     "tags": [
       "Media"
     ],
     "title": "DHS confirms HSIN breach — weeks-long undetected access, no attribution yet",
-    "updatedAt": "2026-07-08T04:51:16.129Z",
-    "upvote_ratio": 1,
+    "updatedAt": "2026-07-09T04:51:24.159Z",
+    "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/AZURE/comments/1un3dvn/dhs_confirms_hsin_breach_weekslong_undetected/",
     "versionList": [],
     "classification": {
@@ -1175,6 +1872,27 @@
         "is_submitter": false
       }
     ]
+  },
+  {
+    "_id": "6a4edd08ffd911227126032e",
+    "redditId": "1umku1n",
+    "author": "pdlug",
+    "author_description": "I just shipped bitemporal provenance for TypeGraph, my open-source graphs-on-SQL library. Three pieces, usable independently but most powerful together:\n\n- **Valid time:** when a fact was true *in the world* (an invoice's effective date, a role grant's window).\n- **Recorded/system time:** when *the system* captured that fact (what you knew, as of a commit instant; the SQL:2011 `FOR SYSTEM_TIME` / Datomic system-time axis).\n- **Provenance:** *why* the system still believes a derived fact, and what happens downstream when a source it depended on turns out to be wrong.\n\nDerived facts are the annoying case that surfaces the issue(s) these primitives solve. For example, a Vulnerability node exists because a scanner and a vendor advisory both pointed at it. The graph concluded it; nobody asserted it directly.\n\n```\nScannerSource ──┐\n                ├──▶ Vulnerability (CVE-2026-1234, libvector)\nVendorSource  ──┘\n```\n\nSo when the scanner turns out to be garbage, you can't treat retracting it as a delete. The vendor might still back that vulnerability. The scanner might have been the only thing propping up a bunch of other facts. You want the graph to sort out which.\n\nWhat you want: retract a source and it recomputes which derived facts still have grounded support. Retract the vendor too and the vulnerability finally goes non-current, and a \"block the deploy\" decision sitting on top of it goes with it.\n\n**The behavior, then the theory**\n\nA fact stays believed while it has at least one justification whose premises are all still supported. Premises bottom out at sources. Retract a source and every justification that leaned on it stops counting; a fact loses currency only once it runs out of surviving justifications.\n\n```typescript\nconst provenance = createRetractionCapability(store, {\n  source: { kinds: [\"ScannerSource\", \"VendorSource\"] },\n  justification: { kind: \"Justification\" },\n  fact: { kinds: [\"Vulnerability\", \"DeployDecision\"] },\n  premiseOf: { kind: \"premiseOf\" },\n  derives: { kind: \"derives\" },\n});\n\nconst report = await provenance.retract({ kind: \"VendorSource\", id: vendorId });\n// report.died:        facts that lost all grounded support\n// report.survivedVia: facts that still have an alternate justification\n```\n\nThis is modeled on truth-maintenance systems. The storage follows the JTMS shape (Doyle 1979, \"A Truth Maintenance System\"): AND-justifications over premises, sources at the bottom, a fact in the well-founded support set only if some justification has all its premises supported. I use the monotonic, inlist-only fragment, so this is the easy part of Doyle's system; the hard part, non-monotonic belief revision, isn't here. The question `retract` actually answers, \"which facts survive because an alternate justification still holds,\" is the ATMS question (de Kleer 1986): which combinations of sources hold each fact up. So it's JTMS-shaped storage with an ATMS-flavored query.\n\n**Retraction is a normal write, so you get replay for free**\n\nRetraction doesn't hard-delete. It recomputes support and flips unsupported facts to non-current, leaving the justification edges in place so you can still see *why* something used to be believed. Because that write lands on TypeGraph's recorded-time (system-time) substrate, you can replay the belief transition:\n\n```typescript\nconst before = await store.recordedNow();\nawait provenance.retract(badSource);\nconst after = await store.recordedNow();\n\nawait store.asOfRecorded(before).nodes.Vulnerability.getById(id); // believed\nawait store.asOfRecorded(after).nodes.Vulnerability.getById(id);  // not current\n```\n\nTypeGraph tracks both temporal axes as explicit read lenses, valid time (\"when true in the world\") and recorded time (\"when the database learned it\"), and because they're lenses they compose:\n\n```typescript\nstore.asOf(validTime).asOfRecorded(recordedTime)\n```\n\n**Architecture**\n\nNo engine-native temporal tables. Postgres needs an extension for system-versioning and SQLite has nothing, so TypeGraph stores history explicitly and reconstructs point-in-time views in the query compiler. That's why one implementation runs on both backends.\n\n**Limits**\n\n- Only TypeGraph-managed writes are captured. Raw SQL bypasses it; this isn't a database-level CDC/audit layer.\n- No backfill. Enable history on a fresh graph.\n- Point-in-time reads reconstruct from history relations, so they're slower than current-state reads. It's an audit tool, keep it off hot paths.\n- Per-write overhead runs ~2.5–6x unless you batch writes in one transaction, where it drops to ~1–1.5x.\n\n**A naming note**\n\nMy `asOf` is valid time, the reverse of SQL:2011 `FOR SYSTEM_TIME AS OF` and Datomic `(d/as-of db t)`, where a bare as-of is system time. Valid-time reads are the common case here so they took the short name; system time is `asOfRecorded`.\n\nI'd love to compare with other systems that handle provenance retraction, or truth maintenance generally, modeled directly on ordinary SQL tables instead of a dedicated reasoning engine. There's plenty of JTMS/ATMS literature but not much on mapping it onto relational storage. Pointers welcome.\n\nGitHub: https://github.com/nicia-ai/typegraph\nDocs: https://typegraph.dev/provenance\n\nExamples:\nhttps://typegraph.dev/examples/provenance-retraction/\nhttps://typegraph.dev/examples/bitemporal-time-travel/",
+    "awards": [],
+    "created_utc": "2026-07-03T17:35:00",
+    "first_author_comment": null,
+    "num_comments": 0,
+    "score": 4,
+    "subreddit": "sqlite",
+    "tag": null,
+    "tags": [],
+    "title": "Bitemporal time-travel + truth-maintenance-style provenance retraction on Postgres/SQLite (open-source TS graph library)",
+    "updatedAt": "2026-07-08T23:28:08.686Z",
+    "upvote_ratio": 1,
+    "url": "https://reddit.com/r/sqlite/comments/1umku1n/bitemporal_timetravel_truthmaintenancestyle/",
+    "versionList": [],
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true
   },
   {
     "_id": "6a45ee171806aee644edf5d3",
@@ -1580,13 +2298,13 @@
     "created_utc": "2026-07-01T14:52:02",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 18,
+    "score": 21,
     "subreddit": "netsec",
     "tag": "Contains AI",
     "tags": [],
     "title": "Privilege escalation to root in Lima QEMU guests via a world-writable agent socket (CVE-2026-53657)",
-    "updatedAt": "2026-07-08T04:46:22.768Z",
-    "upvote_ratio": 0.89,
+    "updatedAt": "2026-07-09T04:46:23.741Z",
+    "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/netsec/comments/1uknvr4/privilege_escalation_to_root_in_lima_qemu_guests/",
     "versionList": [
       "2026.0.0",
@@ -1644,12 +2362,12 @@
     "created_utc": "2026-06-30T19:40:48",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 40,
+    "score": 38,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CitrixBleed To Infinity And Beyond (Citrix NetScaler Pre-Auth Memory Overread CVE-2026-8451) - watchTowr Labs",
-    "updatedAt": "2026-07-08T04:46:25.024Z",
+    "updatedAt": "2026-07-09T04:46:26.443Z",
     "upvote_ratio": 0.98,
     "url": "https://reddit.com/r/netsec/comments/1ujzc5y/citrixbleed_to_infinity_and_beyond_citrix/",
     "versionList": [
@@ -1679,7 +2397,7 @@
         "id": "ov0q36b",
         "author": "LakeSage1994",
         "body": "Another pre-auth memory overread on NetScaler, because apparently we learned nothing the first time around. Curious how long this one was being exploited in the wild before disclosure.",
-        "score": 1,
+        "score": 2,
         "created_utc_ts": 1782950625,
         "created_utc": "2026-07-02T00:03:45",
         "permalink": "https://reddit.com/r/netsec/comments/1ujzc5y/citrixbleed_to_infinity_and_beyond_citrix/ov0q36b/",
@@ -2143,12 +2861,12 @@
     "created_utc": "2026-06-29T19:27:02",
     "first_author_comment": null,
     "num_comments": 3,
-    "score": 31,
+    "score": 32,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Enterprise Tech In, Shell Out (Progress Kemp LoadMaster Uninitialized Heap to Pre-Auth RCE CVE-2026-8037) - watchTowr Labs",
-    "updatedAt": "2026-07-08T04:46:26.970Z",
+    "updatedAt": "2026-07-09T04:46:28.156Z",
     "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/netsec/comments/1uj2a4w/enterprise_tech_in_shell_out_progress_kemp/",
     "versionList": [
@@ -2716,13 +3434,13 @@
     "created_utc": "2026-06-25T15:30:44",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 14,
+    "score": 15,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2025-52465 geoserver arbitrary file write vulnerability",
-    "updatedAt": "2026-07-08T04:46:30.749Z",
-    "upvote_ratio": 0.82,
+    "updatedAt": "2026-07-09T04:46:31.924Z",
+    "upvote_ratio": 0.86,
     "url": "https://reddit.com/r/netsec/comments/1ufdc3k/cve202552465_geoserver_arbitrary_file_write/",
     "versionList": [
       "2025.0.0",
@@ -4867,13 +5585,13 @@
     "created_utc": "2026-06-22T18:31:27",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 19,
+    "score": 20,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-25860 turn XSS to RCE",
-    "updatedAt": "2026-07-08T04:46:34.218Z",
-    "upvote_ratio": 0.89,
+    "updatedAt": "2026-07-09T04:46:35.374Z",
+    "upvote_ratio": 0.9,
     "url": "https://reddit.com/r/netsec/comments/1ucsrw0/cve202625860_turn_xss_to_rce/",
     "versionList": [
       "2026.0.0",
@@ -5196,7 +5914,7 @@
     "tag": null,
     "tags": [],
     "title": "WEIRD RUSTDESK REQUEST FROM MY OWN MACBOOK",
-    "updatedAt": "2026-07-08T05:12:27.052Z",
+    "updatedAt": "2026-07-08T23:27:07.009Z",
     "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/rustdesk/comments/1ub5cdv/weird_rustdesk_request_from_my_own_macbook/",
     "versionList": [],
@@ -5233,8 +5951,8 @@
     "tag": null,
     "tags": [],
     "title": "Use-after-free in the QPACK encoder of nginx HTTP/3 - CVE-2026-42530",
-    "updatedAt": "2026-07-08T04:46:37.460Z",
-    "upvote_ratio": 0.88,
+    "updatedAt": "2026-07-09T04:46:38.683Z",
+    "upvote_ratio": 0.9,
     "url": "https://reddit.com/r/netsec/comments/1uab0j6/useafterfree_in_the_qpack_encoder_of_nginx_http3/",
     "versionList": [
       "3.0.0",
@@ -5468,13 +6186,13 @@
     "created_utc": "2026-06-19T13:27:18",
     "first_author_comment": null,
     "num_comments": 6,
-    "score": 47,
+    "score": 45,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "OpenBSD MPLS kernel stack leaks remotely (CVE-2026-56099)",
-    "updatedAt": "2026-07-08T04:46:38.216Z",
-    "upvote_ratio": 0.95,
+    "updatedAt": "2026-07-09T04:46:39.516Z",
+    "upvote_ratio": 0.94,
     "url": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/",
     "versionList": [
       "2026.0.0",
@@ -6362,7 +7080,7 @@
         "id": "oskwcx1",
         "author": "Important_Story_5685",
         "body": "The \"Only two remote holes in the default install\" slogan lives to fight another day. Looks like a nice little KASLR bypass primitive.",
-        "score": 6,
+        "score": 5,
         "created_utc_ts": 1781878244,
         "created_utc": "2026-06-19T14:10:44",
         "permalink": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/oskwcx1/",
@@ -6481,12 +7199,12 @@
     "created_utc": "2026-06-19T10:21:41",
     "first_author_comment": null,
     "num_comments": 5,
-    "score": 109,
+    "score": 108,
     "subreddit": "netsec",
     "tag": "Contains AI",
     "tags": [],
     "title": "Squidbleed (CVE-2026-47729) - Heartbleed-style vulnerability that leaks internal memory from every version of Squid Proxy, in its default configuration",
-    "updatedAt": "2026-07-08T04:46:39.246Z",
+    "updatedAt": "2026-07-09T04:46:40.483Z",
     "upvote_ratio": 0.97,
     "url": "https://reddit.com/r/netsec/comments/1u9y7yw/squidbleed_cve202647729_heartbleedstyle/",
     "versionList": [
@@ -7536,13 +8254,13 @@
     "created_utc": "2026-06-18T18:05:44",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 38,
+    "score": 42,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-5667: Unauthenticated Remote Control of Mitsubishi MAC-577IF-2E WiFi Adapters via Probe Request Reconnaissance",
-    "updatedAt": "2026-07-08T04:46:40.038Z",
-    "upvote_ratio": 0.89,
+    "updatedAt": "2026-07-09T04:46:41.300Z",
+    "upvote_ratio": 0.91,
     "url": "https://reddit.com/r/netsec/comments/1u9dncq/cve20265667_unauthenticated_remote_control_of/",
     "versionList": [
       "2026.0.0",
@@ -8527,13 +9245,13 @@
     "created_utc": "2026-06-12T20:37:06",
     "first_author_comment": null,
     "num_comments": 4,
-    "score": 52,
+    "score": 53,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Why Use App-Level Auth When Every Database Has Auth? (Splunk Enterprise CVE-2026-20253 Pre-Auth RCE) - watchTowr Labs",
-    "updatedAt": "2026-07-08T04:46:50.262Z",
-    "upvote_ratio": 0.92,
+    "updatedAt": "2026-07-09T04:46:51.316Z",
+    "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/netsec/comments/1u46wbb/why_use_applevel_auth_when_every_database_has/",
     "versionList": [
       "2026.0.0",
@@ -8852,13 +9570,13 @@
     "created_utc": "2026-06-12T05:23:23",
     "first_author_comment": null,
     "num_comments": 3,
-    "score": 34,
+    "score": 37,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Marking Your Own Homework (Check Point Remote Access VPN IKEv1 Authentication Bypass CVE-2026-50751) - watchTowr Labs",
-    "updatedAt": "2026-07-08T04:46:53.290Z",
-    "upvote_ratio": 0.87,
+    "updatedAt": "2026-07-09T04:46:54.379Z",
+    "upvote_ratio": 0.91,
     "url": "https://reddit.com/r/netsec/comments/1u3m7yj/marking_your_own_homework_check_point_remote/",
     "versionList": [
       "2026.0.0",
@@ -11891,13 +12609,13 @@
     "created_utc": "2026-06-10T00:54:34",
     "first_author_comment": null,
     "num_comments": 6,
-    "score": 45,
+    "score": 47,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "More Evidence That Words Don't Mean What We Thought They Meant (Ivanti Sentry Pre-Auth OS Command Injection CVE-2026-10520) - watchTowr Labs",
-    "updatedAt": "2026-07-08T04:46:58.313Z",
-    "upvote_ratio": 0.87,
+    "updatedAt": "2026-07-08T16:48:05.880Z",
+    "upvote_ratio": 0.9,
     "url": "https://reddit.com/r/netsec/comments/1u1neao/more_evidence_that_words_dont_mean_what_we/",
     "versionList": [
       "2026.0.0",
@@ -15583,7 +16301,7 @@
     "tag": null,
     "tags": [],
     "title": "The HTTP/2 Bomb That Knocks nginx and Apache Offline With a Single Connection",
-    "updatedAt": "2026-07-08T04:51:32.785Z",
+    "updatedAt": "2026-07-09T04:51:31.675Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/apache/comments/1tws4w7/the_http2_bomb_that_knocks_nginx_and_apache/",
     "versionList": [
@@ -18506,6 +19224,33 @@
     "comments": [],
     "comments_avg_sentiment_score": 0,
     "sentiment_score": 0
+  },
+  {
+    "_id": "6a4df77bffd911227125b2bb",
+    "redditId": "1e9rpkx",
+    "author": "Mcnst",
+    "author_description": null,
+    "awards": [],
+    "created_utc": "2024-07-22T22:39:20",
+    "first_author_comment": null,
+    "num_comments": 0,
+    "score": 1,
+    "subreddit": "OpenSSH",
+    "tag": null,
+    "tags": [],
+    "title": "regreSSHion: RCE in OpenSSH's server, on glibc-based Linux systems (CVE-2024-6387) (2024-07-01)",
+    "updatedAt": "2026-07-08T23:22:04.704Z",
+    "upvote_ratio": 1,
+    "url": "https://reddit.com/r/OpenSSH/comments/1e9rpkx/regresshion_rce_in_opensshs_server_on_glibcbased/",
+    "versionList": [
+      "2024.0.0",
+      "6387.0.0",
+      "2024.0.0",
+      "07.0.0",
+      "01.0.0"
+    ],
+    "isAboutCve": true,
+    "isAboutLatestUpdate": false
   },
   {
     "_id": "6a4726a61806aee644ee74cc",

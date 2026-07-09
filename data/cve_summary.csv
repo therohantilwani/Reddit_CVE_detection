@@ -46,6 +46,7 @@ CVE-2024-21762,1,2026-06-23T18:00:43+00:00,1782237643,sysadmin,https://reddit.co
 CVE-2024-30098,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2024-55591,1,2026-06-19T14:43:01+00:00,1781880181,sysadmin,https://reddit.com/r/sysadmin/comments/1ua3v93/cisa_warns_fortinet_shops_over_fortibleed_74k/
 CVE-2024-6174,1,2026-05-27T16:16:31+00:00,1779898591,ansible,https://reddit.com/r/ansible/comments/1tpachm/aiops_patch_rhel_cves_in_minutes_with_red_hat/
+CVE-2024-6387,1,2024-07-22T22:39:20+00:00,1721687960,OpenSSH,https://reddit.com/r/OpenSSH/comments/1e9rpkx/regresshion_rce_in_opensshs_server_on_glibcbased/
 CVE-2025-10263,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/
 CVE-2025-15661,1,2026-06-30T14:31:37+00:00,1782829897,rust,https://reddit.com/r/rust/comments/1ujqvqx/rust_1961_is_out/
 CVE-2025-20309,1,2026-06-23T18:00:43+00:00,1782237643,sysadmin,https://reddit.com/r/sysadmin/comments/1udoilq/fortibleed_update_now_430k_fortigates_hit_and_110/
@@ -60,9 +61,11 @@ CVE-2025-64446,1,2026-06-23T18:00:43+00:00,1782237643,sysadmin,https://reddit.co
 CVE-2025-6554,1,2025-07-02T00:50:53+00:00,1751417453,chrome,https://reddit.com/r/chrome/comments/1lpij7v/chromebook_not_updating_to_the_new_update_that/
 CVE-2025-66478,1,2025-12-04T02:54:02+00:00,1764816842,reactjs,https://stackoverflow.com/questions/79837478/what-is-react-server-components-vulnerability-cve-2025-55182-and-how-does-it-aff
 CVE-2025-68664,1,2026-07-06T03:39:08+00:00,1783309148,LangChain,https://reddit.com/r/LangChain/comments/1uom5n1/the_3line_output_sanitiser_i_add_to_every/
+CVE-2026-0286,1,2026-07-08T18:05:10+00:00,1783533910,sysadmin,https://reddit.com/r/sysadmin/comments/1ur0j26/psa_panos_authenticated_command_injection_in_the/
 CVE-2026-0755,1,2026-06-16T01:24:34+00:00,1781573074,AZURE,https://reddit.com/r/AZURE/comments/1u6zlof/nsa_issued_mcp_security_guidance_in_may_and_the/
 CVE-2026-10523,1,2026-06-16T17:39:54+00:00,1781631594,sysadmin,https://reddit.com/r/sysadmin/comments/1u7kggj/5_enterprise_cves_from_last_week_worth_checking/
 CVE-2026-10846,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/
+CVE-2026-1234,1,2026-07-03T17:35:00+00:00,1783100100,sqlite,https://reddit.com/r/sqlite/comments/1umku1n/bitemporal_timetravel_truthmaintenancestyle/
 CVE-2026-14355,1,2026-07-05T10:46:39+00:00,1783248399,PHP,https://reddit.com/r/PHP/comments/1unz2iw/php_858_and_8423_are_out_important_fixes/
 CVE-2026-20127,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2026-20223,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
@@ -100,6 +103,7 @@ CVE-2026-34910,1,2026-06-24T14:56:44+00:00,1782313004,Ubiquiti,https://reddit.co
 CVE-2026-35033,1,2026-06-23T01:42:11+00:00,1782178931,homelab,https://reddit.com/r/homelab/comments/1ud3msv/psa_jellyfin_rce_vulnerability_over_network_with/
 CVE-2026-35273,1,2026-06-16T17:39:54+00:00,1781631594,sysadmin,https://reddit.com/r/sysadmin/comments/1u7kggj/5_enterprise_cves_from_last_week_worth_checking/
 CVE-2026-35616,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
+CVE-2026-3838,1,2026-07-08T21:23:06+00:00,1783545786,unRAID,https://reddit.com/r/unRAID/comments/1ur64t3/unraid_os_732_now_available/
 CVE-2026-39808,1,2026-06-18T11:09:07+00:00,1781780947,kubernetes,https://reddit.com/r/kubernetes/comments/1u93bkb/how_are_people_reducing_container_attack_surface/
 CVE-2026-39813,1,2026-06-18T11:09:07+00:00,1781780947,kubernetes,https://reddit.com/r/kubernetes/comments/1u93bkb/how_are_people_reducing_container_attack_surface/
 CVE-2026-40622,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/
@@ -179,6 +183,7 @@ CVE-2026-52993,1,2026-07-01T15:59:24+00:00,1782921564,linux,https://reddit.com/r
 CVE-2026-53002,1,2026-07-01T15:59:24+00:00,1782921564,linux,https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/
 CVE-2026-53006,1,2026-07-01T15:59:24+00:00,1782921564,linux,https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/
 CVE-2026-53010,1,2026-07-01T15:59:24+00:00,1782921564,linux,https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/
+CVE-2026-53029,1,2026-07-08T06:11:38+00:00,1783491098,Fedora,https://reddit.com/r/Fedora/comments/1uqk9vg/kernel_module_question/
 CVE-2026-53045,1,2026-07-01T15:59:24+00:00,1782921564,linux,https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/
 CVE-2026-53046,1,2026-07-01T15:59:24+00:00,1782921564,linux,https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/
 CVE-2026-53049,1,2026-07-01T15:59:24+00:00,1782921564,linux,https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/
