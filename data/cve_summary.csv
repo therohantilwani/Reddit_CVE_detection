@@ -17,6 +17,7 @@ CVE-2026-42271,2,2026-06-09T14:23:52+00:00,1781015032,sysadmin,https://reddit.co
 CVE-2026-42945,2,2026-05-22T19:45:42+00:00,1779479142,Ubuntu;netsec,https://reddit.com/r/Ubuntu/comments/1u14eyz/ubuntu_2404_lts_nginx_segfaults_after_installing/;https://reddit.com/r/netsec/comments/1tktr0o/cve20269256_nginxpoolslip_another_new/
 CVE-2026-43125,2,2026-06-09T14:01:01+00:00,1781013661,linux;sysadmin,https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/;https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2026-43456,2,2026-07-05T06:03:06+00:00,1783231386,Fedora;linux,https://reddit.com/r/Fedora/comments/1uo4n1g/linux_kernel_cve202643456_and_fedoras/;https://reddit.com/r/linux/comments/1unudb7/cisa_adds_linux_kernel_zeroday_cve202643456_to/
+CVE-2026-43499,2,2026-07-09T05:00:49+00:00,1783573249,Ubuntu;debian,https://reddit.com/r/debian/comments/1urmw2o/researchers_disclose_ghostlock_linux_kernel_flaw/;https://reddit.com/r/Ubuntu/comments/1urggyo/ghostlock_cve202643499_isnt_fully_fixed_on_all/
 CVE-2026-43503,2,2026-06-29T01:47:38+00:00,1782697658,AZURE;linux,https://reddit.com/r/linux/comments/1uinqoc/dirtyclone_cve202643503_the_linux_kernel_flaw/;https://reddit.com/r/AZURE/comments/1uif39c/dirtyclone_cve202643503_jfrog_published_a_working/
 CVE-2026-44815,2,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u7kggj/5_enterprise_cves_from_last_week_worth_checking/;https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2026-45257,2,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com/r/freebsd/comments/1u2x6l9/bumsrakete_the_hugest_the_most_tremendous_freebsd/;https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/
@@ -191,6 +192,7 @@ CVE-2026-53055,1,2026-07-01T15:59:24+00:00,1782921564,linux,https://reddit.com/r
 CVE-2026-53086,1,2026-07-01T15:59:24+00:00,1782921564,linux,https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/
 CVE-2026-53088,1,2026-07-01T15:59:24+00:00,1782921564,linux,https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/
 CVE-2026-53151,1,2026-07-01T15:59:24+00:00,1782921564,linux,https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/
+CVE-2026-53166,1,2026-07-09T10:57:05+00:00,1783594625,debian,https://reddit.com/r/debian/comments/1urmw2o/researchers_disclose_ghostlock_linux_kernel_flaw/
 CVE-2026-53175,1,2026-07-01T15:59:24+00:00,1782921564,linux,https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/
 CVE-2026-53176,1,2026-07-01T15:59:24+00:00,1782921564,linux,https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/
 CVE-2026-53215,1,2026-07-01T15:59:24+00:00,1782921564,linux,https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/
