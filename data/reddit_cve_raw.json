@@ -1,5 +1,530 @@
 [
   {
+    "_id": "6a511ce98bfe6eeeb99153d1",
+    "redditId": "1usrrjf",
+    "author": "Dangerous-Ask7465",
+    "author_description": "CVE-2026-14191, heap overflow in the RAR5 recovery volume parsing, 7.8. crafted archive, user opens it, memory corruption, you already know how this goes.\n\nhonestly the bug isn't what gets me. it's that in 2026 winrar still ships with no automatic update. every time one of these drops the fix is out same day and then basically nobody installs it, because the app has never once in its life told a user to update. so the vulnerable install base barely moves and the phishing crews absolutely know that. this is the whole reason old winrar CVEs stay useful for years.\n\ni pushed the new build through our deployment tool this morning to everything i can actually see. the machines i can't are the problem, the byod stuff and the two contractors who \"use their own laptop.\" at this point i just treat winrar like any other unmanaged-update app, inventory it and force it, because expecting people to manually update a tool that never prompts them is how you end up named in the writeup.\n\ni've been trying to move us to 7-zip for years and i lose on \"but we need it for the .rar exports from that one vendor\" every single time. so here we are again.",
+    "awards": [],
+    "comments": [
+      {
+        "id": "owq0o8v",
+        "author": "NegativePerformer788",
+        "body": "I feel your pain, but this is why Patch Management exists and another of the many reasons BYOD is terrible.",
+        "score": 1,
+        "created_utc_ts": 1783699399,
+        "created_utc": "2026-07-10T16:03:19",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owq0o8v/",
+        "parent_id": "t3_1usrrjf",
+        "is_submitter": false
+      },
+      {
+        "id": "owq17bo",
+        "author": "BlockBannington",
+        "body": "But 7zip supports RAR? Sure, it can't create it but it sound like you're receiving ",
+        "score": 1,
+        "created_utc_ts": 1783699533,
+        "created_utc": "2026-07-10T16:05:33",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owq17bo/",
+        "parent_id": "t3_1usrrjf",
+        "is_submitter": false
+      },
+      {
+        "id": "owq1eh3",
+        "author": "Sqooky",
+        "body": "It's a good thing this isn't actually remote and requires local user interaction...",
+        "score": 1,
+        "created_utc_ts": 1783699583,
+        "created_utc": "2026-07-10T16:06:23",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owq1eh3/",
+        "parent_id": "t3_1usrrjf",
+        "is_submitter": false
+      },
+      {
+        "id": "owq1mq4",
+        "author": "_Do_The_Needful_",
+        "body": "People still use WinRAR? ",
+        "score": 1,
+        "created_utc_ts": 1783699642,
+        "created_utc": "2026-07-10T16:07:22",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owq1mq4/",
+        "parent_id": "t3_1usrrjf",
+        "is_submitter": false
+      },
+      {
+        "id": "owq2k6s",
+        "author": "jdh28",
+        "body": "Windows 11 supports RAR natively.",
+        "score": 1,
+        "created_utc_ts": 1783699878,
+        "created_utc": "2026-07-10T16:11:18",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owq2k6s/",
+        "parent_id": "t3_1usrrjf",
+        "is_submitter": false
+      },
+      {
+        "id": "owq3ayu",
+        "author": "Nowaytonorwaytoday",
+        "body": "\\*cries in winget\\*",
+        "score": 1,
+        "created_utc_ts": 1783700068,
+        "created_utc": "2026-07-10T16:14:28",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owq3ayu/",
+        "parent_id": "t3_1usrrjf",
+        "is_submitter": false
+      },
+      {
+        "id": "owq3tzq",
+        "author": "slippery_hemorrhoids",
+        "body": "Who is using winrar today?",
+        "score": 1,
+        "created_utc_ts": 1783700205,
+        "created_utc": "2026-07-10T16:16:45",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owq3tzq/",
+        "parent_id": "t3_1usrrjf",
+        "is_submitter": false
+      },
+      {
+        "id": "owq5c44",
+        "author": "xSchizogenie",
+        "body": "Native but still not good ",
+        "score": 1,
+        "created_utc_ts": 1783700592,
+        "created_utc": "2026-07-10T16:23:12",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owq5c44/",
+        "parent_id": "t1_owq2k6s",
+        "is_submitter": false
+      },
+      {
+        "id": "owq5lz6",
+        "author": "OkBrilliant8092",
+        "body": "Oh that’s it…. I was just about to buy WinRAR after accidentally using it every day for most of my adult life… but no rarlabs… you shall not grow fat on the decadence afforded by a Scrooge McGill pool full of subscription money! Unhand me I say! This wasn’t in the user agreement… :p",
+        "score": 1,
+        "created_utc_ts": 1783700662,
+        "created_utc": "2026-07-10T16:24:22",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owq5lz6/",
+        "parent_id": "t1_owq2k6s",
+        "is_submitter": false
+      },
+      {
+        "id": "owq5nud",
+        "author": "tarvijron",
+        "body": "That’s why I never sent in my money order for $5 to register ",
+        "score": 1,
+        "created_utc_ts": 1783700676,
+        "created_utc": "2026-07-10T16:24:36",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owq5nud/",
+        "parent_id": "t3_1usrrjf",
+        "is_submitter": false
+      },
+      {
+        "id": "owq5x0n",
+        "author": "bobbypower",
+        "body": "Winzip is the future. /s",
+        "score": 1,
+        "created_utc_ts": 1783700742,
+        "created_utc": "2026-07-10T16:25:42",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owq5x0n/",
+        "parent_id": "t3_1usrrjf",
+        "is_submitter": false
+      },
+      {
+        "id": "owq5ze9",
+        "author": "serverhorror",
+        "body": "Some consider the absence of auto updates an advantage, especially in this day and age of supply chain attacks.\n\nEDIT: BYOD and contractor devices, or vendor devices aren't your problem. They have these because there are cinteactual or policy guarantees that ensure proper handling and update procedures. Whether you believe that is actually true, now that's a different question.\n\nIf you have devicea that you actually do manage and can't see, now _that_ is a problem.",
+        "score": 1,
+        "created_utc_ts": 1783700759,
+        "created_utc": "2026-07-10T16:25:59",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owq5ze9/",
+        "parent_id": "t3_1usrrjf",
+        "is_submitter": false
+      },
+      {
+        "id": "owq6tp3",
+        "author": "MalletNGrease",
+        "body": "I feel you can only complain if you pay for the license.",
+        "score": 1,
+        "created_utc_ts": 1783700975,
+        "created_utc": "2026-07-10T16:29:35",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owq6tp3/",
+        "parent_id": "t3_1usrrjf",
+        "is_submitter": false
+      },
+      {
+        "id": "owq7jz3",
+        "author": "LonelyWizardDead",
+        "body": "auto update can ve hijacked so not a completely bad thing its missing.\n",
+        "score": 1,
+        "created_utc_ts": 1783701164,
+        "created_utc": "2026-07-10T16:32:44",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owq7jz3/",
+        "parent_id": "t3_1usrrjf",
+        "is_submitter": false
+      },
+      {
+        "id": "owq889m",
+        "author": "Emotional_Garage_950",
+        "body": "use nanazip and it’ll just update via the ms store",
+        "score": 1,
+        "created_utc_ts": 1783701339,
+        "created_utc": "2026-07-10T16:35:39",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owq889m/",
+        "parent_id": "t3_1usrrjf",
+        "is_submitter": false
+      },
+      {
+        "id": "owq8ziy",
+        "author": "RecognitionOwn4214",
+        "body": "I agree - Auto updates are a bad thing.  \nNotifications would help, but all those nasty system services for updating x, y and z ... Urgs",
+        "score": 1,
+        "created_utc_ts": 1783701533,
+        "created_utc": "2026-07-10T16:38:53",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owq8ziy/",
+        "parent_id": "t1_owq5ze9",
+        "is_submitter": false
+      },
+      {
+        "id": "owq9cuu",
+        "author": "TheAlaine",
+        "body": "Doesn't unigetui or wingetautoupdater update it?",
+        "score": 1,
+        "created_utc_ts": 1783701628,
+        "created_utc": "2026-07-10T16:40:28",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owq9cuu/",
+        "parent_id": "t3_1usrrjf",
+        "is_submitter": false
+      },
+      {
+        "id": "owqaa3r",
+        "author": "gamayogi",
+        "body": "Is this 2005? I haven't used winrar in decades ",
+        "score": 1,
+        "created_utc_ts": 1783701866,
+        "created_utc": "2026-07-10T16:44:26",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owqaa3r/",
+        "parent_id": "t3_1usrrjf",
+        "is_submitter": false
+      },
+      {
+        "id": "owqahut",
+        "author": "BloodFeastMan",
+        "body": "Winrar has one of the nicest sfx package installer creators, and for thirty bucks, you can't beat it. We've been using Winrar for years.\n\nAdditionally, and this goes for any zip file manager as well, it kind of pisses me off that Microsoft built in zip support, only to condition normies into not knowing wtf a virtual file system is, or that half of zip and rar's usefulness comes from encrypting archives.",
+        "score": 1,
+        "created_utc_ts": 1783701921,
+        "created_utc": "2026-07-10T16:45:21",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owqahut/",
+        "parent_id": "t1_owq1mq4",
+        "is_submitter": false
+      },
+      {
+        "id": "owqamrj",
+        "author": "Kanduh",
+        "body": "winget install RARLab.WinRAR\n\nwinget upgrade --all --silent as a scheduled task that runs multiple times a day\n\nwinget is love. winget is life.",
+        "score": 1,
+        "created_utc_ts": 1783701956,
+        "created_utc": "2026-07-10T16:45:56",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owqamrj/",
+        "parent_id": "t3_1usrrjf",
+        "is_submitter": false
+      },
+      {
+        "id": "owqc2mb",
+        "author": "Burgergold",
+        "body": "Lot of people\n\nTnhe other question is who pay for WinRAR today?",
+        "score": 1,
+        "created_utc_ts": 1783702323,
+        "created_utc": "2026-07-10T16:52:03",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owqc2mb/",
+        "parent_id": "t1_owq3tzq",
+        "is_submitter": false
+      },
+      {
+        "id": "owqd0j0",
+        "author": "BloodFeastMan",
+        "body": "I'm surprised by the amount of winrar haters. While it's become a meme because of the fact that trial never expires, it's an excellent piece of software. Sorry you've had your problems; we just push it if there's a new version. the sfx installer creator is the reason we use it, where it excels.",
+        "score": 1,
+        "created_utc_ts": 1783702558,
+        "created_utc": "2026-07-10T16:55:58",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owqd0j0/",
+        "parent_id": "t3_1usrrjf",
+        "is_submitter": false
+      },
+      {
+        "id": "owqdyea",
+        "author": "Zncon",
+        "body": "For software like this, auto updates are a bigger vulnerability then having an old version.\n\nSupply chain attacks are common now, and many devs have shown time and again their inability to secure update infrastructure.\n\nYou should have your own update and patch management to resolve these things.",
+        "score": 1,
+        "created_utc_ts": 1783702794,
+        "created_utc": "2026-07-10T16:59:54",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owqdyea/",
+        "parent_id": "t3_1usrrjf",
+        "is_submitter": false
+      },
+      {
+        "id": "owqfl4n",
+        "author": "Ihaveasmallwang",
+        "body": "Maybe if people would pay the licensing fee, they could afford to fix these things. \n\nWhat’s really baffling to me is why even bother with this stuff when you can just use built in OS tools? This isn’t 1999 anymore. ",
+        "score": 1,
+        "created_utc_ts": 1783703208,
+        "created_utc": "2026-07-10T17:06:48",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owqfl4n/",
+        "parent_id": "t3_1usrrjf",
+        "is_submitter": false
+      },
+      {
+        "id": "owqhejf",
+        "author": "Honest--Guy",
+        "body": "True but enterprises aren't all on Windows 11 yet.",
+        "score": 1,
+        "created_utc_ts": 1783703667,
+        "created_utc": "2026-07-10T17:14:27",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owqhejf/",
+        "parent_id": "t1_owq2k6s",
+        "is_submitter": false
+      },
+      {
+        "id": "owqjm8g",
+        "author": "InevitableOk5017",
+        "body": "7z is amazing",
+        "score": 1,
+        "created_utc_ts": 1783704226,
+        "created_utc": "2026-07-10T17:23:46",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owqjm8g/",
+        "parent_id": "t3_1usrrjf",
+        "is_submitter": false
+      },
+      {
+        "id": "owqllga",
+        "author": "MonstersGrin",
+        "body": "&gt;winget upgrade --all --silent as a scheduled task that runs multiple times a day\n\nThat is the worst idea I've seen today.",
+        "score": 1,
+        "created_utc_ts": 1783704718,
+        "created_utc": "2026-07-10T17:31:58",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owqllga/",
+        "parent_id": "t1_owqamrj",
+        "is_submitter": false
+      },
+      {
+        "id": "owqvb7z",
+        "author": "Nandulal",
+        "body": "it totally has a red warning saying to update at least",
+        "score": 1,
+        "created_utc_ts": 1783707164,
+        "created_utc": "2026-07-10T18:12:44",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owqvb7z/",
+        "parent_id": "t3_1usrrjf",
+        "is_submitter": false
+      },
+      {
+        "id": "owqy6nm",
+        "author": "ExceptionEX",
+        "body": "If you have a vendor that only accepts files in rar format sounds like that is the problem (which sounds highly unlikely) you should be resolving. ",
+        "score": 1,
+        "created_utc_ts": 1783707908,
+        "created_utc": "2026-07-10T18:25:08",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owqy6nm/",
+        "parent_id": "t3_1usrrjf",
+        "is_submitter": false
+      },
+      {
+        "id": "owqyfks",
+        "author": "ExceptionEX",
+        "body": "windows 11 unpacks rar, but doesn't create rar, same with 7zip. ",
+        "score": 1,
+        "created_utc_ts": 1783707973,
+        "created_utc": "2026-07-10T18:26:13",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owqyfks/",
+        "parent_id": "t1_owq2k6s",
+        "is_submitter": false
+      },
+      {
+        "id": "owr0pu1",
+        "author": "Old-Professional4902",
+        "body": "You blocking .rar at the mail gateway yet?",
+        "score": 1,
+        "created_utc_ts": 1783708575,
+        "created_utc": "2026-07-10T18:36:15",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owr0pu1/",
+        "parent_id": "t3_1usrrjf",
+        "is_submitter": false
+      },
+      {
+        "id": "owresxf",
+        "author": "JaredSeth",
+        "body": "We don't officially approve of the use of WinRAR but have a couple hundred installations, which is why I used it for my proof of concept for automatically updating third party applications via winget. Never thought a CVE would be a good thing but I haven't gotten much further due to pushback from above but this CVE (and the fact that we're already patching against it) might help me get more apps approved for my patching list.",
+        "score": 1,
+        "created_utc_ts": 1783712285,
+        "created_utc": "2026-07-10T19:38:05",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owresxf/",
+        "parent_id": "t3_1usrrjf",
+        "is_submitter": false
+      },
+      {
+        "id": "owrfsex",
+        "author": "JohnnyricoMC",
+        "body": "They should put automatic updates behind the license.",
+        "score": 1,
+        "created_utc_ts": 1783712541,
+        "created_utc": "2026-07-10T19:42:21",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owrfsex/",
+        "parent_id": "t1_owqfl4n",
+        "is_submitter": false
+      },
+      {
+        "id": "owrgsoa",
+        "author": "ender-_",
+        "body": "I've been using 7-zip for compressing files since 2002, but I still use WinRAR for archive extraction, because it's UI is simply so much better (bought the license, too, in 2007).",
+        "score": 1,
+        "created_utc_ts": 1783712802,
+        "created_utc": "2026-07-10T19:46:42",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owrgsoa/",
+        "parent_id": "t1_owq1mq4",
+        "is_submitter": false
+      },
+      {
+        "id": "owrjlct",
+        "author": "zatset",
+        "body": "Actually…while I can agree, we have seen increase of Fishing and Malware Emails with archives as attachments targeting exactly vulnerable archivers. As well as JavaScript malware attachments… and of course, PDF and Office documents. It’s hellscape nowadays.",
+        "score": 1,
+        "created_utc_ts": 1783713530,
+        "created_utc": "2026-07-10T19:58:50",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owrjlct/",
+        "parent_id": "t1_owqdyea",
+        "is_submitter": false
+      },
+      {
+        "id": "owrk553",
+        "author": "zatset",
+        "body": "7zip also had multiple CVE-s.",
+        "score": 1,
+        "created_utc_ts": 1783713671,
+        "created_utc": "2026-07-10T20:01:11",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owrk553/",
+        "parent_id": "t1_owq17bo",
+        "is_submitter": false
+      },
+      {
+        "id": "owrkotd",
+        "author": "robotbeatrally",
+        "body": "Honestly cant believe anyone uses winrar, switched my whole org to 7zip like 15 years ago, have about 1000 people on it.  Have never had a single issue.",
+        "score": 1,
+        "created_utc_ts": 1783713813,
+        "created_utc": "2026-07-10T20:03:33",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owrkotd/",
+        "parent_id": "t1_owqjm8g",
+        "is_submitter": false
+      },
+      {
+        "id": "owrqlyq",
+        "author": "BlackV",
+        "body": "Bring back ARJ the superior compression tool",
+        "score": 1,
+        "created_utc_ts": 1783715383,
+        "created_utc": "2026-07-10T20:29:43",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owrqlyq/",
+        "parent_id": "t3_1usrrjf",
+        "is_submitter": false
+      },
+      {
+        "id": "owrqpe3",
+        "author": "r3alkikas",
+        "body": "2026 and someone still using winrar...",
+        "score": 1,
+        "created_utc_ts": 1783715407,
+        "created_utc": "2026-07-10T20:30:07",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owrqpe3/",
+        "parent_id": "t3_1usrrjf",
+        "is_submitter": false
+      },
+      {
+        "id": "owrqqgn",
+        "author": "bdam55",
+        "body": "Regarding auto-updaters, that adds another vector of attack. Which Notepad++ found out a while ago.",
+        "score": 1,
+        "created_utc_ts": 1783715415,
+        "created_utc": "2026-07-10T20:30:15",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owrqqgn/",
+        "parent_id": "t3_1usrrjf",
+        "is_submitter": false
+      },
+      {
+        "id": "owsj8vf",
+        "author": "tordenflesk",
+        "body": "&gt; no automatic update\n\nGood, that's what package managers are for...\n    \n    &gt; winget search winrar\n    \n    Name   Id            Version Source\n    ------------------------------------\n    WinRAR RARLab.WinRAR 7.23.0  winget",
+        "score": 1,
+        "created_utc_ts": 1783723549,
+        "created_utc": "2026-07-10T22:45:49",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owsj8vf/",
+        "parent_id": "t3_1usrrjf",
+        "is_submitter": false
+      },
+      {
+        "id": "owswps5",
+        "author": "thearctican",
+        "body": "If you can’t force feed an update down to your users, what makes you think they’re going to let the thing update on their own? Much easier to click “later” than interrupt their work",
+        "score": 1,
+        "created_utc_ts": 1783727977,
+        "created_utc": "2026-07-10T23:59:37",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owswps5/",
+        "parent_id": "t3_1usrrjf",
+        "is_submitter": false
+      },
+      {
+        "id": "owt0uoz",
+        "author": "Far-Hovercraft9471",
+        "body": "How else will I get my warez then??",
+        "score": 1,
+        "created_utc_ts": 1783729412,
+        "created_utc": "2026-07-11T00:23:32",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owt0uoz/",
+        "parent_id": "t1_owr0pu1",
+        "is_submitter": false
+      },
+      {
+        "id": "owt3yk3",
+        "author": "haamfish",
+        "body": "We removed winRAR from all our systems. Problem solved.",
+        "score": 1,
+        "created_utc_ts": 1783730499,
+        "created_utc": "2026-07-11T00:41:39",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/owt3yk3/",
+        "parent_id": "t3_1usrrjf",
+        "is_submitter": false
+      }
+    ],
+    "created_utc": "2026-07-10T15:59:39",
+    "first_author_comment": null,
+    "num_comments": 95,
+    "score": 31,
+    "subreddit": "sysadmin",
+    "tag": "General Discussion",
+    "tags": [
+      "General Discussion"
+    ],
+    "title": "another WinRAR RCE today and it STILL has no auto-updater",
+    "updatedAt": "2026-07-11T04:25:21.620Z",
+    "upvote_ratio": 0.75,
+    "url": "https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/",
+    "versionList": [],
+    "classification": {
+      "componentType": [],
+      "securityType": [
+        "UNKNOWN"
+      ]
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.057508696789921536,
+        "timestampPredicted": "2026-07-11T00:01:25.940747+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true
+  },
+  {
     "_id": "6a4f9a34ffd9112271263993",
     "redditId": "1urmw2o",
     "author": "NapierPalm",
@@ -7,14 +532,14 @@
     "awards": [],
     "created_utc": "2026-07-09T10:57:05",
     "first_author_comment": null,
-    "num_comments": 6,
-    "score": 22,
+    "num_comments": 8,
+    "score": 33,
     "subreddit": "debian",
     "tag": "News",
     "tags": [],
     "title": "Researchers disclose GhostLock Linux kernel flaw affecting unpatched systems",
-    "updatedAt": "2026-07-10T04:54:37.941Z",
-    "upvote_ratio": 0.87,
+    "updatedAt": "2026-07-11T04:54:41.730Z",
+    "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/debian/comments/1urmw2o/researchers_disclose_ghostlock_linux_kernel_flaw/",
     "versionList": [],
     "commentCount": 5,
@@ -107,6 +632,178 @@
         "eventNamesBeforeAnalysis": [
           "New CVE Received"
         ]
+      },
+      {
+        "cveId": "CVE-2026-43499",
+        "cveIds": [
+          "CVE-2026-43499",
+          "CVE-2026-43499"
+        ],
+        "source": "Comment",
+        "commentText": "[https://security-tracker.debian.org/tracker/CVE-2026-43499](https://security-tracker.debian.org/tracker/CVE-2026-43499)",
+        "linkToComment": "https://reddit.com/r/debian/comments/1urmw2o/researchers_disclose_ghostlock_linux_kernel_flaw/owh2831/",
+        "commentDate": "2026-07-09T11:49:07+00:00",
+        "cvePublishedDate": "2026-05-21T13:16:19.300000+00:00",
+        "initialAnalysisDate": "2026-06-26T17:28:54.067",
+        "daysAfterPublication": 48,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-07-08T23:16:54.523 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=6B887782-25B1-4232-8AEE-6935E8F68AD6\n   - Added Reference: http://www.openwall.com/lists/oss-security/2026/07/08/12\n2. 2026-06-26T17:28:54.067 | Initial Analysis | source=nvd@nist.gov | changeId=B93B20D4-5C24-44F3-96DB-37352936E48C\n   - Added CWE: CWE-416\n   - Added CPE Configuration: OR\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.7 up to (excluding) 6.12.86\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.2 up to (excluding) 6.6.140\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.13 up to (excluding) 6.18.27\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.19 up to (excluding) 7.0.4\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 2.6.39 up to (excluding) 6.1.175\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/3bfdc63936dd4773109b7b8c280c0f3b5ae7d349 Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/3fb7394a837740770f0d6b4b30567e60786a63f2 Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/6d52dfcb2a5db86e346cf51f8fcf2071b8085166 Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/88614876370aac8ad1050ad785a4c095ba17ac11 Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/8a1fc8d698ac5e5916e3082a0f74450d71f9611f Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/d8cce4773c2b23d819baf5abedc62f7b430e8745 Types: Patch\n3. 2026-06-17T10:49:49.273 | CVE Modified | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=93ABC9E8-B50B-481A-9C81-1A53BFE64C7B\n   - Added Affected: [{'vendor': 'Linux', 'product': 'Linux', 'defaultStatus': 'unaffected', 'programFiles': ['kernel/locking/rtmutex.c'], 'repo': 'https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git', 'versions': [{'version': '8161239a8bcce9ad6b537c04a1fa3b5c68bae693', 'lessThan': 'd8cce4773c2b23d819baf5abedc62f7b430e8745', 'versionType': 'git', 'status': 'affected'}, {'version': '8161239a8bcce9ad6b537c04a1fa3b5c68bae693', 'lessThan': '8a1fc8d698ac5e5916e3082a0f74450d71f9611f', 'versionType': 'git', 'status': 'affected'}, {'version': '8161239a8bcce9ad6b537c04a1fa3b5c68bae693', 'lessThan': '6d52dfcb2a5db86e346cf51f8fcf2071b8085166', 'versionType': 'git', 'status': 'affected'}, {'version': '8161239a8bcce9ad6b537c04a1fa3b5c68bae693', 'lessThan': '3fb7394a837740770f0d6b4b30567e60786a63f2', 'versionType': 'git', 'status': 'affected'}, {'version': '8161239a8bcce9ad6b537c04a1fa3b5c68bae693', 'lessThan': '88614876370aac8ad1050ad785a4c095ba17ac11', 'versionType': 'git', 'status': 'affected'}, {'version': '8161239a8bcce9ad6b537c04a1fa3b5c68bae693', 'lessThan': '3bfdc63936dd4773109b7b8c280c0f3b5ae7d349', 'versionType': 'git', 'status': 'affected'}]}, {'vendor': 'Linux', 'product': 'Linux', 'defaultStatus': 'affected', 'programFiles': ['kernel/locking/rtmutex.c'], 'repo': 'https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git', 'versions': [{'version': '2.6.39', 'status': 'affected'}, {'version': '0', 'lessThan': '2.6.39', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.1.175', 'lessThanOrEqual': '6.1.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.6.140', 'lessThanOrEqual': '6.6.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.12.86', 'lessThanOrEqual': '6.12.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.18.27', 'lessThanOrEqual': '6.18.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '7.0.4', 'lessThanOrEqual': '7.0.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '7.1', 'lessThanOrEqual': '*', 'versionType': 'original_commit_for_fix', 'status': 'unaffected'}]}]\n4. 2026-06-01T17:17:07.230 | CVE Modified | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=951FAFD2-CFBD-4349-A1E8-CB70D3D01C03\n   - Added Reference: https://git.kernel.org/stable/c/d8cce4773c2b23d819baf5abedc62f7b430e8745\n5. 2026-05-30T11:17:06.420 | CVE Modified | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=04B09D11-3047-4008-BE8A-7A5932E6766C\n   - Added CVSS V3.1: AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H\n6. 2026-05-21T13:16:19.300 | New CVE Received | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=E14DA9A9-2350-4DFD-9AB4-481D0DBDDB49\n   - Added Description: In the Linux kernel, the following vulnerability has been resolved:\n\nrtmutex: Use waiter::task instead of current in remove_waiter()\n\nremove_waiter() is used by the slowlock paths, but it is also used for\nproxy-lock rollback in rt_mutex_start_proxy_lock() when invoked from\nfutex_requeue().\n\nIn the latter case waiter::task is not current, but remove_waiter()\noperates on current for the dequeue operation. That results in several\nproblems:\n\n  1) the rbtree dequeue happens without waiter::task::pi_lock being held\n\n  2) the waiter task's pi_blocked_on state is not cleared, which leaves a\n     dangling pointer primed for UAF around.\n\n  3) rt_mutex_adjust_prio_chain() operates on the wrong top priority waiter\n     task\n\nUse waiter::task instead of current in all related operations in\nremove_waiter() to cure those problems.\n\n[ tglx: Fixup rt_mutex_adjust_prio_chain(), add a comment and amend the\n  \tchangelog ]\n   - Added Reference: https://git.kernel.org/stable/c/3bfdc63936dd4773109b7b8c280c0f3b5ae7d349\n   - Added Reference: https://git.kernel.org/stable/c/3fb7394a837740770f0d6b4b30567e60786a63f2\n   - Added Reference: https://git.kernel.org/stable/c/6d52dfcb2a5db86e346cf51f8fcf2071b8085166\n   - Added Reference: https://git.kernel.org/stable/c/88614876370aac8ad1050ad785a4c095ba17ac11\n   - Added Reference: https://git.kernel.org/stable/c/8a1fc8d698ac5e5916e3082a0f74450d71f9611f\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-53166",
+        "cveIds": [
+          "CVE-2026-53166",
+          "CVE-2026-53166"
+        ],
+        "source": "Comment",
+        "commentText": "[https://security-tracker.debian.org/tracker/CVE-2026-53166](https://security-tracker.debian.org/tracker/CVE-2026-53166)",
+        "linkToComment": "https://reddit.com/r/debian/comments/1urmw2o/researchers_disclose_ghostlock_linux_kernel_flaw/owkqrk3/",
+        "commentDate": "2026-07-09T21:28:34+00:00",
+        "cvePublishedDate": "2026-06-25T09:16:33.983000+00:00",
+        "initialAnalysisDate": "2026-07-07T18:13:28.433",
+        "daysAfterPublication": 14,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-07-07T18:13:28.433 | Initial Analysis | source=nvd@nist.gov | changeId=35F7F701-6D8E-4EDD-BF4F-D3D7FAE36F9F\n   - Added CVSS V3.1: AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H\n   - Added CWE: CWE-476\n   - Added CPE Configuration: OR\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc1:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc2:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc3:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc4:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.6.140 up to (excluding) 6.7\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.1.175 up to (excluding) 6.2\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc5:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc6:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.12.86 up to (excluding) 6.13\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.18.27 up to (excluding) 6.18.36\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 7.0.4 up to (excluding) 7.0.13\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/16f8e17184b31382076f84751db5ac51fc02733e Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/1f2f3f3eacd6653ab215c5d2ea70811148d433fc Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/74e144274af39935b0f410c0ee4d2b91c3730414 Types: Patch\n2. 2026-06-25T09:16:33.983 | New CVE Received | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=9CC77780-B168-403B-920F-C68CB98D7B50\n   - Added Affected: [{'vendor': 'Linux', 'product': 'Linux', 'defaultStatus': 'unaffected', 'programFiles': ['kernel/futex/requeue.c'], 'repo': 'https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git', 'versions': [{'version': '3fb7394a837740770f0d6b4b30567e60786a63f2', 'lessThan': '16f8e17184b31382076f84751db5ac51fc02733e', 'versionType': 'git', 'status': 'affected'}, {'version': '88614876370aac8ad1050ad785a4c095ba17ac11', 'lessThan': '1f2f3f3eacd6653ab215c5d2ea70811148d433fc', 'versionType': 'git', 'status': 'affected'}, {'version': '3bfdc63936dd4773109b7b8c280c0f3b5ae7d349', 'lessThan': '74e144274af39935b0f410c0ee4d2b91c3730414', 'versionType': 'git', 'status': 'affected'}, {'version': 'd8cce4773c2b23d819baf5abedc62f7b430e8745', 'versionType': 'git', 'status': 'affected'}, {'version': '8a1fc8d698ac5e5916e3082a0f74450d71f9611f', 'versionType': 'git', 'status': 'affected'}, {'version': '6d52dfcb2a5db86e346cf51f8fcf2071b8085166', 'versionType': 'git', 'status': 'affected'}, {'version': '6.1.175', 'lessThan': '6.2', 'versionType': 'semver', 'status': 'affected'}, {'version': '6.6.140', 'lessThan': '6.7', 'versionType': 'semver', 'status': 'affected'}, {'version': '6.12.86', 'lessThan': '6.13', 'versionType': 'semver', 'status': 'affected'}]}, {'vendor': 'Linux', 'product': 'Linux', 'defaultStatus': 'unaffected', 'programFiles': ['kernel/futex/requeue.c'], 'repo': 'https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git', 'versions': [{'version': '6.18.27', 'lessThan': '6.18.36', 'versionType': 'semver', 'status': 'affected'}, {'version': '7.0.4', 'lessThan': '7.0.13', 'versionType': 'semver', 'status': 'affected'}]}]\n   - Added Description: In the Linux kernel, the following vulnerability has been resolved:\n\nfutex/requeue: Prevent NULL pointer dereference in remove_waiter() on self-deadlock\n\nWhen FUTEX_CMP_REQUEUE_PI requeues a non-top waiter that already owns the\ntarget PI futex, task_blocks_on_rt_mutex() returns -EDEADLK before setting\nwaiter->task.\n\nThe subsequent remove_waiter() in rt_mutex_start_proxy_lock() dereferences\nthe NULL waiter->task, causing a kernel crash.\n\nAdd a self-deadlock check for non-top waiters before calling\nrt_mutex_start_proxy_lock(), analogous to the top-waiter check in\nfutex_lock_pi_atomic().\n   - Added Reference: https://git.kernel.org/stable/c/16f8e17184b31382076f84751db5ac51fc02733e\n   - Added Reference: https://git.kernel.org/stable/c/1f2f3f3eacd6653ab215c5d2ea70811148d433fc\n   - Added Reference: https://git.kernel.org/stable/c/74e144274af39935b0f410c0ee4d2b91c3730414\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-43499",
+        "cveIds": [
+          "CVE-2026-43499",
+          "CVE-2026-43499"
+        ],
+        "source": "Comment",
+        "commentText": "[https://security-tracker.debian.org/tracker/CVE-2026-43499](https://security-tracker.debian.org/tracker/CVE-2026-43499)",
+        "linkToComment": "https://reddit.com/r/debian/comments/1urmw2o/researchers_disclose_ghostlock_linux_kernel_flaw/owh2831/",
+        "commentDate": "2026-07-09T11:49:07+00:00",
+        "cvePublishedDate": "2026-05-21T13:16:19.300000+00:00",
+        "initialAnalysisDate": "2026-06-26T17:28:54.067",
+        "daysAfterPublication": 48,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-07-08T23:16:54.523 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=6B887782-25B1-4232-8AEE-6935E8F68AD6\n   - Added Reference: http://www.openwall.com/lists/oss-security/2026/07/08/12\n2. 2026-06-26T17:28:54.067 | Initial Analysis | source=nvd@nist.gov | changeId=B93B20D4-5C24-44F3-96DB-37352936E48C\n   - Added CWE: CWE-416\n   - Added CPE Configuration: OR\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.7 up to (excluding) 6.12.86\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.2 up to (excluding) 6.6.140\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.13 up to (excluding) 6.18.27\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.19 up to (excluding) 7.0.4\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 2.6.39 up to (excluding) 6.1.175\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/3bfdc63936dd4773109b7b8c280c0f3b5ae7d349 Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/3fb7394a837740770f0d6b4b30567e60786a63f2 Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/6d52dfcb2a5db86e346cf51f8fcf2071b8085166 Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/88614876370aac8ad1050ad785a4c095ba17ac11 Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/8a1fc8d698ac5e5916e3082a0f74450d71f9611f Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/d8cce4773c2b23d819baf5abedc62f7b430e8745 Types: Patch\n3. 2026-06-17T10:49:49.273 | CVE Modified | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=93ABC9E8-B50B-481A-9C81-1A53BFE64C7B\n   - Added Affected: [{'vendor': 'Linux', 'product': 'Linux', 'defaultStatus': 'unaffected', 'programFiles': ['kernel/locking/rtmutex.c'], 'repo': 'https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git', 'versions': [{'version': '8161239a8bcce9ad6b537c04a1fa3b5c68bae693', 'lessThan': 'd8cce4773c2b23d819baf5abedc62f7b430e8745', 'versionType': 'git', 'status': 'affected'}, {'version': '8161239a8bcce9ad6b537c04a1fa3b5c68bae693', 'lessThan': '8a1fc8d698ac5e5916e3082a0f74450d71f9611f', 'versionType': 'git', 'status': 'affected'}, {'version': '8161239a8bcce9ad6b537c04a1fa3b5c68bae693', 'lessThan': '6d52dfcb2a5db86e346cf51f8fcf2071b8085166', 'versionType': 'git', 'status': 'affected'}, {'version': '8161239a8bcce9ad6b537c04a1fa3b5c68bae693', 'lessThan': '3fb7394a837740770f0d6b4b30567e60786a63f2', 'versionType': 'git', 'status': 'affected'}, {'version': '8161239a8bcce9ad6b537c04a1fa3b5c68bae693', 'lessThan': '88614876370aac8ad1050ad785a4c095ba17ac11', 'versionType': 'git', 'status': 'affected'}, {'version': '8161239a8bcce9ad6b537c04a1fa3b5c68bae693', 'lessThan': '3bfdc63936dd4773109b7b8c280c0f3b5ae7d349', 'versionType': 'git', 'status': 'affected'}]}, {'vendor': 'Linux', 'product': 'Linux', 'defaultStatus': 'affected', 'programFiles': ['kernel/locking/rtmutex.c'], 'repo': 'https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git', 'versions': [{'version': '2.6.39', 'status': 'affected'}, {'version': '0', 'lessThan': '2.6.39', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.1.175', 'lessThanOrEqual': '6.1.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.6.140', 'lessThanOrEqual': '6.6.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.12.86', 'lessThanOrEqual': '6.12.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.18.27', 'lessThanOrEqual': '6.18.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '7.0.4', 'lessThanOrEqual': '7.0.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '7.1', 'lessThanOrEqual': '*', 'versionType': 'original_commit_for_fix', 'status': 'unaffected'}]}]\n4. 2026-06-01T17:17:07.230 | CVE Modified | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=951FAFD2-CFBD-4349-A1E8-CB70D3D01C03\n   - Added Reference: https://git.kernel.org/stable/c/d8cce4773c2b23d819baf5abedc62f7b430e8745\n5. 2026-05-30T11:17:06.420 | CVE Modified | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=04B09D11-3047-4008-BE8A-7A5932E6766C\n   - Added CVSS V3.1: AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H\n6. 2026-05-21T13:16:19.300 | New CVE Received | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=E14DA9A9-2350-4DFD-9AB4-481D0DBDDB49\n   - Added Description: In the Linux kernel, the following vulnerability has been resolved:\n\nrtmutex: Use waiter::task instead of current in remove_waiter()\n\nremove_waiter() is used by the slowlock paths, but it is also used for\nproxy-lock rollback in rt_mutex_start_proxy_lock() when invoked from\nfutex_requeue().\n\nIn the latter case waiter::task is not current, but remove_waiter()\noperates on current for the dequeue operation. That results in several\nproblems:\n\n  1) the rbtree dequeue happens without waiter::task::pi_lock being held\n\n  2) the waiter task's pi_blocked_on state is not cleared, which leaves a\n     dangling pointer primed for UAF around.\n\n  3) rt_mutex_adjust_prio_chain() operates on the wrong top priority waiter\n     task\n\nUse waiter::task instead of current in all related operations in\nremove_waiter() to cure those problems.\n\n[ tglx: Fixup rt_mutex_adjust_prio_chain(), add a comment and amend the\n  \tchangelog ]\n   - Added Reference: https://git.kernel.org/stable/c/3bfdc63936dd4773109b7b8c280c0f3b5ae7d349\n   - Added Reference: https://git.kernel.org/stable/c/3fb7394a837740770f0d6b4b30567e60786a63f2\n   - Added Reference: https://git.kernel.org/stable/c/6d52dfcb2a5db86e346cf51f8fcf2071b8085166\n   - Added Reference: https://git.kernel.org/stable/c/88614876370aac8ad1050ad785a4c095ba17ac11\n   - Added Reference: https://git.kernel.org/stable/c/8a1fc8d698ac5e5916e3082a0f74450d71f9611f\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-53166",
+        "cveIds": [
+          "CVE-2026-53166",
+          "CVE-2026-53166"
+        ],
+        "source": "Comment",
+        "commentText": "[https://security-tracker.debian.org/tracker/CVE-2026-53166](https://security-tracker.debian.org/tracker/CVE-2026-53166)",
+        "linkToComment": "https://reddit.com/r/debian/comments/1urmw2o/researchers_disclose_ghostlock_linux_kernel_flaw/owkqrk3/",
+        "commentDate": "2026-07-09T21:28:34+00:00",
+        "cvePublishedDate": "2026-06-25T09:16:33.983000+00:00",
+        "initialAnalysisDate": "2026-07-07T18:13:28.433",
+        "daysAfterPublication": 14,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-07-10T12:17:10.343 | CVE Rejected | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=07B6400A-B85C-41EF-827D-1B24156B862B\n2. 2026-07-10T12:17:10.343 | CVE Modified | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=948E5B93-90B9-4D79-9230-66F237BD5DAC\n   - Changed Description: In the Linux kernel, the following vulnerability has been resolved:\n\nfutex/requeue: Prevent NULL pointer dereference in remove_waiter() on self-deadlock\n\nWhen FUTEX_CMP_REQUEUE_PI requeues a non-top waiter that already owns the\ntarget PI futex, task_blocks_on_rt_mutex() returns -EDEADLK before setting\nwaiter->task.\n\nThe subsequent remove_waiter() in rt_mutex_start_proxy_lock() dereferences\nthe NULL waiter->task, causing a kernel crash.\n\nAdd a self-deadlock check for non-top waiters before calling\nrt_mutex_start_proxy_lock(), analogous to the top-waiter check in\nfutex_lock_pi_atomic(). -> Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.\n   - Removed CVSS V3.1: NIST: AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H -> None\n   - Removed CWE: NIST: CWE-476 -> None\n   - Removed CPE Configuration: OR\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc1:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc2:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc3:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc4:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.6.140 up to (excluding) 6.7\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.1.175 up to (excluding) 6.2\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc5:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc6:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.12.86 up to (excluding) 6.13\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.18.27 up to (excluding) 6.18.36\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 7.0.4 up to (excluding) 7.0.13 -> None\n   - Removed Reference: kernel.org: https://git.kernel.org/stable/c/16f8e17184b31382076f84751db5ac51fc02733e -> None\n   - Removed Reference: kernel.org: https://git.kernel.org/stable/c/1f2f3f3eacd6653ab215c5d2ea70811148d433fc -> None\n   - Removed Reference: kernel.org: https://git.kernel.org/stable/c/74e144274af39935b0f410c0ee4d2b91c3730414 -> None\n   - Removed Reference Type: kernel.org: https://git.kernel.org/stable/c/16f8e17184b31382076f84751db5ac51fc02733e Types: Patch -> None\n   - Removed Reference Type: kernel.org: https://git.kernel.org/stable/c/1f2f3f3eacd6653ab215c5d2ea70811148d433fc Types: Patch -> None\n   - Removed Reference Type: kernel.org: https://git.kernel.org/stable/c/74e144274af39935b0f410c0ee4d2b91c3730414 Types: Patch -> None\n   … (1 more detail items)\n3. 2026-07-07T18:13:28.433 | Initial Analysis | source=nvd@nist.gov | changeId=35F7F701-6D8E-4EDD-BF4F-D3D7FAE36F9F\n   - Added CVSS V3.1: AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H\n   - Added CWE: CWE-476\n   - Added CPE Configuration: OR\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc1:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc2:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc3:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc4:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.6.140 up to (excluding) 6.7\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.1.175 up to (excluding) 6.2\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc5:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc6:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.12.86 up to (excluding) 6.13\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.18.27 up to (excluding) 6.18.36\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 7.0.4 up to (excluding) 7.0.13\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/16f8e17184b31382076f84751db5ac51fc02733e Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/1f2f3f3eacd6653ab215c5d2ea70811148d433fc Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/74e144274af39935b0f410c0ee4d2b91c3730414 Types: Patch\n4. 2026-06-25T09:16:33.983 | New CVE Received | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=9CC77780-B168-403B-920F-C68CB98D7B50\n   - Added Affected: [{'vendor': 'Linux', 'product': 'Linux', 'defaultStatus': 'unaffected', 'programFiles': ['kernel/futex/requeue.c'], 'repo': 'https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git', 'versions': [{'version': '3fb7394a837740770f0d6b4b30567e60786a63f2', 'lessThan': '16f8e17184b31382076f84751db5ac51fc02733e', 'versionType': 'git', 'status': 'affected'}, {'version': '88614876370aac8ad1050ad785a4c095ba17ac11', 'lessThan': '1f2f3f3eacd6653ab215c5d2ea70811148d433fc', 'versionType': 'git', 'status': 'affected'}, {'version': '3bfdc63936dd4773109b7b8c280c0f3b5ae7d349', 'lessThan': '74e144274af39935b0f410c0ee4d2b91c3730414', 'versionType': 'git', 'status': 'affected'}, {'version': 'd8cce4773c2b23d819baf5abedc62f7b430e8745', 'versionType': 'git', 'status': 'affected'}, {'version': '8a1fc8d698ac5e5916e3082a0f74450d71f9611f', 'versionType': 'git', 'status': 'affected'}, {'version': '6d52dfcb2a5db86e346cf51f8fcf2071b8085166', 'versionType': 'git', 'status': 'affected'}, {'version': '6.1.175', 'lessThan': '6.2', 'versionType': 'semver', 'status': 'affected'}, {'version': '6.6.140', 'lessThan': '6.7', 'versionType': 'semver', 'status': 'affected'}, {'version': '6.12.86', 'lessThan': '6.13', 'versionType': 'semver', 'status': 'affected'}]}, {'vendor': 'Linux', 'product': 'Linux', 'defaultStatus': 'unaffected', 'programFiles': ['kernel/futex/requeue.c'], 'repo': 'https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git', 'versions': [{'version': '6.18.27', 'lessThan': '6.18.36', 'versionType': 'semver', 'status': 'affected'}, {'version': '7.0.4', 'lessThan': '7.0.13', 'versionType': 'semver', 'status': 'affected'}]}]\n   - Added Description: In the Linux kernel, the following vulnerability has been resolved:\n\nfutex/requeue: Prevent NULL pointer dereference in remove_waiter() on self-deadlock\n\nWhen FUTEX_CMP_REQUEUE_PI requeues a non-top waiter that already owns the\ntarget PI futex, task_blocks_on_rt_mutex() returns -EDEADLK before setting\nwaiter->task.\n\nThe subsequent remove_waiter() in rt_mutex_start_proxy_lock() dereferences\nthe NULL waiter->task, causing a kernel crash.\n\nAdd a self-deadlock check for non-top waiters before calling\nrt_mutex_start_proxy_lock(), analogous to the top-waiter check in\nfutex_lock_pi_atomic().\n   - Added Reference: https://git.kernel.org/stable/c/16f8e17184b31382076f84751db5ac51fc02733e\n   - Added Reference: https://git.kernel.org/stable/c/1f2f3f3eacd6653ab215c5d2ea70811148d433fc\n   - Added Reference: https://git.kernel.org/stable/c/74e144274af39935b0f410c0ee4d2b91c3730414\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-43499",
+        "cveIds": [
+          "CVE-2026-43499",
+          "CVE-2026-43499"
+        ],
+        "source": "Comment",
+        "commentText": "[https://security-tracker.debian.org/tracker/CVE-2026-43499](https://security-tracker.debian.org/tracker/CVE-2026-43499)",
+        "linkToComment": "https://reddit.com/r/debian/comments/1urmw2o/researchers_disclose_ghostlock_linux_kernel_flaw/owh2831/",
+        "commentDate": "2026-07-09T11:49:07+00:00",
+        "cvePublishedDate": "2026-05-21T13:16:19.300000+00:00",
+        "initialAnalysisDate": "2026-06-26T17:28:54.067",
+        "daysAfterPublication": 48,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-07-08T23:16:54.523 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=6B887782-25B1-4232-8AEE-6935E8F68AD6\n   - Added Reference: http://www.openwall.com/lists/oss-security/2026/07/08/12\n2. 2026-06-26T17:28:54.067 | Initial Analysis | source=nvd@nist.gov | changeId=B93B20D4-5C24-44F3-96DB-37352936E48C\n   - Added CWE: CWE-416\n   - Added CPE Configuration: OR\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.7 up to (excluding) 6.12.86\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.2 up to (excluding) 6.6.140\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.13 up to (excluding) 6.18.27\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.19 up to (excluding) 7.0.4\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 2.6.39 up to (excluding) 6.1.175\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/3bfdc63936dd4773109b7b8c280c0f3b5ae7d349 Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/3fb7394a837740770f0d6b4b30567e60786a63f2 Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/6d52dfcb2a5db86e346cf51f8fcf2071b8085166 Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/88614876370aac8ad1050ad785a4c095ba17ac11 Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/8a1fc8d698ac5e5916e3082a0f74450d71f9611f Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/d8cce4773c2b23d819baf5abedc62f7b430e8745 Types: Patch\n3. 2026-06-17T10:49:49.273 | CVE Modified | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=93ABC9E8-B50B-481A-9C81-1A53BFE64C7B\n   - Added Affected: [{'vendor': 'Linux', 'product': 'Linux', 'defaultStatus': 'unaffected', 'programFiles': ['kernel/locking/rtmutex.c'], 'repo': 'https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git', 'versions': [{'version': '8161239a8bcce9ad6b537c04a1fa3b5c68bae693', 'lessThan': 'd8cce4773c2b23d819baf5abedc62f7b430e8745', 'versionType': 'git', 'status': 'affected'}, {'version': '8161239a8bcce9ad6b537c04a1fa3b5c68bae693', 'lessThan': '8a1fc8d698ac5e5916e3082a0f74450d71f9611f', 'versionType': 'git', 'status': 'affected'}, {'version': '8161239a8bcce9ad6b537c04a1fa3b5c68bae693', 'lessThan': '6d52dfcb2a5db86e346cf51f8fcf2071b8085166', 'versionType': 'git', 'status': 'affected'}, {'version': '8161239a8bcce9ad6b537c04a1fa3b5c68bae693', 'lessThan': '3fb7394a837740770f0d6b4b30567e60786a63f2', 'versionType': 'git', 'status': 'affected'}, {'version': '8161239a8bcce9ad6b537c04a1fa3b5c68bae693', 'lessThan': '88614876370aac8ad1050ad785a4c095ba17ac11', 'versionType': 'git', 'status': 'affected'}, {'version': '8161239a8bcce9ad6b537c04a1fa3b5c68bae693', 'lessThan': '3bfdc63936dd4773109b7b8c280c0f3b5ae7d349', 'versionType': 'git', 'status': 'affected'}]}, {'vendor': 'Linux', 'product': 'Linux', 'defaultStatus': 'affected', 'programFiles': ['kernel/locking/rtmutex.c'], 'repo': 'https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git', 'versions': [{'version': '2.6.39', 'status': 'affected'}, {'version': '0', 'lessThan': '2.6.39', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.1.175', 'lessThanOrEqual': '6.1.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.6.140', 'lessThanOrEqual': '6.6.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.12.86', 'lessThanOrEqual': '6.12.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.18.27', 'lessThanOrEqual': '6.18.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '7.0.4', 'lessThanOrEqual': '7.0.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '7.1', 'lessThanOrEqual': '*', 'versionType': 'original_commit_for_fix', 'status': 'unaffected'}]}]\n4. 2026-06-01T17:17:07.230 | CVE Modified | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=951FAFD2-CFBD-4349-A1E8-CB70D3D01C03\n   - Added Reference: https://git.kernel.org/stable/c/d8cce4773c2b23d819baf5abedc62f7b430e8745\n5. 2026-05-30T11:17:06.420 | CVE Modified | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=04B09D11-3047-4008-BE8A-7A5932E6766C\n   - Added CVSS V3.1: AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H\n6. 2026-05-21T13:16:19.300 | New CVE Received | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=E14DA9A9-2350-4DFD-9AB4-481D0DBDDB49\n   - Added Description: In the Linux kernel, the following vulnerability has been resolved:\n\nrtmutex: Use waiter::task instead of current in remove_waiter()\n\nremove_waiter() is used by the slowlock paths, but it is also used for\nproxy-lock rollback in rt_mutex_start_proxy_lock() when invoked from\nfutex_requeue().\n\nIn the latter case waiter::task is not current, but remove_waiter()\noperates on current for the dequeue operation. That results in several\nproblems:\n\n  1) the rbtree dequeue happens without waiter::task::pi_lock being held\n\n  2) the waiter task's pi_blocked_on state is not cleared, which leaves a\n     dangling pointer primed for UAF around.\n\n  3) rt_mutex_adjust_prio_chain() operates on the wrong top priority waiter\n     task\n\nUse waiter::task instead of current in all related operations in\nremove_waiter() to cure those problems.\n\n[ tglx: Fixup rt_mutex_adjust_prio_chain(), add a comment and amend the\n  \tchangelog ]\n   - Added Reference: https://git.kernel.org/stable/c/3bfdc63936dd4773109b7b8c280c0f3b5ae7d349\n   - Added Reference: https://git.kernel.org/stable/c/3fb7394a837740770f0d6b4b30567e60786a63f2\n   - Added Reference: https://git.kernel.org/stable/c/6d52dfcb2a5db86e346cf51f8fcf2071b8085166\n   - Added Reference: https://git.kernel.org/stable/c/88614876370aac8ad1050ad785a4c095ba17ac11\n   - Added Reference: https://git.kernel.org/stable/c/8a1fc8d698ac5e5916e3082a0f74450d71f9611f\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-53166",
+        "cveIds": [
+          "CVE-2026-53166",
+          "CVE-2026-53166"
+        ],
+        "source": "Comment",
+        "commentText": "[https://security-tracker.debian.org/tracker/CVE-2026-53166](https://security-tracker.debian.org/tracker/CVE-2026-53166)",
+        "linkToComment": "https://reddit.com/r/debian/comments/1urmw2o/researchers_disclose_ghostlock_linux_kernel_flaw/owkqrk3/",
+        "commentDate": "2026-07-09T21:28:34+00:00",
+        "cvePublishedDate": "2026-06-25T09:16:33.983000+00:00",
+        "initialAnalysisDate": "2026-07-07T18:13:28.433",
+        "daysAfterPublication": 14,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-07-10T12:17:10.343 | CVE Rejected | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=07B6400A-B85C-41EF-827D-1B24156B862B\n2. 2026-07-10T12:17:10.343 | CVE Modified | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=948E5B93-90B9-4D79-9230-66F237BD5DAC\n   - Changed Description: In the Linux kernel, the following vulnerability has been resolved:\n\nfutex/requeue: Prevent NULL pointer dereference in remove_waiter() on self-deadlock\n\nWhen FUTEX_CMP_REQUEUE_PI requeues a non-top waiter that already owns the\ntarget PI futex, task_blocks_on_rt_mutex() returns -EDEADLK before setting\nwaiter->task.\n\nThe subsequent remove_waiter() in rt_mutex_start_proxy_lock() dereferences\nthe NULL waiter->task, causing a kernel crash.\n\nAdd a self-deadlock check for non-top waiters before calling\nrt_mutex_start_proxy_lock(), analogous to the top-waiter check in\nfutex_lock_pi_atomic(). -> Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.\n   - Removed CVSS V3.1: NIST: AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H -> None\n   - Removed CWE: NIST: CWE-476 -> None\n   - Removed CPE Configuration: OR\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc1:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc2:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc3:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc4:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.6.140 up to (excluding) 6.7\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.1.175 up to (excluding) 6.2\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc5:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc6:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.12.86 up to (excluding) 6.13\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.18.27 up to (excluding) 6.18.36\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 7.0.4 up to (excluding) 7.0.13 -> None\n   - Removed Reference: kernel.org: https://git.kernel.org/stable/c/16f8e17184b31382076f84751db5ac51fc02733e -> None\n   - Removed Reference: kernel.org: https://git.kernel.org/stable/c/1f2f3f3eacd6653ab215c5d2ea70811148d433fc -> None\n   - Removed Reference: kernel.org: https://git.kernel.org/stable/c/74e144274af39935b0f410c0ee4d2b91c3730414 -> None\n   - Removed Reference Type: kernel.org: https://git.kernel.org/stable/c/16f8e17184b31382076f84751db5ac51fc02733e Types: Patch -> None\n   - Removed Reference Type: kernel.org: https://git.kernel.org/stable/c/1f2f3f3eacd6653ab215c5d2ea70811148d433fc Types: Patch -> None\n   - Removed Reference Type: kernel.org: https://git.kernel.org/stable/c/74e144274af39935b0f410c0ee4d2b91c3730414 Types: Patch -> None\n   … (1 more detail items)\n3. 2026-07-07T18:13:28.433 | Initial Analysis | source=nvd@nist.gov | changeId=35F7F701-6D8E-4EDD-BF4F-D3D7FAE36F9F\n   - Added CVSS V3.1: AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H\n   - Added CWE: CWE-476\n   - Added CPE Configuration: OR\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc1:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc2:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc3:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc4:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.6.140 up to (excluding) 6.7\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.1.175 up to (excluding) 6.2\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc5:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc6:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.12.86 up to (excluding) 6.13\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.18.27 up to (excluding) 6.18.36\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 7.0.4 up to (excluding) 7.0.13\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/16f8e17184b31382076f84751db5ac51fc02733e Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/1f2f3f3eacd6653ab215c5d2ea70811148d433fc Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/74e144274af39935b0f410c0ee4d2b91c3730414 Types: Patch\n4. 2026-06-25T09:16:33.983 | New CVE Received | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=9CC77780-B168-403B-920F-C68CB98D7B50\n   - Added Affected: [{'vendor': 'Linux', 'product': 'Linux', 'defaultStatus': 'unaffected', 'programFiles': ['kernel/futex/requeue.c'], 'repo': 'https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git', 'versions': [{'version': '3fb7394a837740770f0d6b4b30567e60786a63f2', 'lessThan': '16f8e17184b31382076f84751db5ac51fc02733e', 'versionType': 'git', 'status': 'affected'}, {'version': '88614876370aac8ad1050ad785a4c095ba17ac11', 'lessThan': '1f2f3f3eacd6653ab215c5d2ea70811148d433fc', 'versionType': 'git', 'status': 'affected'}, {'version': '3bfdc63936dd4773109b7b8c280c0f3b5ae7d349', 'lessThan': '74e144274af39935b0f410c0ee4d2b91c3730414', 'versionType': 'git', 'status': 'affected'}, {'version': 'd8cce4773c2b23d819baf5abedc62f7b430e8745', 'versionType': 'git', 'status': 'affected'}, {'version': '8a1fc8d698ac5e5916e3082a0f74450d71f9611f', 'versionType': 'git', 'status': 'affected'}, {'version': '6d52dfcb2a5db86e346cf51f8fcf2071b8085166', 'versionType': 'git', 'status': 'affected'}, {'version': '6.1.175', 'lessThan': '6.2', 'versionType': 'semver', 'status': 'affected'}, {'version': '6.6.140', 'lessThan': '6.7', 'versionType': 'semver', 'status': 'affected'}, {'version': '6.12.86', 'lessThan': '6.13', 'versionType': 'semver', 'status': 'affected'}]}, {'vendor': 'Linux', 'product': 'Linux', 'defaultStatus': 'unaffected', 'programFiles': ['kernel/futex/requeue.c'], 'repo': 'https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git', 'versions': [{'version': '6.18.27', 'lessThan': '6.18.36', 'versionType': 'semver', 'status': 'affected'}, {'version': '7.0.4', 'lessThan': '7.0.13', 'versionType': 'semver', 'status': 'affected'}]}]\n   - Added Description: In the Linux kernel, the following vulnerability has been resolved:\n\nfutex/requeue: Prevent NULL pointer dereference in remove_waiter() on self-deadlock\n\nWhen FUTEX_CMP_REQUEUE_PI requeues a non-top waiter that already owns the\ntarget PI futex, task_blocks_on_rt_mutex() returns -EDEADLK before setting\nwaiter->task.\n\nThe subsequent remove_waiter() in rt_mutex_start_proxy_lock() dereferences\nthe NULL waiter->task, causing a kernel crash.\n\nAdd a self-deadlock check for non-top waiters before calling\nrt_mutex_start_proxy_lock(), analogous to the top-waiter check in\nfutex_lock_pi_atomic().\n   - Added Reference: https://git.kernel.org/stable/c/16f8e17184b31382076f84751db5ac51fc02733e\n   - Added Reference: https://git.kernel.org/stable/c/1f2f3f3eacd6653ab215c5d2ea70811148d433fc\n   - Added Reference: https://git.kernel.org/stable/c/74e144274af39935b0f410c0ee4d2b91c3730414\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-43499",
+        "cveIds": [
+          "CVE-2026-43499",
+          "CVE-2026-43499"
+        ],
+        "source": "Comment",
+        "commentText": "[https://security-tracker.debian.org/tracker/CVE-2026-43499](https://security-tracker.debian.org/tracker/CVE-2026-43499)",
+        "linkToComment": "https://reddit.com/r/debian/comments/1urmw2o/researchers_disclose_ghostlock_linux_kernel_flaw/owh2831/",
+        "commentDate": "2026-07-09T11:49:07+00:00",
+        "cvePublishedDate": "2026-05-21T13:16:19.300000+00:00",
+        "initialAnalysisDate": "2026-06-26T17:28:54.067",
+        "daysAfterPublication": 48,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-07-08T23:16:54.523 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=6B887782-25B1-4232-8AEE-6935E8F68AD6\n   - Added Reference: http://www.openwall.com/lists/oss-security/2026/07/08/12\n2. 2026-06-26T17:28:54.067 | Initial Analysis | source=nvd@nist.gov | changeId=B93B20D4-5C24-44F3-96DB-37352936E48C\n   - Added CWE: CWE-416\n   - Added CPE Configuration: OR\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.7 up to (excluding) 6.12.86\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.2 up to (excluding) 6.6.140\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.13 up to (excluding) 6.18.27\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.19 up to (excluding) 7.0.4\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 2.6.39 up to (excluding) 6.1.175\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/3bfdc63936dd4773109b7b8c280c0f3b5ae7d349 Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/3fb7394a837740770f0d6b4b30567e60786a63f2 Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/6d52dfcb2a5db86e346cf51f8fcf2071b8085166 Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/88614876370aac8ad1050ad785a4c095ba17ac11 Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/8a1fc8d698ac5e5916e3082a0f74450d71f9611f Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/d8cce4773c2b23d819baf5abedc62f7b430e8745 Types: Patch\n3. 2026-06-17T10:49:49.273 | CVE Modified | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=93ABC9E8-B50B-481A-9C81-1A53BFE64C7B\n   - Added Affected: [{'vendor': 'Linux', 'product': 'Linux', 'defaultStatus': 'unaffected', 'programFiles': ['kernel/locking/rtmutex.c'], 'repo': 'https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git', 'versions': [{'version': '8161239a8bcce9ad6b537c04a1fa3b5c68bae693', 'lessThan': 'd8cce4773c2b23d819baf5abedc62f7b430e8745', 'versionType': 'git', 'status': 'affected'}, {'version': '8161239a8bcce9ad6b537c04a1fa3b5c68bae693', 'lessThan': '8a1fc8d698ac5e5916e3082a0f74450d71f9611f', 'versionType': 'git', 'status': 'affected'}, {'version': '8161239a8bcce9ad6b537c04a1fa3b5c68bae693', 'lessThan': '6d52dfcb2a5db86e346cf51f8fcf2071b8085166', 'versionType': 'git', 'status': 'affected'}, {'version': '8161239a8bcce9ad6b537c04a1fa3b5c68bae693', 'lessThan': '3fb7394a837740770f0d6b4b30567e60786a63f2', 'versionType': 'git', 'status': 'affected'}, {'version': '8161239a8bcce9ad6b537c04a1fa3b5c68bae693', 'lessThan': '88614876370aac8ad1050ad785a4c095ba17ac11', 'versionType': 'git', 'status': 'affected'}, {'version': '8161239a8bcce9ad6b537c04a1fa3b5c68bae693', 'lessThan': '3bfdc63936dd4773109b7b8c280c0f3b5ae7d349', 'versionType': 'git', 'status': 'affected'}]}, {'vendor': 'Linux', 'product': 'Linux', 'defaultStatus': 'affected', 'programFiles': ['kernel/locking/rtmutex.c'], 'repo': 'https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git', 'versions': [{'version': '2.6.39', 'status': 'affected'}, {'version': '0', 'lessThan': '2.6.39', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.1.175', 'lessThanOrEqual': '6.1.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.6.140', 'lessThanOrEqual': '6.6.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.12.86', 'lessThanOrEqual': '6.12.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.18.27', 'lessThanOrEqual': '6.18.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '7.0.4', 'lessThanOrEqual': '7.0.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '7.1', 'lessThanOrEqual': '*', 'versionType': 'original_commit_for_fix', 'status': 'unaffected'}]}]\n4. 2026-06-01T17:17:07.230 | CVE Modified | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=951FAFD2-CFBD-4349-A1E8-CB70D3D01C03\n   - Added Reference: https://git.kernel.org/stable/c/d8cce4773c2b23d819baf5abedc62f7b430e8745\n5. 2026-05-30T11:17:06.420 | CVE Modified | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=04B09D11-3047-4008-BE8A-7A5932E6766C\n   - Added CVSS V3.1: AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H\n6. 2026-05-21T13:16:19.300 | New CVE Received | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=E14DA9A9-2350-4DFD-9AB4-481D0DBDDB49\n   - Added Description: In the Linux kernel, the following vulnerability has been resolved:\n\nrtmutex: Use waiter::task instead of current in remove_waiter()\n\nremove_waiter() is used by the slowlock paths, but it is also used for\nproxy-lock rollback in rt_mutex_start_proxy_lock() when invoked from\nfutex_requeue().\n\nIn the latter case waiter::task is not current, but remove_waiter()\noperates on current for the dequeue operation. That results in several\nproblems:\n\n  1) the rbtree dequeue happens without waiter::task::pi_lock being held\n\n  2) the waiter task's pi_blocked_on state is not cleared, which leaves a\n     dangling pointer primed for UAF around.\n\n  3) rt_mutex_adjust_prio_chain() operates on the wrong top priority waiter\n     task\n\nUse waiter::task instead of current in all related operations in\nremove_waiter() to cure those problems.\n\n[ tglx: Fixup rt_mutex_adjust_prio_chain(), add a comment and amend the\n  \tchangelog ]\n   - Added Reference: https://git.kernel.org/stable/c/3bfdc63936dd4773109b7b8c280c0f3b5ae7d349\n   - Added Reference: https://git.kernel.org/stable/c/3fb7394a837740770f0d6b4b30567e60786a63f2\n   - Added Reference: https://git.kernel.org/stable/c/6d52dfcb2a5db86e346cf51f8fcf2071b8085166\n   - Added Reference: https://git.kernel.org/stable/c/88614876370aac8ad1050ad785a4c095ba17ac11\n   - Added Reference: https://git.kernel.org/stable/c/8a1fc8d698ac5e5916e3082a0f74450d71f9611f\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-53166",
+        "cveIds": [
+          "CVE-2026-53166",
+          "CVE-2026-53166"
+        ],
+        "source": "Comment",
+        "commentText": "[https://security-tracker.debian.org/tracker/CVE-2026-53166](https://security-tracker.debian.org/tracker/CVE-2026-53166)",
+        "linkToComment": "https://reddit.com/r/debian/comments/1urmw2o/researchers_disclose_ghostlock_linux_kernel_flaw/owkqrk3/",
+        "commentDate": "2026-07-09T21:28:34+00:00",
+        "cvePublishedDate": "2026-06-25T09:16:33.983000+00:00",
+        "initialAnalysisDate": "2026-07-07T18:13:28.433",
+        "daysAfterPublication": 14,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-07-10T12:17:10.343 | CVE Rejected | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=07B6400A-B85C-41EF-827D-1B24156B862B\n2. 2026-07-10T12:17:10.343 | CVE Modified | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=948E5B93-90B9-4D79-9230-66F237BD5DAC\n   - Changed Description: In the Linux kernel, the following vulnerability has been resolved:\n\nfutex/requeue: Prevent NULL pointer dereference in remove_waiter() on self-deadlock\n\nWhen FUTEX_CMP_REQUEUE_PI requeues a non-top waiter that already owns the\ntarget PI futex, task_blocks_on_rt_mutex() returns -EDEADLK before setting\nwaiter->task.\n\nThe subsequent remove_waiter() in rt_mutex_start_proxy_lock() dereferences\nthe NULL waiter->task, causing a kernel crash.\n\nAdd a self-deadlock check for non-top waiters before calling\nrt_mutex_start_proxy_lock(), analogous to the top-waiter check in\nfutex_lock_pi_atomic(). -> Rejected reason: This CVE ID has been rejected or withdrawn by its CVE Numbering Authority.\n   - Removed CVSS V3.1: NIST: AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H -> None\n   - Removed CWE: NIST: CWE-476 -> None\n   - Removed CPE Configuration: OR\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc1:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc2:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc3:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc4:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.6.140 up to (excluding) 6.7\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.1.175 up to (excluding) 6.2\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc5:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc6:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.12.86 up to (excluding) 6.13\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.18.27 up to (excluding) 6.18.36\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 7.0.4 up to (excluding) 7.0.13 -> None\n   - Removed Reference: kernel.org: https://git.kernel.org/stable/c/16f8e17184b31382076f84751db5ac51fc02733e -> None\n   - Removed Reference: kernel.org: https://git.kernel.org/stable/c/1f2f3f3eacd6653ab215c5d2ea70811148d433fc -> None\n   - Removed Reference: kernel.org: https://git.kernel.org/stable/c/74e144274af39935b0f410c0ee4d2b91c3730414 -> None\n   - Removed Reference Type: kernel.org: https://git.kernel.org/stable/c/16f8e17184b31382076f84751db5ac51fc02733e Types: Patch -> None\n   - Removed Reference Type: kernel.org: https://git.kernel.org/stable/c/1f2f3f3eacd6653ab215c5d2ea70811148d433fc Types: Patch -> None\n   - Removed Reference Type: kernel.org: https://git.kernel.org/stable/c/74e144274af39935b0f410c0ee4d2b91c3730414 Types: Patch -> None\n   … (1 more detail items)\n3. 2026-07-07T18:13:28.433 | Initial Analysis | source=nvd@nist.gov | changeId=35F7F701-6D8E-4EDD-BF4F-D3D7FAE36F9F\n   - Added CVSS V3.1: AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H\n   - Added CWE: CWE-476\n   - Added CPE Configuration: OR\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc1:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc2:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc3:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc4:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.6.140 up to (excluding) 6.7\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.1.175 up to (excluding) 6.2\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc5:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:7.1:rc6:*:*:*:*:*:*\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.12.86 up to (excluding) 6.13\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 6.18.27 up to (excluding) 6.18.36\n          *cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:* versions from (including) 7.0.4 up to (excluding) 7.0.13\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/16f8e17184b31382076f84751db5ac51fc02733e Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/1f2f3f3eacd6653ab215c5d2ea70811148d433fc Types: Patch\n   - Added Reference Type: kernel.org: https://git.kernel.org/stable/c/74e144274af39935b0f410c0ee4d2b91c3730414 Types: Patch\n4. 2026-06-25T09:16:33.983 | New CVE Received | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=9CC77780-B168-403B-920F-C68CB98D7B50\n   - Added Affected: [{'vendor': 'Linux', 'product': 'Linux', 'defaultStatus': 'unaffected', 'programFiles': ['kernel/futex/requeue.c'], 'repo': 'https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git', 'versions': [{'version': '3fb7394a837740770f0d6b4b30567e60786a63f2', 'lessThan': '16f8e17184b31382076f84751db5ac51fc02733e', 'versionType': 'git', 'status': 'affected'}, {'version': '88614876370aac8ad1050ad785a4c095ba17ac11', 'lessThan': '1f2f3f3eacd6653ab215c5d2ea70811148d433fc', 'versionType': 'git', 'status': 'affected'}, {'version': '3bfdc63936dd4773109b7b8c280c0f3b5ae7d349', 'lessThan': '74e144274af39935b0f410c0ee4d2b91c3730414', 'versionType': 'git', 'status': 'affected'}, {'version': 'd8cce4773c2b23d819baf5abedc62f7b430e8745', 'versionType': 'git', 'status': 'affected'}, {'version': '8a1fc8d698ac5e5916e3082a0f74450d71f9611f', 'versionType': 'git', 'status': 'affected'}, {'version': '6d52dfcb2a5db86e346cf51f8fcf2071b8085166', 'versionType': 'git', 'status': 'affected'}, {'version': '6.1.175', 'lessThan': '6.2', 'versionType': 'semver', 'status': 'affected'}, {'version': '6.6.140', 'lessThan': '6.7', 'versionType': 'semver', 'status': 'affected'}, {'version': '6.12.86', 'lessThan': '6.13', 'versionType': 'semver', 'status': 'affected'}]}, {'vendor': 'Linux', 'product': 'Linux', 'defaultStatus': 'unaffected', 'programFiles': ['kernel/futex/requeue.c'], 'repo': 'https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git', 'versions': [{'version': '6.18.27', 'lessThan': '6.18.36', 'versionType': 'semver', 'status': 'affected'}, {'version': '7.0.4', 'lessThan': '7.0.13', 'versionType': 'semver', 'status': 'affected'}]}]\n   - Added Description: In the Linux kernel, the following vulnerability has been resolved:\n\nfutex/requeue: Prevent NULL pointer dereference in remove_waiter() on self-deadlock\n\nWhen FUTEX_CMP_REQUEUE_PI requeues a non-top waiter that already owns the\ntarget PI futex, task_blocks_on_rt_mutex() returns -EDEADLK before setting\nwaiter->task.\n\nThe subsequent remove_waiter() in rt_mutex_start_proxy_lock() dereferences\nthe NULL waiter->task, causing a kernel crash.\n\nAdd a self-deadlock check for non-top waiters before calling\nrt_mutex_start_proxy_lock(), analogous to the top-waiter check in\nfutex_lock_pi_atomic().\n   - Added Reference: https://git.kernel.org/stable/c/16f8e17184b31382076f84751db5ac51fc02733e\n   - Added Reference: https://git.kernel.org/stable/c/1f2f3f3eacd6653ab215c5d2ea70811148d433fc\n   - Added Reference: https://git.kernel.org/stable/c/74e144274af39935b0f410c0ee4d2b91c3730414\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received"
+        ]
       }
     ],
     "classification": {
@@ -134,7 +831,7 @@
         "id": "owh2831",
         "author": "carl-di-ortus",
         "body": "[https://security-tracker.debian.org/tracker/CVE-2026-43499](https://security-tracker.debian.org/tracker/CVE-2026-43499)",
-        "score": 6,
+        "score": 8,
         "created_utc_ts": 1783597747,
         "created_utc": "2026-07-09T11:49:07",
         "permalink": "https://reddit.com/r/debian/comments/1urmw2o/researchers_disclose_ghostlock_linux_kernel_flaw/owh2831/",
@@ -145,7 +842,7 @@
         "id": "owhdglf",
         "author": "Santosh83",
         "body": "According to security tracker already linked below, its fixed everywhere except for the very old Bullseye. Generally Debian is extremely quick to backport fixes for critical security vulnerabilities.",
-        "score": 9,
+        "score": 13,
         "created_utc_ts": 1783601447,
         "created_utc": "2026-07-09T12:50:47",
         "permalink": "https://reddit.com/r/debian/comments/1urmw2o/researchers_disclose_ghostlock_linux_kernel_flaw/owhdglf/",
@@ -156,7 +853,7 @@
         "id": "owhtm62",
         "author": "yrro",
         "body": "Meanwhile here's me watching the tumbleweeds blow by while I refresh https://access.redhat.com/security/vulnerabilities/RHSB-2026-010",
-        "score": 8,
+        "score": 7,
         "created_utc_ts": 1783606059,
         "created_utc": "2026-07-09T14:07:39",
         "permalink": "https://reddit.com/r/debian/comments/1urmw2o/researchers_disclose_ghostlock_linux_kernel_flaw/owhtm62/",
@@ -167,7 +864,7 @@
         "id": "owjg3n0",
         "author": "nicman24",
         "body": "i got to wonder how many of these are intentional",
-        "score": 2,
+        "score": 3,
         "created_utc_ts": 1783620719,
         "created_utc": "2026-07-09T18:11:59",
         "permalink": "https://reddit.com/r/debian/comments/1urmw2o/researchers_disclose_ghostlock_linux_kernel_flaw/owjg3n0/",
@@ -178,7 +875,7 @@
         "id": "owkqrk3",
         "author": "voverdev",
         "body": "It's not fully fixed. A patch for CVE-2026-53166 is also needed. From [https://blog.cloudlinux.com/ghostlock-cve-2026-43499-local-root-exploit-kernel-update-for-cloudlinux/:](https://blog.cloudlinux.com/ghostlock-cve-2026-43499-local-root-exploit-kernel-update-for-cloudlinux/:)\n\n  \n\\&gt; Fixing it takes two upstream commits, and both are required: 3bfdc63936dd (the primary fix) and its follow-up 74e144274af3, which is tracked separately as CVE-2026-53166.\n\n  \n[https://security-tracker.debian.org/tracker/CVE-2026-53166](https://security-tracker.debian.org/tracker/CVE-2026-53166)",
-        "score": 2,
+        "score": 3,
         "created_utc_ts": 1783632514,
         "created_utc": "2026-07-09T21:28:34",
         "permalink": "https://reddit.com/r/debian/comments/1urmw2o/researchers_disclose_ghostlock_linux_kernel_flaw/owkqrk3/",
@@ -991,13 +1688,13 @@
     "created_utc": "2026-07-08T06:11:38",
     "first_author_comment": "Okay understood, thank you!",
     "num_comments": 25,
-    "score": 14,
+    "score": 13,
     "subreddit": "Fedora",
     "tag": "Discussion",
     "tags": [],
     "title": "Kernel Module Question",
-    "updatedAt": "2026-07-09T20:57:20.584Z",
-    "upvote_ratio": 0.89,
+    "updatedAt": "2026-07-10T10:56:09.392Z",
+    "upvote_ratio": 0.85,
     "url": "https://reddit.com/r/Fedora/comments/1uqk9vg/kernel_module_question/",
     "versionList": [],
     "metadata": {
@@ -1039,7 +1736,7 @@
         "id": "ow9526r",
         "author": "ymmvxd",
         "body": "Wall of text AI slop.\n\nIt doesn't answer the question \"is there public discussion by Fedora maintainers\" for which the real answer is likely just \"no\".\n\n1) Refusing to mount a dirty fs might actually be considered an improvement by \"the devs\" (I believe there's only a single person maintaining the kernel config). But who knows if there's no public discussion. Also the dirty bit can be cleared from Linux side using `ntfsfix`\n2) Sounding so smart but it's irrelevant. Security flaws in one driver don't automically translate to another driver.\n3) This might be the reason but again who knows. But why the fuck the AI produces this wordy obnoxious know-it-all style? \n\n&gt; You should learn how to search the Internet.\n\nYou should understand reddit is a forum for humans not for slop machines.",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1783501184,
         "created_utc": "2026-07-08T08:59:44",
         "permalink": "https://reddit.com/r/Fedora/comments/1uqk9vg/kernel_module_question/ow9526r/",
@@ -1155,7 +1852,7 @@
         "id": "ow7thha",
         "author": "Diligent-Method-785",
         "body": "Oh my cold fusion is still a thing? What in the AS400 era tech is going on?",
-        "score": 9,
+        "score": 8,
         "created_utc_ts": 1783479595,
         "created_utc": "2026-07-08T02:59:55",
         "permalink": "https://reddit.com/r/AZURE/comments/1uqfz6h/adobe_coldfusion_cve202648282_cvss_100_exploited/ow7thha/",
@@ -1177,7 +1874,7 @@
         "id": "ow9da1p",
         "author": "Trakeen",
         "body": "What does this have to do with azure?",
-        "score": 5,
+        "score": 7,
         "created_utc_ts": 1783505243,
         "created_utc": "2026-07-08T10:07:23",
         "permalink": "https://reddit.com/r/AZURE/comments/1uqfz6h/adobe_coldfusion_cve202648282_cvss_100_exploited/ow9da1p/",
@@ -1206,8 +1903,8 @@
       "Media"
     ],
     "title": "Adobe ColdFusion CVE-2026-48282 (CVSS 10.0) — exploited within 2 hours of disclosure, here's the technical chain",
-    "updatedAt": "2026-07-10T04:51:08.854Z",
-    "upvote_ratio": 0.13,
+    "updatedAt": "2026-07-11T04:51:21.445Z",
+    "upvote_ratio": 0.22,
     "url": "https://reddit.com/r/AZURE/comments/1uqfz6h/adobe_coldfusion_cve202648282_cvss_100_exploited/",
     "versionList": [
       "2026.0.0",
@@ -1333,7 +2030,7 @@
     "tag": "database",
     "tags": [],
     "title": "Built a free CLI tool to audit Supabase RLS policies — feedback wanted",
-    "updatedAt": "2026-07-10T05:13:18.792Z",
+    "updatedAt": "2026-07-10T23:27:13.795Z",
     "upvote_ratio": 0.67,
     "url": "https://reddit.com/r/Supabase/comments/1upzh9z/built_a_free_cli_tool_to_audit_supabase_rls/",
     "versionList": [],
@@ -1357,6 +2054,174 @@
     },
     "isAboutCve": true,
     "isAboutLatestUpdate": false
+  },
+  {
+    "_id": "6a509ad78bfe6eeeb9913c5e",
+    "redditId": "1upuhi2",
+    "author": "VEXXHOST_INC",
+    "author_description": "Hey r/openstack, \n\nWith the [Januscape](http://github.com/V4bel/Januscape) disclosure dropping over the weekend, here's what OpenStack operators need to know.\n\n# What it is \n\nCVE-2026-53359 is a use-after-free vulnerability in KVM's x86 shadow MMU code that has existed for approximately 16 years. KVM can retain reverse map state pointing to a freed shadow page, allowing later operations such as dirty logging or MMU notifier invalidation to dereference stale entries. It can be triggered entirely from the guest side on both Intel and AMD systems. The public proof of concept causes the host to panic. The researcher also reports that a full VM escape exploit exists in a controlled environment, although that exploit code has not been published. \n\n# Why this is an OpenStack problem even though the bug isn't in OpenStack \n\nThe vulnerable component is the Linux kernel on your x86 KVM compute hosts, not Nova or any OpenStack service. But for practical purposes, OpenStack VM deployments should be assumed to use KVM unless you know otherwise. OpenStack schedules the workload; the host kernel, KVM, QEMU, and libvirt enforce the isolation boundary. \n\nThe attack needs root inside the VM (standard for any rented instance) and nested virtualization exposed by the host. Even if your hosts use hardware EPT/NPT by default, nested virt forces KVM back through the legacy shadow MMU path where this bug sits. An attacker renting a single instance can panic the host, taking down every other tenant VM on that machine. \n\n# The fix is not a control-plane upgrade — it's compute-host work \n\nThe practical response is: identify affected KVM hosts, validate distribution kernel fixes, review nested virt exposure, and apply patched kernels through a migration and reboot plan. \n\n* Patch. Fixed kernels shipped July 4: 7.1.3, 6.18.38, 6.12.95, 6.6.144, 6.1.177, 5.15.211, 5.10.260. Look for commit `81ccda30b4e8.` \n* Don't rely on `uname -r`. Enterprise distros backport kernel fixes while keeping older package version numbers. Check the distribution security advisory and package changelog. \n* Review your full CPU exposure stack. It's not enough to check one setting. You need to look at host kernel module state, libvirt CPU mode (especially `host-passthrough` / `host-model`), Nova flavor extra specs, image properties, host aggregates — and whether running guests can see `vmx` or `svm`. \n* Check `/dev/kvm` permissions. On some distros (e.g., RHEL) it's 0666 by default, which turns this into a local privilege escalation path too. \n\n# Can I just disable nested virt? \n\nMaybe, but the question is whether anything is actually using it. A host may expose VMX/SVM without any guest actively running nested VMs. A tenant may also depend on it without the platform team knowing. \n\n# We built and open-sourced [nestedvirt](https://github.com/vexxhost/nestedvirt) to answer that.  \n\nIt's a small Go tool that reads KVM's per-VM `nested_run` counters from debugfs, correlates them with process metadata from `/proc,` and for OpenStack environments enriches findings with Nova metadata from the libvirt domain XML. It's host-local — no OpenStack API access, database, or tenant credentials needed. \n\nQuick scan: \n\n    curl -fsSL https://raw.githubusercontent.com/vexxhost/nestedvirt/main/scripts/run-latest.sh | bash \n\nExit code `0` = no nested virt usage observed, safe to proceed with disabling. Exit code `1` = usage found, lists the VMs. JSON output available with `--json` for fleet automation. \n\n**Important caveat:** the counter reflects the lifetime of the current VM process. If a VM was recently restarted or migrated, the counter resets. A zero doesn't mean the workload will never need nested virt — it means it hasn't used it during its current lifetime. Scan repeatedly over a representative window before making policy changes. \n\nWe covered the full technical details across two posts: \n\n1. [CVE-2026-53359 &amp; OpenStack Compute Isolation](https://vexxhost.com/blog/cve-2026-53359-openstack-kvm-x86-compute-isolation/) \n2. [Detecting Nested Virtualization Exposure](https://vexxhost.com/blog/kvm-nested-virtualization-detection-cve-2026-53359/)   \n\nHappy to answer questions.   \n   \nThe VEXXHOST Team",
+    "awards": [],
+    "created_utc": "2026-07-07T13:03:21",
+    "first_author_comment": "Yes. Disabling nested virtualization on the host requires a host reboot, which means the instances will be rebooted as well, unless they're live migrated to another host first.",
+    "num_comments": 6,
+    "score": 16,
+    "subreddit": "openstack",
+    "tag": null,
+    "tags": [],
+    "title": "We wrote up how CVE-2026-53359 (Januscape) impacts OpenStack compute isolation plus a follow-up on detecting nested virtualization exposure",
+    "updatedAt": "2026-07-11T00:26:33.543Z",
+    "upvote_ratio": 0.9,
+    "url": "https://reddit.com/r/openstack/comments/1upuhi2/we_wrote_up_how_cve202653359_januscape_impacts/",
+    "versionList": [
+      "2026.0.0",
+      "53359.0.0"
+    ],
+    "commentCount": 5,
+    "detectedCVEs": [
+      {
+        "cveId": "CVE-2026-53359",
+        "cveIds": [
+          "CVE-2026-53359"
+        ],
+        "source": "Comment",
+        "commentText": "I wasn't, even when I tried on versions marked as vulnerable (ubuntu), per https://ubuntu.com/security/CVE-2026-53359",
+        "linkToComment": "https://reddit.com/r/openstack/comments/1upuhi2/we_wrote_up_how_cve202653359_januscape_impacts/ow2u9gb/",
+        "commentDate": "2026-07-07T13:12:15+00:00",
+        "cvePublishedDate": "2026-07-04T12:17:01.760000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 3,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-07-08T05:16:27.990 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=67A26887-3744-4155-8849-9A4598D8B8B4\n   - Added SSVC: {'timestamp': '2026-07-07T00:00:00+00:00', 'id': 'CVE-2026-53359', 'options': [{'exploitation': 'poc'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-07-06T19:17:07.980 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=1A594859-3670-45F3-B60E-92EFBF579920\n   - Added Reference: http://www.openwall.com/lists/oss-security/2026/07/06/7\n3. 2026-07-04T12:17:01.760 | New CVE Received | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=EBE88F3C-CEEE-4F20-83B5-46935DC72446\n   - Added Affected: [{'vendor': 'Linux', 'product': 'Linux', 'defaultStatus': 'unaffected', 'programFiles': ['arch/x86/kvm/mmu/mmu.c'], 'repo': 'https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git', 'versions': [{'version': '2032a93d66fa282ba0f2ea9152eeff9511fa9a96', 'lessThan': 'b1337aae5e194324e4810d561764e7793f8b3864', 'versionType': 'git', 'status': 'affected'}, {'version': '2032a93d66fa282ba0f2ea9152eeff9511fa9a96', 'lessThan': '9291654d69e08542de37755cebe4d5b02c3170d1', 'versionType': 'git', 'status': 'affected'}, {'version': '2032a93d66fa282ba0f2ea9152eeff9511fa9a96', 'lessThan': '2ad3afa40ac6aa340dada122f9abfa46c0a6eb35', 'versionType': 'git', 'status': 'affected'}, {'version': '2032a93d66fa282ba0f2ea9152eeff9511fa9a96', 'lessThan': '5e470998a23e4c3d89ed24e8172cb22747e61efa', 'versionType': 'git', 'status': 'affected'}, {'version': '2032a93d66fa282ba0f2ea9152eeff9511fa9a96', 'lessThan': '1ae7d5a6db6c190ce183e3098ca0e0846e14d462', 'versionType': 'git', 'status': 'affected'}, {'version': '2032a93d66fa282ba0f2ea9152eeff9511fa9a96', 'lessThan': '81ccda30b4e83d8f5cc4fd50503c44e3a33abfeb', 'versionType': 'git', 'status': 'affected'}]}, {'vendor': 'Linux', 'product': 'Linux', 'defaultStatus': 'affected', 'programFiles': ['arch/x86/kvm/mmu/mmu.c'], 'repo': 'https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git', 'versions': [{'version': '2.6.36', 'status': 'affected'}, {'version': '0', 'lessThan': '2.6.36', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.1.177', 'lessThanOrEqual': '6.1.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.6.144', 'lessThanOrEqual': '6.6.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.12.95', 'lessThanOrEqual': '6.12.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.18.38', 'lessThanOrEqual': '6.18.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '7.1.3', 'lessThanOrEqual': '7.1.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '7.2-rc1', 'lessThanOrEqual': '*', 'versionType': 'original_commit_for_fix', 'status': 'unaffected'}]}]\n   - Added Description: In the Linux kernel, the following vulnerability has been resolved:\n\nKVM: x86: Fix shadow paging use-after-free due to unexpected role\n\nCommit 0cb2af2ea66ad (\"KVM: x86: Fix shadow paging use-after-free due\nto unexpected GFN\") fixed a shadow paging mismatch between stored and\ncomputed GFNs; the bug could be triggered by changing a PDE mapping from\noutside the guest, and then deleting a memslot.  The rmap_remove()\ncall would miss entries created after the PDE change because the GFN\nof the leaf SPTE does not match the GFN of the struct kvm_mmu_page.\n\nA similar hole however remains if the modified PDE points to a non-leaf\npage.  In this case the gfn can be made to match, but the role does not\nmatch: the original large 2MB page creates a kvm_mmu_page with direct=1,\nwhile the new 4KB needs a kvm_mmu_page with direct=0.  However,\nkvm_mmu_get_child_sp() does not compare the role, and therefore reuses\nthe page.\n\nThe next step is installing a leaf (4KB) SPTE on the new path which\nrecords an rmap entry under the gfn resolved by the walk.  But when\nthat child is zapped its parent kvm_mmu_page has direct=1 and\nkvm_mmu_page_get_gfn() computes the gfn for the 4KB page as\nsp->gfn + index instead of using sp->shadowed_translation[] (or sp->gfns[]\nin older kernels).  It therefore fails to remove the recorded entry.\n\nWhen the memslot is dropped the shadow page is freed but the rmap\nentry survives, as in the scenario that was already fixed.  Code that\nlater walks that gfn (dirty logging, MMU notifier invalidation, and\nso on) dereferences an sptep that lies in the freed page, causing the\nuse-after-free.\n   - Added Reference: https://git.kernel.org/stable/c/1ae7d5a6db6c190ce183e3098ca0e0846e14d462\n   - Added Reference: https://git.kernel.org/stable/c/2ad3afa40ac6aa340dada122f9abfa46c0a6eb35\n   - Added Reference: https://git.kernel.org/stable/c/5e470998a23e4c3d89ed24e8172cb22747e61efa\n   - Added Reference: https://git.kernel.org/stable/c/81ccda30b4e83d8f5cc4fd50503c44e3a33abfeb\n   - Added Reference: https://git.kernel.org/stable/c/9291654d69e08542de37755cebe4d5b02c3170d1\n   - Added Reference: https://git.kernel.org/stable/c/b1337aae5e194324e4810d561764e7793f8b3864\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-53359",
+        "cveIds": [
+          "CVE-2026-53359"
+        ],
+        "source": "Comment",
+        "commentText": "I wasn't, even when I tried on versions marked as vulnerable (ubuntu), per https://ubuntu.com/security/CVE-2026-53359",
+        "linkToComment": "https://reddit.com/r/openstack/comments/1upuhi2/we_wrote_up_how_cve202653359_januscape_impacts/ow2u9gb/",
+        "commentDate": "2026-07-07T13:12:15+00:00",
+        "cvePublishedDate": "2026-07-04T12:17:01.760000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 3,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-07-08T05:16:27.990 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=67A26887-3744-4155-8849-9A4598D8B8B4\n   - Added SSVC: {'timestamp': '2026-07-07T00:00:00+00:00', 'id': 'CVE-2026-53359', 'options': [{'exploitation': 'poc'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-07-06T19:17:07.980 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=1A594859-3670-45F3-B60E-92EFBF579920\n   - Added Reference: http://www.openwall.com/lists/oss-security/2026/07/06/7\n3. 2026-07-04T12:17:01.760 | New CVE Received | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=EBE88F3C-CEEE-4F20-83B5-46935DC72446\n   - Added Affected: [{'vendor': 'Linux', 'product': 'Linux', 'defaultStatus': 'unaffected', 'programFiles': ['arch/x86/kvm/mmu/mmu.c'], 'repo': 'https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git', 'versions': [{'version': '2032a93d66fa282ba0f2ea9152eeff9511fa9a96', 'lessThan': 'b1337aae5e194324e4810d561764e7793f8b3864', 'versionType': 'git', 'status': 'affected'}, {'version': '2032a93d66fa282ba0f2ea9152eeff9511fa9a96', 'lessThan': '9291654d69e08542de37755cebe4d5b02c3170d1', 'versionType': 'git', 'status': 'affected'}, {'version': '2032a93d66fa282ba0f2ea9152eeff9511fa9a96', 'lessThan': '2ad3afa40ac6aa340dada122f9abfa46c0a6eb35', 'versionType': 'git', 'status': 'affected'}, {'version': '2032a93d66fa282ba0f2ea9152eeff9511fa9a96', 'lessThan': '5e470998a23e4c3d89ed24e8172cb22747e61efa', 'versionType': 'git', 'status': 'affected'}, {'version': '2032a93d66fa282ba0f2ea9152eeff9511fa9a96', 'lessThan': '1ae7d5a6db6c190ce183e3098ca0e0846e14d462', 'versionType': 'git', 'status': 'affected'}, {'version': '2032a93d66fa282ba0f2ea9152eeff9511fa9a96', 'lessThan': '81ccda30b4e83d8f5cc4fd50503c44e3a33abfeb', 'versionType': 'git', 'status': 'affected'}]}, {'vendor': 'Linux', 'product': 'Linux', 'defaultStatus': 'affected', 'programFiles': ['arch/x86/kvm/mmu/mmu.c'], 'repo': 'https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git', 'versions': [{'version': '2.6.36', 'status': 'affected'}, {'version': '0', 'lessThan': '2.6.36', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.1.177', 'lessThanOrEqual': '6.1.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.6.144', 'lessThanOrEqual': '6.6.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.12.95', 'lessThanOrEqual': '6.12.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.18.38', 'lessThanOrEqual': '6.18.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '7.1.3', 'lessThanOrEqual': '7.1.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '7.2-rc1', 'lessThanOrEqual': '*', 'versionType': 'original_commit_for_fix', 'status': 'unaffected'}]}]\n   - Added Description: In the Linux kernel, the following vulnerability has been resolved:\n\nKVM: x86: Fix shadow paging use-after-free due to unexpected role\n\nCommit 0cb2af2ea66ad (\"KVM: x86: Fix shadow paging use-after-free due\nto unexpected GFN\") fixed a shadow paging mismatch between stored and\ncomputed GFNs; the bug could be triggered by changing a PDE mapping from\noutside the guest, and then deleting a memslot.  The rmap_remove()\ncall would miss entries created after the PDE change because the GFN\nof the leaf SPTE does not match the GFN of the struct kvm_mmu_page.\n\nA similar hole however remains if the modified PDE points to a non-leaf\npage.  In this case the gfn can be made to match, but the role does not\nmatch: the original large 2MB page creates a kvm_mmu_page with direct=1,\nwhile the new 4KB needs a kvm_mmu_page with direct=0.  However,\nkvm_mmu_get_child_sp() does not compare the role, and therefore reuses\nthe page.\n\nThe next step is installing a leaf (4KB) SPTE on the new path which\nrecords an rmap entry under the gfn resolved by the walk.  But when\nthat child is zapped its parent kvm_mmu_page has direct=1 and\nkvm_mmu_page_get_gfn() computes the gfn for the 4KB page as\nsp->gfn + index instead of using sp->shadowed_translation[] (or sp->gfns[]\nin older kernels).  It therefore fails to remove the recorded entry.\n\nWhen the memslot is dropped the shadow page is freed but the rmap\nentry survives, as in the scenario that was already fixed.  Code that\nlater walks that gfn (dirty logging, MMU notifier invalidation, and\nso on) dereferences an sptep that lies in the freed page, causing the\nuse-after-free.\n   - Added Reference: https://git.kernel.org/stable/c/1ae7d5a6db6c190ce183e3098ca0e0846e14d462\n   - Added Reference: https://git.kernel.org/stable/c/2ad3afa40ac6aa340dada122f9abfa46c0a6eb35\n   - Added Reference: https://git.kernel.org/stable/c/5e470998a23e4c3d89ed24e8172cb22747e61efa\n   - Added Reference: https://git.kernel.org/stable/c/81ccda30b4e83d8f5cc4fd50503c44e3a33abfeb\n   - Added Reference: https://git.kernel.org/stable/c/9291654d69e08542de37755cebe4d5b02c3170d1\n   - Added Reference: https://git.kernel.org/stable/c/b1337aae5e194324e4810d561764e7793f8b3864\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-53359",
+        "cveIds": [
+          "CVE-2026-53359"
+        ],
+        "source": "Comment",
+        "commentText": "I wasn't, even when I tried on versions marked as vulnerable (ubuntu), per https://ubuntu.com/security/CVE-2026-53359",
+        "linkToComment": "https://reddit.com/r/openstack/comments/1upuhi2/we_wrote_up_how_cve202653359_januscape_impacts/ow2u9gb/",
+        "commentDate": "2026-07-07T13:12:15+00:00",
+        "cvePublishedDate": "2026-07-04T12:17:01.760000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 3,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-07-08T05:16:27.990 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=67A26887-3744-4155-8849-9A4598D8B8B4\n   - Added SSVC: {'timestamp': '2026-07-07T00:00:00+00:00', 'id': 'CVE-2026-53359', 'options': [{'exploitation': 'poc'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-07-06T19:17:07.980 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=1A594859-3670-45F3-B60E-92EFBF579920\n   - Added Reference: http://www.openwall.com/lists/oss-security/2026/07/06/7\n3. 2026-07-04T12:17:01.760 | New CVE Received | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=EBE88F3C-CEEE-4F20-83B5-46935DC72446\n   - Added Affected: [{'vendor': 'Linux', 'product': 'Linux', 'defaultStatus': 'unaffected', 'programFiles': ['arch/x86/kvm/mmu/mmu.c'], 'repo': 'https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git', 'versions': [{'version': '2032a93d66fa282ba0f2ea9152eeff9511fa9a96', 'lessThan': 'b1337aae5e194324e4810d561764e7793f8b3864', 'versionType': 'git', 'status': 'affected'}, {'version': '2032a93d66fa282ba0f2ea9152eeff9511fa9a96', 'lessThan': '9291654d69e08542de37755cebe4d5b02c3170d1', 'versionType': 'git', 'status': 'affected'}, {'version': '2032a93d66fa282ba0f2ea9152eeff9511fa9a96', 'lessThan': '2ad3afa40ac6aa340dada122f9abfa46c0a6eb35', 'versionType': 'git', 'status': 'affected'}, {'version': '2032a93d66fa282ba0f2ea9152eeff9511fa9a96', 'lessThan': '5e470998a23e4c3d89ed24e8172cb22747e61efa', 'versionType': 'git', 'status': 'affected'}, {'version': '2032a93d66fa282ba0f2ea9152eeff9511fa9a96', 'lessThan': '1ae7d5a6db6c190ce183e3098ca0e0846e14d462', 'versionType': 'git', 'status': 'affected'}, {'version': '2032a93d66fa282ba0f2ea9152eeff9511fa9a96', 'lessThan': '81ccda30b4e83d8f5cc4fd50503c44e3a33abfeb', 'versionType': 'git', 'status': 'affected'}]}, {'vendor': 'Linux', 'product': 'Linux', 'defaultStatus': 'affected', 'programFiles': ['arch/x86/kvm/mmu/mmu.c'], 'repo': 'https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git', 'versions': [{'version': '2.6.36', 'status': 'affected'}, {'version': '0', 'lessThan': '2.6.36', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.1.177', 'lessThanOrEqual': '6.1.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.6.144', 'lessThanOrEqual': '6.6.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.12.95', 'lessThanOrEqual': '6.12.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.18.38', 'lessThanOrEqual': '6.18.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '7.1.3', 'lessThanOrEqual': '7.1.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '7.2-rc1', 'lessThanOrEqual': '*', 'versionType': 'original_commit_for_fix', 'status': 'unaffected'}]}]\n   - Added Description: In the Linux kernel, the following vulnerability has been resolved:\n\nKVM: x86: Fix shadow paging use-after-free due to unexpected role\n\nCommit 0cb2af2ea66ad (\"KVM: x86: Fix shadow paging use-after-free due\nto unexpected GFN\") fixed a shadow paging mismatch between stored and\ncomputed GFNs; the bug could be triggered by changing a PDE mapping from\noutside the guest, and then deleting a memslot.  The rmap_remove()\ncall would miss entries created after the PDE change because the GFN\nof the leaf SPTE does not match the GFN of the struct kvm_mmu_page.\n\nA similar hole however remains if the modified PDE points to a non-leaf\npage.  In this case the gfn can be made to match, but the role does not\nmatch: the original large 2MB page creates a kvm_mmu_page with direct=1,\nwhile the new 4KB needs a kvm_mmu_page with direct=0.  However,\nkvm_mmu_get_child_sp() does not compare the role, and therefore reuses\nthe page.\n\nThe next step is installing a leaf (4KB) SPTE on the new path which\nrecords an rmap entry under the gfn resolved by the walk.  But when\nthat child is zapped its parent kvm_mmu_page has direct=1 and\nkvm_mmu_page_get_gfn() computes the gfn for the 4KB page as\nsp->gfn + index instead of using sp->shadowed_translation[] (or sp->gfns[]\nin older kernels).  It therefore fails to remove the recorded entry.\n\nWhen the memslot is dropped the shadow page is freed but the rmap\nentry survives, as in the scenario that was already fixed.  Code that\nlater walks that gfn (dirty logging, MMU notifier invalidation, and\nso on) dereferences an sptep that lies in the freed page, causing the\nuse-after-free.\n   - Added Reference: https://git.kernel.org/stable/c/1ae7d5a6db6c190ce183e3098ca0e0846e14d462\n   - Added Reference: https://git.kernel.org/stable/c/2ad3afa40ac6aa340dada122f9abfa46c0a6eb35\n   - Added Reference: https://git.kernel.org/stable/c/5e470998a23e4c3d89ed24e8172cb22747e61efa\n   - Added Reference: https://git.kernel.org/stable/c/81ccda30b4e83d8f5cc4fd50503c44e3a33abfeb\n   - Added Reference: https://git.kernel.org/stable/c/9291654d69e08542de37755cebe4d5b02c3170d1\n   - Added Reference: https://git.kernel.org/stable/c/b1337aae5e194324e4810d561764e7793f8b3864\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-53359",
+        "cveIds": [
+          "CVE-2026-53359"
+        ],
+        "source": "Comment",
+        "commentText": "I wasn't, even when I tried on versions marked as vulnerable (ubuntu), per https://ubuntu.com/security/CVE-2026-53359",
+        "linkToComment": "https://reddit.com/r/openstack/comments/1upuhi2/we_wrote_up_how_cve202653359_januscape_impacts/ow2u9gb/",
+        "commentDate": "2026-07-07T13:12:15+00:00",
+        "cvePublishedDate": "2026-07-04T12:17:01.760000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 3,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-07-08T05:16:27.990 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=67A26887-3744-4155-8849-9A4598D8B8B4\n   - Added SSVC: {'timestamp': '2026-07-07T00:00:00+00:00', 'id': 'CVE-2026-53359', 'options': [{'exploitation': 'poc'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-07-06T19:17:07.980 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=1A594859-3670-45F3-B60E-92EFBF579920\n   - Added Reference: http://www.openwall.com/lists/oss-security/2026/07/06/7\n3. 2026-07-04T12:17:01.760 | New CVE Received | source=416baaa9-dc9f-4396-8d5f-8c081fb06d67 | changeId=EBE88F3C-CEEE-4F20-83B5-46935DC72446\n   - Added Affected: [{'vendor': 'Linux', 'product': 'Linux', 'defaultStatus': 'unaffected', 'programFiles': ['arch/x86/kvm/mmu/mmu.c'], 'repo': 'https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git', 'versions': [{'version': '2032a93d66fa282ba0f2ea9152eeff9511fa9a96', 'lessThan': 'b1337aae5e194324e4810d561764e7793f8b3864', 'versionType': 'git', 'status': 'affected'}, {'version': '2032a93d66fa282ba0f2ea9152eeff9511fa9a96', 'lessThan': '9291654d69e08542de37755cebe4d5b02c3170d1', 'versionType': 'git', 'status': 'affected'}, {'version': '2032a93d66fa282ba0f2ea9152eeff9511fa9a96', 'lessThan': '2ad3afa40ac6aa340dada122f9abfa46c0a6eb35', 'versionType': 'git', 'status': 'affected'}, {'version': '2032a93d66fa282ba0f2ea9152eeff9511fa9a96', 'lessThan': '5e470998a23e4c3d89ed24e8172cb22747e61efa', 'versionType': 'git', 'status': 'affected'}, {'version': '2032a93d66fa282ba0f2ea9152eeff9511fa9a96', 'lessThan': '1ae7d5a6db6c190ce183e3098ca0e0846e14d462', 'versionType': 'git', 'status': 'affected'}, {'version': '2032a93d66fa282ba0f2ea9152eeff9511fa9a96', 'lessThan': '81ccda30b4e83d8f5cc4fd50503c44e3a33abfeb', 'versionType': 'git', 'status': 'affected'}]}, {'vendor': 'Linux', 'product': 'Linux', 'defaultStatus': 'affected', 'programFiles': ['arch/x86/kvm/mmu/mmu.c'], 'repo': 'https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git', 'versions': [{'version': '2.6.36', 'status': 'affected'}, {'version': '0', 'lessThan': '2.6.36', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.1.177', 'lessThanOrEqual': '6.1.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.6.144', 'lessThanOrEqual': '6.6.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.12.95', 'lessThanOrEqual': '6.12.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '6.18.38', 'lessThanOrEqual': '6.18.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '7.1.3', 'lessThanOrEqual': '7.1.*', 'versionType': 'semver', 'status': 'unaffected'}, {'version': '7.2-rc1', 'lessThanOrEqual': '*', 'versionType': 'original_commit_for_fix', 'status': 'unaffected'}]}]\n   - Added Description: In the Linux kernel, the following vulnerability has been resolved:\n\nKVM: x86: Fix shadow paging use-after-free due to unexpected role\n\nCommit 0cb2af2ea66ad (\"KVM: x86: Fix shadow paging use-after-free due\nto unexpected GFN\") fixed a shadow paging mismatch between stored and\ncomputed GFNs; the bug could be triggered by changing a PDE mapping from\noutside the guest, and then deleting a memslot.  The rmap_remove()\ncall would miss entries created after the PDE change because the GFN\nof the leaf SPTE does not match the GFN of the struct kvm_mmu_page.\n\nA similar hole however remains if the modified PDE points to a non-leaf\npage.  In this case the gfn can be made to match, but the role does not\nmatch: the original large 2MB page creates a kvm_mmu_page with direct=1,\nwhile the new 4KB needs a kvm_mmu_page with direct=0.  However,\nkvm_mmu_get_child_sp() does not compare the role, and therefore reuses\nthe page.\n\nThe next step is installing a leaf (4KB) SPTE on the new path which\nrecords an rmap entry under the gfn resolved by the walk.  But when\nthat child is zapped its parent kvm_mmu_page has direct=1 and\nkvm_mmu_page_get_gfn() computes the gfn for the 4KB page as\nsp->gfn + index instead of using sp->shadowed_translation[] (or sp->gfns[]\nin older kernels).  It therefore fails to remove the recorded entry.\n\nWhen the memslot is dropped the shadow page is freed but the rmap\nentry survives, as in the scenario that was already fixed.  Code that\nlater walks that gfn (dirty logging, MMU notifier invalidation, and\nso on) dereferences an sptep that lies in the freed page, causing the\nuse-after-free.\n   - Added Reference: https://git.kernel.org/stable/c/1ae7d5a6db6c190ce183e3098ca0e0846e14d462\n   - Added Reference: https://git.kernel.org/stable/c/2ad3afa40ac6aa340dada122f9abfa46c0a6eb35\n   - Added Reference: https://git.kernel.org/stable/c/5e470998a23e4c3d89ed24e8172cb22747e61efa\n   - Added Reference: https://git.kernel.org/stable/c/81ccda30b4e83d8f5cc4fd50503c44e3a33abfeb\n   - Added Reference: https://git.kernel.org/stable/c/9291654d69e08542de37755cebe4d5b02c3170d1\n   - Added Reference: https://git.kernel.org/stable/c/b1337aae5e194324e4810d561764e7793f8b3864\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      }
+    ],
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true,
+    "comments": [
+      {
+        "id": "ow2u9gb",
+        "author": "amarao_san",
+        "body": "Were you able to reproduce it? I wasn't, even when I tried on versions marked as vulnerable (ubuntu), per https://ubuntu.com/security/CVE-2026-53359",
+        "score": 4,
+        "created_utc_ts": 1783429935,
+        "created_utc": "2026-07-07T13:12:15",
+        "permalink": "https://reddit.com/r/openstack/comments/1upuhi2/we_wrote_up_how_cve202653359_januscape_impacts/ow2u9gb/",
+        "parent_id": "t3_1upuhi2",
+        "is_submitter": false
+      },
+      {
+        "id": "ow2wgkl",
+        "author": "JoeyBonzo25",
+        "body": "I appreciate the write up and script but I can also ask Claude what it thinks about stuff if I want to read something written by AI.",
+        "score": 8,
+        "created_utc_ts": 1783430588,
+        "created_utc": "2026-07-07T13:23:08",
+        "permalink": "https://reddit.com/r/openstack/comments/1upuhi2/we_wrote_up_how_cve202653359_januscape_impacts/ow2wgkl/",
+        "parent_id": "t3_1upuhi2",
+        "is_submitter": false
+      },
+      {
+        "id": "ow3gpip",
+        "author": "Unlucky-Trifle-9226",
+        "body": "Disable nested means restart the VMs?",
+        "score": 2,
+        "created_utc_ts": 1783436194,
+        "created_utc": "2026-07-07T14:56:34",
+        "permalink": "https://reddit.com/r/openstack/comments/1upuhi2/we_wrote_up_how_cve202653359_januscape_impacts/ow3gpip/",
+        "parent_id": "t3_1upuhi2",
+        "is_submitter": false
+      },
+      {
+        "id": "ow5835h",
+        "author": "VEXXHOST_INC",
+        "body": "Yes. Disabling nested virtualization on the host requires a host reboot, which means the instances will be rebooted as well, unless they're live migrated to another host first.",
+        "score": 1,
+        "created_utc_ts": 1783451699,
+        "created_utc": "2026-07-07T19:14:59",
+        "permalink": "https://reddit.com/r/openstack/comments/1upuhi2/we_wrote_up_how_cve202653359_januscape_impacts/ow5835h/",
+        "parent_id": "t1_ow3gpip",
+        "is_submitter": true
+      },
+      {
+        "id": "ow8hjcl",
+        "author": "kiennt26",
+        "body": "yes, with ease. 3 commands, and chaos :) ",
+        "score": 1,
+        "created_utc_ts": 1783489572,
+        "created_utc": "2026-07-08T05:46:12",
+        "permalink": "https://reddit.com/r/openstack/comments/1upuhi2/we_wrote_up_how_cve202653359_januscape_impacts/ow8hjcl/",
+        "parent_id": "t1_ow2u9gb",
+        "is_submitter": false
+      }
+    ]
   },
   {
     "_id": "6a4c8358ffd91122712537ac",
@@ -1747,12 +2612,12 @@
     "created_utc": "2026-07-05T10:46:39",
     "first_author_comment": null,
     "num_comments": 7,
-    "score": 50,
+    "score": 52,
     "subreddit": "PHP",
     "tag": null,
     "tags": [],
     "title": "PHP 8.5.8 and 8.4.23 are out - important fixes",
-    "updatedAt": "2026-07-10T05:10:48.735Z",
+    "updatedAt": "2026-07-10T15:17:41.891Z",
     "upvote_ratio": 0.95,
     "url": "https://reddit.com/r/PHP/comments/1unz2iw/php_858_and_8423_are_out_important_fixes/",
     "versionList": [
@@ -1784,7 +2649,7 @@
         "id": "ovnzhfh",
         "author": "zaxn1234",
         "body": "I'd like to read the article but the link fails DNS lookup.. can anyone give me a TLDR please?",
-        "score": 6,
+        "score": 5,
         "created_utc_ts": 1783249863,
         "created_utc": "2026-07-05T11:11:03",
         "permalink": "https://reddit.com/r/PHP/comments/1unz2iw/php_858_and_8423_are_out_important_fixes/ovnzhfh/",
@@ -1795,7 +2660,7 @@
         "id": "ovo4u64",
         "author": "Alex_Sherby",
         "body": "(I hopw this is okay with the author, if not I'll delete it)\n\n# The headliner: CVE-2026-14355\n\nThe most critical fix in both releases is [CVE-2026-14355](https://www.php.net/ChangeLog-8.php), addressing memory corruption in `openssl_encrypt()` when used with the AES-WRAP-PAD cipher mode (bug [GH-22187](https://github.com/php/php-src/issues/22187)). Specifically, the internal `zend_mm_heap` gets corrupted during this operation. Heap corruption is the kind of bug that ranges from “your process crashes at random” to “someone potentially executes arbitrary code,” depending on how the application uses the function and what an attacker can control. If you use PHP’s OpenSSL extension for encryption — and many applications do — this one warrants immediate attention.\n\nCVE-2026-14355 is explicitly assigned in the PHP 8.5.8 changelog. The 8.4.23 entry patches the same underlying bug GH-22187 without naming the CVE, but it applies equally.\n\n# Phar’s directory bypass\n\nBoth releases patch a bypass of the `.phar` directory protection in `Phar::addEmptyDir()`. A path starting with `/.phar` could slip past the guard that is supposed to prevent tampering with the phar stub directory. No CVE has been assigned yet. That does not make it unimportant — if your application processes user-supplied phar archives, this is worth knowing about.\n\n# GD double-free\n\nPHP’s GD image extension receives a fix for a double-free in `gdImageSetStyle()` triggered by an integer overflow in the image style array ([GH-22121](https://github.com/php/php-src/issues/22121)). If your site accepts user-uploaded images and processes them through `imagesetstyle()`, pay attention: double-free bugs on attacker-controlled input are a classic exploitation path and have historically been used to turn a crash into code execution.\n\n# Additional fixes in 8.5.8\n\nPHP 8.5.8 also closes a use-after-free in custom XPath function handling ([GH-22077](https://github.com/php/php-src/issues/22077)). UAF bugs in XML processing have a history of being exploitable in web contexts, so this is flagged even without a CVE. Two [uriparser](https://uriparser.github.io/) library CVEs are bundled in as well — CVE-2026-44927 (pointer difference truncation to int in various places) and CVE-2026-44928 (the `EqualsUri` function family misclassifying two unequal URIs as equal). Both are confirmed in the official PHP changelog.\n\nFurther stability fixes include a JIT assertion failure ([GH-22004](https://github.com/php/php-src/issues/22004)), a compile error for `goto` labels preceding `try`/`finally` blocks ([GH-22280](https://github.com/php/php-src/issues/22280)), and a `SoapServer` crash when `$_SERVER` is not an array ([GH-22218](https://github.com/php/php-src/issues/22218)).",
-        "score": 10,
+        "score": 12,
         "created_utc_ts": 1783252302,
         "created_utc": "2026-07-05T11:51:42",
         "permalink": "https://reddit.com/r/PHP/comments/1unz2iw/php_858_and_8423_are_out_important_fixes/ovo4u64/",
@@ -2760,13 +3625,13 @@
     "created_utc": "2026-07-01T14:52:02",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 20,
+    "score": 19,
     "subreddit": "netsec",
     "tag": "Contains AI",
     "tags": [],
     "title": "Privilege escalation to root in Lima QEMU guests via a world-writable agent socket (CVE-2026-53657)",
-    "updatedAt": "2026-07-10T04:46:22.419Z",
-    "upvote_ratio": 0.9,
+    "updatedAt": "2026-07-11T04:46:27.085Z",
+    "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/netsec/comments/1uknvr4/privilege_escalation_to_root_in_lima_qemu_guests/",
     "versionList": [
       "2026.0.0",
@@ -2824,12 +3689,12 @@
     "created_utc": "2026-06-30T19:40:48",
     "first_author_comment": null,
     "num_comments": 3,
-    "score": 40,
+    "score": 39,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CitrixBleed To Infinity And Beyond (Citrix NetScaler Pre-Auth Memory Overread CVE-2026-8451) - watchTowr Labs",
-    "updatedAt": "2026-07-10T04:46:24.711Z",
+    "updatedAt": "2026-07-11T04:46:29.401Z",
     "upvote_ratio": 0.96,
     "url": "https://reddit.com/r/netsec/comments/1ujzc5y/citrixbleed_to_infinity_and_beyond_citrix/",
     "versionList": [
@@ -3322,14 +4187,14 @@
     "awards": [],
     "created_utc": "2026-06-29T19:27:02",
     "first_author_comment": null,
-    "num_comments": 3,
-    "score": 32,
+    "num_comments": 4,
+    "score": 30,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Enterprise Tech In, Shell Out (Progress Kemp LoadMaster Uninitialized Heap to Pre-Auth RCE CVE-2026-8037) - watchTowr Labs",
-    "updatedAt": "2026-07-10T04:46:26.528Z",
-    "upvote_ratio": 0.95,
+    "updatedAt": "2026-07-11T04:46:31.117Z",
+    "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/netsec/comments/1uj2a4w/enterprise_tech_in_shell_out_progress_kemp/",
     "versionList": [
       "2026.0.0",
@@ -3347,13 +4212,13 @@
     },
     "comments": [
       {
-        "id": "oul6y1s",
-        "author": "Current-Ground-3583",
-        "body": "I’d be locking down management interfaces, segmenting these boxes hard, and assuming exploit dev will appear way before vendors admit impact.",
+        "id": "owo437w",
+        "author": "binaryvexe",
+        "body": "wild how load balancers are supposed to be the boring, stable part of the stack and then stuff like this drops and suddenly they’re the spiciest thing in the network  \nguess it’s patch-o-clock for a bunch of enterprises again",
         "score": 1,
-        "created_utc_ts": 1782770040,
-        "created_utc": "2026-06-29T21:54:00",
-        "permalink": "https://reddit.com/r/netsec/comments/1uj2a4w/enterprise_tech_in_shell_out_progress_kemp/oul6y1s/",
+        "created_utc_ts": 1783678360,
+        "created_utc": "2026-07-10T10:12:40",
+        "permalink": "https://reddit.com/r/netsec/comments/1uj2a4w/enterprise_tech_in_shell_out_progress_kemp/owo437w/",
         "parent_id": "t3_1uj2a4w",
         "is_submitter": false
       }
@@ -3919,8 +4784,8 @@
     "tag": null,
     "tags": [],
     "title": "CVE-2025-52465 geoserver arbitrary file write vulnerability",
-    "updatedAt": "2026-07-10T04:46:30.149Z",
-    "upvote_ratio": 0.8,
+    "updatedAt": "2026-07-11T04:46:34.763Z",
+    "upvote_ratio": 0.82,
     "url": "https://reddit.com/r/netsec/comments/1ufdc3k/cve202552465_geoserver_arbitrary_file_write/",
     "versionList": [
       "2025.0.0",
@@ -6065,13 +6930,13 @@
     "created_utc": "2026-06-22T18:31:27",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 18,
+    "score": 19,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-25860 turn XSS to RCE",
-    "updatedAt": "2026-07-10T04:46:34.199Z",
-    "upvote_ratio": 0.85,
+    "updatedAt": "2026-07-11T04:46:38.358Z",
+    "upvote_ratio": 0.89,
     "url": "https://reddit.com/r/netsec/comments/1ucsrw0/cve202625860_turn_xss_to_rce/",
     "versionList": [
       "2026.0.0",
@@ -6389,12 +7254,12 @@
     "created_utc": "2026-06-20T19:33:03",
     "first_author_comment": null,
     "num_comments": 4,
-    "score": 10,
+    "score": 9,
     "subreddit": "rustdesk",
     "tag": null,
     "tags": [],
     "title": "WEIRD RUSTDESK REQUEST FROM MY OWN MACBOOK",
-    "updatedAt": "2026-07-10T05:13:03.482Z",
+    "updatedAt": "2026-07-10T23:26:00.596Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/rustdesk/comments/1ub5cdv/weird_rustdesk_request_from_my_own_macbook/",
     "versionList": [],
@@ -6426,13 +7291,13 @@
     "created_utc": "2026-06-19T19:15:45",
     "first_author_comment": null,
     "num_comments": 5,
-    "score": 29,
+    "score": 31,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Use-after-free in the QPACK encoder of nginx HTTP/3 - CVE-2026-42530",
-    "updatedAt": "2026-07-10T04:46:37.397Z",
-    "upvote_ratio": 0.87,
+    "updatedAt": "2026-07-11T04:46:42.043Z",
+    "upvote_ratio": 0.9,
     "url": "https://reddit.com/r/netsec/comments/1uab0j6/useafterfree_in_the_qpack_encoder_of_nginx_http3/",
     "versionList": [
       "3.0.0",
@@ -6462,8 +7327,8 @@
     "comments": [
       {
         "id": "otb2mck",
-        "author": "binaryvexe",
-        "body": "wild how \"experimental\" always somehow means \"will segfault in production at 3am\" too  \nguess it's time to double check every nginx h3 flag before someone’s scanner shows up",
+        "author": "[deleted]",
+        "body": "[removed]",
         "score": 2,
         "created_utc_ts": 1782214845,
         "created_utc": "2026-06-23T11:40:45",
@@ -6490,17 +7355,6 @@
         "created_utc_ts": 1782556255,
         "created_utc": "2026-06-27T10:30:55",
         "permalink": "https://reddit.com/r/netsec/comments/1uab0j6/useafterfree_in_the_qpack_encoder_of_nginx_http3/ou3qm9c/",
-        "parent_id": "t1_otb2mck",
-        "is_submitter": false
-      },
-      {
-        "id": "ovaoplv",
-        "author": "binaryvexe",
-        "body": "for real, \"experimental\" basically translates to \"free zero-day buffet for vuln scanners\" at this point  \ni’m betting a bunch of people forgot they even flipped those h3 flags on during some late night test too",
-        "score": 1,
-        "created_utc_ts": 1783076660,
-        "created_utc": "2026-07-03T11:04:20",
-        "permalink": "https://reddit.com/r/netsec/comments/1uab0j6/useafterfree_in_the_qpack_encoder_of_nginx_http3/ovaoplv/",
         "parent_id": "t1_otb2mck",
         "is_submitter": false
       }
@@ -6671,8 +7525,8 @@
     "tag": null,
     "tags": [],
     "title": "OpenBSD MPLS kernel stack leaks remotely (CVE-2026-56099)",
-    "updatedAt": "2026-07-10T04:46:38.193Z",
-    "upvote_ratio": 0.96,
+    "updatedAt": "2026-07-11T04:46:42.880Z",
+    "upvote_ratio": 0.98,
     "url": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/",
     "versionList": [
       "2026.0.0",
@@ -7571,7 +8425,7 @@
         "id": "oskyfq1",
         "author": "[deleted]",
         "body": "[removed]",
-        "score": 3,
+        "score": 4,
         "created_utc_ts": 1781878840,
         "created_utc": "2026-06-19T14:20:40",
         "permalink": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/oskyfq1/",
@@ -7663,28 +8517,17 @@
         "permalink": "https://reddit.com/r/netsec/comments/1u9y7yw/squidbleed_cve202647729_heartbleedstyle/ot5lygu/",
         "parent_id": "t3_1u9y7yw",
         "is_submitter": false
-      },
-      {
-        "id": "ou45ia7",
-        "author": "Final-Dish",
-        "body": "this, 100%  \nevery time I’ve done an audit, the “it’s just a proxy, it’s fine” egress rules are where all the skeletons are hiding, especially on boxes nobody’s dared to touch since whoever set it up left the company",
-        "score": 2,
-        "created_utc_ts": 1782562586,
-        "created_utc": "2026-06-27T12:16:26",
-        "permalink": "https://reddit.com/r/netsec/comments/1u9y7yw/squidbleed_cve202647729_heartbleedstyle/ou45ia7/",
-        "parent_id": "t1_ot5lygu",
-        "is_submitter": false
       }
     ],
     "created_utc": "2026-06-19T10:21:41",
     "first_author_comment": null,
     "num_comments": 5,
-    "score": 105,
+    "score": 109,
     "subreddit": "netsec",
     "tag": "Contains AI",
     "tags": [],
     "title": "Squidbleed (CVE-2026-47729) - Heartbleed-style vulnerability that leaks internal memory from every version of Squid Proxy, in its default configuration",
-    "updatedAt": "2026-07-10T04:46:39.169Z",
+    "updatedAt": "2026-07-11T04:46:43.839Z",
     "upvote_ratio": 0.97,
     "url": "https://reddit.com/r/netsec/comments/1u9y7yw/squidbleed_cve202647729_heartbleedstyle/",
     "versionList": [
@@ -8734,13 +9577,13 @@
     "created_utc": "2026-06-18T18:05:44",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 45,
+    "score": 39,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-5667: Unauthenticated Remote Control of Mitsubishi MAC-577IF-2E WiFi Adapters via Probe Request Reconnaissance",
-    "updatedAt": "2026-07-10T04:46:39.981Z",
-    "upvote_ratio": 0.94,
+    "updatedAt": "2026-07-11T04:46:44.685Z",
+    "upvote_ratio": 0.9,
     "url": "https://reddit.com/r/netsec/comments/1u9dncq/cve20265667_unauthenticated_remote_control_of/",
     "versionList": [
       "2026.0.0",
@@ -9725,13 +10568,13 @@
     "created_utc": "2026-06-12T20:37:06",
     "first_author_comment": null,
     "num_comments": 4,
-    "score": 48,
+    "score": 47,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Why Use App-Level Auth When Every Database Has Auth? (Splunk Enterprise CVE-2026-20253 Pre-Auth RCE) - watchTowr Labs",
-    "updatedAt": "2026-07-10T04:46:49.766Z",
-    "upvote_ratio": 0.92,
+    "updatedAt": "2026-07-11T04:46:55.515Z",
+    "upvote_ratio": 0.91,
     "url": "https://reddit.com/r/netsec/comments/1u46wbb/why_use_applevel_auth_when_every_database_has/",
     "versionList": [
       "2026.0.0",
@@ -9767,17 +10610,6 @@
         "created_utc_ts": 1781976185,
         "created_utc": "2026-06-20T17:23:05",
         "permalink": "https://reddit.com/r/netsec/comments/1u46wbb/why_use_applevel_auth_when_every_database_has/osspabr/",
-        "parent_id": "t1_orbzyo1",
-        "is_submitter": false
-      },
-      {
-        "id": "ov07oku",
-        "author": "Final-Dish",
-        "body": "rip monday productivity, enjoy the “quick check” that somehow turns into a full day of patching and incident reports",
-        "score": 1,
-        "created_utc_ts": 1782945046,
-        "created_utc": "2026-07-01T22:30:46",
-        "permalink": "https://reddit.com/r/netsec/comments/1u46wbb/why_use_applevel_auth_when_every_database_has/ov07oku/",
         "parent_id": "t1_orbzyo1",
         "is_submitter": false
       },
@@ -10050,13 +10882,13 @@
     "created_utc": "2026-06-12T05:23:23",
     "first_author_comment": null,
     "num_comments": 3,
-    "score": 37,
+    "score": 34,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Marking Your Own Homework (Check Point Remote Access VPN IKEv1 Authentication Bypass CVE-2026-50751) - watchTowr Labs",
-    "updatedAt": "2026-07-10T04:46:52.868Z",
-    "upvote_ratio": 0.89,
+    "updatedAt": "2026-07-10T18:47:48.277Z",
+    "upvote_ratio": 0.88,
     "url": "https://reddit.com/r/netsec/comments/1u3m7yj/marking_your_own_homework_check_point_remote/",
     "versionList": [
       "2026.0.0",
@@ -10491,7 +11323,7 @@
         "id": "orcbb2k",
         "author": "scriptqzor",
         "body": "wild how many vendors still basically get to grade their own security papers and call it a day  \nprops to watchtowr for poking at the \"you’re fine, trust us\" narrative, this is the kind of stuff that actually makes everyone safer",
-        "score": 3,
+        "score": 4,
         "created_utc_ts": 1781315205,
         "created_utc": "2026-06-13T01:46:45",
         "permalink": "https://reddit.com/r/netsec/comments/1u3m7yj/marking_your_own_homework_check_point_remote/orcbb2k/",
@@ -13089,13 +13921,13 @@
     "created_utc": "2026-06-10T00:54:34",
     "first_author_comment": null,
     "num_comments": 6,
-    "score": 47,
+    "score": 46,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "More Evidence That Words Don't Mean What We Thought They Meant (Ivanti Sentry Pre-Auth OS Command Injection CVE-2026-10520) - watchTowr Labs",
-    "updatedAt": "2026-07-08T16:48:05.880Z",
-    "upvote_ratio": 0.9,
+    "updatedAt": "2026-07-10T10:47:05.521Z",
+    "upvote_ratio": 0.89,
     "url": "https://reddit.com/r/netsec/comments/1u1neao/more_evidence_that_words_dont_mean_what_we/",
     "versionList": [
       "2026.0.0",
@@ -13148,7 +13980,7 @@
         "id": "or0q556",
         "author": "Allen_Koholic",
         "body": "Who wrote this? ",
-        "score": 2,
+        "score": 1,
         "created_utc_ts": 1781179502,
         "created_utc": "2026-06-11T12:05:02",
         "permalink": "https://reddit.com/r/netsec/comments/1u1neao/more_evidence_that_words_dont_mean_what_we/or0q556/",
@@ -13170,7 +14002,7 @@
         "id": "ormdd9w",
         "author": "psych0fish",
         "body": "Ivanti has been private equity slop for a really long time. They are not a serious company and they don’t make serious software. Their shit doesn’t work, is littered with bugs and barely usable. ",
-        "score": 4,
+        "score": 3,
         "created_utc_ts": 1781453230,
         "created_utc": "2026-06-14T16:07:10",
         "permalink": "https://reddit.com/r/netsec/comments/1u1neao/more_evidence_that_words_dont_mean_what_we/ormdd9w/",
@@ -16781,7 +17613,7 @@
     "tag": null,
     "tags": [],
     "title": "The HTTP/2 Bomb That Knocks nginx and Apache Offline With a Single Connection",
-    "updatedAt": "2026-07-10T04:51:38.186Z",
+    "updatedAt": "2026-07-11T04:51:42.731Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/apache/comments/1tws4w7/the_http2_bomb_that_knocks_nginx_and_apache/",
     "versionList": [

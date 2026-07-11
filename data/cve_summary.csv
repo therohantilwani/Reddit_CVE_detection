@@ -25,6 +25,7 @@ CVE-2026-45585,2,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.co
 CVE-2026-47291,2,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1ujkxm5/vulnerabilities_popping_up_before_cyber/;https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2026-48710,2,2026-05-29T15:40:48+00:00,1780069248,Python;sysadmin,https://reddit.com/r/sysadmin/comments/1ud8goc/psa_critical_litellm_ai_gateway_rce_cve202642271/;https://reddit.com/r/Python/comments/1tr5s1c/cve202648710_a_maintainers_perspective/
 CVE-2026-50751,2,2026-06-09T14:23:52+00:00,1781015032,netsec;sysadmin,https://reddit.com/r/netsec/comments/1u3m7yj/marking_your_own_homework_check_point_remote/;https://reddit.com/r/sysadmin/comments/1u16gsm/top_enterprise_cves_from_last_week_worth_your/
+CVE-2026-53359,2,2026-07-07T03:49:30+00:00,1783396170,homelab;openstack,https://reddit.com/r/openstack/comments/1upuhi2/we_wrote_up_how_cve202653359_januscape_impacts/;https://reddit.com/r/homelab/comments/1upjsdx/if_your_homelab_uses_kvmproxmox_with_nested/
 CVE-2026-55200,2,2026-06-22T12:53:22+00:00,1782132802,linux;rust,https://reddit.com/r/rust/comments/1ujqvqx/rust_1961_is_out/;https://reddit.com/r/linux/comments/1ucjru0/security_vulnerabilities_endanger_connections_via/
 CVE-2026-8461,2,2026-06-23T17:05:59+00:00,1782234359,immich;jellyfin,https://reddit.com/r/immich/comments/1uds0r1/would_this_new_ffmpeg_vulnerability_affect_immich/;https://reddit.com/r/jellyfin/comments/1udn043/psa_update_ffmpeg_pixelsmash_exploit_flaw_that/
 CVE-2026-9189,2,2026-06-18T17:56:47+00:00,1781805407,PHP;Wordpress,https://reddit.com/r/Wordpress/comments/1u9ea81/cve20269189_payment_bypass_in_the_contact_form_7/;https://reddit.com/r/PHP/comments/1u9de75/authenticating_a_paypal_notification_is_not_the/
@@ -67,6 +68,7 @@ CVE-2026-0755,1,2026-06-16T01:24:34+00:00,1781573074,AZURE,https://reddit.com/r/
 CVE-2026-10523,1,2026-06-16T17:39:54+00:00,1781631594,sysadmin,https://reddit.com/r/sysadmin/comments/1u7kggj/5_enterprise_cves_from_last_week_worth_checking/
 CVE-2026-10846,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/
 CVE-2026-1234,1,2026-07-03T17:35:00+00:00,1783100100,sqlite,https://reddit.com/r/sqlite/comments/1umku1n/bitemporal_timetravel_truthmaintenancestyle/
+CVE-2026-14191,1,2026-07-10T15:59:39+00:00,1783699179,sysadmin,https://reddit.com/r/sysadmin/comments/1usrrjf/another_winrar_rce_today_and_it_still_has_no/
 CVE-2026-14355,1,2026-07-05T10:46:39+00:00,1783248399,PHP,https://reddit.com/r/PHP/comments/1unz2iw/php_858_and_8423_are_out_important_fixes/
 CVE-2026-20127,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2026-20223,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
@@ -203,7 +205,6 @@ CVE-2026-53246,1,2026-07-01T15:59:24+00:00,1782921564,linux,https://reddit.com/r
 CVE-2026-53247,1,2026-07-01T15:59:24+00:00,1782921564,linux,https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/
 CVE-2026-53260,1,2026-07-01T15:59:24+00:00,1782921564,linux,https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/
 CVE-2026-53309,1,2026-07-01T15:59:24+00:00,1782921564,linux,https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/
-CVE-2026-53359,1,2026-07-07T03:49:30+00:00,1783396170,homelab,https://reddit.com/r/homelab/comments/1upjsdx/if_your_homelab_uses_kvmproxmox_with_nested/
 CVE-2026-53657,1,2026-07-01T14:52:02+00:00,1782917522,netsec,https://reddit.com/r/netsec/comments/1uknvr4/privilege_escalation_to_root_in_lima_qemu_guests/
 CVE-2026-55199,1,2026-06-30T14:31:37+00:00,1782829897,rust,https://reddit.com/r/rust/comments/1ujqvqx/rust_1961_is_out/
 CVE-2026-56099,1,2026-06-19T13:27:18+00:00,1781875638,netsec,https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/
