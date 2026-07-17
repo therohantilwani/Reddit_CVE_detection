@@ -1,5 +1,172 @@
 [
   {
+    "_id": "6a589bf28bfe6eeeb993e1e4",
+    "redditId": "1uxwo8z",
+    "author": "Grumpy-Man19",
+    "author_description": "A working proof-of-concept for [CVE-2026-43499](https://www.cve.org/CVERecord?id=CVE-2026-43499), nicknamed GhostLock, went public on July 7, 2026. It hands any unprivileged local user a root shell in about five seconds, and it works from inside a container to escape to the host. If you run Linux servers — shared hosting, VPS, or bare metal — this is the one to patch before anything else this week.\n\ndetails:  [https://blog.kalfaoglu.net/posts/2026-07-16-ghostlock-cve-2026-43499-kernel-lpe-en/](https://blog.kalfaoglu.net/posts/2026-07-16-ghostlock-cve-2026-43499-kernel-lpe-en/)",
+    "awards": [],
+    "comments": [
+      {
+        "id": "oxukigl",
+        "author": "MatchingTurret",
+        "body": "Week old news that was posted multiple times already. https://www.reddit.com/r/linux/s/pPCuzBEZZB",
+        "score": 6,
+        "created_utc_ts": 1784190319,
+        "created_utc": "2026-07-16T08:25:19",
+        "permalink": "https://reddit.com/r/linux/comments/1uxwo8z/ghostlock_cve202643499_the_15yearold_kernel_bug/oxukigl/",
+        "parent_id": "t3_1uxwo8z",
+        "is_submitter": false
+      }
+    ],
+    "created_utc": "2026-07-16T08:18:09",
+    "first_author_comment": null,
+    "num_comments": 1,
+    "score": 0,
+    "subreddit": "linux",
+    "tag": "Kernel",
+    "tags": [
+      "Kernel"
+    ],
+    "title": "GhostLock (CVE-2026-43499): The 15-Year-Old Kernel Bug That Hands Anyone Root",
+    "updatedAt": "2026-07-16T16:01:08.803Z",
+    "upvote_ratio": 0.46,
+    "url": "https://reddit.com/r/linux/comments/1uxwo8z/ghostlock_cve202643499_the_15yearold_kernel_bug/",
+    "versionList": [
+      "2026.0.0",
+      "43499.0.0",
+      "15.0.0"
+    ],
+    "classification": {
+      "securityType": [
+        "SECURITY"
+      ],
+      "componentType": [
+        "OS"
+      ]
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.0006633042188549752,
+        "timestampPredicted": "2026-07-16T16:01:08.131237+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true
+  },
+  {
+    "_id": "6a5895698bfe6eeeb993e0ec",
+    "redditId": "1uxuvqp",
+    "author": "watchdogsrox",
+    "author_description": "Heads up for anyone managing ASUS business machines: a kernel driver (bsitf.sys / AsusBSItf.sys) shipped with ASUS Business Manager and Software Manager has an arbitrary physical memory mapping flaw (CVE-2026-13585). ASUS has released a vendor advisory with countermeasures. Full technical writeup and PoC: [https://blog.ahmadz.ai/asus\\_bsitf\\_0\\_day\\_poc/](https://blog.ahmadz.ai/asus_bsitf_0_day_poc/)",
+    "awards": [],
+    "comments": [
+      {
+        "id": "oxuii9o",
+        "author": "tediousinaction92",
+        "body": "we have a bunch of asus expertbooks and i bet that driver is on all of them guess im scripting a removal tonight",
+        "score": 1,
+        "created_utc_ts": 1784189309,
+        "created_utc": "2026-07-16T08:08:29",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1uxuvqp/asus_bsitfsys_cve202613585_arbitrary_physical/oxuii9o/",
+        "parent_id": "t3_1uxuvqp",
+        "is_submitter": false
+      }
+    ],
+    "created_utc": "2026-07-16T06:34:02",
+    "first_author_comment": null,
+    "num_comments": 1,
+    "score": 10,
+    "subreddit": "sysadmin",
+    "tag": "General Discussion",
+    "tags": [
+      "General Discussion"
+    ],
+    "title": "ASUS bsitf.sys (CVE-2026-13585): Arbitrary Physical Memory Mapping 0-day writeup + PoC",
+    "updatedAt": "2026-07-17T04:25:53.957Z",
+    "upvote_ratio": 0.86,
+    "url": "https://reddit.com/r/sysadmin/comments/1uxuvqp/asus_bsitfsys_cve202613585_arbitrary_physical/",
+    "versionList": [
+      "2026.0.0",
+      "13585.0.0",
+      "0.0.0"
+    ],
+    "classification": {
+      "componentType": [],
+      "securityType": [
+        "SECURITY"
+      ]
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.00027270142366660194,
+        "timestampPredicted": "2026-07-16T16:01:15.258176+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true
+  },
+  {
+    "_id": "6a587e5b8bfe6eeeb993de25",
+    "redditId": "1uxuqyg",
+    "author": "watchdogsrox",
+    "author_description": "CVE here: [https://www.cve.org/CVERecord?id=CVE-2026-13585](https://www.cve.org/CVERecord?id=CVE-2026-13585)",
+    "awards": [],
+    "created_utc": "2026-07-16T06:26:39",
+    "first_author_comment": null,
+    "num_comments": 1,
+    "score": 8,
+    "subreddit": "netsec",
+    "tag": "Contains AI",
+    "tags": [],
+    "title": "ASUS bsitf.sys (CVE-2026-13585): Arbitrary Physical Memory Mapping via Unvalidated IOCTL",
+    "updatedAt": "2026-07-17T04:46:18.286Z",
+    "upvote_ratio": 0.9,
+    "url": "https://reddit.com/r/netsec/comments/1uxuqyg/asus_bsitfsys_cve202613585_arbitrary_physical/",
+    "versionList": [
+      "2026.0.0",
+      "13585.0.0"
+    ],
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.0009222751305958677,
+        "timestampPredicted": "2026-07-16T16:01:22.735929+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": false,
+    "comments": [
+      {
+        "id": "oxuas5m",
+        "author": "TheG0AT0fAllTime",
+        "body": "I wonder if this is the kind of thing the Vanguard team at Riot Games would be keeping a close eye on? Cheaters love to leverage vulnerable drivers to load their cheats. This one sounds like a golden ticket.",
+        "score": 1,
+        "created_utc_ts": 1784185472,
+        "created_utc": "2026-07-16T07:04:32",
+        "permalink": "https://reddit.com/r/netsec/comments/1uxuqyg/asus_bsitfsys_cve202613585_arbitrary_physical/oxuas5m/",
+        "parent_id": "t3_1uxuqyg",
+        "is_submitter": false
+      }
+    ],
+    "classification": {
+      "componentType": [],
+      "securityType": [
+        "SECURITY"
+      ]
+    }
+  },
+  {
     "_id": "6a582b5a8bfe6eeeb993cb9d",
     "redditId": "1uxmpyg",
     "author": "xmrah",
@@ -7,29 +174,32 @@
     "awards": [],
     "created_utc": "2026-07-15T23:56:44",
     "first_author_comment": null,
-    "num_comments": 0,
-    "score": 0,
+    "num_comments": 1,
+    "score": 5,
     "subreddit": "linux",
     "tag": "Security",
     "tags": [
       "Security"
     ],
     "title": "Hardening NixOS against the Januscape KVM Escape (CVE-2026-53359)",
-    "updatedAt": "2026-07-16T04:52:31.564Z",
-    "upvote_ratio": 0.44,
+    "updatedAt": "2026-07-17T04:52:30.982Z",
+    "upvote_ratio": 0.69,
     "url": "https://reddit.com/r/linux/comments/1uxmpyg/hardening_nixos_against_the_januscape_kvm_escape/",
     "versionList": [
       "2026.0.0",
       "53359.0.0"
     ],
     "classification": {
-      "componentType": []
+      "componentType": [],
+      "securityType": [
+        "SECURITY"
+      ]
     },
     "metadata": {
       "predicted": {
         "isUpdateRelated": false,
         "positiveScore": 0.000653233539447508,
-        "timestampPredicted": "2026-07-16T04:00:31.272537+00:00"
+        "timestampPredicted": "2026-07-16T12:01:21.684869+00:00"
       },
       "labeled": {
         "isUpdateRelated": null
@@ -91,13 +261,13 @@
     "created_utc": "2026-07-15T16:15:25",
     "first_author_comment": null,
     "num_comments": 0,
-    "score": 2,
+    "score": 1,
     "subreddit": "sysadmin",
     "tag": null,
     "tags": [],
     "title": "PSA: Cisco Identity Services Engine Path Traversal Vulnerability – CVE-2026-20146",
-    "updatedAt": "2026-07-16T04:25:36.741Z",
-    "upvote_ratio": 0.75,
+    "updatedAt": "2026-07-16T16:25:50.850Z",
+    "upvote_ratio": 0.6,
     "url": "https://reddit.com/r/sysadmin/comments/1uxahvf/psa_cisco_identity_services_engine_path_traversal/",
     "versionList": [
       "2026.0.0",
@@ -160,7 +330,7 @@
     "tag": null,
     "tags": [],
     "title": "BIG-IP HTTP/2 Vulnerability – CVE-2026-59762",
-    "updatedAt": "2026-07-16T04:25:44.993Z",
+    "updatedAt": "2026-07-16T14:26:00.314Z",
     "upvote_ratio": 0.57,
     "url": "https://reddit.com/r/sysadmin/comments/1ux8udb/bigip_http2_vulnerability_cve202659762/",
     "versionList": [
@@ -237,18 +407,29 @@
         "permalink": "https://reddit.com/r/ansible/comments/1ux5v3w/a_reusable_play_for_kev_kernel_cves_patch_reboot/oxpc5tc/",
         "parent_id": "t1_oxpb7ye",
         "is_submitter": false
+      },
+      {
+        "id": "oxvkrmp",
+        "author": "kofi_Average5837",
+        "body": "Appreciate the detailed breakdown — you laid out the reasoning better than my README does.\n\nOn your actual question: both, because they prove different things. Pre-patch = \"the finding was real,\" post-patch = \"the fix landed.\" The auditors who push back want the *pair* so they can see the delta with timestamps — a lone post-patch clean scan only shows current state, not that you remediated anything.\n\nThe one nuance I'd add: the STIG XCCDF profile isn't really what proves the CVE either way. XCCDF checks config compliance, not whether CVE-2026-31431 is actually present. So I keep those on separate tracks — an OVAL/CVE eval (`oscap oval eval` on the Red Hat OVAL stream, or `dnf updateinfo list --cve ...`) to prove the specific CVE went vulnerable→not-vulnerable, and the XCCDF STIG ARF as the config-hardening evidence. Shakes out as:\n\n* pre: OVAL CVE eval → vulnerable\n* post: OVAL CVE eval → not vulnerable + XCCDF STIG ARF → config proof\n\nGood callout on the kernel compare, too. I moved off string-matching `uname -r` against `rpm -q --last kernel` because it's fragile (kernel-rt, multiple installed kernels, format drift). `dnf needs-restarting -r` (rc 1 = reboot required) is more robust and also catches the glibc/systemd case where it's not the kernel but you still need the reboot for the fix to fully take effect.\n\nSo short version: post-patch proves the fix, pre-patch proves the finding — but I let the OVAL/vuln scan own the \"finding\" side and keep OpenSCAP STIG for the config story.",
+        "score": 1,
+        "created_utc_ts": 1784205406,
+        "created_utc": "2026-07-16T12:36:46",
+        "permalink": "https://reddit.com/r/ansible/comments/1ux5v3w/a_reusable_play_for_kev_kernel_cves_patch_reboot/oxvkrmp/",
+        "parent_id": "t3_1ux5v3w",
+        "is_submitter": true
       }
     ],
     "created_utc": "2026-07-15T13:27:47",
-    "first_author_comment": "you are absolutely right about needs-rebooting -rs or -r to verify if the kernel has been patched",
-    "num_comments": 5,
-    "score": 6,
+    "first_author_comment": "Appreciate the detailed breakdown — you laid out the reasoning better than my README does.\n\nOn your actual question: both, because they prove different things. Pre-patch = \"the finding was real,\" post-patch = \"the fix landed.\" The auditors who push back want the *pair* so they can see the delta with timestamps — a lone post-patch clean scan only shows current state, not that you remediated anything.\n\nThe one nuance I'd add: the STIG XCCDF profile isn't really what proves the CVE either way. XCCDF checks config compliance, not whether CVE-2026-31431 is actually present. So I keep those on separate tracks — an OVAL/CVE eval (`oscap oval eval` on the Red Hat OVAL stream, or `dnf updateinfo list --cve ...`) to prove the specific CVE went vulnerable→not-vulnerable, and the XCCDF STIG ARF as the config-hardening evidence. Shakes out as:\n\n* pre: OVAL CVE eval → vulnerable\n* post: OVAL CVE eval → not vulnerable + XCCDF STIG ARF → config proof\n\nGood callout on the kernel compare, too. I moved off string-matching `uname -r` against `rpm -q --last kernel` because it's fragile (kernel-rt, multiple installed kernels, format drift). `dnf needs-restarting -r` (rc 1 = reboot required) is more robust and also catches the glibc/systemd case where it's not the kernel but you still need the reboot for the fix to fully take effect.\n\nSo short version: post-patch proves the fix, pre-patch proves the finding — but I let the OVAL/vuln scan own the \"finding\" side and keep OpenSCAP STIG for the config story.",
+    "num_comments": 7,
+    "score": 11,
     "subreddit": "ansible",
     "tag": null,
     "tags": [],
     "title": "A reusable play for KEV kernel CVEs: patch, reboot only if the kernel changed, then prove it with OpenSCAP",
-    "updatedAt": "2026-07-15T23:01:53.748Z",
-    "upvote_ratio": 0.81,
+    "updatedAt": "2026-07-16T23:00:43.701Z",
+    "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/ansible/comments/1ux5v3w/a_reusable_play_for_kev_kernel_cves_patch_reboot/",
     "versionList": [],
     "classification": {
@@ -805,7 +986,7 @@
         "id": "oxiwxgx",
         "author": "repeating_bears",
         "body": "I didn't see Maven classifiers mentioned. Did you consider them?\n\n\"The classifier distinguishes artifacts that were built from the same POM but differ in content\" [https://maven.apache.org/pom.html](https://maven.apache.org/pom.html)\n\nThe version could stay as 1.2.3, but gain a classifier of \"CARE-CVE-123-hotfix-1\". If the artifact already has a classifier (not common), you could add it at the end.\n\nI imagine Central could retroactively reserve a classifier prefix (e.g. CARE-), since they're not common, so that a classifier beginning with that prefix is guaranteed to have been published via this new mechanism.\n\nI'm not sure what the Gradle/other support is for them. I only use Maven.",
-        "score": 3,
+        "score": 4,
         "created_utc_ts": 1784053415,
         "created_utc": "2026-07-14T18:23:35",
         "permalink": "https://reddit.com/r/java/comments/1uwfxrk/seeking_feedback_proposed_care_policy_for_maven/oxiwxgx/",
@@ -860,7 +1041,7 @@
         "id": "oxm0308",
         "author": "Educational_Plum_130",
         "body": " the classifier route is going to bite you on resolution — classifiers get dropped during dependency mediation and neither renovate nor dependabot treat a new classifier as an upgrade, so the fix just won't propagate. if the whole point is 'same code, patched cve, no major bump', you want a version that sorts strictly above 1.2.3 but below 1.3.0 — a fourth segment like [1.2.3.1](http://1.2.3.1) orders correctly under maven's ComparableVersion and reads as a patch to the update tools. watch the jboss/wildfly '.Final' cases though, appending a digit there scrambles the sort order exactly like you flagged. honestly for a one-off compromised dep the pragmatic move is to backport the fix commit onto the tag you're pinned to and publish it to your internal repo, rather than waiting on a central-wide policy that'll take years to reach the tooling.",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1784085756,
         "created_utc": "2026-07-15T03:22:36",
         "permalink": "https://reddit.com/r/java/comments/1uwfxrk/seeking_feedback_proposed_care_policy_for_maven/oxm0308/",
@@ -910,17 +1091,28 @@
         "permalink": "https://reddit.com/r/java/comments/1uwfxrk/seeking_feedback_proposed_care_policy_for_maven/oxof9h5/",
         "parent_id": "t1_oxjfkgn",
         "is_submitter": false
+      },
+      {
+        "id": "oxtglsz",
+        "author": "Educational_Plum_130",
+        "body": " the classpath-shadowing and repackage-the-jar-into-your-internal-repo trick works more often than people expect, and it's the right instinct when upstream is stuck, you're basically producing a patched artifact with the same coordinates so nothing downstream has to change. two gotchas worth planning for: give the patched jar a version you can track (a suffix helps) so you don't lose it in the next dependency refresh, and keep the fix as close to the upstream commit as possible so you can drop it cleanly when they finally publish. for transitives you can't shade, a dependencyManagement override pinning the patched coordinate usually does it. it's genuinely the fastest path to closing a CVE when a major upgrade isn't on the table.",
+        "score": 2,
+        "created_utc_ts": 1784172209,
+        "created_utc": "2026-07-16T03:23:29",
+        "permalink": "https://reddit.com/r/java/comments/1uwfxrk/seeking_feedback_proposed_care_policy_for_maven/oxtglsz/",
+        "parent_id": "t1_oxmd9pq",
+        "is_submitter": false
       }
     ],
     "created_utc": "2026-07-14T17:50:50",
     "first_author_comment": null,
-    "num_comments": 17,
-    "score": 9,
+    "num_comments": 18,
+    "score": 10,
     "subreddit": "java",
     "tag": null,
     "tags": [],
     "title": "Seeking Feedback: Proposed CARE Policy for Maven Central",
-    "updatedAt": "2026-07-16T03:02:58.837Z",
+    "updatedAt": "2026-07-17T03:03:13.810Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/java/comments/1uwfxrk/seeking_feedback_proposed_care_policy_for_maven/",
     "versionList": [],
@@ -1073,7 +1265,7 @@
       " Fun"
     ],
     "title": "Firefox v152.0.6's release notes.",
-    "updatedAt": "2026-07-16T00:26:35.758Z",
+    "updatedAt": "2026-07-17T00:28:09.198Z",
     "upvote_ratio": 0.95,
     "url": "https://reddit.com/r/firefox/comments/1uwbzy8/firefox_v15206s_release_notes/",
     "versionList": [
@@ -1098,6 +1290,98 @@
     },
     "commentCount": 14,
     "detectedCVEs": [
+      {
+        "cveId": "CVE-2026-15718",
+        "cveIds": [
+          "CVE-2026-15718",
+          "CVE-2026-15718",
+          "CVE-2026-15719",
+          "CVE-2026-15719"
+        ],
+        "source": "Comment",
+        "commentText": "(Bug 2047962)\n\n# Security Fixes:\n\n|Issue|Reporter|Impact|Description|References|\n|:-|:-|:-|:-|:-|\n|[CVE-2026-15718](https://www.mozilla.org/en-US/security/advisories/mfsa2026-67/#CVE-2026-15718)|Christian Holler|Critical|We are aware that exploit code for this is public however we are not aware of any attacks in the wild abusing this flaw.|[Bug 2045443](https://bugzilla.mozilla.org/show_bug.cgi?id=2045443)|\n|[CVE-2026-15719](https://www.mozilla.org/en-US/security/advisories/mfsa2026-67/#CVE-2026-15719)|Atsushi Sada|Critical|We are aware that exploit code for this is public however we are not aware of any attacks in the wild abusing this flaw.|[Bug 2043820](https://bugzilla.mozilla.org/show_bug.cgi?id=2043820)|",
+        "linkToComment": "https://reddit.com/r/firefox/comments/1uwbzy8/firefox_v15206s_release_notes/oxinryk/",
+        "commentDate": "2026-07-14T17:45:54+00:00",
+        "cvePublishedDate": "2026-07-14T13:18:20.310000+00:00",
+        "initialAnalysisDate": "2026-07-14T18:36:30.280",
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-07-14T18:36:30.280 | Initial Analysis | source=nvd@nist.gov | changeId=7777819E-67BE-48D1-9047-7B4A1B8D6099\n   - Added CPE Configuration: OR\n          *cpe:2.3:a:mozilla:firefox:*:*:*:*:-:*:*:* versions up to (excluding) 152.0.6\n   - Added Reference Type: Mozilla Corporation: https://bugzilla.mozilla.org/show_bug.cgi?id=2045443 Types: Permissions Required\n   - Added Reference Type: Mozilla Corporation: https://www.mozilla.org/security/advisories/mfsa2026-67/ Types: Vendor Advisory\n2. 2026-07-14T14:16:33.293 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=DF72F6A1-6512-416A-AB95-9C1BF7C01323\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:N\n   - Added CWE: CWE-763\n   - Added SSVC: {'timestamp': '2026-07-14T13:34:48.369595Z', 'id': 'CVE-2026-15718', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n3. 2026-07-14T13:18:20.310 | New CVE Received | source=security@mozilla.org | changeId=305855DF-4B91-4CAD-81CB-CDF7A56D0499\n   - Added Affected: [{'vendor': 'Mozilla', 'product': 'Firefox', 'versions': [{'version': '152.0.6', 'lessThanOrEqual': '*', 'versionType': 'rpm', 'status': 'unaffected'}]}]\n   - Added Description: We are aware that exploit code for this is public however we are not aware of any attacks in the wild abusing this flaw. This vulnerability was fixed in Firefox 152.0.6.\n   - Added Reference: https://bugzilla.mozilla.org/show_bug.cgi?id=2045443\n   - Added Reference: https://www.mozilla.org/security/advisories/mfsa2026-67/\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-15718",
+        "cveIds": [
+          "CVE-2026-15718",
+          "CVE-2026-15718",
+          "CVE-2026-15719",
+          "CVE-2026-15719"
+        ],
+        "source": "Comment",
+        "commentText": "(Bug 2047962)\n\n# Security Fixes:\n\n|Issue|Reporter|Impact|Description|References|\n|:-|:-|:-|:-|:-|\n|[CVE-2026-15718](https://www.mozilla.org/en-US/security/advisories/mfsa2026-67/#CVE-2026-15718)|Christian Holler|Critical|We are aware that exploit code for this is public however we are not aware of any attacks in the wild abusing this flaw.|[Bug 2045443](https://bugzilla.mozilla.org/show_bug.cgi?id=2045443)|\n|[CVE-2026-15719](https://www.mozilla.org/en-US/security/advisories/mfsa2026-67/#CVE-2026-15719)|Atsushi Sada|Critical|We are aware that exploit code for this is public however we are not aware of any attacks in the wild abusing this flaw.|[Bug 2043820](https://bugzilla.mozilla.org/show_bug.cgi?id=2043820)|",
+        "linkToComment": "https://reddit.com/r/firefox/comments/1uwbzy8/firefox_v15206s_release_notes/oxinryk/",
+        "commentDate": "2026-07-14T17:45:54+00:00",
+        "cvePublishedDate": "2026-07-14T13:18:20.310000+00:00",
+        "initialAnalysisDate": "2026-07-14T18:36:30.280",
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-07-14T18:36:30.280 | Initial Analysis | source=nvd@nist.gov | changeId=7777819E-67BE-48D1-9047-7B4A1B8D6099\n   - Added CPE Configuration: OR\n          *cpe:2.3:a:mozilla:firefox:*:*:*:*:-:*:*:* versions up to (excluding) 152.0.6\n   - Added Reference Type: Mozilla Corporation: https://bugzilla.mozilla.org/show_bug.cgi?id=2045443 Types: Permissions Required\n   - Added Reference Type: Mozilla Corporation: https://www.mozilla.org/security/advisories/mfsa2026-67/ Types: Vendor Advisory\n2. 2026-07-14T14:16:33.293 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=DF72F6A1-6512-416A-AB95-9C1BF7C01323\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:N\n   - Added CWE: CWE-763\n   - Added SSVC: {'timestamp': '2026-07-14T13:34:48.369595Z', 'id': 'CVE-2026-15718', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n3. 2026-07-14T13:18:20.310 | New CVE Received | source=security@mozilla.org | changeId=305855DF-4B91-4CAD-81CB-CDF7A56D0499\n   - Added Affected: [{'vendor': 'Mozilla', 'product': 'Firefox', 'versions': [{'version': '152.0.6', 'lessThanOrEqual': '*', 'versionType': 'rpm', 'status': 'unaffected'}]}]\n   - Added Description: We are aware that exploit code for this is public however we are not aware of any attacks in the wild abusing this flaw. This vulnerability was fixed in Firefox 152.0.6.\n   - Added Reference: https://bugzilla.mozilla.org/show_bug.cgi?id=2045443\n   - Added Reference: https://www.mozilla.org/security/advisories/mfsa2026-67/\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-15718",
+        "cveIds": [
+          "CVE-2026-15718",
+          "CVE-2026-15718",
+          "CVE-2026-15719",
+          "CVE-2026-15719"
+        ],
+        "source": "Comment",
+        "commentText": "(Bug 2047962)\n\n# Security Fixes:\n\n|Issue|Reporter|Impact|Description|References|\n|:-|:-|:-|:-|:-|\n|[CVE-2026-15718](https://www.mozilla.org/en-US/security/advisories/mfsa2026-67/#CVE-2026-15718)|Christian Holler|Critical|We are aware that exploit code for this is public however we are not aware of any attacks in the wild abusing this flaw.|[Bug 2045443](https://bugzilla.mozilla.org/show_bug.cgi?id=2045443)|\n|[CVE-2026-15719](https://www.mozilla.org/en-US/security/advisories/mfsa2026-67/#CVE-2026-15719)|Atsushi Sada|Critical|We are aware that exploit code for this is public however we are not aware of any attacks in the wild abusing this flaw.|[Bug 2043820](https://bugzilla.mozilla.org/show_bug.cgi?id=2043820)|",
+        "linkToComment": "https://reddit.com/r/firefox/comments/1uwbzy8/firefox_v15206s_release_notes/oxinryk/",
+        "commentDate": "2026-07-14T17:45:54+00:00",
+        "cvePublishedDate": "2026-07-14T13:18:20.310000+00:00",
+        "initialAnalysisDate": "2026-07-14T18:36:30.280",
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-07-14T18:36:30.280 | Initial Analysis | source=nvd@nist.gov | changeId=7777819E-67BE-48D1-9047-7B4A1B8D6099\n   - Added CPE Configuration: OR\n          *cpe:2.3:a:mozilla:firefox:*:*:*:*:-:*:*:* versions up to (excluding) 152.0.6\n   - Added Reference Type: Mozilla Corporation: https://bugzilla.mozilla.org/show_bug.cgi?id=2045443 Types: Permissions Required\n   - Added Reference Type: Mozilla Corporation: https://www.mozilla.org/security/advisories/mfsa2026-67/ Types: Vendor Advisory\n2. 2026-07-14T14:16:33.293 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=DF72F6A1-6512-416A-AB95-9C1BF7C01323\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:N\n   - Added CWE: CWE-763\n   - Added SSVC: {'timestamp': '2026-07-14T13:34:48.369595Z', 'id': 'CVE-2026-15718', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n3. 2026-07-14T13:18:20.310 | New CVE Received | source=security@mozilla.org | changeId=305855DF-4B91-4CAD-81CB-CDF7A56D0499\n   - Added Affected: [{'vendor': 'Mozilla', 'product': 'Firefox', 'versions': [{'version': '152.0.6', 'lessThanOrEqual': '*', 'versionType': 'rpm', 'status': 'unaffected'}]}]\n   - Added Description: We are aware that exploit code for this is public however we are not aware of any attacks in the wild abusing this flaw. This vulnerability was fixed in Firefox 152.0.6.\n   - Added Reference: https://bugzilla.mozilla.org/show_bug.cgi?id=2045443\n   - Added Reference: https://www.mozilla.org/security/advisories/mfsa2026-67/\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-15718",
+        "cveIds": [
+          "CVE-2026-15718",
+          "CVE-2026-15718",
+          "CVE-2026-15719",
+          "CVE-2026-15719"
+        ],
+        "source": "Comment",
+        "commentText": "(Bug 2047962)\n\n# Security Fixes:\n\n|Issue|Reporter|Impact|Description|References|\n|:-|:-|:-|:-|:-|\n|[CVE-2026-15718](https://www.mozilla.org/en-US/security/advisories/mfsa2026-67/#CVE-2026-15718)|Christian Holler|Critical|We are aware that exploit code for this is public however we are not aware of any attacks in the wild abusing this flaw.|[Bug 2045443](https://bugzilla.mozilla.org/show_bug.cgi?id=2045443)|\n|[CVE-2026-15719](https://www.mozilla.org/en-US/security/advisories/mfsa2026-67/#CVE-2026-15719)|Atsushi Sada|Critical|We are aware that exploit code for this is public however we are not aware of any attacks in the wild abusing this flaw.|[Bug 2043820](https://bugzilla.mozilla.org/show_bug.cgi?id=2043820)|",
+        "linkToComment": "https://reddit.com/r/firefox/comments/1uwbzy8/firefox_v15206s_release_notes/oxinryk/",
+        "commentDate": "2026-07-14T17:45:54+00:00",
+        "cvePublishedDate": "2026-07-14T13:18:20.310000+00:00",
+        "initialAnalysisDate": "2026-07-14T18:36:30.280",
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-07-14T18:36:30.280 | Initial Analysis | source=nvd@nist.gov | changeId=7777819E-67BE-48D1-9047-7B4A1B8D6099\n   - Added CPE Configuration: OR\n          *cpe:2.3:a:mozilla:firefox:*:*:*:*:-:*:*:* versions up to (excluding) 152.0.6\n   - Added Reference Type: Mozilla Corporation: https://bugzilla.mozilla.org/show_bug.cgi?id=2045443 Types: Permissions Required\n   - Added Reference Type: Mozilla Corporation: https://www.mozilla.org/security/advisories/mfsa2026-67/ Types: Vendor Advisory\n2. 2026-07-14T14:16:33.293 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=DF72F6A1-6512-416A-AB95-9C1BF7C01323\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:N\n   - Added CWE: CWE-763\n   - Added SSVC: {'timestamp': '2026-07-14T13:34:48.369595Z', 'id': 'CVE-2026-15718', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n3. 2026-07-14T13:18:20.310 | New CVE Received | source=security@mozilla.org | changeId=305855DF-4B91-4CAD-81CB-CDF7A56D0499\n   - Added Affected: [{'vendor': 'Mozilla', 'product': 'Firefox', 'versions': [{'version': '152.0.6', 'lessThanOrEqual': '*', 'versionType': 'rpm', 'status': 'unaffected'}]}]\n   - Added Description: We are aware that exploit code for this is public however we are not aware of any attacks in the wild abusing this flaw. This vulnerability was fixed in Firefox 152.0.6.\n   - Added Reference: https://bugzilla.mozilla.org/show_bug.cgi?id=2045443\n   - Added Reference: https://www.mozilla.org/security/advisories/mfsa2026-67/\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
       {
         "cveId": "CVE-2026-15718",
         "cveIds": [
@@ -2415,7 +2699,7 @@
         "id": "oxafhcg",
         "author": "mrtruthiness",
         "body": "Debian has always been faster for security fixes.\n\nOne should note that, even so, there are a lot of vulnerabilities in Trixie (current Debian Stable) as well as the Debian LTS releases too (e.g.  Bookworm).  https://security-tracker.debian.org/tracker/source-package/linux .",
-        "score": 10,
+        "score": 9,
         "created_utc_ts": 1783956138,
         "created_utc": "2026-07-13T15:22:18",
         "permalink": "https://reddit.com/r/Ubuntu/comments/1uvc9v4/what_happens_to_ubuntu_security/oxafhcg/",
@@ -2437,7 +2721,7 @@
         "id": "oxaqwzc",
         "author": "amarao_san",
         "body": "I do for the newer projects, but I have some backlog of systems on Ubuntu. It's a pain in the arse to handle those issues, down to the level when we now run few franken-ubuntu with Debian kernel out of desperation.",
-        "score": 1,
+        "score": 4,
         "created_utc_ts": 1783959073,
         "created_utc": "2026-07-13T16:11:13",
         "permalink": "https://reddit.com/r/Ubuntu/comments/1uvc9v4/what_happens_to_ubuntu_security/oxaqwzc/",
@@ -2448,7 +2732,7 @@
         "id": "oxar2ul",
         "author": "amarao_san",
         "body": "Look at the first link: all of them.\n",
-        "score": 5,
+        "score": 6,
         "created_utc_ts": 1783959115,
         "created_utc": "2026-07-13T16:11:55",
         "permalink": "https://reddit.com/r/Ubuntu/comments/1uvc9v4/what_happens_to_ubuntu_security/oxar2ul/",
@@ -2459,7 +2743,7 @@
         "id": "oxar3lj",
         "author": "BecarioDailyPlanet",
         "body": "Ubuntu prioritizes a lower frequency of updates by using a 4/2 cycle: every four weeks it releases regular bug fixes and support patches, and every two weeks it applies critical security updates. While this pace avoids weekly updates and frequent reboots, it becomes frustrating when you hit a specific bug—like the one some of us experienced with AMD CPUs. If the fix doesn't make it in time for a cycle's testing phase, it is forced to wait until the next one, leaving you stuck waiting over a month for a patch that is already finished but frozen in the review queue.\n\nThe same thing happens with security. Unless they see it as something that absolutely must be resolved immediately because no mitigations are available, they stick to the schedule. Ubuntu is known for being predictable with its updates. Keep in mind that updating the kernel usually requires a reboot, and that is something Ubuntu wants to minimize.\n\nhttps://kernel.ubuntu.com/\n\n",
-        "score": 7,
+        "score": 6,
         "created_utc_ts": 1783959120,
         "created_utc": "2026-07-13T16:12:00",
         "permalink": "https://reddit.com/r/Ubuntu/comments/1uvc9v4/what_happens_to_ubuntu_security/oxar3lj/",
@@ -2503,13 +2787,13 @@
     "created_utc": "2026-07-13T13:55:24",
     "first_author_comment": "I do for the newer projects, but I have some backlog of systems on Ubuntu. It's a pain in the arse to handle those issues, down to the level when we now run few franken-ubuntu with Debian kernel out of desperation.",
     "num_comments": 21,
-    "score": 46,
+    "score": 48,
     "subreddit": "Ubuntu",
     "tag": null,
     "tags": [],
     "title": "What happens to Ubuntu security?",
-    "updatedAt": "2026-07-16T04:54:33.832Z",
-    "upvote_ratio": 0.86,
+    "updatedAt": "2026-07-16T14:54:50.118Z",
+    "upvote_ratio": 0.88,
     "url": "https://reddit.com/r/Ubuntu/comments/1uvc9v4/what_happens_to_ubuntu_security/",
     "versionList": [],
     "classification": {
@@ -2542,13 +2826,13 @@
     "created_utc": "2026-07-13T13:22:31",
     "first_author_comment": "[ Removed by Reddit ]",
     "num_comments": 3,
-    "score": 8,
+    "score": 11,
     "subreddit": "hardwarehacking",
     "tag": null,
     "tags": [],
     "title": "How I crafted an exploit PoC for a Linskys router",
-    "updatedAt": "2026-07-16T04:47:24.314Z",
-    "upvote_ratio": 0.8,
+    "updatedAt": "2026-07-17T04:47:22.013Z",
+    "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/hardwarehacking/comments/1uvbg2j/how_i_crafted_an_exploit_poc_for_a_linskys_router/",
     "versionList": [],
     "classification": {
@@ -2603,12 +2887,12 @@
     "created_utc": "2026-07-13T09:33:49",
     "first_author_comment": null,
     "num_comments": 17,
-    "score": 92,
+    "score": 93,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Dell BIOS Passwords: Weak XOR Encryption Allows Recovery from SPI Flash (CVE-2026-40639)",
-    "updatedAt": "2026-07-16T04:46:29.468Z",
+    "updatedAt": "2026-07-17T04:46:25.487Z",
     "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/netsec/comments/1uv6qbn/dell_bios_passwords_weak_xor_encryption_allows/",
     "versionList": [
@@ -2640,7 +2924,7 @@
         "id": "oxa6rxo",
         "author": "Coffee_Ops",
         "body": "&gt; The key is 20 bytes. The field it encrypts is 32 bytes. That 12-byte mismatch is the whole vulnerability.\n\nIt's not the whole vulnerability, the vulnerability is the naive use of XOR as a cipher -- known for decades as problematic-- and not using a hash for password storage. \n\nAlso, isn't it best practice to disclose the use of AI in a writeup, particularly when its use seems to have been as much editing as analysis?",
-        "score": 27,
+        "score": 26,
         "created_utc_ts": 1783953830,
         "created_utc": "2026-07-13T14:43:50",
         "permalink": "https://reddit.com/r/netsec/comments/1uv6qbn/dell_bios_passwords_weak_xor_encryption_allows/oxa6rxo/",
@@ -2651,7 +2935,7 @@
         "id": "oxayts2",
         "author": "UltraEngine60",
         "body": "Jesus Christ what year is this.",
-        "score": 32,
+        "score": 31,
         "created_utc_ts": 1783961113,
         "created_utc": "2026-07-13T16:45:13",
         "permalink": "https://reddit.com/r/netsec/comments/1uv6qbn/dell_bios_passwords_weak_xor_encryption_allows/oxayts2/",
@@ -2684,7 +2968,7 @@
         "id": "oxbuuzx",
         "author": "shyouko",
         "body": "Let's pretend it is 1996",
-        "score": 13,
+        "score": 12,
         "created_utc_ts": 1783969155,
         "created_utc": "2026-07-13T18:59:15",
         "permalink": "https://reddit.com/r/netsec/comments/1uv6qbn/dell_bios_passwords_weak_xor_encryption_allows/oxbuuzx/",
@@ -2756,13 +3040,13 @@
     "awards": [],
     "created_utc": "2026-07-13T04:32:56",
     "first_author_comment": "The post is about Debian as distro itself, not as a foundation. Because frankly, Debian (and Mint) are enough for stable use cases.",
-    "num_comments": 133,
-    "score": 606,
+    "num_comments": 135,
+    "score": 616,
     "subreddit": "debian",
     "tag": null,
     "tags": [],
     "title": "Debian is probably the most underrated distro to ever exist - From Arch user",
-    "updatedAt": "2026-07-16T04:54:58.787Z",
+    "updatedAt": "2026-07-17T04:55:05.525Z",
     "upvote_ratio": 0.95,
     "url": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/",
     "versionList": [],
@@ -2935,7 +3219,7 @@
         "id": "ox7pqtg",
         "author": "[deleted]",
         "body": "[removed]",
-        "score": -14,
+        "score": -13,
         "created_utc_ts": 1783917519,
         "created_utc": "2026-07-13T04:38:39",
         "permalink": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/ox7pqtg/",
@@ -2946,7 +3230,7 @@
         "id": "ox7pxdz",
         "author": "Quietus87",
         "body": "&gt;\"packages too old\"  \n\"not good for gaming\"  \n\"kernel too old for my device\"\n\nSid.\n\n&gt;\"It's not usable ooth\" and \"it's too hard to use\"  \n\"Just use Ubuntu\"\n\n\"Ubuntu\" is a bantu word for \"I'm too stupid to install Debian\".",
-        "score": 0,
+        "score": -1,
         "created_utc_ts": 1783917598,
         "created_utc": "2026-07-13T04:39:58",
         "permalink": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/ox7pxdz/",
@@ -2957,7 +3241,7 @@
         "id": "ox7q2qz",
         "author": "jhaand",
         "body": "Thnx.\n\nDebian works fine for me. Flatpaks work great to keep apps up to date. Otherwise Debian Testing works great as a more up to date rolling release. ",
-        "score": 44,
+        "score": 42,
         "created_utc_ts": 1783917663,
         "created_utc": "2026-07-13T04:41:03",
         "permalink": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/ox7q2qz/",
@@ -2968,7 +3252,7 @@
         "id": "ox7qmyd",
         "author": "LiGHT1NF0RMAT10N",
         "body": "easy for you to say, i lost my whole patrol fighting in this war despite me having 500 confirmed kills, i lost my hair too in that war and the VA doesnt even consider me a veteran",
-        "score": 4,
+        "score": 5,
         "created_utc_ts": 1783917911,
         "created_utc": "2026-07-13T04:45:11",
         "permalink": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/ox7qmyd/",
@@ -2979,7 +3263,7 @@
         "id": "ox7qp40",
         "author": "etancrazynpoor",
         "body": "Btw",
-        "score": 15,
+        "score": 16,
         "created_utc_ts": 1783917937,
         "created_utc": "2026-07-13T04:45:37",
         "permalink": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/ox7qp40/",
@@ -2990,7 +3274,7 @@
         "id": "ox7r6r6",
         "author": "ItelkezoMacska",
         "body": "Debian has always been top10, atm it’s nr5 on distrowatch.\n\nIt is always praised by end users and experts.\n\nI didn’t read your thing, but wtf are you talking about underrated distro?",
-        "score": 26,
+        "score": 27,
         "created_utc_ts": 1783918150,
         "created_utc": "2026-07-13T04:49:10",
         "permalink": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/ox7r6r6/",
@@ -3012,7 +3296,7 @@
         "id": "ox7r9p8",
         "author": "dogstarchampion",
         "body": "I kind of agree with the sentiment of using Debian over Ubuntu (since Ubuntu won't run on my laptop for some reason). However, I think it still might have a slightly more beginner friendly appeal.\n\nIf you're someone that's used Ubuntu for years and find you're frustrated with it but don't know an alternative... Debian is probably the best bet and will possibly be an even better experience.",
-        "score": 8,
+        "score": 10,
         "created_utc_ts": 1783918187,
         "created_utc": "2026-07-13T04:49:47",
         "permalink": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/ox7r9p8/",
@@ -3045,7 +3329,7 @@
         "id": "ox7szdu",
         "author": "mok000",
         "body": "Thank you for this comment. Let me quote something I wrote earlier today in another comment.\n\n&gt;Debian is a minimal no-frills build-it-yourself distribution like Arch, except it has three times as many packages in the core distribution. Like Arch, desktop environments are not extensively polished, this is something that’s up to you if you want. There is a huge difference in philosophy between the two, where Arch is a collection of the most recent versions of software that you are responsible for getting to work, Debian considers each package a part of a release where all parts are required to work together as a whole, and packages are tested against the entire release, something which is not possible in a rolling release. In addition, because of the small number of core packages, Arch users have to rely on AUR which contains packages maintained by random people on the Internet, adding a huge risk for malware, but especially a risk of packages that don’t properly conform to standards.\n\nThis is why Debian is used by NASA and for other mission critical applications. The base distribution is stable, tested and works, and *especially*, if you build your own software on top of Debian, *you can be sure the shared libraries don't change*, and even if you update to next release, the strict Debian packaging policy makes sure your own compiled software will continue to work.\n\nDebian is a highly professional distribution, but because it is so unchanging it is not very interesting to use for YouTube content creators that like to play with the latest desktop environments and to play games that need constant updates and adaptations of the software and drivers to make them work. That drives the general impression that Debian is \"boring\" and \"outdated\" that you describe.",
-        "score": 87,
+        "score": 88,
         "created_utc_ts": 1783918952,
         "created_utc": "2026-07-13T05:02:32",
         "permalink": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/ox7szdu/",
@@ -3100,7 +3384,7 @@
         "id": "ox7wrju",
         "author": "voidscaped",
         "body": "Debian uses a different method for counting packages than arch. That's why the package count is different—not only because one has more packages. If you include AUR, arch beats every one except perhaps nix (but you can install nix on other distros as well, so...)",
-        "score": -20,
+        "score": -21,
         "created_utc_ts": 1783920696,
         "created_utc": "2026-07-13T05:31:36",
         "permalink": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/ox7wrju/",
@@ -3144,7 +3428,7 @@
         "id": "ox7zd3g",
         "author": "WritingTheRongs",
         "body": "Maybe I'm lazy but debian is the only distro I've ever used. ",
-        "score": 103,
+        "score": 102,
         "created_utc_ts": 1783921916,
         "created_utc": "2026-07-13T05:51:56",
         "permalink": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/ox7zd3g/",
@@ -3166,7 +3450,7 @@
         "id": "ox7zjkz",
         "author": "tungnon",
         "body": "I mean if it works why fix/change?",
-        "score": 25,
+        "score": 24,
         "created_utc_ts": 1783922000,
         "created_utc": "2026-07-13T05:53:20",
         "permalink": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/ox7zjkz/",
@@ -3177,7 +3461,7 @@
         "id": "ox8075h",
         "author": "Orthowin",
         "body": "Debian is not underrated it is gold standard.",
-        "score": 17,
+        "score": 16,
         "created_utc_ts": 1783922304,
         "created_utc": "2026-07-13T05:58:24",
         "permalink": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/ox8075h/",
@@ -3199,7 +3483,7 @@
         "id": "ox82i36",
         "author": "archiekane",
         "body": "Sid is more rolling and stable than testing, in my couple of decades of Debian experience.\n\nHowever, I've been on stable the past 7-8 years, so maybe times have changed.",
-        "score": 16,
+        "score": 15,
         "created_utc_ts": 1783923397,
         "created_utc": "2026-07-13T06:16:37",
         "permalink": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/ox82i36/",
@@ -3232,7 +3516,7 @@
         "id": "ox83whv",
         "author": "esserstein",
         "body": "Underrated by Arch users I guess 🤷‍♂️",
-        "score": 15,
+        "score": 17,
         "created_utc_ts": 1783924072,
         "created_utc": "2026-07-13T06:27:52",
         "permalink": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/ox83whv/",
@@ -3562,7 +3846,7 @@
         "id": "ox9mca7",
         "author": "cyt0kinetic",
         "body": "It's funny when desktop users discover Debian, its been the GOAT of the server world since the 90s.\n\nThat being said it is nice when it gets recognized as being a usable end user playground too.",
-        "score": 12,
+        "score": 13,
         "created_utc_ts": 1783947992,
         "created_utc": "2026-07-13T13:06:32",
         "permalink": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/ox9mca7/",
@@ -3815,7 +4099,7 @@
         "id": "oxcstlr",
         "author": "LonelyMachines",
         "body": "&gt; it is not very interesting to use for YouTube content creators that like to play with the latest desktop environments\n\nI wonder how many of those people (at least the ones who stick with Linux) end up switching to something more stable, like Debian or Mint.",
-        "score": 7,
+        "score": 6,
         "created_utc_ts": 1783978103,
         "created_utc": "2026-07-13T21:28:23",
         "permalink": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/oxcstlr/",
@@ -3881,7 +4165,7 @@
         "id": "oxdx4j0",
         "author": "_twrecks_",
         "body": "20 or so years of rolling upgrades never had to reinstall. New motherboards disks etc but no new OS install. And you can always try the stable backports for newer stuff.",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1783990547,
         "created_utc": "2026-07-14T00:55:47",
         "permalink": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/oxdx4j0/",
@@ -4138,6 +4422,28 @@
         "created_utc_ts": 1784154064,
         "created_utc": "2026-07-15T22:21:04",
         "permalink": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/oxrx5q2/",
+        "parent_id": "t3_1uv1f30",
+        "is_submitter": false
+      },
+      {
+        "id": "oxu3twy",
+        "author": "jeetu77",
+        "body": "My genuine expression while reading the title- \"a gentle nod\". And an upvotee. Bye.",
+        "score": 1,
+        "created_utc_ts": 1784182180,
+        "created_utc": "2026-07-16T06:09:40",
+        "permalink": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/oxu3twy/",
+        "parent_id": "t3_1uv1f30",
+        "is_submitter": false
+      },
+      {
+        "id": "oxys1pg",
+        "author": "Fine_Classroom",
+        "body": "I'd say no one that's used it ever thought it underrated. ",
+        "score": 1,
+        "created_utc_ts": 1784235115,
+        "created_utc": "2026-07-16T20:51:55",
+        "permalink": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/oxys1pg/",
         "parent_id": "t3_1uv1f30",
         "is_submitter": false
       }
@@ -8443,14 +8749,14 @@
     "awards": [],
     "created_utc": "2026-07-01T14:52:02",
     "first_author_comment": null,
-    "num_comments": 2,
-    "score": 19,
+    "num_comments": 3,
+    "score": 22,
     "subreddit": "netsec",
     "tag": "Contains AI",
     "tags": [],
     "title": "Privilege escalation to root in Lima QEMU guests via a world-writable agent socket (CVE-2026-53657)",
-    "updatedAt": "2026-07-16T04:46:46.212Z",
-    "upvote_ratio": 0.89,
+    "updatedAt": "2026-07-17T04:46:42.613Z",
+    "upvote_ratio": 0.96,
     "url": "https://reddit.com/r/netsec/comments/1uknvr4/privilege_escalation_to_root_in_lima_qemu_guests/",
     "versionList": [
       "2026.0.0",
@@ -8496,6 +8802,17 @@
         "permalink": "https://reddit.com/r/netsec/comments/1uknvr4/privilege_escalation_to_root_in_lima_qemu_guests/ow32yr9/",
         "parent_id": "t3_1uknvr4",
         "is_submitter": false
+      },
+      {
+        "id": "oxuou48",
+        "author": "scriptqzor",
+        "body": "this is such a clean breakdown, thanks for spelling out the SO_PEERCRED bit and the docker socket angle  \nfeels like one of those \"we fixed the symptom, not the design flaw\" situations that’ll bite again unless they rethink the whole helper model",
+        "score": 1,
+        "created_utc_ts": 1784192499,
+        "created_utc": "2026-07-16T09:01:39",
+        "permalink": "https://reddit.com/r/netsec/comments/1uknvr4/privilege_escalation_to_root_in_lima_qemu_guests/oxuou48/",
+        "parent_id": "t1_ow32yr9",
+        "is_submitter": false
       }
     ]
   },
@@ -8508,13 +8825,13 @@
     "created_utc": "2026-06-30T19:40:48",
     "first_author_comment": null,
     "num_comments": 3,
-    "score": 38,
+    "score": 36,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CitrixBleed To Infinity And Beyond (Citrix NetScaler Pre-Auth Memory Overread CVE-2026-8451) - watchTowr Labs",
-    "updatedAt": "2026-07-16T04:46:48.510Z",
-    "upvote_ratio": 0.96,
+    "updatedAt": "2026-07-17T04:46:45.171Z",
+    "upvote_ratio": 0.95,
     "url": "https://reddit.com/r/netsec/comments/1ujzc5y/citrixbleed_to_infinity_and_beyond_citrix/",
     "versionList": [
       "2026.0.0",
@@ -9012,8 +9329,8 @@
     "tag": null,
     "tags": [],
     "title": "Enterprise Tech In, Shell Out (Progress Kemp LoadMaster Uninitialized Heap to Pre-Auth RCE CVE-2026-8037) - watchTowr Labs",
-    "updatedAt": "2026-07-16T04:46:50.152Z",
-    "upvote_ratio": 0.95,
+    "updatedAt": "2026-07-17T04:46:47.028Z",
+    "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/netsec/comments/1uj2a4w/enterprise_tech_in_shell_out_progress_kemp/",
     "versionList": [
       "2026.0.0",
@@ -9598,13 +9915,13 @@
     "created_utc": "2026-06-25T15:30:44",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 14,
+    "score": 13,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2025-52465 geoserver arbitrary file write vulnerability",
-    "updatedAt": "2026-07-16T04:46:53.657Z",
-    "upvote_ratio": 0.8,
+    "updatedAt": "2026-07-17T04:46:50.763Z",
+    "upvote_ratio": 0.79,
     "url": "https://reddit.com/r/netsec/comments/1ufdc3k/cve202552465_geoserver_arbitrary_file_write/",
     "versionList": [
       "2025.0.0",
@@ -11749,13 +12066,13 @@
     "created_utc": "2026-06-22T18:31:27",
     "first_author_comment": null,
     "num_comments": 3,
-    "score": 17,
+    "score": 19,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-25860 turn XSS to RCE",
-    "updatedAt": "2026-07-16T04:46:57.162Z",
-    "upvote_ratio": 0.86,
+    "updatedAt": "2026-07-17T04:46:54.249Z",
+    "upvote_ratio": 0.87,
     "url": "https://reddit.com/r/netsec/comments/1ucsrw0/cve202625860_turn_xss_to_rce/",
     "versionList": [
       "2026.0.0",
@@ -12123,13 +12440,13 @@
     "created_utc": "2026-06-19T19:15:45",
     "first_author_comment": null,
     "num_comments": 5,
-    "score": 31,
+    "score": 29,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Use-after-free in the QPACK encoder of nginx HTTP/3 - CVE-2026-42530",
-    "updatedAt": "2026-07-16T04:47:00.525Z",
-    "upvote_ratio": 0.9,
+    "updatedAt": "2026-07-17T04:46:57.818Z",
+    "upvote_ratio": 0.87,
     "url": "https://reddit.com/r/netsec/comments/1uab0j6/useafterfree_in_the_qpack_encoder_of_nginx_http3/",
     "versionList": [
       "3.0.0",
@@ -12352,13 +12669,13 @@
     "created_utc": "2026-06-19T13:27:18",
     "first_author_comment": null,
     "num_comments": 6,
-    "score": 47,
+    "score": 48,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "OpenBSD MPLS kernel stack leaks remotely (CVE-2026-56099)",
-    "updatedAt": "2026-07-16T04:47:01.301Z",
-    "upvote_ratio": 0.95,
+    "updatedAt": "2026-07-17T04:46:58.675Z",
+    "upvote_ratio": 0.96,
     "url": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/",
     "versionList": [
       "2026.0.0",
@@ -13246,7 +13563,7 @@
         "id": "oskwcx1",
         "author": "Important_Story_5685",
         "body": "The \"Only two remote holes in the default install\" slogan lives to fight another day. Looks like a nice little KASLR bypass primitive.",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1781878244,
         "created_utc": "2026-06-19T14:10:44",
         "permalink": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/oskwcx1/",
@@ -13257,7 +13574,7 @@
         "id": "oskyfq1",
         "author": "[deleted]",
         "body": "[removed]",
-        "score": 3,
+        "score": 2,
         "created_utc_ts": 1781878840,
         "created_utc": "2026-06-19T14:20:40",
         "permalink": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/oskyfq1/",
@@ -13354,12 +13671,12 @@
     "created_utc": "2026-06-19T10:21:41",
     "first_author_comment": null,
     "num_comments": 5,
-    "score": 105,
+    "score": 109,
     "subreddit": "netsec",
     "tag": "Contains AI",
     "tags": [],
     "title": "Squidbleed (CVE-2026-47729) - Heartbleed-style vulnerability that leaks internal memory from every version of Squid Proxy, in its default configuration",
-    "updatedAt": "2026-07-16T04:47:02.301Z",
+    "updatedAt": "2026-07-17T04:46:59.921Z",
     "upvote_ratio": 0.97,
     "url": "https://reddit.com/r/netsec/comments/1u9y7yw/squidbleed_cve202647729_heartbleedstyle/",
     "versionList": [
@@ -14409,13 +14726,13 @@
     "created_utc": "2026-06-18T18:05:44",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 42,
+    "score": 38,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-5667: Unauthenticated Remote Control of Mitsubishi MAC-577IF-2E WiFi Adapters via Probe Request Reconnaissance",
-    "updatedAt": "2026-07-16T04:47:03.159Z",
-    "upvote_ratio": 0.91,
+    "updatedAt": "2026-07-17T04:47:00.781Z",
+    "upvote_ratio": 0.9,
     "url": "https://reddit.com/r/netsec/comments/1u9dncq/cve20265667_unauthenticated_remote_control_of/",
     "versionList": [
       "2026.0.0",
@@ -22445,7 +22762,7 @@
     "tag": null,
     "tags": [],
     "title": "The HTTP/2 Bomb That Knocks nginx and Apache Offline With a Single Connection",
-    "updatedAt": "2026-07-16T04:51:41.631Z",
+    "updatedAt": "2026-07-17T04:51:42.509Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/apache/comments/1tws4w7/the_http2_bomb_that_knocks_nginx_and_apache/",
     "versionList": [
@@ -23087,270 +23404,5 @@
     "sentiment_score": 0.396,
     "isAboutCve": true,
     "isAboutLatestUpdate": true
-  },
-  {
-    "_id": "6a2881379dc5fd763982f8f7",
-    "redditId": "1tpachm",
-    "author": "seanx820",
-    "author_description": "In this demo, we patch CVE-2024-6174 (a cloud-init permissions flaw) on a RHEL virtual machine running on OpenShift Virtualization, without leaving the IDE. The MCP-connected AI assistant identifies the affected systems, looks up the Red Hat Security Advisory, selects the right remediation, and executes the patch through AAP with full audit trail.",
-    "awards": [],
-    "comments": [
-      {
-        "id": "oo8w4db",
-        "author": "tapioca_slaughter",
-        "body": "lol pretty tone deaf when you’re running this on a set that is at least hundreds of thousands of dollars.",
-        "score": 0,
-        "created_utc_ts": 1779914932,
-        "created_utc": "2026-05-27T20:48:52",
-        "permalink": "https://reddit.com/r/ansible/comments/1tpachm/aiops_patch_rhel_cves_in_minutes_with_red_hat/oo8w4db/",
-        "parent_id": "t3_1tpachm",
-        "is_submitter": false,
-        "sentiment_score": 0.718,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 0.739,
-          "pos": 0.261,
-          "compound": 0.7184
-        }
-      },
-      {
-        "id": "ood9zlg",
-        "author": "n473-",
-        "body": "&gt; AIOps\n\nCome the fuck on now this is just getting silly.",
-        "score": 4,
-        "created_utc_ts": 1779974706,
-        "created_utc": "2026-05-28T13:25:06",
-        "permalink": "https://reddit.com/r/ansible/comments/1tpachm/aiops_patch_rhel_cves_in_minutes_with_red_hat/ood9zlg/",
-        "parent_id": "t3_1tpachm",
-        "is_submitter": false,
-        "sentiment_score": -0.527,
-        "sentiment_bucket": "Negative",
-        "sentiment_detail": {
-          "neg": 0.24,
-          "neu": 0.685,
-          "pos": 0.075,
-          "compound": -0.5267
-        }
-      },
-      {
-        "id": "oodzln0",
-        "author": "niceandBulat",
-        "body": "A fair comment. Budgets are getting smaller. More companies are looking at Debian and gratis RHEL clones, unless they need to fulfill some compliance requirements. I take on infrastructure and coding contracts and do feel that the crunch is not making things easier for me and my guys. Every single  proposal for Openshift and/or AAP got rejected. They stuck with the community one. Not ideal for business but I can understand. ",
-        "score": 3,
-        "created_utc_ts": 1779981712,
-        "created_utc": "2026-05-28T15:21:52",
-        "permalink": "https://reddit.com/r/ansible/comments/1tpachm/aiops_patch_rhel_cves_in_minutes_with_red_hat/oodzln0/",
-        "parent_id": "t1_oo8w4db",
-        "is_submitter": false,
-        "sentiment_score": -0.362,
-        "sentiment_bucket": "Negative",
-        "sentiment_detail": {
-          "neg": 0.099,
-          "neu": 0.837,
-          "pos": 0.064,
-          "compound": -0.362
-        }
-      },
-      {
-        "id": "oouk5bp",
-        "author": "7layerDipswitch",
-        "body": "Can't the shoehorn that into DevNetSec somewhere?",
-        "score": 1,
-        "created_utc_ts": 1780183234,
-        "created_utc": "2026-05-30T23:20:34",
-        "permalink": "https://reddit.com/r/ansible/comments/1tpachm/aiops_patch_rhel_cves_in_minutes_with_red_hat/oouk5bp/",
-        "parent_id": "t1_ood9zlg",
-        "is_submitter": false,
-        "sentiment_score": 0,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 1,
-          "pos": 0,
-          "compound": 0
-        }
-      },
-      {
-        "id": "oqwmgkw",
-        "author": "andriusb",
-        "body": "But what did you think of the video 😎",
-        "score": 2,
-        "created_utc_ts": 1781122790,
-        "created_utc": "2026-06-10T20:19:50",
-        "permalink": "https://reddit.com/r/ansible/comments/1tpachm/aiops_patch_rhel_cves_in_minutes_with_red_hat/oqwmgkw/",
-        "parent_id": "t1_ood9zlg",
-        "is_submitter": false,
-        "sentiment_score": 0,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 1,
-          "pos": 0,
-          "compound": 0
-        }
-      }
-    ],
-    "created_utc": "2026-05-27T16:16:31",
-    "first_author_comment": null,
-    "num_comments": 5,
-    "score": 15,
-    "subreddit": "ansible",
-    "tag": null,
-    "tags": [],
-    "title": "AIOps: Patch RHEL CVEs in Minutes with Red Hat Lightspeed MCP and Ansible Automation Platform",
-    "updatedAt": "2026-06-19T01:21:33.376Z",
-    "upvote_ratio": 0.7,
-    "url": "https://reddit.com/r/ansible/comments/1tpachm/aiops_patch_rhel_cves_in_minutes_with_red_hat/",
-    "versionList": [],
-    "author_description_sentiment": {
-      "score": 0.202,
-      "detail": {
-        "neg": 0.03,
-        "neu": 0.925,
-        "pos": 0.045,
-        "compound": 0.2023
-      }
-    },
-    "category": "Neutral",
-    "comments_avg_sentiment_score": -0.034,
-    "sentiment_score": 0.084,
-    "isAboutCve": true,
-    "isAboutLatestUpdate": true
-  },
-  {
-    "_id": "6a287d179dc5fd763982f41a",
-    "redditId": "1tp6dz0",
-    "author": "HexLayer3",
-    "author_description": "After FIOD seized 800+ servers and arrested two operators on May 18, the ELLIO research team reports that scanning from the network's ASN ranges has continued largely uninterrupted - and that while roughly a third of the recently-active ranges (including the legacy Stark blocks 94.131.105.0/24 and 92.118.232.0/24) have since been withdrawn from global routing, the surviving ranges under AS209847 (WorkTitans / THE.Hosting) are still announced and still scanning, at the network's normal daily rate. \n\nThe sibling ASNs (AS213999 and the Moscow-based AS33993) remain routed and idle. \n\nThe recent activity skews toward database and ICS/SCADA discovery = MongoDB, Redis, PostgreSQL, Oracle, LDAP, plus DNP3 and EtherNet/IP - alongside known-exploit probes like CVE-2017-17215 and WinRM.",
-    "awards": [],
-    "comments": [
-      {
-        "id": "oo8317y",
-        "author": "Top-Bed9587",
-        "body": "worked on some threat intel stuff a couple years back where we were tracking a botnet that got partially sinkholed by a big provider. the scanning cadence from the associated ranges barely dipped for like 3 days after the takedown. turned out a chunk of the nodes were running autonomously without needing live C2 contact for their scan routines, so losing control of the upstream infrastructure didnt actually interrupt the behavior at all. this feels really similar to what ELLIO is documenting here. either whatever FIOD seized was more the management/billing layer rather than the operational core, or theres enough distributed automation that pulling 800 servers doesnt meaningfully dent daily output. the detail about the legacy Stark blocks (94.131.105 and 92.118.232) being the ones that got withdrawn while the main AS209847 ranges are still fully announced and scanning at normal rate is pretty telling. it suggests those old blocks were tied to arrested operators or hardware that got physically taken, but the bulk of the actual scan infrastructure just kept running. good on ELLIO for continuing to track this instead of just covering the initial seizure headline and moving on",
-        "score": 20,
-        "created_utc_ts": 1779907196,
-        "created_utc": "2026-05-27T18:39:56",
-        "permalink": "https://reddit.com/r/netsec/comments/1tp6dz0/a_week_after_dutch_fiod_seized_800_servers_the/oo8317y/",
-        "parent_id": "t3_1tp6dz0",
-        "is_submitter": false
-      },
-      {
-        "id": "oo8hy5h",
-        "author": "TeramindTeam",
-        "body": "i remember seeing similar behavior back when they tried to pull the plug on other botnet infrastructure, its wild how often the traffic just shifts instead of stopping. its definately worth checking if the routing is actually being handled by a different upstream provider now or if they just have some automated failover still running",
-        "score": 6,
-        "created_utc_ts": 1779911117,
-        "created_utc": "2026-05-27T19:45:17",
-        "permalink": "https://reddit.com/r/netsec/comments/1tp6dz0/a_week_after_dutch_fiod_seized_800_servers_the/oo8hy5h/",
-        "parent_id": "t3_1tp6dz0",
-        "is_submitter": false
-      }
-    ],
-    "created_utc": "2026-05-27T13:58:10",
-    "first_author_comment": null,
-    "num_comments": 4,
-    "score": 83,
-    "subreddit": "netsec",
-    "tag": null,
-    "tags": [],
-    "title": "A week after Dutch FIOD seized 800+ servers, the hosting network's ASN (AS209847) is still scanning at its normal daily rate",
-    "updatedAt": "2026-06-20T16:47:23.633Z",
-    "upvote_ratio": 0.97,
-    "url": "https://reddit.com/r/netsec/comments/1tp6dz0/a_week_after_dutch_fiod_seized_800_servers_the/",
-    "versionList": [
-      "800.0.0"
-    ],
-    "author_description_sentiment": {
-      "score": -0.077,
-      "detail": {
-        "neg": 0.044,
-        "neu": 0.915,
-        "pos": 0.041,
-        "compound": -0.0772
-      }
-    },
-    "category": "Neutral",
-    "comments_avg_sentiment_score": 0.134,
-    "sentiment_score": 0.028,
-    "isAboutCve": true,
-    "isAboutLatestUpdate": true
-  },
-  {
-    "_id": "6a287d229dc5fd763982f425",
-    "redditId": "1tnbcp1",
-    "author": "TheReedemer69",
-    "author_description": "Disclosure/write-up for CVE-2021-21735 affecting the ZTE ZXHN H168N V3.5.\n\nThe issue is cataloged as information disclosure, but the useful part is the authorization failure: wizard handlers under the setup surface exposed `PPPoE` and `WLAN` material that should have required authenticated configuration access. Firmware analysis points to a brittle whitelist decision around the `QuickSetup` flow, including routes such as `wizard_pppoe_lua.lua` and `wizard_wlan_config_lua.lua`.\n\nThe write-up keeps secrets redacted and focuses on the route behavior, firmware logic, deployment-dependent admin compromise path, disclosure timeline, and the ZTE Low vs NVD Medium severity split.",
-    "awards": [],
-    "comments": [
-      {
-        "id": "opu6nag",
-        "author": "[deleted]",
-        "body": "[removed]",
-        "score": 1,
-        "created_utc_ts": 1780630468,
-        "created_utc": "2026-06-05T03:34:28",
-        "permalink": "https://reddit.com/r/netsec/comments/1tnbcp1/cve202121735_zte_h168n_wizard_whitelist_exposed/opu6nag/",
-        "parent_id": "t3_1tnbcp1",
-        "is_submitter": false,
-        "sentiment_score": 0,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 1,
-          "pos": 0,
-          "compound": 0
-        }
-      },
-      {
-        "id": "oqeh2rb",
-        "author": "scriptqzor",
-        "body": "right? half of these “wizards” are basically unauthenticated backdoors with a UI slapped on top  \nthe ZTE vs NVD severity gap is exactly why no one trusts vendor advisories on their own anymore",
-        "score": 1,
-        "created_utc_ts": 1780899080,
-        "created_utc": "2026-06-08T06:11:20",
-        "permalink": "https://reddit.com/r/netsec/comments/1tnbcp1/cve202121735_zte_h168n_wizard_whitelist_exposed/oqeh2rb/",
-        "parent_id": "t1_opu6nag",
-        "is_submitter": false,
-        "sentiment_score": 0.402,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0.061,
-          "neu": 0.803,
-          "pos": 0.136,
-          "compound": 0.4019
-        }
-      }
-    ],
-    "created_utc": "2026-05-25T14:47:16",
-    "first_author_comment": null,
-    "num_comments": 3,
-    "score": 8,
-    "subreddit": "netsec",
-    "tag": null,
-    "tags": [],
-    "title": "CVE-2021-21735: ZTE H168N wizard whitelist exposed PPPoE and WLAN secrets pre-auth",
-    "updatedAt": "2026-06-19T01:22:11.882Z",
-    "upvote_ratio": 0.84,
-    "url": "https://reddit.com/r/netsec/comments/1tnbcp1/cve202121735_zte_h168n_wizard_whitelist_exposed/",
-    "versionList": [
-      "2021.0.0",
-      "21735.0.0"
-    ],
-    "author_description_sentiment": {
-      "score": -0.572,
-      "detail": {
-        "neg": 0.089,
-        "neu": 0.871,
-        "pos": 0.04,
-        "compound": -0.5719
-      }
-    },
-    "category": "Neutral",
-    "comments_avg_sentiment_score": 0.201,
-    "sentiment_score": -0.185,
-    "isAboutCve": true,
-    "isAboutLatestUpdate": false
   }
 ]
