@@ -1,6 +1,6 @@
 cve,post_count,earliest_post_iso_utc,earliest_post_epoch,subreddits,example_urls
+CVE-2026-53359,6,2026-07-07T03:49:30+00:00,1783396170,Proxmox;Ubuntu;debian;homelab;linux;openstack,https://reddit.com/r/linux/comments/1uxmpyg/hardening_nixos_against_the_januscape_kvm_escape/;https://reddit.com/r/Proxmox/comments/1uwmt3p/cluster_security_best_practice/;https://reddit.com/r/Ubuntu/comments/1uvc9v4/what_happens_to_ubuntu_security/;https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/;https://reddit.com/r/openstack/comments/1upuhi2/we_wrote_up_how_cve202653359_januscape_impacts/
 CVE-2026-43499,5,2026-07-08T16:43:15+00:00,1783528995,Ubuntu;debian;linux;manjaro,https://reddit.com/r/linux/comments/1uxwo8z/ghostlock_cve202643499_the_15yearold_kernel_bug/;https://reddit.com/r/Ubuntu/comments/1uvc9v4/what_happens_to_ubuntu_security/;https://reddit.com/r/debian/comments/1urmw2o/researchers_disclose_ghostlock_linux_kernel_flaw/;https://reddit.com/r/Ubuntu/comments/1urggyo/ghostlock_cve202643499_isnt_fully_fixed_on_all/;https://reddit.com/r/manjaro/comments/1uqy4xm/ghost_lock_flaw/
-CVE-2026-53359,5,2026-07-07T03:49:30+00:00,1783396170,Ubuntu;debian;homelab;linux;openstack,https://reddit.com/r/linux/comments/1uxmpyg/hardening_nixos_against_the_januscape_kvm_escape/;https://reddit.com/r/Ubuntu/comments/1uvc9v4/what_happens_to_ubuntu_security/;https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/;https://reddit.com/r/openstack/comments/1upuhi2/we_wrote_up_how_cve202653359_januscape_impacts/;https://reddit.com/r/homelab/comments/1upjsdx/if_your_homelab_uses_kvmproxmox_with_nested/
 CVE-2026-10520,3,2026-06-10T00:54:34+00:00,1781052874,netsec;sysadmin,https://reddit.com/r/sysadmin/comments/1uw9kba/patch_tuesday_megathread_july_14_2026/;https://reddit.com/r/sysadmin/comments/1u7kggj/5_enterprise_cves_from_last_week_worth_checking/;https://reddit.com/r/netsec/comments/1u1neao/more_evidence_that_words_dont_mean_what_we/
 CVE-2026-20833,3,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1uw9kba/patch_tuesday_megathread_july_14_2026/;https://reddit.com/r/sysadmin/comments/1u20zra/xp_sp3_systems_not_getting_ad_group_policies/;https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2026-33017,3,2026-07-02T04:03:58+00:00,1782965038,AZURE,https://reddit.com/r/AZURE/comments/1uqfz6h/adobe_coldfusion_cve202648282_cvss_100_exploited/;https://reddit.com/r/AZURE/comments/1unvut3/sysdig_documented_the_first_ransomware_op_run/;https://reddit.com/r/AZURE/comments/1ul7lyd/guardfall_1011_opensource_ai_coding_agents_fail_a/
@@ -30,7 +30,6 @@ CVE-2026-43503,2,2026-06-29T01:47:38+00:00,1782697658,AZURE;linux,https://reddit
 CVE-2026-44815,2,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u7kggj/5_enterprise_cves_from_last_week_worth_checking/;https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2026-45257,2,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com/r/freebsd/comments/1u2x6l9/bumsrakete_the_hugest_the_most_tremendous_freebsd/;https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/
 CVE-2026-45585,2,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u1dlpy/microsoft_has_released_a_patch_for_the_bitlocker/;https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
-CVE-2026-48710,2,2026-05-29T15:40:48+00:00,1780069248,Python;sysadmin,https://reddit.com/r/sysadmin/comments/1ud8goc/psa_critical_litellm_ai_gateway_rce_cve202642271/;https://reddit.com/r/Python/comments/1tr5s1c/cve202648710_a_maintainers_perspective/
 CVE-2026-55200,2,2026-06-22T12:53:22+00:00,1782132802,linux;rust,https://reddit.com/r/rust/comments/1ujqvqx/rust_1961_is_out/;https://reddit.com/r/linux/comments/1ucjru0/security_vulnerabilities_endanger_connections_via/
 CVE-2026-8461,2,2026-06-23T17:05:59+00:00,1782234359,immich;jellyfin,https://reddit.com/r/immich/comments/1uds0r1/would_this_new_ffmpeg_vulnerability_affect_immich/;https://reddit.com/r/jellyfin/comments/1udn043/psa_update_ffmpeg_pixelsmash_exploit_flaw_that/
 CVE-2026-9189,2,2026-06-18T17:56:47+00:00,1781805407,PHP;Wordpress,https://reddit.com/r/Wordpress/comments/1u9ea81/cve20269189_payment_bypass_in_the_contact_form_7/;https://reddit.com/r/PHP/comments/1u9de75/authenticating_a_paypal_notification_is_not_the/
@@ -153,14 +152,14 @@ CVE-2026-46300,1,2026-07-13T13:55:24+00:00,1783950924,Ubuntu,https://reddit.com/
 CVE-2026-46325,1,2026-07-01T15:59:24+00:00,1782921564,linux,https://reddit.com/r/linux/comments/1ukppye/interestingly_long_list_of_98_scoring_cves_today/
 CVE-2026-46331,1,2026-06-29T01:47:38+00:00,1782697658,AZURE,https://reddit.com/r/AZURE/comments/1uif39c/dirtyclone_cve202643503_jfrog_published_a_working/
 CVE-2026-46333,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
-CVE-2026-46633,1,2026-06-07T00:05:33+00:00,1780790733,netsec,https://reddit.com/r/netsec/comments/1tywxh9/cve202646640_developing_payloads_for_twig_sandbox/
-CVE-2026-46640,1,2026-06-07T00:05:33+00:00,1780790733,netsec,https://reddit.com/r/netsec/comments/1tywxh9/cve202646640_developing_payloads_for_twig_sandbox/
+CVE-2026-46817,1,2026-07-17T13:51:11+00:00,1784296271,oracle,https://reddit.com/r/oracle/comments/1uz0ctz/oracle_ebusiness_suite_cve202646817_is_now_under/
 CVE-2026-47288,1,2026-06-16T17:39:54+00:00,1781631594,sysadmin,https://reddit.com/r/sysadmin/comments/1u7kggj/5_enterprise_cves_from_last_week_worth_checking/
 CVE-2026-47331,1,2026-07-05T14:25:53+00:00,1783261553,Ubuntu,https://reddit.com/r/Ubuntu/comments/1uo3j87/ubuntu_users_should_patch_this_linux_kernel/
 CVE-2026-47729,1,2026-06-19T10:21:41+00:00,1781864501,netsec,https://reddit.com/r/netsec/comments/1u9y7yw/squidbleed_cve202647729_heartbleedstyle/
 CVE-2026-47938,1,2026-07-14T14:01:08+00:00,1784037668,sysadmin,https://reddit.com/r/sysadmin/comments/1uw9kba/patch_tuesday_megathread_july_14_2026/
 CVE-2026-48282,1,2026-07-08T02:34:51+00:00,1783478091,AZURE,https://reddit.com/r/AZURE/comments/1uqfz6h/adobe_coldfusion_cve202648282_cvss_100_exploited/
 CVE-2026-48303,1,2026-07-14T14:01:08+00:00,1784037668,sysadmin,https://reddit.com/r/sysadmin/comments/1uw9kba/patch_tuesday_megathread_july_14_2026/
+CVE-2026-48710,1,2026-06-23T05:41:09+00:00,1782193269,sysadmin,https://reddit.com/r/sysadmin/comments/1ud8goc/psa_critical_litellm_ai_gateway_rce_cve202642271/
 CVE-2026-49160,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2026-49172,1,2026-07-14T17:34:11+00:00,1784050451,sysadmin,https://reddit.com/r/sysadmin/comments/1uwfgrl/windows_ftp_service_remote_code_execution/
 CVE-2026-49181,1,2026-07-14T14:01:08+00:00,1784037668,sysadmin,https://reddit.com/r/sysadmin/comments/1uw9kba/patch_tuesday_megathread_july_14_2026/
@@ -169,8 +168,8 @@ CVE-2026-49413,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com
 CVE-2026-49414,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/
 CVE-2026-49416,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/
 CVE-2026-49417,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/
-CVE-2026-49975,1,2026-06-04T16:08:00+00:00,1780589280,apache,https://reddit.com/r/apache/comments/1tws4w7/the_http2_bomb_that_knocks_nginx_and_apache/
 CVE-2026-5027,1,2026-06-12T01:37:04+00:00,1781228224,AZURE,https://reddit.com/r/AZURE/comments/1u3hqco/cve20265027_langflow_path_traversal/
+CVE-2026-50454,1,2026-07-17T13:18:22+00:00,1784294302,netsec,https://reddit.com/r/netsec/comments/1uyzhy8/windows_appresolver_lpe_from_appcontainer_to/
 CVE-2026-50507,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2026-50522,1,2026-07-14T14:01:08+00:00,1784037668,sysadmin,https://reddit.com/r/sysadmin/comments/1uw9kba/patch_tuesday_megathread_july_14_2026/
 CVE-2026-50548,1,2026-07-01T16:19:42+00:00,1782922782,netsec,https://reddit.com/r/netsec/comments/1ukqaam/zeroclick_prompt_injection_to_rce_in_cursor_ide/
@@ -216,6 +215,7 @@ CVE-2026-5667,1,2026-06-18T18:05:44+00:00,1781805944,netsec,https://reddit.com/r
 CVE-2026-57092,1,2026-07-14T14:01:08+00:00,1784037668,sysadmin,https://reddit.com/r/sysadmin/comments/1uw9kba/patch_tuesday_megathread_july_14_2026/
 CVE-2026-57807,1,2026-07-11T18:21:28+00:00,1783794088,Wordpress,https://reddit.com/r/Wordpress/comments/1utrkdp/vulnerability_cve202657807_in_miniorange_sso/
 CVE-2026-59762,1,2026-07-15T15:18:48+00:00,1784128728,sysadmin,https://reddit.com/r/sysadmin/comments/1ux8udb/bigip_http2_vulnerability_cve202659762/
+CVE-2026-63030,1,2026-07-17T19:01:54+00:00,1784314914,Wordpress,https://reddit.com/r/Wordpress/comments/1uz8w53/sql_injection_vulnerability_update_immediately/
 CVE-2026-6682,1,2026-07-07T16:39:41+00:00,1783442381,embedded,https://reddit.com/r/embedded/comments/1uq0g9t/fatfs_7_new_security_vulnerabilities_discovered/
 CVE-2026-6973,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2026-7383,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/
