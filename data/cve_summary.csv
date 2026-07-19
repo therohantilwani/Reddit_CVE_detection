@@ -15,8 +15,6 @@ CVE-2026-0257,2,2026-06-09T14:23:52+00:00,1781015032,sysadmin,https://reddit.com
 CVE-2026-0386,2,2026-06-30T15:41:57+00:00,1782834117,sysadmin,https://reddit.com/r/sysadmin/comments/1uku5tc/struggle_with_win11_and_wds_answer_file_domain/;https://reddit.com/r/sysadmin/comments/1ujsqrj/what_is_the_best_practice_to_mass_deploy_win11/
 CVE-2026-10523,2,2026-06-16T17:39:54+00:00,1781631594,sysadmin,https://reddit.com/r/sysadmin/comments/1uw9kba/patch_tuesday_megathread_july_14_2026/;https://reddit.com/r/sysadmin/comments/1u7kggj/5_enterprise_cves_from_last_week_worth_checking/
 CVE-2026-13585,2,2026-07-16T06:26:39+00:00,1784183199,netsec;sysadmin,https://reddit.com/r/sysadmin/comments/1uxuvqp/asus_bsitfsys_cve202613585_arbitrary_physical/;https://reddit.com/r/netsec/comments/1uxuqyg/asus_bsitfsys_cve202613585_arbitrary_physical/
-CVE-2026-20182,2,2026-06-09T07:13:33+00:00,1780989213,networking;sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/;https://reddit.com/r/networking/comments/1u0xug8/another_cisco_sdwan_manager_bug_is_being/
-CVE-2026-20245,2,2026-06-09T07:13:33+00:00,1780989213,networking;sysadmin,https://reddit.com/r/sysadmin/comments/1u16gsm/top_enterprise_cves_from_last_week_worth_your/;https://reddit.com/r/networking/comments/1u0xug8/another_cisco_sdwan_manager_bug_is_being/
 CVE-2026-20253,2,2026-06-12T20:37:06+00:00,1781296626,netsec;sysadmin,https://reddit.com/r/sysadmin/comments/1uw9kba/patch_tuesday_megathread_july_14_2026/;https://reddit.com/r/netsec/comments/1u46wbb/why_use_applevel_auth_when_every_database_has/
 CVE-2026-25089,2,2026-06-18T11:09:07+00:00,1781780947,kubernetes;sysadmin,https://reddit.com/r/sysadmin/comments/1uw9kba/patch_tuesday_megathread_july_14_2026/;https://reddit.com/r/kubernetes/comments/1u93bkb/how_are_people_reducing_container_attack_surface/
 CVE-2026-31431,2,2026-06-29T01:47:38+00:00,1782697658,AZURE;ansible,https://reddit.com/r/ansible/comments/1ux5v3w/a_reusable_play_for_kev_kernel_cves_patch_reboot/;https://reddit.com/r/AZURE/comments/1uif39c/dirtyclone_cve202643503_jfrog_published_a_working/
@@ -31,6 +29,7 @@ CVE-2026-44815,2,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.co
 CVE-2026-45257,2,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com/r/freebsd/comments/1u2x6l9/bumsrakete_the_hugest_the_most_tremendous_freebsd/;https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/
 CVE-2026-45585,2,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u1dlpy/microsoft_has_released_a_patch_for_the_bitlocker/;https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2026-55200,2,2026-06-22T12:53:22+00:00,1782132802,linux;rust,https://reddit.com/r/rust/comments/1ujqvqx/rust_1961_is_out/;https://reddit.com/r/linux/comments/1ucjru0/security_vulnerabilities_endanger_connections_via/
+CVE-2026-63030,2,2026-07-17T19:01:54+00:00,1784314914,Wordpress;netsec,https://reddit.com/r/netsec/comments/1v07npi/wp2shell_cve202663030_preauth_rce_chain_in/;https://reddit.com/r/Wordpress/comments/1uz8w53/sql_injection_vulnerability_update_immediately/
 CVE-2026-8461,2,2026-06-23T17:05:59+00:00,1782234359,immich;jellyfin,https://reddit.com/r/immich/comments/1uds0r1/would_this_new_ffmpeg_vulnerability_affect_immich/;https://reddit.com/r/jellyfin/comments/1udn043/psa_update_ffmpeg_pixelsmash_exploit_flaw_that/
 CVE-2026-9189,2,2026-06-18T17:56:47+00:00,1781805407,PHP;Wordpress,https://reddit.com/r/Wordpress/comments/1u9ea81/cve20269189_payment_bypass_in_the_contact_form_7/;https://reddit.com/r/PHP/comments/1u9de75/authenticating_a_paypal_notification_is_not_the/
 CVE-2017-9841,1,2026-06-29T11:34:36+00:00,1782732876,PHP,https://reddit.com/r/PHP/comments/1uipydy/composer_in_docker_best_practices_for_production/
@@ -63,7 +62,9 @@ CVE-2026-15718,1,2026-07-14T15:30:57+00:00,1784043057,firefox,https://reddit.com
 CVE-2026-15719,1,2026-07-14T15:30:57+00:00,1784043057,firefox,https://reddit.com/r/firefox/comments/1uwbzy8/firefox_v15206s_release_notes/
 CVE-2026-20127,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2026-20146,1,2026-07-15T16:15:25+00:00,1784132125,sysadmin,https://reddit.com/r/sysadmin/comments/1uxahvf/psa_cisco_identity_services_engine_path_traversal/
+CVE-2026-20182,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2026-20223,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
+CVE-2026-20245,1,2026-06-09T14:23:52+00:00,1781015032,sysadmin,https://reddit.com/r/sysadmin/comments/1u16gsm/top_enterprise_cves_from_last_week_worth_your/
 CVE-2026-20296,1,2026-07-15T18:10:14+00:00,1784139014,Splunk,https://reddit.com/r/Splunk/comments/1uxdsj0/splunk_deployment_server_csrf_vulnerability/
 CVE-2026-20971,1,2026-06-24T10:55:20+00:00,1782298520,netsec,https://reddit.com/r/netsec/comments/1uea8bx/cve202620971_samsung_android_kernel_uaf_affecting/
 CVE-2026-22732,1,2026-07-14T14:01:08+00:00,1784037668,sysadmin,https://reddit.com/r/sysadmin/comments/1uw9kba/patch_tuesday_megathread_july_14_2026/
@@ -215,7 +216,6 @@ CVE-2026-5667,1,2026-06-18T18:05:44+00:00,1781805944,netsec,https://reddit.com/r
 CVE-2026-57092,1,2026-07-14T14:01:08+00:00,1784037668,sysadmin,https://reddit.com/r/sysadmin/comments/1uw9kba/patch_tuesday_megathread_july_14_2026/
 CVE-2026-57807,1,2026-07-11T18:21:28+00:00,1783794088,Wordpress,https://reddit.com/r/Wordpress/comments/1utrkdp/vulnerability_cve202657807_in_miniorange_sso/
 CVE-2026-59762,1,2026-07-15T15:18:48+00:00,1784128728,sysadmin,https://reddit.com/r/sysadmin/comments/1ux8udb/bigip_http2_vulnerability_cve202659762/
-CVE-2026-63030,1,2026-07-17T19:01:54+00:00,1784314914,Wordpress,https://reddit.com/r/Wordpress/comments/1uz8w53/sql_injection_vulnerability_update_immediately/
 CVE-2026-6682,1,2026-07-07T16:39:41+00:00,1783442381,embedded,https://reddit.com/r/embedded/comments/1uq0g9t/fatfs_7_new_security_vulnerabilities_discovered/
 CVE-2026-6973,1,2026-06-09T14:01:01+00:00,1781013661,sysadmin,https://reddit.com/r/sysadmin/comments/1u15uc7/patch_tuesday_megathread_june_09_2026/
 CVE-2026-7383,1,2026-06-09T22:16:37+00:00,1781043397,freebsd,https://reddit.com/r/freebsd/comments/1u1jpl9/upcoming_security_advisories_and_errata_hopefully/
