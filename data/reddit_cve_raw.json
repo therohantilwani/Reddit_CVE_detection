@@ -1,5 +1,443 @@
 [
   {
+    "_id": "6a5e6e8f96a87562fe06a616",
+    "redditId": "1v1siqn",
+    "author": "gainan",
+    "author_description": null,
+    "awards": [],
+    "comments": [
+      {
+        "id": "oypqi4u",
+        "author": "UserAbuser53",
+        "body": "Article locked out ",
+        "score": 13,
+        "created_utc_ts": 1784569688,
+        "created_utc": "2026-07-20T17:48:08",
+        "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oypqi4u/",
+        "parent_id": "t3_1v1siqn",
+        "is_submitter": false
+      },
+      {
+        "id": "oypr2vi",
+        "author": "Venylynn",
+        "body": "how many are patched? we might need to expedite development... i'm not trying to get remote-hacked here guys",
+        "score": -14,
+        "created_utc_ts": 1784569833,
+        "created_utc": "2026-07-20T17:50:33",
+        "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oypr2vi/",
+        "parent_id": "t3_1v1siqn",
+        "is_submitter": false
+      },
+      {
+        "id": "oyprs6r",
+        "author": "gainan",
+        "body": "all of them I guess, for example:\n\nhttps://lore.kernel.org/linux-cve-announce/2026072052-CVE-2026-64206-b475@gregkh/T/#u\n\n```\nIssue introduced in 3.16 with commit 7ab56c3a6eccb215034b0cb096e0313441cbf2a4 and fixed in 6.18.39 with commit d5616beb3355b5fca2280d796c1cf7ada4ee6551\n\tIssue introduced in 3.16 with commit 7ab56c3a6eccb215034b0cb096e0313441cbf2a4 and fixed in 7.1.4 with commit e96fbac8d3a73b0bc165383c092a30628561d320\n\tIssue introduced in 3.16 with commit 7ab56c3a6eccb215034b0cb096e0313441cbf2a4 and fixed in 7.2-rc3 with commit 2641a9e0a1dd4af2e21995470a21d55dd35e5203\n```\n\nlatest kernel on Debian Sid: linux-image-7.1.4+deb14-amd64",
+        "score": 8,
+        "created_utc_ts": 1784570010,
+        "created_utc": "2026-07-20T17:53:30",
+        "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyprs6r/",
+        "parent_id": "t1_oypr2vi",
+        "is_submitter": true
+      },
+      {
+        "id": "oypsw6r",
+        "author": "billm4",
+        "body": "it’s the kernel, pretty much every reported bug is a cve. ",
+        "score": 121,
+        "created_utc_ts": 1784570289,
+        "created_utc": "2026-07-20T17:58:09",
+        "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oypsw6r/",
+        "parent_id": "t3_1v1siqn",
+        "is_submitter": false
+      },
+      {
+        "id": "oypv4n8",
+        "author": "Lant6",
+        "body": "&gt;Note, due to the layer at which the Linux kernel is in a system, almost any bug might be exploitable to compromise the security of the kernel, but the possibility of exploitation is often not evident when the bug is fixed. Because of this, the CVE assignment team is overly cautious and **assign CVE numbers to any bugfix that they identify**. This explains the seemingly large number of CVEs that are issued by the Linux kernel team.\n\nFrom: [https://docs.kernel.org/process/cve.html#process](https://docs.kernel.org/process/cve.html#process) (emphasis mine)\n\nSo it is not too surprising that there is such a large number of CVEs.  \n  \n(Also see: https://utcc.utoronto.ca/\\~cks/space/blog/linux/KernelBugfixCVEsAStory)",
+        "score": 183,
+        "created_utc_ts": 1784570860,
+        "created_utc": "2026-07-20T18:07:40",
+        "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oypv4n8/",
+        "parent_id": "t3_1v1siqn",
+        "is_submitter": false
+      },
+      {
+        "id": "oypv7n9",
+        "author": "tfks",
+        "body": "I wonder how much of this is from intelligence agencies who found things with their access to Mythos that they had planned to sit on and use later now going \"oh fuck\" with regard to Kimi K3 and Qwen 3.8. Or possibly the inverse where Chinese state actors are like \"find it all ASAP\"",
+        "score": 6,
+        "created_utc_ts": 1784570881,
+        "created_utc": "2026-07-20T18:08:01",
+        "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oypv7n9/",
+        "parent_id": "t3_1v1siqn",
+        "is_submitter": false
+      },
+      {
+        "id": "oyq13lz",
+        "author": "gainan",
+        "body": "I can't edit the post. If I did the maths correctly, these are the kernels that have been patched:\n\n```\nstable: \t7.1.4\nlongterm: \t6.18.39\nlongterm: \t6.12.96\nlongterm: \t6.6.144\nlongterm: \t6.1.177\nlongterm: \t5.15.211\nlongterm: \t5.10.260\n```\n\n```\n     27 5.10.258\n     67 5.10.259\n     16 5.10.260\n     37 5.15.209\n     78 5.15.210\n     18 5.15.211\n     48 6.1.175\n     87 6.1.176\n     22 6.1.177\n     18 6.12.91\n     82 6.12.92\n    107 6.12.93\n      6 6.12.94\n     30 6.12.95\n      5 6.12.96\n     25 6.18.33\n    138 6.18.34\n    118 6.18.35\n      7 6.18.36\n      2 6.18.37\n     29 6.18.38\n      7 6.18.39\n     14 6.6.141\n     62 6.6.142\n     98 6.6.143\n     26 6.6.144\n     30 7.0.10\n    165 7.0.11\n    130 7.0.12\n      8 7.0.13\n      2 7.0.14\n    330 7.1\n     35 7.1.3\n      6 7.1.4\n     41 7.2\n```",
+        "score": 2,
+        "created_utc_ts": 1784572392,
+        "created_utc": "2026-07-20T18:33:12",
+        "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyq13lz/",
+        "parent_id": "t3_1v1siqn",
+        "is_submitter": true
+      },
+      {
+        "id": "oyq141u",
+        "author": "stevecrox0914",
+        "body": "The linux kernel maintainers, ask for patches to be posted to a mailing list, which they manually check the diff off and sometimes check a CI service to confirm a branch builds and the tests pass.\n\nHumans are good are reviewing the logic of a change but make terrible compilers and even worse are really bad at consistency.\n\nWhich is why everyone adds code linters and analysis tools to the build process and feeds that information into the review process, but the Linux developers \"knew what they were doing\".\n\nAI is being used as a code analysis tool that doesn't need any integration effort the maintainers can block from working. We are seeing decades of technical debt being addressed.\n\nSome of the maintainers who love churning their subsystems are going to get an awakening on how much technical debt they create.",
+        "score": 5,
+        "created_utc_ts": 1784572395,
+        "created_utc": "2026-07-20T18:33:15",
+        "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyq141u/",
+        "parent_id": "t1_oypv7n9",
+        "is_submitter": false
+      },
+      {
+        "id": "oyqapiw",
+        "author": "pervertsage",
+        "body": "You sound like a skittish netrunner.",
+        "score": 13,
+        "created_utc_ts": 1784574888,
+        "created_utc": "2026-07-20T19:14:48",
+        "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyqapiw/",
+        "parent_id": "t1_oypr2vi",
+        "is_submitter": false
+      },
+      {
+        "id": "oyqbmoh",
+        "author": "DrabberFrog",
+        "body": "Am I the only one getting blocked by Anubis when I click that link in the reddit app?",
+        "score": 14,
+        "created_utc_ts": 1784575130,
+        "created_utc": "2026-07-20T19:18:50",
+        "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyqbmoh/",
+        "parent_id": "t3_1v1siqn",
+        "is_submitter": false
+      },
+      {
+        "id": "oyqcwqv",
+        "author": "MarzipanEven7336",
+        "body": "AI Slop",
+        "score": -23,
+        "created_utc_ts": 1784575470,
+        "created_utc": "2026-07-20T19:24:30",
+        "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyqcwqv/",
+        "parent_id": "t3_1v1siqn",
+        "is_submitter": false
+      },
+      {
+        "id": "oyqe33y",
+        "author": "iBoMbY",
+        "body": "I hope Microslop, and all the others, are using some AI tools internally, to find all the bugs in their code, because they probably have a lot more obvious ones, since very few people, compared to Linux, ever had a chance to look at it.",
+        "score": 14,
+        "created_utc_ts": 1784575784,
+        "created_utc": "2026-07-20T19:29:44",
+        "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyqe33y/",
+        "parent_id": "t3_1v1siqn",
+        "is_submitter": false
+      },
+      {
+        "id": "oyqfold",
+        "author": "tsunamionioncerial",
+        "body": "432 CVE patches lead to 1200 CVEs ",
+        "score": 51,
+        "created_utc_ts": 1784576211,
+        "created_utc": "2026-07-20T19:36:51",
+        "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyqfold/",
+        "parent_id": "t3_1v1siqn",
+        "is_submitter": false
+      },
+      {
+        "id": "oyqg889",
+        "author": "MatchingTurret",
+        "body": "What is AI slop? This post, the bugs, the bug reports, the fixes or your comment? Without being more specific, the possibilities are endless... ",
+        "score": 14,
+        "created_utc_ts": 1784576356,
+        "created_utc": "2026-07-20T19:39:16",
+        "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyqg889/",
+        "parent_id": "t1_oyqcwqv",
+        "is_submitter": false
+      },
+      {
+        "id": "oyqgjvk",
+        "author": "AdaephonBen",
+        "body": "The phrasing of this message reminded me of a trump tweet",
+        "score": 21,
+        "created_utc_ts": 1784576442,
+        "created_utc": "2026-07-20T19:40:42",
+        "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyqgjvk/",
+        "parent_id": "t1_oyqe33y",
+        "is_submitter": false
+      },
+      {
+        "id": "oyqgxfv",
+        "author": "AugustinesConversion",
+        "body": "People really are determined to run this term into the ground, aren't they?",
+        "score": 11,
+        "created_utc_ts": 1784576541,
+        "created_utc": "2026-07-20T19:42:21",
+        "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyqgxfv/",
+        "parent_id": "t1_oyqcwqv",
+        "is_submitter": false
+      },
+      {
+        "id": "oyqhyxn",
+        "author": "TerribleReason4195",
+        "body": "That is a lot. It is good at least researchers and contributors are doing this instead of hackers.",
+        "score": 2,
+        "created_utc_ts": 1784576820,
+        "created_utc": "2026-07-20T19:47:00",
+        "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyqhyxn/",
+        "parent_id": "t3_1v1siqn",
+        "is_submitter": false
+      },
+      {
+        "id": "oyqj2hm",
+        "author": "Jristz",
+        "body": "Don't worry those 1200 CVE patches will lead to 65535 CVEs",
+        "score": 31,
+        "created_utc_ts": 1784577115,
+        "created_utc": "2026-07-20T19:51:55",
+        "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyqj2hm/",
+        "parent_id": "t1_oyqfold",
+        "is_submitter": false
+      },
+      {
+        "id": "oyql4py",
+        "author": "disturbedmonkey69",
+        "body": "Nah they just release their programs and let the end user find the bugs.",
+        "score": 5,
+        "created_utc_ts": 1784577667,
+        "created_utc": "2026-07-20T20:01:07",
+        "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyql4py/",
+        "parent_id": "t1_oyqe33y",
+        "is_submitter": false
+      },
+      {
+        "id": "oyqmjru",
+        "author": "AntimatterTNT",
+        "body": "wdym \"instead of\"? i think you mean \"it's good researchers and contributors are trying to catch up with black hat hackers\"",
+        "score": 11,
+        "created_utc_ts": 1784578050,
+        "created_utc": "2026-07-20T20:07:30",
+        "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyqmjru/",
+        "parent_id": "t1_oyqhyxn",
+        "is_submitter": false
+      },
+      {
+        "id": "oyqnz4g",
+        "author": "Geminii27",
+        "body": "It's a new internet security feature - you must submit your heart to be weighed against a feather.",
+        "score": 52,
+        "created_utc_ts": 1784578432,
+        "created_utc": "2026-07-20T20:13:52",
+        "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyqnz4g/",
+        "parent_id": "t1_oyqbmoh",
+        "is_submitter": false
+      },
+      {
+        "id": "oyqoe49",
+        "author": "admalledd",
+        "body": "Right, while ~400+ is a bit higher than I recall seeing, it *isn't* unusual to have dozens to low-hundreds depending on various factors (one of the largest being \"how many of the kernel CVE devs are working this cycle and pick up the patches first\").\n\nNot seeing (with random spot-check) any of these being either AI finds or AI slop, though some (like one of the bound-check ones) are all the \"kinda trivial if someone puts security-minded eyes/tools upon them\" and just happened to not until now.",
+        "score": 23,
+        "created_utc_ts": 1784578544,
+        "created_utc": "2026-07-20T20:15:44",
+        "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyqoe49/",
+        "parent_id": "t1_oypv4n8",
+        "is_submitter": false
+      },
+      {
+        "id": "oyqqt6x",
+        "author": "eras",
+        "body": "For the longest time Linux didn't have a bug tracker, so I guess now the CVE database is filling up the gap.. ?",
+        "score": -6,
+        "created_utc_ts": 1784579191,
+        "created_utc": "2026-07-20T20:26:31",
+        "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyqqt6x/",
+        "parent_id": "t3_1v1siqn",
+        "is_submitter": false
+      },
+      {
+        "id": "oyqvfz5",
+        "author": "SubmarineWipers",
+        "body": "I wonder how long till even kernel maintainers realize this is untenable and rewrite all the historically buggy parts of the kernel into Rust. \n\nOr you know, they can spend all their time fixing malloc-free errors. Sounds like fun. ",
+        "score": -11,
+        "created_utc_ts": 1784580433,
+        "created_utc": "2026-07-20T20:47:13",
+        "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyqvfz5/",
+        "parent_id": "t3_1v1siqn",
+        "is_submitter": false
+      },
+      {
+        "id": "oyrdwo3",
+        "author": "capcom1116",
+        "body": "Linux is a very public OS with a ton of scrutiny; a big CVE list is a good thing, regardless.",
+        "score": 36,
+        "created_utc_ts": 1784585609,
+        "created_utc": "2026-07-20T22:13:29",
+        "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyrdwo3/",
+        "parent_id": "t1_oypv4n8",
+        "is_submitter": false
+      },
+      {
+        "id": "oyrh9p6",
+        "author": "Vaddieg",
+        "body": "I wonder if reporters bothered to verify AI-generated CVE reports ",
+        "score": 1,
+        "created_utc_ts": 1784586625,
+        "created_utc": "2026-07-20T22:30:25",
+        "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyrh9p6/",
+        "parent_id": "t3_1v1siqn",
+        "is_submitter": false
+      },
+      {
+        "id": "oyri328",
+        "author": "Vaddieg",
+        "body": "mallocFreeError.unwrap()",
+        "score": 1,
+        "created_utc_ts": 1784586878,
+        "created_utc": "2026-07-20T22:34:38",
+        "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyri328/",
+        "parent_id": "t1_oyqvfz5",
+        "is_submitter": false
+      },
+      {
+        "id": "oyrjbty",
+        "author": "Valdjiu",
+        "body": "Good. Find more. Close them all. \n\n",
+        "score": 4,
+        "created_utc_ts": 1784587262,
+        "created_utc": "2026-07-20T22:41:02",
+        "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyrjbty/",
+        "parent_id": "t3_1v1siqn",
+        "is_submitter": false
+      },
+      {
+        "id": "oyrysyp",
+        "author": "IHaveNeverLeftUtah",
+        "body": "I got massively downvoted in /r/cybersecurity for sharing this information [in the comments](\nhttps://www.reddit.com/r/cybersecurity/comments/1v1rg5o/linux_kernel_announces_432_cves/). \n\nGlad to see it at the top here. ",
+        "score": 5,
+        "created_utc_ts": 1784592163,
+        "created_utc": "2026-07-21T00:02:43",
+        "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyrysyp/",
+        "parent_id": "t1_oypv4n8",
+        "is_submitter": false
+      },
+      {
+        "id": "oyrz702",
+        "author": "DeliciousIncident",
+        "body": "Fixed your formatting for people using [old Reddit](https://old.reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyq13lz/) (use 4 spaces to indent the code, instead of using the backtick blocks).\n\n    stable: \t7.1.4\n    longterm: \t6.18.39\n    longterm: \t6.12.96\n    longterm: \t6.6.144\n    longterm: \t6.1.177\n    longterm: \t5.15.211\n    longterm: \t5.10.260\n\n     27 5.10.258\n     67 5.10.259\n     16 5.10.260\n     37 5.15.209\n     78 5.15.210\n     18 5.15.211\n     48 6.1.175\n     87 6.1.176\n     22 6.1.177\n     18 6.12.91\n     82 6.12.92\n    107 6.12.93\n      6 6.12.94\n     30 6.12.95\n      5 6.12.96\n     25 6.18.33\n    138 6.18.34\n    118 6.18.35\n      7 6.18.36\n      2 6.18.37\n     29 6.18.38\n      7 6.18.39\n     14 6.6.141\n     62 6.6.142\n     98 6.6.143\n     26 6.6.144\n     30 7.0.10\n    165 7.0.11\n    130 7.0.12\n      8 7.0.13\n      2 7.0.14\n    330 7.1\n     35 7.1.3\n      6 7.1.4\n     41 7.2",
+        "score": 8,
+        "created_utc_ts": 1784592291,
+        "created_utc": "2026-07-21T00:04:51",
+        "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyrz702/",
+        "parent_id": "t1_oyq13lz",
+        "is_submitter": false
+      },
+      {
+        "id": "oysxgjn",
+        "author": "0riginal-Syn",
+        "body": "Linux has had a bug tracker for over 2 decades. They did track bugs before that, using the LKML using a special template that you would fill out. ",
+        "score": 2,
+        "created_utc_ts": 1784604005,
+        "created_utc": "2026-07-21T03:20:05",
+        "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oysxgjn/",
+        "parent_id": "t1_oyqqt6x",
+        "is_submitter": false
+      },
+      {
+        "id": "oysz6ct",
+        "author": "johncate73",
+        "body": "Only thing I have to say about that is good, get them fixed.",
+        "score": 2,
+        "created_utc_ts": 1784604664,
+        "created_utc": "2026-07-21T03:31:04",
+        "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oysz6ct/",
+        "parent_id": "t3_1v1siqn",
+        "is_submitter": false
+      }
+    ],
+    "created_utc": "2026-07-20T17:45:39",
+    "first_author_comment": "I can't edit the post. If I did the maths correctly, these are the kernels that have been patched:\n\n```\nstable: \t7.1.4\nlongterm: \t6.18.39\nlongterm: \t6.12.96\nlongterm: \t6.6.144\nlongterm: \t6.1.177\nlongterm: \t5.15.211\nlongterm: \t5.10.260\n```\n\n```\n     27 5.10.258\n     67 5.10.259\n     16 5.10.260\n     37 5.15.209\n     78 5.15.210\n     18 5.15.211\n     48 6.1.175\n     87 6.1.176\n     22 6.1.177\n     18 6.12.91\n     82 6.12.92\n    107 6.12.93\n      6 6.12.94\n     30 6.12.95\n      5 6.12.96\n     25 6.18.33\n    138 6.18.34\n    118 6.18.35\n      7 6.18.36\n      2 6.18.37\n     29 6.18.38\n      7 6.18.39\n     14 6.6.141\n     62 6.6.142\n     98 6.6.143\n     26 6.6.144\n     30 7.0.10\n    165 7.0.11\n    130 7.0.12\n      8 7.0.13\n      2 7.0.14\n    330 7.1\n     35 7.1.3\n      6 7.1.4\n     41 7.2\n```",
+    "num_comments": 62,
+    "score": 308,
+    "subreddit": "linux",
+    "tag": "Kernel",
+    "tags": [
+      "Kernel"
+    ],
+    "title": "432 Linux kernel CVEs published in the last 24 hours",
+    "updatedAt": "2026-07-21T04:52:15.536Z",
+    "upvote_ratio": 0.94,
+    "url": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/",
+    "versionList": [
+      "432.0.0",
+      "24.0.0"
+    ],
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.00010602985305989994,
+        "timestampPredicted": "2026-07-21T04:01:25.453815+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": false,
+    "classification": {
+      "componentType": [
+        "OS"
+      ],
+      "securityType": [
+        "UNKNOWN"
+      ]
+    }
+  },
+  {
+    "_id": "6a5de06dee309169fa807040",
+    "redditId": "1v1ffuz",
+    "author": "luke-paradoxis",
+    "author_description": null,
+    "awards": [],
+    "created_utc": "2026-07-20T08:19:53",
+    "first_author_comment": null,
+    "num_comments": 0,
+    "score": 16,
+    "subreddit": "netsec",
+    "tag": null,
+    "tags": [],
+    "title": "Escalating All The Privileges With Foxit PDF Reader (CVE-2026–57239)",
+    "updatedAt": "2026-07-21T04:46:10.943Z",
+    "upvote_ratio": 0.85,
+    "url": "https://reddit.com/r/netsec/comments/1v1ffuz/escalating_all_the_privileges_with_foxit_pdf/",
+    "versionList": [
+      "2026.0.0",
+      "57239.0.0"
+    ],
+    "classification": {
+      "componentType": [],
+      "securityType": [
+        "SECURITY"
+      ]
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.0014277042485989874,
+        "timestampPredicted": "2026-07-20T16:01:14.330338+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": false
+  },
+  {
     "_id": "6a5d700bee309169fa80582c",
     "redditId": "1v15ran",
     "author": "eyesecurity",
@@ -8,13 +446,13 @@
     "created_utc": "2026-07-19T23:56:09",
     "first_author_comment": null,
     "num_comments": 0,
-    "score": 10,
+    "score": 20,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "wp2shell: a defender’s guide (CVE-2026-63030 + CVE-2026-60137) with a list of forensic artifacts, a compromise scanner WordPress plugin and a free Chrome/Edge/Firefox browser extension to in-browser check if a website has been patched.",
-    "updatedAt": "2026-07-20T04:46:29.558Z",
-    "upvote_ratio": 0.82,
+    "updatedAt": "2026-07-20T12:01:22.271Z",
+    "upvote_ratio": 0.9,
     "url": "https://reddit.com/r/netsec/comments/1v15ran/wp2shell_a_defenders_guide_cve202663030/",
     "versionList": [
       "2026.0.0",
@@ -24,16 +462,19 @@
     ],
     "classification": {
       "componentType": [
+        "BROWSER",
         "WEB",
-        "APP",
-        "BROWSER"
+        "APP"
+      ],
+      "securityType": [
+        "SECURITY"
       ]
     },
     "metadata": {
       "predicted": {
         "isUpdateRelated": false,
         "positiveScore": 0.00026123773675765526,
-        "timestampPredicted": "2026-07-20T04:00:33.900859+00:00"
+        "timestampPredicted": "2026-07-20T12:01:21.495326+00:00"
       },
       "labeled": {
         "isUpdateRelated": null
@@ -116,14 +557,14 @@
     "awards": [],
     "created_utc": "2026-07-18T21:17:40",
     "first_author_comment": null,
-    "num_comments": 3,
+    "num_comments": 4,
     "score": 23,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "wp2shell (CVE-2026-63030): Pre-Auth RCE Chain in WordPress Core - Analysis and Open-Source Scanner",
-    "updatedAt": "2026-07-20T04:46:31.213Z",
-    "upvote_ratio": 0.9,
+    "updatedAt": "2026-07-21T04:46:13.449Z",
+    "upvote_ratio": 0.87,
     "url": "https://reddit.com/r/netsec/comments/1v07npi/wp2shell_cve202663030_preauth_rce_chain_in/",
     "versionList": [
       "2026.0.0",
@@ -171,6 +612,17 @@
         "permalink": "https://reddit.com/r/netsec/comments/1v07npi/wp2shell_cve202663030_preauth_rce_chain_in/oyhlmfe/",
         "parent_id": "t1_oyfezb4",
         "is_submitter": false
+      },
+      {
+        "id": "oymqcl3",
+        "author": "_vavkamil_",
+        "body": "Wait, I'm a bit confused. The original announcement said:\n\n&gt;The attack has no preconditions and can be exploited by an anonymous user in a stock install of WordPress with no plugins.\n\nBut my understanding is that the \"Pre-Auth RCE\" here means you either have to exfiltrate the admin hash, be lucky enough to crack it, authenticate as admin, and install some plugin to execute the code?\n\nOr there must be a precondition where MySQL is misconfigured and can execute code?\n\nEDIT: nevermind, the original write-up explains the RCE part [https://slcyber.io/research-center/exploit-brokers-pay-500000-for-a-wordpress-rce-i-found-one-with-gpt5-6/](https://slcyber.io/research-center/exploit-brokers-pay-500000-for-a-wordpress-rce-i-found-one-with-gpt5-6/) which this article missed",
+        "score": 1,
+        "created_utc_ts": 1784533292,
+        "created_utc": "2026-07-20T07:41:32",
+        "permalink": "https://reddit.com/r/netsec/comments/1v07npi/wp2shell_cve202663030_preauth_rce_chain_in/oymqcl3/",
+        "parent_id": "t3_1v07npi",
+        "is_submitter": false
       }
     ]
   },
@@ -185,7 +637,7 @@
         "id": "oy5f09y",
         "author": "jkdreaming",
         "body": "Thanks for the heads up!",
-        "score": 3,
+        "score": 4,
         "created_utc_ts": 1784314965,
         "created_utc": "2026-07-17T19:02:45",
         "permalink": "https://reddit.com/r/Wordpress/comments/1uz8w53/sql_injection_vulnerability_update_immediately/oy5f09y/",
@@ -196,7 +648,7 @@
         "id": "oy5ft2y",
         "author": "Conscious-Valuable24",
         "body": "Damn ... But thank you, cloudways does this automatically :) ",
-        "score": 9,
+        "score": 8,
         "created_utc_ts": 1784315175,
         "created_utc": "2026-07-17T19:06:15",
         "permalink": "https://reddit.com/r/Wordpress/comments/1uz8w53/sql_injection_vulnerability_update_immediately/oy5ft2y/",
@@ -218,7 +670,7 @@
         "id": "oy5g9dx",
         "author": "brohebus",
         "body": "\\* sigh \\* 7.0 core has been nothing but critical updates. ",
-        "score": 6,
+        "score": 7,
         "created_utc_ts": 1784315293,
         "created_utc": "2026-07-17T19:08:13",
         "permalink": "https://reddit.com/r/Wordpress/comments/1uz8w53/sql_injection_vulnerability_update_immediately/oy5g9dx/",
@@ -229,7 +681,7 @@
         "id": "oy5jbdv",
         "author": "Ronjohnturbo42",
         "body": "Happy Friday ",
-        "score": 27,
+        "score": 25,
         "created_utc_ts": 1784316103,
         "created_utc": "2026-07-17T19:21:43",
         "permalink": "https://reddit.com/r/Wordpress/comments/1uz8w53/sql_injection_vulnerability_update_immediately/oy5jbdv/",
@@ -262,7 +714,7 @@
         "id": "oy5jn3s",
         "author": "HealthTroll",
         "body": "This affects 6.8 and forward. So it is not a 7.0 problem.",
-        "score": 11,
+        "score": 10,
         "created_utc_ts": 1784316191,
         "created_utc": "2026-07-17T19:23:11",
         "permalink": "https://reddit.com/r/Wordpress/comments/1uz8w53/sql_injection_vulnerability_update_immediately/oy5jn3s/",
@@ -284,7 +736,7 @@
         "id": "oy5s2yd",
         "author": "Moceannl",
         "body": "It's just a mess. No proper architecture, no proper DAL or ORM. Just queries somewhere in PHP code, apparently without escaping/checks. That this is still possible in 2026 is all you need to know. \n\nWordpress is not dying because of AI other tech, but because they made a mess.",
-        "score": -3,
+        "score": -2,
         "created_utc_ts": 1784318469,
         "created_utc": "2026-07-17T20:01:09",
         "permalink": "https://reddit.com/r/Wordpress/comments/1uz8w53/sql_injection_vulnerability_update_immediately/oy5s2yd/",
@@ -295,7 +747,7 @@
         "id": "oy5sko3",
         "author": "NakanoNoNeko",
         "body": "The bit I would not miss: this is not only a 7.0.x thing. The release notes say the fixed branches are 7.0.2, 6.9.3 and 6.8.5, so if a host says \"auto update is on\", still check the exact core version afterward.\n\nFor client sites I would do the boring sequence: backup first, update core, clear any object/page cache, then check login, search, forms, checkout if WooCommerce is present, and any custom AJAX endpoints. If you manage older sites pinned below 6.8, I would treat that as the actual emergency, because they are outside the patched branch list.\n\nAlso worth checking wp-admin users and recent plugin/theme file changes while you are there. The update fixes the hole, but it does not tell you whether someone already poked through it.",
-        "score": 25,
+        "score": 26,
         "created_utc_ts": 1784318602,
         "created_utc": "2026-07-17T20:03:22",
         "permalink": "https://reddit.com/r/Wordpress/comments/1uz8w53/sql_injection_vulnerability_update_immediately/oy5sko3/",
@@ -328,7 +780,7 @@
         "id": "oy5yzg9",
         "author": "RealBasics",
         "body": "Oof!  It's been a while since we've had such an urgent patch from core.\n\nThank goodness for site management consoles and daily off-site backups!  Would have been a PITA to manually update 100+ sites.",
-        "score": 6,
+        "score": 7,
         "created_utc_ts": 1784320324,
         "created_utc": "2026-07-17T20:32:04",
         "permalink": "https://reddit.com/r/Wordpress/comments/1uz8w53/sql_injection_vulnerability_update_immediately/oy5yzg9/",
@@ -339,7 +791,7 @@
         "id": "oy62f12",
         "author": "[deleted]",
         "body": "[deleted]",
-        "score": 3,
+        "score": 2,
         "created_utc_ts": 1784321259,
         "created_utc": "2026-07-17T20:47:39",
         "permalink": "https://reddit.com/r/Wordpress/comments/1uz8w53/sql_injection_vulnerability_update_immediately/oy62f12/",
@@ -350,7 +802,7 @@
         "id": "oy63eyz",
         "author": "otto4242",
         "body": "The links to the CVEs are in the post itself.",
-        "score": 3,
+        "score": 4,
         "created_utc_ts": 1784321532,
         "created_utc": "2026-07-17T20:52:12",
         "permalink": "https://reddit.com/r/Wordpress/comments/1uz8w53/sql_injection_vulnerability_update_immediately/oy63eyz/",
@@ -405,7 +857,7 @@
         "id": "oy68ar7",
         "author": "iamwazor",
         "body": "Because of constant security issues i have more maintanance work on my 3 mini wordpress websites than on my big shopify store lol. Insane",
-        "score": 16,
+        "score": 14,
         "created_utc_ts": 1784322891,
         "created_utc": "2026-07-17T21:14:51",
         "permalink": "https://reddit.com/r/Wordpress/comments/1uz8w53/sql_injection_vulnerability_update_immediately/oy68ar7/",
@@ -460,7 +912,7 @@
         "id": "oy739iv",
         "author": "fappingjack",
         "body": "It is a preventative security update. No WordPress installations in the wild have been effected. \n\n/wp-json/batch/v1\n\nI am going to use the salt from all the hate and sprinkle it on my NY steak. ",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1784332439,
         "created_utc": "2026-07-17T23:53:59",
         "permalink": "https://reddit.com/r/Wordpress/comments/1uz8w53/sql_injection_vulnerability_update_immediately/oy739iv/",
@@ -471,7 +923,7 @@
         "id": "oy7i7jk",
         "author": "MightyZygote",
         "body": "If you are running 6.9.4 and still using an older version of PHP prior to 7.4 (yes, bad, etc. but thats reality for some folks), the stupid logic is being applied that prevents 6.9.4 from updating to 6.9.5 even thought 6.9.5 runs fine on 7.3.25, its enforcing the 7.x rules that require 7.4! What a massive clusterfuck. I have one instance that auto-updated to 6.9.5 and another on the same damn server that hasn't updated, even though that second instance has this in its wp-config.php:  \ndefine( 'WP\\_AUTO\\_UPDATE\\_CORE', 'minor' );\n\nThis is seriously fucked up. I am so tired of this nonsense. This is the final straw  - moving everything to a static deployment without wordpress deployed at all and never looking back.",
-        "score": 6,
+        "score": 8,
         "created_utc_ts": 1784337624,
         "created_utc": "2026-07-18T01:20:24",
         "permalink": "https://reddit.com/r/Wordpress/comments/1uz8w53/sql_injection_vulnerability_update_immediately/oy7i7jk/",
@@ -482,7 +934,7 @@
         "id": "oy8jta6",
         "author": "downtownrob",
         "body": "“Versions of WordPress prior to 6.8 are not affected.”",
-        "score": 13,
+        "score": 12,
         "created_utc_ts": 1784352434,
         "created_utc": "2026-07-18T05:27:14",
         "permalink": "https://reddit.com/r/Wordpress/comments/1uz8w53/sql_injection_vulnerability_update_immediately/oy8jta6/",
@@ -504,7 +956,7 @@
         "id": "oy8xnw1",
         "author": "Sad_Pie227",
         "body": "One more reason to NOT use WordPress.",
-        "score": -1,
+        "score": 1,
         "created_utc_ts": 1784359141,
         "created_utc": "2026-07-18T07:19:01",
         "permalink": "https://reddit.com/r/Wordpress/comments/1uz8w53/sql_injection_vulnerability_update_immediately/oy8xnw1/",
@@ -559,7 +1011,7 @@
         "id": "oy9m8a6",
         "author": "Creative-Improvement",
         "body": "Just a heads up if it applies to you, Builderius recently dropped a static export option, so you can keep the best of both worlds.",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1784371636,
         "created_utc": "2026-07-18T10:47:16",
         "permalink": "https://reddit.com/r/Wordpress/comments/1uz8w53/sql_injection_vulnerability_update_immediately/oy9m8a6/",
@@ -592,7 +1044,7 @@
         "id": "oyb08ui",
         "author": "Fluent_Press2050",
         "body": "It’s not that. It’s the stupid no breaking changes policy that is causing this. It’s why I left when WP 7 continued this on. \n\nTheres a lot of who believe that WP 4.0 and older should no longer be supported. But Matt wants websites running on older WP to still work with newer plugins and themes. \n\nI was also hoping that WP 7 would enforce PHP 8 as the new minimum, but again, that didn’t happen. ",
-        "score": 4,
+        "score": 3,
         "created_utc_ts": 1784388757,
         "created_utc": "2026-07-18T15:32:37",
         "permalink": "https://reddit.com/r/Wordpress/comments/1uz8w53/sql_injection_vulnerability_update_immediately/oyb08ui/",
@@ -658,12 +1110,12 @@
     "created_utc": "2026-07-17T19:01:54",
     "first_author_comment": null,
     "num_comments": 58,
-    "score": 191,
+    "score": 192,
     "subreddit": "Wordpress",
     "tag": null,
     "tags": [],
     "title": "SQL Injection Vulnerability - Update Immediately",
-    "updatedAt": "2026-07-20T05:13:34.032Z",
+    "updatedAt": "2026-07-20T07:13:51.886Z",
     "upvote_ratio": 0.98,
     "url": "https://reddit.com/r/Wordpress/comments/1uz8w53/sql_injection_vulnerability_update_immediately/",
     "versionList": [],
@@ -722,13 +1174,13 @@
     "created_utc": "2026-07-17T13:18:22",
     "first_author_comment": null,
     "num_comments": 0,
-    "score": 6,
+    "score": 8,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Windows AppResolver LPE: From AppContainer to SYSTEM. PoC linked to CVE-2026-50454",
-    "updatedAt": "2026-07-20T04:46:36.752Z",
-    "upvote_ratio": 0.81,
+    "updatedAt": "2026-07-21T04:46:18.924Z",
+    "upvote_ratio": 0.9,
     "url": "https://reddit.com/r/netsec/comments/1uyzhy8/windows_appresolver_lpe_from_appcontainer_to/",
     "versionList": [
       "2026.0.0",
@@ -878,13 +1330,13 @@
     "created_utc": "2026-07-16T06:26:39",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 10,
+    "score": 12,
     "subreddit": "netsec",
     "tag": "Contains AI",
     "tags": [],
     "title": "ASUS bsitf.sys (CVE-2026-13585): Arbitrary Physical Memory Mapping via Unvalidated IOCTL",
-    "updatedAt": "2026-07-20T04:46:39.945Z",
-    "upvote_ratio": 0.82,
+    "updatedAt": "2026-07-21T04:46:21.614Z",
+    "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/netsec/comments/1uxuqyg/asus_bsitfsys_cve202613585_arbitrary_physical/",
     "versionList": [
       "2026.0.0",
@@ -949,8 +1401,8 @@
       "Security"
     ],
     "title": "Hardening NixOS against the Januscape KVM Escape (CVE-2026-53359)",
-    "updatedAt": "2026-07-20T04:53:01.506Z",
-    "upvote_ratio": 0.74,
+    "updatedAt": "2026-07-21T04:52:58.193Z",
+    "upvote_ratio": 0.76,
     "url": "https://reddit.com/r/linux/comments/1uxmpyg/hardening_nixos_against_the_januscape_kvm_escape/",
     "versionList": [
       "2026.0.0",
@@ -1930,7 +2382,7 @@
         "id": "oxiwxgx",
         "author": "repeating_bears",
         "body": "I didn't see Maven classifiers mentioned. Did you consider them?\n\n\"The classifier distinguishes artifacts that were built from the same POM but differ in content\" [https://maven.apache.org/pom.html](https://maven.apache.org/pom.html)\n\nThe version could stay as 1.2.3, but gain a classifier of \"CARE-CVE-123-hotfix-1\". If the artifact already has a classifier (not common), you could add it at the end.\n\nI imagine Central could retroactively reserve a classifier prefix (e.g. CARE-), since they're not common, so that a classifier beginning with that prefix is guaranteed to have been published via this new mechanism.\n\nI'm not sure what the Gradle/other support is for them. I only use Maven.",
-        "score": 3,
+        "score": 5,
         "created_utc_ts": 1784053415,
         "created_utc": "2026-07-14T18:23:35",
         "permalink": "https://reddit.com/r/java/comments/1uwfxrk/seeking_feedback_proposed_care_policy_for_maven/oxiwxgx/",
@@ -1985,7 +2437,7 @@
         "id": "oxm0308",
         "author": "Educational_Plum_130",
         "body": " the classifier route is going to bite you on resolution — classifiers get dropped during dependency mediation and neither renovate nor dependabot treat a new classifier as an upgrade, so the fix just won't propagate. if the whole point is 'same code, patched cve, no major bump', you want a version that sorts strictly above 1.2.3 but below 1.3.0 — a fourth segment like [1.2.3.1](http://1.2.3.1) orders correctly under maven's ComparableVersion and reads as a patch to the update tools. watch the jboss/wildfly '.Final' cases though, appending a digit there scrambles the sort order exactly like you flagged. honestly for a one-off compromised dep the pragmatic move is to backport the fix commit onto the tag you're pinned to and publish it to your internal repo, rather than waiting on a central-wide policy that'll take years to reach the tooling.",
-        "score": 3,
+        "score": 5,
         "created_utc_ts": 1784085756,
         "created_utc": "2026-07-15T03:22:36",
         "permalink": "https://reddit.com/r/java/comments/1uwfxrk/seeking_feedback_proposed_care_policy_for_maven/oxm0308/",
@@ -2056,8 +2508,8 @@
     "tag": null,
     "tags": [],
     "title": "Seeking Feedback: Proposed CARE Policy for Maven Central",
-    "updatedAt": "2026-07-20T05:04:51.507Z",
-    "upvote_ratio": 0.93,
+    "updatedAt": "2026-07-20T23:13:20.913Z",
+    "upvote_ratio": 1,
     "url": "https://reddit.com/r/java/comments/1uwfxrk/seeking_feedback_proposed_care_policy_for_maven/",
     "versionList": [],
     "metadata": {
@@ -2209,7 +2661,7 @@
       " Fun"
     ],
     "title": "Firefox v152.0.6's release notes.",
-    "updatedAt": "2026-07-20T00:26:44.515Z",
+    "updatedAt": "2026-07-21T00:28:05.844Z",
     "upvote_ratio": 0.95,
     "url": "https://reddit.com/r/firefox/comments/1uwbzy8/firefox_v15206s_release_notes/",
     "versionList": [
@@ -2234,6 +2686,98 @@
     },
     "commentCount": 14,
     "detectedCVEs": [
+      {
+        "cveId": "CVE-2026-15718",
+        "cveIds": [
+          "CVE-2026-15718",
+          "CVE-2026-15718",
+          "CVE-2026-15719",
+          "CVE-2026-15719"
+        ],
+        "source": "Comment",
+        "commentText": "(Bug 2047962)\n\n# Security Fixes:\n\n|Issue|Reporter|Impact|Description|References|\n|:-|:-|:-|:-|:-|\n|[CVE-2026-15718](https://www.mozilla.org/en-US/security/advisories/mfsa2026-67/#CVE-2026-15718)|Christian Holler|Critical|We are aware that exploit code for this is public however we are not aware of any attacks in the wild abusing this flaw.|[Bug 2045443](https://bugzilla.mozilla.org/show_bug.cgi?id=2045443)|\n|[CVE-2026-15719](https://www.mozilla.org/en-US/security/advisories/mfsa2026-67/#CVE-2026-15719)|Atsushi Sada|Critical|We are aware that exploit code for this is public however we are not aware of any attacks in the wild abusing this flaw.|[Bug 2043820](https://bugzilla.mozilla.org/show_bug.cgi?id=2043820)|",
+        "linkToComment": "https://reddit.com/r/firefox/comments/1uwbzy8/firefox_v15206s_release_notes/oxinryk/",
+        "commentDate": "2026-07-14T17:45:54+00:00",
+        "cvePublishedDate": "2026-07-14T13:18:20.310000+00:00",
+        "initialAnalysisDate": "2026-07-14T18:36:30.280",
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-07-14T18:36:30.280 | Initial Analysis | source=nvd@nist.gov | changeId=7777819E-67BE-48D1-9047-7B4A1B8D6099\n   - Added CPE Configuration: OR\n          *cpe:2.3:a:mozilla:firefox:*:*:*:*:-:*:*:* versions up to (excluding) 152.0.6\n   - Added Reference Type: Mozilla Corporation: https://bugzilla.mozilla.org/show_bug.cgi?id=2045443 Types: Permissions Required\n   - Added Reference Type: Mozilla Corporation: https://www.mozilla.org/security/advisories/mfsa2026-67/ Types: Vendor Advisory\n2. 2026-07-14T14:16:33.293 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=DF72F6A1-6512-416A-AB95-9C1BF7C01323\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:N\n   - Added CWE: CWE-763\n   - Added SSVC: {'timestamp': '2026-07-14T13:34:48.369595Z', 'id': 'CVE-2026-15718', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n3. 2026-07-14T13:18:20.310 | New CVE Received | source=security@mozilla.org | changeId=305855DF-4B91-4CAD-81CB-CDF7A56D0499\n   - Added Affected: [{'vendor': 'Mozilla', 'product': 'Firefox', 'versions': [{'version': '152.0.6', 'lessThanOrEqual': '*', 'versionType': 'rpm', 'status': 'unaffected'}]}]\n   - Added Description: We are aware that exploit code for this is public however we are not aware of any attacks in the wild abusing this flaw. This vulnerability was fixed in Firefox 152.0.6.\n   - Added Reference: https://bugzilla.mozilla.org/show_bug.cgi?id=2045443\n   - Added Reference: https://www.mozilla.org/security/advisories/mfsa2026-67/\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-15718",
+        "cveIds": [
+          "CVE-2026-15718",
+          "CVE-2026-15718",
+          "CVE-2026-15719",
+          "CVE-2026-15719"
+        ],
+        "source": "Comment",
+        "commentText": "(Bug 2047962)\n\n# Security Fixes:\n\n|Issue|Reporter|Impact|Description|References|\n|:-|:-|:-|:-|:-|\n|[CVE-2026-15718](https://www.mozilla.org/en-US/security/advisories/mfsa2026-67/#CVE-2026-15718)|Christian Holler|Critical|We are aware that exploit code for this is public however we are not aware of any attacks in the wild abusing this flaw.|[Bug 2045443](https://bugzilla.mozilla.org/show_bug.cgi?id=2045443)|\n|[CVE-2026-15719](https://www.mozilla.org/en-US/security/advisories/mfsa2026-67/#CVE-2026-15719)|Atsushi Sada|Critical|We are aware that exploit code for this is public however we are not aware of any attacks in the wild abusing this flaw.|[Bug 2043820](https://bugzilla.mozilla.org/show_bug.cgi?id=2043820)|",
+        "linkToComment": "https://reddit.com/r/firefox/comments/1uwbzy8/firefox_v15206s_release_notes/oxinryk/",
+        "commentDate": "2026-07-14T17:45:54+00:00",
+        "cvePublishedDate": "2026-07-14T13:18:20.310000+00:00",
+        "initialAnalysisDate": "2026-07-14T18:36:30.280",
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-07-14T18:36:30.280 | Initial Analysis | source=nvd@nist.gov | changeId=7777819E-67BE-48D1-9047-7B4A1B8D6099\n   - Added CPE Configuration: OR\n          *cpe:2.3:a:mozilla:firefox:*:*:*:*:-:*:*:* versions up to (excluding) 152.0.6\n   - Added Reference Type: Mozilla Corporation: https://bugzilla.mozilla.org/show_bug.cgi?id=2045443 Types: Permissions Required\n   - Added Reference Type: Mozilla Corporation: https://www.mozilla.org/security/advisories/mfsa2026-67/ Types: Vendor Advisory\n2. 2026-07-14T14:16:33.293 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=DF72F6A1-6512-416A-AB95-9C1BF7C01323\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:N\n   - Added CWE: CWE-763\n   - Added SSVC: {'timestamp': '2026-07-14T13:34:48.369595Z', 'id': 'CVE-2026-15718', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n3. 2026-07-14T13:18:20.310 | New CVE Received | source=security@mozilla.org | changeId=305855DF-4B91-4CAD-81CB-CDF7A56D0499\n   - Added Affected: [{'vendor': 'Mozilla', 'product': 'Firefox', 'versions': [{'version': '152.0.6', 'lessThanOrEqual': '*', 'versionType': 'rpm', 'status': 'unaffected'}]}]\n   - Added Description: We are aware that exploit code for this is public however we are not aware of any attacks in the wild abusing this flaw. This vulnerability was fixed in Firefox 152.0.6.\n   - Added Reference: https://bugzilla.mozilla.org/show_bug.cgi?id=2045443\n   - Added Reference: https://www.mozilla.org/security/advisories/mfsa2026-67/\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-15718",
+        "cveIds": [
+          "CVE-2026-15718",
+          "CVE-2026-15718",
+          "CVE-2026-15719",
+          "CVE-2026-15719"
+        ],
+        "source": "Comment",
+        "commentText": "(Bug 2047962)\n\n# Security Fixes:\n\n|Issue|Reporter|Impact|Description|References|\n|:-|:-|:-|:-|:-|\n|[CVE-2026-15718](https://www.mozilla.org/en-US/security/advisories/mfsa2026-67/#CVE-2026-15718)|Christian Holler|Critical|We are aware that exploit code for this is public however we are not aware of any attacks in the wild abusing this flaw.|[Bug 2045443](https://bugzilla.mozilla.org/show_bug.cgi?id=2045443)|\n|[CVE-2026-15719](https://www.mozilla.org/en-US/security/advisories/mfsa2026-67/#CVE-2026-15719)|Atsushi Sada|Critical|We are aware that exploit code for this is public however we are not aware of any attacks in the wild abusing this flaw.|[Bug 2043820](https://bugzilla.mozilla.org/show_bug.cgi?id=2043820)|",
+        "linkToComment": "https://reddit.com/r/firefox/comments/1uwbzy8/firefox_v15206s_release_notes/oxinryk/",
+        "commentDate": "2026-07-14T17:45:54+00:00",
+        "cvePublishedDate": "2026-07-14T13:18:20.310000+00:00",
+        "initialAnalysisDate": "2026-07-14T18:36:30.280",
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-07-14T18:36:30.280 | Initial Analysis | source=nvd@nist.gov | changeId=7777819E-67BE-48D1-9047-7B4A1B8D6099\n   - Added CPE Configuration: OR\n          *cpe:2.3:a:mozilla:firefox:*:*:*:*:-:*:*:* versions up to (excluding) 152.0.6\n   - Added Reference Type: Mozilla Corporation: https://bugzilla.mozilla.org/show_bug.cgi?id=2045443 Types: Permissions Required\n   - Added Reference Type: Mozilla Corporation: https://www.mozilla.org/security/advisories/mfsa2026-67/ Types: Vendor Advisory\n2. 2026-07-14T14:16:33.293 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=DF72F6A1-6512-416A-AB95-9C1BF7C01323\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:N\n   - Added CWE: CWE-763\n   - Added SSVC: {'timestamp': '2026-07-14T13:34:48.369595Z', 'id': 'CVE-2026-15718', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n3. 2026-07-14T13:18:20.310 | New CVE Received | source=security@mozilla.org | changeId=305855DF-4B91-4CAD-81CB-CDF7A56D0499\n   - Added Affected: [{'vendor': 'Mozilla', 'product': 'Firefox', 'versions': [{'version': '152.0.6', 'lessThanOrEqual': '*', 'versionType': 'rpm', 'status': 'unaffected'}]}]\n   - Added Description: We are aware that exploit code for this is public however we are not aware of any attacks in the wild abusing this flaw. This vulnerability was fixed in Firefox 152.0.6.\n   - Added Reference: https://bugzilla.mozilla.org/show_bug.cgi?id=2045443\n   - Added Reference: https://www.mozilla.org/security/advisories/mfsa2026-67/\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-15718",
+        "cveIds": [
+          "CVE-2026-15718",
+          "CVE-2026-15718",
+          "CVE-2026-15719",
+          "CVE-2026-15719"
+        ],
+        "source": "Comment",
+        "commentText": "(Bug 2047962)\n\n# Security Fixes:\n\n|Issue|Reporter|Impact|Description|References|\n|:-|:-|:-|:-|:-|\n|[CVE-2026-15718](https://www.mozilla.org/en-US/security/advisories/mfsa2026-67/#CVE-2026-15718)|Christian Holler|Critical|We are aware that exploit code for this is public however we are not aware of any attacks in the wild abusing this flaw.|[Bug 2045443](https://bugzilla.mozilla.org/show_bug.cgi?id=2045443)|\n|[CVE-2026-15719](https://www.mozilla.org/en-US/security/advisories/mfsa2026-67/#CVE-2026-15719)|Atsushi Sada|Critical|We are aware that exploit code for this is public however we are not aware of any attacks in the wild abusing this flaw.|[Bug 2043820](https://bugzilla.mozilla.org/show_bug.cgi?id=2043820)|",
+        "linkToComment": "https://reddit.com/r/firefox/comments/1uwbzy8/firefox_v15206s_release_notes/oxinryk/",
+        "commentDate": "2026-07-14T17:45:54+00:00",
+        "cvePublishedDate": "2026-07-14T13:18:20.310000+00:00",
+        "initialAnalysisDate": "2026-07-14T18:36:30.280",
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-07-14T18:36:30.280 | Initial Analysis | source=nvd@nist.gov | changeId=7777819E-67BE-48D1-9047-7B4A1B8D6099\n   - Added CPE Configuration: OR\n          *cpe:2.3:a:mozilla:firefox:*:*:*:*:-:*:*:* versions up to (excluding) 152.0.6\n   - Added Reference Type: Mozilla Corporation: https://bugzilla.mozilla.org/show_bug.cgi?id=2045443 Types: Permissions Required\n   - Added Reference Type: Mozilla Corporation: https://www.mozilla.org/security/advisories/mfsa2026-67/ Types: Vendor Advisory\n2. 2026-07-14T14:16:33.293 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=DF72F6A1-6512-416A-AB95-9C1BF7C01323\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:N\n   - Added CWE: CWE-763\n   - Added SSVC: {'timestamp': '2026-07-14T13:34:48.369595Z', 'id': 'CVE-2026-15718', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n3. 2026-07-14T13:18:20.310 | New CVE Received | source=security@mozilla.org | changeId=305855DF-4B91-4CAD-81CB-CDF7A56D0499\n   - Added Affected: [{'vendor': 'Mozilla', 'product': 'Firefox', 'versions': [{'version': '152.0.6', 'lessThanOrEqual': '*', 'versionType': 'rpm', 'status': 'unaffected'}]}]\n   - Added Description: We are aware that exploit code for this is public however we are not aware of any attacks in the wild abusing this flaw. This vulnerability was fixed in Firefox 152.0.6.\n   - Added Reference: https://bugzilla.mozilla.org/show_bug.cgi?id=2045443\n   - Added Reference: https://www.mozilla.org/security/advisories/mfsa2026-67/\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
       {
         "cveId": "CVE-2026-15718",
         "cveIds": [
@@ -4046,13 +4590,13 @@
     "created_utc": "2026-07-13T13:22:31",
     "first_author_comment": "[ Removed by Reddit ]",
     "num_comments": 3,
-    "score": 10,
+    "score": 12,
     "subreddit": "hardwarehacking",
     "tag": null,
     "tags": [],
     "title": "How I crafted an exploit PoC for a Linskys router",
-    "updatedAt": "2026-07-20T04:47:43.042Z",
-    "upvote_ratio": 0.82,
+    "updatedAt": "2026-07-21T04:47:28.918Z",
+    "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/hardwarehacking/comments/1uvbg2j/how_i_crafted_an_exploit_poc_for_a_linskys_router/",
     "versionList": [],
     "classification": {
@@ -4107,12 +4651,12 @@
     "created_utc": "2026-07-13T09:33:49",
     "first_author_comment": null,
     "num_comments": 17,
-    "score": 96,
+    "score": 95,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Dell BIOS Passwords: Weak XOR Encryption Allows Recovery from SPI Flash (CVE-2026-40639)",
-    "updatedAt": "2026-07-20T04:46:46.621Z",
+    "updatedAt": "2026-07-21T04:46:28.747Z",
     "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/netsec/comments/1uv6qbn/dell_bios_passwords_weak_xor_encryption_allows/",
     "versionList": [
@@ -4155,7 +4699,7 @@
         "id": "oxayts2",
         "author": "UltraEngine60",
         "body": "Jesus Christ what year is this.",
-        "score": 34,
+        "score": 32,
         "created_utc_ts": 1783961113,
         "created_utc": "2026-07-13T16:45:13",
         "permalink": "https://reddit.com/r/netsec/comments/1uv6qbn/dell_bios_passwords_weak_xor_encryption_allows/oxayts2/",
@@ -4188,7 +4732,7 @@
         "id": "oxbuuzx",
         "author": "shyouko",
         "body": "Let's pretend it is 1996",
-        "score": 12,
+        "score": 13,
         "created_utc_ts": 1783969155,
         "created_utc": "2026-07-13T18:59:15",
         "permalink": "https://reddit.com/r/netsec/comments/1uv6qbn/dell_bios_passwords_weak_xor_encryption_allows/oxbuuzx/",
@@ -4261,12 +4805,12 @@
     "created_utc": "2026-07-13T04:32:56",
     "first_author_comment": "The post is about Debian as distro itself, not as a foundation. Because frankly, Debian (and Mint) are enough for stable use cases.",
     "num_comments": 138,
-    "score": 638,
+    "score": 639,
     "subreddit": "debian",
     "tag": null,
     "tags": [],
     "title": "Debian is probably the most underrated distro to ever exist - From Arch user",
-    "updatedAt": "2026-07-20T04:55:16.642Z",
+    "updatedAt": "2026-07-20T08:55:31.161Z",
     "upvote_ratio": 0.95,
     "url": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/",
     "versionList": [],
@@ -4439,7 +4983,7 @@
         "id": "ox7pqtg",
         "author": "[deleted]",
         "body": "[removed]",
-        "score": -11,
+        "score": -13,
         "created_utc_ts": 1783917519,
         "created_utc": "2026-07-13T04:38:39",
         "permalink": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/ox7pqtg/",
@@ -4461,7 +5005,7 @@
         "id": "ox7q2qz",
         "author": "jhaand",
         "body": "Thnx.\n\nDebian works fine for me. Flatpaks work great to keep apps up to date. Otherwise Debian Testing works great as a more up to date rolling release. ",
-        "score": 44,
+        "score": 45,
         "created_utc_ts": 1783917663,
         "created_utc": "2026-07-13T04:41:03",
         "permalink": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/ox7q2qz/",
@@ -4483,7 +5027,7 @@
         "id": "ox7qp40",
         "author": "etancrazynpoor",
         "body": "Btw",
-        "score": 16,
+        "score": 15,
         "created_utc_ts": 1783917937,
         "created_utc": "2026-07-13T04:45:37",
         "permalink": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/ox7qp40/",
@@ -4494,7 +5038,7 @@
         "id": "ox7r6r6",
         "author": "ItelkezoMacska",
         "body": "Debian has always been top10, atm it’s nr5 on distrowatch.\n\nIt is always praised by end users and experts.\n\nI didn’t read your thing, but wtf are you talking about underrated distro?",
-        "score": 27,
+        "score": 28,
         "created_utc_ts": 1783918150,
         "created_utc": "2026-07-13T04:49:10",
         "permalink": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/ox7r6r6/",
@@ -4516,7 +5060,7 @@
         "id": "ox7r9p8",
         "author": "[deleted]",
         "body": "[removed]",
-        "score": 8,
+        "score": 9,
         "created_utc_ts": 1783918187,
         "created_utc": "2026-07-13T04:49:47",
         "permalink": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/ox7r9p8/",
@@ -4549,7 +5093,7 @@
         "id": "ox7szdu",
         "author": "mok000",
         "body": "Thank you for this comment. Let me quote something I wrote earlier today in another comment.\n\n&gt;Debian is a minimal no-frills build-it-yourself distribution like Arch, except it has three times as many packages in the core distribution. Like Arch, desktop environments are not extensively polished, this is something that’s up to you if you want. There is a huge difference in philosophy between the two, where Arch is a collection of the most recent versions of software that you are responsible for getting to work, Debian considers each package a part of a release where all parts are required to work together as a whole, and packages are tested against the entire release, something which is not possible in a rolling release. In addition, because of the small number of core packages, Arch users have to rely on AUR which contains packages maintained by random people on the Internet, adding a huge risk for malware, but especially a risk of packages that don’t properly conform to standards.\n\nThis is why Debian is used by NASA and for other mission critical applications. The base distribution is stable, tested and works, and *especially*, if you build your own software on top of Debian, *you can be sure the shared libraries don't change*, and even if you update to next release, the strict Debian packaging policy makes sure your own compiled software will continue to work.\n\nDebian is a highly professional distribution, but because it is so unchanging it is not very interesting to use for YouTube content creators that like to play with the latest desktop environments and to play games that need constant updates and adaptations of the software and drivers to make them work. That drives the general impression that Debian is \"boring\" and \"outdated\" that you describe.",
-        "score": 91,
+        "score": 88,
         "created_utc_ts": 1783918952,
         "created_utc": "2026-07-13T05:02:32",
         "permalink": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/ox7szdu/",
@@ -4571,7 +5115,7 @@
         "id": "ox7vejp",
         "author": "77descript",
         "body": "Don't mind an older DE-version, want a stable OS. And for newer apps there are options like flatpak, appimage and distrobox.  Also used Ubuntu/Kubuntu for 15+ years, but Debian is so much cleaner and more stable. Quality of Ubuntu/Kubuntu seemed to get worse each year. So am thankful when an Ubuntu update again switched my FF to unwanted snap version forcing me to finally try Debian. ",
-        "score": 10,
+        "score": 11,
         "created_utc_ts": 1783920055,
         "created_utc": "2026-07-13T05:20:55",
         "permalink": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/ox7vejp/",
@@ -4648,7 +5192,7 @@
         "id": "ox7zd3g",
         "author": "WritingTheRongs",
         "body": "Maybe I'm lazy but debian is the only distro I've ever used. ",
-        "score": 110,
+        "score": 111,
         "created_utc_ts": 1783921916,
         "created_utc": "2026-07-13T05:51:56",
         "permalink": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/ox7zd3g/",
@@ -4670,7 +5214,7 @@
         "id": "ox7zjkz",
         "author": "tungnon",
         "body": "I mean if it works why fix/change?",
-        "score": 28,
+        "score": 29,
         "created_utc_ts": 1783922000,
         "created_utc": "2026-07-13T05:53:20",
         "permalink": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/ox7zjkz/",
@@ -4681,7 +5225,7 @@
         "id": "ox8075h",
         "author": "Orthowin",
         "body": "Debian is not underrated it is gold standard.",
-        "score": 16,
+        "score": 17,
         "created_utc_ts": 1783922304,
         "created_utc": "2026-07-13T05:58:24",
         "permalink": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/ox8075h/",
@@ -4692,7 +5236,7 @@
         "id": "ox827hc",
         "author": "donnaber06",
         "body": "I have no problems or complaints about Debian. I have used it in the past with no complaints. I just don't enjoy it like I do Arch and I use Arch with flatpak for somethings and I use the nix package manager for everything else. I like rolling releases too, ever since I discovered them. All of my family's laptops or computers have Cinnamon running on Linux Mint. There is no hate for Debian from my side, just depends on the use case.\n\nhttps://preview.redd.it/5eidex6mvxch1.png?width=1026&amp;format=png&amp;auto=webp&amp;s=c215f3e58ba78a3bb0b89c7f64a3312b47e3e492\n\n",
-        "score": 4,
+        "score": 2,
         "created_utc_ts": 1783923257,
         "created_utc": "2026-07-13T06:14:17",
         "permalink": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/ox827hc/",
@@ -4703,7 +5247,7 @@
         "id": "ox82i36",
         "author": "archiekane",
         "body": "Sid is more rolling and stable than testing, in my couple of decades of Debian experience.\n\nHowever, I've been on stable the past 7-8 years, so maybe times have changed.",
-        "score": 16,
+        "score": 17,
         "created_utc_ts": 1783923397,
         "created_utc": "2026-07-13T06:16:37",
         "permalink": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/ox82i36/",
@@ -4736,7 +5280,7 @@
         "id": "ox83whv",
         "author": "esserstein",
         "body": "Underrated by Arch users I guess 🤷‍♂️",
-        "score": 15,
+        "score": 17,
         "created_utc_ts": 1783924072,
         "created_utc": "2026-07-13T06:27:52",
         "permalink": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/ox83whv/",
@@ -4747,7 +5291,7 @@
         "id": "ox8d6ec",
         "author": "[deleted]",
         "body": "[removed]",
-        "score": -6,
+        "score": -5,
         "created_utc_ts": 1783928690,
         "created_utc": "2026-07-13T07:44:50",
         "permalink": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/ox8d6ec/",
@@ -4791,7 +5335,7 @@
         "id": "ox8jksx",
         "author": "tungnon",
         "body": "debian users 🤝 arch users   \nwe both hate ubuntu",
-        "score": 0,
+        "score": 1,
         "created_utc_ts": 1783931987,
         "created_utc": "2026-07-13T08:39:47",
         "permalink": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/ox8jksx/",
@@ -4978,7 +5522,7 @@
         "id": "ox9bt65",
         "author": "Sweetwater98",
         "body": "Same here.. I do use it for gaming and blender here/there. Works nice!",
-        "score": 6,
+        "score": 5,
         "created_utc_ts": 1783944489,
         "created_utc": "2026-07-13T12:08:09",
         "permalink": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/ox9bt65/",
@@ -4989,7 +5533,7 @@
         "id": "ox9c4um",
         "author": "AlternativePear4617",
         "body": "Debian underrated???? Wtf!",
-        "score": 4,
+        "score": 3,
         "created_utc_ts": 1783944603,
         "created_utc": "2026-07-13T12:10:03",
         "permalink": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/ox9c4um/",
@@ -5066,7 +5610,7 @@
         "id": "ox9mca7",
         "author": "cyt0kinetic",
         "body": "It's funny when desktop users discover Debian, its been the GOAT of the server world since the 90s.\n\nThat being said it is nice when it gets recognized as being a usable end user playground too.",
-        "score": 14,
+        "score": 13,
         "created_utc_ts": 1783947992,
         "created_utc": "2026-07-13T13:06:32",
         "permalink": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/ox9mca7/",
@@ -5319,7 +5863,7 @@
         "id": "oxcstlr",
         "author": "LonelyMachines",
         "body": "&gt; it is not very interesting to use for YouTube content creators that like to play with the latest desktop environments\n\nI wonder how many of those people (at least the ones who stick with Linux) end up switching to something more stable, like Debian or Mint.",
-        "score": 5,
+        "score": 6,
         "created_utc_ts": 1783978103,
         "created_utc": "2026-07-13T21:28:23",
         "permalink": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/oxcstlr/",
@@ -5429,7 +5973,7 @@
         "id": "oxfa1bh",
         "author": "miluardo",
         "body": "My gaming pc, my laptop, my hypervisors, my VMs.. all Debian. Maybe I'm lazy too because I installed bazzite on my living room gaming pc and I regret not also just going with Debian lol",
-        "score": 5,
+        "score": 6,
         "created_utc_ts": 1784009526,
         "created_utc": "2026-07-14T06:12:06",
         "permalink": "https://reddit.com/r/debian/comments/1uv1f30/debian_is_probably_the_most_underrated_distro_to/oxfa1bh/",
@@ -10008,8 +10552,8 @@
     "tag": "Contains AI",
     "tags": [],
     "title": "Privilege escalation to root in Lima QEMU guests via a world-writable agent socket (CVE-2026-53657)",
-    "updatedAt": "2026-07-20T04:47:02.416Z",
-    "upvote_ratio": 0.92,
+    "updatedAt": "2026-07-21T04:46:44.779Z",
+    "upvote_ratio": 0.95,
     "url": "https://reddit.com/r/netsec/comments/1uknvr4/privilege_escalation_to_root_in_lima_qemu_guests/",
     "versionList": [
       "2026.0.0",
@@ -10078,13 +10622,13 @@
     "created_utc": "2026-06-30T19:40:48",
     "first_author_comment": null,
     "num_comments": 3,
-    "score": 40,
+    "score": 36,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CitrixBleed To Infinity And Beyond (Citrix NetScaler Pre-Auth Memory Overread CVE-2026-8451) - watchTowr Labs",
-    "updatedAt": "2026-07-20T04:47:04.688Z",
-    "upvote_ratio": 0.95,
+    "updatedAt": "2026-07-21T04:46:47.146Z",
+    "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/netsec/comments/1ujzc5y/citrixbleed_to_infinity_and_beyond_citrix/",
     "versionList": [
       "2026.0.0",
@@ -10577,13 +11121,13 @@
     "created_utc": "2026-06-29T19:27:02",
     "first_author_comment": null,
     "num_comments": 4,
-    "score": 35,
+    "score": 31,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Enterprise Tech In, Shell Out (Progress Kemp LoadMaster Uninitialized Heap to Pre-Auth RCE CVE-2026-8037) - watchTowr Labs",
-    "updatedAt": "2026-07-20T04:47:06.412Z",
-    "upvote_ratio": 0.97,
+    "updatedAt": "2026-07-21T04:46:48.870Z",
+    "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/netsec/comments/1uj2a4w/enterprise_tech_in_shell_out_progress_kemp/",
     "versionList": [
       "2026.0.0",
@@ -11173,7 +11717,7 @@
     "tag": null,
     "tags": [],
     "title": "CVE-2025-52465 geoserver arbitrary file write vulnerability",
-    "updatedAt": "2026-07-20T04:47:10.112Z",
+    "updatedAt": "2026-07-21T04:46:52.448Z",
     "upvote_ratio": 0.79,
     "url": "https://reddit.com/r/netsec/comments/1ufdc3k/cve202552465_geoserver_arbitrary_file_write/",
     "versionList": [
@@ -13319,13 +13863,13 @@
     "created_utc": "2026-06-22T18:31:27",
     "first_author_comment": null,
     "num_comments": 3,
-    "score": 17,
+    "score": 18,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-25860 turn XSS to RCE",
-    "updatedAt": "2026-07-20T04:47:13.581Z",
-    "upvote_ratio": 0.86,
+    "updatedAt": "2026-07-21T04:46:56.018Z",
+    "upvote_ratio": 0.87,
     "url": "https://reddit.com/r/netsec/comments/1ucsrw0/cve202625860_turn_xss_to_rce/",
     "versionList": [
       "2026.0.0",
@@ -21372,481 +21916,5 @@
         }
       }
     ]
-  },
-  {
-    "_id": "6a28760e9dc5fd763982ec1e",
-    "redditId": "1u1dlpy",
-    "author": "cspotme2",
-    "author_description": "Says manual mitigation steps remain in effect ... I guess they were in no rush to release it before patch Tuesday. Still downplaying the severity of the yellowkey bypass lol \n\n&amp;#x200B;\n\nhttps://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-45585\n\n&amp;#x200B;",
-    "awards": [],
-    "comments": [
-      {
-        "id": "oqoxoto",
-        "author": "CaesarOfSalads",
-        "body": "Looks like they'll have to patch it again...lol\n\n[https://x.com/jonasLyk/status/2062768028090007773](https://x.com/jonasLyk/status/2062768028090007773) ",
-        "score": 1,
-        "created_utc_ts": 1781030414,
-        "created_utc": "2026-06-09T18:40:14",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1u1dlpy/microsoft_has_released_a_patch_for_the_bitlocker/oqoxoto/",
-        "parent_id": "t3_1u1dlpy",
-        "is_submitter": false,
-        "sentiment_score": 0.361,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 0.762,
-          "pos": 0.238,
-          "compound": 0.3612
-        }
-      },
-      {
-        "id": "oqoyhuq",
-        "author": "BisonThunderclap",
-        "body": "Nice",
-        "score": 1,
-        "created_utc_ts": 1781030633,
-        "created_utc": "2026-06-09T18:43:53",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1u1dlpy/microsoft_has_released_a_patch_for_the_bitlocker/oqoyhuq/",
-        "parent_id": "t1_oqoxoto",
-        "is_submitter": false,
-        "sentiment_score": 0.421,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 0,
-          "pos": 1,
-          "compound": 0.4215
-        }
-      },
-      {
-        "id": "oqozg49",
-        "author": "Valdaraak",
-        "body": "It's such a specific set of things you have to do, in both cases, that I'm still of the belief the \"underlying design issue\" they didn't fix is an intentional backdoor around Bitlocker for various alphabet agencies.",
-        "score": 1,
-        "created_utc_ts": 1781030892,
-        "created_utc": "2026-06-09T18:48:12",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1u1dlpy/microsoft_has_released_a_patch_for_the_bitlocker/oqozg49/",
-        "parent_id": "t1_oqoxoto",
-        "is_submitter": false,
-        "sentiment_score": 0,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 1,
-          "pos": 0,
-          "compound": 0
-        }
-      },
-      {
-        "id": "oqp0vtw",
-        "author": "gripe_and_complain",
-        "body": "Just add a pre boot PIN. ",
-        "score": 1,
-        "created_utc_ts": 1781031274,
-        "created_utc": "2026-06-09T18:54:34",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1u1dlpy/microsoft_has_released_a_patch_for_the_bitlocker/oqp0vtw/",
-        "parent_id": "t3_1u1dlpy",
-        "is_submitter": false,
-        "sentiment_score": 0,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 1,
-          "pos": 0,
-          "compound": 0
-        }
-      },
-      {
-        "id": "oqp1m3w",
-        "author": "Secret_Account07",
-        "body": "So what’s the new backdoor in?",
-        "score": 1,
-        "created_utc_ts": 1781031468,
-        "created_utc": "2026-06-09T18:57:48",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1u1dlpy/microsoft_has_released_a_patch_for_the_bitlocker/oqp1m3w/",
-        "parent_id": "t3_1u1dlpy",
-        "is_submitter": false,
-        "sentiment_score": 0,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 1,
-          "pos": 0,
-          "compound": 0
-        }
-      },
-      {
-        "id": "oqp2vx8",
-        "author": "GardenWeasel67",
-        "body": "That is not a option in a lot of organizations",
-        "score": 1,
-        "created_utc_ts": 1781031807,
-        "created_utc": "2026-06-09T19:03:27",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1u1dlpy/microsoft_has_released_a_patch_for_the_bitlocker/oqp2vx8/",
-        "parent_id": "t1_oqp0vtw",
-        "is_submitter": false,
-        "sentiment_score": 0,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 1,
-          "pos": 0,
-          "compound": 0
-        }
-      },
-      {
-        "id": "oqp4fd2",
-        "author": "missed_sla",
-        "body": "Off topic, when did Twitter turn into a whole ass blog platform?",
-        "score": 1,
-        "created_utc_ts": 1781032226,
-        "created_utc": "2026-06-09T19:10:26",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1u1dlpy/microsoft_has_released_a_patch_for_the_bitlocker/oqp4fd2/",
-        "parent_id": "t3_1u1dlpy",
-        "is_submitter": false,
-        "sentiment_score": -0.542,
-        "sentiment_bucket": "Negative",
-        "sentiment_detail": {
-          "neg": 0.259,
-          "neu": 0.741,
-          "pos": 0,
-          "compound": -0.5423
-        }
-      },
-      {
-        "id": "oqp80z8",
-        "author": "elpollodiablox",
-        "body": "This post has a link to the article.\n\nhttps://www.reddit.com/r/sysadmin/s/1SsARMLbMd",
-        "score": 1,
-        "created_utc_ts": 1781033201,
-        "created_utc": "2026-06-09T19:26:41",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1u1dlpy/microsoft_has_released_a_patch_for_the_bitlocker/oqp80z8/",
-        "parent_id": "t1_oqp1m3w",
-        "is_submitter": false,
-        "sentiment_score": 0,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 1,
-          "pos": 0,
-          "compound": 0
-        }
-      },
-      {
-        "id": "oqp84dl",
-        "author": "MacrossX",
-        "body": "EDU would crumple into a ball and die before that happened.",
-        "score": 1,
-        "created_utc_ts": 1781033227,
-        "created_utc": "2026-06-09T19:27:07",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1u1dlpy/microsoft_has_released_a_patch_for_the_bitlocker/oqp84dl/",
-        "parent_id": "t1_oqp0vtw",
-        "is_submitter": false,
-        "sentiment_score": -0.599,
-        "sentiment_bucket": "Negative",
-        "sentiment_detail": {
-          "neg": 0.302,
-          "neu": 0.698,
-          "pos": 0,
-          "compound": -0.5994
-        }
-      },
-      {
-        "id": "oqpeqlm",
-        "author": "KiNgPiN8T3",
-        "body": "I’ve been doing a lot of testing with that and it’s been pretty shit. Trying to make it user friendly has been a nightmare. (We know what users are like.) Plus trying to find a way to remove it en masse has been a pain in the arse too! Doesn’t help that it’s an inherited environment part way between ad and intune either. Lol",
-        "score": 1,
-        "created_utc_ts": 1781035019,
-        "created_utc": "2026-06-09T19:56:59",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1u1dlpy/microsoft_has_released_a_patch_for_the_bitlocker/oqpeqlm/",
-        "parent_id": "t1_oqp0vtw",
-        "is_submitter": false,
-        "sentiment_score": 0.648,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0.094,
-          "neu": 0.739,
-          "pos": 0.167,
-          "compound": 0.6476
-        }
-      },
-      {
-        "id": "oqqgvpp",
-        "author": "disclosure5",
-        "body": "Pretending this is easy is such a Reddit comment.\n\nDo you do deal with users?",
-        "score": 1,
-        "created_utc_ts": 1781046299,
-        "created_utc": "2026-06-09T23:04:59",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1u1dlpy/microsoft_has_released_a_patch_for_the_bitlocker/oqqgvpp/",
-        "parent_id": "t1_oqp0vtw",
-        "is_submitter": false,
-        "sentiment_score": 0.511,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 0.736,
-          "pos": 0.264,
-          "compound": 0.5106
-        }
-      },
-      {
-        "id": "oqr132j",
-        "author": "colin8651",
-        "body": "This is one of them gosh darn patches that will take a long to to fix without removing the back door ",
-        "score": 1,
-        "created_utc_ts": 1781053111,
-        "created_utc": "2026-06-10T00:58:31",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1u1dlpy/microsoft_has_released_a_patch_for_the_bitlocker/oqr132j/",
-        "parent_id": "t3_1u1dlpy",
-        "is_submitter": false,
-        "sentiment_score": 0,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 1,
-          "pos": 0,
-          "compound": 0
-        }
-      },
-      {
-        "id": "oqr5dwh",
-        "author": "disclosure5",
-        "body": "I hate that infosec information often lives as \"blog\" on Twitter. Infosec people were the most vocal about moving away when Twitter went to shit and although there's great people on Mastodon, zero day nearly always requires a Twitter account to read.",
-        "score": 1,
-        "created_utc_ts": 1781054543,
-        "created_utc": "2026-06-10T01:22:23",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1u1dlpy/microsoft_has_released_a_patch_for_the_bitlocker/oqr5dwh/",
-        "parent_id": "t1_oqp4fd2",
-        "is_submitter": false,
-        "sentiment_score": -0.494,
-        "sentiment_bucket": "Negative",
-        "sentiment_detail": {
-          "neg": 0.151,
-          "neu": 0.764,
-          "pos": 0.085,
-          "compound": -0.4939
-        }
-      },
-      {
-        "id": "oqs1xqe",
-        "author": "Marak830",
-        "body": "https://secret.club/2021/01/15/bitlocker-bypass.html\n\nSo other's don't have to sign up to twitter to get the link lol",
-        "score": 1,
-        "created_utc_ts": 1781066669,
-        "created_utc": "2026-06-10T04:44:29",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1u1dlpy/microsoft_has_released_a_patch_for_the_bitlocker/oqs1xqe/",
-        "parent_id": "t1_oqoxoto",
-        "is_submitter": false,
-        "sentiment_score": 0.421,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 0.833,
-          "pos": 0.167,
-          "compound": 0.4215
-        }
-      },
-      {
-        "id": "oqsl28o",
-        "author": "Mitchell_90",
-        "body": "Staying away from the supposed MS mitigation script at the moment as there’s been reports that it can bork WinRE and leave devices unable to boot. ",
-        "score": 1,
-        "created_utc_ts": 1781075767,
-        "created_utc": "2026-06-10T07:16:07",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1u1dlpy/microsoft_has_released_a_patch_for_the_bitlocker/oqsl28o/",
-        "parent_id": "t3_1u1dlpy",
-        "is_submitter": false,
-        "sentiment_score": -0.052,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0.046,
-          "neu": 0.954,
-          "pos": 0,
-          "compound": -0.0516
-        }
-      },
-      {
-        "id": "oqsylwx",
-        "author": "EsotericalSolutions",
-        "body": "Can confirm, particular issues on multi-boot systems (multiple WIN installs)",
-        "score": 1,
-        "created_utc_ts": 1781082854,
-        "created_utc": "2026-06-10T09:14:14",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1u1dlpy/microsoft_has_released_a_patch_for_the_bitlocker/oqsylwx/",
-        "parent_id": "t1_oqsl28o",
-        "is_submitter": false,
-        "sentiment_score": 0.674,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 0.665,
-          "pos": 0.335,
-          "compound": 0.6739
-        }
-      }
-    ],
-    "created_utc": "2026-06-09T18:32:57",
-    "first_author_comment": "It's easy in new and smaller environments to discuss the risk and push for it. \n\nIf we ever implemented this in our user base, I would imagine everyone write down the pin on the laptop or would be calling in every time it rebooted.... Considering they ask if it's phishing about the same workday expense report they get monthly.\n\n",
-    "num_comments": 45,
-    "score": 144,
-    "subreddit": "sysadmin",
-    "tag": "Microsoft",
-    "tags": [
-      "Microsoft"
-    ],
-    "title": "Microsoft has released a patch for the bitlocker bypass",
-    "updatedAt": "2026-06-19T01:10:23.052Z",
-    "upvote_ratio": 0.98,
-    "url": "https://reddit.com/r/sysadmin/comments/1u1dlpy/microsoft_has_released_a_patch_for_the_bitlocker/",
-    "versionList": [],
-    "isAboutCve": true,
-    "isAboutLatestUpdate": true,
-    "classification": {
-      "componentType": [],
-      "securityType": [
-        "UNKNOWN"
-      ]
-    },
-    "metadata": {
-      "predicted": {
-        "isUpdateRelated": false,
-        "positiveScore": 0.008263964859461759,
-        "timestampPredicted": "2026-06-10T04:01:25.908542+00:00"
-      },
-      "labeled": {
-        "isUpdateRelated": null
-      }
-    },
-    "author_description_sentiment": {
-      "score": 0.153,
-      "detail": {
-        "neg": 0.063,
-        "neu": 0.857,
-        "pos": 0.08,
-        "compound": 0.1531
-      }
-    },
-    "category": "Neutral",
-    "comments_avg_sentiment_score": 0.084,
-    "sentiment_score": 0.119
-  },
-  {
-    "_id": "6a28763b9dc5fd763982ec35",
-    "redditId": "1u16gsm",
-    "author": "patchdayalert",
-    "author_description": "Hello all! Since the post last week seemed to be helpful to some folks, I figured I'd make another post this week. \n\nThe big, bad, scary one is the Netlogon RCE because it targets domain controllers and is now confirmed exploited. After that, I’d be looking at Palo Alto GlobalProtect, SolarWinds Serv-U, Cisco SD-WAN Manager, and any Linux container hosts that might still be exposed to the old cgroups v1 escape.\n\nHere's the order I’d work them:\n\n# 1. [CVE-2026-41089: Microsoft Windows Netlogon](https://nvd.nist.gov/vuln/detail/CVE-2026-41089)\n\nStack-based buffer overflow in Netlogon. An unauthenticated attacker can hit a domain controller over the network and get code execution.\n\n**Affected:** Windows Server 2012 R2 through 2025.\n\n**Why it matters:** CVSS 9.8. Active exploitation has been confirmed by [Belgium’s CCB](https://ccb.belgium.be/advisories/warning-microsoft-patch-tuesday-may-2026-patches-118-vulnerabilities-16-critical-102).\n\n**Action:** If your DCs got May’s cumulative update, you should be covered. If you deferred May updates on domain controllers, I’d move this to the top of the queue. Find your rollup patches [here](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-41089) for your Server version.\n\n# 2. [CVE-2026-0257: Palo Alto Networks PAN-OS GlobalProtect](https://nvd.nist.gov/vuln/detail/CVE-2026-0257)\n\nAuthentication bypass in the GlobalProtect portal and gateway. The short version is that forged cookies can give an attacker an unauthorized VPN session.\n\n**Affected:** PAN-OS firewalls with a GlobalProtect portal or gateway where authentication override cookies are enabled.\n\n**Why it matters:** CVSS 9.1. Exploited in the wild and on [CISA KEV](https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search=CVE-2026-0257&amp;field_date_added_wrapper=all&amp;field_cve=&amp;sort_by=field_date_added&amp;items_per_page=20&amp;url=).\n\n**Action:** Patch to a fixed PAN-OS release. If you can’t patch immediately, disable authentication override or use a dedicated certificate only for that feature.\n\n# 3. [CVE-2026-28318: SolarWinds Serv-U](https://nvd.nist.gov/vuln/detail/CVE-2026-28318)\n\nUnauthenticated denial of service. A crafted POST request with a `Content-Encoding: deflate` header can crash the Serv-U service.\n\n**Affected:** Serv-U file transfer versions before 15.5.4, and 15.5.4 without Hotfix 1.\n\n**Why it matters:** CVSS 7.5. Exploited in the wild. Added to CISA KEV on June 5 with a federal deadline of June 19.\n\n**Action:** [Update to Serv-U 15.5.4 Hotfix 1](https://documentation.solarwinds.com/en/success_center/servu/content/release_notes/servu_15-5-4-hotfix-1_release_notes.htm#link7). If you need an interim move, restrict access to known IPs and block POST requests carrying a `Content-Encoding` header.\n\n# 4. [CVE-2026-20245: Cisco Catalyst SD-WAN Manager](https://nvd.nist.gov/vuln/detail/CVE-2026-20245)\n\nCommand injection in Cisco Catalyst SD-WAN Manager. A crafted file upload can run arbitrary commands as root.\n\n**Affected:** Cisco Catalyst SD-WAN Manager, formerly vManage.\n\n**Why it matters:** CVSS 7.8. Exploited as a zero-day. No patch available yet.\n\n**Action:** This one does require netadmin privileges, so it is not the same kind of emergency as an unauthenticated internet-facing RCE. But with no fix available, I’d still lock down who can reach SD-WAN Manager, audit netadmin accounts, make sure MFA is solid, and watch Cisco’s advisory for the patch. You can see Cisco's additional recommendations [here](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-privesc-4uxFrdzx).\n\n# 5. [CVE-2022-0492: Linux kernel cgroups v1 container escape](https://nvd.nist.gov/vuln/detail/CVE-2022-0492)\n\nOld bug, but newly relevant again because CISA added it to KEV last week. The cgroups v1 `release_agent` issue can let a low-privileged local user escape a container and escalate to root.\n\n**Affected:** Linux hosts running containers on unpatched kernels or with overly permissive container configs.\n\n**Why it matters:** CVSS 7.8. Added to CISA KEV on June 2 based on evidence of active exploitation.\n\n**Action:** Check your container hosts. Make sure kernels are patched, containers are not running with `CAP_SYS_ADMIN`, and AppArmor/SELinux/Seccomp profiles are actually enforced.\n\nThree of these are on CISA KEV: Palo Alto, Serv-U, and the Linux cgroups bug.\n\nIf I only had time to clear one, I’d start with Netlogon. Unauthenticated RCE against domain controllers is not something I’d want sitting around, especially now that exploitation has been confirmed.\n\nServ-U would be next if it is internet-facing, then Palo Alto GlobalProtect if authentication override is enabled.\n\nAlso worth noting: Check Point Remote Access VPN CVE-2026-50751 and LiteLLM CVE-2026-42271 both landed on KEV after this window, so they’ll probably be in next week’s batch.\n\nIf you like the format, please consider checking out my newsletter! Link is on my profile page.",
-    "awards": [],
-    "comments": [
-      {
-        "id": "oqnrpfc",
-        "author": "274Below",
-        "body": "I'm assuming that there will be a whole pile of new CVEs published by Microsoft in the next... 1.5 hours or so? \n\nIt will be interesting to see what this months scope will be.",
-        "score": 1,
-        "created_utc_ts": 1781019553,
-        "created_utc": "2026-06-09T15:39:13",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1u16gsm/top_enterprise_cves_from_last_week_worth_your/oqnrpfc/",
-        "parent_id": "t3_1u16gsm",
-        "is_submitter": false,
-        "sentiment_score": 0.402,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 0.922,
-          "pos": 0.078,
-          "compound": 0.4019
-        }
-      },
-      {
-        "id": "oqnyz5e",
-        "author": "patchdayalert",
-        "body": "yeah for sure, thats why I left Patch Tuesday out of this one. felt like it would get messy fast if I tried to mix last week's stuff with the new MSRC drop before everything had settled out.\n\nI'm thinking about changing the Patch Tuesday area of my blog into like a dashboard that folks can work off of. I'll need a bit of time to dig through the patch notes though, so check back later this week if you're interested!",
-        "score": 1,
-        "created_utc_ts": 1781021395,
-        "created_utc": "2026-06-09T16:09:55",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1u16gsm/top_enterprise_cves_from_last_week_worth_your/oqnyz5e/",
-        "parent_id": "t1_oqnrpfc",
-        "is_submitter": true,
-        "sentiment_score": 0.784,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0.053,
-          "neu": 0.804,
-          "pos": 0.143,
-          "compound": 0.784
-        }
-      },
-      {
-        "id": "oqo4yep",
-        "author": "Joshposh70",
-        "body": "New RCE in Veeam V12 announced this morning.",
-        "score": 1,
-        "created_utc_ts": 1781022924,
-        "created_utc": "2026-06-09T16:35:24",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1u16gsm/top_enterprise_cves_from_last_week_worth_your/oqo4yep/",
-        "parent_id": "t3_1u16gsm",
-        "is_submitter": false,
-        "sentiment_score": 0,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 1,
-          "pos": 0,
-          "compound": 0
-        }
-      },
-      {
-        "id": "oqo7c96",
-        "author": "patchdayalert",
-        "body": "I was actually just reading about that one on X/Twitter about a half hour ago. All the more reason to isolate backup infra if it isn't yet. That will be a big target for Ransomware attacks in no time at all.\n\n[Link to the BleepingComputer article for anyone interested.](https://www.bleepingcomputer.com/news/security/new-veeam-vulnerability-exposes-backup-servers-to-rce-attacks/)",
-        "score": 1,
-        "created_utc_ts": 1781023533,
-        "created_utc": "2026-06-09T16:45:33",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1u16gsm/top_enterprise_cves_from_last_week_worth_your/oqo7c96/",
-        "parent_id": "t1_oqo4yep",
-        "is_submitter": true,
-        "sentiment_score": -0.732,
-        "sentiment_bucket": "Negative",
-        "sentiment_detail": {
-          "neg": 0.143,
-          "neu": 0.857,
-          "pos": 0,
-          "compound": -0.7322
-        }
-      }
-    ],
-    "created_utc": "2026-06-09T14:23:52",
-    "first_author_comment": "yeah for sure, thats why I left Patch Tuesday out of this one. felt like it would get messy fast if I tried to mix last week's stuff with the new MSRC drop before everything had settled out.\n\nI'm thinking about changing the Patch Tuesday area of my blog into like a dashboard that folks can work off of. I'll need a bit of time to dig through the patch notes though, so check back later this week if you're interested!",
-    "num_comments": 4,
-    "score": 12,
-    "subreddit": "sysadmin",
-    "tag": "General Discussion",
-    "tags": [
-      "General Discussion"
-    ],
-    "title": "Top enterprise CVEs from last week worth your patch queue (May 31 - Jun 6)",
-    "updatedAt": "2026-06-19T01:11:31.815Z",
-    "upvote_ratio": 0.83,
-    "url": "https://reddit.com/r/sysadmin/comments/1u16gsm/top_enterprise_cves_from_last_week_worth_your/",
-    "versionList": [
-      "31.0.0",
-      "6.0.0"
-    ],
-    "isAboutCve": true,
-    "isAboutLatestUpdate": true,
-    "classification": {
-      "componentType": []
-    },
-    "author_description_sentiment": {
-      "score": 0.836,
-      "detail": {
-        "neg": 0.049,
-        "neu": 0.894,
-        "pos": 0.058,
-        "compound": 0.8362
-      }
-    },
-    "category": "Positive",
-    "comments_avg_sentiment_score": 0.113,
-    "sentiment_score": 0.475
   }
 ]
