@@ -1,5 +1,220 @@
 [
   {
+    "_id": "6a622b48a9bf05f75be19d87",
+    "redditId": "1v4e24u",
+    "author": "Marolar-DE",
+    "author_description": "https://preview.redd.it/eikefrgjezeh1.png?width=1284&amp;format=png&amp;auto=webp&amp;s=724b49823063b54ca677b53d46d97808fb45ab65\n\nI get this last weeks more often.\n\nExamples: \n\n* [https://ubuntu.com/security/CVE-2026-52686](https://ubuntu.com/security/CVE-2026-52686)\n* [https://ubuntu.com/security/CVE-2026-52687](https://ubuntu.com/security/CVE-2026-52687)\n\n  \n[https://status.canonical.com/](https://status.canonical.com/) \\- Reports no downtime.\n\nSometimes I also get:\n\nhttps://preview.redd.it/zdo0z4lsezeh1.png?width=324&amp;format=png&amp;auto=webp&amp;s=b289a63a1ab5963a1e569be515c80f21be9f938e\n\nIt looks like that cached CVE pages are browsable but everything \"new\" is not cached -&gt; down. Why is there no real uptime check @ status.canonical.com?",
+    "awards": [],
+    "comments": [
+      {
+        "id": "ozacbl7",
+        "author": "DonkeeeyKong",
+        "body": "I also get “502 Bad Gateway” when trying to access https://ubuntu.com/login.\n\nI don't see that mentioned on [status.canonical.com](http://status.canonical.com) either.",
+        "score": 1,
+        "created_utc_ts": 1784816096,
+        "created_utc": "2026-07-23T14:14:56",
+        "permalink": "https://reddit.com/r/Ubuntu/comments/1v4e24u/securityubuntucom_security_api_downtime/ozacbl7/",
+        "parent_id": "t3_1v4e24u",
+        "is_submitter": false
+      },
+      {
+        "id": "ozalg7m",
+        "author": "Opening_Zucchini718",
+        "body": "I'm also seeing 502 bad gateway on the login page",
+        "score": 1,
+        "created_utc_ts": 1784818518,
+        "created_utc": "2026-07-23T14:55:18",
+        "permalink": "https://reddit.com/r/Ubuntu/comments/1v4e24u/securityubuntucom_security_api_downtime/ozalg7m/",
+        "parent_id": "t3_1v4e24u",
+        "is_submitter": false
+      },
+      {
+        "id": "ozbiven",
+        "author": "Junior-Spring-5557",
+        "body": "This has been happening on and off for weeks. With all the CVEs this year, I've been checking that site frequently over the last 2 months. It's been down for me about 25% of the time.",
+        "score": 1,
+        "created_utc_ts": 1784826982,
+        "created_utc": "2026-07-23T17:16:22",
+        "permalink": "https://reddit.com/r/Ubuntu/comments/1v4e24u/securityubuntucom_security_api_downtime/ozbiven/",
+        "parent_id": "t3_1v4e24u",
+        "is_submitter": false
+      },
+      {
+        "id": "ozejc4u",
+        "author": "Great-Cow7256",
+        "body": "Using a VPN?  Canonical may still be blocking them. ",
+        "score": 1,
+        "created_utc_ts": 1784857978,
+        "created_utc": "2026-07-24T01:52:58",
+        "permalink": "https://reddit.com/r/Ubuntu/comments/1v4e24u/securityubuntucom_security_api_downtime/ozejc4u/",
+        "parent_id": "t3_1v4e24u",
+        "is_submitter": false
+      }
+    ],
+    "created_utc": "2026-07-23T13:32:39",
+    "first_author_comment": null,
+    "num_comments": 4,
+    "score": 5,
+    "subreddit": "Ubuntu",
+    "tag": null,
+    "tags": [],
+    "title": "security.ubuntu.com - Security API Downtime?",
+    "updatedAt": "2026-07-24T04:53:53.377Z",
+    "upvote_ratio": 1,
+    "url": "https://reddit.com/r/Ubuntu/comments/1v4e24u/securityubuntucom_security_api_downtime/",
+    "versionList": [],
+    "classification": {
+      "componentType": [
+        "OS",
+        "API"
+      ],
+      "securityType": [
+        "UNKNOWN"
+      ]
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.00013000007986691556,
+        "timestampPredicted": "2026-07-24T00:01:36.725399+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": false
+  },
+  {
+    "_id": "6a61d4f2a9bf05f75be18df4",
+    "redditId": "1v472np",
+    "author": "No_Zookeepergame7552",
+    "author_description": "When the WP2Shell writeup came out recently (unauth RCE in WordPress core, CVE-2026-63030 + CVE-2026-60137), I read it a few times and still couldn't really understand the whole chain in my head. I personally don’t have a lot of experience with WP internals, so I had a lot of “whys” when reading it. The way I usually deal with that is to just try to reproduce the thing to see how it works.\n\nI then turned it into a full lab that has a WordPress 7.0.1 app and steps through the entire chain from an unauthenticated request to RCE.\n\nHonestly it was more work than I expected. The SQL injection is read-only, so a good amount of the exploiting part is dedicated to finding a way to turn that SQLi into an actual write. It uses a bunch of WP legitimate features that I had no idea about, so reproducing each hop reliably took a while.\n\nI built it mostly for my own understanding, but made it available for free in case anyone else is struggling to understand the middle part of the exploit. Original research is Adam Kues at Searchlight Cyber, I recommend reading his article if you haven't done so already.\n\nLink to the lab (**it doesn’t work on mobile**, you’ll need a desktop device): [https://learn.uphack.io/lab/wp2shell-wordpress-rce](https://learn.uphack.io/lab/wp2shell-wordpress-rce)",
+    "awards": [],
+    "comments": [
+      {
+        "id": "oz8s8xm",
+        "author": "scriptvexy",
+        "body": "this is super cool, thank you for putting in the work to turn “wtf is going on here” into something you can actually step through. way easier to grok a messy exploit chain by poking at a lab than rereading the writeup 10 times.",
+        "score": 2,
+        "created_utc_ts": 1784795519,
+        "created_utc": "2026-07-23T08:31:59",
+        "permalink": "https://reddit.com/r/netsec/comments/1v472np/wp2shell_handson_lab_reproducing_the_preauth/oz8s8xm/",
+        "parent_id": "t3_1v472np",
+        "is_submitter": false
+      },
+      {
+        "id": "oz8shha",
+        "author": "No_Zookeepergame7552",
+        "body": "Thank you, happy that you enjoyed it.",
+        "score": 1,
+        "created_utc_ts": 1784795638,
+        "created_utc": "2026-07-23T08:33:58",
+        "permalink": "https://reddit.com/r/netsec/comments/1v472np/wp2shell_handson_lab_reproducing_the_preauth/oz8shha/",
+        "parent_id": "t1_oz8s8xm",
+        "is_submitter": true
+      }
+    ],
+    "created_utc": "2026-07-23T07:45:02",
+    "first_author_comment": "Thank you, happy that you enjoyed it.",
+    "num_comments": 2,
+    "score": 1,
+    "subreddit": "netsec",
+    "tag": null,
+    "tags": [],
+    "title": "WP2Shell: Hands-On Lab Reproducing the Pre-Auth WordPress Core RCE",
+    "updatedAt": "2026-07-23T16:01:03.605Z",
+    "upvote_ratio": 0.67,
+    "url": "https://reddit.com/r/netsec/comments/1v472np/wp2shell_handson_lab_reproducing_the_preauth/",
+    "versionList": [],
+    "classification": {
+      "componentType": [
+        "APP"
+      ],
+      "securityType": [
+        "UNKNOWN"
+      ]
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.00039360534294304614,
+        "timestampPredicted": "2026-07-23T16:01:02.970954+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true
+  },
+  {
+    "_id": "6a61badda9bf05f75be18669",
+    "redditId": "1v45t17",
+    "author": "NapierPalm",
+    "author_description": "A newly disclosed Linux kernel flaw, RefluXFS (CVE-2026-64600), stems from a race condition in XFS and can allow local privilege escalation to root under the right conditions",
+    "awards": [],
+    "comments": [
+      {
+        "id": "oz8f388",
+        "author": "Ok-Eggplant-7569",
+        "body": "https://blog.qualys.com/vulnerabilities-threat-research/2026/07/22/refluxfs-a-linux-kernel-local-privilege-escalation-to-root-in-xfs-cve-2026-64600\n\nBetter link with no ads",
+        "score": 1,
+        "created_utc_ts": 1784789080,
+        "created_utc": "2026-07-23T06:44:40",
+        "permalink": "https://reddit.com/r/Fedora/comments/1v45t17/refluxfs_cve202664600_breaking_down_the_latest/oz8f388/",
+        "parent_id": "t3_1v45t17",
+        "is_submitter": false
+      },
+      {
+        "id": "oz8g4t0",
+        "author": "pilkyton",
+        "body": "Summary: Copy a sensitive system file as a non-root user (which makes XFS point to the original data blocks on disk, and increments their refcount to show that multiple files link to that data), then use an XFS race condition (decreasing the copy's reference count by removing the copy while a write to the user-owned copy is waiting in queue), to write to the copy in a way that makes the kernel think the user's copy is now the exclusive owner of the system file's disk data blocks (due to seeing a single data block refcount when it's time to write to the referenced block). This makes the write overwrite the original system data block directly, bypassing the copy-on-write mechanism (which is only used when multiple file copies share a data block). You now have modified system files and have obtained root access (by either adding a new admin account to /etc/passwd, or replacing the contents of a setuid root binary such as \"sudo\" with a backdoored version). It only takes a few seconds to trigger the exploit.\n\nThis exploit affects most enterprise/server distros since they ship with XFS for performance.\n\nMost importantly, this exploit was discovered by AI. One of countless other serious exploits discovered by AI. Which were completely missed by human eyes. In other words, AI is way better than humans at complex programming and we'll just continue seeing more and more of this. You can be sure that attackers are using AI every day, and all we can hope is that good people embrace AI too and plug the exploits first. It's mind boggling that AI can figure out advanced race conditions that no humans caught. Well, good thing Linus Torvalds made his statement encouraging AI use in kernel development a few days ago. Even if it hurts some human pride, I'd rather have less exploits in the kernel.",
+        "score": 1,
+        "created_utc_ts": 1784789574,
+        "created_utc": "2026-07-23T06:52:54",
+        "permalink": "https://reddit.com/r/Fedora/comments/1v45t17/refluxfs_cve202664600_breaking_down_the_latest/oz8g4t0/",
+        "parent_id": "t3_1v45t17",
+        "is_submitter": false
+      }
+    ],
+    "created_utc": "2026-07-23T06:34:05",
+    "first_author_comment": null,
+    "num_comments": 2,
+    "score": 11,
+    "subreddit": "Fedora",
+    "tag": "News",
+    "tags": [],
+    "title": "RefluXFS (CVE-2026-64600): Breaking down the latest Linux kernel XFS vulnerability",
+    "updatedAt": "2026-07-24T04:55:20.174Z",
+    "upvote_ratio": 0.93,
+    "url": "https://reddit.com/r/Fedora/comments/1v45t17/refluxfs_cve202664600_breaking_down_the_latest/",
+    "versionList": [
+      "2026.0.0",
+      "64600.0.0"
+    ],
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.003161786358997319,
+        "timestampPredicted": "2026-07-23T16:01:10.207003+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true,
+    "classification": {
+      "componentType": [
+        "OS"
+      ],
+      "securityType": [
+        "SECURITY"
+      ]
+    }
+  },
+  {
     "_id": "6a614834a9bf05f75be16c17",
     "redditId": "1v3v5za",
     "author": "ryanmerket",
@@ -7,14 +222,14 @@
     "awards": [],
     "created_utc": "2026-07-22T22:21:24",
     "first_author_comment": "the $100k was announced today [https://x.com/sagitz\\_/status/2079894251643515084](https://x.com/sagitz_/status/2079894251643515084)",
-    "num_comments": 4,
-    "score": 32,
+    "num_comments": 23,
+    "score": 90,
     "subreddit": "netsec",
-    "tag": null,
+    "tag": "Discussion",
     "tags": [],
     "title": "GitHub issues $100,000 bounty for critical RCE vulnerability",
-    "updatedAt": "2026-07-23T04:46:23.136Z",
-    "upvote_ratio": 0.9,
+    "updatedAt": "2026-07-24T04:45:57.361Z",
+    "upvote_ratio": 0.91,
     "url": "https://reddit.com/r/netsec/comments/1v3v5za/github_issues_100000_bounty_for_critical_rce/",
     "versionList": [
       "100.0.0",
@@ -24,7 +239,7 @@
       "predicted": {
         "isUpdateRelated": false,
         "positiveScore": 0.0008110074663390312,
-        "timestampPredicted": "2026-07-23T04:00:43.001600+00:00"
+        "timestampPredicted": "2026-07-23T12:01:22.496793+00:00"
       },
       "labeled": {
         "isUpdateRelated": null
@@ -37,8 +252,8 @@
         "SECURITY"
       ],
       "componentType": [
-        "VERSIONING",
-        "REPOSITORY"
+        "REPOSITORY",
+        "VERSIONING"
       ]
     },
     "comments": [
@@ -46,7 +261,7 @@
         "id": "oz6q1ms",
         "author": "thedolphin_",
         "body": "primary source with breakdown: https://www.wiz.io/blog/github-rce-vulnerability-cve-2026-3854\n\nalso, this is old. still cool since i missed it but i thought it just happened.\n&gt; April 28, 2026",
-        "score": 4,
+        "score": 19,
         "created_utc_ts": 1784765787,
         "created_utc": "2026-07-23T00:16:27",
         "permalink": "https://reddit.com/r/netsec/comments/1v3v5za/github_issues_100000_bounty_for_critical_rce/oz6q1ms/",
@@ -57,7 +272,7 @@
         "id": "oz6ujuo",
         "author": "ryanmerket",
         "body": "the $100k was announced today [https://x.com/sagitz\\_/status/2079894251643515084](https://x.com/sagitz_/status/2079894251643515084)",
-        "score": 3,
+        "score": 10,
         "created_utc_ts": 1784767242,
         "created_utc": "2026-07-23T00:40:42",
         "permalink": "https://reddit.com/r/netsec/comments/1v3v5za/github_issues_100000_bounty_for_critical_rce/oz6ujuo/",
@@ -68,11 +283,110 @@
         "id": "oz7vu7t",
         "author": "TheG0AT0fAllTime",
         "body": "That's great. You love to see corporations actually doing the payout let alone a big one",
-        "score": 1,
+        "score": 21,
         "created_utc_ts": 1784780407,
         "created_utc": "2026-07-23T04:20:07",
         "permalink": "https://reddit.com/r/netsec/comments/1v3v5za/github_issues_100000_bounty_for_critical_rce/oz7vu7t/",
         "parent_id": "t3_1v3v5za",
+        "is_submitter": false
+      },
+      {
+        "id": "oz81wnx",
+        "author": "Liskar-dev",
+        "body": "It's Microsoft, they'll find ways to not pay reporters.",
+        "score": 10,
+        "created_utc_ts": 1784782967,
+        "created_utc": "2026-07-23T05:02:47",
+        "permalink": "https://reddit.com/r/netsec/comments/1v3v5za/github_issues_100000_bounty_for_critical_rce/oz81wnx/",
+        "parent_id": "t1_oz7vu7t",
+        "is_submitter": false
+      },
+      {
+        "id": "oz8k32d",
+        "author": "sunsetsxskies",
+        "body": "$100k for an unauthenticated RCE is honestly cheap given what it could've done, glad it got caught before anyone weaponized it",
+        "score": 15,
+        "created_utc_ts": 1784791464,
+        "created_utc": "2026-07-23T07:24:24",
+        "permalink": "https://reddit.com/r/netsec/comments/1v3v5za/github_issues_100000_bounty_for_critical_rce/oz8k32d/",
+        "parent_id": "t3_1v3v5za",
+        "is_submitter": false
+      },
+      {
+        "id": "oz8shf4",
+        "author": "dankney",
+        "body": "Was it? How would we know?",
+        "score": 0,
+        "created_utc_ts": 1784795637,
+        "created_utc": "2026-07-23T08:33:57",
+        "permalink": "https://reddit.com/r/netsec/comments/1v3v5za/github_issues_100000_bounty_for_critical_rce/oz8shf4/",
+        "parent_id": "t1_oz8k32d",
+        "is_submitter": false
+      },
+      {
+        "id": "ozaf6pa",
+        "author": "pilif",
+        "body": "TBH, I think 100K is very little money given the possible fallout that could have come from this kind of vulnerability. This affected f'ing GitHub who hosts an ungodly amount of code for the world, including GitHub Enterprise service for the other ungodly amount of code hosted by enterprises themselves.\n\nI'm pretty sure this kind of issue would have raised much, much, much more money on the black market.",
+        "score": 4,
+        "created_utc_ts": 1784816866,
+        "created_utc": "2026-07-23T14:27:46",
+        "permalink": "https://reddit.com/r/netsec/comments/1v3v5za/github_issues_100000_bounty_for_critical_rce/ozaf6pa/",
+        "parent_id": "t3_1v3v5za",
+        "is_submitter": false
+      },
+      {
+        "id": "ozagzo6",
+        "author": "nemec",
+        "body": "\"It would be a lot more valuable selling this to criminals\"\n\nIt usually is, if you enjoy supporting criminals.",
+        "score": 2,
+        "created_utc_ts": 1784817351,
+        "created_utc": "2026-07-23T14:35:51",
+        "permalink": "https://reddit.com/r/netsec/comments/1v3v5za/github_issues_100000_bounty_for_critical_rce/ozagzo6/",
+        "parent_id": "t1_ozaf6pa",
+        "is_submitter": false
+      },
+      {
+        "id": "ozcc6a0",
+        "author": "CountyBrilliant",
+        "body": "yeah but the black market route comes with the small catch of potentially going to prison, so the risk math there is pretty different. $100k clean money is worth a lot more than whatever you'd get selling to some threat actor",
+        "score": 5,
+        "created_utc_ts": 1784834346,
+        "created_utc": "2026-07-23T19:19:06",
+        "permalink": "https://reddit.com/r/netsec/comments/1v3v5za/github_issues_100000_bounty_for_critical_rce/ozcc6a0/",
+        "parent_id": "t1_oz8k32d",
+        "is_submitter": false
+      },
+      {
+        "id": "ozcvab2",
+        "author": "been__",
+        "body": "That number is proof that it’s not worth it and you should sell to a usgov related broker \n\n100k is trash ",
+        "score": -1,
+        "created_utc_ts": 1784839293,
+        "created_utc": "2026-07-23T20:41:33",
+        "permalink": "https://reddit.com/r/netsec/comments/1v3v5za/github_issues_100000_bounty_for_critical_rce/ozcvab2/",
+        "parent_id": "t3_1v3v5za",
+        "is_submitter": false
+      },
+      {
+        "id": "ozcvchw",
+        "author": "been__",
+        "body": "That is not big at all ",
+        "score": 0,
+        "created_utc_ts": 1784839310,
+        "created_utc": "2026-07-23T20:41:50",
+        "permalink": "https://reddit.com/r/netsec/comments/1v3v5za/github_issues_100000_bounty_for_critical_rce/ozcvchw/",
+        "parent_id": "t1_oz7vu7t",
+        "is_submitter": false
+      },
+      {
+        "id": "ozcvxyb",
+        "author": "been__",
+        "body": "Selling to intelligence related brokers that are not aligned with foreign adversaries is generally legal in the US and that’s what people should do ",
+        "score": -1,
+        "created_utc_ts": 1784839466,
+        "created_utc": "2026-07-23T20:44:26",
+        "permalink": "https://reddit.com/r/netsec/comments/1v3v5za/github_issues_100000_bounty_for_critical_rce/ozcvxyb/",
+        "parent_id": "t1_ozaf6pa",
         "is_submitter": false
       }
     ]
@@ -86,13 +400,13 @@
     "created_utc": "2026-07-22T19:08:40",
     "first_author_comment": null,
     "num_comments": 0,
-    "score": 3,
+    "score": 5,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-50458: Finding a UAF in the Windows Brokering File System",
-    "updatedAt": "2026-07-23T04:46:23.965Z",
-    "upvote_ratio": 0.81,
+    "updatedAt": "2026-07-24T04:45:58.308Z",
+    "upvote_ratio": 0.86,
     "url": "https://reddit.com/r/netsec/comments/1v3ptel/cve202650458_finding_a_uaf_in_the_windows/",
     "versionList": [
       "2026.0.0",
@@ -110,7 +424,7 @@
       "predicted": {
         "isUpdateRelated": false,
         "positiveScore": 0.0003484017946519929,
-        "timestampPredicted": "2026-07-23T04:01:12.082060+00:00"
+        "timestampPredicted": "2026-07-23T08:01:30.076006+00:00"
       },
       "labeled": {
         "isUpdateRelated": null
@@ -141,7 +455,7 @@
         "id": "oz3on6u",
         "author": "jmgol",
         "body": "I reported a RCE to a vendor and was the 61st report of it.  Still not resolved.  Vendors are overloaded, protect yourself, nobody cares about your assets more.",
-        "score": 12,
+        "score": 11,
         "created_utc_ts": 1784736553,
         "created_utc": "2026-07-22T16:09:13",
         "permalink": "https://reddit.com/r/netsec/comments/1v3i9il/i_was_reporter_11_for_a_wpforms_paypal_webhook/oz3on6u/",
@@ -152,7 +466,7 @@
         "id": "oz3rbtp",
         "author": "unknownhad",
         "body": "TBH if it was a RCE and you were 61st person to report it, that kinda means vendor does not care.  \nRCE's are 10, and all 10 should be patched with P0/P1.  \nAnd if it got reported +1 times , then it's a shame.",
-        "score": 6,
+        "score": 7,
         "created_utc_ts": 1784737220,
         "created_utc": "2026-07-22T16:20:20",
         "permalink": "https://reddit.com/r/netsec/comments/1v3i9il/i_was_reporter_11_for_a_wpforms_paypal_webhook/oz3rbtp/",
@@ -163,24 +477,35 @@
         "id": "oz4t1qt",
         "author": "System0verlord",
         "body": "Seconding this, OP. It’s *your* work. Why let some racist calculator take credit for the explanation of your work? \n\nWrite it yourself, in your voice. You’ll get a better result, and you will get better at writing. Having Claude do it actively robs you of the chance to improve your writing abilities, which you yourself view as needing work, otherwise you wouldn’t be having Claude write it for you in the first place.",
-        "score": 8,
+        "score": 12,
         "created_utc_ts": 1784746466,
         "created_utc": "2026-07-22T18:54:26",
         "permalink": "https://reddit.com/r/netsec/comments/1v3i9il/i_was_reporter_11_for_a_wpforms_paypal_webhook/oz4t1qt/",
         "parent_id": "t1_oz3dhi6",
         "is_submitter": false
+      },
+      {
+        "id": "ozb0axr",
+        "author": "s8boxer",
+        "body": "\n&gt;I reported a RCE to a vendor and was the 61st report of it.  Still not resolved.  \n\nWell it's time to make it public, so they will need to fix it :). Make some goofy rce as a POC, describe how you found it and call it a day. Vendor doesn't care for responsible disclosure, there are tons of embargoes even for fixes in the Linux kernel, they have to patch something and call it a minor fix because vendors are taking YEARS to move. \n\nBeing the 61st and it isn't public yet means it may be used in crimeware or state sponsored tools. Just make it public already",
+        "score": 1,
+        "created_utc_ts": 1784822331,
+        "created_utc": "2026-07-23T15:58:51",
+        "permalink": "https://reddit.com/r/netsec/comments/1v3i9il/i_was_reporter_11_for_a_wpforms_paypal_webhook/ozb0axr/",
+        "parent_id": "t1_oz3on6u",
+        "is_submitter": false
       }
     ],
     "created_utc": "2026-07-22T14:46:52",
     "first_author_comment": "TBH if it was a RCE and you were 61st person to report it, that kinda means vendor does not care.  \nRCE's are 10, and all 10 should be patched with P0/P1.  \nAnd if it got reported +1 times , then it's a shame.",
-    "num_comments": 4,
-    "score": 25,
+    "num_comments": 5,
+    "score": 32,
     "subreddit": "netsec",
     "tag": "Contains AI",
     "tags": [],
     "title": "I was reporter #11 for a WPForms PayPal webhook vulnerability (CVE-2026-4986)",
-    "updatedAt": "2026-07-23T04:46:25.932Z",
-    "upvote_ratio": 0.8,
+    "updatedAt": "2026-07-24T04:45:58.961Z",
+    "upvote_ratio": 0.83,
     "url": "https://reddit.com/r/netsec/comments/1v3i9il/i_was_reporter_11_for_a_wpforms_paypal_webhook/",
     "versionList": [
       "11.0.0",
@@ -220,7 +545,7 @@
     "tag": "Solved",
     "tags": [],
     "title": "UGOS Pro forced update broke Docker permissions",
-    "updatedAt": "2026-07-23T04:41:21.665Z",
+    "updatedAt": "2026-07-23T08:41:44.809Z",
     "upvote_ratio": 0.63,
     "url": "https://reddit.com/r/homelab/comments/1v3b91p/ugos_pro_forced_update_broke_docker_permissions/",
     "versionList": [],
@@ -259,8 +584,8 @@
     "tag": null,
     "tags": [],
     "title": "Writeup &amp; POC: CVE-2026-49176 Windows WalletService to SYSTEM (LPE)",
-    "updatedAt": "2026-07-23T04:46:28.802Z",
-    "upvote_ratio": 0.81,
+    "updatedAt": "2026-07-24T04:46:02.146Z",
+    "upvote_ratio": 0.84,
     "url": "https://reddit.com/r/netsec/comments/1v2kg4q/writeup_poc_cve202649176_windows_walletservice_to/",
     "versionList": [
       "2026.0.0",
@@ -320,7 +645,7 @@
         "id": "oyprs6r",
         "author": "gainan",
         "body": "all of them I guess, for example:\n\nhttps://lore.kernel.org/linux-cve-announce/2026072052-CVE-2026-64206-b475@gregkh/T/#u\n\n```\nIssue introduced in 3.16 with commit 7ab56c3a6eccb215034b0cb096e0313441cbf2a4 and fixed in 6.18.39 with commit d5616beb3355b5fca2280d796c1cf7ada4ee6551\n\tIssue introduced in 3.16 with commit 7ab56c3a6eccb215034b0cb096e0313441cbf2a4 and fixed in 7.1.4 with commit e96fbac8d3a73b0bc165383c092a30628561d320\n\tIssue introduced in 3.16 with commit 7ab56c3a6eccb215034b0cb096e0313441cbf2a4 and fixed in 7.2-rc3 with commit 2641a9e0a1dd4af2e21995470a21d55dd35e5203\n```\n\nlatest kernel on Debian Sid: linux-image-7.1.4+deb14-amd64",
-        "score": 10,
+        "score": 9,
         "created_utc_ts": 1784570010,
         "created_utc": "2026-07-20T17:53:30",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyprs6r/",
@@ -331,7 +656,7 @@
         "id": "oypsw6r",
         "author": "billm4",
         "body": "it’s the kernel, pretty much every reported bug is a cve. ",
-        "score": 173,
+        "score": 179,
         "created_utc_ts": 1784570289,
         "created_utc": "2026-07-20T17:58:09",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oypsw6r/",
@@ -342,7 +667,7 @@
         "id": "oypv4n8",
         "author": "Lant6",
         "body": "&gt;Note, due to the layer at which the Linux kernel is in a system, almost any bug might be exploitable to compromise the security of the kernel, but the possibility of exploitation is often not evident when the bug is fixed. Because of this, the CVE assignment team is overly cautious and **assign CVE numbers to any bugfix that they identify**. This explains the seemingly large number of CVEs that are issued by the Linux kernel team.\n\nFrom: [https://docs.kernel.org/process/cve.html#process](https://docs.kernel.org/process/cve.html#process) (emphasis mine)\n\nSo it is not too surprising that there is such a large number of CVEs.  \n  \n(Also see: https://utcc.utoronto.ca/\\~cks/space/blog/linux/KernelBugfixCVEsAStory)",
-        "score": 284,
+        "score": 287,
         "created_utc_ts": 1784570860,
         "created_utc": "2026-07-20T18:07:40",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oypv4n8/",
@@ -364,7 +689,7 @@
         "id": "oyq13lz",
         "author": "gainan",
         "body": "I can't edit the post. If I did the maths correctly, these are the kernels that have been patched:\n\n```\nstable: \t7.1.4\nlongterm: \t6.18.39\nlongterm: \t6.12.96\nlongterm: \t6.6.144\nlongterm: \t6.1.177\nlongterm: \t5.15.211\nlongterm: \t5.10.260\n```\n\n```\n     27 5.10.258\n     67 5.10.259\n     16 5.10.260\n     37 5.15.209\n     78 5.15.210\n     18 5.15.211\n     48 6.1.175\n     87 6.1.176\n     22 6.1.177\n     18 6.12.91\n     82 6.12.92\n    107 6.12.93\n      6 6.12.94\n     30 6.12.95\n      5 6.12.96\n     25 6.18.33\n    138 6.18.34\n    118 6.18.35\n      7 6.18.36\n      2 6.18.37\n     29 6.18.38\n      7 6.18.39\n     14 6.6.141\n     62 6.6.142\n     98 6.6.143\n     26 6.6.144\n     30 7.0.10\n    165 7.0.11\n    130 7.0.12\n      8 7.0.13\n      2 7.0.14\n    330 7.1\n     35 7.1.3\n      6 7.1.4\n     41 7.2\n```",
-        "score": 4,
+        "score": 3,
         "created_utc_ts": 1784572392,
         "created_utc": "2026-07-20T18:33:12",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyq13lz/",
@@ -375,7 +700,7 @@
         "id": "oyq141u",
         "author": "stevecrox0914",
         "body": "The linux kernel maintainers, ask for patches to be posted to a mailing list, which they manually check the diff off and sometimes check a CI service to confirm a branch builds and the tests pass.\n\nHumans are good are reviewing the logic of a change but make terrible compilers and even worse are really bad at consistency.\n\nWhich is why everyone adds code linters and analysis tools to the build process and feeds that information into the review process, but the Linux developers \"knew what they were doing\".\n\nAI is being used as a code analysis tool that doesn't need any integration effort the maintainers can block from working. We are seeing decades of technical debt being addressed.\n\nSome of the maintainers who love churning their subsystems are going to get an awakening on how much technical debt they create.",
-        "score": 8,
+        "score": 7,
         "created_utc_ts": 1784572395,
         "created_utc": "2026-07-20T18:33:15",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyq141u/",
@@ -386,7 +711,7 @@
         "id": "oyqapiw",
         "author": "pervertsage",
         "body": "You sound like a skittish netrunner.",
-        "score": 16,
+        "score": 17,
         "created_utc_ts": 1784574888,
         "created_utc": "2026-07-20T19:14:48",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyqapiw/",
@@ -397,7 +722,7 @@
         "id": "oyqbmoh",
         "author": "DrabberFrog",
         "body": "Am I the only one getting blocked by Anubis when I click that link in the reddit app?",
-        "score": 29,
+        "score": 28,
         "created_utc_ts": 1784575130,
         "created_utc": "2026-07-20T19:18:50",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyqbmoh/",
@@ -408,7 +733,7 @@
         "id": "oyqcwqv",
         "author": "MarzipanEven7336",
         "body": "AI Slop",
-        "score": -32,
+        "score": -31,
         "created_utc_ts": 1784575470,
         "created_utc": "2026-07-20T19:24:30",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyqcwqv/",
@@ -419,7 +744,7 @@
         "id": "oyqe33y",
         "author": "iBoMbY",
         "body": "I hope Microslop, and all the others, are using some AI tools internally, to find all the bugs in their code, because they probably have a lot more obvious ones, since very few people, compared to Linux, ever had a chance to look at it.",
-        "score": 14,
+        "score": 13,
         "created_utc_ts": 1784575784,
         "created_utc": "2026-07-20T19:29:44",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyqe33y/",
@@ -430,7 +755,7 @@
         "id": "oyqfold",
         "author": "tsunamionioncerial",
         "body": "432 CVE patches lead to 1200 CVEs ",
-        "score": 80,
+        "score": 79,
         "created_utc_ts": 1784576211,
         "created_utc": "2026-07-20T19:36:51",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyqfold/",
@@ -474,7 +799,7 @@
         "id": "oyqhyxn",
         "author": "TerribleReason4195",
         "body": "That is a lot. It is good at least researchers and contributors are doing this instead of hackers.",
-        "score": 1,
+        "score": 0,
         "created_utc_ts": 1784576820,
         "created_utc": "2026-07-20T19:47:00",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyqhyxn/",
@@ -485,7 +810,7 @@
         "id": "oyqj2hm",
         "author": "Jristz",
         "body": "Don't worry those 1200 CVE patches will lead to 65535 CVEs",
-        "score": 54,
+        "score": 52,
         "created_utc_ts": 1784577115,
         "created_utc": "2026-07-20T19:51:55",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyqj2hm/",
@@ -496,7 +821,7 @@
         "id": "oyql4py",
         "author": "disturbedmonkey69",
         "body": "Nah they just release their programs and let the end user find the bugs.",
-        "score": 7,
+        "score": 6,
         "created_utc_ts": 1784577667,
         "created_utc": "2026-07-20T20:01:07",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyql4py/",
@@ -507,7 +832,7 @@
         "id": "oyqmjru",
         "author": "AntimatterTNT",
         "body": "wdym \"instead of\"? i think you mean \"it's good researchers and contributors are trying to catch up with black hat hackers\"",
-        "score": 10,
+        "score": 9,
         "created_utc_ts": 1784578050,
         "created_utc": "2026-07-20T20:07:30",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyqmjru/",
@@ -518,7 +843,7 @@
         "id": "oyqnz4g",
         "author": "Geminii27",
         "body": "It's a new internet security feature - you must submit your heart to be weighed against a feather.",
-        "score": 86,
+        "score": 85,
         "created_utc_ts": 1784578432,
         "created_utc": "2026-07-20T20:13:52",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyqnz4g/",
@@ -540,7 +865,7 @@
         "id": "oyqqt6x",
         "author": "eras",
         "body": "For the longest time Linux didn't have a bug tracker, so I guess now the CVE database is filling up the gap.. ?",
-        "score": -16,
+        "score": -15,
         "created_utc_ts": 1784579191,
         "created_utc": "2026-07-20T20:26:31",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyqqt6x/",
@@ -551,7 +876,7 @@
         "id": "oyqvfz5",
         "author": "SubmarineWipers",
         "body": "I wonder how long till even kernel maintainers realize this is untenable and rewrite all the historically buggy parts of the kernel into Rust. \n\nOr you know, they can spend all their time fixing malloc-free errors. Sounds like fun. ",
-        "score": -22,
+        "score": -21,
         "created_utc_ts": 1784580433,
         "created_utc": "2026-07-20T20:47:13",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyqvfz5/",
@@ -562,7 +887,7 @@
         "id": "oyrdwo3",
         "author": "capcom1116",
         "body": "Linux is a very public OS with a ton of scrutiny; a big CVE list is a good thing, regardless.",
-        "score": 96,
+        "score": 100,
         "created_utc_ts": 1784585609,
         "created_utc": "2026-07-20T22:13:29",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyrdwo3/",
@@ -573,7 +898,7 @@
         "id": "oyrh9p6",
         "author": "Vaddieg",
         "body": "I wonder if reporters bothered to verify AI-generated CVE reports ",
-        "score": 3,
+        "score": 1,
         "created_utc_ts": 1784586625,
         "created_utc": "2026-07-20T22:30:25",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyrh9p6/",
@@ -606,7 +931,7 @@
         "id": "oyrysyp",
         "author": "IHaveNeverLeftUtah",
         "body": "I got massively downvoted in /r/cybersecurity for sharing this information [in the comments](\nhttps://www.reddit.com/r/cybersecurity/comments/1v1rg5o/linux_kernel_announces_432_cves/). \n\nGlad to see it at the top here. ",
-        "score": 12,
+        "score": 16,
         "created_utc_ts": 1784592163,
         "created_utc": "2026-07-21T00:02:43",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyrysyp/",
@@ -617,7 +942,7 @@
         "id": "oyrz702",
         "author": "DeliciousIncident",
         "body": "Fixed your formatting for people using [old Reddit](https://old.reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyq13lz/) (use 4 spaces to indent the code, instead of using the backtick blocks).\n\n    stable: \t7.1.4\n    longterm: \t6.18.39\n    longterm: \t6.12.96\n    longterm: \t6.6.144\n    longterm: \t6.1.177\n    longterm: \t5.15.211\n    longterm: \t5.10.260\n\n     27 5.10.258\n     67 5.10.259\n     16 5.10.260\n     37 5.15.209\n     78 5.15.210\n     18 5.15.211\n     48 6.1.175\n     87 6.1.176\n     22 6.1.177\n     18 6.12.91\n     82 6.12.92\n    107 6.12.93\n      6 6.12.94\n     30 6.12.95\n      5 6.12.96\n     25 6.18.33\n    138 6.18.34\n    118 6.18.35\n      7 6.18.36\n      2 6.18.37\n     29 6.18.38\n      7 6.18.39\n     14 6.6.141\n     62 6.6.142\n     98 6.6.143\n     26 6.6.144\n     30 7.0.10\n    165 7.0.11\n    130 7.0.12\n      8 7.0.13\n      2 7.0.14\n    330 7.1\n     35 7.1.3\n      6 7.1.4\n     41 7.2",
-        "score": 21,
+        "score": 22,
         "created_utc_ts": 1784592291,
         "created_utc": "2026-07-21T00:04:51",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyrz702/",
@@ -650,7 +975,7 @@
         "id": "oytrafv",
         "author": "gregkh",
         "body": "I spend some time catching up with the pending kernel CVE review queue on a Sunday and everyone gets upset?\n\n{sigh}",
-        "score": 41,
+        "score": 47,
         "created_utc_ts": 1784617186,
         "created_utc": "2026-07-21T06:59:46",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oytrafv/",
@@ -672,7 +997,7 @@
         "id": "oyud1w8",
         "author": "DarkeoX",
         "body": "Nah Greg, you're doing the lord's work, thank you and please do keep it up,🙏",
-        "score": 16,
+        "score": 18,
         "created_utc_ts": 1784628063,
         "created_utc": "2026-07-21T10:01:03",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyud1w8/",
@@ -683,7 +1008,7 @@
         "id": "oyuh2ge",
         "author": "syklemil",
         "body": "No good deed goes unpunished, I guess.\n\n(Though I somewhat prefer my native _utakk er verdens lønn_, \"ingratitude is the world's wages\".)\n\nI think most of them also do actually appreciate the work and don't expect the kernel to be magically CVE-free.\n\nThanks for spending your sunday working, and have a great summer. :)",
-        "score": 4,
+        "score": 6,
         "created_utc_ts": 1784629904,
         "created_utc": "2026-07-21T10:31:44",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyuh2ge/",
@@ -705,7 +1030,7 @@
         "id": "oyukpkh",
         "author": "Jacksaur",
         "body": "Big number scary. Big number easy to put in headline and spread more scary.\n\nAt least the majority of the comments here are understanding of it all.",
-        "score": 4,
+        "score": 6,
         "created_utc_ts": 1784631458,
         "created_utc": "2026-07-21T10:57:38",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyukpkh/",
@@ -727,7 +1052,7 @@
         "id": "oyvfo3m",
         "author": "mrtruthiness",
         "body": "One needs to put this in context.\n\nEver since the kernel team became a CNA (CVE Numbering Authority), there have been about 5,000 kernel CVEs a year.  Basically nearly every bug that needs a backport is a CVE.\n\nIn that context, 432 is basically a four week backlog.  No need to get all freaky about it.  Somebody had a productive Sunday.",
-        "score": 7,
+        "score": 9,
         "created_utc_ts": 1784641743,
         "created_utc": "2026-07-21T13:49:03",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyvfo3m/",
@@ -771,14 +1096,14 @@
     "created_utc": "2026-07-20T17:45:39",
     "first_author_comment": "I can't edit the post. If I did the maths correctly, these are the kernels that have been patched:\n\n```\nstable: \t7.1.4\nlongterm: \t6.18.39\nlongterm: \t6.12.96\nlongterm: \t6.6.144\nlongterm: \t6.1.177\nlongterm: \t5.15.211\nlongterm: \t5.10.260\n```\n\n```\n     27 5.10.258\n     67 5.10.259\n     16 5.10.260\n     37 5.15.209\n     78 5.15.210\n     18 5.15.211\n     48 6.1.175\n     87 6.1.176\n     22 6.1.177\n     18 6.12.91\n     82 6.12.92\n    107 6.12.93\n      6 6.12.94\n     30 6.12.95\n      5 6.12.96\n     25 6.18.33\n    138 6.18.34\n    118 6.18.35\n      7 6.18.36\n      2 6.18.37\n     29 6.18.38\n      7 6.18.39\n     14 6.6.141\n     62 6.6.142\n     98 6.6.143\n     26 6.6.144\n     30 7.0.10\n    165 7.0.11\n    130 7.0.12\n      8 7.0.13\n      2 7.0.14\n    330 7.1\n     35 7.1.3\n      6 7.1.4\n     41 7.2\n```",
     "num_comments": 94,
-    "score": 472,
+    "score": 484,
     "subreddit": "linux",
     "tag": "Kernel",
     "tags": [
       "Kernel"
     ],
     "title": "432 Linux kernel CVEs published in the last 24 hours",
-    "updatedAt": "2026-07-23T04:53:02.397Z",
+    "updatedAt": "2026-07-24T04:52:45.359Z",
     "upvote_ratio": 0.94,
     "url": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/",
     "versionList": [
@@ -820,7 +1145,7 @@
     "tag": null,
     "tags": [],
     "title": "Escalating All The Privileges With Foxit PDF Reader (CVE-2026–57239)",
-    "updatedAt": "2026-07-23T04:46:31.678Z",
+    "updatedAt": "2026-07-24T04:46:05.546Z",
     "upvote_ratio": 0.89,
     "url": "https://reddit.com/r/netsec/comments/1v1ffuz/escalating_all_the_privileges_with_foxit_pdf/",
     "versionList": [
@@ -985,7 +1310,7 @@
     "tag": null,
     "tags": [],
     "title": "wp2shell (CVE-2026-63030): Pre-Auth RCE Chain in WordPress Core - Analysis and Open-Source Scanner",
-    "updatedAt": "2026-07-23T04:46:34.336Z",
+    "updatedAt": "2026-07-24T04:46:08.552Z",
     "upvote_ratio": 0.87,
     "url": "https://reddit.com/r/netsec/comments/1v07npi/wp2shell_cve202663030_preauth_rce_chain_in/",
     "versionList": [
@@ -1039,7 +1364,7 @@
         "id": "oymqcl3",
         "author": "_vavkamil_",
         "body": "Wait, I'm a bit confused. The original announcement said:\n\n&gt;The attack has no preconditions and can be exploited by an anonymous user in a stock install of WordPress with no plugins.\n\nBut my understanding is that the \"Pre-Auth RCE\" here means you either have to exfiltrate the admin hash, be lucky enough to crack it, authenticate as admin, and install some plugin to execute the code?\n\nOr there must be a precondition where MySQL is misconfigured and can execute code?\n\nEDIT: nevermind, the original write-up explains the RCE part [https://slcyber.io/research-center/exploit-brokers-pay-500000-for-a-wordpress-rce-i-found-one-with-gpt5-6/](https://slcyber.io/research-center/exploit-brokers-pay-500000-for-a-wordpress-rce-i-found-one-with-gpt5-6/) which this article missed",
-        "score": 1,
+        "score": 2,
         "created_utc_ts": 1784533292,
         "created_utc": "2026-07-20T07:41:32",
         "permalink": "https://reddit.com/r/netsec/comments/1v07npi/wp2shell_cve202663030_preauth_rce_chain_in/oymqcl3/",
@@ -1596,13 +1921,13 @@
     "created_utc": "2026-07-17T13:18:22",
     "first_author_comment": null,
     "num_comments": 0,
-    "score": 5,
+    "score": 6,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Windows AppResolver LPE: From AppContainer to SYSTEM. PoC linked to CVE-2026-50454",
-    "updatedAt": "2026-07-23T04:46:40.016Z",
-    "upvote_ratio": 0.74,
+    "updatedAt": "2026-07-24T04:46:15.216Z",
+    "upvote_ratio": 0.76,
     "url": "https://reddit.com/r/netsec/comments/1uyzhy8/windows_appresolver_lpe_from_appcontainer_to/",
     "versionList": [
       "2026.0.0",
@@ -1752,13 +2077,13 @@
     "created_utc": "2026-07-16T06:26:39",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 11,
+    "score": 13,
     "subreddit": "netsec",
     "tag": "Contains AI",
     "tags": [],
     "title": "ASUS bsitf.sys (CVE-2026-13585): Arbitrary Physical Memory Mapping via Unvalidated IOCTL",
-    "updatedAt": "2026-07-23T04:46:42.748Z",
-    "upvote_ratio": 0.84,
+    "updatedAt": "2026-07-24T04:46:18.684Z",
+    "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/netsec/comments/1uxuqyg/asus_bsitfsys_cve202613585_arbitrary_physical/",
     "versionList": [
       "2026.0.0",
@@ -5127,13 +5452,13 @@
     "created_utc": "2026-07-13T13:22:31",
     "first_author_comment": "[ Removed by Reddit ]",
     "num_comments": 3,
-    "score": 9,
+    "score": 10,
     "subreddit": "hardwarehacking",
     "tag": null,
     "tags": [],
     "title": "How I crafted an exploit PoC for a Linskys router",
-    "updatedAt": "2026-07-23T04:47:56.004Z",
-    "upvote_ratio": 0.81,
+    "updatedAt": "2026-07-23T14:48:30.498Z",
+    "upvote_ratio": 0.82,
     "url": "https://reddit.com/r/hardwarehacking/comments/1uvbg2j/how_i_crafted_an_exploit_poc_for_a_linskys_router/",
     "versionList": [],
     "classification": {
@@ -5188,12 +5513,12 @@
     "created_utc": "2026-07-13T09:33:49",
     "first_author_comment": null,
     "num_comments": 18,
-    "score": 96,
+    "score": 92,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Dell BIOS Passwords: Weak XOR Encryption Allows Recovery from SPI Flash (CVE-2026-40639)",
-    "updatedAt": "2026-07-23T04:46:49.938Z",
+    "updatedAt": "2026-07-24T04:46:26.123Z",
     "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/netsec/comments/1uv6qbn/dell_bios_passwords_weak_xor_encryption_allows/",
     "versionList": [
@@ -5247,7 +5572,7 @@
         "id": "oxbanhz",
         "author": "rtt445",
         "body": "Why do you need strong bios password? If you have physical access to read SPI then you're done anyway. Encrypting bios will make hardware reuse impossible and increase E-waste.",
-        "score": 7,
+        "score": 6,
         "created_utc_ts": 1783964100,
         "created_utc": "2026-07-13T17:35:00",
         "permalink": "https://reddit.com/r/netsec/comments/1uv6qbn/dell_bios_passwords_weak_xor_encryption_allows/oxbanhz/",
@@ -5269,7 +5594,7 @@
         "id": "oxbuuzx",
         "author": "shyouko",
         "body": "Let's pretend it is 1996",
-        "score": 12,
+        "score": 13,
         "created_utc_ts": 1783969155,
         "created_utc": "2026-07-13T18:59:15",
         "permalink": "https://reddit.com/r/netsec/comments/1uv6qbn/dell_bios_passwords_weak_xor_encryption_allows/oxbuuzx/",
@@ -5302,7 +5627,7 @@
         "id": "oxdp7rs",
         "author": "ElvishJerricco",
         "body": "The fact that people *think* there's no point trying to defend against physical access is the reason it remains true. There are plenty of things we could be doing to make physical attacks harder, but it rarely makes sense because some other component gives up the game for the same reason. It's a catch 22. Obviously you can't defend against physical attacks *perfectly*, but we could at least make it take a lot of effort to do physical attacks, if only there weren't a hundred components all designed with the philosophy that everything is always vulnerable to physical attacks. e.g. The fTPM2 in a modern SoC is legitimately very strong against physical attacks; not perfect, so it *can* be defeated with enough effort, but it's strong and requires a lot of effort. And it's only possible because Intel and AMD decided that boot security mattered long before it actually mattered, and started building physical security into these things.",
-        "score": 5,
+        "score": 6,
         "created_utc_ts": 1783987943,
         "created_utc": "2026-07-14T00:12:23",
         "permalink": "https://reddit.com/r/netsec/comments/1uv6qbn/dell_bios_passwords_weak_xor_encryption_allows/oxdp7rs/",
@@ -8873,8 +9198,8 @@
       "Support"
     ],
     "title": "Ghost lock flaw",
-    "updatedAt": "2026-07-22T23:06:30.839Z",
-    "upvote_ratio": 1,
+    "updatedAt": "2026-07-23T23:08:06.007Z",
+    "upvote_ratio": 0.86,
     "url": "https://reddit.com/r/manjaro/comments/1uqy4xm/ghost_lock_flaw/",
     "versionList": [],
     "isAboutCve": true,
@@ -11119,13 +11444,13 @@
     "created_utc": "2026-07-01T14:52:02",
     "first_author_comment": null,
     "num_comments": 3,
-    "score": 20,
+    "score": 22,
     "subreddit": "netsec",
     "tag": "Contains AI",
     "tags": [],
     "title": "Privilege escalation to root in Lima QEMU guests via a world-writable agent socket (CVE-2026-53657)",
-    "updatedAt": "2026-07-23T04:47:06.764Z",
-    "upvote_ratio": 0.95,
+    "updatedAt": "2026-07-24T04:46:42.064Z",
+    "upvote_ratio": 0.96,
     "url": "https://reddit.com/r/netsec/comments/1uknvr4/privilege_escalation_to_root_in_lima_qemu_guests/",
     "versionList": [
       "2026.0.0",
@@ -11199,8 +11524,8 @@
     "tag": null,
     "tags": [],
     "title": "r/netsec monthly discussion &amp; tool thread",
-    "updatedAt": "2026-07-23T04:47:08.246Z",
-    "upvote_ratio": 0.88,
+    "updatedAt": "2026-07-24T04:46:43.562Z",
+    "upvote_ratio": 0.91,
     "url": "https://reddit.com/r/netsec/comments/1uklqx3/rnetsec_monthly_discussion_tool_thread/",
     "versionList": [],
     "classification": {
@@ -11429,13 +11754,13 @@
     "created_utc": "2026-06-30T19:40:48",
     "first_author_comment": null,
     "num_comments": 3,
-    "score": 35,
+    "score": 41,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CitrixBleed To Infinity And Beyond (Citrix NetScaler Pre-Auth Memory Overread CVE-2026-8451) - watchTowr Labs",
-    "updatedAt": "2026-07-23T04:47:09.316Z",
-    "upvote_ratio": 0.92,
+    "updatedAt": "2026-07-24T04:46:44.489Z",
+    "upvote_ratio": 0.98,
     "url": "https://reddit.com/r/netsec/comments/1ujzc5y/citrixbleed_to_infinity_and_beyond_citrix/",
     "versionList": [
       "2026.0.0",
@@ -11928,12 +12253,12 @@
     "created_utc": "2026-06-29T19:27:02",
     "first_author_comment": null,
     "num_comments": 4,
-    "score": 30,
+    "score": 32,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Enterprise Tech In, Shell Out (Progress Kemp LoadMaster Uninitialized Heap to Pre-Auth RCE CVE-2026-8037) - watchTowr Labs",
-    "updatedAt": "2026-07-23T04:47:11.018Z",
+    "updatedAt": "2026-07-23T20:47:30.730Z",
     "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/netsec/comments/1uj2a4w/enterprise_tech_in_shell_out_progress_kemp/",
     "versionList": [
@@ -12519,13 +12844,13 @@
     "created_utc": "2026-06-25T15:30:44",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 15,
+    "score": 14,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2025-52465 geoserver arbitrary file write vulnerability",
-    "updatedAt": "2026-07-22T18:48:08.702Z",
-    "upvote_ratio": 0.83,
+    "updatedAt": "2026-07-23T14:47:47.390Z",
+    "upvote_ratio": 0.82,
     "url": "https://reddit.com/r/netsec/comments/1ufdc3k/cve202552465_geoserver_arbitrary_file_write/",
     "versionList": [
       "2025.0.0",
@@ -15278,7 +15603,7 @@
     "tag": null,
     "tags": [],
     "title": "OpenBSD MPLS kernel stack leaks remotely (CVE-2026-56099)",
-    "updatedAt": "2026-07-20T00:47:52.271Z",
+    "updatedAt": "2026-07-23T21:26:45.110Z",
     "upvote_ratio": 0.95,
     "url": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/",
     "versionList": [
@@ -16143,6 +16468,23 @@
           "CVE Modified",
           "CVE Modified"
         ]
+      },
+      {
+        "cveId": "CVE-2026-56099",
+        "cveIds": [
+          "CVE-2026-56099"
+        ],
+        "source": "Title",
+        "commentText": "OpenBSD MPLS kernel stack leaks remotely (CVE-2026-56099)",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1ua20fg/openbsd_mpls_kernel_stack_leaks_remotely/",
+        "commentDate": "2026-06-19T13:27:18+00:00",
+        "cvePublishedDate": "2026-06-18T20:16:15.370000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
       },
       {
         "cveId": "CVE-2026-56099",
@@ -18234,407 +18576,5 @@
     ],
     "comments_avg_sentiment_score": 0.69,
     "sentiment_score": -0.061
-  },
-  {
-    "_id": "6a30ba0ac08e7acc0354f66e",
-    "redditId": "1u6zlof",
-    "author": "Expert_Sort7434",
-    "author_description": "The NSA's AI Security Center dropped a 17-page Cybersecurity Information Sheet on Model Context Protocol security on May 20, 2026, and I've been unpacking it for the past few weeks.  \n  \nThe part that keeps grabbing me is the inverted client-server model. Traditional network security assumes clients initiate requests and servers respond — which is the direction our SIEM rules, DLP policies, and network segmentation are built around. MCP flips this: servers can query and execute actions FOR connected clients. The NSA explicitly calls out the resulting \"not well-traced attack paths.\"  \n  \nThe practical consequence: prompt injection via tool descriptions enters the agent's context window with near-instruction-level authority, before any human reviews it. Invariant Labs demonstrated this against GitHub MCP (agent steered to publish private repo data via public PR) and WhatsApp MCP (cross-server tool description manipulation leading to message history exfiltration).  \n  \nA few concrete CVEs to look at:  \n\\- CVE-2025-49596: MCP Inspector, CVSS 9.4, RCE via missing auth between Inspector client and proxy  \n\\- CVE-2026-33032: nginx-ui, CVSS 9.8, MCP endpoint accepted command execution without auth — 2,600+ publicly exposed instances  \n\\- CVE-2026-0755: gemini-mcp-tool, CVSS 9.8, command injection via execAsync passing user input to shell  \n  \nThe VIPER-MCP static+dynamic analysis framework ran across \\~40,000 MCP server repos and produced 67 CVEs from 106 zero-days. That number will grow.  \n  \nQuestions for the thread:  \n1. How are people building threat models for multi-agent MCP deployments? The cross-agent context poisoning vector (one bad tool output propagating downstream through chained agents) doesn't map cleanly to existing frameworks.  \n2. Is anyone actually logging MCP tool invocations in their SIEM? The NSA recommends it but I haven't seen a practical implementation guide yet.  \n3. For those using Google Cloud's MCP offering (IAM + Model Armor) or Microsoft's Copilot Studio MCP policy controls — are vendor guardrails enough, or do you still need architectural changes?  \n  \nFor context on the broader intelligence-community posture on agentic AI risk, I previously covered the Five Eyes joint guidance here if you want more background: [https://www.techgines.com/post/five-eyes-cisa-agentic-ai-security-guidance-2026](https://www.techgines.com/post/five-eyes-cisa-agentic-ai-security-guidance-2026)  \n  \nFull technical breakdown of the NSA MCP advisory: [https://www.techgines.com/post/nsa-mcp-security-vulnerabilities-ai-agent-protocol](https://www.techgines.com/post/nsa-mcp-security-vulnerabilities-ai-agent-protocol)",
-    "awards": [],
-    "comments": [
-      {
-        "id": "orwlcht",
-        "author": "Otherwise_Wave9374",
-        "body": "This is a great breakdown, and it highlights a governance gap I keep seeing with agentic setups: you can have decent model guardrails, but if you do not capture tool-invocation evidence (who/what called which MCP tool, with what args, what data was touched, what was returned, and the policy decision) you are basically flying blind for audit and incident response.\n\nWhat has worked for us is treating MCP/tool calls like privileged API calls: immutable logs, correlation IDs end-to-end, and a simple control map (access control, output filtering, approval gates, retention, and periodic review) you can point to in SOC 2 evidence.\n\nIf you are building this out, https://www.wisdomprompt.com/ has a few practical notes on keeping AI usage auditable without killing velocity.",
-        "score": 8,
-        "created_utc_ts": 1781574513,
-        "created_utc": "2026-06-16T01:48:33",
-        "permalink": "https://reddit.com/r/AZURE/comments/1u6zlof/nsa_issued_mcp_security_guidance_in_may_and_the/orwlcht/",
-        "parent_id": "t3_1u6zlof",
-        "is_submitter": false
-      },
-      {
-        "id": "orx4fpm",
-        "author": "past3eat3r",
-        "body": "Not knowing tool calls is exactly why I built a mcp gateway for my company it is a registry of mcp connections grouped by role based access with specific bans in destructive tool evocations, and a complete audit log on user invoking what tool call runs on azure with all the tokens and secrets in the vault.",
-        "score": 5,
-        "created_utc_ts": 1781581491,
-        "created_utc": "2026-06-16T03:44:51",
-        "permalink": "https://reddit.com/r/AZURE/comments/1u6zlof/nsa_issued_mcp_security_guidance_in_may_and_the/orx4fpm/",
-        "parent_id": "t1_orwlcht",
-        "is_submitter": false
-      },
-      {
-        "id": "os9ahhp",
-        "author": "d-wreck-w12",
-        "body": "Vendor guardrails actually answer question #3 for you: IAM + model armor handles auth at the boundary, not context propagation between chained agnets. Once a poisoned tool output hits agent 2's context window - your policy controls already lost. That's lateral movement - not an API violation. Your SIEM has no rule for it",
-        "score": 1,
-        "created_utc_ts": 1781729451,
-        "created_utc": "2026-06-17T20:50:51",
-        "permalink": "https://reddit.com/r/AZURE/comments/1u6zlof/nsa_issued_mcp_security_guidance_in_may_and_the/os9ahhp/",
-        "parent_id": "t3_1u6zlof",
-        "is_submitter": false
-      }
-    ],
-    "created_utc": "2026-06-16T01:24:34",
-    "first_author_comment": null,
-    "num_comments": 4,
-    "score": 52,
-    "subreddit": "AZURE",
-    "tag": "Media",
-    "tags": [
-      "Media"
-    ],
-    "title": "NSA issued MCP security guidance in May — and the attack paths are weirder than standard API vulnerabilities. Anyone doing threat modeling on this?",
-    "updatedAt": "2026-06-21T08:51:33.860Z",
-    "upvote_ratio": 0.96,
-    "url": "https://reddit.com/r/AZURE/comments/1u6zlof/nsa_issued_mcp_security_guidance_in_may_and_the/",
-    "versionList": [],
-    "classification": {
-      "componentType": [
-        "API"
-      ],
-      "securityType": [
-        "UNKNOWN"
-      ]
-    },
-    "metadata": {
-      "predicted": {
-        "isUpdateRelated": false,
-        "positiveScore": 8.636863243702167e-06,
-        "timestampPredicted": "2026-06-16T12:01:16.833102+00:00"
-      },
-      "labeled": {
-        "isUpdateRelated": null
-      }
-    },
-    "isAboutCve": true,
-    "isAboutLatestUpdate": true,
-    "author_description_sentiment": {
-      "score": -0.581,
-      "detail": {
-        "neg": 0.042,
-        "neu": 0.918,
-        "pos": 0.04,
-        "compound": -0.5808
-      }
-    },
-    "category": "Negative",
-    "comments_avg_sentiment_score": -0.097,
-    "sentiment_score": -0.339
-  },
-  {
-    "_id": "6a2c7049c08e7acc0353cbfd",
-    "redditId": "1u46wbb",
-    "author": "dx7r__",
-    "author_description": null,
-    "awards": [],
-    "created_utc": "2026-06-12T20:37:06",
-    "first_author_comment": null,
-    "num_comments": 4,
-    "score": 52,
-    "subreddit": "netsec",
-    "tag": null,
-    "tags": [],
-    "title": "Why Use App-Level Auth When Every Database Has Auth? (Splunk Enterprise CVE-2026-20253 Pre-Auth RCE) - watchTowr Labs",
-    "updatedAt": "2026-07-13T20:47:20.175Z",
-    "upvote_ratio": 0.93,
-    "url": "https://reddit.com/r/netsec/comments/1u46wbb/why_use_applevel_auth_when_every_database_has/",
-    "versionList": [
-      "2026.0.0",
-      "20253.0.0"
-    ],
-    "author_description_sentiment": {
-      "score": 0,
-      "detail": {
-        "neg": 0,
-        "neu": 0,
-        "pos": 0,
-        "compound": 0
-      }
-    },
-    "category": "Neutral",
-    "comments": [
-      {
-        "id": "orbzyo1",
-        "author": "SarcasmWarning",
-        "body": "Well, I now know what I'm doing Monday morning...",
-        "score": 3,
-        "created_utc_ts": 1781311099,
-        "created_utc": "2026-06-13T00:38:19",
-        "permalink": "https://reddit.com/r/netsec/comments/1u46wbb/why_use_applevel_auth_when_every_database_has/orbzyo1/",
-        "parent_id": "t3_1u46wbb",
-        "is_submitter": false
-      },
-      {
-        "id": "osspabr",
-        "author": "TitanQyx",
-        "body": "setting a calendar reminder to panic is the most relatable infosec move ever  \n\ngood luck with the “quick check” that turns into a 6 hour rabbit hole",
-        "score": 2,
-        "created_utc_ts": 1781976185,
-        "created_utc": "2026-06-20T17:23:05",
-        "permalink": "https://reddit.com/r/netsec/comments/1u46wbb/why_use_applevel_auth_when_every_database_has/osspabr/",
-        "parent_id": "t1_orbzyo1",
-        "is_submitter": false
-      },
-      {
-        "id": "ovi1zvs",
-        "author": "TitanQyx",
-        "body": "same, adding this to the “things that ruin my coffee but save my job” checklist for monday",
-        "score": 1,
-        "created_utc_ts": 1783170895,
-        "created_utc": "2026-07-04T13:14:55",
-        "permalink": "https://reddit.com/r/netsec/comments/1u46wbb/why_use_applevel_auth_when_every_database_has/ovi1zvs/",
-        "parent_id": "t1_orbzyo1",
-        "is_submitter": false
-      }
-    ],
-    "comments_avg_sentiment_score": 0.273,
-    "sentiment_score": 0.137,
-    "classification": {
-      "securityType": [
-        "SECURITY"
-      ],
-      "componentType": [
-        "APP",
-        "DATABASE"
-      ]
-    },
-    "metadata": {
-      "predicted": {
-        "isUpdateRelated": false,
-        "positiveScore": 0.00024438208892505365,
-        "timestampPredicted": "2026-06-13T08:01:21.382490+00:00"
-      },
-      "labeled": {
-        "isUpdateRelated": null
-      }
-    },
-    "isAboutCve": true,
-    "isAboutLatestUpdate": false
-  },
-  {
-    "_id": "6a2c39eec08e7acc0353b8bd",
-    "redditId": "1u404ki",
-    "author": "wortsalatfinchen",
-    "author_description": "Hallo,\n\nmein Ubuntu 24.04.4 LTS hat gerade o.g. Update vorgeschlagen. ( Ich habe ein Dual-Boot aus win 11 und Ubuntu).\n\nLeider bin ich wegen des Wiederherstellungskeys unsicher, ob ich den besitze, da ich den PC von jemand Außenstehenden bekommen habe, der mir den auch eingerichtet hat- und der...um es vorsichtig zu sagen, nicht sehr vertrauenswürdig war, weil er mir auf der Ubuntu-Distru Schadsoftware untergejubelt hat (nachweislich nicht von mir eingefangen)- ich habe die entsprechende Partition nach professioneller Bereinigung nochmal neu aufgesetzt (um sicher zu gehen).\n\n  \nAllerdings sind solche Updates ja sehr wichtig...\n\n  \nWie da vorgehen? kann ich das im System irgendwo auslesen? Vermutlich bezieht man sich da auch den Windows-Teil, oder?\n\n  \nDanke für Tipps.",
-    "awards": [],
-    "comments": [
-      {
-        "id": "or9albm",
-        "author": "martyn_hare",
-        "body": "If you need the BitLocker recovery key from Windows: `manage-bde -protectors -get C:`\n\nThen take a look at this article to understand the effect on the Windows side: [https://support.microsoft.com/de-de/topic/unternehmensbereitstellungsleitfaden-f%C3%BCr-cve-2023-24932-88b8f034-20b7-4a45-80cb-c6049b0f9967](https://support.microsoft.com/de-de/topic/unternehmensbereitstellungsleitfaden-f%C3%BCr-cve-2023-24932-88b8f034-20b7-4a45-80cb-c6049b0f9967)\n\nI hope this helps =)",
-        "score": 10,
-        "created_utc_ts": 1781281968,
-        "created_utc": "2026-06-12T16:32:48",
-        "permalink": "https://reddit.com/r/Ubuntu/comments/1u404ki/firmwareupdateeinforderung_verunsichert/or9albm/",
-        "parent_id": "t3_1u404ki",
-        "is_submitter": false,
-        "sentiment_score": 0.844,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 0.761,
-          "pos": 0.239,
-          "compound": 0.8442
-        }
-      },
-      {
-        "id": "or9awxn",
-        "author": "wortsalatfinchen",
-        "body": "ahhh... thanks!",
-        "score": 4,
-        "created_utc_ts": 1781282056,
-        "created_utc": "2026-06-12T16:34:16",
-        "permalink": "https://reddit.com/r/Ubuntu/comments/1u404ki/firmwareupdateeinforderung_verunsichert/or9awxn/",
-        "parent_id": "t1_or9albm",
-        "is_submitter": true,
-        "sentiment_score": 0.493,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 0.239,
-          "pos": 0.761,
-          "compound": 0.4926
-        }
-      },
-      {
-        "id": "or9b0tc",
-        "author": "Conscious-Yam2909",
-        "body": "yikes dont risk it",
-        "score": 3,
-        "created_utc_ts": 1781282085,
-        "created_utc": "2026-06-12T16:34:45",
-        "permalink": "https://reddit.com/r/Ubuntu/comments/1u404ki/firmwareupdateeinforderung_verunsichert/or9b0tc/",
-        "parent_id": "t3_1u404ki",
-        "is_submitter": false,
-        "sentiment_score": 0.206,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 0.623,
-          "pos": 0.377,
-          "compound": 0.2057
-        }
-      },
-      {
-        "id": "or9bj3d",
-        "author": "wortsalatfinchen",
-        "body": "Was meinst du?",
-        "score": 2,
-        "created_utc_ts": 1781282222,
-        "created_utc": "2026-06-12T16:37:02",
-        "permalink": "https://reddit.com/r/Ubuntu/comments/1u404ki/firmwareupdateeinforderung_verunsichert/or9bj3d/",
-        "parent_id": "t1_or9b0tc",
-        "is_submitter": true,
-        "sentiment_score": 0,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 1,
-          "pos": 0,
-          "compound": 0
-        }
-      },
-      {
-        "id": "or9x82a",
-        "author": "Clocker13",
-        "body": "I’d personally backup any important data, completely wipe the system then redeploy from scratch. It’s not hard to make a dual-boot system. Keep it simple, strategise your disk space, install Windows first then Linux second as Linux just pours into the unallocated space quite effortlessly.",
-        "score": 1,
-        "created_utc_ts": 1781288046,
-        "created_utc": "2026-06-12T18:14:06",
-        "permalink": "https://reddit.com/r/Ubuntu/comments/1u404ki/firmwareupdateeinforderung_verunsichert/or9x82a/",
-        "parent_id": "t3_1u404ki",
-        "is_submitter": false,
-        "sentiment_score": 0.272,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 0.931,
-          "pos": 0.069,
-          "compound": 0.2723
-        }
-      },
-      {
-        "id": "or9xilz",
-        "author": "wortsalatfinchen",
-        "body": "I am still havig a dual-boot....win 11 and ubuntu...",
-        "score": 2,
-        "created_utc_ts": 1781288126,
-        "created_utc": "2026-06-12T18:15:26",
-        "permalink": "https://reddit.com/r/Ubuntu/comments/1u404ki/firmwareupdateeinforderung_verunsichert/or9xilz/",
-        "parent_id": "t1_or9x82a",
-        "is_submitter": true,
-        "sentiment_score": 0,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 1,
-          "pos": 0,
-          "compound": 0
-        }
-      },
-      {
-        "id": "orbea7h",
-        "author": "Hauptideal",
-        "body": "Das kann dir selbst nach einem Windows-Update passieren. Es ist richtig, dass Ubuntu warnt, aber was nach dem Update passiert, ist, dass du deinen BitLocker-Schlüssel erneut eingeben musst, wenn du wieder Windows nutzen möchtest.   \nDer wird standardmäßig in der Cloud gespeichert und ist von deinem Microsoft-Konto aus abrufbar. ",
-        "score": 2,
-        "created_utc_ts": 1781303519,
-        "created_utc": "2026-06-12T22:31:59",
-        "permalink": "https://reddit.com/r/Ubuntu/comments/1u404ki/firmwareupdateeinforderung_verunsichert/orbea7h/",
-        "parent_id": "t3_1u404ki",
-        "is_submitter": false,
-        "sentiment_score": 0,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 1,
-          "pos": 0,
-          "compound": 0
-        }
-      },
-      {
-        "id": "orbexm1",
-        "author": "wortsalatfinchen",
-        "body": "Aus welchem Grund sollte ich bei so einer Meldung das System komplett neu aufsetzen? Es handelt sich dabei ja nicht um einen Angriff, sondern nur eine Sicherheitswarnung.",
-        "score": 2,
-        "created_utc_ts": 1781303736,
-        "created_utc": "2026-06-12T22:35:36",
-        "permalink": "https://reddit.com/r/Ubuntu/comments/1u404ki/firmwareupdateeinforderung_verunsichert/orbexm1/",
-        "parent_id": "t1_or9x82a",
-        "is_submitter": true,
-        "sentiment_score": 0,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 1,
-          "pos": 0,
-          "compound": 0
-        }
-      },
-      {
-        "id": "ordxn16",
-        "author": "wortsalatfinchen",
-        "body": "Wenn ich das aber richtig verstehe, dann besitze ich derzeit aber zwei unterschiedliche Keys? Eins für Windows, eins für Ubuntu?\n\nIch sammle jetzt also erst einmal die Kies ein, sichere sie mir natürlich ab auf einem externen Medien wie ein normales Backup und dann führe ich das Update durch? Das reguläre Windows-System Update wurde vor einigen Tagen erfolgreich durchgeführt da gab es keinerlei Abfragen zum wiederherstellungskey.",
-        "score": 0,
-        "created_utc_ts": 1781342266,
-        "created_utc": "2026-06-13T09:17:46",
-        "permalink": "https://reddit.com/r/Ubuntu/comments/1u404ki/firmwareupdateeinforderung_verunsichert/ordxn16/",
-        "parent_id": "t1_orbea7h",
-        "is_submitter": true,
-        "sentiment_score": -0.664,
-        "sentiment_bucket": "Negative",
-        "sentiment_detail": {
-          "neg": 0.064,
-          "neu": 0.936,
-          "pos": 0,
-          "compound": -0.6641
-        }
-      }
-    ],
-    "created_utc": "2026-06-12T16:25:42",
-    "first_author_comment": "ahhh... thanks!",
-    "num_comments": 15,
-    "score": 12,
-    "subreddit": "Ubuntu",
-    "tag": null,
-    "tags": [],
-    "title": "Firmware-Update-Einforderung verunsichert",
-    "updatedAt": "2026-06-19T00:55:36.125Z",
-    "upvote_ratio": 0.74,
-    "url": "https://reddit.com/r/Ubuntu/comments/1u404ki/firmwareupdateeinforderung_verunsichert/",
-    "versionList": [],
-    "classification": {
-      "componentType": [
-        "FIRMWARE"
-      ],
-      "securityType": [
-        "UNKNOWN"
-      ]
-    },
-    "metadata": {
-      "predicted": {
-        "isUpdateRelated": false,
-        "positiveScore": 0.05254338878081149,
-        "timestampPredicted": "2026-06-13T00:01:29.725762+00:00"
-      },
-      "labeled": {
-        "isUpdateRelated": null
-      }
-    },
-    "isAboutCve": false,
-    "isAboutLatestUpdate": true,
-    "author_description_sentiment": {
-      "score": -0.297,
-      "detail": {
-        "neg": 0.067,
-        "neu": 0.876,
-        "pos": 0.057,
-        "compound": -0.2975
-      }
-    },
-    "category": "Neutral",
-    "comments_avg_sentiment_score": 0.128,
-    "sentiment_score": -0.085
   }
 ]
