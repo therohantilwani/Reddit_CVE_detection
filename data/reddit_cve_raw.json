@@ -1,5 +1,211 @@
 [
   {
+    "_id": "6a6343dba9bf05f75be1dca5",
+    "redditId": "1v56hde",
+    "author": "FryBoyter",
+    "author_description": null,
+    "awards": [],
+    "created_utc": "2026-07-24T09:30:45",
+    "first_author_comment": null,
+    "num_comments": 1,
+    "score": 42,
+    "subreddit": "linux",
+    "tag": "Security",
+    "tags": [
+      "Security"
+    ],
+    "title": "RefluXFS: A Linux Kernel Local Privilege Escalation to Root in XFS (CVE-2026-64600)",
+    "updatedAt": "2026-07-25T04:52:33.779Z",
+    "upvote_ratio": 0.94,
+    "url": "https://reddit.com/r/linux/comments/1v56hde/refluxfs_a_linux_kernel_local_privilege/",
+    "versionList": [
+      "2026.0.0",
+      "64600.0.0"
+    ],
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.00033636295988439353,
+        "timestampPredicted": "2026-07-24T20:01:22.313837+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": false,
+    "classification": {
+      "componentType": [
+        "OS"
+      ],
+      "securityType": [
+        "SECURITY"
+      ]
+    },
+    "comments": [
+      {
+        "id": "ozmb848",
+        "author": "SomewhereFuture300",
+        "body": "one more reason i've been leaning toward immutable distros lately, a vuln like this hurts way less when the root fs is read-only and you just rebase to a patched image",
+        "score": 1,
+        "created_utc_ts": 1784951411,
+        "created_utc": "2026-07-25T03:50:11",
+        "permalink": "https://reddit.com/r/linux/comments/1v56hde/refluxfs_a_linux_kernel_local_privilege/ozmb848/",
+        "parent_id": "t3_1v56hde",
+        "is_submitter": false
+      }
+    ]
+  },
+  {
+    "_id": "6a630a54a9bf05f75be1d4a0",
+    "redditId": "1v52lix",
+    "author": "natcoba",
+    "author_description": null,
+    "awards": [],
+    "created_utc": "2026-07-24T05:53:48",
+    "first_author_comment": null,
+    "num_comments": 2,
+    "score": 81,
+    "subreddit": "netsec",
+    "tag": null,
+    "tags": [],
+    "title": "Escaping Claude Cowork’s local VM sandbox via CVE-2026-46331",
+    "updatedAt": "2026-07-25T04:46:07.807Z",
+    "upvote_ratio": 0.94,
+    "url": "https://reddit.com/r/netsec/comments/1v52lix/escaping_claude_coworks_local_vm_sandbox_via/",
+    "versionList": [
+      "2026.0.0",
+      "46331.0.0"
+    ],
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.0008469876372582342,
+        "timestampPredicted": "2026-07-24T16:01:09.503793+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": false,
+    "classification": {
+      "componentType": [],
+      "securityType": [
+        "SECURITY"
+      ]
+    },
+    "comments": [
+      {
+        "id": "ozgzmer",
+        "author": "loganmn",
+        "body": "Well, that ends my companies experiment with Claude cowork",
+        "score": 14,
+        "created_utc_ts": 1784895436,
+        "created_utc": "2026-07-24T12:17:16",
+        "permalink": "https://reddit.com/r/netsec/comments/1v52lix/escaping_claude_coworks_local_vm_sandbox_via/ozgzmer/",
+        "parent_id": "t3_1v52lix",
+        "is_submitter": false
+      },
+      {
+        "id": "ozj2p5d",
+        "author": "skrumcd2",
+        "body": "That was fascinating.  Thanks for sharing",
+        "score": 1,
+        "created_utc_ts": 1784915458,
+        "created_utc": "2026-07-24T17:50:58",
+        "permalink": "https://reddit.com/r/netsec/comments/1v52lix/escaping_claude_coworks_local_vm_sandbox_via/ozj2p5d/",
+        "parent_id": "t3_1v52lix",
+        "is_submitter": false
+      }
+    ]
+  },
+  {
+    "_id": "6a62cd94a9bf05f75be1ca2a",
+    "redditId": "1v4xv2m",
+    "author": "Meggii_",
+    "author_description": "I was just asking if anybody knows what level and what root i should do to apply custom fonts and emojis to my samsung thats running on OneUI 8.5 and if its worth it. \n\nI dont mind voiding the warranty",
+    "awards": [],
+    "comments": [
+      {
+        "id": "ozeno6h",
+        "author": "danGL3",
+        "body": "Samsung made root impossible with One UI 8-8.5 by removing the ability to unlock the bootloader (which is essential for root)",
+        "score": 4,
+        "created_utc_ts": 1784859480,
+        "created_utc": "2026-07-24T02:18:00",
+        "permalink": "https://reddit.com/r/AndroidQuestions/comments/1v4xv2m/using_root_to_apply_custom_fonts_on_oneui_85/ozeno6h/",
+        "parent_id": "t3_1v4xv2m",
+        "is_submitter": false
+      },
+      {
+        "id": "ozepcr4",
+        "author": "andrewia",
+        "body": "Apparently One UI 8.0 began enforceing certificate checking on font files, and no longer allows bootloader unlocking.  [This is possibly due to their lawyers' interpretation of EU law.](https://www.sammobile.com/news/the-real-reason-behind-samsungs-one-ui-8-bootloader-unlock-ban-is-an-eu-law/)  Without root, you can only use fonts purchased from the Galaxy Store.  Or if you can acquire a device on One UI 7 or achieve a downgrade, you can unlock the bootloader then flash a modified update.  \n\n- https://www.reddit.com/r/Android/comments/1s8g503/samsung_galaxy_users_lose_custom_fonts_as_one_ui/\n- https://www.androidsage.com/2026/04/02/you-can-no-longer-install-custom-fonts-on-samsung/\n- https://xdaforums.com/t/oneui-8-0-with-bootloader-unlocked-root-short-tutorial-tested.4764808/",
+        "score": 2,
+        "created_utc_ts": 1784860064,
+        "created_utc": "2026-07-24T02:27:44",
+        "permalink": "https://reddit.com/r/AndroidQuestions/comments/1v4xv2m/using_root_to_apply_custom_fonts_on_oneui_85/ozepcr4/",
+        "parent_id": "t3_1v4xv2m",
+        "is_submitter": false
+      },
+      {
+        "id": "ozf3td4",
+        "author": "Meggii_",
+        "body": "is there a way to downgrade my Software ver to maybe like UI 7?",
+        "score": 1,
+        "created_utc_ts": 1784865431,
+        "created_utc": "2026-07-24T03:57:11",
+        "permalink": "https://reddit.com/r/AndroidQuestions/comments/1v4xv2m/using_root_to_apply_custom_fonts_on_oneui_85/ozf3td4/",
+        "parent_id": "t1_ozeno6h",
+        "is_submitter": true
+      },
+      {
+        "id": "ozfnzqp",
+        "author": "vishnur32",
+        "body": "https://xdaforums.com/t/i-made-a-one-click-rooting-tool-for-samsung-galaxy-devices-using-cve-2026-43499.4795400/",
+        "score": 2,
+        "created_utc_ts": 1784874216,
+        "created_utc": "2026-07-24T06:23:36",
+        "permalink": "https://reddit.com/r/AndroidQuestions/comments/1v4xv2m/using_root_to_apply_custom_fonts_on_oneui_85/ozfnzqp/",
+        "parent_id": "t3_1v4xv2m",
+        "is_submitter": false
+      }
+    ],
+    "created_utc": "2026-07-24T02:02:33",
+    "first_author_comment": "is there a way to downgrade my Software ver to maybe like UI 7?",
+    "num_comments": 4,
+    "score": 1,
+    "subreddit": "AndroidQuestions",
+    "tag": "Rooting Help",
+    "tags": [],
+    "title": "Using root to apply custom fonts on OneUI 8.5",
+    "updatedAt": "2026-07-25T04:27:45.341Z",
+    "upvote_ratio": 1,
+    "url": "https://reddit.com/r/AndroidQuestions/comments/1v4xv2m/using_root_to_apply_custom_fonts_on_oneui_85/",
+    "versionList": [
+      "8.5.0"
+    ],
+    "classification": {
+      "componentType": [],
+      "securityType": [
+        "UNKNOWN"
+      ]
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.000713614360171415,
+        "timestampPredicted": "2026-07-24T16:01:31.212331+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": false,
+    "isAboutLatestUpdate": false
+  },
+  {
     "_id": "6a622b48a9bf05f75be19d87",
     "redditId": "1v4e24u",
     "author": "Marolar-DE",
@@ -59,7 +265,7 @@
     "tag": null,
     "tags": [],
     "title": "security.ubuntu.com - Security API Downtime?",
-    "updatedAt": "2026-07-24T04:53:53.377Z",
+    "updatedAt": "2026-07-25T04:54:24.779Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/Ubuntu/comments/1v4e24u/securityubuntucom_security_api_downtime/",
     "versionList": [],
@@ -159,7 +365,7 @@
         "id": "oz8f388",
         "author": "Ok-Eggplant-7569",
         "body": "https://blog.qualys.com/vulnerabilities-threat-research/2026/07/22/refluxfs-a-linux-kernel-local-privilege-escalation-to-root-in-xfs-cve-2026-64600\n\nBetter link with no ads",
-        "score": 1,
+        "score": 5,
         "created_utc_ts": 1784789080,
         "created_utc": "2026-07-23T06:44:40",
         "permalink": "https://reddit.com/r/Fedora/comments/1v45t17/refluxfs_cve202664600_breaking_down_the_latest/oz8f388/",
@@ -170,7 +376,7 @@
         "id": "oz8g4t0",
         "author": "pilkyton",
         "body": "Summary: Copy a sensitive system file as a non-root user (which makes XFS point to the original data blocks on disk, and increments their refcount to show that multiple files link to that data), then use an XFS race condition (decreasing the copy's reference count by removing the copy while a write to the user-owned copy is waiting in queue), to write to the copy in a way that makes the kernel think the user's copy is now the exclusive owner of the system file's disk data blocks (due to seeing a single data block refcount when it's time to write to the referenced block). This makes the write overwrite the original system data block directly, bypassing the copy-on-write mechanism (which is only used when multiple file copies share a data block). You now have modified system files and have obtained root access (by either adding a new admin account to /etc/passwd, or replacing the contents of a setuid root binary such as \"sudo\" with a backdoored version). It only takes a few seconds to trigger the exploit.\n\nThis exploit affects most enterprise/server distros since they ship with XFS for performance.\n\nMost importantly, this exploit was discovered by AI. One of countless other serious exploits discovered by AI. Which were completely missed by human eyes. In other words, AI is way better than humans at complex programming and we'll just continue seeing more and more of this. You can be sure that attackers are using AI every day, and all we can hope is that good people embrace AI too and plug the exploits first. It's mind boggling that AI can figure out advanced race conditions that no humans caught. Well, good thing Linus Torvalds made his statement encouraging AI use in kernel development a few days ago. Even if it hurts some human pride, I'd rather have less exploits in the kernel.",
-        "score": 1,
+        "score": 5,
         "created_utc_ts": 1784789574,
         "created_utc": "2026-07-23T06:52:54",
         "permalink": "https://reddit.com/r/Fedora/comments/1v45t17/refluxfs_cve202664600_breaking_down_the_latest/oz8g4t0/",
@@ -181,13 +387,13 @@
     "created_utc": "2026-07-23T06:34:05",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 11,
+    "score": 12,
     "subreddit": "Fedora",
     "tag": "News",
     "tags": [],
     "title": "RefluXFS (CVE-2026-64600): Breaking down the latest Linux kernel XFS vulnerability",
-    "updatedAt": "2026-07-24T04:55:20.174Z",
-    "upvote_ratio": 0.93,
+    "updatedAt": "2026-07-24T06:56:12.336Z",
+    "upvote_ratio": 1,
     "url": "https://reddit.com/r/Fedora/comments/1v45t17/refluxfs_cve202664600_breaking_down_the_latest/",
     "versionList": [
       "2026.0.0",
@@ -223,13 +429,13 @@
     "created_utc": "2026-07-22T22:21:24",
     "first_author_comment": "the $100k was announced today [https://x.com/sagitz\\_/status/2079894251643515084](https://x.com/sagitz_/status/2079894251643515084)",
     "num_comments": 23,
-    "score": 90,
+    "score": 115,
     "subreddit": "netsec",
     "tag": "Discussion",
     "tags": [],
     "title": "GitHub issues $100,000 bounty for critical RCE vulnerability",
-    "updatedAt": "2026-07-24T04:45:57.361Z",
-    "upvote_ratio": 0.91,
+    "updatedAt": "2026-07-25T04:46:12.432Z",
+    "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/netsec/comments/1v3v5za/github_issues_100000_bounty_for_critical_rce/",
     "versionList": [
       "100.0.0",
@@ -261,7 +467,7 @@
         "id": "oz6q1ms",
         "author": "thedolphin_",
         "body": "primary source with breakdown: https://www.wiz.io/blog/github-rce-vulnerability-cve-2026-3854\n\nalso, this is old. still cool since i missed it but i thought it just happened.\n&gt; April 28, 2026",
-        "score": 19,
+        "score": 22,
         "created_utc_ts": 1784765787,
         "created_utc": "2026-07-23T00:16:27",
         "permalink": "https://reddit.com/r/netsec/comments/1v3v5za/github_issues_100000_bounty_for_critical_rce/oz6q1ms/",
@@ -272,7 +478,7 @@
         "id": "oz6ujuo",
         "author": "ryanmerket",
         "body": "the $100k was announced today [https://x.com/sagitz\\_/status/2079894251643515084](https://x.com/sagitz_/status/2079894251643515084)",
-        "score": 10,
+        "score": 11,
         "created_utc_ts": 1784767242,
         "created_utc": "2026-07-23T00:40:42",
         "permalink": "https://reddit.com/r/netsec/comments/1v3v5za/github_issues_100000_bounty_for_critical_rce/oz6ujuo/",
@@ -283,7 +489,7 @@
         "id": "oz7vu7t",
         "author": "TheG0AT0fAllTime",
         "body": "That's great. You love to see corporations actually doing the payout let alone a big one",
-        "score": 21,
+        "score": 31,
         "created_utc_ts": 1784780407,
         "created_utc": "2026-07-23T04:20:07",
         "permalink": "https://reddit.com/r/netsec/comments/1v3v5za/github_issues_100000_bounty_for_critical_rce/oz7vu7t/",
@@ -294,7 +500,7 @@
         "id": "oz81wnx",
         "author": "Liskar-dev",
         "body": "It's Microsoft, they'll find ways to not pay reporters.",
-        "score": 10,
+        "score": 11,
         "created_utc_ts": 1784782967,
         "created_utc": "2026-07-23T05:02:47",
         "permalink": "https://reddit.com/r/netsec/comments/1v3v5za/github_issues_100000_bounty_for_critical_rce/oz81wnx/",
@@ -305,7 +511,7 @@
         "id": "oz8k32d",
         "author": "sunsetsxskies",
         "body": "$100k for an unauthenticated RCE is honestly cheap given what it could've done, glad it got caught before anyone weaponized it",
-        "score": 15,
+        "score": 17,
         "created_utc_ts": 1784791464,
         "created_utc": "2026-07-23T07:24:24",
         "permalink": "https://reddit.com/r/netsec/comments/1v3v5za/github_issues_100000_bounty_for_critical_rce/oz8k32d/",
@@ -327,7 +533,7 @@
         "id": "ozaf6pa",
         "author": "pilif",
         "body": "TBH, I think 100K is very little money given the possible fallout that could have come from this kind of vulnerability. This affected f'ing GitHub who hosts an ungodly amount of code for the world, including GitHub Enterprise service for the other ungodly amount of code hosted by enterprises themselves.\n\nI'm pretty sure this kind of issue would have raised much, much, much more money on the black market.",
-        "score": 4,
+        "score": 3,
         "created_utc_ts": 1784816866,
         "created_utc": "2026-07-23T14:27:46",
         "permalink": "https://reddit.com/r/netsec/comments/1v3v5za/github_issues_100000_bounty_for_critical_rce/ozaf6pa/",
@@ -338,7 +544,7 @@
         "id": "ozagzo6",
         "author": "nemec",
         "body": "\"It would be a lot more valuable selling this to criminals\"\n\nIt usually is, if you enjoy supporting criminals.",
-        "score": 2,
+        "score": 5,
         "created_utc_ts": 1784817351,
         "created_utc": "2026-07-23T14:35:51",
         "permalink": "https://reddit.com/r/netsec/comments/1v3v5za/github_issues_100000_bounty_for_critical_rce/ozagzo6/",
@@ -349,7 +555,7 @@
         "id": "ozcc6a0",
         "author": "CountyBrilliant",
         "body": "yeah but the black market route comes with the small catch of potentially going to prison, so the risk math there is pretty different. $100k clean money is worth a lot more than whatever you'd get selling to some threat actor",
-        "score": 5,
+        "score": 6,
         "created_utc_ts": 1784834346,
         "created_utc": "2026-07-23T19:19:06",
         "permalink": "https://reddit.com/r/netsec/comments/1v3v5za/github_issues_100000_bounty_for_critical_rce/ozcc6a0/",
@@ -371,7 +577,7 @@
         "id": "ozcvchw",
         "author": "been__",
         "body": "That is not big at all ",
-        "score": 0,
+        "score": -1,
         "created_utc_ts": 1784839310,
         "created_utc": "2026-07-23T20:41:50",
         "permalink": "https://reddit.com/r/netsec/comments/1v3v5za/github_issues_100000_bounty_for_critical_rce/ozcvchw/",
@@ -382,7 +588,7 @@
         "id": "ozcvxyb",
         "author": "been__",
         "body": "Selling to intelligence related brokers that are not aligned with foreign adversaries is generally legal in the US and that’s what people should do ",
-        "score": -1,
+        "score": 0,
         "created_utc_ts": 1784839466,
         "created_utc": "2026-07-23T20:44:26",
         "permalink": "https://reddit.com/r/netsec/comments/1v3v5za/github_issues_100000_bounty_for_critical_rce/ozcvxyb/",
@@ -400,13 +606,13 @@
     "created_utc": "2026-07-22T19:08:40",
     "first_author_comment": null,
     "num_comments": 0,
-    "score": 5,
+    "score": 6,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-50458: Finding a UAF in the Windows Brokering File System",
-    "updatedAt": "2026-07-24T04:45:58.308Z",
-    "upvote_ratio": 0.86,
+    "updatedAt": "2026-07-25T04:46:13.164Z",
+    "upvote_ratio": 0.81,
     "url": "https://reddit.com/r/netsec/comments/1v3ptel/cve202650458_finding_a_uaf_in_the_windows/",
     "versionList": [
       "2026.0.0",
@@ -455,7 +661,7 @@
         "id": "oz3on6u",
         "author": "jmgol",
         "body": "I reported a RCE to a vendor and was the 61st report of it.  Still not resolved.  Vendors are overloaded, protect yourself, nobody cares about your assets more.",
-        "score": 11,
+        "score": 12,
         "created_utc_ts": 1784736553,
         "created_utc": "2026-07-22T16:09:13",
         "permalink": "https://reddit.com/r/netsec/comments/1v3i9il/i_was_reporter_11_for_a_wpforms_paypal_webhook/oz3on6u/",
@@ -477,7 +683,7 @@
         "id": "oz4t1qt",
         "author": "System0verlord",
         "body": "Seconding this, OP. It’s *your* work. Why let some racist calculator take credit for the explanation of your work? \n\nWrite it yourself, in your voice. You’ll get a better result, and you will get better at writing. Having Claude do it actively robs you of the chance to improve your writing abilities, which you yourself view as needing work, otherwise you wouldn’t be having Claude write it for you in the first place.",
-        "score": 12,
+        "score": 11,
         "created_utc_ts": 1784746466,
         "created_utc": "2026-07-22T18:54:26",
         "permalink": "https://reddit.com/r/netsec/comments/1v3i9il/i_was_reporter_11_for_a_wpforms_paypal_webhook/oz4t1qt/",
@@ -499,13 +705,13 @@
     "created_utc": "2026-07-22T14:46:52",
     "first_author_comment": "TBH if it was a RCE and you were 61st person to report it, that kinda means vendor does not care.  \nRCE's are 10, and all 10 should be patched with P0/P1.  \nAnd if it got reported +1 times , then it's a shame.",
     "num_comments": 5,
-    "score": 32,
+    "score": 33,
     "subreddit": "netsec",
     "tag": "Contains AI",
     "tags": [],
     "title": "I was reporter #11 for a WPForms PayPal webhook vulnerability (CVE-2026-4986)",
-    "updatedAt": "2026-07-24T04:45:58.961Z",
-    "upvote_ratio": 0.83,
+    "updatedAt": "2026-07-25T04:46:13.684Z",
+    "upvote_ratio": 0.82,
     "url": "https://reddit.com/r/netsec/comments/1v3i9il/i_was_reporter_11_for_a_wpforms_paypal_webhook/",
     "versionList": [
       "11.0.0",
@@ -579,13 +785,13 @@
     "created_utc": "2026-07-21T14:42:45",
     "first_author_comment": null,
     "num_comments": 0,
-    "score": 11,
+    "score": 9,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Writeup &amp; POC: CVE-2026-49176 Windows WalletService to SYSTEM (LPE)",
-    "updatedAt": "2026-07-24T04:46:02.146Z",
-    "upvote_ratio": 0.84,
+    "updatedAt": "2026-07-25T04:46:16.860Z",
+    "upvote_ratio": 0.81,
     "url": "https://reddit.com/r/netsec/comments/1v2kg4q/writeup_poc_cve202649176_windows_walletservice_to/",
     "versionList": [
       "2026.0.0",
@@ -656,7 +862,7 @@
         "id": "oypsw6r",
         "author": "billm4",
         "body": "it’s the kernel, pretty much every reported bug is a cve. ",
-        "score": 179,
+        "score": 178,
         "created_utc_ts": 1784570289,
         "created_utc": "2026-07-20T17:58:09",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oypsw6r/",
@@ -667,7 +873,7 @@
         "id": "oypv4n8",
         "author": "Lant6",
         "body": "&gt;Note, due to the layer at which the Linux kernel is in a system, almost any bug might be exploitable to compromise the security of the kernel, but the possibility of exploitation is often not evident when the bug is fixed. Because of this, the CVE assignment team is overly cautious and **assign CVE numbers to any bugfix that they identify**. This explains the seemingly large number of CVEs that are issued by the Linux kernel team.\n\nFrom: [https://docs.kernel.org/process/cve.html#process](https://docs.kernel.org/process/cve.html#process) (emphasis mine)\n\nSo it is not too surprising that there is such a large number of CVEs.  \n  \n(Also see: https://utcc.utoronto.ca/\\~cks/space/blog/linux/KernelBugfixCVEsAStory)",
-        "score": 287,
+        "score": 289,
         "created_utc_ts": 1784570860,
         "created_utc": "2026-07-20T18:07:40",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oypv4n8/",
@@ -711,7 +917,7 @@
         "id": "oyqapiw",
         "author": "pervertsage",
         "body": "You sound like a skittish netrunner.",
-        "score": 17,
+        "score": 16,
         "created_utc_ts": 1784574888,
         "created_utc": "2026-07-20T19:14:48",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyqapiw/",
@@ -722,7 +928,7 @@
         "id": "oyqbmoh",
         "author": "DrabberFrog",
         "body": "Am I the only one getting blocked by Anubis when I click that link in the reddit app?",
-        "score": 28,
+        "score": 29,
         "created_utc_ts": 1784575130,
         "created_utc": "2026-07-20T19:18:50",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyqbmoh/",
@@ -744,7 +950,7 @@
         "id": "oyqe33y",
         "author": "iBoMbY",
         "body": "I hope Microslop, and all the others, are using some AI tools internally, to find all the bugs in their code, because they probably have a lot more obvious ones, since very few people, compared to Linux, ever had a chance to look at it.",
-        "score": 13,
+        "score": 14,
         "created_utc_ts": 1784575784,
         "created_utc": "2026-07-20T19:29:44",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyqe33y/",
@@ -755,7 +961,7 @@
         "id": "oyqfold",
         "author": "tsunamionioncerial",
         "body": "432 CVE patches lead to 1200 CVEs ",
-        "score": 79,
+        "score": 77,
         "created_utc_ts": 1784576211,
         "created_utc": "2026-07-20T19:36:51",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyqfold/",
@@ -766,7 +972,7 @@
         "id": "oyqg889",
         "author": "MatchingTurret",
         "body": "What is AI slop? This post, the bugs, the bug reports, the fixes or your comment? Without being more specific, the possibilities are endless... ",
-        "score": 21,
+        "score": 20,
         "created_utc_ts": 1784576356,
         "created_utc": "2026-07-20T19:39:16",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyqg889/",
@@ -777,7 +983,7 @@
         "id": "oyqgjvk",
         "author": "AdaephonBen",
         "body": "The phrasing of this message reminded me of a trump tweet",
-        "score": 25,
+        "score": 27,
         "created_utc_ts": 1784576442,
         "created_utc": "2026-07-20T19:40:42",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyqgjvk/",
@@ -788,7 +994,7 @@
         "id": "oyqgxfv",
         "author": "AugustinesConversion",
         "body": "People really are determined to run this term into the ground, aren't they?",
-        "score": 17,
+        "score": 16,
         "created_utc_ts": 1784576541,
         "created_utc": "2026-07-20T19:42:21",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyqgxfv/",
@@ -810,7 +1016,7 @@
         "id": "oyqj2hm",
         "author": "Jristz",
         "body": "Don't worry those 1200 CVE patches will lead to 65535 CVEs",
-        "score": 52,
+        "score": 53,
         "created_utc_ts": 1784577115,
         "created_utc": "2026-07-20T19:51:55",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyqj2hm/",
@@ -821,7 +1027,7 @@
         "id": "oyql4py",
         "author": "disturbedmonkey69",
         "body": "Nah they just release their programs and let the end user find the bugs.",
-        "score": 6,
+        "score": 7,
         "created_utc_ts": 1784577667,
         "created_utc": "2026-07-20T20:01:07",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyql4py/",
@@ -832,7 +1038,7 @@
         "id": "oyqmjru",
         "author": "AntimatterTNT",
         "body": "wdym \"instead of\"? i think you mean \"it's good researchers and contributors are trying to catch up with black hat hackers\"",
-        "score": 9,
+        "score": 10,
         "created_utc_ts": 1784578050,
         "created_utc": "2026-07-20T20:07:30",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyqmjru/",
@@ -843,7 +1049,7 @@
         "id": "oyqnz4g",
         "author": "Geminii27",
         "body": "It's a new internet security feature - you must submit your heart to be weighed against a feather.",
-        "score": 85,
+        "score": 86,
         "created_utc_ts": 1784578432,
         "created_utc": "2026-07-20T20:13:52",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyqnz4g/",
@@ -876,7 +1082,7 @@
         "id": "oyqvfz5",
         "author": "SubmarineWipers",
         "body": "I wonder how long till even kernel maintainers realize this is untenable and rewrite all the historically buggy parts of the kernel into Rust. \n\nOr you know, they can spend all their time fixing malloc-free errors. Sounds like fun. ",
-        "score": -21,
+        "score": -22,
         "created_utc_ts": 1784580433,
         "created_utc": "2026-07-20T20:47:13",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyqvfz5/",
@@ -887,7 +1093,7 @@
         "id": "oyrdwo3",
         "author": "capcom1116",
         "body": "Linux is a very public OS with a ton of scrutiny; a big CVE list is a good thing, regardless.",
-        "score": 100,
+        "score": 103,
         "created_utc_ts": 1784585609,
         "created_utc": "2026-07-20T22:13:29",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyrdwo3/",
@@ -898,7 +1104,7 @@
         "id": "oyrh9p6",
         "author": "Vaddieg",
         "body": "I wonder if reporters bothered to verify AI-generated CVE reports ",
-        "score": 1,
+        "score": 2,
         "created_utc_ts": 1784586625,
         "created_utc": "2026-07-20T22:30:25",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyrh9p6/",
@@ -909,7 +1115,7 @@
         "id": "oyri328",
         "author": "Vaddieg",
         "body": "mallocFreeError.unwrap()",
-        "score": 6,
+        "score": 5,
         "created_utc_ts": 1784586878,
         "created_utc": "2026-07-20T22:34:38",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyri328/",
@@ -920,7 +1126,7 @@
         "id": "oyrjbty",
         "author": "Valdjiu",
         "body": "Good. Find more. Close them all. \n\n",
-        "score": 17,
+        "score": 19,
         "created_utc_ts": 1784587262,
         "created_utc": "2026-07-20T22:41:02",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyrjbty/",
@@ -942,7 +1148,7 @@
         "id": "oyrz702",
         "author": "DeliciousIncident",
         "body": "Fixed your formatting for people using [old Reddit](https://old.reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyq13lz/) (use 4 spaces to indent the code, instead of using the backtick blocks).\n\n    stable: \t7.1.4\n    longterm: \t6.18.39\n    longterm: \t6.12.96\n    longterm: \t6.6.144\n    longterm: \t6.1.177\n    longterm: \t5.15.211\n    longterm: \t5.10.260\n\n     27 5.10.258\n     67 5.10.259\n     16 5.10.260\n     37 5.15.209\n     78 5.15.210\n     18 5.15.211\n     48 6.1.175\n     87 6.1.176\n     22 6.1.177\n     18 6.12.91\n     82 6.12.92\n    107 6.12.93\n      6 6.12.94\n     30 6.12.95\n      5 6.12.96\n     25 6.18.33\n    138 6.18.34\n    118 6.18.35\n      7 6.18.36\n      2 6.18.37\n     29 6.18.38\n      7 6.18.39\n     14 6.6.141\n     62 6.6.142\n     98 6.6.143\n     26 6.6.144\n     30 7.0.10\n    165 7.0.11\n    130 7.0.12\n      8 7.0.13\n      2 7.0.14\n    330 7.1\n     35 7.1.3\n      6 7.1.4\n     41 7.2",
-        "score": 22,
+        "score": 21,
         "created_utc_ts": 1784592291,
         "created_utc": "2026-07-21T00:04:51",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyrz702/",
@@ -975,7 +1181,7 @@
         "id": "oytrafv",
         "author": "gregkh",
         "body": "I spend some time catching up with the pending kernel CVE review queue on a Sunday and everyone gets upset?\n\n{sigh}",
-        "score": 47,
+        "score": 48,
         "created_utc_ts": 1784617186,
         "created_utc": "2026-07-21T06:59:46",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oytrafv/",
@@ -1019,7 +1225,7 @@
         "id": "oyuhx34",
         "author": "HxSigil",
         "body": "Rust would prevent some memory-safety bugs, but it’s not a magic rewrite button. Kernel code still needs unsafe boundaries for hardware and C interfaces, and Rust won’t stop logic bugs, races or bad validation.\n\nAlso, this CVE dump isn’t just hundreds of malloc/free disasters. Some are things like a crash kernel crashing, a Raspberry Pi SPI sanity check misfiring, a self-test breaking when run twice, or a laptop charging-limit bug.\n\nRust helps, but the raw CVE count makes this look far worse than it is.",
-        "score": 4,
+        "score": 5,
         "created_utc_ts": 1784630283,
         "created_utc": "2026-07-21T10:38:03",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyuhx34/",
@@ -1041,7 +1247,7 @@
         "id": "oyuu1u1",
         "author": "Caddy666",
         "body": "cool, the more are found, the more can be fixed.",
-        "score": 4,
+        "score": 5,
         "created_utc_ts": 1784635045,
         "created_utc": "2026-07-21T11:57:25",
         "permalink": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/oyuu1u1/",
@@ -1096,14 +1302,14 @@
     "created_utc": "2026-07-20T17:45:39",
     "first_author_comment": "I can't edit the post. If I did the maths correctly, these are the kernels that have been patched:\n\n```\nstable: \t7.1.4\nlongterm: \t6.18.39\nlongterm: \t6.12.96\nlongterm: \t6.6.144\nlongterm: \t6.1.177\nlongterm: \t5.15.211\nlongterm: \t5.10.260\n```\n\n```\n     27 5.10.258\n     67 5.10.259\n     16 5.10.260\n     37 5.15.209\n     78 5.15.210\n     18 5.15.211\n     48 6.1.175\n     87 6.1.176\n     22 6.1.177\n     18 6.12.91\n     82 6.12.92\n    107 6.12.93\n      6 6.12.94\n     30 6.12.95\n      5 6.12.96\n     25 6.18.33\n    138 6.18.34\n    118 6.18.35\n      7 6.18.36\n      2 6.18.37\n     29 6.18.38\n      7 6.18.39\n     14 6.6.141\n     62 6.6.142\n     98 6.6.143\n     26 6.6.144\n     30 7.0.10\n    165 7.0.11\n    130 7.0.12\n      8 7.0.13\n      2 7.0.14\n    330 7.1\n     35 7.1.3\n      6 7.1.4\n     41 7.2\n```",
     "num_comments": 94,
-    "score": 484,
+    "score": 490,
     "subreddit": "linux",
     "tag": "Kernel",
     "tags": [
       "Kernel"
     ],
     "title": "432 Linux kernel CVEs published in the last 24 hours",
-    "updatedAt": "2026-07-24T04:52:45.359Z",
+    "updatedAt": "2026-07-25T04:53:03.986Z",
     "upvote_ratio": 0.94,
     "url": "https://reddit.com/r/linux/comments/1v1siqn/432_linux_kernel_cves_published_in_the_last_24/",
     "versionList": [
@@ -1140,13 +1346,13 @@
     "created_utc": "2026-07-20T08:19:53",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 22,
+    "score": 25,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Escalating All The Privileges With Foxit PDF Reader (CVE-2026–57239)",
-    "updatedAt": "2026-07-24T04:46:05.546Z",
-    "upvote_ratio": 0.89,
+    "updatedAt": "2026-07-25T04:46:19.560Z",
+    "upvote_ratio": 0.94,
     "url": "https://reddit.com/r/netsec/comments/1v1ffuz/escalating_all_the_privileges_with_foxit_pdf/",
     "versionList": [
       "2026.0.0",
@@ -1305,13 +1511,13 @@
     "created_utc": "2026-07-18T21:17:40",
     "first_author_comment": null,
     "num_comments": 4,
-    "score": 24,
+    "score": 26,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "wp2shell (CVE-2026-63030): Pre-Auth RCE Chain in WordPress Core - Analysis and Open-Source Scanner",
-    "updatedAt": "2026-07-24T04:46:08.552Z",
-    "upvote_ratio": 0.87,
+    "updatedAt": "2026-07-25T04:46:23.564Z",
+    "upvote_ratio": 0.88,
     "url": "https://reddit.com/r/netsec/comments/1v07npi/wp2shell_cve202663030_preauth_rce_chain_in/",
     "versionList": [
       "2026.0.0",
@@ -1921,13 +2127,13 @@
     "created_utc": "2026-07-17T13:18:22",
     "first_author_comment": null,
     "num_comments": 0,
-    "score": 6,
+    "score": 5,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Windows AppResolver LPE: From AppContainer to SYSTEM. PoC linked to CVE-2026-50454",
-    "updatedAt": "2026-07-24T04:46:15.216Z",
-    "upvote_ratio": 0.76,
+    "updatedAt": "2026-07-25T04:46:29.406Z",
+    "upvote_ratio": 0.74,
     "url": "https://reddit.com/r/netsec/comments/1uyzhy8/windows_appresolver_lpe_from_appcontainer_to/",
     "versionList": [
       "2026.0.0",
@@ -2077,13 +2283,13 @@
     "created_utc": "2026-07-16T06:26:39",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 13,
+    "score": 10,
     "subreddit": "netsec",
     "tag": "Contains AI",
     "tags": [],
     "title": "ASUS bsitf.sys (CVE-2026-13585): Arbitrary Physical Memory Mapping via Unvalidated IOCTL",
-    "updatedAt": "2026-07-24T04:46:18.684Z",
-    "upvote_ratio": 0.93,
+    "updatedAt": "2026-07-25T04:46:32.267Z",
+    "upvote_ratio": 0.82,
     "url": "https://reddit.com/r/netsec/comments/1uxuqyg/asus_bsitfsys_cve202613585_arbitrary_physical/",
     "versionList": [
       "2026.0.0",
@@ -5513,12 +5719,12 @@
     "created_utc": "2026-07-13T09:33:49",
     "first_author_comment": null,
     "num_comments": 18,
-    "score": 92,
+    "score": 95,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Dell BIOS Passwords: Weak XOR Encryption Allows Recovery from SPI Flash (CVE-2026-40639)",
-    "updatedAt": "2026-07-24T04:46:26.123Z",
+    "updatedAt": "2026-07-25T04:46:38.974Z",
     "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/netsec/comments/1uv6qbn/dell_bios_passwords_weak_xor_encryption_allows/",
     "versionList": [
@@ -5550,7 +5756,7 @@
         "id": "oxa6rxo",
         "author": "Coffee_Ops",
         "body": "&gt; The key is 20 bytes. The field it encrypts is 32 bytes. That 12-byte mismatch is the whole vulnerability.\n\nIt's not the whole vulnerability, the vulnerability is the naive use of XOR as a cipher -- known for decades as problematic-- and not using a hash for password storage. \n\nAlso, isn't it best practice to disclose the use of AI in a writeup, particularly when its use seems to have been as much editing as analysis?",
-        "score": 27,
+        "score": 26,
         "created_utc_ts": 1783953830,
         "created_utc": "2026-07-13T14:43:50",
         "permalink": "https://reddit.com/r/netsec/comments/1uv6qbn/dell_bios_passwords_weak_xor_encryption_allows/oxa6rxo/",
@@ -5561,7 +5767,7 @@
         "id": "oxayts2",
         "author": "UltraEngine60",
         "body": "Jesus Christ what year is this.",
-        "score": 32,
+        "score": 33,
         "created_utc_ts": 1783961113,
         "created_utc": "2026-07-13T16:45:13",
         "permalink": "https://reddit.com/r/netsec/comments/1uv6qbn/dell_bios_passwords_weak_xor_encryption_allows/oxayts2/",
@@ -5572,7 +5778,7 @@
         "id": "oxbanhz",
         "author": "rtt445",
         "body": "Why do you need strong bios password? If you have physical access to read SPI then you're done anyway. Encrypting bios will make hardware reuse impossible and increase E-waste.",
-        "score": 6,
+        "score": 7,
         "created_utc_ts": 1783964100,
         "created_utc": "2026-07-13T17:35:00",
         "permalink": "https://reddit.com/r/netsec/comments/1uv6qbn/dell_bios_passwords_weak_xor_encryption_allows/oxbanhz/",
@@ -5580,21 +5786,10 @@
         "is_submitter": false
       },
       {
-        "id": "oxbgtch",
-        "author": "Top-Connection-8784",
-        "body": "Hopefully Dell moves to a hardware-backed key or TPM-assisted protection instead.\n\n",
-        "score": 3,
-        "created_utc_ts": 1783965618,
-        "created_utc": "2026-07-13T18:00:18",
-        "permalink": "https://reddit.com/r/netsec/comments/1uv6qbn/dell_bios_passwords_weak_xor_encryption_allows/oxbgtch/",
-        "parent_id": "t3_1uv6qbn",
-        "is_submitter": false
-      },
-      {
         "id": "oxbuuzx",
         "author": "shyouko",
         "body": "Let's pretend it is 1996",
-        "score": 13,
+        "score": 12,
         "created_utc_ts": 1783969155,
         "created_utc": "2026-07-13T18:59:15",
         "permalink": "https://reddit.com/r/netsec/comments/1uv6qbn/dell_bios_passwords_weak_xor_encryption_allows/oxbuuzx/",
@@ -5627,7 +5822,7 @@
         "id": "oxdp7rs",
         "author": "ElvishJerricco",
         "body": "The fact that people *think* there's no point trying to defend against physical access is the reason it remains true. There are plenty of things we could be doing to make physical attacks harder, but it rarely makes sense because some other component gives up the game for the same reason. It's a catch 22. Obviously you can't defend against physical attacks *perfectly*, but we could at least make it take a lot of effort to do physical attacks, if only there weren't a hundred components all designed with the philosophy that everything is always vulnerable to physical attacks. e.g. The fTPM2 in a modern SoC is legitimately very strong against physical attacks; not perfect, so it *can* be defeated with enough effort, but it's strong and requires a lot of effort. And it's only possible because Intel and AMD decided that boot security mattered long before it actually mattered, and started building physical security into these things.",
-        "score": 6,
+        "score": 5,
         "created_utc_ts": 1783987943,
         "created_utc": "2026-07-14T00:12:23",
         "permalink": "https://reddit.com/r/netsec/comments/1uv6qbn/dell_bios_passwords_weak_xor_encryption_allows/oxdp7rs/",
@@ -9595,7 +9790,7 @@
     "tag": null,
     "tags": [],
     "title": "We wrote up how CVE-2026-53359 (Januscape) impacts OpenStack compute isolation plus a follow-up on detecting nested virtualization exposure",
-    "updatedAt": "2026-07-14T21:26:40.729Z",
+    "updatedAt": "2026-07-24T23:07:39.746Z",
     "upvote_ratio": 0.9,
     "url": "https://reddit.com/r/openstack/comments/1upuhi2/we_wrote_up_how_cve202653359_januscape_impacts/",
     "versionList": [
@@ -9976,7 +10171,7 @@
         "id": "ow2wgkl",
         "author": "JoeyBonzo25",
         "body": "I appreciate the write up and script but I can also ask Claude what it thinks about stuff if I want to read something written by AI.",
-        "score": 8,
+        "score": 7,
         "created_utc_ts": 1783430588,
         "created_utc": "2026-07-07T13:23:08",
         "permalink": "https://reddit.com/r/openstack/comments/1upuhi2/we_wrote_up_how_cve202653359_januscape_impacts/ow2wgkl/",
@@ -11444,13 +11639,13 @@
     "created_utc": "2026-07-01T14:52:02",
     "first_author_comment": null,
     "num_comments": 3,
-    "score": 22,
+    "score": 21,
     "subreddit": "netsec",
     "tag": "Contains AI",
     "tags": [],
     "title": "Privilege escalation to root in Lima QEMU guests via a world-writable agent socket (CVE-2026-53657)",
-    "updatedAt": "2026-07-24T04:46:42.064Z",
-    "upvote_ratio": 0.96,
+    "updatedAt": "2026-07-24T18:48:05.075Z",
+    "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/netsec/comments/1uknvr4/privilege_escalation_to_root_in_lima_qemu_guests/",
     "versionList": [
       "2026.0.0",
@@ -11519,13 +11714,13 @@
     "created_utc": "2026-07-01T13:29:07",
     "first_author_comment": null,
     "num_comments": 28,
-    "score": 15,
+    "score": 13,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "r/netsec monthly discussion &amp; tool thread",
-    "updatedAt": "2026-07-24T04:46:43.562Z",
-    "upvote_ratio": 0.91,
+    "updatedAt": "2026-07-24T14:47:46.339Z",
+    "upvote_ratio": 0.86,
     "url": "https://reddit.com/r/netsec/comments/1uklqx3/rnetsec_monthly_discussion_tool_thread/",
     "versionList": [],
     "classification": {
@@ -11754,13 +11949,13 @@
     "created_utc": "2026-06-30T19:40:48",
     "first_author_comment": null,
     "num_comments": 3,
-    "score": 41,
+    "score": 39,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CitrixBleed To Infinity And Beyond (Citrix NetScaler Pre-Auth Memory Overread CVE-2026-8451) - watchTowr Labs",
-    "updatedAt": "2026-07-24T04:46:44.489Z",
-    "upvote_ratio": 0.98,
+    "updatedAt": "2026-07-24T10:47:24.564Z",
+    "upvote_ratio": 0.94,
     "url": "https://reddit.com/r/netsec/comments/1ujzc5y/citrixbleed_to_infinity_and_beyond_citrix/",
     "versionList": [
       "2026.0.0",
@@ -17932,649 +18127,5 @@
     "category": "Negative",
     "comments_avg_sentiment_score": 0.255,
     "sentiment_score": -0.366
-  },
-  {
-    "_id": "6a331ec84ce8d84a7e42f506",
-    "redditId": "1u8m7z8",
-    "author": "404UsernameFoundNot",
-    "author_description": "REDMOND, WA -- In a bold move to streamline its communications and bypass the traditional tech press altogether, Microsoft announced Tuesday that all future Windows updates and software features will be unveiled exclusively via their corresponding Common Vulnerabilities and Exposures (CVE) numbers.\n\n\"We realize that our users are busy, and waiting for an annual developer conference just to hear about a cool new feature is outdated,\" said Microsoft CEO Satya Nadella, speaking from an encrypted bunker. \"By baking our upcoming generative AI tools, cloud integrations, and interface overhauls directly into high-severity security exploits, we ensure that IT administrators see them first --usually at 3:00 AM on a Sunday while their servers are actively melting.\"\n\nThe tech giant kicked off the initiative with the rollout of CVE-2026-8841, a critical remote code execution vulnerability that, when fully exploited by state-sponsored actors, automatically pins an un-removable Microsoft Copilot widget to the user's taskbar.\n\nAccording to Microsoft's updated patch notes, the new delivery system offers unprecedented integration. For instance, an arbitrary directory traversal flaw in the Windows Kernel (CVE-2026-9012) is actually the hidden delivery mechanism for an exciting new \"Smart Scrapbook\" feature that automatically backs up a user's unencrypted tax documents directly to a public GitHub repository.\n\n\"It’s all about meeting the consumer where they are,\" Nadella added. \"And right now, they are frantically trying to figure out why their entire corporate network is screaming.\"\n\nAt press time, Microsoft developers were reportedly celebrating the successful launch of a major OneDrive storage upgrade, which went live after a buffer overflow vulnerability allowed a teenage hacker in Belarus to copy 40 petabytes of random family vacation photos onto the company's main servers.\n\n\n(Thanks to /u/hadrabap for the [inspiration](https://old.reddit.com/r/sysadmin/comments/1u8ceup/will_vendors_please_stop_reusing_acronyms/os7430c/))",
-    "awards": [],
-    "comments": [
-      {
-        "id": "os9bah6",
-        "author": "mimikater",
-        "body": " Had a good laugh! ",
-        "score": 1,
-        "created_utc_ts": 1781729654,
-        "created_utc": "2026-06-17T20:54:14",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1u8m7z8/microsoft_announces_exciting_new_windows_features/os9bah6/",
-        "parent_id": "t3_1u8m7z8",
-        "is_submitter": false,
-        "sentiment_score": 0.778,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 0.128,
-          "pos": 0.872,
-          "compound": 0.7777
-        }
-      },
-      {
-        "id": "os9bedu",
-        "author": "beren0073",
-        "body": "Couldn’t wait for April?",
-        "score": 1,
-        "created_utc_ts": 1781729682,
-        "created_utc": "2026-06-17T20:54:42",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1u8m7z8/microsoft_announces_exciting_new_windows_features/os9bedu/",
-        "parent_id": "t3_1u8m7z8",
-        "is_submitter": false,
-        "sentiment_score": 0,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 1,
-          "pos": 0,
-          "compound": 0
-        }
-      },
-      {
-        "id": "os9bewe",
-        "author": "mattjh",
-        "body": "Can there be a satire flair please? Part of why I come here is for news.",
-        "score": 1,
-        "created_utc_ts": 1781729686,
-        "created_utc": "2026-06-17T20:54:46",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1u8m7z8/microsoft_announces_exciting_new_windows_features/os9bewe/",
-        "parent_id": "t3_1u8m7z8",
-        "is_submitter": false,
-        "sentiment_score": 0.318,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 0.85,
-          "pos": 0.15,
-          "compound": 0.3182
-        }
-      },
-      {
-        "id": "os9bgjx",
-        "author": "NightOfTheLivingHam",
-        "body": "lol",
-        "score": 1,
-        "created_utc_ts": 1781729697,
-        "created_utc": "2026-06-17T20:54:57",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1u8m7z8/microsoft_announces_exciting_new_windows_features/os9bgjx/",
-        "parent_id": "t3_1u8m7z8",
-        "is_submitter": false,
-        "sentiment_score": 0.421,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 0,
-          "pos": 1,
-          "compound": 0.4215
-        }
-      },
-      {
-        "id": "os9cfsy",
-        "author": "Turbulent_Fig_9354",
-        "body": "&gt;speaking from an encrypted bunker\n\nsent me ",
-        "score": 1,
-        "created_utc_ts": 1781729953,
-        "created_utc": "2026-06-17T20:59:13",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1u8m7z8/microsoft_announces_exciting_new_windows_features/os9cfsy/",
-        "parent_id": "t3_1u8m7z8",
-        "is_submitter": false,
-        "sentiment_score": 0,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 1,
-          "pos": 0,
-          "compound": 0
-        }
-      },
-      {
-        "id": "os9d7hq",
-        "author": "404UsernameFoundNot",
-        "body": "What else am I supposed to do while watching ansible playbooks",
-        "score": 1,
-        "created_utc_ts": 1781730154,
-        "created_utc": "2026-06-17T21:02:34",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1u8m7z8/microsoft_announces_exciting_new_windows_features/os9d7hq/",
-        "parent_id": "t1_os9bedu",
-        "is_submitter": true,
-        "sentiment_score": 0,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 1,
-          "pos": 0,
-          "compound": 0
-        }
-      },
-      {
-        "id": "os9e636",
-        "author": "cbelt3",
-        "body": "That is a classic example of schadenfreude…. Painful, funny, possibly true.",
-        "score": 1,
-        "created_utc_ts": 1781730413,
-        "created_utc": "2026-06-17T21:06:53",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1u8m7z8/microsoft_announces_exciting_new_windows_features/os9e636/",
-        "parent_id": "t3_1u8m7z8",
-        "is_submitter": false,
-        "sentiment_score": 0.421,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0.186,
-          "neu": 0.449,
-          "pos": 0.365,
-          "compound": 0.4215
-        }
-      },
-      {
-        "id": "os9g554",
-        "author": "JimmyEggs",
-        "body": "Good stuff",
-        "score": 1,
-        "created_utc_ts": 1781730950,
-        "created_utc": "2026-06-17T21:15:50",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1u8m7z8/microsoft_announces_exciting_new_windows_features/os9g554/",
-        "parent_id": "t3_1u8m7z8",
-        "is_submitter": false,
-        "sentiment_score": 0.44,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 0.256,
-          "pos": 0.744,
-          "compound": 0.4404
-        }
-      },
-      {
-        "id": "os9gn5m",
-        "author": "0xdeadbeef6",
-        "body": " r/shittysysadmin is over there bud",
-        "score": 1,
-        "created_utc_ts": 1781731090,
-        "created_utc": "2026-06-17T21:18:10",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1u8m7z8/microsoft_announces_exciting_new_windows_features/os9gn5m/",
-        "parent_id": "t3_1u8m7z8",
-        "is_submitter": false,
-        "sentiment_score": 0,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 1,
-          "pos": 0,
-          "compound": 0
-        }
-      },
-      {
-        "id": "os9j7t5",
-        "author": "Professional-Heat690",
-        "body": "Well done, sympathetic and sarcastic upvote! ",
-        "score": 1,
-        "created_utc_ts": 1781731807,
-        "created_utc": "2026-06-17T21:30:07",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1u8m7z8/microsoft_announces_exciting_new_windows_features/os9j7t5/",
-        "parent_id": "t3_1u8m7z8",
-        "is_submitter": false,
-        "sentiment_score": 0.571,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0.187,
-          "neu": 0.281,
-          "pos": 0.532,
-          "compound": 0.5707
-        }
-      },
-      {
-        "id": "os9p99j",
-        "author": "beren12",
-        "body": "Yeah. Critical vulns are old stories now. ",
-        "score": 1,
-        "created_utc_ts": 1781733525,
-        "created_utc": "2026-06-17T21:58:45",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1u8m7z8/microsoft_announces_exciting_new_windows_features/os9p99j/",
-        "parent_id": "t1_os9bewe",
-        "is_submitter": false,
-        "sentiment_score": -0.026,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0.242,
-          "neu": 0.526,
-          "pos": 0.232,
-          "compound": -0.0258
-        }
-      },
-      {
-        "id": "os9qcdz",
-        "author": "arwinda",
-        "body": "In 10 months this new system is fully implemented.",
-        "score": 1,
-        "created_utc_ts": 1781733840,
-        "created_utc": "2026-06-17T22:04:00",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1u8m7z8/microsoft_announces_exciting_new_windows_features/os9qcdz/",
-        "parent_id": "t1_os9bedu",
-        "is_submitter": false,
-        "sentiment_score": 0,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 1,
-          "pos": 0,
-          "compound": 0
-        }
-      },
-      {
-        "id": "os9ssy8",
-        "author": "Inquisitive_idiot",
-        "body": "Heh 🤭",
-        "score": 1,
-        "created_utc_ts": 1781734577,
-        "created_utc": "2026-06-17T22:16:17",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1u8m7z8/microsoft_announces_exciting_new_windows_features/os9ssy8/",
-        "parent_id": "t3_1u8m7z8",
-        "is_submitter": false,
-        "sentiment_score": -0.153,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 1,
-          "neu": 0,
-          "pos": 0,
-          "compound": -0.1531
-        }
-      },
-      {
-        "id": "os9twll",
-        "author": "Fallingdamage",
-        "body": "Thanks. I need this this week.",
-        "score": 1,
-        "created_utc_ts": 1781734913,
-        "created_utc": "2026-06-17T22:21:53",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1u8m7z8/microsoft_announces_exciting_new_windows_features/os9twll/",
-        "parent_id": "t3_1u8m7z8",
-        "is_submitter": false,
-        "sentiment_score": 0.44,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 0.58,
-          "pos": 0.42,
-          "compound": 0.4404
-        }
-      }
-    ],
-    "created_utc": "2026-06-17T20:50:37",
-    "first_author_comment": "What else am I supposed to do while watching ansible playbooks",
-    "num_comments": 15,
-    "score": 106,
-    "subreddit": "sysadmin",
-    "tag": "Microsoft",
-    "tags": [
-      "Microsoft"
-    ],
-    "title": "Microsoft Announces Exciting New Windows Features Under Corresponding CVE Numbers",
-    "updatedAt": "2026-06-19T00:29:40.401Z",
-    "upvote_ratio": 0.84,
-    "url": "https://reddit.com/r/sysadmin/comments/1u8m7z8/microsoft_announces_exciting_new_windows_features/",
-    "versionList": [],
-    "metadata": {
-      "predicted": {
-        "isUpdateRelated": false,
-        "positiveScore": 0.00563527039502933,
-        "timestampPredicted": "2026-06-18T08:01:22.160711+00:00"
-      },
-      "labeled": {
-        "isUpdateRelated": null
-      }
-    },
-    "isAboutCve": true,
-    "isAboutLatestUpdate": true,
-    "classification": {
-      "componentType": [
-        "OS"
-      ],
-      "securityType": [
-        "SECURITY"
-      ]
-    },
-    "author_description_sentiment": {
-      "score": 0.891,
-      "detail": {
-        "neg": 0.057,
-        "neu": 0.857,
-        "pos": 0.086,
-        "compound": 0.8911
-      }
-    },
-    "category": "Positive",
-    "comments_avg_sentiment_score": 0.229,
-    "sentiment_score": 0.56
-  },
-  {
-    "_id": "6a32f1bf4ce8d84a7e42e874",
-    "redditId": "1u8hwod",
-    "author": "lo________________ol",
-    "author_description": "Before anybody says it, this is not Apple/WebKit's fault. No other iOS browser has this vulnerability, including regular iOS Firefox. This attack apparently only works on Firefox Focus because of the unique single-tab design.",
-    "awards": [],
-    "created_utc": "2026-06-17T18:12:40",
-    "first_author_comment": null,
-    "num_comments": 9,
-    "score": 118,
-    "subreddit": "firefox",
-    "tag": "Discussion",
-    "tags": [
-      "Discussion"
-    ],
-    "title": "Don't use Firefox Focus on iOS: Vulnerable to zero-day Mozilla failed to patch for 11 months",
-    "updatedAt": "2026-06-19T00:30:24.812Z",
-    "upvote_ratio": 0.9,
-    "url": "https://reddit.com/r/firefox/comments/1u8hwod/dont_use_firefox_focus_on_ios_vulnerable_to/",
-    "versionList": [
-      "11.0.0"
-    ],
-    "metadata": {
-      "predicted": {
-        "isUpdateRelated": false,
-        "positiveScore": 0.002868661807321542,
-        "timestampPredicted": "2026-06-18T04:01:28.171273+00:00"
-      },
-      "labeled": {
-        "isUpdateRelated": null
-      }
-    },
-    "isAboutCve": true,
-    "isAboutLatestUpdate": true,
-    "comments": [
-      {
-        "id": "os8p7ky",
-        "author": "MozRyanVM",
-        "body": "This was fixed in last week's 151.3.1 release.",
-        "score": 59,
-        "created_utc_ts": 1781723824,
-        "created_utc": "2026-06-17T19:17:04",
-        "permalink": "https://reddit.com/r/firefox/comments/1u8hwod/dont_use_firefox_focus_on_ios_vulnerable_to/os8p7ky/",
-        "parent_id": "t3_1u8hwod",
-        "is_submitter": false,
-        "sentiment_score": 0,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 1,
-          "pos": 0,
-          "compound": 0
-        }
-      },
-      {
-        "id": "os8w8yz",
-        "author": "HammyHavoc",
-        "body": "Why such a long turnaround time?",
-        "score": 46,
-        "created_utc_ts": 1781725673,
-        "created_utc": "2026-06-17T19:47:53",
-        "permalink": "https://reddit.com/r/firefox/comments/1u8hwod/dont_use_firefox_focus_on_ios_vulnerable_to/os8w8yz/",
-        "parent_id": "t1_os8p7ky",
-        "is_submitter": false,
-        "sentiment_score": 0,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 1,
-          "pos": 0,
-          "compound": 0
-        }
-      },
-      {
-        "id": "os8yhrk",
-        "author": "BakerStSavvy",
-        "body": "People use focus for logging in and not just temp web browsing? Ive literally never logged into anything on focus. Crazy an exploit like this lasted this long though",
-        "score": 23,
-        "created_utc_ts": 1781726269,
-        "created_utc": "2026-06-17T19:57:49",
-        "permalink": "https://reddit.com/r/firefox/comments/1u8hwod/dont_use_firefox_focus_on_ios_vulnerable_to/os8yhrk/",
-        "parent_id": "t3_1u8hwod",
-        "is_submitter": false,
-        "sentiment_score": -0.077,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0.118,
-          "neu": 0.805,
-          "pos": 0.077,
-          "compound": -0.0772
-        }
-      },
-      {
-        "id": "osaajxz",
-        "author": "MaxHamburgerrestaur",
-        "body": "I use it as a private mode",
-        "score": 1,
-        "created_utc_ts": 1781740319,
-        "created_utc": "2026-06-17T23:51:59",
-        "permalink": "https://reddit.com/r/firefox/comments/1u8hwod/dont_use_firefox_focus_on_ios_vulnerable_to/osaajxz/",
-        "parent_id": "t1_os8yhrk",
-        "is_submitter": false,
-        "sentiment_score": 0,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 1,
-          "pos": 0,
-          "compound": 0
-        }
-      },
-      {
-        "id": "osb58qv",
-        "author": "LogicTrolley",
-        "body": "The github page you linked seems to think it hasn't been fixed when it was fixed [https://www.mozilla.org/en-US/security/advisories/mfsa2026-12/](https://www.mozilla.org/en-US/security/advisories/mfsa2026-12/) in February.\n\nThat sounds like 7 months instead of the 11 claimed.  Just sayin.\n\nSource:  Here is the CVE for that vuln:  [https://www.sentinelone.com/vulnerability-database/cve-2026-2634/](https://www.sentinelone.com/vulnerability-database/cve-2026-2634/)",
-        "score": 17,
-        "created_utc_ts": 1781751100,
-        "created_utc": "2026-06-18T02:51:40",
-        "permalink": "https://reddit.com/r/firefox/comments/1u8hwod/dont_use_firefox_focus_on_ios_vulnerable_to/osb58qv/",
-        "parent_id": "t3_1u8hwod",
-        "is_submitter": false,
-        "sentiment_score": 0.361,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 0.938,
-          "pos": 0.062,
-          "compound": 0.3612
-        }
-      },
-      {
-        "id": "osbdb1c",
-        "author": "ppatra",
-        "body": "A critical vulnerability took 7 months to fix? ",
-        "score": 1,
-        "created_utc_ts": 1781754240,
-        "created_utc": "2026-06-18T03:44:00",
-        "permalink": "https://reddit.com/r/firefox/comments/1u8hwod/dont_use_firefox_focus_on_ios_vulnerable_to/osbdb1c/",
-        "parent_id": "t1_osb58qv",
-        "is_submitter": false,
-        "sentiment_score": -0.494,
-        "sentiment_bucket": "Negative",
-        "sentiment_detail": {
-          "neg": 0.512,
-          "neu": 0.488,
-          "pos": 0,
-          "compound": -0.4939
-        }
-      }
-    ],
-    "classification": {
-      "componentType": [
-        "OS",
-        "BROWSER",
-        "MOBILE"
-      ],
-      "securityType": [
-        "UNKNOWN"
-      ]
-    },
-    "author_description_sentiment": {
-      "score": -0.268,
-      "detail": {
-        "neg": 0.133,
-        "neu": 0.762,
-        "pos": 0.105,
-        "compound": -0.2684
-      }
-    },
-    "category": "Neutral",
-    "comments_avg_sentiment_score": -0.035,
-    "sentiment_score": -0.152
-  },
-  {
-    "_id": "6a319513c08e7acc03566629",
-    "redditId": "1u7kggj",
-    "author": "patchdayalert",
-    "author_description": "This week’s list is a little Windows-heavy thanks to June Patch Tuesday. Four of the five are already on CISA’s KEV list, the DHCP flaw can be triggered from the local network, and Oracle had to release an out-of-band fix for a PeopleSoft zero-day that was already being used in attacks.\n\n**1.** [**CVE-2026-44815: Windows DHCP Client**](https://nvd.nist.gov/vuln/detail/CVE-2026-44815)\n\nA malicious DHCP server on the same network can send a crafted response and get code execution on Windows clients. That makes this more important than a normal workstation patch, especially on guest Wi-Fi, branch networks, or anywhere you don’t fully trust the local segment.\n\n* **Scope:** Windows systems using DHCP\n* **Why now:** Critical, KEV-listed, CISA deadline June 23\n* **Next step:** Deploy the June 2026 Windows updates\n\n**2.** [**CVE-2026-35273: Oracle PeopleSoft PeopleTools**](https://nvd.nist.gov/vuln/detail/CVE-2026-35273)\n\nUnauthenticated RCE that attackers were already using for data theft before Oracle released the fix. Any exposed or affected PeopleSoft server deserves both a patch and a closer look at what happened before it was patched.\n\n* **Scope:** PeopleTools 8.61 and 8.62\n* **Why now:** CVSS 9.8, KEV-listed, CISA deadline July 3\n* **Next step:** Apply Oracle’s out-of-band update and check for signs of post-exploitation activity\n\n**3.** [**CVE-2026-0257: Palo Alto PAN-OS GlobalProtect**](https://unit42.paloaltonetworks.com/active-exploitation-of-pan-os-cve-2026-0257/)\n\nAn authentication bypass that allows attackers to establish GlobalProtect VPN sessions without valid credentials. Since this sits at the front door of the networks running a Palo fw, log review matters almost as much as installing the fix.\n\n* **Scope:** Exposed GlobalProtect portals and gateways\n* **Why now:** Active exploitation confirmed by Unit 42 on June 9\n* **Next step:** Apply the appropriate PAN-OS hotfix and investigate any VPN sessions you can’t explain\n\n**4.** [**CVE-2026-10520**](https://nvd.nist.gov/vuln/detail/CVE-2026-10520) **/** [**CVE-2026-10523**](https://nvd.nist.gov/vuln/detail/CVE-2026-10523)**: Ivanti Sentry**\n\nThis is a rough pair: one flaw allows unauthenticated root RCE, while the other can be used to create a rogue administrator account. Either one would justify urgent work on its own.\n\n* **Scope:** Ivanti Sentry gateway deployments\n* **Why now:** CVSS 10.0 and 9.9; both KEV-listed\n* **Next step:** Upgrade to the fixed release in Ivanti’s advisory\n\n**5.** [**CVE-2026-47288: Windows Kerberos KDC**](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-47288)\n\nCritical RCE in the Windows Kerberos Key Distribution Center, putting domain controllers in the blast radius. There is no confirmed exploitation listed here yet, but the affected role makes delaying it a hard sell.\n\n* **Scope:** Windows Server domain controllers\n* **Why now:** Critical, released with June 2026 Patch Tuesday\n* **Next step:** Roll out the June updates, with domain controllers handled early\n\nI try to limit these posts to 5 CVE's so it doesn't get too long, but feel free to discuss anything that missed the cut down in the comments!",
-    "awards": [],
-    "created_utc": "2026-06-16T17:39:54",
-    "first_author_comment": "Thanks, hope it makes life a little easier this week!",
-    "num_comments": 5,
-    "score": 25,
-    "subreddit": "sysadmin",
-    "tag": null,
-    "tags": [],
-    "title": "5 enterprise CVEs from last week worth checking out this week (Jun 7–13)",
-    "updatedAt": "2026-06-19T00:36:26.065Z",
-    "upvote_ratio": 0.89,
-    "url": "https://reddit.com/r/sysadmin/comments/1u7kggj/5_enterprise_cves_from_last_week_worth_checking/",
-    "versionList": [
-      "5.0.0",
-      "7.0.0",
-      "13.0.0"
-    ],
-    "classification": {
-      "securityType": [
-        "UNKNOWN"
-      ],
-      "componentType": []
-    },
-    "metadata": {
-      "predicted": {
-        "isUpdateRelated": false,
-        "positiveScore": 0.006999139536052311,
-        "timestampPredicted": "2026-06-17T00:01:38.251473+00:00"
-      },
-      "labeled": {
-        "isUpdateRelated": null
-      }
-    },
-    "isAboutCve": true,
-    "isAboutLatestUpdate": true,
-    "author_description_sentiment": {
-      "score": -0.812,
-      "detail": {
-        "neg": 0.064,
-        "neu": 0.899,
-        "pos": 0.037,
-        "compound": -0.812
-      }
-    },
-    "category": "Neutral",
-    "comments": [
-      {
-        "id": "os20r4o",
-        "author": "mistersd",
-        "body": "Thanks. Really nice condensed list ",
-        "score": 1,
-        "created_utc_ts": 1781641926,
-        "created_utc": "2026-06-16T20:32:06",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1u7kggj/5_enterprise_cves_from_last_week_worth_checking/os20r4o/",
-        "parent_id": "t3_1u7kggj",
-        "is_submitter": false,
-        "sentiment_score": 0.718,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 0.334,
-          "pos": 0.666,
-          "compound": 0.7178
-        }
-      },
-      {
-        "id": "os3arr4",
-        "author": "patchdayalert",
-        "body": "Thanks, hope it makes life a little easier this week!",
-        "score": 1,
-        "created_utc_ts": 1781655818,
-        "created_utc": "2026-06-17T00:23:38",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1u7kggj/5_enterprise_cves_from_last_week_worth_checking/os3arr4/",
-        "parent_id": "t1_os20r4o",
-        "is_submitter": true,
-        "sentiment_score": 0.822,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 0.411,
-          "pos": 0.589,
-          "compound": 0.8224
-        }
-      },
-      {
-        "id": "os3imzs",
-        "author": "DTDude",
-        "body": "Sweet! We've already rolled all of those out! (well, minus PeopleSoft, because Workday).\n\nThis list is great. So much more useful than giant spreadsheet of active CVE's our SOC provides us that's so large it causes Excel to hang.",
-        "score": 1,
-        "created_utc_ts": 1781658456,
-        "created_utc": "2026-06-17T01:07:36",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1u7kggj/5_enterprise_cves_from_last_week_worth_checking/os3imzs/",
-        "parent_id": "t3_1u7kggj",
-        "is_submitter": false,
-        "sentiment_score": 0.95,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 0.669,
-          "pos": 0.331,
-          "compound": 0.9504
-        }
-      },
-      {
-        "id": "os3r05e",
-        "author": "patchdayalert",
-        "body": "Thank you very much, internet stranger! If you dig the format, make sure to check out the newsletter on my profile page. Fair warning though, I’m switching from a daily digest to a weekly one next week. I think daily has become too noisy and most folks seem to check patching weekly, if not monthly anyway.\n\nBut honestly, this was the same problem my team has been dealing with for a while - our sec team sends us a giant spreadsheet every month and says, go fix it. So the idea behind the newsletter was to give us a better signal about what’s important and what can wait.\n\nI know this is going to sound like shameless self-promotion, but your comment was some of the best feedback I’ve received on my little project so far. So it feels like I’m getting to the right direction!",
-        "score": 1,
-        "created_utc_ts": 1781661281,
-        "created_utc": "2026-06-17T01:54:41",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1u7kggj/5_enterprise_cves_from_last_week_worth_checking/os3r05e/",
-        "parent_id": "t1_os3imzs",
-        "is_submitter": true,
-        "sentiment_score": 0.96,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0.06,
-          "neu": 0.767,
-          "pos": 0.173,
-          "compound": 0.96
-        }
-      },
-      {
-        "id": "os500sl",
-        "author": "rb_vs",
-        "body": "Layer 2 DHCP snooping can mitigate CVE-2026-44815 while you patch the DCs for Kerberos KDC's CVE-2026-47288",
-        "score": 1,
-        "created_utc_ts": 1781679898,
-        "created_utc": "2026-06-17T07:04:58",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1u7kggj/5_enterprise_cves_from_last_week_worth_checking/os500sl/",
-        "parent_id": "t3_1u7kggj",
-        "is_submitter": false,
-        "sentiment_score": 0,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 1,
-          "pos": 0,
-          "compound": 0
-        }
-      }
-    ],
-    "comments_avg_sentiment_score": 0.69,
-    "sentiment_score": -0.061
   }
 ]
