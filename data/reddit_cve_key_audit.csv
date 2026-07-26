@@ -1,4 +1,5 @@
 post_id,subreddit,created_iso_utc,title,cves,cve_paths,url
+,Wordpress,2026-07-25T09:25:19+00:00,WordPress Recent Vulnerability of Wp2shell,CVE-2026-60137;CVE-2026-63030,author_description,https://reddit.com/r/Wordpress/comments/1v63l7b/wordpress_recent_vulnerability_of_wp2shell/
 ,linux,2026-07-24T09:30:45+00:00,RefluXFS: A Linux Kernel Local Privilege Escalation to Root in XFS (CVE-2026-64600),CVE-2026-64600,title,https://reddit.com/r/linux/comments/1v56hde/refluxfs_a_linux_kernel_local_privilege/
 ,netsec,2026-07-24T05:53:48+00:00,Escaping Claude Cowork’s local VM sandbox via CVE-2026-46331,CVE-2026-46331,title,https://reddit.com/r/netsec/comments/1v52lix/escaping_claude_coworks_local_vm_sandbox_via/
 ,AndroidQuestions,2026-07-24T02:02:33+00:00,Using root to apply custom fonts on OneUI 8.5,CVE-2026-43499,comments[3].body,https://reddit.com/r/AndroidQuestions/comments/1v4xv2m/using_root_to_apply_custom_fonts_on_oneui_85/
@@ -98,4 +99,3 @@ post_id,subreddit,created_iso_utc,title,cves,cve_paths,url
 ,Wordpress,2026-06-18T18:28:58+00:00,"CVE-2026-9189: payment bypass in the Contact Form 7 PayPal &amp; Stripe Add-on (now patched, update if you use it)",CVE-2026-9189,title,https://reddit.com/r/Wordpress/comments/1u9ea81/cve20269189_payment_bypass_in_the_contact_form_7/
 ,netsec,2026-06-18T18:05:44+00:00,CVE-2026-5667: Unauthenticated Remote Control of Mitsubishi MAC-577IF-2E WiFi Adapters via Probe Request Reconnaissance,CVE-2026-5667,title,https://reddit.com/r/netsec/comments/1u9dncq/cve20265667_unauthenticated_remote_control_of/
 ,PHP,2026-06-18T17:56:47+00:00,Authenticating a PayPal notification is not the same as trusting what it says (CVE-2026-9189),CVE-2026-9189,title,https://reddit.com/r/PHP/comments/1u9de75/authenticating_a_paypal_notification_is_not_the/
-,kubernetes,2026-06-18T11:09:07+00:00,How are people reducing container attack surface after the latest Fortinet CVEs?,CVE-2026-25089;CVE-2026-39808;CVE-2026-39813,author_description,https://reddit.com/r/kubernetes/comments/1u93bkb/how_are_people_reducing_container_attack_surface/
