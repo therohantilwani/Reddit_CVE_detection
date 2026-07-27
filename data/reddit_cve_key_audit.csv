@@ -1,4 +1,5 @@
 post_id,subreddit,created_iso_utc,title,cves,cve_paths,url
+,Fedora,2026-07-26T06:40:43+00:00,How to get heic thumbnails in dolphin?,CVE-2026-48029,author_description,https://reddit.com/r/Fedora/comments/1v6w1or/how_to_get_heic_thumbnails_in_dolphin/
 ,Wordpress,2026-07-25T09:25:19+00:00,WordPress Recent Vulnerability of Wp2shell,CVE-2026-60137;CVE-2026-63030,author_description,https://reddit.com/r/Wordpress/comments/1v63l7b/wordpress_recent_vulnerability_of_wp2shell/
 ,linux,2026-07-24T09:30:45+00:00,RefluXFS: A Linux Kernel Local Privilege Escalation to Root in XFS (CVE-2026-64600),CVE-2026-64600,title,https://reddit.com/r/linux/comments/1v56hde/refluxfs_a_linux_kernel_local_privilege/
 ,netsec,2026-07-24T05:53:48+00:00,Escaping Claude Cowork’s local VM sandbox via CVE-2026-46331,CVE-2026-46331,title,https://reddit.com/r/netsec/comments/1v52lix/escaping_claude_coworks_local_vm_sandbox_via/
@@ -98,4 +99,3 @@ post_id,subreddit,created_iso_utc,title,cves,cve_paths,url
 ,sysadmin,2026-06-19T08:41:10+00:00,Fortibleed - over 70k Fortinet firewalls compromised,CVE-2018-13379;CVE-2022-40684;CVE-2023-27997,comments[52].body;comments[71].body,https://reddit.com/r/sysadmin/comments/1u9winj/fortibleed_over_70k_fortinet_firewalls_compromised/
 ,Wordpress,2026-06-18T18:28:58+00:00,"CVE-2026-9189: payment bypass in the Contact Form 7 PayPal &amp; Stripe Add-on (now patched, update if you use it)",CVE-2026-9189,title,https://reddit.com/r/Wordpress/comments/1u9ea81/cve20269189_payment_bypass_in_the_contact_form_7/
 ,netsec,2026-06-18T18:05:44+00:00,CVE-2026-5667: Unauthenticated Remote Control of Mitsubishi MAC-577IF-2E WiFi Adapters via Probe Request Reconnaissance,CVE-2026-5667,title,https://reddit.com/r/netsec/comments/1u9dncq/cve20265667_unauthenticated_remote_control_of/
-,PHP,2026-06-18T17:56:47+00:00,Authenticating a PayPal notification is not the same as trusting what it says (CVE-2026-9189),CVE-2026-9189,title,https://reddit.com/r/PHP/comments/1u9de75/authenticating_a_paypal_notification_is_not_the/
