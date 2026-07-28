@@ -3,6 +3,10 @@ name: Deploy static content to Pages
 on:
   push:
     branches: ["master", "main"]
+  workflow_run:
+    workflows: ["Update Data Daily"]
+    types:
+      - completed
   workflow_dispatch:
 
 permissions:
