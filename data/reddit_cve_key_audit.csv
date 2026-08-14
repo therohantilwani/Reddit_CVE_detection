@@ -1,4 +1,6 @@
 post_id,subreddit,created_iso_utc,title,cves,cve_paths,url
+,PFSENSE,2026-08-13T20:33:03+00:00,Netgate Releases pfSense Plus Software Version 26.07,CVE-2026-58085,author_description,https://reddit.com/r/PFSENSE/comments/1vnmhke/netgate_releases_pfsense_plus_software_version/
+,sysadmin,2026-08-13T17:21:13+00:00,CVE-2026-59310 Under Active Exploitation,CVE-2026-59310,title,https://reddit.com/r/sysadmin/comments/1vnh3kn/cve202659310_under_active_exploitation/
 ,linux,2026-08-12T12:24:03+00:00,CVE-2026-53360: KVM SEV-SNP guest-to-host heap OOB and analysis of the upstream fix,CVE-2026-53360,title,https://reddit.com/r/linux/comments/1vmcn4a/cve202653360_kvm_sevsnp_guesttohost_heap_oob_and/
 ,netsec,2026-08-12T10:31:17+00:00,CVE-2026-53360: KVM SEV-SNP guest-to-host heap OOB and analysis of the upstream fix,CVE-2026-53360,title,https://reddit.com/r/netsec/comments/1vmadcw/cve202653360_kvm_sevsnp_guesttohost_heap_oob_and/
 ,netsec,2026-08-12T09:23:41+00:00,ERPNext's Document Follow feature exposed unauthorized data,CVE-2026-66000,comments[0].body,https://reddit.com/r/netsec/comments/1vm95nk/erpnexts_document_follow_feature_exposed/
