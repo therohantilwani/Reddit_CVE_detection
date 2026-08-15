@@ -29,5 +29,7 @@ CVE-2026-43499,1,2026-08-09T11:22:20+00:00,1786274540,Android,https://reddit.com
 CVE-2026-46331,1,2026-07-24T05:53:48+00:00,1784872428,netsec,https://reddit.com/r/netsec/comments/1v52lix/escaping_claude_coworks_local_vm_sandbox_via/
 CVE-2026-49975,1,2026-06-04T16:08:00+00:00,1780589280,apache,https://reddit.com/r/apache/comments/1tws4w7/the_http2_bomb_that_knocks_nginx_and_apache/
 CVE-2026-59310,1,2026-08-13T17:21:13+00:00,1786641673,sysadmin,https://reddit.com/r/sysadmin/comments/1vnh3kn/cve202659310_under_active_exploitation/
+CVE-2026-62893,1,2026-08-14T21:04:14+00:00,1786741454,sysadmin,https://reddit.com/r/sysadmin/comments/1vojhyi/august_2026_patch_tuesday_issue_wds_tftp_cve_fix/
 CVE-2026-66000,1,2026-08-12T09:23:41+00:00,1786526621,netsec,https://reddit.com/r/netsec/comments/1vm95nk/erpnexts_document_follow_feature_exposed/
+CVE-2026-8452,1,2026-08-14T07:10:17+00:00,1786691417,netsec,https://reddit.com/r/netsec/comments/1vo06aj/youre_back_in_the_room_citrix_netscaler_preauth/
 CVE-2026-9189,1,2026-06-18T18:28:58+00:00,1781807338,Wordpress,https://reddit.com/r/Wordpress/comments/1u9ea81/cve20269189_payment_bypass_in_the_contact_form_7/

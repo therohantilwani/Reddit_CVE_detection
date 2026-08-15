@@ -1,4 +1,7 @@
 post_id,subreddit,created_iso_utc,title,cves,cve_paths,url
+,sysadmin,2026-08-14T21:04:14+00:00,August 2026 Patch Tuesday Issue - WDS TFTP CVE Fix for PXE boot.,CVE-2026-62893,author_description,https://reddit.com/r/sysadmin/comments/1vojhyi/august_2026_patch_tuesday_issue_wds_tftp_cve_fix/
+,Fedora,2026-08-14T13:15:14+00:00,Highest number of kernel updates on Fedora I've seen in years?,,,https://reddit.com/r/Fedora/comments/1vo6zr9/highest_number_of_kernel_updates_on_fedora_ive/
+,netsec,2026-08-14T07:10:17+00:00,You’re Back In The Room (Citrix NetScaler Pre-Auth RCE CVE-2026-8452(?)) - watchTowr Labs,CVE-2026-8452,title,https://reddit.com/r/netsec/comments/1vo06aj/youre_back_in_the_room_citrix_netscaler_preauth/
 ,PFSENSE,2026-08-13T20:33:03+00:00,Netgate Releases pfSense Plus Software Version 26.07,CVE-2026-58085,author_description,https://reddit.com/r/PFSENSE/comments/1vnmhke/netgate_releases_pfsense_plus_software_version/
 ,sysadmin,2026-08-13T17:21:13+00:00,CVE-2026-59310 Under Active Exploitation,CVE-2026-59310,title,https://reddit.com/r/sysadmin/comments/1vnh3kn/cve202659310_under_active_exploitation/
 ,linux,2026-08-12T12:24:03+00:00,CVE-2026-53360: KVM SEV-SNP guest-to-host heap OOB and analysis of the upstream fix,CVE-2026-53360,title,https://reddit.com/r/linux/comments/1vmcn4a/cve202653360_kvm_sevsnp_guesttohost_heap_oob_and/
