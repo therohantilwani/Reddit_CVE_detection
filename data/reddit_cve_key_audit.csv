@@ -1,4 +1,5 @@
 post_id,subreddit,created_iso_utc,title,cves,cve_paths,url
+,Wordpress,2026-08-15T06:18:59+00:00,Half our dev time now goes into security. Some thoughts on open source’s future.,CVE-2026-23550,comments[7].body,https://reddit.com/r/Wordpress/comments/1vov68k/half_our_dev_time_now_goes_into_security_some/
 ,sysadmin,2026-08-14T21:04:14+00:00,August 2026 Patch Tuesday Issue - WDS TFTP CVE Fix for PXE boot.,CVE-2026-62893,author_description,https://reddit.com/r/sysadmin/comments/1vojhyi/august_2026_patch_tuesday_issue_wds_tftp_cve_fix/
 ,Fedora,2026-08-14T13:15:14+00:00,Highest number of kernel updates on Fedora I've seen in years?,,,https://reddit.com/r/Fedora/comments/1vo6zr9/highest_number_of_kernel_updates_on_fedora_ive/
 ,netsec,2026-08-14T07:10:17+00:00,You’re Back In The Room (Citrix NetScaler Pre-Auth RCE CVE-2026-8452(?)) - watchTowr Labs,CVE-2026-8452,title,https://reddit.com/r/netsec/comments/1vo06aj/youre_back_in_the_room_citrix_netscaler_preauth/
