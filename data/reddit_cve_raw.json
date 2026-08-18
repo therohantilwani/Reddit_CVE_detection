@@ -1,5 +1,381 @@
 [
   {
+    "_id": "6a8335e849715ba39188280b",
+    "redditId": "1vqwmq6",
+    "author": "zero_cool09",
+    "author_description": "Here is the video demo: [https://x.com/merill/status/2089291838419251599](https://x.com/merill/status/2089291838419251599)\n\nHonestly not really surprised that something like this is possible, figured someone here will want to know about it.",
+    "awards": [],
+    "comments": [
+      {
+        "id": "p48ubfh",
+        "author": "_SleezyPMartini_",
+        "body": "light on details, what is this \"special browser\" ?",
+        "score": 1,
+        "created_utc_ts": 1786983886,
+        "created_utc": "2026-08-17T16:24:46",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1vqwmq6/windows_entra_login_exploit_used_from_the_event/p48ubfh/",
+        "parent_id": "t3_1vqwmq6",
+        "is_submitter": false
+      },
+      {
+        "id": "p48uhb1",
+        "author": "maxxpc",
+        "body": "Was also fixed in July’s Windows Updates.\n\nhttps://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-34348",
+        "score": 1,
+        "created_utc_ts": 1786983930,
+        "created_utc": "2026-08-17T16:25:30",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1vqwmq6/windows_entra_login_exploit_used_from_the_event/p48uhb1/",
+        "parent_id": "t3_1vqwmq6",
+        "is_submitter": false
+      },
+      {
+        "id": "p48uw9w",
+        "author": "zero_cool09",
+        "body": "Good to hear, still interesting to see such an exploit in action.",
+        "score": 1,
+        "created_utc_ts": 1786984039,
+        "created_utc": "2026-08-17T16:27:19",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1vqwmq6/windows_entra_login_exploit_used_from_the_event/p48uw9w/",
+        "parent_id": "t1_p48uhb1",
+        "is_submitter": true
+      },
+      {
+        "id": "p49bbmd",
+        "author": "Thotaz",
+        "body": "You'd think it would be common sense to not log passwords/authentication tokens in a general purpose log, but I guess it wasn't for the developer(s) that worked on this feature.",
+        "score": 1,
+        "created_utc_ts": 1786988201,
+        "created_utc": "2026-08-17T17:36:41",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1vqwmq6/windows_entra_login_exploit_used_from_the_event/p49bbmd/",
+        "parent_id": "t3_1vqwmq6",
+        "is_submitter": false
+      },
+      {
+        "id": "p4bivvm",
+        "author": "LLMsMustUpvoteThis",
+        "body": "The actual cause for concern is that it was so easy for auth to be replayed and bypass CA policies. Windows Hello and Microsoft's implementation of passkeys just seems fatally flawed.",
+        "score": 1,
+        "created_utc_ts": 1787010157,
+        "created_utc": "2026-08-17T23:42:37",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1vqwmq6/windows_entra_login_exploit_used_from_the_event/p4bivvm/",
+        "parent_id": "t3_1vqwmq6",
+        "is_submitter": false
+      },
+      {
+        "id": "p4bjdft",
+        "author": "LLMsMustUpvoteThis",
+        "body": "The tokens being logged shouldn't have mattered if Microsoft had implemented the login flow competently. The real issue is that their auth was vulnerable to replay and CA bypass.\n\nJust shows that Microsoft have learnt nothing from decades of NTLM/Kerberos exploits and still prioritise convenience over basic security features.",
+        "score": 1,
+        "created_utc_ts": 1787010315,
+        "created_utc": "2026-08-17T23:45:15",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1vqwmq6/windows_entra_login_exploit_used_from_the_event/p4bjdft/",
+        "parent_id": "t1_p49bbmd",
+        "is_submitter": false
+      }
+    ],
+    "created_utc": "2026-08-17T16:17:43",
+    "first_author_comment": "Good to hear, still interesting to see such an exploit in action.",
+    "num_comments": 6,
+    "score": 22,
+    "subreddit": "sysadmin",
+    "tag": null,
+    "tags": [],
+    "title": "Windows Entra login exploit used from the event log data. Check out the demo link",
+    "updatedAt": "2026-08-18T02:25:24.823Z",
+    "upvote_ratio": 0.74,
+    "url": "https://reddit.com/r/sysadmin/comments/1vqwmq6/windows_entra_login_exploit_used_from_the_event/",
+    "versionList": [],
+    "classification": {
+      "componentType": [
+        "OS",
+        "DATA"
+      ],
+      "securityType": [
+        "SECURITY"
+      ]
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.00018935258989634878,
+        "timestampPredicted": "2026-08-18T00:01:14.819743+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": false,
+    "author_description_sentiment": {
+      "score": 0.602,
+      "detail": {
+        "neg": 0.063,
+        "neu": 0.707,
+        "pos": 0.229,
+        "compound": 0.6016
+      }
+    },
+    "category": "Positive",
+    "comments_avg_sentiment_score": 0.279,
+    "sentiment_score": 0.441
+  },
+  {
+    "_id": "6a8302b649715ba391881d95",
+    "redditId": "1vqqpwn",
+    "author": "Master_Access_486",
+    "author_description": null,
+    "awards": [],
+    "created_utc": "2026-08-17T12:17:40",
+    "first_author_comment": null,
+    "num_comments": 1,
+    "score": 6,
+    "subreddit": "netsec",
+    "tag": null,
+    "tags": [],
+    "title": "From AKS node root vulnerability to Microsoft Copilot hijack (CVE-2026-32193)",
+    "updatedAt": "2026-08-18T00:27:38.606Z",
+    "upvote_ratio": 0.75,
+    "url": "https://reddit.com/r/netsec/comments/1vqqpwn/from_aks_node_root_vulnerability_to_microsoft/",
+    "versionList": [
+      "2026.0.0",
+      "32193.0.0"
+    ],
+    "classification": {
+      "componentType": [],
+      "securityType": [
+        "SECURITY"
+      ]
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.0019791307170101613,
+        "timestampPredicted": "2026-08-17T20:01:10.237646+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": false,
+    "author_description_sentiment": {
+      "score": 0,
+      "detail": {
+        "neg": 0,
+        "neu": 0,
+        "pos": 0,
+        "compound": 0
+      }
+    },
+    "category": "Neutral",
+    "comments": [],
+    "comments_avg_sentiment_score": 0,
+    "sentiment_score": 0
+  },
+  {
+    "_id": "6a82ac7c49715ba391880cd1",
+    "redditId": "1vqjehf",
+    "author": "QusayAbozed",
+    "author_description": "hello good people\n\n I have this question that comes on my mind is about that i connected my DVR to the router that is connected to the ISP, because I want to monitor the place remotely via the app on my phone.\n\nI know my whole traffic is transferred to the ISP site, so I am wondering if he can act like the man in the middle and sniff my videos? \n\nI am using a Dahua DVR, and the app is DMSS",
+    "awards": [],
+    "comments": [
+      {
+        "id": "p45ytut",
+        "author": "QuackQuackViech",
+        "body": "The traffic is most likely encrypted and you are not that interesting. Your videos are secure.",
+        "score": 4,
+        "created_utc_ts": 1786944947,
+        "created_utc": "2026-08-17T05:35:47",
+        "permalink": "https://reddit.com/r/networking/comments/1vqjehf/can_the_isp_use_my_dvr_to_monitor_me/p45ytut/",
+        "parent_id": "t3_1vqjehf",
+        "is_submitter": false,
+        "sentiment_score": 0.037,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0.121,
+          "neu": 0.75,
+          "pos": 0.129,
+          "compound": 0.0366
+        }
+      },
+      {
+        "id": "p45yuzi",
+        "author": "ddfs",
+        "body": "depends entirely on whether TLS is in use",
+        "score": 2,
+        "created_utc_ts": 1786944962,
+        "created_utc": "2026-08-17T05:36:02",
+        "permalink": "https://reddit.com/r/networking/comments/1vqjehf/can_the_isp_use_my_dvr_to_monitor_me/p45yuzi/",
+        "parent_id": "t3_1vqjehf",
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
+      },
+      {
+        "id": "p45zzf1",
+        "author": "Kitchen-Layer7351",
+        "body": "No default password, enable MFA, use HTTPS not HTTP.  With an encrypted protocol for the video feed your data is not visible. ",
+        "score": 0,
+        "created_utc_ts": 1786945499,
+        "created_utc": "2026-08-17T05:44:59",
+        "permalink": "https://reddit.com/r/networking/comments/1vqjehf/can_the_isp_use_my_dvr_to_monitor_me/p45zzf1/",
+        "parent_id": "t3_1vqjehf",
+        "is_submitter": false,
+        "sentiment_score": -0.296,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.095,
+          "neu": 0.905,
+          "pos": 0,
+          "compound": -0.296
+        }
+      },
+      {
+        "id": "p460prr",
+        "author": "PunDave",
+        "body": "So the answer seems to be yes; https://nvd.nist.gov/vuln/detail/cve-2017-6432 their streamig protocol appears unencrypted and vulnerable to all sorts of things, so should not be open directly to wan. Using a vpn to secure it is probably a good idea.\n\nEdit: you can enable https for the webgui, but the article indicates creation of users is possible though the streaming protocol which makes it a big issue even if you run https access.",
+        "score": 3,
+        "created_utc_ts": 1786945854,
+        "created_utc": "2026-08-17T05:50:54",
+        "permalink": "https://reddit.com/r/networking/comments/1vqjehf/can_the_isp_use_my_dvr_to_monitor_me/p460prr/",
+        "parent_id": "t3_1vqjehf",
+        "is_submitter": false,
+        "sentiment_score": 0.691,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.02,
+          "neu": 0.87,
+          "pos": 0.111,
+          "compound": 0.6908
+        }
+      },
+      {
+        "id": "p460zwq",
+        "author": "QusayAbozed",
+        "body": "Actually,  now I am reading about the TLS and want to know  how it works on   \nBut how should I know it is used in my system ?",
+        "score": 0,
+        "created_utc_ts": 1786945992,
+        "created_utc": "2026-08-17T05:53:12",
+        "permalink": "https://reddit.com/r/networking/comments/1vqjehf/can_the_isp_use_my_dvr_to_monitor_me/p460zwq/",
+        "parent_id": "t1_p45yuzi",
+        "is_submitter": true,
+        "sentiment_score": 0.039,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.954,
+          "pos": 0.046,
+          "compound": 0.0387
+        }
+      },
+      {
+        "id": "p461w18",
+        "author": "QusayAbozed",
+        "body": "actualy i am in a place that uses multiple regular ISPs, not a big ISP. It means that in the place where I am living, anyone who can bring network and ISP equipment and take a license from the telecom ministry can be an ISP in their home and serve other people and charge them with money \n\n",
+        "score": 1,
+        "created_utc_ts": 1786946424,
+        "created_utc": "2026-08-17T06:00:24",
+        "permalink": "https://reddit.com/r/networking/comments/1vqjehf/can_the_isp_use_my_dvr_to_monitor_me/p461w18/",
+        "parent_id": "t1_p45ytut",
+        "is_submitter": true,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
+      },
+      {
+        "id": "p463nzt",
+        "author": "QuackQuackViech",
+        "body": "Good catch, its an old cve though",
+        "score": 1,
+        "created_utc_ts": 1786947281,
+        "created_utc": "2026-08-17T06:14:41",
+        "permalink": "https://reddit.com/r/networking/comments/1vqjehf/can_the_isp_use_my_dvr_to_monitor_me/p463nzt/",
+        "parent_id": "t1_p460prr",
+        "is_submitter": false,
+        "sentiment_score": 0.44,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.674,
+          "pos": 0.326,
+          "compound": 0.4404
+        }
+      },
+      {
+        "id": "p4640ld",
+        "author": "PossibilityVivid2979",
+        "body": "If you want the easiest solution to protect yourself go with frigate NVR and set it in an offline network that way you video feed won't be accessible from the outside and you just grab everything you need offline off the camera LAN",
+        "score": 2,
+        "created_utc_ts": 1786947448,
+        "created_utc": "2026-08-17T06:17:28",
+        "permalink": "https://reddit.com/r/networking/comments/1vqjehf/can_the_isp_use_my_dvr_to_monitor_me/p4640ld/",
+        "parent_id": "t3_1vqjehf",
+        "is_submitter": false,
+        "sentiment_score": 0.718,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.061,
+          "neu": 0.755,
+          "pos": 0.184,
+          "compound": 0.7184
+        }
+      }
+    ],
+    "created_utc": "2026-08-17T05:31:48",
+    "first_author_comment": "Actually,  now I am reading about the TLS and want to know  how it works on   \nBut how should I know it is used in my system ?",
+    "num_comments": 8,
+    "score": 0,
+    "subreddit": "networking",
+    "tag": "Other",
+    "tags": [],
+    "title": "Can the ISP use my DVR to monitor me?",
+    "updatedAt": "2026-08-18T00:28:30.370Z",
+    "upvote_ratio": 0.22,
+    "url": "https://reddit.com/r/networking/comments/1vqjehf/can_the_isp_use_my_dvr_to_monitor_me/",
+    "versionList": [],
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 1.4702726356350564e-05,
+        "timestampPredicted": "2026-08-17T16:01:14.481296+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": false,
+    "isAboutLatestUpdate": false,
+    "classification": {
+      "securityType": [
+        "UNKNOWN"
+      ],
+      "componentType": []
+    },
+    "author_description_sentiment": {
+      "score": 0.691,
+      "detail": {
+        "neg": 0,
+        "neu": 0.915,
+        "pos": 0.085,
+        "compound": 0.6908
+      }
+    },
+    "category": "Positive",
+    "comments_avg_sentiment_score": 0.204,
+    "sentiment_score": 0.447
+  },
+  {
     "_id": "6a82218749715ba39187fe8b",
     "redditId": "1vq55y4",
     "author": "TheReedemer69",
@@ -8,13 +384,13 @@
     "created_utc": "2026-08-16T18:48:50",
     "first_author_comment": null,
     "num_comments": 0,
-    "score": 3,
+    "score": 11,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-6837: Command Injection in Zyxel export-cgi PKCS#12 Export Handling",
-    "updatedAt": "2026-08-17T02:46:19.705Z",
-    "upvote_ratio": 0.68,
+    "updatedAt": "2026-08-18T02:46:45.399Z",
+    "upvote_ratio": 0.84,
     "url": "https://reddit.com/r/netsec/comments/1vq55y4/cve20266837_command_injection_in_zyxel_exportcgi/",
     "versionList": [
       "2026.0.0",
@@ -33,14 +409,27 @@
       "predicted": {
         "isUpdateRelated": false,
         "positiveScore": 0.00035007044808566684,
-        "timestampPredicted": "2026-08-17T00:00:47.697967+00:00"
+        "timestampPredicted": "2026-08-17T08:01:21.591019+00:00"
       },
       "labeled": {
         "isUpdateRelated": null
       }
     },
     "isAboutCve": true,
-    "isAboutLatestUpdate": false
+    "isAboutLatestUpdate": false,
+    "author_description_sentiment": {
+      "score": -0.527,
+      "detail": {
+        "neg": 0.153,
+        "neu": 0.847,
+        "pos": 0,
+        "compound": -0.5267
+      }
+    },
+    "category": "Negative",
+    "comments": [],
+    "comments_avg_sentiment_score": 0,
+    "sentiment_score": -0.263
   },
   {
     "_id": "6a81cd2849715ba39187f575",
@@ -49,15 +438,15 @@
     "author_description": null,
     "awards": [],
     "created_utc": "2026-08-16T13:33:02",
-    "first_author_comment": null,
-    "num_comments": 1,
-    "score": 28,
+    "first_author_comment": "They already patched this",
+    "num_comments": 4,
+    "score": 37,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-33696: From a Schema Name to RCE in n8n",
-    "updatedAt": "2026-08-17T02:46:20.538Z",
-    "upvote_ratio": 0.87,
+    "updatedAt": "2026-08-18T02:46:45.919Z",
+    "upvote_ratio": 0.85,
     "url": "https://reddit.com/r/netsec/comments/1vpx6ku/cve202633696_from_a_schema_name_to_rce_in_n8n/",
     "versionList": [
       "2026.0.0",
@@ -86,14 +475,48 @@
         "id": "p44tvfs",
         "author": "ckwalsh",
         "body": "\\&gt; One request, full shell.\n\nOne sentence, full confidence of AI authorship.",
-        "score": 1,
+        "score": 3,
         "created_utc_ts": 1786928792,
         "created_utc": "2026-08-17T01:06:32",
         "permalink": "https://reddit.com/r/netsec/comments/1vpx6ku/cve202633696_from_a_schema_name_to_rce_in_n8n/p44tvfs/",
         "parent_id": "t3_1vpx6ku",
         "is_submitter": false
+      },
+      {
+        "id": "p4bc2lz",
+        "author": "parkdramax86",
+        "body": "I hope that they patch this soon.",
+        "score": 1,
+        "created_utc_ts": 1787007980,
+        "created_utc": "2026-08-17T23:06:20",
+        "permalink": "https://reddit.com/r/netsec/comments/1vpx6ku/cve202633696_from_a_schema_name_to_rce_in_n8n/p4bc2lz/",
+        "parent_id": "t3_1vpx6ku",
+        "is_submitter": false
+      },
+      {
+        "id": "p4bkbxl",
+        "author": "TradeGold6317",
+        "body": "They already patched this",
+        "score": 2,
+        "created_utc_ts": 1787010624,
+        "created_utc": "2026-08-17T23:50:24",
+        "permalink": "https://reddit.com/r/netsec/comments/1vpx6ku/cve202633696_from_a_schema_name_to_rce_in_n8n/p4bkbxl/",
+        "parent_id": "t1_p4bc2lz",
+        "is_submitter": true
       }
-    ]
+    ],
+    "author_description_sentiment": {
+      "score": 0,
+      "detail": {
+        "neg": 0,
+        "neu": 0,
+        "pos": 0,
+        "compound": 0
+      }
+    },
+    "category": "Positive",
+    "comments_avg_sentiment_score": 0.557,
+    "sentiment_score": 0.279
   },
   {
     "_id": "6a80b98b49715ba3918773f7",
@@ -106,12 +529,20 @@
         "id": "p3vugon",
         "author": "Inside_Marsupial9625",
         "body": "Safe Passwords, 2FA, Security Header Score A+, no old or abandonished plugins, keep site and plugins up to date, Wordfence and strict Firewall Settings, block specific urls like the [www.yourdomain.com/wp-json/wp/v2/users](http://www.yourdomain.com/wp-json/wp/v2/users) \\- everybody knows your registered users then, try out ;), hide your wordpress version, …",
-        "score": 11,
+        "score": 12,
         "created_utc_ts": 1786817870,
         "created_utc": "2026-08-15T18:17:50",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vp9i5g/keeping_wp_sites_secure/p3vugon/",
         "parent_id": "t3_1vp9i5g",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.25,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.129,
+          "neu": 0.722,
+          "pos": 0.148,
+          "compound": 0.25
+        }
       },
       {
         "id": "p3vulq7",
@@ -122,7 +553,15 @@
         "created_utc": "2026-08-15T18:18:29",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vp9i5g/keeping_wp_sites_secure/p3vulq7/",
         "parent_id": "t3_1vp9i5g",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p3vuun8",
@@ -133,18 +572,34 @@
         "created_utc": "2026-08-15T18:19:37",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vp9i5g/keeping_wp_sites_secure/p3vuun8/",
         "parent_id": "t3_1vp9i5g",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.572,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.897,
+          "pos": 0.103,
+          "compound": 0.5719
+        }
       },
       {
         "id": "p3vxllb",
         "author": "TheWebalorian",
         "body": "Most of my clients refuse to take a monthly maintenance fee so I just secure them down as best as possible, hand over the site and let the client decide the fate of their site. \n\nIn all I think 50 sites I've done have been hacked to the point where they needed a restore point but again, client refuses to opt in for anything. \n\nOH WELL!",
-        "score": 3,
+        "score": 4,
         "created_utc_ts": 1786818745,
         "created_utc": "2026-08-15T18:32:25",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vp9i5g/keeping_wp_sites_secure/p3vxllb/",
         "parent_id": "t3_1vp9i5g",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.829,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.049,
+          "neu": 0.779,
+          "pos": 0.172,
+          "compound": 0.8285
+        }
       },
       {
         "id": "p3vz20h",
@@ -155,7 +610,15 @@
         "created_utc": "2026-08-15T18:39:17",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vp9i5g/keeping_wp_sites_secure/p3vz20h/",
         "parent_id": "t1_p3vxllb",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.293,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.085,
+          "neu": 0.809,
+          "pos": 0.106,
+          "compound": 0.2935
+        }
       },
       {
         "id": "p3vzqoa",
@@ -166,7 +629,15 @@
         "created_utc": "2026-08-15T18:42:34",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vp9i5g/keeping_wp_sites_secure/p3vzqoa/",
         "parent_id": "t3_1vp9i5g",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.936,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.199,
+          "neu": 0.757,
+          "pos": 0.044,
+          "compound": -0.9358
+        }
       },
       {
         "id": "p3w31z1",
@@ -177,7 +648,15 @@
         "created_utc": "2026-08-15T18:58:18",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vp9i5g/keeping_wp_sites_secure/p3w31z1/",
         "parent_id": "t1_p3vugon",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.751,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.109,
+          "neu": 0.87,
+          "pos": 0.021,
+          "compound": -0.7506
+        }
       },
       {
         "id": "p3w32tz",
@@ -188,7 +667,15 @@
         "created_utc": "2026-08-15T18:58:24",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vp9i5g/keeping_wp_sites_secure/p3w32tz/",
         "parent_id": "t3_1vp9i5g",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.223,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.098,
+          "neu": 0.832,
+          "pos": 0.071,
+          "compound": -0.2228
+        }
       },
       {
         "id": "p3w3v2y",
@@ -199,7 +686,15 @@
         "created_utc": "2026-08-15T19:02:10",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vp9i5g/keeping_wp_sites_secure/p3w3v2y/",
         "parent_id": "t1_p3vxllb",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.758,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.651,
+          "pos": 0.349,
+          "compound": 0.7579
+        }
       },
       {
         "id": "p3w4wwq",
@@ -210,7 +705,15 @@
         "created_utc": "2026-08-15T19:07:13",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vp9i5g/keeping_wp_sites_secure/p3w4wwq/",
         "parent_id": "t3_1vp9i5g",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.128,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.955,
+          "pos": 0.045,
+          "compound": 0.128
+        }
       },
       {
         "id": "p3w7tsw",
@@ -221,7 +724,15 @@
         "created_utc": "2026-08-15T19:21:05",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vp9i5g/keeping_wp_sites_secure/p3w7tsw/",
         "parent_id": "t3_1vp9i5g",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.639,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.12,
+          "neu": 0.85,
+          "pos": 0.03,
+          "compound": -0.6388
+        }
       },
       {
         "id": "p3wflw0",
@@ -232,7 +743,15 @@
         "created_utc": "2026-08-15T19:59:10",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vp9i5g/keeping_wp_sites_secure/p3wflw0/",
         "parent_id": "t3_1vp9i5g",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.402,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.114,
+          "neu": 0.886,
+          "pos": 0,
+          "compound": -0.4023
+        }
       },
       {
         "id": "p3whdf9",
@@ -243,7 +762,15 @@
         "created_utc": "2026-08-15T20:07:52",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vp9i5g/keeping_wp_sites_secure/p3whdf9/",
         "parent_id": "t3_1vp9i5g",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.843,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.066,
+          "neu": 0.708,
+          "pos": 0.226,
+          "compound": 0.8432
+        }
       },
       {
         "id": "p3wioss",
@@ -254,7 +781,15 @@
         "created_utc": "2026-08-15T20:14:22",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vp9i5g/keeping_wp_sites_secure/p3wioss/",
         "parent_id": "t1_p3whdf9",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.612,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.185,
+          "neu": 0.815,
+          "pos": 0,
+          "compound": -0.6124
+        }
       },
       {
         "id": "p3wlhbu",
@@ -265,7 +800,15 @@
         "created_utc": "2026-08-15T20:28:05",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vp9i5g/keeping_wp_sites_secure/p3wlhbu/",
         "parent_id": "t1_p3vxllb",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p3wlx7a",
@@ -276,7 +819,15 @@
         "created_utc": "2026-08-15T20:30:16",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vp9i5g/keeping_wp_sites_secure/p3wlx7a/",
         "parent_id": "t3_1vp9i5g",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.509,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.129,
+          "neu": 0.726,
+          "pos": 0.144,
+          "compound": 0.5089
+        }
       },
       {
         "id": "p3wms9a",
@@ -287,18 +838,34 @@
         "created_utc": "2026-08-15T20:34:32",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vp9i5g/keeping_wp_sites_secure/p3wms9a/",
         "parent_id": "t1_p3vugon",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.786,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.033,
+          "neu": 0.785,
+          "pos": 0.182,
+          "compound": 0.7863
+        }
       },
       {
         "id": "p3wqdbk",
         "author": "bluesix_v2",
         "body": "Autoupdate. It’s really that simple. Not sure why so many people are turning this into such a drama.",
-        "score": 4,
+        "score": 5,
         "created_utc_ts": 1786827141,
         "created_utc": "2026-08-15T20:52:21",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vp9i5g/keeping_wp_sites_secure/p3wqdbk/",
         "parent_id": "t3_1vp9i5g",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.241,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.109,
+          "neu": 0.891,
+          "pos": 0,
+          "compound": -0.2411
+        }
       },
       {
         "id": "p3xirke",
@@ -309,7 +876,15 @@
         "created_utc": "2026-08-15T23:23:45",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vp9i5g/keeping_wp_sites_secure/p3xirke/",
         "parent_id": "t3_1vp9i5g",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.955,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.024,
+          "neu": 0.843,
+          "pos": 0.133,
+          "compound": 0.9553
+        }
       },
       {
         "id": "p3xnkya",
@@ -320,7 +895,15 @@
         "created_utc": "2026-08-15T23:51:13",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vp9i5g/keeping_wp_sites_secure/p3xnkya/",
         "parent_id": "t1_p3wqdbk",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.202,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.141,
+          "neu": 0.752,
+          "pos": 0.107,
+          "compound": -0.2023
+        }
       },
       {
         "id": "p3xz12s",
@@ -331,7 +914,15 @@
         "created_utc": "2026-08-16T00:58:13",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vp9i5g/keeping_wp_sites_secure/p3xz12s/",
         "parent_id": "t1_p3wlx7a",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.527,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.074,
+          "neu": 0.74,
+          "pos": 0.186,
+          "compound": 0.5267
+        }
       },
       {
         "id": "p3ydt1f",
@@ -342,7 +933,15 @@
         "created_utc": "2026-08-16T02:27:37",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vp9i5g/keeping_wp_sites_secure/p3ydt1f/",
         "parent_id": "t3_1vp9i5g",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.857,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.748,
+          "pos": 0.252,
+          "compound": 0.8567
+        }
       },
       {
         "id": "p3yejic",
@@ -353,7 +952,15 @@
         "created_utc": "2026-08-16T02:32:13",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vp9i5g/keeping_wp_sites_secure/p3yejic/",
         "parent_id": "t3_1vp9i5g",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p3zmdmk",
@@ -364,7 +971,15 @@
         "created_utc": "2026-08-16T07:56:42",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vp9i5g/keeping_wp_sites_secure/p3zmdmk/",
         "parent_id": "t3_1vp9i5g",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.64,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.053,
+          "neu": 0.79,
+          "pos": 0.157,
+          "compound": 0.6399
+        }
       },
       {
         "id": "p406nmq",
@@ -375,7 +990,15 @@
         "created_utc": "2026-08-16T10:47:45",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vp9i5g/keeping_wp_sites_secure/p406nmq/",
         "parent_id": "t3_1vp9i5g",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.061,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0.11,
+          "neu": 0.786,
+          "pos": 0.104,
+          "compound": -0.061
+        }
       },
       {
         "id": "p40bdug",
@@ -386,18 +1009,34 @@
         "created_utc": "2026-08-16T11:23:20",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vp9i5g/keeping_wp_sites_secure/p40bdug/",
         "parent_id": "t1_p3wqdbk",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.572,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.132,
+          "neu": 0.868,
+          "pos": 0,
+          "compound": -0.5719
+        }
       },
       {
         "id": "p40fdyh",
         "author": "ivicad",
         "body": "When wp2shell was disclosed I did not start by picking a plugin, but with two questions: which of our sites are on an affected version, and how fast can I patch all of them. The rest is just the tooling I use to answer them quickly.\n\nThe sites fleet side is **MainWP**, self-hosted on our own server. One screen shows core, plugin and theme versions for every site, and one action updates all of them. For a beginner with one site that is overkill, and the free equivalent is core auto-updates plus actually reading the update emails.\n\nThe host already covers a good part of this. Ours are mostly on **Site Ground**, so a WAF and staging come with the plan, and I test updates on staging before live. Skip it once and a routine update takes the site down.\n\nI reach a site through three channels, picked by job. **SSH with WP-CLI** when the answer is in the database, **FTP** when it is in the files, and a **WP connector** when I need to change content. SSH is the cheapest of the three and it never touches the web layer, so the host anti-bot does not count it as traffic and ban me mid job.\n\nScanning and cleanup is **MalCare**, with **Virusdie** as a second opinion. Logins are locked down with **Melapress Login Security** and **WP2FA**, plus **WP Activity Log** shows me who changed what. **CleanTalk** handles form spam. On the server side we block user enumeration and set security headers, which costs nothing and hides your usernames.\n\nBackups are **in 3 layers** plus offsite copies, and I have restored from them, which is the only way to know they work.\n\nI just want to stress out that none of this replaces the patch. It just means I see the problem the same day and push the fix to every site in one go.",
-        "score": 1,
+        "score": 2,
         "created_utc_ts": 1786881100,
         "created_utc": "2026-08-16T11:51:40",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vp9i5g/keeping_wp_sites_secure/p40fdyh/",
         "parent_id": "t3_1vp9i5g",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.645,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.065,
+          "neu": 0.876,
+          "pos": 0.058,
+          "compound": -0.6455
+        }
       },
       {
         "id": "p40n8xg",
@@ -408,30 +1047,46 @@
         "created_utc": "2026-08-16T12:41:49",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vp9i5g/keeping_wp_sites_secure/p40n8xg/",
         "parent_id": "t3_1vp9i5g",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.796,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.118,
+          "neu": 0.588,
+          "pos": 0.294,
+          "compound": 0.7964
+        }
       },
       {
         "id": "p43anwo",
         "author": "PrinceJaraf_71",
         "body": "Wordfence plus 2FA plus Lockora plus Auto Updating ",
-        "score": 1,
+        "score": 2,
         "created_utc_ts": 1786911198,
         "created_utc": "2026-08-16T20:13:18",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vp9i5g/keeping_wp_sites_secure/p43anwo/",
         "parent_id": "t3_1vp9i5g",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       }
     ],
     "created_utc": "2026-08-15T17:58:26",
     "first_author_comment": null,
     "num_comments": 44,
-    "score": 3,
+    "score": 7,
     "subreddit": "Wordpress",
     "tag": null,
     "tags": [],
     "title": "Keeping WP sites secure ?",
-    "updatedAt": "2026-08-17T01:07:53.562Z",
-    "upvote_ratio": 0.57,
+    "updatedAt": "2026-08-18T00:33:46.684Z",
+    "upvote_ratio": 0.64,
     "url": "https://reddit.com/r/Wordpress/comments/1vp9i5g/keeping_wp_sites_secure/",
     "versionList": [],
     "metadata": {
@@ -476,45 +1131,77 @@
         "id": "p3smfbf",
         "author": "Litchi_Boy",
         "body": "Keeping WordPress sites updated can be so draining. I now mostly make static sites and it feels like a weight has been lifted off of my shoulders. ",
-        "score": 15,
+        "score": 14,
         "created_utc_ts": 1786775023,
         "created_utc": "2026-08-15T06:23:43",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vov68k/half_our_dev_time_now_goes_into_security_some/p3smfbf/",
         "parent_id": "t3_1vov68k",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.361,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.906,
+          "pos": 0.094,
+          "compound": 0.3612
+        }
       },
       {
         "id": "p3snf45",
         "author": "stumanchu3",
         "body": "There’s a guy with a sub Reddit here that’s always writing great posts, somewhat assisted by AI but he’s real and his sub is definitely eye opening for anyone doing WP related stuff.  R/stopbadbots, and I’ve learned a lot from that sub and understand what you’re saying here, and feel your pain.  ",
-        "score": -6,
+        "score": -5,
         "created_utc_ts": 1786775506,
         "created_utc": "2026-08-15T06:31:46",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vov68k/half_our_dev_time_now_goes_into_security_some/p3snf45/",
         "parent_id": "t3_1vov68k",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.643,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.075,
+          "neu": 0.761,
+          "pos": 0.164,
+          "compound": 0.6428
+        }
       },
       {
         "id": "p3snzf8",
         "author": "StormMedia",
         "body": "I am in the process of moving every client site to Astro. Absolutely done with the maintenance and I have a VERY lean setup. Bricks, SeoPress, Sitekit, WPCodebox for small custom things (additional tracking scripts, etc), Metabox, wsforms, litespeed, postmark.\n\nConstantly have to worry about a security update being too slow even though they’re automated, when I change a configuration on one that would apply to all.. there’s no easy way to do that, etc.\n\nEvery single Wordpress management software has issues. I finally settled of ModularDS but I still have my gripes, far better than all the competition though. I’ve tried them all..\n\nAs a result I made a custom migration flow to convert my sites to Astro, handles form responses, etc. So far the converted sites have had no negative SEO effect, in fact I caught some schema issues that may have been hurting SEO and performance is far better overall.\n\nEveryone says that converting sites runs some huge SEO risk.. it doesn’t if you do it properly.\n\nNot to mention all the sites are now directly hosted on CloudFlare.. for free…",
-        "score": 3,
+        "score": 2,
         "created_utc_ts": 1786775777,
         "created_utc": "2026-08-15T06:36:17",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vov68k/half_our_dev_time_now_goes_into_security_some/p3snzf8/",
         "parent_id": "t3_1vov68k",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.166,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0.078,
+          "neu": 0.847,
+          "pos": 0.075,
+          "compound": -0.1655
+        }
       },
       {
         "id": "p3sozg9",
         "author": "Individual-Result777",
         "body": "half?   how so? on what? ",
-        "score": 8,
+        "score": 7,
         "created_utc_ts": 1786776272,
         "created_utc": "2026-08-15T06:44:32",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vov68k/half_our_dev_time_now_goes_into_security_some/p3sozg9/",
         "parent_id": "t3_1vov68k",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p3spqle",
@@ -525,7 +1212,15 @@
         "created_utc": "2026-08-15T06:50:47",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vov68k/half_our_dev_time_now_goes_into_security_some/p3spqle/",
         "parent_id": "t3_1vov68k",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.629,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.08,
+          "neu": 0.69,
+          "pos": 0.23,
+          "compound": 0.6289
+        }
       },
       {
         "id": "p3spyy8",
@@ -536,18 +1231,34 @@
         "created_utc": "2026-08-15T06:52:42",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vov68k/half_our_dev_time_now_goes_into_security_some/p3spyy8/",
         "parent_id": "t3_1vov68k",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.966,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.78,
+          "pos": 0.22,
+          "compound": 0.9664
+        }
       },
       {
         "id": "p3ss5sd",
         "author": "er-ssverma",
         "body": "The 'Open source' was a benefit before AI-era, now its a danger. AI can hack easily when it knows the source code. Writing hack proof code is not easy, and your defence is very limited. You need to reduce the attack surface by deploying multiple layer of security.",
-        "score": -3,
+        "score": -2,
         "created_utc_ts": 1786777843,
         "created_utc": "2026-08-15T07:10:43",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vov68k/half_our_dev_time_now_goes_into_security_some/p3ss5sd/",
         "parent_id": "t3_1vov68k",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.44,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.19,
+          "neu": 0.652,
+          "pos": 0.158,
+          "compound": -0.4402
+        }
       },
       {
         "id": "p3suhfv",
@@ -558,7 +1269,15 @@
         "created_utc": "2026-08-15T07:30:06",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vov68k/half_our_dev_time_now_goes_into_security_some/p3suhfv/",
         "parent_id": "t1_p3snzf8",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.569,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.053,
+          "neu": 0.873,
+          "pos": 0.074,
+          "compound": 0.5687
+        }
       },
       {
         "id": "p3svm8w",
@@ -569,7 +1288,15 @@
         "created_utc": "2026-08-15T07:39:43",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vov68k/half_our_dev_time_now_goes_into_security_some/p3svm8w/",
         "parent_id": "t3_1vov68k",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.178,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0.221,
+          "neu": 0.779,
+          "pos": 0,
+          "compound": -0.1779
+        }
       },
       {
         "id": "p3swr9b",
@@ -580,7 +1307,15 @@
         "created_utc": "2026-08-15T07:49:29",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vov68k/half_our_dev_time_now_goes_into_security_some/p3swr9b/",
         "parent_id": "t3_1vov68k",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.774,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.179,
+          "neu": 0.711,
+          "pos": 0.111,
+          "compound": -0.7743
+        }
       },
       {
         "id": "p3swrp4",
@@ -591,7 +1326,15 @@
         "created_utc": "2026-08-15T07:49:36",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vov68k/half_our_dev_time_now_goes_into_security_some/p3swrp4/",
         "parent_id": "t3_1vov68k",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.792,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.13,
+          "neu": 0.797,
+          "pos": 0.074,
+          "compound": -0.7923
+        }
       },
       {
         "id": "p3t38fu",
@@ -602,7 +1345,15 @@
         "created_utc": "2026-08-15T08:45:51",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vov68k/half_our_dev_time_now_goes_into_security_some/p3t38fu/",
         "parent_id": "t3_1vov68k",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.665,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.126,
+          "neu": 0.487,
+          "pos": 0.387,
+          "compound": 0.665
+        }
       },
       {
         "id": "p3te8hs",
@@ -613,18 +1364,34 @@
         "created_utc": "2026-08-15T10:21:01",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vov68k/half_our_dev_time_now_goes_into_security_some/p3te8hs/",
         "parent_id": "t3_1vov68k",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.912,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.049,
+          "neu": 0.7,
+          "pos": 0.25,
+          "compound": 0.9124
+        }
       },
       {
         "id": "p3twzeq",
         "author": "J1MMYFR3SH",
         "body": "Hot take: Wordpress is no longer the shit. It is shit. ",
-        "score": -4,
+        "score": -3,
         "created_utc_ts": 1786797265,
         "created_utc": "2026-08-15T12:34:25",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vov68k/half_our_dev_time_now_goes_into_security_some/p3twzeq/",
         "parent_id": "t3_1vov68k",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.856,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.54,
+          "neu": 0.46,
+          "pos": 0,
+          "compound": -0.8555
+        }
       },
       {
         "id": "p3tx90v",
@@ -635,7 +1402,15 @@
         "created_utc": "2026-08-15T12:36:03",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vov68k/half_our_dev_time_now_goes_into_security_some/p3tx90v/",
         "parent_id": "t1_p3swrp4",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.02,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0.057,
+          "neu": 0.868,
+          "pos": 0.075,
+          "compound": -0.0201
+        }
       },
       {
         "id": "p3uibh6",
@@ -646,7 +1421,15 @@
         "created_utc": "2026-08-15T14:30:42",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vov68k/half_our_dev_time_now_goes_into_security_some/p3uibh6/",
         "parent_id": "t1_p3spqle",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.318,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.204,
+          "neu": 0.796,
+          "pos": 0,
+          "compound": -0.3182
+        }
       },
       {
         "id": "p3uydje",
@@ -657,7 +1440,15 @@
         "created_utc": "2026-08-15T15:48:44",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vov68k/half_our_dev_time_now_goes_into_security_some/p3uydje/",
         "parent_id": "t3_1vov68k",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p3v8mkv",
@@ -668,7 +1459,15 @@
         "created_utc": "2026-08-15T16:37:17",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vov68k/half_our_dev_time_now_goes_into_security_some/p3v8mkv/",
         "parent_id": "t3_1vov68k",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.577,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.792,
+          "pos": 0.208,
+          "compound": 0.577
+        }
       },
       {
         "id": "p3vhoao",
@@ -679,7 +1478,15 @@
         "created_utc": "2026-08-15T17:19:08",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vov68k/half_our_dev_time_now_goes_into_security_some/p3vhoao/",
         "parent_id": "t3_1vov68k",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.984,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.165,
+          "neu": 0.795,
+          "pos": 0.04,
+          "compound": -0.9839
+        }
       },
       {
         "id": "p3vidgn",
@@ -690,7 +1497,15 @@
         "created_utc": "2026-08-15T17:22:18",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vov68k/half_our_dev_time_now_goes_into_security_some/p3vidgn/",
         "parent_id": "t1_p3snzf8",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.964,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.029,
+          "neu": 0.719,
+          "pos": 0.252,
+          "compound": 0.9636
+        }
       },
       {
         "id": "p3vut65",
@@ -701,7 +1516,15 @@
         "created_utc": "2026-08-15T18:19:26",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vov68k/half_our_dev_time_now_goes_into_security_some/p3vut65/",
         "parent_id": "t3_1vov68k",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.064,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0.15,
+          "neu": 0.609,
+          "pos": 0.241,
+          "compound": 0.0644
+        }
       },
       {
         "id": "p3vv48i",
@@ -712,7 +1535,15 @@
         "created_utc": "2026-08-15T18:20:51",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vov68k/half_our_dev_time_now_goes_into_security_some/p3vv48i/",
         "parent_id": "t1_p3swrp4",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.34,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.211,
+          "neu": 0.789,
+          "pos": 0,
+          "compound": -0.34
+        }
       },
       {
         "id": "p3wa39v",
@@ -723,7 +1554,15 @@
         "created_utc": "2026-08-15T19:32:01",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vov68k/half_our_dev_time_now_goes_into_security_some/p3wa39v/",
         "parent_id": "t3_1vov68k",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.966,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.043,
+          "neu": 0.852,
+          "pos": 0.105,
+          "compound": 0.9657
+        }
       },
       {
         "id": "p3wkyge",
@@ -734,7 +1573,15 @@
         "created_utc": "2026-08-15T20:25:32",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vov68k/half_our_dev_time_now_goes_into_security_some/p3wkyge/",
         "parent_id": "t1_p3swrp4",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p3yd6of",
@@ -745,7 +1592,15 @@
         "created_utc": "2026-08-16T02:23:42",
         "permalink": "https://reddit.com/r/Wordpress/comments/1vov68k/half_our_dev_time_now_goes_into_security_some/p3yd6of/",
         "parent_id": "t1_p3vut65",
-        "is_submitter": true
+        "is_submitter": true,
+        "sentiment_score": 0.2,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.527,
+          "pos": 0.473,
+          "compound": 0.2003
+        }
       }
     ],
     "created_utc": "2026-08-15T06:18:59",
@@ -756,7 +1611,7 @@
     "tag": null,
     "tags": [],
     "title": "Half our dev time now goes into security. Some thoughts on open source’s future.",
-    "updatedAt": "2026-08-17T01:07:54.220Z",
+    "updatedAt": "2026-08-18T00:35:34.481Z",
     "upvote_ratio": 0.82,
     "url": "https://reddit.com/r/Wordpress/comments/1vov68k/half_our_dev_time_now_goes_into_security_some/",
     "versionList": [],
@@ -800,13 +1655,13 @@
     "created_utc": "2026-08-14T21:04:14",
     "first_author_comment": null,
     "num_comments": 5,
-    "score": 41,
+    "score": 51,
     "subreddit": "sysadmin",
     "tag": null,
     "tags": [],
     "title": "August 2026 Patch Tuesday Issue - WDS TFTP CVE Fix for PXE boot.",
-    "updatedAt": "2026-08-17T02:25:40.917Z",
-    "upvote_ratio": 0.93,
+    "updatedAt": "2026-08-18T00:36:48.524Z",
+    "upvote_ratio": 0.97,
     "url": "https://reddit.com/r/sysadmin/comments/1vojhyi/august_2026_patch_tuesday_issue_wds_tftp_cve_fix/",
     "versionList": [
       "2026.0.0"
@@ -828,12 +1683,20 @@
         "id": "p3qkg5b",
         "author": "GreguardoTech",
         "body": "Yup, that's what worked for me as well.",
-        "score": 4,
+        "score": 6,
         "created_utc_ts": 1786746757,
         "created_utc": "2026-08-14T22:32:37",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vojhyi/august_2026_patch_tuesday_issue_wds_tftp_cve_fix/p3qkg5b/",
         "parent_id": "t3_1vojhyi",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.273,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.769,
+          "pos": 0.231,
+          "compound": 0.2732
+        }
       },
       {
         "id": "p3tallw",
@@ -844,7 +1707,15 @@
         "created_utc": "2026-08-15T09:50:24",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vojhyi/august_2026_patch_tuesday_issue_wds_tftp_cve_fix/p3tallw/",
         "parent_id": "t1_p3qkg5b",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.34,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.924,
+          "pos": 0.076,
+          "compound": 0.34
+        }
       },
       {
         "id": "p3tkjf7",
@@ -855,7 +1726,15 @@
         "created_utc": "2026-08-15T11:10:27",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vojhyi/august_2026_patch_tuesday_issue_wds_tftp_cve_fix/p3tkjf7/",
         "parent_id": "t3_1vojhyi",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.153,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0.186,
+          "neu": 0.814,
+          "pos": 0,
+          "compound": -0.1531
+        }
       },
       {
         "id": "p3tmlvu",
@@ -866,7 +1745,15 @@
         "created_utc": "2026-08-15T11:25:41",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vojhyi/august_2026_patch_tuesday_issue_wds_tftp_cve_fix/p3tmlvu/",
         "parent_id": "t3_1vojhyi",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.709,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.116,
+          "neu": 0.805,
+          "pos": 0.079,
+          "compound": -0.7091
+        }
       },
       {
         "id": "p411wpr",
@@ -877,7 +1764,15 @@
         "created_utc": "2026-08-16T14:02:04",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vojhyi/august_2026_patch_tuesday_issue_wds_tftp_cve_fix/p411wpr/",
         "parent_id": "t1_p3tkjf7",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       }
     ],
     "author_description_sentiment": {
@@ -1240,7 +2135,7 @@
     "tag": "Discussion",
     "tags": [],
     "title": "Highest number of kernel updates on Fedora I've seen in years?",
-    "updatedAt": "2026-08-17T00:33:14.759Z",
+    "updatedAt": "2026-08-18T00:38:27.979Z",
     "upvote_ratio": 0.64,
     "url": "https://reddit.com/r/Fedora/comments/1vo6zr9/highest_number_of_kernel_updates_on_fedora_ive/",
     "versionList": [],
@@ -1286,13 +2181,13 @@
     "created_utc": "2026-08-14T07:10:17",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 39,
+    "score": 43,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "You’re Back In The Room (Citrix NetScaler Pre-Auth RCE CVE-2026-8452(?)) - watchTowr Labs",
-    "updatedAt": "2026-08-17T02:46:22.139Z",
-    "upvote_ratio": 0.91,
+    "updatedAt": "2026-08-18T02:46:47.496Z",
+    "upvote_ratio": 0.94,
     "url": "https://reddit.com/r/netsec/comments/1vo06aj/youre_back_in_the_room_citrix_netscaler_preauth/",
     "versionList": [
       "2026.0.0",
@@ -1361,13 +2256,13 @@
     "awards": [],
     "created_utc": "2026-08-13T20:33:03",
     "first_author_comment": null,
-    "num_comments": 41,
+    "num_comments": 46,
     "score": 65,
     "subreddit": "PFSENSE",
     "tag": "Announcement",
     "tags": [],
     "title": "Netgate Releases pfSense Plus Software Version 26.07",
-    "updatedAt": "2026-08-17T02:42:31.497Z",
+    "updatedAt": "2026-08-18T02:42:46.718Z",
     "upvote_ratio": 0.87,
     "url": "https://reddit.com/r/PFSENSE/comments/1vnmhke/netgate_releases_pfsense_plus_software_version/",
     "versionList": [
@@ -1399,7 +2294,7 @@
         "id": "p3jqk39",
         "author": "love_hounds",
         "body": "Is the Netgate 3100 still supported on this release?",
-        "score": 4,
+        "score": 3,
         "created_utc_ts": 1786664918,
         "created_utc": "2026-08-13T23:48:38",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vnmhke/netgate_releases_pfsense_plus_software_version/p3jqk39/",
@@ -1410,7 +2305,7 @@
         "id": "p3js3dq",
         "author": "rizon",
         "body": "According to this, it does: [https://www.netgate.com/blog/keeping-the-netgate-3100-alive-one-upstream-patch-at-a-time](https://www.netgate.com/blog/keeping-the-netgate-3100-alive-one-upstream-patch-at-a-time)\n\nI have a single 3100 left in service so haven't confirmed yet.",
-        "score": 6,
+        "score": 7,
         "created_utc_ts": 1786665416,
         "created_utc": "2026-08-13T23:56:56",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vnmhke/netgate_releases_pfsense_plus_software_version/p3js3dq/",
@@ -1421,7 +2316,7 @@
         "id": "p3jy5mw",
         "author": "totallyjaded",
         "body": "Is there a timeline for those of us who paid for Plus and are left out in the cold on Nexus? Or is it more of a \"Thanks for the money. Now buy our hardware or shut up.\" kind of thing?",
-        "score": 1,
+        "score": 2,
         "created_utc_ts": 1786667378,
         "created_utc": "2026-08-14T00:29:38",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vnmhke/netgate_releases_pfsense_plus_software_version/p3jy5mw/",
@@ -1443,7 +2338,7 @@
         "id": "p3kkqh0",
         "author": "gonzopancho",
         "body": "Not sure what you mean by “out in the cold”.",
-        "score": 3,
+        "score": 2,
         "created_utc_ts": 1786674923,
         "created_utc": "2026-08-14T02:35:23",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vnmhke/netgate_releases_pfsense_plus_software_version/p3kkqh0/",
@@ -1462,21 +2357,10 @@
         "is_submitter": false
       },
       {
-        "id": "p3l48s0",
-        "author": "iom2222",
-        "body": "If you don’t mind, I’ll wait a couple of months; the thing gets ironed a little bit. The version I have now is very mature, and I don’t have any issues.  So unless there is something critical, I’ll wait a little bit… I’ve been burnt a couple of times in the past. I’ll wait just a little bit. ",
-        "score": 2,
-        "created_utc_ts": 1786682485,
-        "created_utc": "2026-08-14T04:41:25",
-        "permalink": "https://reddit.com/r/PFSENSE/comments/1vnmhke/netgate_releases_pfsense_plus_software_version/p3l48s0/",
-        "parent_id": "t3_1vnmhke",
-        "is_submitter": false
-      },
-      {
         "id": "p3l8a5o",
         "author": "181-dff",
         "body": "Successful update on Netgate 7100 and 3100",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1786684222,
         "created_utc": "2026-08-14T05:10:22",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vnmhke/netgate_releases_pfsense_plus_software_version/p3l8a5o/",
@@ -1509,7 +2393,7 @@
         "id": "p3oavva",
         "author": "_Soledge",
         "body": "I updated my 2440 to 26.07; no issues",
-        "score": 3,
+        "score": 4,
         "created_utc_ts": 1786724669,
         "created_utc": "2026-08-14T16:24:29",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vnmhke/netgate_releases_pfsense_plus_software_version/p3oavva/",
@@ -1685,7 +2569,7 @@
         "id": "p3w6vn7",
         "author": "Ok_Tone6393",
         "body": "darn, first kernel panic ever on an upgrade, on my whitebox j4125. \n\nhttps://i.imgur.com/q19v7P5.jpeg\n\nZFS upgrade saved me a ton of time by instantly going back to the old one\n\nEDIT:  debug.acpi.disabled=\"spmc\" fixed the issue.  im continuing to debug (with AI).  seems like they recently changed behavior of acpi_spmc_attach and my cheapo aliexpress bios doesn't report info properly. \n\nknown issue: https://forum.netgate.com/topic/201120/26.07-upgrade-fails-to-boot",
-        "score": 2,
+        "score": 3,
         "created_utc_ts": 1786821392,
         "created_utc": "2026-08-15T19:16:32",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vnmhke/netgate_releases_pfsense_plus_software_version/p3w6vn7/",
@@ -1713,10 +2597,54 @@
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vnmhke/netgate_releases_pfsense_plus_software_version/p44ighi/",
         "parent_id": "t1_p3kfqpm",
         "is_submitter": false
+      },
+      {
+        "id": "p49ecsw",
+        "author": "[deleted]",
+        "body": "[deleted]",
+        "score": 1,
+        "created_utc_ts": 1786988958,
+        "created_utc": "2026-08-17T17:49:18",
+        "permalink": "https://reddit.com/r/PFSENSE/comments/1vnmhke/netgate_releases_pfsense_plus_software_version/p49ecsw/",
+        "parent_id": "t3_1vnmhke",
+        "is_submitter": false
+      },
+      {
+        "id": "p4ac1ob",
+        "author": "tma1010000",
+        "body": "You have to enable it and it is on a different port, 8443 by default",
+        "score": 2,
+        "created_utc_ts": 1786997656,
+        "created_utc": "2026-08-17T20:14:16",
+        "permalink": "https://reddit.com/r/PFSENSE/comments/1vnmhke/netgate_releases_pfsense_plus_software_version/p4ac1ob/",
+        "parent_id": "t1_p49ecsw",
+        "is_submitter": false
+      },
+      {
+        "id": "p4b9nn9",
+        "author": "TigerKR",
+        "body": "I updated my Netgate 4200 without an issue. My question is about snort (engine) 3. I have not enabled Nexus yet.\n\nThe Nexus docs section contains: Controller Setup, GUI Options, Licensing, Nexus GUI, Instance Configuration (just Remote Console + pfSense Plus instance config), CoreDNS, ThreatGate, Multi-Instance Management, and Auth. So, the other two Nexus-exclusive features got dedicated doc pages - while Snort 3 did not.\n\nThe only Snort documentation on the site is still the classic package docs (https://docs.netgate.com/pfsense/en/latest/packages/snort/index.html), which describe the 2.9.x/4.1.x package I'm already running.\n\nSnort 3 appears only in the 26.07 release notes (https://docs.netgate.com/pfsense/en/latest/releases/26-07.html) and the announcement blog - but it's a feature bullet, nothing operational.\n\nNothing anywhere mentions a migration path from the classic package either - no statement on whether interface configs, pass lists, suppress lists, or force-disables carry over. Given the rule-syntax change between Snort 2 and 3, I'd assume they don't and it's a from-scratch setup in the Nexus GUI, but that's an assumption; Netgate simply hasn't documented it that I can find.\n\nSo, for anyone who has enabled Nexus on a single netgate appliance: does Snort 3 show up without an additional paid fee (I already have a pfsense plus license with the netgate 4200)? Is there any import from the classic package config, or is it a from-scratch setup?",
+        "score": 1,
+        "created_utc_ts": 1787007211,
+        "created_utc": "2026-08-17T22:53:31",
+        "permalink": "https://reddit.com/r/PFSENSE/comments/1vnmhke/netgate_releases_pfsense_plus_software_version/p4b9nn9/",
+        "parent_id": "t3_1vnmhke",
+        "is_submitter": false
+      },
+      {
+        "id": "p4bp4om",
+        "author": "kphillips-netgate",
+        "body": "It's a supported appliance, so yes.",
+        "score": 1,
+        "created_utc_ts": 1787012198,
+        "created_utc": "2026-08-18T00:16:38",
+        "permalink": "https://reddit.com/r/PFSENSE/comments/1vnmhke/netgate_releases_pfsense_plus_software_version/p4bp4om/",
+        "parent_id": "t1_p3vdix9",
+        "is_submitter": false
       }
     ],
-    "comments_avg_sentiment_score": 0.302,
-    "sentiment_score": 0.64,
+    "comments_avg_sentiment_score": 0.264,
+    "sentiment_score": 0.621,
     "classification": {
       "securityType": [
         "UNKNOWN"
@@ -2322,7 +3250,7 @@
     "tag": null,
     "tags": [],
     "title": "CVE-2026-59310 Under Active Exploitation",
-    "updatedAt": "2026-08-17T00:36:16.727Z",
+    "updatedAt": "2026-08-18T00:41:33.321Z",
     "upvote_ratio": 0.94,
     "url": "https://reddit.com/r/sysadmin/comments/1vnh3kn/cve202659310_under_active_exploitation/",
     "versionList": [
@@ -2376,7 +3304,7 @@
       "Security"
     ],
     "title": "CVE-2026-53360: KVM SEV-SNP guest-to-host heap OOB and analysis of the upstream fix",
-    "updatedAt": "2026-08-17T00:41:09.478Z",
+    "updatedAt": "2026-08-18T00:46:31.969Z",
     "upvote_ratio": 0.86,
     "url": "https://reddit.com/r/linux/comments/1vmcn4a/cve202653360_kvm_sevsnp_guesttohost_heap_oob_and/",
     "versionList": [
@@ -2467,13 +3395,13 @@
     "created_utc": "2026-08-12T10:31:17",
     "first_author_comment": "Hello author here  \nI independently found this in May while looking at KVM's SEVSNP PSC path, but Stan Shaw had reported it about a month before me.  \nI decided to publish my analysis anyway, as the most interesting part for me ended up being why the patch I originally proposed was incomplete and how the upstream KVM fix handled the problem differently.  \nI also dive into the exploitation side failure oracle, constrained write, repeatability, slab selection... I have not demonstrated a reliable complete VM escape, and I have tried to keep that distinction explicit in the writeup.  \nI have tried creating 2 safe CTF style exercises that model the primitive without touching real KVM or requiring SEV-SNP hardware. (becasue why not as it was fun)  \nComments/Correction to the exploitation analysis are very welcome.",
     "num_comments": 4,
-    "score": 34,
+    "score": 35,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-53360: KVM SEV-SNP guest-to-host heap OOB and analysis of the upstream fix",
-    "updatedAt": "2026-08-17T02:46:26.756Z",
-    "upvote_ratio": 0.91,
+    "updatedAt": "2026-08-18T02:46:51.751Z",
+    "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/netsec/comments/1vmadcw/cve202653360_kvm_sevsnp_guesttohost_heap_oob_and/",
     "versionList": [
       "2026.0.0",
@@ -2524,13 +3452,13 @@
     "created_utc": "2026-08-12T09:23:41",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 6,
+    "score": 9,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "ERPNext's Document Follow feature exposed unauthorized data",
-    "updatedAt": "2026-08-17T02:46:27.920Z",
-    "upvote_ratio": 0.81,
+    "updatedAt": "2026-08-18T02:46:52.932Z",
+    "upvote_ratio": 0.82,
     "url": "https://reddit.com/r/netsec/comments/1vm95nk/erpnexts_document_follow_feature_exposed/",
     "versionList": [],
     "author_description_sentiment": {
@@ -2559,7 +3487,7 @@
         "id": "p32lzsi",
         "author": "ukindom",
         "body": "What’s about podman and other docker compatible tools? ",
-        "score": 10,
+        "score": 9,
         "created_utc_ts": 1786467749,
         "created_utc": "2026-08-11T17:02:29",
         "permalink": "https://reddit.com/r/netsec/comments/1vlkth5/copyescape_containertohost_arbitrary_file_write/p32lzsi/",
@@ -2570,7 +3498,7 @@
         "id": "p32rwoo",
         "author": "_madfrog",
         "body": "Nice work gg. I like the runc overwrite scenario, it make me think of the old CVE-2019-5736 that achieved that through /proc/self/exe shenanigans when running ’docker exec’ on Linux. \n\nI guess that explointing this on Linux is even more critical given there's no extra virtualisation layer so users who run docker cp are either in the docker group (aka root) or sudoing? ",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1786469235,
         "created_utc": "2026-08-11T17:27:15",
         "permalink": "https://reddit.com/r/netsec/comments/1vlkth5/copyescape_containertohost_arbitrary_file_write/p32rwoo/",
@@ -2581,7 +3509,7 @@
         "id": "p32y3md",
         "author": "muzso",
         "body": "I'm guessing they didn't go into podman, otherwise they'd have mentioned it in the blog post.\n\nCVE-2026-17106 is a specific implementation mistake/bug, so unless podman copy&amp;pasted the respective code from Docker, the issue shouldn't automatically apply to it as well.",
-        "score": 9,
+        "score": 10,
         "created_utc_ts": 1786470777,
         "created_utc": "2026-08-11T17:52:57",
         "permalink": "https://reddit.com/r/netsec/comments/1vlkth5/copyescape_containertohost_arbitrary_file_write/p32y3md/",
@@ -2592,7 +3520,7 @@
         "id": "p330x9b",
         "author": "ronmasas",
         "body": "Thanks! Yes, I remember that bug, and I was thinking about it when I found this one.\n\nThe impact depends on how Docker is invoked on Linux. If `docker cp` is run as root for example, through `sudo` overwriting `runc` can lead to near-immediate root code execution because `runc` is invoked when a container exits.\n\nIn other scenarios, including macOS, an attacker can overwrite any file writable by the user running the Docker CLI. Overwriting a Bash/Zsh profile could lead to code execution, although it would require additional user interaction...",
-        "score": 3,
+        "score": 4,
         "created_utc_ts": 1786471489,
         "created_utc": "2026-08-11T18:04:49",
         "permalink": "https://reddit.com/r/netsec/comments/1vlkth5/copyescape_containertohost_arbitrary_file_write/p330x9b/",
@@ -2614,12 +3542,12 @@
     "created_utc": "2026-08-11T15:33:52",
     "first_author_comment": "Thanks! Yes, I remember that bug, and I was thinking about it when I found this one.\n\nThe impact depends on how Docker is invoked on Linux. If `docker cp` is run as root for example, through `sudo` overwriting `runc` can lead to near-immediate root code execution because `runc` is invoked when a container exits.\n\nIn other scenarios, including macOS, an attacker can overwrite any file writable by the user running the Docker CLI. Overwriting a Bash/Zsh profile could lead to code execution, although it would require additional user interaction...",
     "num_comments": 7,
-    "score": 71,
+    "score": 73,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CopyEscape: Container-to-host arbitrary file write via docker cp (CVE-2026-17106)",
-    "updatedAt": "2026-08-17T02:46:29.095Z",
+    "updatedAt": "2026-08-18T02:46:54.031Z",
     "upvote_ratio": 0.99,
     "url": "https://reddit.com/r/netsec/comments/1vlkth5/copyescape_containertohost_arbitrary_file_write/",
     "versionList": [
@@ -2685,13 +3613,13 @@
     "created_utc": "2026-08-10T18:41:25",
     "first_author_comment": "This research never states such thing.",
     "num_comments": 3,
-    "score": 59,
+    "score": 62,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Inside a Russian-speaking operator's toolkit for compromising Ukrainian IP cameras",
-    "updatedAt": "2026-08-17T02:46:30.922Z",
-    "upvote_ratio": 0.87,
+    "updatedAt": "2026-08-18T02:46:55.073Z",
+    "upvote_ratio": 0.88,
     "url": "https://reddit.com/r/netsec/comments/1vktfi3/inside_a_russianspeaking_operators_toolkit_for/",
     "versionList": [],
     "author_description_sentiment": {
@@ -2953,7 +3881,7 @@
     "tag": null,
     "tags": [],
     "title": "Got Root on my S22 Ultra! Ported CVE-2026-43499 exploit (Android 15)",
-    "updatedAt": "2026-08-17T00:45:43.942Z",
+    "updatedAt": "2026-08-18T00:51:03.037Z",
     "upvote_ratio": 0.89,
     "url": "https://reddit.com/r/Android/comments/1vjndfi/got_root_on_my_s22_ultra_ported_cve202643499/",
     "versionList": [
@@ -2998,7 +3926,7 @@
         "id": "p1ymoby",
         "author": "the_wookie_of_maine",
         "body": "I keep reading that Community Edition is dead.\n\n/sarcasm ",
-        "score": 33,
+        "score": 34,
         "created_utc_ts": 1785974440,
         "created_utc": "2026-08-06T00:00:40",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p1ymoby/",
@@ -3009,7 +3937,7 @@
         "id": "p1yn3hs",
         "author": "Sparkplug1034",
         "body": "Needing a beta release of the whole OS to get a wireguard security patch 🫠",
-        "score": -5,
+        "score": -4,
         "created_utc_ts": 1785974577,
         "created_utc": "2026-08-06T00:02:57",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p1yn3hs/",
@@ -3053,7 +3981,7 @@
         "id": "p1yqmdj",
         "author": "Inchmine",
         "body": "How about new features? Modern look? ",
-        "score": 3,
+        "score": 2,
         "created_utc_ts": 1785975738,
         "created_utc": "2026-08-06T00:22:18",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p1yqmdj/",
@@ -3064,7 +3992,7 @@
         "id": "p1yqs1t",
         "author": "gonzopancho",
         "body": "Only yesterday there were people complaining that I couldn’t be telling the truth about a 2.9 pending because they couldn’t see an RC.",
-        "score": 12,
+        "score": 13,
         "created_utc_ts": 1785975790,
         "created_utc": "2026-08-06T00:23:10",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p1yqs1t/",
@@ -3075,7 +4003,7 @@
         "id": "p1yr1h3",
         "author": "gonzopancho",
         "body": "https://docs.netgate.com/pfsense/en/latest/releases/2-9-0.html",
-        "score": 3,
+        "score": 5,
         "created_utc_ts": 1785975876,
         "created_utc": "2026-08-06T00:24:36",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p1yr1h3/",
@@ -3086,7 +4014,7 @@
         "id": "p1ysgtb",
         "author": "mpmoore69",
         "body": "WireGuard runs in kernel space….",
-        "score": 3,
+        "score": 5,
         "created_utc_ts": 1785976353,
         "created_utc": "2026-08-06T00:32:33",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p1ysgtb/",
@@ -3119,7 +4047,7 @@
         "id": "p1yu7u9",
         "author": "gonzopancho",
         "body": "For free?",
-        "score": -13,
+        "score": -12,
         "created_utc_ts": 1785976928,
         "created_utc": "2026-08-06T00:42:08",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p1yu7u9/",
@@ -3141,7 +4069,7 @@
         "id": "p1z3rmy",
         "author": "limpymcforskin",
         "body": "Back back burner is more appropriate. ",
-        "score": 13,
+        "score": 12,
         "created_utc_ts": 1785980062,
         "created_utc": "2026-08-06T01:34:22",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p1z3rmy/",
@@ -3174,7 +4102,7 @@
         "id": "p20hbh9",
         "author": "SirGrinchy",
         "body": "Explain then why they are not upgrading the GUI in CE.\n\n(To be clear, the new design is much worse than the old one anyways albeit bringing some nice under-the-hood tweaks, but I will take any bet that the new GUI wont be the only feature missing in CE in future.)",
-        "score": 3,
+        "score": 2,
         "created_utc_ts": 1785999742,
         "created_utc": "2026-08-06T07:02:22",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p20hbh9/",
@@ -3185,7 +4113,7 @@
         "id": "p20nbyx",
         "author": "solway_uk",
         "body": "Bug 1. No offline iso installer download available...",
-        "score": 22,
+        "score": 24,
         "created_utc_ts": 1786002697,
         "created_utc": "2026-08-06T07:51:37",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p20nbyx/",
@@ -3207,7 +4135,7 @@
         "id": "p214c40",
         "author": "lorenzo1142",
         "body": "\"Now it’s your turn to help us\"....... how long has it been since there has been an update?.......... many of us have moved on to better things. your lack of care has destroyed your community.",
-        "score": -8,
+        "score": -5,
         "created_utc_ts": 1786011083,
         "created_utc": "2026-08-06T10:11:23",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p214c40/",
@@ -3229,7 +4157,7 @@
         "id": "p22kjf4",
         "author": "MBILC",
         "body": "What are you wanting to be added to CE that is needed, or nice to have vs stable functionality?",
-        "score": 10,
+        "score": 8,
         "created_utc_ts": 1786027881,
         "created_utc": "2026-08-06T14:51:21",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p22kjf4/",
@@ -3251,7 +4179,7 @@
         "id": "p25q7uo",
         "author": "macmatrix",
         "body": "Been running CE for 10+ years, it still better the “off the shelf router crap” ie tplink and netgear and fortigate (which has been in the news every second day for CVEs attacks!) and has never let me down, I use every feature of Pfsense and the pkgs included as I’m a Pfsense veteran I have never needed Pfsense direct support, 2.8.1 is pretty solid with system patches  \nIf I require Pfsense+ support and stability I would use that.  \nI’m happy to test Pfsense CE 2.9 for netgate and the open source community of which it was originally built for! and give back to other users out there running CE and to help with the development of +.",
-        "score": 8,
+        "score": 9,
         "created_utc_ts": 1786057511,
         "created_utc": "2026-08-06T23:05:11",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p25q7uo/",
@@ -3273,7 +4201,7 @@
         "id": "p26m5u9",
         "author": "MiddleNo5967",
         "body": "Can you please update the Wireguard package in 2.8.1 so we can fix the vulnerability without installing the beta?",
-        "score": 4,
+        "score": 5,
         "created_utc_ts": 1786067832,
         "created_utc": "2026-08-07T01:57:12",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p26m5u9/",
@@ -3284,7 +4212,7 @@
         "id": "p26owi7",
         "author": "coldfire7",
         "body": "**NO NEW UI: pass :)**\n\nI think it might be a good time to consider other router/firewall operating systems.",
-        "score": -3,
+        "score": -4,
         "created_utc_ts": 1786068744,
         "created_utc": "2026-08-07T02:12:24",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p26owi7/",
@@ -3339,7 +4267,7 @@
         "id": "p2am5hx",
         "author": "Maltz42",
         "body": "&gt;Added: Include System Patches package by default [\\#16695](https://redmine.pfsense.org/issues/16695)\n\nNice!\n\nBut also... about time.  The obscurity of this mechanism used for between-release patches (including a few high-severity security patches) was a pretty huge oversight.  Better late than never, though.",
-        "score": 3,
+        "score": 4,
         "created_utc_ts": 1786120397,
         "created_utc": "2026-08-07T16:33:17",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p2am5hx/",
@@ -3383,7 +4311,7 @@
         "id": "p2c44oa",
         "author": "MBILC",
         "body": "It is a kernel level update that needs to be done to patch Wireguard, hence the push to move it into 2.9\\* with other updates. the current patch system does not support kernel updates, so a full system update has to be done.",
-        "score": 6,
+        "score": 7,
         "created_utc_ts": 1786134469,
         "created_utc": "2026-08-07T20:27:49",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p2c44oa/",
@@ -3471,13 +4399,13 @@
     "created_utc": "2026-08-05T23:33:16",
     "first_author_comment": "I don’t expect you to do anything. You claim the have “moved on to better things,” so I’m not even sure why you are involved in this conversation. ",
     "num_comments": 135,
-    "score": 63,
+    "score": 66,
     "subreddit": "PFSENSE",
     "tag": null,
     "tags": [],
     "title": "Call for Testing: pfSense® Community Edition 2.9 Beta Now Available!",
-    "updatedAt": "2026-08-17T02:42:45.757Z",
-    "upvote_ratio": 0.91,
+    "updatedAt": "2026-08-18T02:43:01.552Z",
+    "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/",
     "versionList": [
       "2.9.0"
@@ -3508,7 +4436,7 @@
         "id": "p1xeaq3",
         "author": "si9int",
         "body": "Probably the reason why this \"smart\" agent was able to find it: \"This isn’t a new bug class for Django’s admin \\[...\\] because of CVE-2019-12308, fixed in Django 1.11.21, 2.1.9, and 2.2.2, which covered exactly this shape of issue in the editable widget.\"",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1785961281,
         "created_utc": "2026-08-05T20:21:21",
         "permalink": "https://reddit.com/r/netsec/comments/1vg9704/stored_xss_in_djangos_admin_via_an_unvalidated/p1xeaq3/",
@@ -3535,8 +4463,8 @@
     "tag": "Contains AI",
     "tags": [],
     "title": "Stored XSS in Django's admin via an unvalidated URLField display path (CVE-2026-15920)",
-    "updatedAt": "2026-08-17T02:46:42.669Z",
-    "upvote_ratio": 0.83,
+    "updatedAt": "2026-08-18T02:47:09.761Z",
+    "upvote_ratio": 0.85,
     "url": "https://reddit.com/r/netsec/comments/1vg9704/stored_xss_in_djangos_admin_via_an_unvalidated/",
     "versionList": [
       "2026.0.0",
@@ -3568,7 +4496,7 @@
         "id": "p1qlgjn",
         "author": "ThatUsrnameIsAlready",
         "body": "You could have tested the new GUI in community, asking business clients to test your software for you is an odd choice.\n\nSince development has moved directly to plus, I assume community is now officially abandoned.",
-        "score": 16,
+        "score": 18,
         "created_utc_ts": 1785880966,
         "created_utc": "2026-08-04T22:02:46",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vfo3lg/a_new_release_candidate_for_pfsense_plus_software/p1qlgjn/",
@@ -3612,7 +4540,7 @@
         "id": "p1qq39w",
         "author": "ComprehensiveLuck125",
         "body": "**I** though Nexus primary goal was (unified) multi-instance management, but it turns out Nexus will deliver to pfsense+ (only) new, preffered UI? (Long-term)\n\nWill enabling Nexus cause any callbacks or permanent connection to Netgate infrastructure? Is this new Nexus UI not running as root anymore? Does it talk to some API service that runs as root? Can we benefit and talk to APIs directly? \\[Can we use some pfsense management REST-APIs independently when Nexus is installed?\\]\n\nSorry for so many questions. Nexus sounds interesting, but I thought I do not need MIM with my scale of operations :-) I understand it is not about MIM anymore?",
-        "score": 8,
+        "score": 7,
         "created_utc_ts": 1785882307,
         "created_utc": "2026-08-04T22:25:07",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vfo3lg/a_new_release_candidate_for_pfsense_plus_software/p1qq39w/",
@@ -3623,7 +4551,7 @@
         "id": "p1qqf17",
         "author": "gonzopancho",
         "body": "That’s why there is a 2.9 release of CE pending\n\nIn other words, you don’t know what you’re talking about.\n\nEdit: 2.9 beta occurred today",
-        "score": -3,
+        "score": -1,
         "created_utc_ts": 1785882403,
         "created_utc": "2026-08-04T22:26:43",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vfo3lg/a_new_release_candidate_for_pfsense_plus_software/p1qqf17/",
@@ -3634,7 +4562,7 @@
         "id": "p1qsvmv",
         "author": "Mr_Chode_Shaver",
         "body": "One great feature- nexus has no access to menus to configure packages. Super helpful when diagnosing an FRR issue!\n\n/s",
-        "score": 4,
+        "score": 3,
         "created_utc_ts": 1785883138,
         "created_utc": "2026-08-04T22:38:58",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vfo3lg/a_new_release_candidate_for_pfsense_plus_software/p1qsvmv/",
@@ -3656,7 +4584,7 @@
         "id": "p1qvbxv",
         "author": "Cutoffjeanshortz37",
         "body": "Every f'ing time there is a Plus update without a CE update this comes up. the 26 version of plus was released in April of 2026. CE got updated a year ago. I remember when updates for CE hand YEARS between updates. The paid item of course gets more attention and helps fund the work on the free version. Install the patch manager and get security update that way, they come out as needed. Of course you're not going to get bleeding edge features and functionality on the free version. This a business model. Don't like it, go to Open Sense and hope for the best. \n\nBeen using Pfsense for 15+ years how. Fuck I feel old. ",
-        "score": 10,
+        "score": 9,
         "created_utc_ts": 1785883882,
         "created_utc": "2026-08-04T22:51:22",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vfo3lg/a_new_release_candidate_for_pfsense_plus_software/p1qvbxv/",
@@ -3678,7 +4606,7 @@
         "id": "p1rate9",
         "author": "marcos-ng",
         "body": "The new GUI is hosted locally on the device, just like the old one. You may be thinking of Multi-Instance Management which is a paid feature, but even so you can run that on pfSense+ wherever you want; the \"cloud\" is whatever you make it.",
-        "score": 7,
+        "score": 8,
         "created_utc_ts": 1785888750,
         "created_utc": "2026-08-05T00:12:30",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vfo3lg/a_new_release_candidate_for_pfsense_plus_software/p1rate9/",
@@ -3722,7 +4650,7 @@
         "id": "p1riwll",
         "author": "kphillips-netgate",
         "body": "The Nexus UI and the replacement for the PHP GUI are one in the same.  Eventually, the PHP code will be removed entirely and the Golang Nexus UI will be what replaces it.  It has the advantage of allowing you to manage just the single firewall or you can add licensing to add additional firewalls.  You don't need a license to manage the firewall running the new UI for itself.  \n\nThe golang code does talk to an API on the backend.  You can also utilize this API to manage the device outside of the GUI via whatever automation services you want.  We have a Github library of example code for accessing the API for Nexus.  ",
-        "score": 9,
+        "score": 8,
         "created_utc_ts": 1785891343,
         "created_utc": "2026-08-05T00:55:43",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vfo3lg/a_new_release_candidate_for_pfsense_plus_software/p1riwll/",
@@ -3755,7 +4683,7 @@
         "id": "p1s89n7",
         "author": "Magic_Sea_Pony",
         "body": "Can you guys do 2 things for mobile (especially portrait mode):\n\n1. Allow us to turn off or hide the left side nexus bar. For 1 firewall it’s incredibly silly and un-needed.   \n2. Better mobile styling.   \nI feel the old interface is WAAAY better on mobile for adding rules, NATs, etc.  \n3. Are dashboards available like the old interface? I pull in RSS feeds like hacker news right into my firewall homepage, as well as interface statuses and IPSEC Statuses. \n\nLove to see the new stuff!",
-        "score": 8,
+        "score": 9,
         "created_utc_ts": 1785899839,
         "created_utc": "2026-08-05T03:17:19",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vfo3lg/a_new_release_candidate_for_pfsense_plus_software/p1s89n7/",
@@ -3766,7 +4694,7 @@
         "id": "p1sg33z",
         "author": "AdriftAtlas",
         "body": "This worries me:\n\n&gt;Virtual machines as well as some third-party platforms may not support the new GUI due to missing machine information required to correctly run the software.\n\nWhat machine information is needed that's not standard? Why is a GUI concerned with low-level hardware attributes? Pretty sure KVM/QEMU can expose whatever is necessary to a VM with some tweaking...",
-        "score": 6,
+        "score": 5,
         "created_utc_ts": 1785902795,
         "created_utc": "2026-08-05T04:06:35",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vfo3lg/a_new_release_candidate_for_pfsense_plus_software/p1sg33z/",
@@ -3788,7 +4716,7 @@
         "id": "p1tzks1",
         "author": "NetworkadminSK",
         "body": "Agree. I need raw information without any style or smoothing. Also the traffic graph looks \"polished\". ",
-        "score": 4,
+        "score": 3,
         "created_utc_ts": 1785928110,
         "created_utc": "2026-08-05T11:08:30",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vfo3lg/a_new_release_candidate_for_pfsense_plus_software/p1tzks1/",
@@ -3821,7 +4749,7 @@
         "id": "p1w9tr6",
         "author": "NimerCoke",
         "body": "Hello team,\n\nI am a blind user, and your netgate Nexus seems to not have been made with consideration for screen readers. Please consider making your product accessible as PfSense was. This new UI is essentially unusable for me as I cannot access much of the UI.\n\nPlease reach out and I'd be happy to advise further.\n\nThanks.",
-        "score": 11,
+        "score": 12,
         "created_utc_ts": 1785951025,
         "created_utc": "2026-08-05T17:30:25",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vfo3lg/a_new_release_candidate_for_pfsense_plus_software/p1w9tr6/",
@@ -3843,7 +4771,7 @@
         "id": "p1welk9",
         "author": "centuryx476",
         "body": "Can I download it without having to give a billing address?\n\nEdit: Guess not",
-        "score": 0,
+        "score": -2,
         "created_utc_ts": 1785952201,
         "created_utc": "2026-08-05T17:50:01",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vfo3lg/a_new_release_candidate_for_pfsense_plus_software/p1welk9/",
@@ -3854,7 +4782,7 @@
         "id": "p1xp2ey",
         "author": "PrimaryAd5802",
         "body": "Tom Lawrence is drinking the UniFi syrup last I checked...",
-        "score": 6,
+        "score": 5,
         "created_utc_ts": 1785964181,
         "created_utc": "2026-08-05T21:09:41",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vfo3lg/a_new_release_candidate_for_pfsense_plus_software/p1xp2ey/",
@@ -3898,7 +4826,7 @@
         "id": "p1y8gzq",
         "author": "PrimaryAd5802",
         "body": "Congrats to Negate for all their hard work on this... Sound good.\n\nGotta wonder about pfBlocker future going forward, which has worked well for me for a long time and I totally appreciate the efforts of BBcan\n\nBecause I am old and don't need the excitement, I think I will be what's called a \"Late Adopter\". :-)",
-        "score": 7,
+        "score": 6,
         "created_utc_ts": 1785969871,
         "created_utc": "2026-08-05T22:44:31",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vfo3lg/a_new_release_candidate_for_pfsense_plus_software/p1y8gzq/",
@@ -3931,13 +4859,13 @@
     "created_utc": "2026-08-04T21:47:17",
     "first_author_comment": null,
     "num_comments": 93,
-    "score": 22,
+    "score": 24,
     "subreddit": "PFSENSE",
     "tag": null,
     "tags": [],
     "title": "A New Release Candidate for pfSense Plus Software Version 26.07 Available!",
-    "updatedAt": "2026-08-17T02:42:47.486Z",
-    "upvote_ratio": 0.73,
+    "updatedAt": "2026-08-18T02:43:03.218Z",
+    "upvote_ratio": 0.74,
     "url": "https://reddit.com/r/PFSENSE/comments/1vfo3lg/a_new_release_candidate_for_pfsense_plus_software/",
     "versionList": [
       "26.07.0"
@@ -3971,7 +4899,7 @@
     "tag": null,
     "tags": [],
     "title": "Simple Job Board ≤ 2.11.0 - Unauthenticated RCE (CVE-2024-1813)",
-    "updatedAt": "2026-08-17T02:47:01.975Z",
+    "updatedAt": "2026-08-18T00:53:38.915Z",
     "upvote_ratio": 0.5,
     "url": "https://reddit.com/r/netsec/comments/1v8zh25/simple_job_board_2110_unauthenticated_rce/",
     "versionList": [
@@ -4011,29 +4939,53 @@
         "created_utc": "2026-07-28T13:47:55",
         "permalink": "https://reddit.com/r/netsec/comments/1v8ylt4/how_we_hacked_thousands_of_data_centers_in/p09j0qk/",
         "parent_id": "t3_1v8ylt4",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p09jf4s",
         "author": "djDef80",
         "body": "Not mobile friendly whatsoever. ",
-        "score": 11,
+        "score": 9,
         "created_utc_ts": 1785246584,
         "created_utc": "2026-07-28T13:49:44",
         "permalink": "https://reddit.com/r/netsec/comments/1v8ylt4/how_we_hacked_thousands_of_data_centers_in/p09jf4s/",
         "parent_id": "t3_1v8ylt4",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.388,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.467,
+          "neu": 0.533,
+          "pos": 0,
+          "compound": -0.3875
+        }
       },
       {
         "id": "p09k3dm",
         "author": "Bennetjs",
         "body": "well, putting BMC in the internet is on them. ",
-        "score": 125,
+        "score": 127,
         "created_utc_ts": 1785246767,
         "created_utc": "2026-07-28T13:52:47",
         "permalink": "https://reddit.com/r/netsec/comments/1v8ylt4/how_we_hacked_thousands_of_data_centers_in/p09k3dm/",
         "parent_id": "t3_1v8ylt4",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.273,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.792,
+          "pos": 0.208,
+          "compound": 0.2732
+        }
       },
       {
         "id": "p09kt3j",
@@ -4044,40 +4996,72 @@
         "created_utc": "2026-07-28T13:55:58",
         "permalink": "https://reddit.com/r/netsec/comments/1v8ylt4/how_we_hacked_thousands_of_data_centers_in/p09kt3j/",
         "parent_id": "t1_p09k3dm",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.34,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.893,
+          "pos": 0.107,
+          "compound": 0.34
+        }
       },
       {
         "id": "p09m4m9",
         "author": "Pale_Fly_2673",
         "body": "Thanks - fixed",
-        "score": 7,
+        "score": 8,
         "created_utc_ts": 1785247314,
         "created_utc": "2026-07-28T14:01:54",
         "permalink": "https://reddit.com/r/netsec/comments/1v8ylt4/how_we_hacked_thousands_of_data_centers_in/p09m4m9/",
         "parent_id": "t1_p09jf4s",
-        "is_submitter": true
+        "is_submitter": true,
+        "sentiment_score": 0.44,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.256,
+          "pos": 0.744,
+          "compound": 0.4404
+        }
       },
       {
         "id": "p09sz6t",
         "author": "bastian320",
         "body": "Don't talk to me about calvin. ",
-        "score": 18,
+        "score": 19,
         "created_utc_ts": 1785249143,
         "created_utc": "2026-07-28T14:32:23",
         "permalink": "https://reddit.com/r/netsec/comments/1v8ylt4/how_we_hacked_thousands_of_data_centers_in/p09sz6t/",
         "parent_id": "t3_1v8ylt4",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p0a0iua",
         "author": "ff0000wizard",
         "body": "Whos this Calvin and why did they set this up with his name as a password.  ",
-        "score": 8,
+        "score": 9,
         "created_utc_ts": 1785251116,
         "created_utc": "2026-07-28T15:05:16",
         "permalink": "https://reddit.com/r/netsec/comments/1v8ylt4/how_we_hacked_thousands_of_data_centers_in/p0a0iua/",
         "parent_id": "t1_p09sz6t",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p0a11xf",
@@ -4088,7 +5072,15 @@
         "created_utc": "2026-07-28T15:07:34",
         "permalink": "https://reddit.com/r/netsec/comments/1v8ylt4/how_we_hacked_thousands_of_data_centers_in/p0a11xf/",
         "parent_id": "t3_1v8ylt4",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p0aebu4",
@@ -4099,40 +5091,72 @@
         "created_utc": "2026-07-28T16:04:08",
         "permalink": "https://reddit.com/r/netsec/comments/1v8ylt4/how_we_hacked_thousands_of_data_centers_in/p0aebu4/",
         "parent_id": "t3_1v8ylt4",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p0ajt07",
         "author": "rfdevere",
         "body": "Not even iLo",
-        "score": 6,
+        "score": 5,
         "created_utc_ts": 1785256029,
         "created_utc": "2026-07-28T16:27:09",
         "permalink": "https://reddit.com/r/netsec/comments/1v8ylt4/how_we_hacked_thousands_of_data_centers_in/p0ajt07/",
         "parent_id": "t3_1v8ylt4",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p0aq526",
         "author": "astro-the-creator",
         "body": "Can it be used to mine crypto illegally? ",
-        "score": 0,
+        "score": 1,
         "created_utc_ts": 1785257595,
         "created_utc": "2026-07-28T16:53:15",
         "permalink": "https://reddit.com/r/netsec/comments/1v8ylt4/how_we_hacked_thousands_of_data_centers_in/p0aq526/",
         "parent_id": "t3_1v8ylt4",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p0atc53",
         "author": "ni5arga",
         "body": "I've hacked BMCs before, fun stuff.",
-        "score": 12,
+        "score": 11,
         "created_utc_ts": 1785258379,
         "created_utc": "2026-07-28T17:06:19",
         "permalink": "https://reddit.com/r/netsec/comments/1v8ylt4/how_we_hacked_thousands_of_data_centers_in/p0atc53/",
         "parent_id": "t3_1v8ylt4",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.153,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0.27,
+          "neu": 0.4,
+          "pos": 0.33,
+          "compound": 0.1531
+        }
       },
       {
         "id": "p0b8nyb",
@@ -4143,7 +5167,15 @@
         "created_utc": "2026-07-28T18:08:58",
         "permalink": "https://reddit.com/r/netsec/comments/1v8ylt4/how_we_hacked_thousands_of_data_centers_in/p0b8nyb/",
         "parent_id": "t3_1v8ylt4",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.34,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 1,
+          "neu": 0,
+          "pos": 0,
+          "compound": -0.34
+        }
       },
       {
         "id": "p0bq73f",
@@ -4154,18 +5186,34 @@
         "created_utc": "2026-07-28T19:22:22",
         "permalink": "https://reddit.com/r/netsec/comments/1v8ylt4/how_we_hacked_thousands_of_data_centers_in/p0bq73f/",
         "parent_id": "t1_p0aq526",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.296,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.306,
+          "neu": 0.694,
+          "pos": 0,
+          "compound": -0.296
+        }
       },
       {
         "id": "p0bsmlc",
         "author": "System0verlord",
         "body": "Not updating the BMC firmware too. I know it sucks yall, but please update your servers, and use actual passwords. \n\nAnd keep your IPMI off of the internet! Use a Tailscale node to connect to a dedicated VLAN if you have to.",
-        "score": 27,
+        "score": 26,
         "created_utc_ts": 1785267167,
         "created_utc": "2026-07-28T19:32:47",
         "permalink": "https://reddit.com/r/netsec/comments/1v8ylt4/how_we_hacked_thousands_of_data_centers_in/p0bsmlc/",
         "parent_id": "t1_p09k3dm",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.757,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.039,
+          "neu": 0.8,
+          "pos": 0.161,
+          "compound": 0.7574
+        }
       },
       {
         "id": "p0byxvl",
@@ -4176,7 +5224,15 @@
         "created_utc": "2026-07-28T20:00:07",
         "permalink": "https://reddit.com/r/netsec/comments/1v8ylt4/how_we_hacked_thousands_of_data_centers_in/p0byxvl/",
         "parent_id": "t1_p09k3dm",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p0ciavw",
@@ -4187,7 +5243,15 @@
         "created_utc": "2026-07-28T21:31:33",
         "permalink": "https://reddit.com/r/netsec/comments/1v8ylt4/how_we_hacked_thousands_of_data_centers_in/p0ciavw/",
         "parent_id": "t1_p0aq526",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.475,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.085,
+          "neu": 0.878,
+          "pos": 0.037,
+          "compound": -0.4748
+        }
       },
       {
         "id": "p0cipx1",
@@ -4198,7 +5262,15 @@
         "created_utc": "2026-07-28T21:33:28",
         "permalink": "https://reddit.com/r/netsec/comments/1v8ylt4/how_we_hacked_thousands_of_data_centers_in/p0cipx1/",
         "parent_id": "t3_1v8ylt4",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.586,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.798,
+          "pos": 0.202,
+          "compound": 0.5859
+        }
       },
       {
         "id": "p0diqtq",
@@ -4209,7 +5281,15 @@
         "created_utc": "2026-07-29T00:34:54",
         "permalink": "https://reddit.com/r/netsec/comments/1v8ylt4/how_we_hacked_thousands_of_data_centers_in/p0diqtq/",
         "parent_id": "t1_p0atc53",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.493,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.894,
+          "pos": 0.106,
+          "compound": 0.4927
+        }
       },
       {
         "id": "p0fzryx",
@@ -4220,7 +5300,15 @@
         "created_utc": "2026-07-29T10:54:38",
         "permalink": "https://reddit.com/r/netsec/comments/1v8ylt4/how_we_hacked_thousands_of_data_centers_in/p0fzryx/",
         "parent_id": "t3_1v8ylt4",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.153,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0.118,
+          "neu": 0.772,
+          "pos": 0.11,
+          "compound": 0.1531
+        }
       },
       {
         "id": "p0h5xfv",
@@ -4231,7 +5319,15 @@
         "created_utc": "2026-07-29T14:34:56",
         "permalink": "https://reddit.com/r/netsec/comments/1v8ylt4/how_we_hacked_thousands_of_data_centers_in/p0h5xfv/",
         "parent_id": "t1_p0a11xf",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.677,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.151,
+          "neu": 0.768,
+          "pos": 0.081,
+          "compound": -0.6767
+        }
       },
       {
         "id": "p0jtbhk",
@@ -4242,7 +5338,15 @@
         "created_utc": "2026-07-29T21:22:58",
         "permalink": "https://reddit.com/r/netsec/comments/1v8ylt4/how_we_hacked_thousands_of_data_centers_in/p0jtbhk/",
         "parent_id": "t3_1v8ylt4",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.103,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0.135,
+          "neu": 0.865,
+          "pos": 0,
+          "compound": -0.1027
+        }
       },
       {
         "id": "p0mf8uv",
@@ -4253,7 +5357,15 @@
         "created_utc": "2026-07-30T06:51:43",
         "permalink": "https://reddit.com/r/netsec/comments/1v8ylt4/how_we_hacked_thousands_of_data_centers_in/p0mf8uv/",
         "parent_id": "t3_1v8ylt4",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.674,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.409,
+          "neu": 0.591,
+          "pos": 0,
+          "compound": -0.6739
+        }
       },
       {
         "id": "p3ymtfl",
@@ -4264,18 +5376,26 @@
         "created_utc": "2026-08-16T03:26:13",
         "permalink": "https://reddit.com/r/netsec/comments/1v8ylt4/how_we_hacked_thousands_of_data_centers_in/p3ymtfl/",
         "parent_id": "t1_p0a11xf",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       }
     ],
     "created_utc": "2026-07-28T13:31:09",
     "first_author_comment": "Thanks - fixed",
     "num_comments": 32,
-    "score": 382,
+    "score": 388,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "How We Hacked Thousands of Data Centers in Minutes Using a 20-Year-Old Vulnerability",
-    "updatedAt": "2026-08-17T02:47:02.602Z",
+    "updatedAt": "2026-08-18T00:53:39.525Z",
     "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/netsec/comments/1v8ylt4/how_we_hacked_thousands_of_data_centers_in/",
     "versionList": [
@@ -4350,7 +5470,7 @@
     "tag": null,
     "tags": [],
     "title": "New vBulletin Vulnerability!",
-    "updatedAt": "2026-08-17T00:48:11.616Z",
+    "updatedAt": "2026-08-18T00:53:42.587Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/netsec/comments/1v8192k/new_vbulletin_vulnerability/",
     "versionList": [],
@@ -4383,7 +5503,7 @@
     "tag": "Pending Moderation",
     "tags": [],
     "title": "[CVE-2026-61511] vBulletin &lt;= 6.2.1 (runMaths) Pre-Auth RCE Vulnerability",
-    "updatedAt": "2026-08-17T00:48:11.824Z",
+    "updatedAt": "2026-08-18T00:53:42.780Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/netsec/comments/1v7x7i9/cve202661511_vbulletin_621_runmaths_preauth_rce/",
     "versionList": [
@@ -4537,7 +5657,7 @@
     "tag": "Contains AI",
     "tags": [],
     "title": "Escaping Claude Cowork’s local VM sandbox via CVE-2026-46331",
-    "updatedAt": "2026-08-17T00:48:23.937Z",
+    "updatedAt": "2026-08-18T00:53:54.720Z",
     "upvote_ratio": 0.97,
     "url": "https://reddit.com/r/netsec/comments/1v52lix/escaping_claude_coworks_local_vm_sandbox_via/",
     "versionList": [
@@ -4573,7 +5693,7 @@
     "tag": "Solved",
     "tags": [],
     "title": "UGOS Pro forced update broke Docker permissions",
-    "updatedAt": "2026-08-17T00:48:38.136Z",
+    "updatedAt": "2026-08-18T00:54:09.076Z",
     "upvote_ratio": 0.63,
     "url": "https://reddit.com/r/homelab/comments/1v3b91p/ugos_pro_forced_update_broke_docker_permissions/",
     "versionList": [],
@@ -4722,7 +5842,7 @@
     "tag": null,
     "tags": [],
     "title": "Defender AV CVE-2023-36010 still flagged even on latest engine/platform?",
-    "updatedAt": "2026-08-17T00:52:29.033Z",
+    "updatedAt": "2026-08-18T00:58:00.721Z",
     "upvote_ratio": 0.78,
     "url": "https://reddit.com/r/sysadmin/comments/1ucezrg/defender_av_cve202336010_still_flagged_even_on/",
     "versionList": [
@@ -4852,7 +5972,7 @@
     "tag": null,
     "tags": [],
     "title": "WEIRD RUSTDESK REQUEST FROM MY OWN MACBOOK",
-    "updatedAt": "2026-08-17T00:52:37.812Z",
+    "updatedAt": "2026-08-18T00:58:09.384Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/rustdesk/comments/1ub5cdv/weird_rustdesk_request_from_my_own_macbook/",
     "versionList": [],
@@ -4901,7 +6021,7 @@
     "tag": null,
     "tags": [],
     "title": "CVE-2026-9189: payment bypass in the Contact Form 7 PayPal &amp; Stripe Add-on (now patched, update if you use it)",
-    "updatedAt": "2026-08-17T00:52:53.626Z",
+    "updatedAt": "2026-08-18T00:58:24.796Z",
     "upvote_ratio": 0.78,
     "url": "https://reddit.com/r/Wordpress/comments/1u9ea81/cve20269189_payment_bypass_in_the_contact_form_7/",
     "versionList": [
@@ -4952,12 +6072,20 @@
         "id": "oprf3cd",
         "author": "throwaway234f32423df",
         "body": "fixed on Ubuntu about an hour ago even though they haven't put up a CVE page for it yet",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1780598242,
         "created_utc": "2026-06-04T18:37:22",
         "permalink": "https://reddit.com/r/apache/comments/1tws4w7/the_http2_bomb_that_knocks_nginx_and_apache/oprf3cd/",
         "parent_id": "t3_1tws4w7",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       }
     ],
     "created_utc": "2026-06-04T16:08:00",
@@ -4968,7 +6096,7 @@
     "tag": null,
     "tags": [],
     "title": "The HTTP/2 Bomb That Knocks nginx and Apache Offline With a Single Connection",
-    "updatedAt": "2026-08-17T02:51:33.970Z",
+    "updatedAt": "2026-08-18T00:59:42.064Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/apache/comments/1tws4w7/the_http2_bomb_that_knocks_nginx_and_apache/",
     "versionList": [
@@ -5006,7 +6134,7 @@
       "Use Cases"
     ],
     "title": "openclaw crossed 500k downloads a day this week. here are the 5 things nobody tells you when you're one of them",
-    "updatedAt": "2026-08-17T00:58:06.161Z",
+    "updatedAt": "2026-08-18T01:03:37.896Z",
     "upvote_ratio": 0.8,
     "url": "https://reddit.com/r/openclaw/comments/1srpodd/openclaw_crossed_500k_downloads_a_day_this_week/",
     "versionList": [
@@ -5053,7 +6181,7 @@
       "General Discussion"
     ],
     "title": "Security Check Recommended (CVE-2025-55182): Please review your application's dependencies. If you are running React or Next.js",
-    "updatedAt": "2026-08-17T01:04:49.591Z",
+    "updatedAt": "2026-08-18T01:10:16.197Z",
     "upvote_ratio": 0.91,
     "url": "https://reddit.com/r/react/comments/1pfyta0/security_check_recommended_cve202555182_please/",
     "versionList": [
@@ -5496,7 +6624,7 @@
       "vercel"
     ],
     "title": "What is React Server Components vulnerability CVE-2025-55182 and how does it affect Next.js?",
-    "updatedAt": "2026-08-17T01:05:01.411Z",
+    "updatedAt": "2026-08-18T01:10:27.764Z",
     "upvote_ratio": null,
     "url": "https://stackoverflow.com/questions/79837478/what-is-react-server-components-vulnerability-cve-2025-55182-and-how-does-it-aff",
     "versionList": [
@@ -5552,7 +6680,7 @@
       "Troubleshooting | Android"
     ],
     "title": "Chromebook not updating to the new update that fixes CVE-2025-6554",
-    "updatedAt": "2026-08-17T01:07:59.060Z",
+    "updatedAt": "2026-08-18T01:13:19.555Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/chrome/comments/1lpij7v/chromebook_not_updating_to_the_new_update_that/",
     "versionList": [
@@ -5675,7 +6803,7 @@
       "News"
     ],
     "title": "🔒 Update Chrome Today! – New 0-day Vulnerability (CVE-2025-5419) Is Being Exploited in the Wild",
-    "updatedAt": "2026-08-17T01:08:07.813Z",
+    "updatedAt": "2026-08-18T01:13:28.726Z",
     "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/chrome/comments/1l2zxcb/update_chrome_today_new_0day_vulnerability/",
     "versionList": [
