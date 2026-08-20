@@ -43,6 +43,7 @@ CVE-2026-49049,1,2026-08-13T17:10:50+00:00,1786641050,joomla,https://reddit.com/
 CVE-2026-49975,1,2026-06-04T16:08:00+00:00,1780589280,apache,https://reddit.com/r/apache/comments/1tws4w7/the_http2_bomb_that_knocks_nginx_and_apache/
 CVE-2026-56291,1,2026-07-09T09:55:22+00:00,1783590922,joomla,https://reddit.com/r/joomla/comments/1urlq47/balbooa_forms_fixes_an_unauthenticated_file/
 CVE-2026-56292,1,2026-07-09T13:58:22+00:00,1783605502,joomla,https://reddit.com/r/joomla/comments/1urr2ye/acymailing_sql_injection_vulnerability_upgrade/
+CVE-2026-58286,1,2026-08-19T18:23:19+00:00,1787163799,sysadmin,https://reddit.com/r/sysadmin/comments/1vsuo5j/edge_browser_updates_on_ws2025_domain_controllers/
 CVE-2026-59310,1,2026-08-13T17:21:13+00:00,1786641673,sysadmin,https://reddit.com/r/sysadmin/comments/1vnh3kn/cve202659310_under_active_exploitation/
 CVE-2026-60137,1,2026-08-15T17:58:26+00:00,1786816706,Wordpress,https://reddit.com/r/Wordpress/comments/1vp9i5g/keeping_wp_sites_secure/
 CVE-2026-62893,1,2026-08-14T21:04:14+00:00,1786741454,sysadmin,https://reddit.com/r/sysadmin/comments/1vojhyi/august_2026_patch_tuesday_issue_wds_tftp_cve_fix/
