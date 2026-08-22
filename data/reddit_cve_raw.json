@@ -1,5 +1,256 @@
 [
   {
+    "_id": "6a8843b149715ba391893566",
+    "redditId": "1vud9ln",
+    "author": "Mind-Principle-1834",
+    "author_description": "saw someone say their support case form wouldn't even let them submit a ticket without an active agreement.  \n\nsomeone else got the patch anyway going through a VAR.  \n\nsomeone else gott a cease-and-desist within days of telling their reseller they weren't renewing.  \n\nand separately, QUIRSO themselves said they don't think the ransomware payload in this campaign was even the real objective, more like a smoke screen to cover the actual intrusion and mess with forensics.\n\nanyone else feel like the support drama is drowning out the actual security question here",
+    "awards": [],
+    "comments": [
+      {
+        "id": "p506jlo",
+        "author": "bfodder",
+        "body": "CVE-2026-59310\n\nDescription\n\nVMware vCenter contains a directory traversal vulnerability in the Syslog server. A malicious actor with network access to vCenter may exploit this issue to execute arbitrary code.\n\nSince OP seems to think we're all just out here memorizing CVE numbers...",
+        "score": 1,
+        "created_utc_ts": 1787311668,
+        "created_utc": "2026-08-21T11:27:48",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1vud9ln/cve202659310_rant_incoming/p506jlo/",
+        "parent_id": "t3_1vud9ln",
+        "is_submitter": false
+      },
+      {
+        "id": "p50ddbx",
+        "author": "Kyky_Geek",
+        "body": "I guess Im not sure what you mean? The security question is an unpatched vsphere is vulnerable to arbitrary code execution. \n\nI know Broadcom has made VMware a nightmare which is why we’re switching but most systems won’t give you support or updates if you’re not paying 🤷‍♀️",
+        "score": 1,
+        "created_utc_ts": 1787314125,
+        "created_utc": "2026-08-21T12:08:45",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1vud9ln/cve202659310_rant_incoming/p50ddbx/",
+        "parent_id": "t3_1vud9ln",
+        "is_submitter": false
+      },
+      {
+        "id": "p50nzmy",
+        "author": "westcor",
+        "body": "Does anyone know if ESXi 7 is vulnerable to this or just ESX 7?\n\n",
+        "score": 1,
+        "created_utc_ts": 1787317513,
+        "created_utc": "2026-08-21T13:05:13",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1vud9ln/cve202659310_rant_incoming/p50nzmy/",
+        "parent_id": "t3_1vud9ln",
+        "is_submitter": false
+      }
+    ],
+    "created_utc": "2026-08-21T11:06:36",
+    "first_author_comment": null,
+    "num_comments": 3,
+    "score": 0,
+    "subreddit": "sysadmin",
+    "tag": null,
+    "tags": [],
+    "title": "CVE-2026-59310 rant incoming",
+    "updatedAt": "2026-08-22T02:25:34.229Z",
+    "upvote_ratio": 0.13,
+    "url": "https://reddit.com/r/sysadmin/comments/1vud9ln/cve202659310_rant_incoming/",
+    "versionList": [
+      "2026.0.0",
+      "59310.0.0"
+    ],
+    "classification": {
+      "securityType": [
+        "SECURITY"
+      ],
+      "componentType": []
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.0019815591461216473,
+        "timestampPredicted": "2026-08-21T20:01:24.798089+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true,
+    "author_description_sentiment": {
+      "score": 0.718,
+      "detail": {
+        "neg": 0.075,
+        "neu": 0.79,
+        "pos": 0.136,
+        "compound": 0.7184
+      }
+    },
+    "category": "Positive",
+    "comments_avg_sentiment_score": -0.01,
+    "sentiment_score": 0.354
+  },
+  {
+    "_id": "6a88319149715ba391892e8a",
+    "redditId": "1vucskk",
+    "author": "CmdWaterford",
+    "author_description": "If you are using Elementor Pro -&gt; go update N O W.\n\n  \n[https://www.cve.org/CVERecord?id=CVE-2026-32475](https://www.cve.org/CVERecord?id=CVE-2026-32475)",
+    "awards": [],
+    "comments": [
+      {
+        "id": "p500037",
+        "author": "WordyMowing",
+        "body": "And the one client who swears they’ll do their own updates is definitely going to ignore this",
+        "score": 32,
+        "created_utc_ts": 1787309053,
+        "created_utc": "2026-08-21T10:44:13",
+        "permalink": "https://reddit.com/r/Wordpress/comments/1vucskk/critical_elementor_pro_vulnerability_9810/p500037/",
+        "parent_id": "t3_1vucskk",
+        "is_submitter": false
+      },
+      {
+        "id": "p500hfh",
+        "author": "_miga_",
+        "body": "just to add a bit more context: \n\n\"The only prerequisite is that the target site has **at least one published Elementor page containing a Form widget with a File Upload field**.\" to be vulnerable and the 4.2.2 update is available since 2 days that fixes that issue (https://elementor.com/pro/changelog/). But still make sure your sites are up-to-date!",
+        "score": 20,
+        "created_utc_ts": 1787309257,
+        "created_utc": "2026-08-21T10:47:37",
+        "permalink": "https://reddit.com/r/Wordpress/comments/1vucskk/critical_elementor_pro_vulnerability_9810/p500hfh/",
+        "parent_id": "t3_1vucskk",
+        "is_submitter": false
+      },
+      {
+        "id": "p505yeg",
+        "author": "jfernandezr76",
+        "body": "It's being a wild holiday season. This should remind us the importance of a well written maintenance contract for our clients.",
+        "score": 6,
+        "created_utc_ts": 1787311444,
+        "created_utc": "2026-08-21T11:24:04",
+        "permalink": "https://reddit.com/r/Wordpress/comments/1vucskk/critical_elementor_pro_vulnerability_9810/p505yeg/",
+        "parent_id": "t3_1vucskk",
+        "is_submitter": false
+      },
+      {
+        "id": "p50984r",
+        "author": "Moceannl",
+        "body": "Bad design/architecture:\n\n\\- all WP files are under the docroot  \n\\- writable directories with execution rights  \n\\- upload filtering at plugin level  \n\\- every plugin/theme can write in every plugin/theme directory\n\nModern frameworks don’t have these wild possibilities… ",
+        "score": 7,
+        "created_utc_ts": 1787312669,
+        "created_utc": "2026-08-21T11:44:29",
+        "permalink": "https://reddit.com/r/Wordpress/comments/1vucskk/critical_elementor_pro_vulnerability_9810/p50984r/",
+        "parent_id": "t3_1vucskk",
+        "is_submitter": false
+      },
+      {
+        "id": "p50mn3f",
+        "author": "thewallacio",
+        "body": "What is this \"holiday\" you speak of",
+        "score": 4,
+        "created_utc_ts": 1787317099,
+        "created_utc": "2026-08-21T12:58:19",
+        "permalink": "https://reddit.com/r/Wordpress/comments/1vucskk/critical_elementor_pro_vulnerability_9810/p50mn3f/",
+        "parent_id": "t1_p505yeg",
+        "is_submitter": false
+      },
+      {
+        "id": "p51go1o",
+        "author": "bob_do_something",
+        "body": "&gt; Modern frameworks don’t have these wild possibilities… \n\nForgot about react2shell already?",
+        "score": 3,
+        "created_utc_ts": 1787325371,
+        "created_utc": "2026-08-21T15:16:11",
+        "permalink": "https://reddit.com/r/Wordpress/comments/1vucskk/critical_elementor_pro_vulnerability_9810/p51go1o/",
+        "parent_id": "t1_p50984r",
+        "is_submitter": false
+      },
+      {
+        "id": "p51htmk",
+        "author": "iEatSwampAss",
+        "body": "One thing you should add to your comment is you need 3 prerequisites for this to affect you:\n\n\\- Have at least one published Elementor page containing a Form widget  \n\\- The form must have a File Upload field  \n\\- The File Upload field must allow multiple uploads\n\nIf sites don’t enable multiple attachment uploads on the form, their site isn’t affected.",
+        "score": 9,
+        "created_utc_ts": 1787325672,
+        "created_utc": "2026-08-21T15:21:12",
+        "permalink": "https://reddit.com/r/Wordpress/comments/1vucskk/critical_elementor_pro_vulnerability_9810/p51htmk/",
+        "parent_id": "t1_p500hfh",
+        "is_submitter": false
+      },
+      {
+        "id": "p51oca3",
+        "author": "urbels",
+        "body": "Licence probably ran out long time ago.",
+        "score": 5,
+        "created_utc_ts": 1787327362,
+        "created_utc": "2026-08-21T15:49:22",
+        "permalink": "https://reddit.com/r/Wordpress/comments/1vucskk/critical_elementor_pro_vulnerability_9810/p51oca3/",
+        "parent_id": "t1_p500037",
+        "is_submitter": false
+      },
+      {
+        "id": "p51ppxx",
+        "author": "Myth_Thrazz",
+        "body": "Or use that opportunity to rethink your ways. Maybe your site can do better than Elementor",
+        "score": 0,
+        "created_utc_ts": 1787327717,
+        "created_utc": "2026-08-21T15:55:17",
+        "permalink": "https://reddit.com/r/Wordpress/comments/1vucskk/critical_elementor_pro_vulnerability_9810/p51ppxx/",
+        "parent_id": "t3_1vucskk",
+        "is_submitter": false
+      },
+      {
+        "id": "p53sr1o",
+        "author": "ItsBugsy",
+        "body": "Interesting write-up... (not mine)\n\nHow I uncovered an unauthenticated Elementor Pro RCE for a record Wordfence bounty\n\nhttps://anchor.host/elementor-pro-rce-ai-direction/",
+        "score": 2,
+        "created_utc_ts": 1787347546,
+        "created_utc": "2026-08-21T21:25:46",
+        "permalink": "https://reddit.com/r/Wordpress/comments/1vucskk/critical_elementor_pro_vulnerability_9810/p53sr1o/",
+        "parent_id": "t3_1vucskk",
+        "is_submitter": false
+      }
+    ],
+    "created_utc": "2026-08-21T10:42:39",
+    "first_author_comment": null,
+    "num_comments": 13,
+    "score": 30,
+    "subreddit": "Wordpress",
+    "tag": null,
+    "tags": [],
+    "title": "Critical Elementor Pro Vulnerability 9.8/10",
+    "updatedAt": "2026-08-22T01:07:14.640Z",
+    "upvote_ratio": 0.94,
+    "url": "https://reddit.com/r/Wordpress/comments/1vucskk/critical_elementor_pro_vulnerability_9810/",
+    "versionList": [
+      "9.8.0",
+      "10.0.0"
+    ],
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.1062178994863315,
+        "timestampPredicted": "2026-08-21T20:01:24.798089+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true,
+    "classification": {
+      "componentType": [],
+      "securityType": [
+        "SECURITY"
+      ]
+    },
+    "author_description_sentiment": {
+      "score": 0,
+      "detail": {
+        "neg": 0,
+        "neu": 1,
+        "pos": 0,
+        "compound": 0
+      }
+    },
+    "category": "Neutral",
+    "comments_avg_sentiment_score": 0.236,
+    "sentiment_score": 0.118
+  },
+  {
     "_id": "6a8782c849715ba391890f40",
     "redditId": "1vtvsgz",
     "author": "George-Netgate",
@@ -10,7 +261,7 @@
         "id": "p4wg1i3",
         "author": "Neccie",
         "body": "Time to upgrade! Or wait a little? Nah let's do it! 😀",
-        "score": 20,
+        "score": 29,
         "created_utc_ts": 1787259614,
         "created_utc": "2026-08-20T21:00:14",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4wg1i3/",
@@ -21,7 +272,7 @@
         "id": "p4wifs7",
         "author": "SgtTurtle",
         "body": "Make sure you read the release notes if you have a Celeron J processor. There is a warning about a possible kernel panic issue for these processors and instructions on how to mitigate before the upgrade.",
-        "score": 6,
+        "score": 18,
         "created_utc_ts": 1787260278,
         "created_utc": "2026-08-20T21:11:18",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4wifs7/",
@@ -32,7 +283,7 @@
         "id": "p4wimqn",
         "author": "Cutoffjeanshortz37",
         "body": "I'm wfh so couldn't risk using the beta release but I'm surely not waiting once a stable release is out. ",
-        "score": 4,
+        "score": 8,
         "created_utc_ts": 1787260332,
         "created_utc": "2026-08-20T21:12:12",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4wimqn/",
@@ -43,7 +294,7 @@
         "id": "p4wj7n0",
         "author": "gonzopancho",
         "body": "it's not the CPU per se, it's poor vendor implementation in UEFI (and the data blocks consumed by same)",
-        "score": 8,
+        "score": 15,
         "created_utc_ts": 1787260494,
         "created_utc": "2026-08-20T21:14:54",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4wj7n0/",
@@ -65,7 +316,7 @@
         "id": "p4wojbw",
         "author": "RedikhetDev",
         "body": "Made an appointment in my agenda to have a look at it in 6 months. Great that development goes on.",
-        "score": 7,
+        "score": 8,
         "created_utc_ts": 1787261999,
         "created_utc": "2026-08-20T21:39:59",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4wojbw/",
@@ -76,7 +327,7 @@
         "id": "p4wpjs0",
         "author": "zhrkassar",
         "body": "Wait what😲, I thought CE was dead lol 😂😎",
-        "score": 17,
+        "score": 28,
         "created_utc_ts": 1787262291,
         "created_utc": "2026-08-20T21:44:51",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4wpjs0/",
@@ -87,7 +338,7 @@
         "id": "p4wrtk6",
         "author": "dsco88",
         "body": "Just upgraded, zero issues thus far :)",
-        "score": 3,
+        "score": 6,
         "created_utc_ts": 1787262955,
         "created_utc": "2026-08-20T21:55:55",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4wrtk6/",
@@ -109,7 +360,7 @@
         "id": "p4wt3bd",
         "author": "ForeheadMeetScope",
         "body": "Yet another indicator of how dead pfSense CE is :)",
-        "score": 4,
+        "score": 6,
         "created_utc_ts": 1787263330,
         "created_utc": "2026-08-20T22:02:10",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4wt3bd/",
@@ -120,7 +371,7 @@
         "id": "p4wu9ho",
         "author": "kphillips-netgate",
         "body": "[A day in the life of CE](https://media1.tenor.com/m/2lMoNRA0o5QAAAAC/megamind-metroman.gif)",
-        "score": 10,
+        "score": 17,
         "created_utc_ts": 1787263681,
         "created_utc": "2026-08-20T22:08:01",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4wu9ho/",
@@ -131,7 +382,7 @@
         "id": "p4wv2ce",
         "author": "Amazing_Vehicle_5192",
         "body": "Can I install offline?",
-        "score": 4,
+        "score": 8,
         "created_utc_ts": 1787263922,
         "created_utc": "2026-08-20T22:12:02",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4wv2ce/",
@@ -142,7 +393,7 @@
         "id": "p4wwpuc",
         "author": "vee-eem",
         "body": "Thanks for the warning. Guess who's staying with 2.8.1",
-        "score": 2,
+        "score": 1,
         "created_utc_ts": 1787264419,
         "created_utc": "2026-08-20T22:20:19",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4wwpuc/",
@@ -153,7 +404,7 @@
         "id": "p4wytwa",
         "author": "bingo1105",
         "body": "Upgraded. Needed to manually create a virtual IP for the pfBlocker DNS blocklist after reboot... no big deal, but that does temporarily impact name resolution. Appears to be running smoothly... thank you, pfSense team!",
-        "score": 2,
+        "score": 3,
         "created_utc_ts": 1787265060,
         "created_utc": "2026-08-20T22:31:00",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4wytwa/",
@@ -164,7 +415,7 @@
         "id": "p4x09so",
         "author": "gonzopancho",
         "body": "whatdayamean?  it's not dead!   Edit: yet",
-        "score": 2,
+        "score": 5,
         "created_utc_ts": 1787265506,
         "created_utc": "2026-08-20T22:38:26",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4x09so/",
@@ -175,7 +426,7 @@
         "id": "p4x0idg",
         "author": "ofbarea",
         "body": "I hit this bug when I installed latest beta.  So I went back to 2.8.1. I might try installing CE 2.9 release under Proxmox when I have more time.\n\nThe machine in question has a J4125 CPU, four i225 Ethernet nics, no wifi, 16 GB ram and 128 GB SATA SSD.",
-        "score": 1,
+        "score": 2,
         "created_utc_ts": 1787265580,
         "created_utc": "2026-08-20T22:39:40",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4x0idg/",
@@ -208,7 +459,7 @@
         "id": "p4xbep9",
         "author": "mj1003",
         "body": "At this rate I'll be dead before pfSense CE is... Thanks devs for keeping it going! ",
-        "score": 8,
+        "score": 22,
         "created_utc_ts": 1787269016,
         "created_utc": "2026-08-20T23:36:56",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4xbep9/",
@@ -219,7 +470,7 @@
         "id": "p4xfdu7",
         "author": "jdbway",
         "body": "It is this is the Conclusive Edition",
-        "score": 1,
+        "score": 2,
         "created_utc_ts": 1787270315,
         "created_utc": "2026-08-20T23:58:35",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4xfdu7/",
@@ -230,7 +481,7 @@
         "id": "p4xk5dn",
         "author": "Davidi01",
         "body": "I just upgraded and once pfSense came back up, I had banner message saying \"pfSense has detected a crash report or programming bug. Click here for more information.\" So, I clicked on the link to view the crash report and this line was in there multiple times:\n\n\"\\[21-Aug-2026 00:20:17 UTC\\] PHP Warning:  PHP Startup: Unable to load dynamic library 'ftp.so' (tried: /usr/local/lib/php/20250925/ftp.so (Cannot open \"/usr/local/lib/php/20250925/ftp.so\"), /usr/local/lib/php/20250925/ftp.so.so (Cannot open \"/usr/local/lib/php/20250925/ftp.so.so\")) in Unknown on line  0\"\n\nSafe to ignore and delete? Or something I need to address?",
-        "score": 1,
+        "score": 2,
         "created_utc_ts": 1787271885,
         "created_utc": "2026-08-21T00:24:45",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4xk5dn/",
@@ -241,7 +492,7 @@
         "id": "p4xlzj9",
         "author": "getgoingfast",
         "body": "Want to confirm update went smoothly, and everything is up and running without any obvious hiccups. \n\nThanks a lot team Netgate!",
-        "score": 1,
+        "score": 3,
         "created_utc_ts": 1787272471,
         "created_utc": "2026-08-21T00:34:31",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4xlzj9/",
@@ -263,7 +514,7 @@
         "id": "p4xw3l8",
         "author": "devexis",
         "body": "Is 2.9 only available by upgrading 2.8? I’m looking to perform a fresh install of pfsense with a 2.9 img file",
-        "score": 1,
+        "score": 3,
         "created_utc_ts": 1787275804,
         "created_utc": "2026-08-21T01:30:04",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4xw3l8/",
@@ -274,7 +525,7 @@
         "id": "p4xx5te",
         "author": "gonzopancho",
         "body": "Don’t die!",
-        "score": 2,
+        "score": 10,
         "created_utc_ts": 1787276163,
         "created_utc": "2026-08-21T01:36:03",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4xx5te/",
@@ -285,7 +536,7 @@
         "id": "p4xxqas",
         "author": "real_weirdcrap",
         "body": "upgrade was smooth. Only thing I noticed is my gateway dashboard widget no longer displays a unit of measurement? It's just numbers no ms or % for the loss. Cleared my cache and cookies, tried a different browser so I don't think it's me. \n\nHaven't done my second router yet.\n\n2.9:\nhttps://imgur.com/uHaUgDY\n\n2.8.1: \nhttps://imgur.com/n6H8Xm6",
-        "score": 2,
+        "score": 11,
         "created_utc_ts": 1787276359,
         "created_utc": "2026-08-21T01:39:19",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4xxqas/",
@@ -296,7 +547,7 @@
         "id": "p4xyx8r",
         "author": "real_weirdcrap",
         "body": "no direct image files for 2.9 I'm aware of, you have to use netgate's installer. Or upgrade from IIRC 2.7.2 was the last disc image offered which you can find kicking around online.",
-        "score": 1,
+        "score": 4,
         "created_utc_ts": 1787276764,
         "created_utc": "2026-08-21T01:46:04",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4xyx8r/",
@@ -318,24 +569,266 @@
         "id": "p4y63za",
         "author": "pixel_of_moral_decay",
         "body": "Saw the same",
-        "score": 1,
+        "score": 2,
         "created_utc_ts": 1787279218,
         "created_utc": "2026-08-21T02:26:58",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4y63za/",
         "parent_id": "t1_p4xk5dn",
         "is_submitter": false
+      },
+      {
+        "id": "p4yhfll",
+        "author": "Excellent_Milk_3110",
+        "body": "Yes finally the vlan tag type option, great job 👏 ",
+        "score": 2,
+        "created_utc_ts": 1787283413,
+        "created_utc": "2026-08-21T03:36:53",
+        "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4yhfll/",
+        "parent_id": "t3_1vtvsgz",
+        "is_submitter": false
+      },
+      {
+        "id": "p4yhkmm",
+        "author": "cmcdonald-netgate",
+        "body": "If you have a device that is hitting this, please reach out. My DMs are open. We need ASL dumps. The more the merrier. ",
+        "score": 4,
+        "created_utc_ts": 1787283467,
+        "created_utc": "2026-08-21T03:37:47",
+        "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4yhkmm/",
+        "parent_id": "t1_p4wifs7",
+        "is_submitter": false
+      },
+      {
+        "id": "p4yjmj1",
+        "author": "cmcdonald-netgate",
+        "body": "Some of this is to be expected when upgrading PHP... Classical chicken-egg problem. During the upgrade there are brief moments where parts of the PHP stack are being ripped out and upgraded, while the extensions have yet to be upgraded. It's mostly noise and can be ignored. ",
+        "score": 4,
+        "created_utc_ts": 1787284292,
+        "created_utc": "2026-08-21T03:51:32",
+        "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4yjmj1/",
+        "parent_id": "t1_p4xk5dn",
+        "is_submitter": false
+      },
+      {
+        "id": "p4ylxyh",
+        "author": "faux123",
+        "body": "I’ll wait until the dust settles",
+        "score": 4,
+        "created_utc_ts": 1787285231,
+        "created_utc": "2026-08-21T04:07:11",
+        "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4ylxyh/",
+        "parent_id": "t3_1vtvsgz",
+        "is_submitter": false
+      },
+      {
+        "id": "p4yng6b",
+        "author": "Krypty",
+        "body": "I have the same 'issue' here. Not a big deal, but my eyes jumped to it right away.\n\nEdit: looks like someone submitted a bug report for it already/confirmed it: https://redmine.pfsense.org/issues/17026",
+        "score": 3,
+        "created_utc_ts": 1787285855,
+        "created_utc": "2026-08-21T04:17:35",
+        "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4yng6b/",
+        "parent_id": "t1_p4xxqas",
+        "is_submitter": false
+      },
+      {
+        "id": "p4z5y5m",
+        "author": "semiraue",
+        "body": "Lol. Netgate sending one update every 1 year. Pfsense ce users \"pfsense ce not dead yet\"\n\n",
+        "score": 1,
+        "created_utc_ts": 1787294357,
+        "created_utc": "2026-08-21T06:39:17",
+        "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4z5y5m/",
+        "parent_id": "t1_p4wt3bd",
+        "is_submitter": false
+      },
+      {
+        "id": "p4zkqk0",
+        "author": "FlashPan73",
+        "body": "Thank you for this.  Upon updating I got the following error: pfBlockerNG - The DNSBL VIP needs to be configured manually\n\nQuick google and did this:\n\n\n\n* Go to **Firewall &gt; Virtual IPs** in your pfSense web interface and click **+ Add**.\n* Set the **Type** to `IP Alias` and the **Interface** to `Localhost`.\n* Enter a dedicated **Virtual IP address** (for example, [`10.10.10.1/32`](http://10.10.10.1/32) or another unused private IP outside your LAN range).\n* Navigate to **Firewall &gt; pfBlockerNG &gt; DNSBL** and locate the **DNSBL Webserver Configuration** section.\n* Choose your newly created Virtual IP from the **DNSBL Virtual IP** drop-down list, save the settings, and run a force reload update.\n\nReboot and all is well again after running a forced update on pfblocker\n\n",
+        "score": 5,
+        "created_utc_ts": 1787301787,
+        "created_utc": "2026-08-21T08:43:07",
+        "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4zkqk0/",
+        "parent_id": "t3_1vtvsgz",
+        "is_submitter": false
+      },
+      {
+        "id": "p4zn03y",
+        "author": "K1dY1ng",
+        "body": "Should I remove the system patches on 2.8.1 before upgrading or is it safe to just upgrade?",
+        "score": 2,
+        "created_utc_ts": 1787302928,
+        "created_utc": "2026-08-21T09:02:08",
+        "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4zn03y/",
+        "parent_id": "t3_1vtvsgz",
+        "is_submitter": false
+      },
+      {
+        "id": "p4zpqfe",
+        "author": "mrmoo_",
+        "body": "I am running a HA setup, I needed to do the exact same, but it would only accept the virtual IP when in Backup mode.",
+        "score": 1,
+        "created_utc_ts": 1787304294,
+        "created_utc": "2026-08-21T09:24:54",
+        "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4zpqfe/",
+        "parent_id": "t1_p4zkqk0",
+        "is_submitter": false
+      },
+      {
+        "id": "p4zwckm",
+        "author": "lionslair50",
+        "body": "It failed for me. Got stuck at st ssl package error with php. will see if I can extract the screenshots. I had to reinstall the old version and restore my config. \n\n",
+        "score": 2,
+        "created_utc_ts": 1787307444,
+        "created_utc": "2026-08-21T10:17:24",
+        "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4zwckm/",
+        "parent_id": "t3_1vtvsgz",
+        "is_submitter": false
+      },
+      {
+        "id": "p4zwcna",
+        "author": "Panja0",
+        "body": "For some reason fetching the updates took ages, I think around 2,5 hours. But everything is updated without a problem!",
+        "score": 2,
+        "created_utc_ts": 1787307445,
+        "created_utc": "2026-08-21T10:17:25",
+        "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4zwcna/",
+        "parent_id": "t3_1vtvsgz",
+        "is_submitter": false
+      },
+      {
+        "id": "p50903y",
+        "author": "lionslair50",
+        "body": "Having no luck extracting a useful screenshot so got this text from the image.\n\n40: 600.000MB/s transters\n\nAdan Command Queueing enabled\n\nad 22104MB (250069688 512 byte sectors)\n\nDiX nsole: Video Primary, Serial Secondary\n\nso.1: Shared object \"libcrypto.so. 35\" not found, required by \"php\"\n\nId-erf.so.1: Shared object \"libcrypto.so.35\" not found, required by \"php\"\n\nConfiguring crash dumps.\n\nUsing/dev/ada@p3 for dump device.\n\n/dev/gpt/efiboote: FILESYSTEM CLEAN; SKIPPING CHECKS\n\nFilesystems are clean, continuing...\n\nMounting filesystems.\n\nMounting ZFS boot environment...done.\n\nusage: ddb capture [-M core] [-N system] print\n\nddb capture [-M core] [-N system] status\n\nddb script scriptname\n\nddb script scriptname=script\n\nddb scripts\n\nddb unscript scriptname\n\nddb pathname\n\nId-elf.so.1: Shared object \"libcrypto.so.35\" not found, required by \"php\"\n\nmount: ^,7: No such file or directory\n\nsense\n\n100\n\n+\n\nne screenshot\n\nI am\n\nDiagno\n\npreeme\n\nWelcome to 2.9.0-RELEASE.\n\nChecking dump device /dev/ada@p3 for crash dumps\n\nno crash dumps on /dev/ada@p3\n\n/etc/pfSense-rc: varrunpath: parameter null or not\n\nEnter full pathname of shell or RETURN for/bin/sh:\n\nset",
+        "score": 1,
+        "created_utc_ts": 1787312587,
+        "created_utc": "2026-08-21T11:43:07",
+        "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p50903y/",
+        "parent_id": "t1_p4zwckm",
+        "is_submitter": false
+      },
+      {
+        "id": "p50cd5i",
+        "author": "Equivalent-Raise5879",
+        "body": "Saw update avail last night, woke up to do it this am early, and it tells me that there isn't any updates. Did it get pulled?\n\n",
+        "score": 1,
+        "created_utc_ts": 1787313779,
+        "created_utc": "2026-08-21T12:02:59",
+        "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p50cd5i/",
+        "parent_id": "t3_1vtvsgz",
+        "is_submitter": false
+      },
+      {
+        "id": "p50onk1",
+        "author": "ANGRY_robert",
+        "body": "I have asked this in the past and the consensus was to leave them.",
+        "score": 3,
+        "created_utc_ts": 1787317713,
+        "created_utc": "2026-08-21T13:08:33",
+        "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p50onk1/",
+        "parent_id": "t1_p4zn03y",
+        "is_submitter": false
+      },
+      {
+        "id": "p5107sg",
+        "author": "MazzyNix",
+        "body": "For the future u/gonzopancho can said something more about unification of Ce and plus version , now with 2.9 and 26.07 out , timeline ? 2027H1 ?",
+        "score": 2,
+        "created_utc_ts": 1787320992,
+        "created_utc": "2026-08-21T14:03:12",
+        "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p5107sg/",
+        "parent_id": "t3_1vtvsgz",
+        "is_submitter": false
+      },
+      {
+        "id": "p510aqz",
+        "author": "gonzopancho",
+        "body": "Soon",
+        "score": 3,
+        "created_utc_ts": 1787321015,
+        "created_utc": "2026-08-21T14:03:35",
+        "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p510aqz/",
+        "parent_id": "t1_p5107sg",
+        "is_submitter": false
+      },
+      {
+        "id": "p51g96l",
+        "author": "miscdebris1123",
+        "body": "I always wait for the *.1 release, unless I need to fix a specific problem. ",
+        "score": 1,
+        "created_utc_ts": 1787325263,
+        "created_utc": "2026-08-21T15:14:23",
+        "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p51g96l/",
+        "parent_id": "t1_p4wg1i3",
+        "is_submitter": false
+      },
+      {
+        "id": "p525vmz",
+        "author": "FXDXI",
+        "body": "Thank you Developers!  I ran that command in the release notes for the Celeron J prior to installing and all is good. \n\nQuick question:\n\n if I ever had to do a factory reset, I hope not to but would that be required again?   TIA\n\n\n\n",
+        "score": 1,
+        "created_utc_ts": 1787331892,
+        "created_utc": "2026-08-21T17:04:52",
+        "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p525vmz/",
+        "parent_id": "t3_1vtvsgz",
+        "is_submitter": false
+      },
+      {
+        "id": "p53d7w6",
+        "author": "StealthNet",
+        "body": "Flawless upgrade. No patches removed, no packages removed (including suricata, pfblocker devel ntopng etc).\n\nAdGuard running installed in it, also running.",
+        "score": 2,
+        "created_utc_ts": 1787343284,
+        "created_utc": "2026-08-21T20:14:44",
+        "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p53d7w6/",
+        "parent_id": "t3_1vtvsgz",
+        "is_submitter": false
+      },
+      {
+        "id": "p53l6el",
+        "author": "ihaveacatnamedbilbo",
+        "body": "Thanks, this post saved me some trouble.  Running CE on an ASROCK J4125B-ITX.  Celery J4125.",
+        "score": 2,
+        "created_utc_ts": 1787345446,
+        "created_utc": "2026-08-21T20:50:46",
+        "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p53l6el/",
+        "parent_id": "t1_p4wifs7",
+        "is_submitter": false
+      },
+      {
+        "id": "p53q74y",
+        "author": "innocuous-user",
+        "body": "2.9.0 seems to have broken NAT64 for me...  \nI had a rule to allow traffic from lan subnets to 64:ff9b::/96 with NAT64 enabled, but now this rule never seems to get hit.\n\nAlso it seems the NAT64 prefix is now locked at 64:ff9b::/96, you can't delegate some of your own GUA space as NAT64.",
+        "score": 2,
+        "created_utc_ts": 1787346829,
+        "created_utc": "2026-08-21T21:13:49",
+        "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p53q74y/",
+        "parent_id": "t3_1vtvsgz",
+        "is_submitter": false
+      },
+      {
+        "id": "p54vobu",
+        "author": "NewRedditor23",
+        "body": "I'd probably go ahead and install it. 150+ security updates, which means they used one of the advanced AI models to find them, which also means bad actors can find them. ",
+        "score": 1,
+        "created_utc_ts": 1787359858,
+        "created_utc": "2026-08-22T00:50:58",
+        "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p54vobu/",
+        "parent_id": "t1_p4wojbw",
+        "is_submitter": false
       }
     ],
     "created_utc": "2026-08-20T20:55:28",
     "first_author_comment": null,
-    "num_comments": 42,
-    "score": 77,
+    "num_comments": 78,
+    "score": 129,
     "subreddit": "PFSENSE",
     "tag": null,
     "tags": [],
     "title": "Netgate Releases pfSense Community Edition Version 2.9.0",
-    "updatedAt": "2026-08-21T02:42:27.476Z",
-    "upvote_ratio": 0.96,
+    "updatedAt": "2026-08-22T02:42:18.885Z",
+    "upvote_ratio": 0.98,
     "url": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/",
     "versionList": [
       "2.9.0"
@@ -344,7 +837,7 @@
       "predicted": {
         "isUpdateRelated": false,
         "positiveScore": 0.002476035120305111,
-        "timestampPredicted": "2026-08-21T00:00:36.514789+00:00"
+        "timestampPredicted": "2026-08-21T08:01:29.157064+00:00"
       },
       "labeled": {
         "isUpdateRelated": null
@@ -353,8 +846,23 @@
     "isAboutCve": true,
     "isAboutLatestUpdate": true,
     "classification": {
-      "componentType": []
-    }
+      "componentType": [],
+      "securityType": [
+        "UNKNOWN"
+      ]
+    },
+    "author_description_sentiment": {
+      "score": 0.97,
+      "detail": {
+        "neg": 0.048,
+        "neu": 0.779,
+        "pos": 0.173,
+        "compound": 0.9698
+      }
+    },
+    "category": "Positive",
+    "comments_avg_sentiment_score": 0.113,
+    "sentiment_score": 0.541
   },
   {
     "_id": "6a872a6b49715ba39188fe8e",
@@ -372,7 +880,15 @@
         "created_utc": "2026-08-20T15:27:57",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vtml1a/notepad_downloads_secure/p4uacba/",
         "parent_id": "t3_1vtml1a",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.026,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0.063,
+          "neu": 0.847,
+          "pos": 0.09,
+          "compound": 0.0258
+        }
       },
       {
         "id": "p4uaqa3",
@@ -383,7 +899,15 @@
         "created_utc": "2026-08-20T15:29:35",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vtml1a/notepad_downloads_secure/p4uaqa3/",
         "parent_id": "t3_1vtml1a",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p4ubdum",
@@ -394,7 +918,15 @@
         "created_utc": "2026-08-20T15:32:22",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vtml1a/notepad_downloads_secure/p4ubdum/",
         "parent_id": "t3_1vtml1a",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.981,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.602,
+          "pos": 0.398,
+          "compound": 0.9813
+        }
       },
       {
         "id": "p4ubgnc",
@@ -405,7 +937,15 @@
         "created_utc": "2026-08-20T15:32:42",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vtml1a/notepad_downloads_secure/p4ubgnc/",
         "parent_id": "t3_1vtml1a",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.202,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.899,
+          "pos": 0.101,
+          "compound": 0.2023
+        }
       },
       {
         "id": "p4udhas",
@@ -416,7 +956,15 @@
         "created_utc": "2026-08-20T15:41:13",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vtml1a/notepad_downloads_secure/p4udhas/",
         "parent_id": "t1_p4ubdum",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.361,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.238,
+          "neu": 0.762,
+          "pos": 0,
+          "compound": -0.3612
+        }
       },
       {
         "id": "p4ueogc",
@@ -427,7 +975,15 @@
         "created_utc": "2026-08-20T15:46:15",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vtml1a/notepad_downloads_secure/p4ueogc/",
         "parent_id": "t3_1vtml1a",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.912,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.832,
+          "pos": 0.168,
+          "compound": 0.9116
+        }
       },
       {
         "id": "p4uerhg",
@@ -438,7 +994,15 @@
         "created_utc": "2026-08-20T15:46:36",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vtml1a/notepad_downloads_secure/p4uerhg/",
         "parent_id": "t1_p4uaqa3",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.452,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.182,
+          "neu": 0.734,
+          "pos": 0.083,
+          "compound": -0.4518
+        }
       },
       {
         "id": "p4ug4fq",
@@ -449,18 +1013,34 @@
         "created_utc": "2026-08-20T15:52:20",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vtml1a/notepad_downloads_secure/p4ug4fq/",
         "parent_id": "t1_p4uacba",
-        "is_submitter": true
+        "is_submitter": true,
+        "sentiment_score": 0.318,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.913,
+          "pos": 0.087,
+          "compound": 0.3182
+        }
       },
       {
         "id": "p4ugu4b",
         "author": "LifeGoalsThighHigh",
-        "body": "But?\n\nEdit: And deletes the post rather than explain why they're uncomfortable with the idea Ukrainian independence.",
+        "body": "But?\n\nEdit: And deletes the post rather than explain why they're uncomfortable with the idea of Ukrainian independence.",
         "score": 1,
         "created_utc_ts": 1787241321,
         "created_utc": "2026-08-20T15:55:21",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vtml1a/notepad_downloads_secure/p4ugu4b/",
         "parent_id": "t1_p4uaqa3",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.527,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.167,
+          "neu": 0.833,
+          "pos": 0,
+          "compound": -0.5267
+        }
       },
       {
         "id": "p4ujo8z",
@@ -471,7 +1051,15 @@
         "created_utc": "2026-08-20T16:07:22",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vtml1a/notepad_downloads_secure/p4ujo8z/",
         "parent_id": "t3_1vtml1a",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p4uks5l",
@@ -482,7 +1070,15 @@
         "created_utc": "2026-08-20T16:12:06",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vtml1a/notepad_downloads_secure/p4uks5l/",
         "parent_id": "t3_1vtml1a",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.583,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.069,
+          "neu": 0.74,
+          "pos": 0.191,
+          "compound": 0.5826
+        }
       },
       {
         "id": "p4ummu4",
@@ -493,7 +1089,15 @@
         "created_utc": "2026-08-20T16:19:58",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vtml1a/notepad_downloads_secure/p4ummu4/",
         "parent_id": "t1_p4ujo8z",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.42,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.264,
+          "pos": 0.736,
+          "compound": 0.4199
+        }
       },
       {
         "id": "p4up7cl",
@@ -504,7 +1108,15 @@
         "created_utc": "2026-08-20T16:30:50",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vtml1a/notepad_downloads_secure/p4up7cl/",
         "parent_id": "t3_1vtml1a",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.052,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0.085,
+          "neu": 0.809,
+          "pos": 0.106,
+          "compound": 0.0516
+        }
       },
       {
         "id": "p4uqlu7",
@@ -515,18 +1127,34 @@
         "created_utc": "2026-08-20T16:36:48",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vtml1a/notepad_downloads_secure/p4uqlu7/",
         "parent_id": "t3_1vtml1a",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.346,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.091,
+          "neu": 0.793,
+          "pos": 0.116,
+          "compound": 0.3458
+        }
       },
       {
         "id": "p4uuome",
-        "author": "matg0d",
-        "body": "Lets get political with the countries most involved in cybersecurity attacks on the planet, that surely will not put a larger target on our back.",
+        "author": "[deleted]",
+        "body": "[deleted]",
         "score": 1,
         "created_utc_ts": 1787244837,
         "created_utc": "2026-08-20T16:53:57",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vtml1a/notepad_downloads_secure/p4uuome/",
         "parent_id": "t1_p4ubgnc",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p4uw535",
@@ -537,7 +1165,15 @@
         "created_utc": "2026-08-20T17:00:00",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vtml1a/notepad_downloads_secure/p4uw535/",
         "parent_id": "t1_p4ueogc",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.44,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.854,
+          "pos": 0.146,
+          "compound": 0.4404
+        }
       },
       {
         "id": "p4v4dds",
@@ -548,7 +1184,15 @@
         "created_utc": "2026-08-20T17:34:41",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vtml1a/notepad_downloads_secure/p4v4dds/",
         "parent_id": "t3_1vtml1a",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.421,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.245,
+          "neu": 0.65,
+          "pos": 0.105,
+          "compound": -0.4215
+        }
       },
       {
         "id": "p4v76v0",
@@ -559,7 +1203,15 @@
         "created_utc": "2026-08-20T17:46:31",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vtml1a/notepad_downloads_secure/p4v76v0/",
         "parent_id": "t3_1vtml1a",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p4vaab0",
@@ -570,7 +1222,15 @@
         "created_utc": "2026-08-20T17:59:23",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vtml1a/notepad_downloads_secure/p4vaab0/",
         "parent_id": "t1_p4uqlu7",
-        "is_submitter": true
+        "is_submitter": true,
+        "sentiment_score": 0.71,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.046,
+          "neu": 0.749,
+          "pos": 0.205,
+          "compound": 0.7096
+        }
       },
       {
         "id": "p4vw4zd",
@@ -581,7 +1241,15 @@
         "created_utc": "2026-08-20T19:32:28",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vtml1a/notepad_downloads_secure/p4vw4zd/",
         "parent_id": "t1_p4v76v0",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p4w97f7",
@@ -592,7 +1260,15 @@
         "created_utc": "2026-08-20T20:29:50",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vtml1a/notepad_downloads_secure/p4w97f7/",
         "parent_id": "t3_1vtml1a",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.273,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.069,
+          "neu": 0.804,
+          "pos": 0.127,
+          "compound": 0.273
+        }
       },
       {
         "id": "p4wtels",
@@ -603,7 +1279,15 @@
         "created_utc": "2026-08-20T22:03:44",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vtml1a/notepad_downloads_secure/p4wtels/",
         "parent_id": "t3_1vtml1a",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.25,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.318,
+          "neu": 0.455,
+          "pos": 0.227,
+          "compound": -0.25
+        }
       },
       {
         "id": "p4xdyki",
@@ -614,7 +1298,15 @@
         "created_utc": "2026-08-20T23:50:49",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vtml1a/notepad_downloads_secure/p4xdyki/",
         "parent_id": "t3_1vtml1a",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p4xfxay",
@@ -625,7 +1317,15 @@
         "created_utc": "2026-08-21T00:01:32",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vtml1a/notepad_downloads_secure/p4xfxay/",
         "parent_id": "t1_p4up7cl",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.261,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.1,
+          "neu": 0.8,
+          "pos": 0.099,
+          "compound": -0.2611
+        }
       },
       {
         "id": "p4xrlgj",
@@ -636,7 +1336,15 @@
         "created_utc": "2026-08-21T01:05:02",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vtml1a/notepad_downloads_secure/p4xrlgj/",
         "parent_id": "t1_p4uks5l",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.511,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.784,
+          "pos": 0.216,
+          "compound": 0.5106
+        }
       },
       {
         "id": "p4xw0qx",
@@ -647,7 +1355,15 @@
         "created_utc": "2026-08-21T01:29:38",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vtml1a/notepad_downloads_secure/p4xw0qx/",
         "parent_id": "t1_p4xdyki",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.226,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.899,
+          "pos": 0.101,
+          "compound": 0.2263
+        }
       },
       {
         "id": "p4xyft4",
@@ -658,19 +1374,84 @@
         "created_utc": "2026-08-21T01:43:20",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vtml1a/notepad_downloads_secure/p4xyft4/",
         "parent_id": "t1_p4wtels",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
+      },
+      {
+        "id": "p4zdsr7",
+        "author": "jayol86",
+        "body": "Yep this is normal, they never stfu with their activist/virtue signalling bs that changes nothing. Not to mention them having a cry about not beng able to sign certs for free in the last ~12 months. Just moved to VSCode tbh",
+        "score": 1,
+        "created_utc_ts": 1787298248,
+        "created_utc": "2026-08-21T07:44:08",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1vtml1a/notepad_downloads_secure/p4zdsr7/",
+        "parent_id": "t3_1vtml1a",
+        "is_submitter": false,
+        "sentiment_score": 0.34,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.068,
+          "neu": 0.811,
+          "pos": 0.121,
+          "compound": 0.34
+        }
+      },
+      {
+        "id": "p4zmmf2",
+        "author": "InvisibleTextArea",
+        "body": "I am using PatchMyPC as part of my application patching in MCEM. So I don't have to check this. PMP will push it to their repo via their [automated process](https://patchmypc.com/kb/security-validation-deep-dive/). This includes running the installer through VirusTotal. The publisher will then sync and download the installer and create install and update packages in MCEM for automated or manual deployments.\n\nIf you want to look at alternatives to Notepad++ consider [Notepad3](https://rizonesoft.com/downloads/notepad3/) if you need something lightweight or otherwise bite the bullet and get [VSCode](https://code.visualstudio.com/) (Plus the [Powershell extension](https://code.visualstudio.com/docs/languages/powershell) is handy for Sysadmin work on Windows).",
+        "score": 1,
+        "created_utc_ts": 1787302738,
+        "created_utc": "2026-08-21T08:58:58",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1vtml1a/notepad_downloads_secure/p4zmmf2/",
+        "parent_id": "t3_1vtml1a",
+        "is_submitter": false,
+        "sentiment_score": 0.34,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.964,
+          "pos": 0.036,
+          "compound": 0.34
+        }
+      },
+      {
+        "id": "p50g67m",
+        "author": "MFKDGAF",
+        "body": "I wouldn't use VScode as a Notepadd++ alternative.\n\nVSCode takes longer than Notepad++ to start.\n\nVSCode can't relaunch as Administrator because you need Administrator to write to a file/location such as a Windows host file in its default location.",
+        "score": 1,
+        "created_utc_ts": 1787315046,
+        "created_utc": "2026-08-21T12:24:06",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1vtml1a/notepad_downloads_secure/p50g67m/",
+        "parent_id": "t1_p4zmmf2",
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       }
     ],
     "created_utc": "2026-08-20T15:25:43",
     "first_author_comment": "The MSI is getting flagged for a trojan on one of the detection engines: Trojan.MSI.Agent.JUV. False positive - likely - but I think I'm gonna hold off for a bit.\n\n",
-    "num_comments": 34,
-    "score": 49,
+    "num_comments": 51,
+    "score": 54,
     "subreddit": "sysadmin",
     "tag": null,
     "tags": [],
     "title": "Notepad++ downloads secure?",
-    "updatedAt": "2026-08-21T02:25:34.203Z",
-    "upvote_ratio": 0.78,
+    "updatedAt": "2026-08-21T21:30:40.926Z",
+    "upvote_ratio": 0.77,
     "url": "https://reddit.com/r/sysadmin/comments/1vtml1a/notepad_downloads_secure/",
     "versionList": [],
     "classification": {
@@ -690,7 +1471,19 @@
       }
     },
     "isAboutCve": true,
-    "isAboutLatestUpdate": true
+    "isAboutLatestUpdate": true,
+    "author_description_sentiment": {
+      "score": -0.705,
+      "detail": {
+        "neg": 0.101,
+        "neu": 0.899,
+        "pos": 0,
+        "compound": -0.7053
+      }
+    },
+    "category": "Negative",
+    "comments_avg_sentiment_score": 0.147,
+    "sentiment_score": -0.279
   },
   {
     "_id": "6a85f50c49715ba39188b8b6",
@@ -708,7 +1501,7 @@
       "Microsoft"
     ],
     "title": "Edge Browser Updates On WS2025 Domain Controllers?",
-    "updatedAt": "2026-08-21T00:25:10.320Z",
+    "updatedAt": "2026-08-22T00:25:10.332Z",
     "upvote_ratio": 0.63,
     "url": "https://reddit.com/r/sysadmin/comments/1vsuo5j/edge_browser_updates_on_ws2025_domain_controllers/",
     "versionList": [],
@@ -847,6 +1640,82 @@
         "eventNamesBeforeAnalysis": [
           "New CVE Received"
         ]
+      },
+      {
+        "cveId": "CVE-2026-58286",
+        "cveIds": [
+          "CVE-2026-58286"
+        ],
+        "source": "Comment",
+        "commentText": "\\[[1](https://learn.microsoft.com/en-us/windows/release-health/resolved-issues-windows-server-2025), [2](https://www.reddit.com/r/pcmasterrace/comments/1oglcvs/is_it_safe_to_remove_microsoft_edge/), [3](https://windowsforum.com/security-alerts.84/cve-2026-58286-microsoft-edge-high-severity-spoofing-patch-edge-150-asap.434440/)\\]\n\n[https://techcommunity.microsoft.com/discussions/windows11/windows-doesnt-let-me-uninstall-edge-completely-there-is-only-an-option-to-resto/4373029](https://techcommunity.microsoft.com/discussions/windows11/windows-doesnt-let-me-uninstall-edge-completely-there-is-only-an-option-to-resto/4373029)\n\nPlus, you may need it to open local html files like gpresults.",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1vsuo5j/edge_browser_updates_on_ws2025_domain_controllers/p4o768n/",
+        "commentDate": "2026-08-19T18:36:53+00:00",
+        "cvePublishedDate": "2026-07-03T21:17:03.293000+00:00",
+        "initialAnalysisDate": "2026-07-06T19:03:45.507",
+        "daysAfterPublication": 46,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-07-07T04:17:55.037 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=47AD527C-F46B-4693-A08E-913C5917B2C6\n   - Added SSVC: {'timestamp': '2026-07-07T02:19:24.053785Z', 'id': 'CVE-2026-58286', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-07-06T19:03:45.507 | Initial Analysis | source=nvd@nist.gov | changeId=BAD379CB-85B6-4225-A009-3EF48444E4E5\n   - Added CVSS V3.1: AV:N/AC:H/PR:N/UI:R/S:C/C:L/I:H/A:N\n   - Added CWE: NVD-CWE-noinfo\n   - Added CPE Configuration: OR\n          *cpe:2.3:a:microsoft:edge_chromium:*:*:*:*:-:*:*:* versions up to (excluding) 150.0.4078.48\n   - Added Reference Type: Microsoft Corporation: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58286 Types: Vendor Advisory\n3. 2026-07-03T21:17:03.293 | New CVE Received | source=secure@microsoft.com | changeId=6D2690E8-C65A-4E64-B58B-B826E84E4A4B\n   - Added Affected: [{'vendor': 'Microsoft', 'product': 'Microsoft Edge (Chromium-based)', 'versions': [{'version': '1.0.0.0', 'lessThan': '150.0.4078.48', 'versionType': 'custom', 'status': 'affected'}]}]\n   - Added Description: Improper access control in Microsoft Edge (Chromium-based) allows an unauthorized attacker to perform spoofing over a network.\n   - Added CVSS V3.1: AV:N/AC:H/PR:N/UI:N/S:C/C:L/I:H/A:L\n   - Added CWE: CWE-284\n   - Added Reference: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58286\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-58286",
+        "cveIds": [
+          "CVE-2026-58286"
+        ],
+        "source": "Comment",
+        "commentText": "\\[[1](https://learn.microsoft.com/en-us/windows/release-health/resolved-issues-windows-server-2025), [2](https://www.reddit.com/r/pcmasterrace/comments/1oglcvs/is_it_safe_to_remove_microsoft_edge/), [3](https://windowsforum.com/security-alerts.84/cve-2026-58286-microsoft-edge-high-severity-spoofing-patch-edge-150-asap.434440/)\\]\n\n[https://techcommunity.microsoft.com/discussions/windows11/windows-doesnt-let-me-uninstall-edge-completely-there-is-only-an-option-to-resto/4373029](https://techcommunity.microsoft.com/discussions/windows11/windows-doesnt-let-me-uninstall-edge-completely-there-is-only-an-option-to-resto/4373029)\n\nPlus, you may need it to open local html files like gpresults.",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1vsuo5j/edge_browser_updates_on_ws2025_domain_controllers/p4o768n/",
+        "commentDate": "2026-08-19T18:36:53+00:00",
+        "cvePublishedDate": "2026-07-03T21:17:03.293000+00:00",
+        "initialAnalysisDate": "2026-07-06T19:03:45.507",
+        "daysAfterPublication": 46,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-07-07T04:17:55.037 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=47AD527C-F46B-4693-A08E-913C5917B2C6\n   - Added SSVC: {'timestamp': '2026-07-07T02:19:24.053785Z', 'id': 'CVE-2026-58286', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-07-06T19:03:45.507 | Initial Analysis | source=nvd@nist.gov | changeId=BAD379CB-85B6-4225-A009-3EF48444E4E5\n   - Added CVSS V3.1: AV:N/AC:H/PR:N/UI:R/S:C/C:L/I:H/A:N\n   - Added CWE: NVD-CWE-noinfo\n   - Added CPE Configuration: OR\n          *cpe:2.3:a:microsoft:edge_chromium:*:*:*:*:-:*:*:* versions up to (excluding) 150.0.4078.48\n   - Added Reference Type: Microsoft Corporation: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58286 Types: Vendor Advisory\n3. 2026-07-03T21:17:03.293 | New CVE Received | source=secure@microsoft.com | changeId=6D2690E8-C65A-4E64-B58B-B826E84E4A4B\n   - Added Affected: [{'vendor': 'Microsoft', 'product': 'Microsoft Edge (Chromium-based)', 'versions': [{'version': '1.0.0.0', 'lessThan': '150.0.4078.48', 'versionType': 'custom', 'status': 'affected'}]}]\n   - Added Description: Improper access control in Microsoft Edge (Chromium-based) allows an unauthorized attacker to perform spoofing over a network.\n   - Added CVSS V3.1: AV:N/AC:H/PR:N/UI:N/S:C/C:L/I:H/A:L\n   - Added CWE: CWE-284\n   - Added Reference: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58286\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-58286",
+        "cveIds": [
+          "CVE-2026-58286"
+        ],
+        "source": "Comment",
+        "commentText": "\\[[1](https://learn.microsoft.com/en-us/windows/release-health/resolved-issues-windows-server-2025), [2](https://www.reddit.com/r/pcmasterrace/comments/1oglcvs/is_it_safe_to_remove_microsoft_edge/), [3](https://windowsforum.com/security-alerts.84/cve-2026-58286-microsoft-edge-high-severity-spoofing-patch-edge-150-asap.434440/)\\]\n\n[https://techcommunity.microsoft.com/discussions/windows11/windows-doesnt-let-me-uninstall-edge-completely-there-is-only-an-option-to-resto/4373029](https://techcommunity.microsoft.com/discussions/windows11/windows-doesnt-let-me-uninstall-edge-completely-there-is-only-an-option-to-resto/4373029)\n\nPlus, you may need it to open local html files like gpresults.",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1vsuo5j/edge_browser_updates_on_ws2025_domain_controllers/p4o768n/",
+        "commentDate": "2026-08-19T18:36:53+00:00",
+        "cvePublishedDate": "2026-07-03T21:17:03.293000+00:00",
+        "initialAnalysisDate": "2026-07-06T19:03:45.507",
+        "daysAfterPublication": 46,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-07-07T04:17:55.037 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=47AD527C-F46B-4693-A08E-913C5917B2C6\n   - Added SSVC: {'timestamp': '2026-07-07T02:19:24.053785Z', 'id': 'CVE-2026-58286', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-07-06T19:03:45.507 | Initial Analysis | source=nvd@nist.gov | changeId=BAD379CB-85B6-4225-A009-3EF48444E4E5\n   - Added CVSS V3.1: AV:N/AC:H/PR:N/UI:R/S:C/C:L/I:H/A:N\n   - Added CWE: NVD-CWE-noinfo\n   - Added CPE Configuration: OR\n          *cpe:2.3:a:microsoft:edge_chromium:*:*:*:*:-:*:*:* versions up to (excluding) 150.0.4078.48\n   - Added Reference Type: Microsoft Corporation: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58286 Types: Vendor Advisory\n3. 2026-07-03T21:17:03.293 | New CVE Received | source=secure@microsoft.com | changeId=6D2690E8-C65A-4E64-B58B-B826E84E4A4B\n   - Added Affected: [{'vendor': 'Microsoft', 'product': 'Microsoft Edge (Chromium-based)', 'versions': [{'version': '1.0.0.0', 'lessThan': '150.0.4078.48', 'versionType': 'custom', 'status': 'affected'}]}]\n   - Added Description: Improper access control in Microsoft Edge (Chromium-based) allows an unauthorized attacker to perform spoofing over a network.\n   - Added CVSS V3.1: AV:N/AC:H/PR:N/UI:N/S:C/C:L/I:H/A:L\n   - Added CWE: CWE-284\n   - Added Reference: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58286\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-58286",
+        "cveIds": [
+          "CVE-2026-58286"
+        ],
+        "source": "Comment",
+        "commentText": "\\[[1](https://learn.microsoft.com/en-us/windows/release-health/resolved-issues-windows-server-2025), [2](https://www.reddit.com/r/pcmasterrace/comments/1oglcvs/is_it_safe_to_remove_microsoft_edge/), [3](https://windowsforum.com/security-alerts.84/cve-2026-58286-microsoft-edge-high-severity-spoofing-patch-edge-150-asap.434440/)\\]\n\n[https://techcommunity.microsoft.com/discussions/windows11/windows-doesnt-let-me-uninstall-edge-completely-there-is-only-an-option-to-resto/4373029](https://techcommunity.microsoft.com/discussions/windows11/windows-doesnt-let-me-uninstall-edge-completely-there-is-only-an-option-to-resto/4373029)\n\nPlus, you may need it to open local html files like gpresults.",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1vsuo5j/edge_browser_updates_on_ws2025_domain_controllers/p4o768n/",
+        "commentDate": "2026-08-19T18:36:53+00:00",
+        "cvePublishedDate": "2026-07-03T21:17:03.293000+00:00",
+        "initialAnalysisDate": "2026-07-06T19:03:45.507",
+        "daysAfterPublication": 46,
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-07-07T04:17:55.037 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=47AD527C-F46B-4693-A08E-913C5917B2C6\n   - Added SSVC: {'timestamp': '2026-07-07T02:19:24.053785Z', 'id': 'CVE-2026-58286', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-07-06T19:03:45.507 | Initial Analysis | source=nvd@nist.gov | changeId=BAD379CB-85B6-4225-A009-3EF48444E4E5\n   - Added CVSS V3.1: AV:N/AC:H/PR:N/UI:R/S:C/C:L/I:H/A:N\n   - Added CWE: NVD-CWE-noinfo\n   - Added CPE Configuration: OR\n          *cpe:2.3:a:microsoft:edge_chromium:*:*:*:*:-:*:*:* versions up to (excluding) 150.0.4078.48\n   - Added Reference Type: Microsoft Corporation: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58286 Types: Vendor Advisory\n3. 2026-07-03T21:17:03.293 | New CVE Received | source=secure@microsoft.com | changeId=6D2690E8-C65A-4E64-B58B-B826E84E4A4B\n   - Added Affected: [{'vendor': 'Microsoft', 'product': 'Microsoft Edge (Chromium-based)', 'versions': [{'version': '1.0.0.0', 'lessThan': '150.0.4078.48', 'versionType': 'custom', 'status': 'affected'}]}]\n   - Added Description: Improper access control in Microsoft Edge (Chromium-based) allows an unauthorized attacker to perform spoofing over a network.\n   - Added CVSS V3.1: AV:N/AC:H/PR:N/UI:N/S:C/C:L/I:H/A:L\n   - Added CWE: CWE-284\n   - Added Reference: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-58286\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received"
+        ]
       }
     ],
     "author_description_sentiment": {
@@ -859,8 +1728,8 @@
       }
     },
     "category": "Positive",
-    "comments_avg_sentiment_score": 0.253,
-    "sentiment_score": 0.307,
+    "comments_avg_sentiment_score": 0.228,
+    "sentiment_score": 0.295,
     "comments": [
       {
         "id": "p4o4gw7",
@@ -871,7 +1740,15 @@
         "created_utc": "2026-08-19T18:25:35",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vsuo5j/edge_browser_updates_on_ws2025_domain_controllers/p4o4gw7/",
         "parent_id": "t3_1vsuo5j",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p4o5k7g",
@@ -882,7 +1759,15 @@
         "created_utc": "2026-08-19T18:30:05",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vsuo5j/edge_browser_updates_on_ws2025_domain_controllers/p4o5k7g/",
         "parent_id": "t3_1vsuo5j",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.83,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.813,
+          "pos": 0.187,
+          "compound": 0.8299
+        }
       },
       {
         "id": "p4o6jfu",
@@ -893,7 +1778,15 @@
         "created_utc": "2026-08-19T18:34:12",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vsuo5j/edge_browser_updates_on_ws2025_domain_controllers/p4o6jfu/",
         "parent_id": "t3_1vsuo5j",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.494,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.914,
+          "pos": 0.086,
+          "compound": 0.4939
+        }
       },
       {
         "id": "p4o6nv6",
@@ -904,7 +1797,15 @@
         "created_utc": "2026-08-19T18:34:43",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vsuo5j/edge_browser_updates_on_ws2025_domain_controllers/p4o6nv6/",
         "parent_id": "t3_1vsuo5j",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p4o768n",
@@ -915,7 +1816,15 @@
         "created_utc": "2026-08-19T18:36:53",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vsuo5j/edge_browser_updates_on_ws2025_domain_controllers/p4o768n/",
         "parent_id": "t1_p4o4gw7",
-        "is_submitter": true
+        "is_submitter": true,
+        "sentiment_score": 0.202,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.061,
+          "neu": 0.851,
+          "pos": 0.088,
+          "compound": 0.2023
+        }
       },
       {
         "id": "p4ocr62",
@@ -926,7 +1835,15 @@
         "created_utc": "2026-08-19T19:00:10",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vsuo5j/edge_browser_updates_on_ws2025_domain_controllers/p4ocr62/",
         "parent_id": "t1_p4o6jfu",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.25,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.93,
+          "pos": 0.07,
+          "compound": 0.25
+        }
       },
       {
         "id": "p4ouds9",
@@ -937,7 +1854,15 @@
         "created_utc": "2026-08-19T20:15:39",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vsuo5j/edge_browser_updates_on_ws2025_domain_controllers/p4ouds9/",
         "parent_id": "t3_1vsuo5j",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.631,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.042,
+          "neu": 0.854,
+          "pos": 0.104,
+          "compound": 0.631
+        }
       },
       {
         "id": "p4owhym",
@@ -948,7 +1873,15 @@
         "created_utc": "2026-08-19T20:24:41",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vsuo5j/edge_browser_updates_on_ws2025_domain_controllers/p4owhym/",
         "parent_id": "t3_1vsuo5j",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p4rs1jk",
@@ -959,7 +1892,15 @@
         "created_utc": "2026-08-20T06:05:41",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vsuo5j/edge_browser_updates_on_ws2025_domain_controllers/p4rs1jk/",
         "parent_id": "t3_1vsuo5j",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.128,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0.1,
+          "neu": 0.822,
+          "pos": 0.078,
+          "compound": -0.128
+        }
       },
       {
         "id": "p4uie96",
@@ -970,7 +1911,15 @@
         "created_utc": "2026-08-20T16:01:54",
         "permalink": "https://reddit.com/r/sysadmin/comments/1vsuo5j/edge_browser_updates_on_ws2025_domain_controllers/p4uie96/",
         "parent_id": "t1_p4rs1jk",
-        "is_submitter": true
+        "is_submitter": true,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       }
     ]
   },
@@ -990,7 +1939,7 @@
       "Question"
     ],
     "title": "Tenable - Windows Package Manager (WinGet) &lt; 1.30.80 Elevation of Privilege (CVE-2026-68821)",
-    "updatedAt": "2026-08-20T14:30:09.253Z",
+    "updatedAt": "2026-08-21T21:36:53.312Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/sysadmin/comments/1vs6uu4/tenable_windows_package_manager_winget_13080/",
     "versionList": [
@@ -1162,7 +2111,7 @@
     "tag": null,
     "tags": [],
     "title": "[Hardware/Firmware] Investigating local shell/RTSP access on Blurams A31C-family camera (SoC unconfirmed — possibly ANYKA)",
-    "updatedAt": "2026-08-21T02:47:19.992Z",
+    "updatedAt": "2026-08-22T02:47:03.873Z",
     "upvote_ratio": 0.5,
     "url": "https://reddit.com/r/hardwarehacking/comments/1vs4dtb/hardwarefirmware_investigating_local_shellrtsp/",
     "versionList": [],
@@ -1217,7 +2166,7 @@
     "tag": null,
     "tags": [],
     "title": "PSA - Major security issue with the PODS plugin - CVE-2026-19598",
-    "updatedAt": "2026-08-21T00:25:10.742Z",
+    "updatedAt": "2026-08-22T00:25:10.764Z",
     "upvote_ratio": 0.98,
     "url": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/",
     "versionList": [
@@ -1226,6 +2175,86 @@
     ],
     "commentCount": 12,
     "detectedCVEs": [
+      {
+        "cveId": "CVE-2026-19598",
+        "cveIds": [
+          "CVE-2026-19598"
+        ],
+        "source": "Title",
+        "commentText": "PSA - Major security issue with the PODS plugin - CVE-2026-19598",
+        "linkToComment": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/",
+        "commentDate": "2026-08-18T19:49:39+00:00",
+        "cvePublishedDate": "2026-08-15T18:16:23.860000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 3,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-08-17T16:16:52.700 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=613246D9-E555-473D-8967-C15DC49C1DD2\n   - Added SSVC: {'timestamp': '2026-08-17T15:49:11.035762Z', 'id': 'CVE-2026-19598', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-08-15T18:16:23.860 | New CVE Received | source=security@wordfence.com | changeId=4F53DDA9-E872-4144-88EE-0008F220394B\n   - Added Affected: [{'vendor': 'sc0ttkclark', 'product': 'Pods – Custom Content Types and Fields', 'defaultStatus': 'unaffected', 'versions': [{'version': '2.8', 'lessThanOrEqual': '2.8.23.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '2.9', 'lessThanOrEqual': '2.9.19.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.0', 'lessThanOrEqual': '3.0.10.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.1', 'lessThanOrEqual': '3.1.4.1', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.2', 'lessThanOrEqual': '3.2.8.2', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.3', 'lessThanOrEqual': '3.3.9', 'versionType': 'semver', 'status': 'affected'}]}]\n   - Added Description: The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization Bypass in all versions up to, and including, 3.3.9. The vulnerability exists because the pods_admin AJAX router funnels every access check — including the method allowlist, nonce verification, login enforcement, and capability gate — through pods_error(), which under the JSON meta-box-loader compatibility path only writes failures to the PHP error log and returns false instead of terminating the request, rendering all guards ineffective.  This makes it possible for unauthenticated attackers to escalate their privileges to Administrator or overwrite the password of any user account, including the site owner's, enabling complete site takeover, or perform another administrator action.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-863\n   - Added Reference: https://plugins.trac.wordpress.org/browser/pods/tags/3.3.9/includes/general.php#L400\n   - Added Reference: https://www.wordfence.com/threat-intel/vulnerabilities/id/3628032a-3121-45a7-8a78-cfcd8ba6af2f?source=cve\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-19598",
+        "cveIds": [
+          "CVE-2026-19598"
+        ],
+        "source": "Title",
+        "commentText": "PSA - Major security issue with the PODS plugin - CVE-2026-19598",
+        "linkToComment": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/",
+        "commentDate": "2026-08-18T19:49:39+00:00",
+        "cvePublishedDate": "2026-08-15T18:16:23.860000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 3,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-08-17T16:16:52.700 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=613246D9-E555-473D-8967-C15DC49C1DD2\n   - Added SSVC: {'timestamp': '2026-08-17T15:49:11.035762Z', 'id': 'CVE-2026-19598', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-08-15T18:16:23.860 | New CVE Received | source=security@wordfence.com | changeId=4F53DDA9-E872-4144-88EE-0008F220394B\n   - Added Affected: [{'vendor': 'sc0ttkclark', 'product': 'Pods – Custom Content Types and Fields', 'defaultStatus': 'unaffected', 'versions': [{'version': '2.8', 'lessThanOrEqual': '2.8.23.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '2.9', 'lessThanOrEqual': '2.9.19.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.0', 'lessThanOrEqual': '3.0.10.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.1', 'lessThanOrEqual': '3.1.4.1', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.2', 'lessThanOrEqual': '3.2.8.2', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.3', 'lessThanOrEqual': '3.3.9', 'versionType': 'semver', 'status': 'affected'}]}]\n   - Added Description: The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization Bypass in all versions up to, and including, 3.3.9. The vulnerability exists because the pods_admin AJAX router funnels every access check — including the method allowlist, nonce verification, login enforcement, and capability gate — through pods_error(), which under the JSON meta-box-loader compatibility path only writes failures to the PHP error log and returns false instead of terminating the request, rendering all guards ineffective.  This makes it possible for unauthenticated attackers to escalate their privileges to Administrator or overwrite the password of any user account, including the site owner's, enabling complete site takeover, or perform another administrator action.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-863\n   - Added Reference: https://plugins.trac.wordpress.org/browser/pods/tags/3.3.9/includes/general.php#L400\n   - Added Reference: https://www.wordfence.com/threat-intel/vulnerabilities/id/3628032a-3121-45a7-8a78-cfcd8ba6af2f?source=cve\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-19598",
+        "cveIds": [
+          "CVE-2026-19598"
+        ],
+        "source": "Title",
+        "commentText": "PSA - Major security issue with the PODS plugin - CVE-2026-19598",
+        "linkToComment": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/",
+        "commentDate": "2026-08-18T19:49:39+00:00",
+        "cvePublishedDate": "2026-08-15T18:16:23.860000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 3,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-08-17T16:16:52.700 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=613246D9-E555-473D-8967-C15DC49C1DD2\n   - Added SSVC: {'timestamp': '2026-08-17T15:49:11.035762Z', 'id': 'CVE-2026-19598', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-08-15T18:16:23.860 | New CVE Received | source=security@wordfence.com | changeId=4F53DDA9-E872-4144-88EE-0008F220394B\n   - Added Affected: [{'vendor': 'sc0ttkclark', 'product': 'Pods – Custom Content Types and Fields', 'defaultStatus': 'unaffected', 'versions': [{'version': '2.8', 'lessThanOrEqual': '2.8.23.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '2.9', 'lessThanOrEqual': '2.9.19.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.0', 'lessThanOrEqual': '3.0.10.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.1', 'lessThanOrEqual': '3.1.4.1', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.2', 'lessThanOrEqual': '3.2.8.2', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.3', 'lessThanOrEqual': '3.3.9', 'versionType': 'semver', 'status': 'affected'}]}]\n   - Added Description: The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization Bypass in all versions up to, and including, 3.3.9. The vulnerability exists because the pods_admin AJAX router funnels every access check — including the method allowlist, nonce verification, login enforcement, and capability gate — through pods_error(), which under the JSON meta-box-loader compatibility path only writes failures to the PHP error log and returns false instead of terminating the request, rendering all guards ineffective.  This makes it possible for unauthenticated attackers to escalate their privileges to Administrator or overwrite the password of any user account, including the site owner's, enabling complete site takeover, or perform another administrator action.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-863\n   - Added Reference: https://plugins.trac.wordpress.org/browser/pods/tags/3.3.9/includes/general.php#L400\n   - Added Reference: https://www.wordfence.com/threat-intel/vulnerabilities/id/3628032a-3121-45a7-8a78-cfcd8ba6af2f?source=cve\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-19598",
+        "cveIds": [
+          "CVE-2026-19598"
+        ],
+        "source": "Title",
+        "commentText": "PSA - Major security issue with the PODS plugin - CVE-2026-19598",
+        "linkToComment": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/",
+        "commentDate": "2026-08-18T19:49:39+00:00",
+        "cvePublishedDate": "2026-08-15T18:16:23.860000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 3,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-08-17T16:16:52.700 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=613246D9-E555-473D-8967-C15DC49C1DD2\n   - Added SSVC: {'timestamp': '2026-08-17T15:49:11.035762Z', 'id': 'CVE-2026-19598', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-08-15T18:16:23.860 | New CVE Received | source=security@wordfence.com | changeId=4F53DDA9-E872-4144-88EE-0008F220394B\n   - Added Affected: [{'vendor': 'sc0ttkclark', 'product': 'Pods – Custom Content Types and Fields', 'defaultStatus': 'unaffected', 'versions': [{'version': '2.8', 'lessThanOrEqual': '2.8.23.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '2.9', 'lessThanOrEqual': '2.9.19.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.0', 'lessThanOrEqual': '3.0.10.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.1', 'lessThanOrEqual': '3.1.4.1', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.2', 'lessThanOrEqual': '3.2.8.2', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.3', 'lessThanOrEqual': '3.3.9', 'versionType': 'semver', 'status': 'affected'}]}]\n   - Added Description: The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization Bypass in all versions up to, and including, 3.3.9. The vulnerability exists because the pods_admin AJAX router funnels every access check — including the method allowlist, nonce verification, login enforcement, and capability gate — through pods_error(), which under the JSON meta-box-loader compatibility path only writes failures to the PHP error log and returns false instead of terminating the request, rendering all guards ineffective.  This makes it possible for unauthenticated attackers to escalate their privileges to Administrator or overwrite the password of any user account, including the site owner's, enabling complete site takeover, or perform another administrator action.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-863\n   - Added Reference: https://plugins.trac.wordpress.org/browser/pods/tags/3.3.9/includes/general.php#L400\n   - Added Reference: https://www.wordfence.com/threat-intel/vulnerabilities/id/3628032a-3121-45a7-8a78-cfcd8ba6af2f?source=cve\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
       {
         "cveId": "CVE-2026-19598",
         "cveIds": [
@@ -1702,8 +2731,8 @@
     "tag": "Contains AI",
     "tags": [],
     "title": "🎥 Operation CameraSwarm: over 14,000 Dahua cameras compromised across Ukraine and Russia",
-    "updatedAt": "2026-08-21T02:46:28.958Z",
-    "upvote_ratio": 0.88,
+    "updatedAt": "2026-08-22T02:46:11.486Z",
+    "upvote_ratio": 0.85,
     "url": "https://reddit.com/r/netsec/comments/1vrw3fd/operation_cameraswarm_over_14000_dahua_cameras/",
     "versionList": [
       "14.0.0",
@@ -1909,7 +2938,7 @@
     "tag": null,
     "tags": [],
     "title": "Found PopCash \"stealth pop-under\" malware hiding in WordPress mu-plugins — bypassed every scanner, here's how to find and remove it",
-    "updatedAt": "2026-08-20T14:33:25.466Z",
+    "updatedAt": "2026-08-21T21:40:06.076Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/Wordpress/comments/1vrjuu3/found_popcash_stealth_popunder_malware_hiding_in/",
     "versionList": [],
@@ -2114,7 +3143,7 @@
     "tag": null,
     "tags": [],
     "title": "Windows Entra login exploit used from the event log data. Check out the demo link",
-    "updatedAt": "2026-08-20T14:36:05.733Z",
+    "updatedAt": "2026-08-21T21:42:43.089Z",
     "upvote_ratio": 0.8,
     "url": "https://reddit.com/r/sysadmin/comments/1vqwmq6/windows_entra_login_exploit_used_from_the_event/",
     "versionList": [],
@@ -2159,15 +3188,15 @@
     "author_description": null,
     "awards": [],
     "created_utc": "2026-08-17T12:17:40",
-    "first_author_comment": "Author here, happy to answer any questions!",
+    "first_author_comment": "Hi, author here, happy to answer any questions!\n\nA root-on-the-AKS-node vulnerability (CVE-2026-32193, CVSS 8.8, fixed by MSRC April 2026), the research behind it, plus a fully-working exploit on Microsoft Copilot.\n\nDisclosure: I'm a security researcher at Rubrik Zero Labs, this is our blog.\n\nShort summary of the research in a comment ⬇️",
     "num_comments": 4,
-    "score": 14,
+    "score": 15,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "From AKS node root vulnerability to Microsoft Copilot hijack (CVE-2026-32193)",
-    "updatedAt": "2026-08-21T02:46:33.999Z",
-    "upvote_ratio": 0.86,
+    "updatedAt": "2026-08-22T02:46:16.597Z",
+    "upvote_ratio": 0.89,
     "url": "https://reddit.com/r/netsec/comments/1vqqpwn/from_aks_node_root_vulnerability_to_microsoft/",
     "versionList": [
       "2026.0.0",
@@ -2204,14 +3233,14 @@
     "comments": [
       {
         "id": "p4r4p7i",
-        "author": "[deleted]",
-        "body": "[removed]",
+        "author": "Master_Access_486",
+        "body": "Hi, author here, happy to answer any questions!\n\nA root-on-the-AKS-node vulnerability (CVE-2026-32193, CVSS 8.8, fixed by MSRC April 2026), the research behind it, plus a fully-working exploit on Microsoft Copilot.\n\nDisclosure: I'm a security researcher at Rubrik Zero Labs, this is our blog.\n\nShort summary of the research in a comment ⬇️",
         "score": 1,
         "created_utc_ts": 1787195961,
         "created_utc": "2026-08-20T03:19:21",
         "permalink": "https://reddit.com/r/netsec/comments/1vqqpwn/from_aks_node_root_vulnerability_to_microsoft/p4r4p7i/",
         "parent_id": "t3_1vqqpwn",
-        "is_submitter": false
+        "is_submitter": true
       },
       {
         "id": "p4r4ruf",
@@ -2247,8 +3276,8 @@
         "is_submitter": true
       }
     ],
-    "comments_avg_sentiment_score": -0.186,
-    "sentiment_score": -0.093
+    "comments_avg_sentiment_score": 0.169,
+    "sentiment_score": 0.085
   },
   {
     "_id": "6a82ac7c49715ba391880cd1",
@@ -2418,7 +3447,7 @@
     "tag": "Other",
     "tags": [],
     "title": "Can the ISP use my DVR to monitor me?",
-    "updatedAt": "2026-08-20T14:37:49.986Z",
+    "updatedAt": "2026-08-21T21:44:25.155Z",
     "upvote_ratio": 0.22,
     "url": "https://reddit.com/r/networking/comments/1vqjehf/can_the_isp_use_my_dvr_to_monitor_me/",
     "versionList": [],
@@ -2462,13 +3491,13 @@
     "created_utc": "2026-08-16T18:48:50",
     "first_author_comment": "Appreciate it ;)",
     "num_comments": 2,
-    "score": 13,
+    "score": 15,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-6837: Command Injection in Zyxel export-cgi PKCS#12 Export Handling",
-    "updatedAt": "2026-08-21T02:46:35.255Z",
-    "upvote_ratio": 0.83,
+    "updatedAt": "2026-08-22T02:46:17.858Z",
+    "upvote_ratio": 0.84,
     "url": "https://reddit.com/r/netsec/comments/1vq55y4/cve20266837_command_injection_in_zyxel_exportcgi/",
     "versionList": [
       "2026.0.0",
@@ -2541,12 +3570,12 @@
     "created_utc": "2026-08-16T13:33:02",
     "first_author_comment": "They already patched this",
     "num_comments": 4,
-    "score": 43,
+    "score": 45,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-33696: From a Schema Name to RCE in n8n",
-    "updatedAt": "2026-08-21T02:46:35.767Z",
+    "updatedAt": "2026-08-22T02:46:18.342Z",
     "upvote_ratio": 0.88,
     "url": "https://reddit.com/r/netsec/comments/1vpx6ku/cve202633696_from_a_schema_name_to_rce_in_n8n/",
     "versionList": [
@@ -3186,7 +4215,7 @@
     "tag": null,
     "tags": [],
     "title": "Keeping WP sites secure ?",
-    "updatedAt": "2026-08-20T14:43:16.195Z",
+    "updatedAt": "2026-08-21T21:49:41.874Z",
     "upvote_ratio": 0.64,
     "url": "https://reddit.com/r/Wordpress/comments/1vp9i5g/keeping_wp_sites_secure/",
     "versionList": [],
@@ -3712,7 +4741,7 @@
     "tag": null,
     "tags": [],
     "title": "Half our dev time now goes into security. Some thoughts on open source’s future.",
-    "updatedAt": "2026-08-20T14:45:05.173Z",
+    "updatedAt": "2026-08-21T21:51:27.683Z",
     "upvote_ratio": 0.82,
     "url": "https://reddit.com/r/Wordpress/comments/1vov68k/half_our_dev_time_now_goes_into_security_some/",
     "versionList": [],
@@ -3761,7 +4790,7 @@
     "tag": null,
     "tags": [],
     "title": "August 2026 Patch Tuesday Issue - WDS TFTP CVE Fix for PXE boot.",
-    "updatedAt": "2026-08-20T14:46:20.272Z",
+    "updatedAt": "2026-08-21T21:52:39.997Z",
     "upvote_ratio": 0.97,
     "url": "https://reddit.com/r/sysadmin/comments/1vojhyi/august_2026_patch_tuesday_issue_wds_tftp_cve_fix/",
     "versionList": [
@@ -4236,7 +5265,7 @@
     "tag": "Discussion",
     "tags": [],
     "title": "Highest number of kernel updates on Fedora I've seen in years?",
-    "updatedAt": "2026-08-20T14:48:00.178Z",
+    "updatedAt": "2026-08-21T21:54:15.543Z",
     "upvote_ratio": 0.64,
     "url": "https://reddit.com/r/Fedora/comments/1vo6zr9/highest_number_of_kernel_updates_on_fedora_ive/",
     "versionList": [],
@@ -4281,14 +5310,14 @@
     "awards": [],
     "created_utc": "2026-08-14T07:10:17",
     "first_author_comment": null,
-    "num_comments": 2,
-    "score": 42,
+    "num_comments": 3,
+    "score": 43,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "You’re Back In The Room (Citrix NetScaler Pre-Auth RCE CVE-2026-8452(?)) - watchTowr Labs",
-    "updatedAt": "2026-08-21T02:46:37.365Z",
-    "upvote_ratio": 0.91,
+    "updatedAt": "2026-08-22T02:46:20.159Z",
+    "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/netsec/comments/1vo06aj/youre_back_in_the_room_citrix_netscaler_preauth/",
     "versionList": [
       "2026.0.0",
@@ -4344,10 +5373,21 @@
         "permalink": "https://reddit.com/r/netsec/comments/1vo06aj/youre_back_in_the_room_citrix_netscaler_preauth/p3tu3nm/",
         "parent_id": "t3_1vo06aj",
         "is_submitter": false
+      },
+      {
+        "id": "p4zh6w8",
+        "author": "scriptqzor",
+        "body": "wild part is people still act surprised every time like this isn’t an annual tradition at this point  \nvendor lock-in is a hell of a drug",
+        "score": 1,
+        "created_utc_ts": 1787299985,
+        "created_utc": "2026-08-21T08:13:05",
+        "permalink": "https://reddit.com/r/netsec/comments/1vo06aj/youre_back_in_the_room_citrix_netscaler_preauth/p4zh6w8/",
+        "parent_id": "t1_p3tu3nm",
+        "is_submitter": false
       }
     ],
-    "comments_avg_sentiment_score": 0.087,
-    "sentiment_score": 0.044
+    "comments_avg_sentiment_score": -0.04,
+    "sentiment_score": -0.02
   },
   {
     "_id": "6a7e2c0a49715ba391867fed",
@@ -4358,13 +5398,13 @@
     "created_utc": "2026-08-13T20:33:03",
     "first_author_comment": null,
     "num_comments": 47,
-    "score": 65,
+    "score": 67,
     "subreddit": "PFSENSE",
     "tag": "Announcement",
     "tags": [],
     "title": "Netgate Releases pfSense Plus Software Version 26.07",
-    "updatedAt": "2026-08-21T02:42:38.030Z",
-    "upvote_ratio": 0.87,
+    "updatedAt": "2026-08-22T02:42:29.604Z",
+    "upvote_ratio": 0.88,
     "url": "https://reddit.com/r/PFSENSE/comments/1vnmhke/netgate_releases_pfsense_plus_software_version/",
     "versionList": [
       "26.07.0"
@@ -4406,7 +5446,7 @@
         "id": "p3js3dq",
         "author": "rizon",
         "body": "According to this, it does: [https://www.netgate.com/blog/keeping-the-netgate-3100-alive-one-upstream-patch-at-a-time](https://www.netgate.com/blog/keeping-the-netgate-3100-alive-one-upstream-patch-at-a-time)\n\nI have a single 3100 left in service so haven't confirmed yet.",
-        "score": 6,
+        "score": 7,
         "created_utc_ts": 1786665416,
         "created_utc": "2026-08-13T23:56:56",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vnmhke/netgate_releases_pfsense_plus_software_version/p3js3dq/",
@@ -4417,7 +5457,7 @@
         "id": "p3jy5mw",
         "author": "totallyjaded",
         "body": "Is there a timeline for those of us who paid for Plus and are left out in the cold on Nexus? Or is it more of a \"Thanks for the money. Now buy our hardware or shut up.\" kind of thing?",
-        "score": 3,
+        "score": 2,
         "created_utc_ts": 1786667378,
         "created_utc": "2026-08-14T00:29:38",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vnmhke/netgate_releases_pfsense_plus_software_version/p3jy5mw/",
@@ -4439,7 +5479,7 @@
         "id": "p3kkqh0",
         "author": "gonzopancho",
         "body": "Not sure what you mean by “out in the cold”.",
-        "score": 4,
+        "score": 2,
         "created_utc_ts": 1786674923,
         "created_utc": "2026-08-14T02:35:23",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vnmhke/netgate_releases_pfsense_plus_software_version/p3kkqh0/",
@@ -4461,7 +5501,7 @@
         "id": "p3l8a5o",
         "author": "181-dff",
         "body": "Successful update on Netgate 7100 and 3100",
-        "score": 3,
+        "score": 4,
         "created_utc_ts": 1786684222,
         "created_utc": "2026-08-14T05:10:22",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vnmhke/netgate_releases_pfsense_plus_software_version/p3l8a5o/",
@@ -4494,7 +5534,7 @@
         "id": "p3oavva",
         "author": "_Soledge",
         "body": "I updated my 2440 to 26.07; no issues",
-        "score": 5,
+        "score": 3,
         "created_utc_ts": 1786724669,
         "created_utc": "2026-08-14T16:24:29",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vnmhke/netgate_releases_pfsense_plus_software_version/p3oavva/",
@@ -5351,7 +6391,7 @@
     "tag": null,
     "tags": [],
     "title": "CVE-2026-59310 Under Active Exploitation",
-    "updatedAt": "2026-08-20T14:51:10.971Z",
+    "updatedAt": "2026-08-21T21:57:16.169Z",
     "upvote_ratio": 0.94,
     "url": "https://reddit.com/r/sysadmin/comments/1vnh3kn/cve202659310_under_active_exploitation/",
     "versionList": [
@@ -5462,7 +6502,7 @@
     "tag": "Administration/Technical",
     "tags": [],
     "title": "Why an AntonKill Joomla site can still look hacked after a clean file scan",
-    "updatedAt": "2026-08-20T14:51:13.314Z",
+    "updatedAt": "2026-08-21T21:57:18.465Z",
     "upvote_ratio": 0.5,
     "url": "https://reddit.com/r/joomla/comments/1vngswj/why_an_antonkill_joomla_site_can_still_look/",
     "versionList": [],
@@ -5497,7 +6537,7 @@
       "Security"
     ],
     "title": "CVE-2026-53360: KVM SEV-SNP guest-to-host heap OOB and analysis of the upstream fix",
-    "updatedAt": "2026-08-20T14:56:12.927Z",
+    "updatedAt": "2026-08-21T22:02:03.134Z",
     "upvote_ratio": 0.86,
     "url": "https://reddit.com/r/linux/comments/1vmcn4a/cve202653360_kvm_sevsnp_guesttohost_heap_oob_and/",
     "versionList": [
@@ -5544,7 +6584,7 @@
         "id": "p37pzc6",
         "author": "unknownhad",
         "body": "Hello author here  \nI independently found this in May while looking at KVM's SEVSNP PSC path, but Stan Shaw had reported it about a month before me.  \nI decided to publish my analysis anyway, as the most interesting part for me ended up being why the patch I originally proposed was incomplete and how the upstream KVM fix handled the problem differently.  \nI also dive into the exploitation side failure oracle, constrained write, repeatability, slab selection... I have not demonstrated a reliable complete VM escape, and I have tried to keep that distinction explicit in the writeup.  \nI have tried creating 2 safe CTF style exercises that model the primitive without touching real KVM or requiring SEV-SNP hardware. (becasue why not as it was fun)  \nComments/Correction to the exploitation analysis are very welcome.",
-        "score": 6,
+        "score": 5,
         "created_utc_ts": 1786530847,
         "created_utc": "2026-08-12T10:34:07",
         "permalink": "https://reddit.com/r/netsec/comments/1vmadcw/cve202653360_kvm_sevsnp_guesttohost_heap_oob_and/p37pzc6/",
@@ -5588,12 +6628,12 @@
     "created_utc": "2026-08-12T10:31:17",
     "first_author_comment": "Hello author here  \nI independently found this in May while looking at KVM's SEVSNP PSC path, but Stan Shaw had reported it about a month before me.  \nI decided to publish my analysis anyway, as the most interesting part for me ended up being why the patch I originally proposed was incomplete and how the upstream KVM fix handled the problem differently.  \nI also dive into the exploitation side failure oracle, constrained write, repeatability, slab selection... I have not demonstrated a reliable complete VM escape, and I have tried to keep that distinction explicit in the writeup.  \nI have tried creating 2 safe CTF style exercises that model the primitive without touching real KVM or requiring SEV-SNP hardware. (becasue why not as it was fun)  \nComments/Correction to the exploitation analysis are very welcome.",
     "num_comments": 4,
-    "score": 34,
+    "score": 35,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-53360: KVM SEV-SNP guest-to-host heap OOB and analysis of the upstream fix",
-    "updatedAt": "2026-08-21T02:46:41.667Z",
+    "updatedAt": "2026-08-22T02:46:24.396Z",
     "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/netsec/comments/1vmadcw/cve202653360_kvm_sevsnp_guesttohost_heap_oob_and/",
     "versionList": [
@@ -5645,13 +6685,13 @@
     "created_utc": "2026-08-12T09:23:41",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 9,
+    "score": 8,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "ERPNext's Document Follow feature exposed unauthorized data",
-    "updatedAt": "2026-08-21T02:46:42.770Z",
-    "upvote_ratio": 0.82,
+    "updatedAt": "2026-08-22T02:46:25.577Z",
+    "upvote_ratio": 0.8,
     "url": "https://reddit.com/r/netsec/comments/1vm95nk/erpnexts_document_follow_feature_exposed/",
     "versionList": [],
     "author_description_sentiment": {
@@ -5680,7 +6720,7 @@
         "id": "p32lzsi",
         "author": "ukindom",
         "body": "What’s about podman and other docker compatible tools? ",
-        "score": 8,
+        "score": 9,
         "created_utc_ts": 1786467749,
         "created_utc": "2026-08-11T17:02:29",
         "permalink": "https://reddit.com/r/netsec/comments/1vlkth5/copyescape_containertohost_arbitrary_file_write/p32lzsi/",
@@ -5691,7 +6731,7 @@
         "id": "p32rwoo",
         "author": "_madfrog",
         "body": "Nice work gg. I like the runc overwrite scenario, it make me think of the old CVE-2019-5736 that achieved that through /proc/self/exe shenanigans when running ’docker exec’ on Linux. \n\nI guess that explointing this on Linux is even more critical given there's no extra virtualisation layer so users who run docker cp are either in the docker group (aka root) or sudoing? ",
-        "score": 4,
+        "score": 5,
         "created_utc_ts": 1786469235,
         "created_utc": "2026-08-11T17:27:15",
         "permalink": "https://reddit.com/r/netsec/comments/1vlkth5/copyescape_containertohost_arbitrary_file_write/p32rwoo/",
@@ -5713,7 +6753,7 @@
         "id": "p330x9b",
         "author": "ronmasas",
         "body": "Thanks! Yes, I remember that bug, and I was thinking about it when I found this one.\n\nThe impact depends on how Docker is invoked on Linux. If `docker cp` is run as root for example, through `sudo` overwriting `runc` can lead to near-immediate root code execution because `runc` is invoked when a container exits.\n\nIn other scenarios, including macOS, an attacker can overwrite any file writable by the user running the Docker CLI. Overwriting a Bash/Zsh profile could lead to code execution, although it would require additional user interaction...",
-        "score": 4,
+        "score": 3,
         "created_utc_ts": 1786471489,
         "created_utc": "2026-08-11T18:04:49",
         "permalink": "https://reddit.com/r/netsec/comments/1vlkth5/copyescape_containertohost_arbitrary_file_write/p330x9b/",
@@ -5735,13 +6775,13 @@
     "created_utc": "2026-08-11T15:33:52",
     "first_author_comment": "Thanks! Yes, I remember that bug, and I was thinking about it when I found this one.\n\nThe impact depends on how Docker is invoked on Linux. If `docker cp` is run as root for example, through `sudo` overwriting `runc` can lead to near-immediate root code execution because `runc` is invoked when a container exits.\n\nIn other scenarios, including macOS, an attacker can overwrite any file writable by the user running the Docker CLI. Overwriting a Bash/Zsh profile could lead to code execution, although it would require additional user interaction...",
     "num_comments": 7,
-    "score": 72,
+    "score": 71,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CopyEscape: Container-to-host arbitrary file write via docker cp (CVE-2026-17106)",
-    "updatedAt": "2026-08-21T02:46:43.884Z",
-    "upvote_ratio": 0.99,
+    "updatedAt": "2026-08-22T02:46:26.633Z",
+    "upvote_ratio": 0.98,
     "url": "https://reddit.com/r/netsec/comments/1vlkth5/copyescape_containertohost_arbitrary_file_write/",
     "versionList": [
       "2026.0.0",
@@ -5773,7 +6813,7 @@
         "id": "p2xaqp2",
         "author": "kalkuns",
         "body": "“**held publication for the standard 7-day disclosure window” aint it a bit too small?**",
-        "score": 12,
+        "score": 10,
         "created_utc_ts": 1786400110,
         "created_utc": "2026-08-10T22:15:10",
         "permalink": "https://reddit.com/r/netsec/comments/1vktfi3/inside_a_russianspeaking_operators_toolkit_for/p2xaqp2/",
@@ -5784,7 +6824,7 @@
         "id": "p30mac5",
         "author": "Relative_Roof6709",
         "body": "so does this mean that russia has taken control of all the surveillance cameras in kyiv,ukraine",
-        "score": -4,
+        "score": -6,
         "created_utc_ts": 1786447493,
         "created_utc": "2026-08-11T11:24:53",
         "permalink": "https://reddit.com/r/netsec/comments/1vktfi3/inside_a_russianspeaking_operators_toolkit_for/p30mac5/",
@@ -5795,7 +6835,7 @@
         "id": "p30wloj",
         "author": "Straight-Practice-99",
         "body": "This research never states such thing.",
-        "score": 5,
+        "score": 3,
         "created_utc_ts": 1786451153,
         "created_utc": "2026-08-11T12:25:53",
         "permalink": "https://reddit.com/r/netsec/comments/1vktfi3/inside_a_russianspeaking_operators_toolkit_for/p30wloj/",
@@ -5817,12 +6857,12 @@
     "created_utc": "2026-08-10T18:41:25",
     "first_author_comment": "This research never states such thing.",
     "num_comments": 4,
-    "score": 59,
+    "score": 58,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Inside a Russian-speaking operator's toolkit for compromising Ukrainian IP cameras",
-    "updatedAt": "2026-08-21T02:46:45.005Z",
+    "updatedAt": "2026-08-22T02:46:27.746Z",
     "upvote_ratio": 0.87,
     "url": "https://reddit.com/r/netsec/comments/1vktfi3/inside_a_russianspeaking_operators_toolkit_for/",
     "versionList": [],
@@ -5895,7 +6935,7 @@
     "tag": "Administration/Technical",
     "tags": [],
     "title": "Fabrik for Joomla Fixes an Unauthenticated RCE in 4.6.7",
-    "updatedAt": "2026-08-20T14:59:53.536Z",
+    "updatedAt": "2026-08-21T22:05:34.633Z",
     "upvote_ratio": 0.63,
     "url": "https://reddit.com/r/joomla/comments/1vkk9mi/fabrik_for_joomla_fixes_an_unauthenticated_rce_in/",
     "versionList": [
@@ -6160,7 +7200,7 @@
     "tag": null,
     "tags": [],
     "title": "Got Root on my S22 Ultra! Ported CVE-2026-43499 exploit (Android 15)",
-    "updatedAt": "2026-08-20T15:00:49.353Z",
+    "updatedAt": "2026-08-21T22:06:30.165Z",
     "upvote_ratio": 0.89,
     "url": "https://reddit.com/r/Android/comments/1vjndfi/got_root_on_my_s22_ultra_ported_cve202643499/",
     "versionList": [
@@ -6184,6 +7224,184 @@
     "sentiment_score": 0.57
   },
   {
+    "_id": "6a7cf6de49715ba39184c113",
+    "redditId": "1vhcpvl",
+    "author": "Darkk_Knight",
+    "author_description": "Seems wireguard on current versions of FreeBSD got a nasty bug:\n\n[https://lists.freebsd.org/archives/freebsd-announce/2026-July/000301.html](https://lists.freebsd.org/archives/freebsd-announce/2026-July/000301.html)\n\nAre our current versions of pfsense affected?\n\nEDIT:  I've finally able to upgrade to 2.9 Beta using their online installer.   So at least for now I don't have to worry about wireguard anymore.    I've tried direct upgrade from 2.8.1 to 2.9 which blew up due to some weird issues.  I simply didn't want to troubleshoot it so used the latest online installer instead and restored the configuration from backup.",
+    "awards": [],
+    "comments": [
+      {
+        "id": "p2483bb",
+        "author": "Microflunkie",
+        "body": "Thanks for posting this, it is an interesting question if wg on pfSense is or is not vulnerable. If I had to guess I would guess that it is but that is only a guess. ",
+        "score": 2,
+        "created_utc_ts": 1786042735,
+        "created_utc": "2026-08-06T18:58:55",
+        "permalink": "https://reddit.com/r/PFSENSE/comments/1vhcpvl/freebsd_security_advisory_serious_freebsd/p2483bb/",
+        "parent_id": "t3_1vhcpvl",
+        "is_submitter": false
+      },
+      {
+        "id": "p24c8ru",
+        "author": "SpycTheWrapper",
+        "body": "See these other posts. They are aware of it and updating things because of it so I would say yea.\n\npfSense CE  \n[https://www.reddit.com/r/PFSENSE/comments/1vgnp8z/call\\_for\\_testing\\_pfsense\\_community\\_edition\\_29/](https://www.reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/)\n\npfSense +  \n[https://www.reddit.com/r/PFSENSE/comments/1vfo3lg/a\\_new\\_release\\_candidate\\_for\\_pfsense\\_plus\\_software/](https://www.reddit.com/r/PFSENSE/comments/1vfo3lg/a_new_release_candidate_for_pfsense_plus_software/)",
+        "score": 10,
+        "created_utc_ts": 1786043802,
+        "created_utc": "2026-08-06T19:16:42",
+        "permalink": "https://reddit.com/r/PFSENSE/comments/1vhcpvl/freebsd_security_advisory_serious_freebsd/p24c8ru/",
+        "parent_id": "t3_1vhcpvl",
+        "is_submitter": false
+      },
+      {
+        "id": "p24hig3",
+        "author": "Darkk_Knight",
+        "body": "For the CE seems only way to get the patch is update it the 2.9 Beta.  I may end up doing that anyway.\n\nI was hoping a patch for 2.8.1 be available since 2.9 CE is still beta.",
+        "score": 9,
+        "created_utc_ts": 1786045154,
+        "created_utc": "2026-08-06T19:39:14",
+        "permalink": "https://reddit.com/r/PFSENSE/comments/1vhcpvl/freebsd_security_advisory_serious_freebsd/p24hig3/",
+        "parent_id": "t1_p24c8ru",
+        "is_submitter": true
+      },
+      {
+        "id": "p25gl4g",
+        "author": "boli99",
+        "body": "could you be less specific?",
+        "score": 3,
+        "created_utc_ts": 1786054605,
+        "created_utc": "2026-08-06T22:16:45",
+        "permalink": "https://reddit.com/r/PFSENSE/comments/1vhcpvl/freebsd_security_advisory_serious_freebsd/p25gl4g/",
+        "parent_id": "t1_p2483bb",
+        "is_submitter": false
+      },
+      {
+        "id": "p2693j3",
+        "author": "TopCheddar27",
+        "body": "Where does it mention the patch in the 2.9 CE beta thread? I might just be blind.",
+        "score": 1,
+        "created_utc_ts": 1786063556,
+        "created_utc": "2026-08-07T00:45:56",
+        "permalink": "https://reddit.com/r/PFSENSE/comments/1vhcpvl/freebsd_security_advisory_serious_freebsd/p2693j3/",
+        "parent_id": "t1_p24c8ru",
+        "is_submitter": false
+      },
+      {
+        "id": "p26lprp",
+        "author": "MiddleNo5967",
+        "body": "I don't get it. Wireguard is a package. Why can't the package be updated? Why do we need to install a beta to get the newer package?..",
+        "score": 3,
+        "created_utc_ts": 1786067684,
+        "created_utc": "2026-08-07T01:54:44",
+        "permalink": "https://reddit.com/r/PFSENSE/comments/1vhcpvl/freebsd_security_advisory_serious_freebsd/p26lprp/",
+        "parent_id": "t1_p24c8ru",
+        "is_submitter": false
+      },
+      {
+        "id": "p26vdxe",
+        "author": "MattyTCT",
+        "body": "According to the CVE, there is no mention of FreeBSD 16.0-CURRENT having this flaw which is what pfSense plus 26.03.1 or later is based upon. CE is still using 15. Yet, curiously, the latest pfSense Plus RC mentions a wireguard patch. Go figure…",
+        "score": 2,
+        "created_utc_ts": 1786070955,
+        "created_utc": "2026-08-07T02:49:15",
+        "permalink": "https://reddit.com/r/PFSENSE/comments/1vhcpvl/freebsd_security_advisory_serious_freebsd/p26vdxe/",
+        "parent_id": "t3_1vhcpvl",
+        "is_submitter": false
+      },
+      {
+        "id": "p27gv3q",
+        "author": "planedrop",
+        "body": "I wonder if the fix can be done via a package update rather than an entire OS update. Haven't read much of the details yet but I would hope places can patch just the package to fix this.",
+        "score": 2,
+        "created_utc_ts": 1786079370,
+        "created_utc": "2026-08-07T05:09:30",
+        "permalink": "https://reddit.com/r/PFSENSE/comments/1vhcpvl/freebsd_security_advisory_serious_freebsd/p27gv3q/",
+        "parent_id": "t3_1vhcpvl",
+        "is_submitter": false
+      },
+      {
+        "id": "p27zsqq",
+        "author": "_arthur_",
+        "body": "It cannot.",
+        "score": 5,
+        "created_utc_ts": 1786088053,
+        "created_utc": "2026-08-07T07:34:13",
+        "permalink": "https://reddit.com/r/PFSENSE/comments/1vhcpvl/freebsd_security_advisory_serious_freebsd/p27zsqq/",
+        "parent_id": "t1_p27gv3q",
+        "is_submitter": false
+      },
+      {
+        "id": "p2pssp2",
+        "author": "Saqib-s",
+        "body": "Could we mitigate this temporarily by moving our Wireguard server / services off  pfsense and onto a internal Linux host, forwarding Wireguard port to this host to handle connection + all the rules etc needed to make it happen.  ? ",
+        "score": 1,
+        "created_utc_ts": 1786309649,
+        "created_utc": "2026-08-09T21:07:29",
+        "permalink": "https://reddit.com/r/PFSENSE/comments/1vhcpvl/freebsd_security_advisory_serious_freebsd/p2pssp2/",
+        "parent_id": "t3_1vhcpvl",
+        "is_submitter": false
+      },
+      {
+        "id": "p2q5ys9",
+        "author": "Darkk_Knight",
+        "body": "Yes you can.  You can easily use scripted one like pivpn to do this for you.  Then just forward the ports over to it. ",
+        "score": 2,
+        "created_utc_ts": 1786313636,
+        "created_utc": "2026-08-09T22:13:56",
+        "permalink": "https://reddit.com/r/PFSENSE/comments/1vhcpvl/freebsd_security_advisory_serious_freebsd/p2q5ys9/",
+        "parent_id": "t1_p2pssp2",
+        "is_submitter": true
+      },
+      {
+        "id": "p51ef7n",
+        "author": "Saqib-s",
+        "body": "pfsense CE 2.9.0 is now released so this should be resolved in the new release.\n\n  \n[Netgate Releases pfSense Community Edition Version 2.9.0](https://www.netgate.com/blog/netgate-releases-pfsense-community-edition-version-2.9.0)\n\n\"This Release software includes critical security updates for WireGuard (CVE-2026-58085), \"",
+        "score": 2,
+        "created_utc_ts": 1787324783,
+        "created_utc": "2026-08-21T15:06:23",
+        "permalink": "https://reddit.com/r/PFSENSE/comments/1vhcpvl/freebsd_security_advisory_serious_freebsd/p51ef7n/",
+        "parent_id": "t3_1vhcpvl",
+        "is_submitter": false
+      },
+      {
+        "id": "p52l9qy",
+        "author": "Darkk_Knight",
+        "body": "Yep.  I've upgraded to the released version from beta last night and running without any issues.  ",
+        "score": 1,
+        "created_utc_ts": 1787335854,
+        "created_utc": "2026-08-21T18:10:54",
+        "permalink": "https://reddit.com/r/PFSENSE/comments/1vhcpvl/freebsd_security_advisory_serious_freebsd/p52l9qy/",
+        "parent_id": "t1_p51ef7n",
+        "is_submitter": true
+      }
+    ],
+    "created_utc": "2026-08-06T18:36:20",
+    "first_author_comment": "For the CE seems only way to get the patch is update it the 2.9 Beta.  I may end up doing that anyway.\n\nI was hoping a patch for 2.8.1 be available since 2.9 CE is still beta.",
+    "num_comments": 24,
+    "score": 44,
+    "subreddit": "PFSENSE",
+    "tag": null,
+    "tags": [],
+    "title": "FreeBSD Security Advisory: Serious FreeBSD wireguard flaw",
+    "updatedAt": "2026-08-22T02:42:41.512Z",
+    "upvote_ratio": 0.92,
+    "url": "https://reddit.com/r/PFSENSE/comments/1vhcpvl/freebsd_security_advisory_serious_freebsd/",
+    "versionList": [],
+    "author_description_sentiment": {
+      "score": -0.442,
+      "detail": {
+        "neg": 0.114,
+        "neu": 0.83,
+        "pos": 0.056,
+        "compound": -0.4419
+      }
+    },
+    "category": "Neutral",
+    "comments_avg_sentiment_score": 0.159,
+    "sentiment_score": -0.142,
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true
+  },
+  {
     "_id": "6a7cf6e049715ba39184c116",
     "redditId": "1vgnp8z",
     "author": "George-Netgate",
@@ -6205,7 +7423,7 @@
         "id": "p1ymoby",
         "author": "the_wookie_of_maine",
         "body": "I keep reading that Community Edition is dead.\n\n/sarcasm ",
-        "score": 36,
+        "score": 35,
         "created_utc_ts": 1785974440,
         "created_utc": "2026-08-06T00:00:40",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p1ymoby/",
@@ -6216,7 +7434,7 @@
         "id": "p1yn3hs",
         "author": "Sparkplug1034",
         "body": "Needing a beta release of the whole OS to get a wireguard security patch 🫠",
-        "score": -3,
+        "score": -4,
         "created_utc_ts": 1785974577,
         "created_utc": "2026-08-06T00:02:57",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p1yn3hs/",
@@ -6249,7 +7467,7 @@
         "id": "p1yqfu6",
         "author": "ThatUsrnameIsAlready",
         "body": "They're not updating the GUI, plus only for now at least; even though it's in desperate need of an overhaul.\n\nI'll be curious to see if they at least better support Kea, or if the deprecated ISC &amp; PHP combo is still blocking.",
-        "score": 5,
+        "score": 7,
         "created_utc_ts": 1785975677,
         "created_utc": "2026-08-06T00:21:17",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p1yqfu6/",
@@ -6271,7 +7489,7 @@
         "id": "p1yqs1t",
         "author": "gonzopancho",
         "body": "Only yesterday there were people complaining that I couldn’t be telling the truth about a 2.9 pending because they couldn’t see an RC.",
-        "score": 15,
+        "score": 13,
         "created_utc_ts": 1785975790,
         "created_utc": "2026-08-06T00:23:10",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p1yqs1t/",
@@ -6282,7 +7500,7 @@
         "id": "p1yr1h3",
         "author": "gonzopancho",
         "body": "https://docs.netgate.com/pfsense/en/latest/releases/2-9-0.html",
-        "score": 6,
+        "score": 5,
         "created_utc_ts": 1785975876,
         "created_utc": "2026-08-06T00:24:36",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p1yr1h3/",
@@ -6304,7 +7522,7 @@
         "id": "p1ysm9a",
         "author": "da_apz",
         "body": "First attempt to update a 2.8.1 system dies at the point where it upgrades pkg.\n\nIt says \"&gt;&gt;&gt; Upgrading pkg...failed.\" and dies there.\n\nThis test installation is a Xen VM with a very simple WAN + LAN network configuration and not much else on it.\n\nA quick autopsy shows the pkg now fails because libutil.so.10 is missing.",
-        "score": 11,
+        "score": 10,
         "created_utc_ts": 1785976404,
         "created_utc": "2026-08-06T00:33:24",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p1ysm9a/",
@@ -6315,7 +7533,7 @@
         "id": "p1yt641",
         "author": "seniledude",
         "body": "Time to upgrade the house firewall for testing.   \n/s 🤔 ",
-        "score": 1,
+        "score": 2,
         "created_utc_ts": 1785976583,
         "created_utc": "2026-08-06T00:36:23",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p1yt641/",
@@ -6337,7 +7555,7 @@
         "id": "p1z0n97",
         "author": "Darkk_Knight",
         "body": "I will def try out the beta in a few days.  Have to make sure my wife don't notice anything.  lol ",
-        "score": 9,
+        "score": 7,
         "created_utc_ts": 1785979038,
         "created_utc": "2026-08-06T01:17:18",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p1z0n97/",
@@ -6348,7 +7566,7 @@
         "id": "p1z3rmy",
         "author": "limpymcforskin",
         "body": "Back back burner is more appropriate. ",
-        "score": 12,
+        "score": 14,
         "created_utc_ts": 1785980062,
         "created_utc": "2026-08-06T01:34:22",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p1z3rmy/",
@@ -6392,7 +7610,7 @@
         "id": "p20nbyx",
         "author": "solway_uk",
         "body": "Bug 1. No offline iso installer download available...",
-        "score": 24,
+        "score": 23,
         "created_utc_ts": 1786002697,
         "created_utc": "2026-08-06T07:51:37",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p20nbyx/",
@@ -6403,7 +7621,7 @@
         "id": "p213k0q",
         "author": "ha11oga11o",
         "body": "Oh God, how im missing that bloody iso!! It like working with fist but no fingers on it. ",
-        "score": 1,
+        "score": 2,
         "created_utc_ts": 1786010727,
         "created_utc": "2026-08-06T10:05:27",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p213k0q/",
@@ -6425,7 +7643,7 @@
         "id": "p215717",
         "author": "lorenzo1142",
         "body": "there are alternatives that get updates VERY much more often. but the word is banned here.......",
-        "score": -4,
+        "score": -3,
         "created_utc_ts": 1786011466,
         "created_utc": "2026-08-06T10:17:46",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p215717/",
@@ -6436,7 +7654,7 @@
         "id": "p22kjf4",
         "author": "MBILC",
         "body": "What are you wanting to be added to CE that is needed, or nice to have vs stable functionality?",
-        "score": 9,
+        "score": 8,
         "created_utc_ts": 1786027881,
         "created_utc": "2026-08-06T14:51:21",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p22kjf4/",
@@ -6447,7 +7665,7 @@
         "id": "p22kvq8",
         "author": "MBILC",
         "body": "Did you read the release notes? Or is that asking too much..  \n[https://docs.netgate.com/pfsense/en/latest/releases/2-9-0.html](https://docs.netgate.com/pfsense/en/latest/releases/2-9-0.html)",
-        "score": 6,
+        "score": 7,
         "created_utc_ts": 1786027970,
         "created_utc": "2026-08-06T14:52:50",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p22kvq8/",
@@ -6458,7 +7676,7 @@
         "id": "p25q7uo",
         "author": "macmatrix",
         "body": "Been running CE for 10+ years, it still better the “off the shelf router crap” ie tplink and netgear and fortigate (which has been in the news every second day for CVEs attacks!) and has never let me down, I use every feature of Pfsense and the pkgs included as I’m a Pfsense veteran I have never needed Pfsense direct support, 2.8.1 is pretty solid with system patches  \nIf I require Pfsense+ support and stability I would use that.  \nI’m happy to test Pfsense CE 2.9 for netgate and the open source community of which it was originally built for! and give back to other users out there running CE and to help with the development of +.",
-        "score": 8,
+        "score": 9,
         "created_utc_ts": 1786057511,
         "created_utc": "2026-08-06T23:05:11",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p25q7uo/",
@@ -6480,7 +7698,7 @@
         "id": "p26m5u9",
         "author": "MiddleNo5967",
         "body": "Can you please update the Wireguard package in 2.8.1 so we can fix the vulnerability without installing the beta?",
-        "score": 4,
+        "score": 3,
         "created_utc_ts": 1786067832,
         "created_utc": "2026-08-07T01:57:12",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p26m5u9/",
@@ -6491,7 +7709,7 @@
         "id": "p26owi7",
         "author": "coldfire7",
         "body": "**NO NEW UI: pass :)**\n\nI think it might be a good time to consider other router/firewall operating systems.",
-        "score": -3,
+        "score": -5,
         "created_utc_ts": 1786068744,
         "created_utc": "2026-08-07T02:12:24",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p26owi7/",
@@ -6513,7 +7731,7 @@
         "id": "p29hvzv",
         "author": "Tactically_Dangerous",
         "body": "Updated here, no problems at all. Great work.",
-        "score": 5,
+        "score": 6,
         "created_utc_ts": 1786109742,
         "created_utc": "2026-08-07T13:35:42",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p29hvzv/",
@@ -6524,7 +7742,7 @@
         "id": "p29zl3d",
         "author": "MBILC",
         "body": "question, how often are you in the UI?\n\nReally curious, do you stare at it all day, or go in to config  some things now and then and then out?\n\nIf you really want a new UI, spend $129 and support the company. They have bills to pay, employee's to pay..\n\nif the UI is the only reason you stay with a product, not because of the work they have done behind the scenes, the commits to BSD in general,then move on..",
-        "score": 5,
+        "score": 6,
         "created_utc_ts": 1786114566,
         "created_utc": "2026-08-07T14:56:06",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p29zl3d/",
@@ -6590,7 +7808,7 @@
         "id": "p2c44oa",
         "author": "MBILC",
         "body": "It is a kernel level update that needs to be done to patch Wireguard, hence the push to move it into 2.9\\* with other updates. the current patch system does not support kernel updates, so a full system update has to be done.",
-        "score": 7,
+        "score": 5,
         "created_utc_ts": 1786134469,
         "created_utc": "2026-08-07T20:27:49",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/p2c44oa/",
@@ -6716,7 +7934,7 @@
     "tag": null,
     "tags": [],
     "title": "Call for Testing: pfSense® Community Edition 2.9 Beta Now Available!",
-    "updatedAt": "2026-08-21T02:42:53.913Z",
+    "updatedAt": "2026-08-22T02:42:43.996Z",
     "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/",
     "versionList": [
@@ -6732,8 +7950,8 @@
       }
     },
     "category": "Positive",
-    "comments_avg_sentiment_score": 0.076,
-    "sentiment_score": 0.534,
+    "comments_avg_sentiment_score": 0.091,
+    "sentiment_score": 0.542,
     "isAboutCve": true,
     "isAboutLatestUpdate": true
   },
@@ -6748,7 +7966,7 @@
         "id": "p1xeaq3",
         "author": "si9int",
         "body": "Probably the reason why this \"smart\" agent was able to find it: \"This isn’t a new bug class for Django’s admin \\[...\\] because of CVE-2019-12308, fixed in Django 1.11.21, 2.1.9, and 2.2.2, which covered exactly this shape of issue in the editable widget.\"",
-        "score": 4,
+        "score": 3,
         "created_utc_ts": 1785961281,
         "created_utc": "2026-08-05T20:21:21",
         "permalink": "https://reddit.com/r/netsec/comments/1vg9704/stored_xss_in_djangos_admin_via_an_unvalidated/p1xeaq3/",
@@ -6770,13 +7988,13 @@
     "created_utc": "2026-08-05T14:38:12",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 18,
+    "score": 17,
     "subreddit": "netsec",
     "tag": "Contains AI",
     "tags": [],
     "title": "Stored XSS in Django's admin via an unvalidated URLField display path (CVE-2026-15920)",
-    "updatedAt": "2026-08-21T02:46:56.311Z",
-    "upvote_ratio": 0.81,
+    "updatedAt": "2026-08-22T02:46:37.438Z",
+    "upvote_ratio": 0.8,
     "url": "https://reddit.com/r/netsec/comments/1vg9704/stored_xss_in_djangos_admin_via_an_unvalidated/",
     "versionList": [
       "2026.0.0",
@@ -6819,7 +8037,7 @@
         "id": "p1qnnih",
         "author": "nosimsol",
         "body": "Does this mean the gui is going away and eventually there will be no choice but to use cloud based management?",
-        "score": 9,
+        "score": 8,
         "created_utc_ts": 1785881597,
         "created_utc": "2026-08-04T22:13:17",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vfo3lg/a_new_release_candidate_for_pfsense_plus_software/p1qnnih/",
@@ -6852,7 +8070,7 @@
         "id": "p1qq39w",
         "author": "ComprehensiveLuck125",
         "body": "**I** though Nexus primary goal was (unified) multi-instance management, but it turns out Nexus will deliver to pfsense+ (only) new, preffered UI? (Long-term)\n\nWill enabling Nexus cause any callbacks or permanent connection to Netgate infrastructure? Is this new Nexus UI not running as root anymore? Does it talk to some API service that runs as root? Can we benefit and talk to APIs directly? \\[Can we use some pfsense management REST-APIs independently when Nexus is installed?\\]\n\nSorry for so many questions. Nexus sounds interesting, but I thought I do not need MIM with my scale of operations :-) I understand it is not about MIM anymore?",
-        "score": 7,
+        "score": 6,
         "created_utc_ts": 1785882307,
         "created_utc": "2026-08-04T22:25:07",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vfo3lg/a_new_release_candidate_for_pfsense_plus_software/p1qq39w/",
@@ -6863,7 +8081,7 @@
         "id": "p1qqf17",
         "author": "gonzopancho",
         "body": "That’s why there is a 2.9 release of CE pending\n\nIn other words, you don’t know what you’re talking about.\n\nEdit: 2.9 beta occurred today",
-        "score": -1,
+        "score": -2,
         "created_utc_ts": 1785882403,
         "created_utc": "2026-08-04T22:26:43",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vfo3lg/a_new_release_candidate_for_pfsense_plus_software/p1qqf17/",
@@ -6874,7 +8092,7 @@
         "id": "p1qsvmv",
         "author": "Mr_Chode_Shaver",
         "body": "One great feature- nexus has no access to menus to configure packages. Super helpful when diagnosing an FRR issue!\n\n/s",
-        "score": 3,
+        "score": 4,
         "created_utc_ts": 1785883138,
         "created_utc": "2026-08-04T22:38:58",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vfo3lg/a_new_release_candidate_for_pfsense_plus_software/p1qsvmv/",
@@ -6896,7 +8114,7 @@
         "id": "p1qvbxv",
         "author": "Cutoffjeanshortz37",
         "body": "Every f'ing time there is a Plus update without a CE update this comes up. the 26 version of plus was released in April of 2026. CE got updated a year ago. I remember when updates for CE hand YEARS between updates. The paid item of course gets more attention and helps fund the work on the free version. Install the patch manager and get security update that way, they come out as needed. Of course you're not going to get bleeding edge features and functionality on the free version. This a business model. Don't like it, go to Open Sense and hope for the best. \n\nBeen using Pfsense for 15+ years how. Fuck I feel old. ",
-        "score": 8,
+        "score": 9,
         "created_utc_ts": 1785883882,
         "created_utc": "2026-08-04T22:51:22",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vfo3lg/a_new_release_candidate_for_pfsense_plus_software/p1qvbxv/",
@@ -6907,7 +8125,7 @@
         "id": "p1qyy9t",
         "author": "Darkk_Knight",
         "body": "It's currently being pushed to the patch management.  ",
-        "score": 3,
+        "score": 5,
         "created_utc_ts": 1785884994,
         "created_utc": "2026-08-04T23:09:54",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vfo3lg/a_new_release_candidate_for_pfsense_plus_software/p1qyy9t/",
@@ -6918,7 +8136,7 @@
         "id": "p1rate9",
         "author": "marcos-ng",
         "body": "The new GUI is hosted locally on the device, just like the old one. You may be thinking of Multi-Instance Management which is a paid feature, but even so you can run that on pfSense+ wherever you want; the \"cloud\" is whatever you make it.",
-        "score": 8,
+        "score": 7,
         "created_utc_ts": 1785888750,
         "created_utc": "2026-08-05T00:12:30",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vfo3lg/a_new_release_candidate_for_pfsense_plus_software/p1rate9/",
@@ -6995,7 +8213,7 @@
         "id": "p1s89n7",
         "author": "Magic_Sea_Pony",
         "body": "Can you guys do 2 things for mobile (especially portrait mode):\n\n1. Allow us to turn off or hide the left side nexus bar. For 1 firewall it’s incredibly silly and un-needed.   \n2. Better mobile styling.   \nI feel the old interface is WAAAY better on mobile for adding rules, NATs, etc.  \n3. Are dashboards available like the old interface? I pull in RSS feeds like hacker news right into my firewall homepage, as well as interface statuses and IPSEC Statuses. \n\nLove to see the new stuff!",
-        "score": 7,
+        "score": 8,
         "created_utc_ts": 1785899839,
         "created_utc": "2026-08-05T03:17:19",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vfo3lg/a_new_release_candidate_for_pfsense_plus_software/p1s89n7/",
@@ -7083,7 +8301,7 @@
         "id": "p1welk9",
         "author": "centuryx476",
         "body": "Can I download it without having to give a billing address?\n\nEdit: Guess not",
-        "score": 0,
+        "score": 1,
         "created_utc_ts": 1785952201,
         "created_utc": "2026-08-05T17:50:01",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vfo3lg/a_new_release_candidate_for_pfsense_plus_software/p1welk9/",
@@ -7094,7 +8312,7 @@
         "id": "p1xp2ey",
         "author": "PrimaryAd5802",
         "body": "Tom Lawrence is drinking the UniFi syrup last I checked...",
-        "score": 6,
+        "score": 5,
         "created_utc_ts": 1785964181,
         "created_utc": "2026-08-05T21:09:41",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vfo3lg/a_new_release_candidate_for_pfsense_plus_software/p1xp2ey/",
@@ -7138,7 +8356,7 @@
         "id": "p1y8gzq",
         "author": "PrimaryAd5802",
         "body": "Congrats to Negate for all their hard work on this... Sound good.\n\nGotta wonder about pfBlocker future going forward, which has worked well for me for a long time and I totally appreciate the efforts of BBcan\n\nBecause I am old and don't need the excitement, I think I will be what's called a \"Late Adopter\". :-)",
-        "score": 7,
+        "score": 6,
         "created_utc_ts": 1785969871,
         "created_utc": "2026-08-05T22:44:31",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vfo3lg/a_new_release_candidate_for_pfsense_plus_software/p1y8gzq/",
@@ -7171,12 +8389,12 @@
     "created_utc": "2026-08-04T21:47:17",
     "first_author_comment": null,
     "num_comments": 93,
-    "score": 25,
+    "score": 27,
     "subreddit": "PFSENSE",
     "tag": null,
     "tags": [],
     "title": "A New Release Candidate for pfSense Plus Software Version 26.07 Available!",
-    "updatedAt": "2026-08-21T02:42:55.504Z",
+    "updatedAt": "2026-08-22T02:42:45.757Z",
     "upvote_ratio": 0.76,
     "url": "https://reddit.com/r/PFSENSE/comments/1vfo3lg/a_new_release_candidate_for_pfsense_plus_software/",
     "versionList": [
@@ -7211,7 +8429,7 @@
     "tag": null,
     "tags": [],
     "title": "Simple Job Board ≤ 2.11.0 - Unauthenticated RCE (CVE-2024-1813)",
-    "updatedAt": "2026-08-20T15:03:36.422Z",
+    "updatedAt": "2026-08-21T22:09:13.293Z",
     "upvote_ratio": 0.5,
     "url": "https://reddit.com/r/netsec/comments/1v8zh25/simple_job_board_2110_unauthenticated_rce/",
     "versionList": [
@@ -7707,7 +8925,7 @@
     "tag": null,
     "tags": [],
     "title": "How We Hacked Thousands of Data Centers in Minutes Using a 20-Year-Old Vulnerability",
-    "updatedAt": "2026-08-20T15:03:37.049Z",
+    "updatedAt": "2026-08-21T22:09:13.902Z",
     "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/netsec/comments/1v8ylt4/how_we_hacked_thousands_of_data_centers_in/",
     "versionList": [
@@ -7782,7 +9000,7 @@
     "tag": null,
     "tags": [],
     "title": "New vBulletin Vulnerability!",
-    "updatedAt": "2026-08-20T15:03:40.530Z",
+    "updatedAt": "2026-08-21T22:09:17.684Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/netsec/comments/1v8192k/new_vbulletin_vulnerability/",
     "versionList": [],
@@ -7815,7 +9033,7 @@
     "tag": "Pending Moderation",
     "tags": [],
     "title": "[CVE-2026-61511] vBulletin &lt;= 6.2.1 (runMaths) Pre-Auth RCE Vulnerability",
-    "updatedAt": "2026-08-20T15:03:40.726Z",
+    "updatedAt": "2026-08-21T22:09:17.878Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/netsec/comments/1v7x7i9/cve202661511_vbulletin_621_runmaths_preauth_rce/",
     "versionList": [
@@ -7969,7 +9187,7 @@
     "tag": "Contains AI",
     "tags": [],
     "title": "Escaping Claude Cowork’s local VM sandbox via CVE-2026-46331",
-    "updatedAt": "2026-08-20T15:03:53.995Z",
+    "updatedAt": "2026-08-21T22:09:30.334Z",
     "upvote_ratio": 0.97,
     "url": "https://reddit.com/r/netsec/comments/1v52lix/escaping_claude_coworks_local_vm_sandbox_via/",
     "versionList": [
@@ -8005,7 +9223,7 @@
     "tag": "Solved",
     "tags": [],
     "title": "UGOS Pro forced update broke Docker permissions",
-    "updatedAt": "2026-08-20T15:04:08.454Z",
+    "updatedAt": "2026-08-21T22:09:45.126Z",
     "upvote_ratio": 0.63,
     "url": "https://reddit.com/r/homelab/comments/1v3b91p/ugos_pro_forced_update_broke_docker_permissions/",
     "versionList": [],
@@ -8382,7 +9600,7 @@
     "tag": "Joomla 6",
     "tags": [],
     "title": "Serious attack on JCE Editor- CVE-2026-48907",
-    "updatedAt": "2026-08-20T15:05:57.920Z",
+    "updatedAt": "2026-08-21T22:11:34.332Z",
     "upvote_ratio": 0.94,
     "url": "https://reddit.com/r/joomla/comments/1urs5ye/serious_attack_on_jce_editor_cve202648907/",
     "versionList": [
@@ -8458,7 +9676,7 @@
     "tag": "Administration/Technical",
     "tags": [],
     "title": "AcyMailing SQL Injection Vulnerability - Upgrade Today!",
-    "updatedAt": "2026-08-20T15:05:59.523Z",
+    "updatedAt": "2026-08-21T22:11:35.959Z",
     "upvote_ratio": 0.85,
     "url": "https://reddit.com/r/joomla/comments/1urr2ye/acymailing_sql_injection_vulnerability_upgrade/",
     "versionList": [],
@@ -8491,7 +9709,7 @@
     "tag": "Administration/Technical",
     "tags": [],
     "title": "Balbooa Forms Fixes an Unauthenticated File Upload RCE",
-    "updatedAt": "2026-08-20T15:06:02.645Z",
+    "updatedAt": "2026-08-21T22:11:39.007Z",
     "upvote_ratio": 0.83,
     "url": "https://reddit.com/r/joomla/comments/1urlq47/balbooa_forms_fixes_an_unauthenticated_file/",
     "versionList": [],
@@ -8622,7 +9840,7 @@
     "tag": null,
     "tags": [],
     "title": "Defender AV CVE-2023-36010 still flagged even on latest engine/platform?",
-    "updatedAt": "2026-08-20T15:08:12.147Z",
+    "updatedAt": "2026-08-21T22:13:49.164Z",
     "upvote_ratio": 0.78,
     "url": "https://reddit.com/r/sysadmin/comments/1ucezrg/defender_av_cve202336010_still_flagged_even_on/",
     "versionList": [
@@ -8752,7 +9970,7 @@
     "tag": null,
     "tags": [],
     "title": "WEIRD RUSTDESK REQUEST FROM MY OWN MACBOOK",
-    "updatedAt": "2026-08-20T15:08:20.953Z",
+    "updatedAt": "2026-08-21T22:13:57.827Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/rustdesk/comments/1ub5cdv/weird_rustdesk_request_from_my_own_macbook/",
     "versionList": [],
@@ -8801,7 +10019,7 @@
     "tag": null,
     "tags": [],
     "title": "CVE-2026-9189: payment bypass in the Contact Form 7 PayPal &amp; Stripe Add-on (now patched, update if you use it)",
-    "updatedAt": "2026-08-20T15:08:36.948Z",
+    "updatedAt": "2026-08-21T22:14:13.793Z",
     "upvote_ratio": 0.78,
     "url": "https://reddit.com/r/Wordpress/comments/1u9ea81/cve20269189_payment_bypass_in_the_contact_form_7/",
     "versionList": [
@@ -8868,7 +10086,7 @@
     "tag": null,
     "tags": [],
     "title": "The HTTP/2 Bomb That Knocks nginx and Apache Offline With a Single Connection",
-    "updatedAt": "2026-08-21T02:51:30.466Z",
+    "updatedAt": "2026-08-22T00:52:03.692Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/apache/comments/1tws4w7/the_http2_bomb_that_knocks_nginx_and_apache/",
     "versionList": [
@@ -8890,6 +10108,40 @@
     "sentiment_score": -0.191
   },
   {
+    "_id": "6a88a26b49715ba39189487c",
+    "redditId": "1tbx8sa",
+    "author": "eshard-cybersec",
+    "author_description": "We hit a wall analyzing CVE-2019-14192 on real Raspberry Pi 3B+ firmware, so we added the missing driver to QEMU. Register by register, using U-Boot's own source as the spec.",
+    "awards": [],
+    "created_utc": "2026-05-13T11:48:09",
+    "first_author_comment": null,
+    "num_comments": 0,
+    "score": 2,
+    "subreddit": "QEMU",
+    "tag": null,
+    "tags": [],
+    "title": "How to add a peripheral to QEMU",
+    "updatedAt": "2026-08-21T23:11:21.263Z",
+    "upvote_ratio": 1,
+    "url": "https://reddit.com/r/QEMU/comments/1tbx8sa/how_to_add_a_peripheral_to_qemu/",
+    "versionList": [],
+    "isAboutCve": true,
+    "isAboutLatestUpdate": false,
+    "author_description_sentiment": {
+      "score": -0.296,
+      "detail": {
+        "neg": 0.073,
+        "neu": 0.927,
+        "pos": 0,
+        "compound": -0.296
+      }
+    },
+    "category": "Neutral",
+    "comments": [],
+    "comments_avg_sentiment_score": 0,
+    "sentiment_score": -0.148
+  },
+  {
     "_id": "69e7c44dda0850f83830da70",
     "redditId": "1srpodd",
     "author": "Temporary-Leek6861",
@@ -8906,7 +10158,7 @@
       "Use Cases"
     ],
     "title": "openclaw crossed 500k downloads a day this week. here are the 5 things nobody tells you when you're one of them",
-    "updatedAt": "2026-08-20T15:14:04.964Z",
+    "updatedAt": "2026-08-21T22:19:36.236Z",
     "upvote_ratio": 0.8,
     "url": "https://reddit.com/r/openclaw/comments/1srpodd/openclaw_crossed_500k_downloads_a_day_this_week/",
     "versionList": [
@@ -8953,7 +10205,7 @@
       "General Discussion"
     ],
     "title": "Security Check Recommended (CVE-2025-55182): Please review your application's dependencies. If you are running React or Next.js",
-    "updatedAt": "2026-08-20T15:20:52.340Z",
+    "updatedAt": "2026-08-21T22:26:26.503Z",
     "upvote_ratio": 0.91,
     "url": "https://reddit.com/r/react/comments/1pfyta0/security_check_recommended_cve202555182_please/",
     "versionList": [
@@ -9396,7 +10648,7 @@
       "vercel"
     ],
     "title": "What is React Server Components vulnerability CVE-2025-55182 and how does it affect Next.js?",
-    "updatedAt": "2026-08-20T15:21:03.846Z",
+    "updatedAt": "2026-08-21T22:26:38.208Z",
     "upvote_ratio": null,
     "url": "https://stackoverflow.com/questions/79837478/what-is-react-server-components-vulnerability-cve-2025-55182-and-how-does-it-aff",
     "versionList": [
@@ -9452,7 +10704,7 @@
       "Troubleshooting | Android"
     ],
     "title": "Chromebook not updating to the new update that fixes CVE-2025-6554",
-    "updatedAt": "2026-08-20T15:23:59.601Z",
+    "updatedAt": "2026-08-21T22:29:38.866Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/chrome/comments/1lpij7v/chromebook_not_updating_to_the_new_update_that/",
     "versionList": [
@@ -9575,7 +10827,7 @@
       "News"
     ],
     "title": "🔒 Update Chrome Today! – New 0-day Vulnerability (CVE-2025-5419) Is Being Exploited in the Wild",
-    "updatedAt": "2026-08-20T15:24:08.970Z",
+    "updatedAt": "2026-08-21T22:29:48.276Z",
     "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/chrome/comments/1l2zxcb/update_chrome_today_new_0day_vulnerability/",
     "versionList": [
