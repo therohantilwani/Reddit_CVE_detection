@@ -12,6 +12,7 @@ CVE-2017-7921,1,2026-08-10T18:41:25+00:00,1786387285,netsec,https://reddit.com/r
 CVE-2019-12308,1,2026-08-05T14:38:12+00:00,1785940692,netsec,https://reddit.com/r/netsec/comments/1vg9704/stored_xss_in_djangos_admin_via_an_unvalidated/
 CVE-2019-14192,1,2026-05-13T11:48:09+00:00,1778672889,QEMU,https://reddit.com/r/QEMU/comments/1tbx8sa/how_to_add_a_peripheral_to_qemu/
 CVE-2019-5736,1,2026-08-11T15:33:52+00:00,1786462432,netsec,https://reddit.com/r/netsec/comments/1vlkth5/copyescape_containertohost_arbitrary_file_write/
+CVE-2020-10713,1,2026-08-19T12:01:19+00:00,1787140879,netsec,https://reddit.com/r/netsec/comments/1vskftw/how_to_break_secure_boot_without_touching_any/
 CVE-2020-25078,1,2026-08-10T18:41:25+00:00,1786387285,netsec,https://reddit.com/r/netsec/comments/1vktfi3/inside_a_russianspeaking_operators_toolkit_for/
 CVE-2020-25169,1,2026-08-10T18:41:25+00:00,1786387285,netsec,https://reddit.com/r/netsec/comments/1vktfi3/inside_a_russianspeaking_operators_toolkit_for/
 CVE-2021-36260,1,2026-08-10T18:41:25+00:00,1786387285,netsec,https://reddit.com/r/netsec/comments/1vktfi3/inside_a_russianspeaking_operators_toolkit_for/
