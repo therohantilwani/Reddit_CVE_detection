@@ -1,4 +1,5 @@
 post_id,subreddit,created_iso_utc,title,cves,cve_paths,url
+,sysadmin,2026-08-23T20:39:15+00:00,"Microsoft dropped a CVSS 10.0 Entra ID RCE, said it was exploited, then walked that back a day later. No customer patch.",CVE-2026-69836,author_description;comments[10].body;comments[13].body,https://reddit.com/r/sysadmin/comments/1vwibli/microsoft_dropped_a_cvss_100_entra_id_rce_said_it/
 ,sysadmin,2026-08-21T11:06:36+00:00,CVE-2026-59310 rant incoming,CVE-2026-59310,comments[0].body;title,https://reddit.com/r/sysadmin/comments/1vud9ln/cve202659310_rant_incoming/
 ,Wordpress,2026-08-21T10:42:39+00:00,Critical Elementor Pro Vulnerability 9.8/10,CVE-2026-32475,author_description,https://reddit.com/r/Wordpress/comments/1vucskk/critical_elementor_pro_vulnerability_9810/
 ,PFSENSE,2026-08-20T20:55:28+00:00,Netgate Releases pfSense Community Edition Version 2.9.0,CVE-2026-58085,author_description,https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/

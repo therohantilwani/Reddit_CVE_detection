@@ -57,5 +57,6 @@ CVE-2026-66694,1,2026-08-18T09:05:04+00:00,1787043904,Wordpress,https://reddit.c
 CVE-2026-66915,1,2026-08-10T13:03:30+00:00,1786367010,joomla,https://reddit.com/r/joomla/comments/1vkk9mi/fabrik_for_joomla_fixes_an_unauthenticated_rce_in/
 CVE-2026-6837,1,2026-08-16T18:48:50+00:00,1786906130,netsec,https://reddit.com/r/netsec/comments/1vq55y4/cve20266837_command_injection_in_zyxel_exportcgi/
 CVE-2026-68821,1,2026-08-19T00:22:53+00:00,1787098973,sysadmin,https://reddit.com/r/sysadmin/comments/1vs6uu4/tenable_windows_package_manager_winget_13080/
+CVE-2026-69836,1,2026-08-23T20:39:15+00:00,1787517555,sysadmin,https://reddit.com/r/sysadmin/comments/1vwibli/microsoft_dropped_a_cvss_100_entra_id_rce_said_it/
 CVE-2026-8452,1,2026-08-14T07:10:17+00:00,1786691417,netsec,https://reddit.com/r/netsec/comments/1vo06aj/youre_back_in_the_room_citrix_netscaler_preauth/
 CVE-2026-9189,1,2026-06-18T18:28:58+00:00,1781807338,Wordpress,https://reddit.com/r/Wordpress/comments/1u9ea81/cve20269189_payment_bypass_in_the_contact_form_7/
