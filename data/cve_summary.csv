@@ -28,6 +28,7 @@ CVE-2025-48827,1,2026-07-27T14:00:29+00:00,1785160829,netsec,https://reddit.com/
 CVE-2025-5419,1,2025-06-04T08:02:09+00:00,1749024129,chrome,https://reddit.com/r/chrome/comments/1l2zxcb/update_chrome_today_new_0day_vulnerability/
 CVE-2025-6554,1,2025-07-02T00:50:53+00:00,1751417453,chrome,https://reddit.com/r/chrome/comments/1lpij7v/chromebook_not_updating_to_the_new_update_that/
 CVE-2025-66478,1,2025-12-04T02:54:02+00:00,1764816842,reactjs,https://stackoverflow.com/questions/79837478/what-is-react-server-components-vulnerability-cve-2025-55182-and-how-does-it-aff
+CVE-2026-15459,1,2026-08-24T19:19:09+00:00,1787599149,Wordpress,https://reddit.com/r/Wordpress/comments/1vxcktc/i_need_a_sanity_check_wpmudev/
 CVE-2026-15920,1,2026-08-05T14:38:12+00:00,1785940692,netsec,https://reddit.com/r/netsec/comments/1vg9704/stored_xss_in_djangos_admin_via_an_unvalidated/
 CVE-2026-17106,1,2026-08-11T15:33:52+00:00,1786462432,netsec,https://reddit.com/r/netsec/comments/1vlkth5/copyescape_containertohost_arbitrary_file_write/
 CVE-2026-19598,1,2026-08-18T19:49:39+00:00,1787082579,Wordpress,https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/
