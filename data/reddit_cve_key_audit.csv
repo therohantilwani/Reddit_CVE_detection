@@ -1,4 +1,8 @@
 post_id,subreddit,created_iso_utc,title,cves,cve_paths,url
+,Wordpress,2026-08-25T16:37:23+00:00,"PSA: Critical (9.8) account takeover in TranslatePress, update to 3.3.2 now",CVE-2026-19632,author_description,https://reddit.com/r/Wordpress/comments/1vy4y2i/psa_critical_98_account_takeover_in/
+,netsec,2026-08-25T13:37:06+00:00,CVE-2026-8508: Trust-Boundary Bypass in Zyxel social_login.cgi Facebook Identity Handling,CVE-2026-8508,author_description;title,https://reddit.com/r/netsec/comments/1vy03c7/cve20268508_trustboundary_bypass_in_zyxel_social/
+,SecurityCamera,2026-08-25T12:14:13+00:00,Dahua lost password,CVE-2021-33045,author_description,https://reddit.com/r/SecurityCamera/comments/1vxy4by/dahua_lost_password/
+,linux,2026-08-25T11:42:46+00:00,"CVE-2026-73570: Zimbra SNMP/logwatch RCE exploited in the wild, malware persists via /dev/shm and zimbra cron",CVE-2026-73570,author_description;title,https://reddit.com/r/linux/comments/1vxxfiu/cve202673570_zimbra_snmplogwatch_rce_exploited_in/
 ,Wordpress,2026-08-24T19:19:09+00:00,I need a sanity check: wpmudev,CVE-2026-15459,author_description,https://reddit.com/r/Wordpress/comments/1vxcktc/i_need_a_sanity_check_wpmudev/
 ,sysadmin,2026-08-23T20:39:15+00:00,"Microsoft dropped a CVSS 10.0 Entra ID RCE, said it was exploited, then walked that back a day later. No customer patch.",CVE-2026-69836,author_description;comments[10].body;comments[13].body;comments[25].body,https://reddit.com/r/sysadmin/comments/1vwibli/microsoft_dropped_a_cvss_100_entra_id_rce_said_it/
 ,sysadmin,2026-08-21T11:06:36+00:00,CVE-2026-59310 rant incoming,CVE-2026-59310,comments[0].body;title,https://reddit.com/r/sysadmin/comments/1vud9ln/cve202659310_rant_incoming/
