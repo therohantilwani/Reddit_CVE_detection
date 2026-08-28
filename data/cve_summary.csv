@@ -70,6 +70,7 @@ CVE-2026-6837,1,2026-08-16T18:48:50+00:00,1786906130,netsec,https://reddit.com/r
 CVE-2026-6861,1,2026-08-26T19:13:55+00:00,1787771635,debian,https://reddit.com/r/debian/comments/1vz6or9/emac_cve_guys_you_should_update_your_emac_package/
 CVE-2026-68821,1,2026-08-19T00:22:53+00:00,1787098973,sysadmin,https://reddit.com/r/sysadmin/comments/1vs6uu4/tenable_windows_package_manager_winget_13080/
 CVE-2026-69836,1,2026-08-23T20:39:15+00:00,1787517555,sysadmin,https://reddit.com/r/sysadmin/comments/1vwibli/microsoft_dropped_a_cvss_100_entra_id_rce_said_it/
+CVE-2026-75960,1,2026-08-28T09:12:16+00:00,1787908336,netsec,https://reddit.com/r/netsec/comments/1w0lg9k/one_resident_login_an_entire_apartment_complex/
 CVE-2026-77219,1,2026-08-26T19:13:55+00:00,1787771635,debian,https://reddit.com/r/debian/comments/1vz6or9/emac_cve_guys_you_should_update_your_emac_package/
 CVE-2026-8452,1,2026-08-14T07:10:17+00:00,1786691417,netsec,https://reddit.com/r/netsec/comments/1vo06aj/youre_back_in_the_room_citrix_netscaler_preauth/
 CVE-2026-8508,1,2026-08-25T13:37:06+00:00,1787665026,netsec,https://reddit.com/r/netsec/comments/1vy03c7/cve20268508_trustboundary_bypass_in_zyxel_social/
