@@ -25,6 +25,8 @@ CVE-2023-36010,1,2026-06-22T08:38:34+00:00,1782117514,sysadmin,https://reddit.co
 CVE-2023-49105,1,2026-08-26T13:59:47+00:00,1787752787,netsec,https://reddit.com/r/netsec/comments/1vyxx41/philippine_nuclear_agency_and_naval_contractor/
 CVE-2023-50488,1,2026-08-18T22:38:47+00:00,1787092727,hardwarehacking,https://reddit.com/r/hardwarehacking/comments/1vs4dtb/hardwarefirmware_investigating_local_shellrtsp/
 CVE-2023-51820,1,2026-08-18T22:38:47+00:00,1787092727,hardwarehacking,https://reddit.com/r/hardwarehacking/comments/1vs4dtb/hardwarefirmware_investigating_local_shellrtsp/
+CVE-2023-5879,1,2026-09-06T04:29:02+00:00,1788668942,homeassistant,https://reddit.com/r/homeassistant/comments/1w8m4e0/genie_aladdin_connect_api_leaking_other_users/
+CVE-2023-5881,1,2026-09-06T04:29:02+00:00,1788668942,homeassistant,https://reddit.com/r/homeassistant/comments/1w8m4e0/genie_aladdin_connect_api_leaking_other_users/
 CVE-2024-1813,1,2026-07-28T14:04:05+00:00,1785247445,netsec,https://reddit.com/r/netsec/comments/1v8zh25/simple_job_board_2110_unauthenticated_rce/
 CVE-2024-28000,1,2026-08-26T13:59:47+00:00,1787752787,netsec,https://reddit.com/r/netsec/comments/1vyxx41/philippine_nuclear_agency_and_naval_contractor/
 CVE-2024-29849,1,2024-05-22T15:39:54+00:00,1716392394,dia,https://reddit.com/r/dia/comments/1cy3aoh/attention_all_veeam_backup_enterprise_manager/
@@ -53,6 +55,10 @@ CVE-2026-32193,1,2026-08-17T12:17:40+00:00,1786969060,netsec,https://reddit.com/
 CVE-2026-33696,1,2026-08-16T13:33:02+00:00,1786887182,netsec,https://reddit.com/r/netsec/comments/1vpx6ku/cve202633696_from_a_schema_name_to_rce_in_n8n/
 CVE-2026-34348,1,2026-08-17T16:17:43+00:00,1786983463,sysadmin,https://reddit.com/r/sysadmin/comments/1vqwmq6/windows_entra_login_exploit_used_from_the_event/
 CVE-2026-43499,1,2026-08-09T11:22:20+00:00,1786274540,Android,https://reddit.com/r/Android/comments/1vjndfi/got_root_on_my_s22_ultra_ported_cve202643499/
+CVE-2026-44193,1,2026-08-30T02:57:05+00:00,1788058625,PFSENSE,https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/
+CVE-2026-44194,1,2026-08-30T02:57:05+00:00,1788058625,PFSENSE,https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/
+CVE-2026-44195,1,2026-08-30T02:57:05+00:00,1788058625,PFSENSE,https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/
+CVE-2026-45158,1,2026-08-30T02:57:05+00:00,1788058625,PFSENSE,https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/
 CVE-2026-46331,1,2026-07-24T05:53:48+00:00,1784872428,netsec,https://reddit.com/r/netsec/comments/1v52lix/escaping_claude_coworks_local_vm_sandbox_via/
 CVE-2026-48908,1,2026-08-13T17:10:50+00:00,1786641050,joomla,https://reddit.com/r/joomla/comments/1vngswj/why_an_antonkill_joomla_site_can_still_look/
 CVE-2026-49049,1,2026-08-13T17:10:50+00:00,1786641050,joomla,https://reddit.com/r/joomla/comments/1vngswj/why_an_antonkill_joomla_site_can_still_look/
@@ -75,4 +81,7 @@ CVE-2026-75960,1,2026-08-28T09:12:16+00:00,1787908336,netsec,https://reddit.com/
 CVE-2026-77219,1,2026-08-26T19:13:55+00:00,1787771635,debian,https://reddit.com/r/debian/comments/1vz6or9/emac_cve_guys_you_should_update_your_emac_package/
 CVE-2026-8452,1,2026-08-14T07:10:17+00:00,1786691417,netsec,https://reddit.com/r/netsec/comments/1vo06aj/youre_back_in_the_room_citrix_netscaler_preauth/
 CVE-2026-8508,1,2026-08-25T13:37:06+00:00,1787665026,netsec,https://reddit.com/r/netsec/comments/1vy03c7/cve20268508_trustboundary_bypass_in_zyxel_social/
+CVE-2026-86206,1,2026-09-05T21:06:51+00:00,1788642411,sysadmin,https://reddit.com/r/sysadmin/comments/1w8ckla/nable_ncentral_patching_again_for_cve202686206/
+CVE-2026-86207,1,2026-09-05T21:06:51+00:00,1788642411,sysadmin,https://reddit.com/r/sysadmin/comments/1w8ckla/nable_ncentral_patching_again_for_cve202686206/
 CVE-2026-9189,1,2026-06-18T18:28:58+00:00,1781807338,Wordpress,https://reddit.com/r/Wordpress/comments/1u9ea81/cve20269189_payment_bypass_in_the_contact_form_7/
+CVE-2026-9586,1,2026-09-01T12:28:03+00:00,1788265683,netsec,https://reddit.com/r/netsec/comments/1w4aj8x/off_the_hook_discovering_and_observing_active/
