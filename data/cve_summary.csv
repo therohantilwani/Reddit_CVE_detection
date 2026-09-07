@@ -10,7 +10,6 @@ CVE-2026-61511,2,2026-07-27T11:05:55+00:00,1785150355,netsec,https://reddit.com/
 CVE-2026-73570,2,2026-08-25T11:42:46+00:00,1787658166,linux;sysadmin,https://reddit.com/r/sysadmin/comments/1vzmdo0/cve202673570_zimbra_snmp_rce_abused_to_deploy/;https://reddit.com/r/linux/comments/1vxxfiu/cve202673570_zimbra_snmplogwatch_rce_exploited_in/
 CVE-2004-2599,1,2026-08-25T17:14:25+00:00,1787678065,netsec,https://reddit.com/r/netsec/comments/1vy5zqu/pwning_call_of_duty_1_a_20yearold_rce_found_in_an/
 CVE-2013-4786,1,2026-07-28T13:31:09+00:00,1785245469,netsec,https://reddit.com/r/netsec/comments/1v8ylt4/how_we_hacked_thousands_of_data_centers_in/
-CVE-2017-6432,1,2026-08-17T05:31:48+00:00,1786944708,networking,https://reddit.com/r/networking/comments/1vqjehf/can_the_isp_use_my_dvr_to_monitor_me/
 CVE-2017-7921,1,2026-08-10T18:41:25+00:00,1786387285,netsec,https://reddit.com/r/netsec/comments/1vktfi3/inside_a_russianspeaking_operators_toolkit_for/
 CVE-2019-12308,1,2026-08-05T14:38:12+00:00,1785940692,netsec,https://reddit.com/r/netsec/comments/1vg9704/stored_xss_in_djangos_admin_via_an_unvalidated/
 CVE-2019-14192,1,2026-05-13T11:48:09+00:00,1778672889,QEMU,https://reddit.com/r/QEMU/comments/1tbx8sa/how_to_add_a_peripheral_to_qemu/
@@ -19,7 +18,6 @@ CVE-2020-10713,1,2026-08-19T12:01:19+00:00,1787140879,netsec,https://reddit.com/
 CVE-2020-25078,1,2026-08-10T18:41:25+00:00,1786387285,netsec,https://reddit.com/r/netsec/comments/1vktfi3/inside_a_russianspeaking_operators_toolkit_for/
 CVE-2020-25169,1,2026-08-10T18:41:25+00:00,1786387285,netsec,https://reddit.com/r/netsec/comments/1vktfi3/inside_a_russianspeaking_operators_toolkit_for/
 CVE-2021-33045,1,2026-08-25T12:14:13+00:00,1787660053,SecurityCamera,https://reddit.com/r/SecurityCamera/comments/1vxy4by/dahua_lost_password/
-CVE-2021-34481,1,2026-08-29T13:15:33+00:00,1788009333,sysadmin,https://reddit.com/r/sysadmin/comments/1w1masl/printer_drivers_cannot_be_installed_by_users/
 CVE-2021-36260,1,2026-08-10T18:41:25+00:00,1786387285,netsec,https://reddit.com/r/netsec/comments/1vktfi3/inside_a_russianspeaking_operators_toolkit_for/
 CVE-2023-36010,1,2026-06-22T08:38:34+00:00,1782117514,sysadmin,https://reddit.com/r/sysadmin/comments/1ucezrg/defender_av_cve202336010_still_flagged_even_on/
 CVE-2023-49105,1,2026-08-26T13:59:47+00:00,1787752787,netsec,https://reddit.com/r/netsec/comments/1vyxx41/philippine_nuclear_agency_and_naval_contractor/
@@ -67,9 +65,7 @@ CVE-2026-56291,1,2026-07-09T09:55:22+00:00,1783590922,joomla,https://reddit.com/
 CVE-2026-56292,1,2026-07-09T13:58:22+00:00,1783605502,joomla,https://reddit.com/r/joomla/comments/1urr2ye/acymailing_sql_injection_vulnerability_upgrade/
 CVE-2026-57233,1,2026-08-20T15:25:43+00:00,1787239543,sysadmin,https://reddit.com/r/sysadmin/comments/1vtml1a/notepad_downloads_secure/
 CVE-2026-58286,1,2026-08-19T18:23:19+00:00,1787163799,sysadmin,https://reddit.com/r/sysadmin/comments/1vsuo5j/edge_browser_updates_on_ws2025_domain_controllers/
-CVE-2026-60137,1,2026-08-15T17:58:26+00:00,1786816706,Wordpress,https://reddit.com/r/Wordpress/comments/1vp9i5g/keeping_wp_sites_secure/
 CVE-2026-62893,1,2026-08-14T21:04:14+00:00,1786741454,sysadmin,https://reddit.com/r/sysadmin/comments/1vojhyi/august_2026_patch_tuesday_issue_wds_tftp_cve_fix/
-CVE-2026-63030,1,2026-08-15T17:58:26+00:00,1786816706,Wordpress,https://reddit.com/r/Wordpress/comments/1vp9i5g/keeping_wp_sites_secure/
 CVE-2026-66000,1,2026-08-12T09:23:41+00:00,1786526621,netsec,https://reddit.com/r/netsec/comments/1vm95nk/erpnexts_document_follow_feature_exposed/
 CVE-2026-66694,1,2026-08-18T09:05:04+00:00,1787043904,Wordpress,https://reddit.com/r/Wordpress/comments/1vrjuu3/found_popcash_stealth_popunder_malware_hiding_in/
 CVE-2026-66915,1,2026-08-10T13:03:30+00:00,1786367010,joomla,https://reddit.com/r/joomla/comments/1vkk9mi/fabrik_for_joomla_fixes_an_unauthenticated_rce_in/
@@ -83,5 +79,6 @@ CVE-2026-8452,1,2026-08-14T07:10:17+00:00,1786691417,netsec,https://reddit.com/r
 CVE-2026-8508,1,2026-08-25T13:37:06+00:00,1787665026,netsec,https://reddit.com/r/netsec/comments/1vy03c7/cve20268508_trustboundary_bypass_in_zyxel_social/
 CVE-2026-86206,1,2026-09-05T21:06:51+00:00,1788642411,sysadmin,https://reddit.com/r/sysadmin/comments/1w8ckla/nable_ncentral_patching_again_for_cve202686206/
 CVE-2026-86207,1,2026-09-05T21:06:51+00:00,1788642411,sysadmin,https://reddit.com/r/sysadmin/comments/1w8ckla/nable_ncentral_patching_again_for_cve202686206/
+CVE-2026-86218,1,2026-09-06T05:27:14+00:00,1788672434,sysadmin,https://reddit.com/r/sysadmin/comments/1w8n7po/nable_ncentral_second_hotfix_of_the_day_for_a/
 CVE-2026-9189,1,2026-06-18T18:28:58+00:00,1781807338,Wordpress,https://reddit.com/r/Wordpress/comments/1u9ea81/cve20269189_payment_bypass_in_the_contact_form_7/
 CVE-2026-9586,1,2026-09-01T12:28:03+00:00,1788265683,netsec,https://reddit.com/r/netsec/comments/1w4aj8x/off_the_hook_discovering_and_observing_active/
