@@ -1,4 +1,5 @@
 post_id,subreddit,created_iso_utc,title,cves,cve_paths,url
+,Wordpress,2026-09-07T07:39:40+00:00,UpdraftPlus: PHP backdoor delivery attempts via CVE-2026-10795,CVE-2026-10795,title,https://reddit.com/r/Wordpress/comments/1w9lisq/updraftplus_php_backdoor_delivery_attempts_via/
 ,sysadmin,2026-09-06T05:27:14+00:00,N-Able N-Central second hotfix of the day for a different issue,CVE-2026-86218,comments[3].body,https://reddit.com/r/sysadmin/comments/1w8n7po/nable_ncentral_second_hotfix_of_the_day_for_a/
 ,homeassistant,2026-09-06T04:29:02+00:00,"Genie Aladdin Connect API leaking OTHER USERS' garage door devices into my account - real security issue, not a display bug",CVE-2023-5879;CVE-2023-5881,author_description,https://reddit.com/r/homeassistant/comments/1w8m4e0/genie_aladdin_connect_api_leaking_other_users/
 ,sysadmin,2026-09-05T21:06:51+00:00,N-Able N-Central patching again for CVE-2026-86206 and CVE-2026-86207,CVE-2026-86206;CVE-2026-86207,author_description;title,https://reddit.com/r/sysadmin/comments/1w8ckla/nable_ncentral_patching_again_for_cve202686206/
