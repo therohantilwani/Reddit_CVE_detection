@@ -1,5 +1,160 @@
 [
   {
+    "_id": "6aa22b4f648fea68715250d0",
+    "redditId": "1wc60m1",
+    "author": "Masterchief1307",
+    "author_description": "Since installing this month's CUs, KB5122871 on Windows Server 2025 (build 26100.33438) and KB5122882 on Windows Server 2022 (build 20348.5622), every session host in our RDS collection has started hanging in the same way, on the same day, and it had never happened before.\n\nSymptoms once it starts:\n\n* New RDP connections sit at \"Connecting…\" and never reach the logon screen (Event 20498 \"Remote Desktop Services has taken too long to complete the client connection\" in TerminalServices-RemoteConnectionManager/Admin)\n* Existing users can't log off or disconnect cleanly\n* Task Manager on the host hangs (it blocks calling into the Local Session Manager)....pretty much all windows apps start to hang, especially anything to do with Settings\n* Winlogon event 6005 \"SessionEnv is taking long time to handle the notification event (Disconnect)\"\n* A normal restart hangs too; only a hard reset recovers it, and it comes back later the same day\n\nThe problem appears to start with a single session disconnect/reconnect that never completes, after which everything that touches session state on that host queues up behind it. Only reboots clear it. Microsoft's release notes for both KBs list an RDS change (\"improves Remote Desktop audio  redirection\") and no known issues.\n\nEnvironment: mixed Server 2022/2025 session-host collection, VMware VMs, RD Connection Broker, MFA  at logon, third-party endpoint protection. All hosts were stable on the August CUs.\n\nWe're currently testing a rollback of the September CU on part of the collection with one host left updated as a control. Has anyone else seen this after KB5122871 / KB5122882, or found a Microsoft acknowledgment? Would appreciate hearing whether rolling back resolved it for you.",
+    "awards": [],
+    "comments": [
+      {
+        "id": "p8vhrni",
+        "author": "nzulu9er",
+        "body": "Are you using Fslogix profile management? If yes. Take a look at 26.08 fixes",
+        "score": 1,
+        "created_utc_ts": 1789007604,
+        "created_utc": "2026-09-10T02:33:24",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1wc60m1/anyone_seeing_rds_session_hosts_hang_rdp_stuck_at/p8vhrni/",
+        "parent_id": "t3_1wc60m1",
+        "is_submitter": false
+      },
+      {
+        "id": "p8vnl8p",
+        "author": "The_Penguin22",
+        "body": "Related?   [https://www.reddit.com/r/sysadmin/comments/1wap96b/comment/p8swwlg/?context=1&amp;screen\\_view\\_count=2&amp;ext-referrer=DIRECT](https://www.reddit.com/r/sysadmin/comments/1wap96b/comment/p8swwlg/?context=1&amp;screen_view_count=2&amp;ext-referrer=DIRECT)\n\n",
+        "score": 1,
+        "created_utc_ts": 1789009470,
+        "created_utc": "2026-09-10T03:04:30",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1wc60m1/anyone_seeing_rds_session_hosts_hang_rdp_stuck_at/p8vnl8p/",
+        "parent_id": "t3_1wc60m1",
+        "is_submitter": false
+      },
+      {
+        "id": "p8vu8u5",
+        "author": "blud_13",
+        "body": "No known issue posted for either KB yet. The only thing MS lists on KB5122871 is the WSUS sync error detail that got pulled for the CVE-2025-59287 fix, nothing RDS. So you are ahead of them.\n\nOn the rollback, watch the packaging. Both of those ship as a combined SSU plus LCU, so wusa /uninstall on the KB number just fails. Run dism /online /get-packages, find the LCU package name, then dism /online /remove-package /packagename: that name. The SSU half stays no matter what, thats expected, not a failed rollback. Its in the how to get this update section here [https://support.microsoft.com/en-us/servicing/os/windows-server/2026/09/kb5122871-windows-server-2025-security-update](https://support.microsoft.com/en-us/servicing/os/windows-server/2026/09/kb5122871-windows-server-2025-security-update)\n\nu/nzulu9er is right to ask about FSLogix. A container that never attaches looks exactly like this, one session wedges and everything behind it queues on LSM. Pull C:\\\\ProgramData\\\\FSLogix\\\\Logs\\\\Profile off a host while its hung and see whether the mount ever completed before you blame the CU.\n\nCurious what the control host does.",
+        "score": 1,
+        "created_utc_ts": 1789011722,
+        "created_utc": "2026-09-10T03:42:02",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1wc60m1/anyone_seeing_rds_session_hosts_hang_rdp_stuck_at/p8vu8u5/",
+        "parent_id": "t3_1wc60m1",
+        "is_submitter": false
+      },
+      {
+        "id": "p8vum4p",
+        "author": "jcartredsox",
+        "body": "I removed KB5123099 and rebooted and it fixed the issue on my 2016 RDS servers. KB5122871 and KB5122882 seem to have the same RDS audio redirection “fix” as 5123099 so removing them is probably worth a shot. ",
+        "score": 1,
+        "created_utc_ts": 1789011856,
+        "created_utc": "2026-09-10T03:44:16",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1wc60m1/anyone_seeing_rds_session_hosts_hang_rdp_stuck_at/p8vum4p/",
+        "parent_id": "t3_1wc60m1",
+        "is_submitter": false
+      },
+      {
+        "id": "p8vxye5",
+        "author": "floralcountertops",
+        "body": "Anyone notice people losing mouse cursor? ",
+        "score": 1,
+        "created_utc_ts": 1789013104,
+        "created_utc": "2026-09-10T04:05:04",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1wc60m1/anyone_seeing_rds_session_hosts_hang_rdp_stuck_at/p8vxye5/",
+        "parent_id": "t3_1wc60m1",
+        "is_submitter": false
+      },
+      {
+        "id": "p8w7crl",
+        "author": "hlava81",
+        "body": "Same issue on Windows Server 2022 RDS. Task manager not working, query user not working, even shutdown the server not working. New connections aren't possible and stuck at Connecting state. Rollback fix the issue.\n\nWhen it starts, these two critical events appear in system log. It happens randomly but frequently.\n\nA problem has occurred with one or more user-mode drivers and the hosting process has been terminated.  This may temporarily interrupt your ability to access the devices.\n\nThe device Microsoft Remote Display Adapter (location (unknown)) is offline due to a user-mode driver crash.  Windows will attempt to restart the device 5 more times.  Please contact the device manufacturer for more information about this problem.",
+        "score": 1,
+        "created_utc_ts": 1789016996,
+        "created_utc": "2026-09-10T05:09:56",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1wc60m1/anyone_seeing_rds_session_hosts_hang_rdp_stuck_at/p8w7crl/",
+        "parent_id": "t3_1wc60m1",
+        "is_submitter": false
+      }
+    ],
+    "created_utc": "2026-09-10T02:20:38",
+    "first_author_comment": null,
+    "num_comments": 8,
+    "score": 11,
+    "subreddit": "sysadmin",
+    "tag": "General Discussion",
+    "tags": [
+      "General Discussion"
+    ],
+    "title": "Anyone seeing RDS session hosts hang (RDP stuck at \"Connecting\", logoffs stall) after the September 2026 cumulative updates? (Server 2022 + 2025)",
+    "updatedAt": "2026-09-10T06:00:15.797Z",
+    "upvote_ratio": 0.87,
+    "url": "https://reddit.com/r/sysadmin/comments/1wc60m1/anyone_seeing_rds_session_hosts_hang_rdp_stuck_at/",
+    "versionList": [
+      "2026.0.0",
+      "2022.0.0",
+      "2025.0.0"
+    ],
+    "author_description_sentiment": {
+      "score": 0.233,
+      "detail": {
+        "neg": 0.035,
+        "neu": 0.931,
+        "pos": 0.034,
+        "compound": 0.2325
+      }
+    },
+    "category": "Neutral",
+    "comments_avg_sentiment_score": 0.025,
+    "sentiment_score": 0.129,
+    "isAboutCve": false,
+    "isAboutLatestUpdate": true
+  },
+  {
+    "_id": "6aa14150648fea6871520456",
+    "redditId": "1wbi40d",
+    "author": "acorn222",
+    "author_description": "**TL;DR.** The FortiPAM Chrome extension (1M+ users), used for Privileged Access Management, allowed any site to set the browser's proxy for the session, alongside allowing any site to create a new tab and send screen recordings of it to an attacker's server. That makes for trivial phishing attacks which only require the user to view something sensitive in the attacker-opened tab. CVSS 9.1 | [CVE-2026-84388](https://www.cve.org/CVERecord?id=CVE-2026-84388).",
+    "awards": [],
+    "created_utc": "2026-09-09T10:47:25",
+    "first_author_comment": null,
+    "num_comments": 1,
+    "score": 25,
+    "subreddit": "netsec",
+    "tag": "Contains AI",
+    "tags": [],
+    "title": "Fortinet Privileged Access Agent: Any Site Could Control Your Proxy and Watch Your Tab",
+    "updatedAt": "2026-09-10T06:22:20.561Z",
+    "upvote_ratio": 0.9,
+    "url": "https://reddit.com/r/netsec/comments/1wbi40d/fortinet_privileged_access_agent_any_site_could/",
+    "versionList": [],
+    "isAboutCve": true,
+    "isAboutLatestUpdate": false,
+    "comments": [
+      {
+        "id": "p8qnwor",
+        "author": "Hizonner",
+        "body": "Class, what have we learned about the security impact of adding attack surface?\n\nNot much, based on how corporate IT behaves....",
+        "score": 3,
+        "created_utc_ts": 1788959455,
+        "created_utc": "2026-09-09T13:10:55",
+        "permalink": "https://reddit.com/r/netsec/comments/1wbi40d/fortinet_privileged_access_agent_any_site_could/p8qnwor/",
+        "parent_id": "t3_1wbi40d",
+        "is_submitter": false
+      }
+    ],
+    "author_description_sentiment": {
+      "score": 0.25,
+      "detail": {
+        "neg": 0.059,
+        "neu": 0.868,
+        "pos": 0.074,
+        "compound": 0.25
+      }
+    },
+    "category": "Neutral",
+    "comments_avg_sentiment_score": -0.178,
+    "sentiment_score": 0.036,
+    "sourceBot": "reddit.py",
+    "sourceUrl": "https://reddit.com/r/netsec/comments/1wbi40d/fortinet_privileged_access_agent_any_site_could/"
+  },
+  {
     "_id": "6aa0856c648fea687151ca9f",
     "redditId": "1wb1daf",
     "author": "Gumberculeez7",
@@ -10,45 +165,77 @@
         "id": "p8mkkcy",
         "author": "Drew707",
         "body": "I don't think I got it.  Is there a link to the press release or whatever they call it?",
-        "score": 1,
+        "score": 11,
         "created_utc_ts": 1788902881,
         "created_utc": "2026-09-08T21:28:01",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/p8mkkcy/",
         "parent_id": "t3_1wb1daf",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p8ml4a6",
         "author": "Gumberculeez7",
         "body": "|CVE-2026-65669,CVE-2026-68839,CVE-2026-69276,CVE-2026-69408,CVE-2026-69431,CVE-2026-69463,CVE-2026-69491,CVE-2026-69493,CVE-2026-69496,CVE-2026-69525,CVE-2026-69579,CVE-2026-69586,CVE-2026-69590,CVE-2026-69595,CVE-2026-69669,CVE-2026-69715,CVE-2026-69730,CVE-2026-69768,CVE-2026-69769,CVE-2026-69819,CVE-2026-69824,CVE-2026-69829,CVE-2026-69845,CVE-2026-69910,CVE-2026-70296,CVE-2026-72979,CVE-2026-72982,CVE-2026-72983,CVE-2026-73009,CVE-2026-73010,CVE-2026-73025,CVE-2026-77493,CVE-2026-78445,CVE-2026-82067|\n|:-|\n\n\nthese are all the CVE's covered for patch night.  WEEEEE!!!",
-        "score": 1,
+        "score": 24,
         "created_utc_ts": 1788903034,
         "created_utc": "2026-09-08T21:30:34",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/p8ml4a6/",
         "parent_id": "t1_p8mkkcy",
-        "is_submitter": true
+        "is_submitter": true,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p8mohhl",
         "author": "CeC-P",
         "body": "I assume they released them today because they're in the security fix...  \nproblem is, they released it early, pulled it, expired it, re-released it with the same KB number or something like that. That's screwing with everyone's servers. The patch is also so large that not all servers are publicly serving it up as of 4:30 PM central. So they disclosed a bunch of zero days then can't successfully roll out the patch for them? That's a good combo.",
-        "score": 1,
+        "score": 51,
         "created_utc_ts": 1788903986,
         "created_utc": "2026-09-08T21:46:26",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/p8mohhl/",
         "parent_id": "t3_1wb1daf",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.22,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.085,
+          "neu": 0.809,
+          "pos": 0.107,
+          "compound": 0.2197
+        }
       },
       {
         "id": "p8mzoa3",
         "author": "donkeybrainamerican",
         "body": "I just bullshit and manage endpoints. What the fuck?\n\n![gif](giphy|YVPwi7L2izTJS)",
-        "score": 1,
+        "score": 17,
         "created_utc_ts": 1788907320,
         "created_utc": "2026-09-08T22:42:00",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/p8mzoa3/",
         "parent_id": "t1_p8mohhl",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.822,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.52,
+          "neu": 0.48,
+          "pos": 0,
+          "compound": -0.8221
+        }
       },
       {
         "id": "p8o6eiv",
@@ -59,7 +246,15 @@
         "created_utc": "2026-09-09T02:37:02",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/p8o6eiv/",
         "parent_id": "t3_1wb1daf",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.44,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.172,
+          "neu": 0.828,
+          "pos": 0,
+          "compound": -0.4404
+        }
       },
       {
         "id": "p8onz4q",
@@ -70,19 +265,255 @@
         "created_utc": "2026-09-09T04:27:23",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/p8onz4q/",
         "parent_id": "t3_1wb1daf",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
+      },
+      {
+        "id": "p8p2iss",
+        "author": "Shotokant",
+        "body": "Good. That means they are using ai to find and fix vulnerabilities which can only mean a more secure environment for us all. ",
+        "score": 1,
+        "created_utc_ts": 1788934622,
+        "created_utc": "2026-09-09T06:17:02",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/p8p2iss/",
+        "parent_id": "t3_1wb1daf",
+        "is_submitter": false,
+        "sentiment_score": 0.612,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.061,
+          "neu": 0.725,
+          "pos": 0.214,
+          "compound": 0.6115
+        }
+      },
+      {
+        "id": "p8p5lee",
+        "author": "systonia_",
+        "body": "The Patchocalypse is real. AI doing it's thing",
+        "score": 1,
+        "created_utc_ts": 1788936107,
+        "created_utc": "2026-09-09T06:41:47",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/p8p5lee/",
+        "parent_id": "t1_p8o6eiv",
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
+      },
+      {
+        "id": "p8pa0g4",
+        "author": "Professional-Heat690",
+        "body": "If they are using AI to find them, they will be using it to fix them. This is unlikely to end well. ",
+        "score": 1,
+        "created_utc_ts": 1788938249,
+        "created_utc": "2026-09-09T07:17:29",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/p8pa0g4/",
+        "parent_id": "t1_p8p2iss",
+        "is_submitter": false,
+        "sentiment_score": 0.273,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.909,
+          "pos": 0.091,
+          "compound": 0.2732
+        }
+      },
+      {
+        "id": "p8pgev7",
+        "author": "Prestigious_Pace_108",
+        "body": "IMHO Windows should need at least weekly updates to cope with the current AI security scene.",
+        "score": 1,
+        "created_utc_ts": 1788941533,
+        "created_utc": "2026-09-09T08:12:13",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/p8pgev7/",
+        "parent_id": "t3_1wb1daf",
+        "is_submitter": false,
+        "sentiment_score": 0.34,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.862,
+          "pos": 0.138,
+          "compound": 0.34
+        }
+      },
+      {
+        "id": "p8pkw0l",
+        "author": "mqaiser",
+        "body": "Since inception of more AI, more issues are coming up ",
+        "score": 1,
+        "created_utc_ts": 1788943888,
+        "created_utc": "2026-09-09T08:51:28",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/p8pkw0l/",
+        "parent_id": "t3_1wb1daf",
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
+      },
+      {
+        "id": "p8plm4d",
+        "author": "ender-_",
+        "body": "That's for second year ESU license activation.",
+        "score": 1,
+        "created_utc_ts": 1788944269,
+        "created_utc": "2026-09-09T08:57:49",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/p8plm4d/",
+        "parent_id": "t1_p8onz4q",
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
+      },
+      {
+        "id": "p8ps05s",
+        "author": "Doso777",
+        "body": "It also means more regressions, aka other things will break more.",
+        "score": 1,
+        "created_utc_ts": 1788947525,
+        "created_utc": "2026-09-09T09:52:05",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/p8ps05s/",
+        "parent_id": "t1_p8p2iss",
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
+      },
+      {
+        "id": "p8q0re6",
+        "author": "Morkai",
+        "body": "We got an email from /u/genemoody-action1 about 995 patches this month. Absolute insanity. We have a half dozen people who complain long and loud about having to restart their laptops for patches, they're going to have a great time this month. ",
+        "score": 1,
+        "created_utc_ts": 1788951453,
+        "created_utc": "2026-09-09T10:57:33",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/p8q0re6/",
+        "parent_id": "t3_1wb1daf",
+        "is_submitter": false,
+        "sentiment_score": -0.273,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.134,
+          "neu": 0.778,
+          "pos": 0.089,
+          "compound": -0.2732
+        }
+      },
+      {
+        "id": "p8rw8gh",
+        "author": "BrokenByEpicor",
+        "body": "And also there's that little thing where we.... what is it?  Oh yeah, we don't really like to install patches on day one because as an overworked sysadmin I don't especially enjoy being microslop's goddamned beta tester.",
+        "score": 1,
+        "created_utc_ts": 1788971425,
+        "created_utc": "2026-09-09T16:30:25",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/p8rw8gh/",
+        "parent_id": "t1_p8mohhl",
+        "is_submitter": false,
+        "sentiment_score": -0.698,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.189,
+          "neu": 0.759,
+          "pos": 0.052,
+          "compound": -0.6977
+        }
+      },
+      {
+        "id": "p8sse05",
+        "author": "WeirdKindofStrange",
+        "body": "Anyone got a suace, missed this",
+        "score": 1,
+        "created_utc_ts": 1788979579,
+        "created_utc": "2026-09-09T18:46:19",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/p8sse05/",
+        "parent_id": "t3_1wb1daf",
+        "is_submitter": false,
+        "sentiment_score": -0.296,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.355,
+          "neu": 0.645,
+          "pos": 0,
+          "compound": -0.296
+        }
+      },
+      {
+        "id": "p8t9yfr",
+        "author": "GeneMoody-Action1",
+        "body": "Yes, and our contacts at Microsoft have said to our researchers, this number could be in the 2k mark by early next year.\n\nTrust me, we just did the vulnerability digest webinar, it was like two auctioneers talking patches!  \nAdd to that there were like 1500 third party in the same time frame..\n\nDifferent world I tell you! And it is not getting any better any time soon.\n\nAdd to that 18,000 open AI agents openly discussing online how to evade and attack more efficiently, and systems claiming \\~5 seconds from disclosure to weaponize!\n\nThe point has been reached that even if you know about it in live time, you are still exposed before you can even react or successful execute the patch enterprise wide.\n\nPeople are going have to start making some very difficult choices on who really has access to what on the internet, email, external to the perimeter, etc. We have been going for decades on growth for the sake of growth, and we have started to realize it is the philosophy of a cancer cell.",
+        "score": 1,
+        "created_utc_ts": 1788984003,
+        "created_utc": "2026-09-09T20:00:03",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/p8t9yfr/",
+        "parent_id": "t1_p8q0re6",
+        "is_submitter": false,
+        "sentiment_score": 0.909,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.077,
+          "neu": 0.78,
+          "pos": 0.143,
+          "compound": 0.909
+        }
+      },
+      {
+        "id": "p8u3oba",
+        "author": "Random-D",
+        "body": "i am curious if or how the AI vulnerability research will end. like if we see 1-2 years from now, will AI have found all the security issued in well tested software like windows or linux that it can find and will it die down afterwards and software beings genuinely more secure afterwards?",
+        "score": 1,
+        "created_utc_ts": 1788991982,
+        "created_utc": "2026-09-09T22:13:02",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/p8u3oba/",
+        "parent_id": "t3_1wb1daf",
+        "is_submitter": false,
+        "sentiment_score": 0.771,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.09,
+          "neu": 0.684,
+          "pos": 0.225,
+          "compound": 0.7713
+        }
       }
     ],
     "created_utc": "2026-09-08T21:14:13",
     "first_author_comment": "|CVE-2026-65669,CVE-2026-68839,CVE-2026-69276,CVE-2026-69408,CVE-2026-69431,CVE-2026-69463,CVE-2026-69491,CVE-2026-69493,CVE-2026-69496,CVE-2026-69525,CVE-2026-69579,CVE-2026-69586,CVE-2026-69590,CVE-2026-69595,CVE-2026-69669,CVE-2026-69715,CVE-2026-69730,CVE-2026-69768,CVE-2026-69769,CVE-2026-69819,CVE-2026-69824,CVE-2026-69829,CVE-2026-69845,CVE-2026-69910,CVE-2026-70296,CVE-2026-72979,CVE-2026-72982,CVE-2026-72983,CVE-2026-73009,CVE-2026-73010,CVE-2026-73025,CVE-2026-77493,CVE-2026-78445,CVE-2026-82067|\n|:-|\n\n\nthese are all the CVE's covered for patch night.  WEEEEE!!!",
-    "num_comments": 10,
-    "score": 26,
+    "num_comments": 27,
+    "score": 53,
     "subreddit": "sysadmin",
     "tag": null,
     "tags": [],
     "title": "MS vulnerabilities email today",
-    "updatedAt": "2026-09-09T06:00:22.735Z",
-    "upvote_ratio": 0.75,
+    "updatedAt": "2026-09-10T06:02:40.215Z",
+    "upvote_ratio": 0.83,
     "url": "https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/",
     "versionList": [],
     "isAboutCve": true,
@@ -97,8 +528,8 @@
       }
     },
     "category": "Positive",
-    "comments_avg_sentiment_score": -0.209,
-    "sentiment_score": 0.261,
+    "comments_avg_sentiment_score": 0.033,
+    "sentiment_score": 0.381,
     "sourceBot": "reddit.py",
     "sourceUrl": "https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/"
   },
@@ -110,16 +541,16 @@
     "awards": [],
     "created_utc": "2026-09-08T14:01:18",
     "first_author_comment": null,
-    "num_comments": 100,
-    "score": 80,
+    "num_comments": 108,
+    "score": 85,
     "subreddit": "sysadmin",
     "tag": "General Discussion",
     "tags": [
       "General Discussion"
     ],
     "title": "Patch Tuesday Megathread - (September 08, 2026)",
-    "updatedAt": "2026-09-09T06:45:19.871Z",
-    "upvote_ratio": 0.99,
+    "updatedAt": "2026-09-10T06:03:48.008Z",
+    "upvote_ratio": 1,
     "url": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/",
     "versionList": [
       "08.0.0",
@@ -137,9 +568,9 @@
       }
     },
     "category": "Positive",
-    "comments_avg_sentiment_score": 0.17,
-    "sentiment_score": 0.561,
-    "commentCount": 68,
+    "comments_avg_sentiment_score": 0.141,
+    "sentiment_score": 0.546,
+    "commentCount": 73,
     "detectedCVEs": [
       {
         "cveId": "CVE-2026-58231",
@@ -822,6 +1253,130 @@
         "isAnalyzed": false,
         "cveChangeHistory": "No change history returned.\n",
         "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-58231",
+        "cveIds": [
+          "CVE-2026-81963",
+          "CVE-2026-85880",
+          "CVE-2026-58231",
+          "CVE-2026-44758",
+          "CVE-2026-34265",
+          "CVE-2026-62913",
+          "CVE-2026-62911",
+          "CVE-2026-62910",
+          "CVE-2026-62912",
+          "CVE-2026-62914",
+          "CVE-2026-62915",
+          "CVE-2024-55591",
+          "CVE-2025-24472",
+          "CVE-2026-20263",
+          "CVE-2026-20267",
+          "CVE-2026-20268",
+          "CVE-2026-20269",
+          "CVE-2026-20270",
+          "CVE-2026-20271",
+          "CVE-2026-20272",
+          "CVE-2026-20273",
+          "CVE-2026-10090",
+          "CVE-2026-18367",
+          "CVE-2026-18667",
+          "CVE-2026-20349",
+          "CVE-2026-72898",
+          "CVE-2026-71362",
+          "CVE-2026-48414",
+          "CVE-2026-48413"
+        ],
+        "source": "Comment",
+        "commentText": "Quick summary (top 10 by importance and impact):\n\n* **Windows**: 995 vulnerabilities, including 119 rated critical and two zero-days (CVE-2026-81963 and CVE-2026-85880)\n* **SAP Products:** Three Critical flaws across SAP Commerce Cloud, Manufacturing Integration and Intelligence, and NetWeaver/ABAP Platform (CVE-2026-58231, CVE-2026-44758, CVE-2026-34265, CVSS 10.0, 9.1, 9.8)\n* **Microsoft Exchange Server 2016 CU23:** Six vulnerabilities (CVE-2026-62913, CVE-2026-62911, CVE-2026-62910, CVE-2026-62912, CVE-2026-62914, CVE-2026-62915, CVSS up to 8.8)\n* **~~Fortinet FortiOS:~~** ~~Two actively exploited authentication bypass flaws (CVE-2024-55591, CVE-2025-24472, CVSS 9.6, 8.1)~~\n* **Cisco IOS XE Software:** Eight Critical and High-severity vulnerabilities (CVE-2026-20263, CVE-2026-20267, CVE-2026-20268, CVE-2026-20269, CVE-2026-20270, CVE-2026-20271, CVE-2026-20272, CVE-2026-20273, CVSS up to 9.8)\n* **Red Hat Advanced Cluster Management for Kubernetes 2:** Critical privilege escalation flaw (CVE-2026-10090, CVSS 9.0)\n* **Sophos Endpoint for macOS:** Critical privilege escalation vulnerability (CVE-2026-18367, CVSS 9.3)\n* **Tenable Sensor Proxy:** Critical flaw that can enable elevated code execution (CVE-2026-18667, CVSS 9.6)\n* **Cisco Secure Firewall ASA Software:** Actively exploited unauthenticated denial-of-service vulnerability (CVE-2026-20349, CVSS 8.6)\n* **Metabase:** Actively exploited maximum-severity SQL injection vulnerability  (CVE-2026-72898, CVSS 10.0)\n* **Adobe Commerce:** Three vulnerabilities exposing Commerce environments  (CVE-2026-71362, CVE-2026-48414, CVE-2026-48413, CVSS 9.1, 7.7, 8.7)\n\nMore details: [https://www.action1.com/patch-tuesday](https://www.action1.com/patch-tuesday?vmr)\n\n**Sources:**\n\n\\- [Action1 Vulnerability Digest](https://www.action1.com/patch-tuesday?vmr)\n\n\\- [Microsoft Security Update Guide](https://msrc.microsoft.com/update-guide/releaseNote/2026-Sep)",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8kkv2y/",
+        "commentDate": "2026-09-08T16:16:09+00:00",
+        "cvePublishedDate": "2026-08-11T11:17:15.390000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 28,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-69414",
+        "cveIds": [
+          "CVE-2026-69414"
+        ],
+        "source": "Comment",
+        "commentText": "[https://www.securityweek.com/nightmare-eclipse-drops-crowdstrike-nvidia-avast-zero-day-exploits/](https://www.securityweek.com/nightmare-eclipse-drops-crowdstrike-nvidia-avast-zero-day-exploits/)\n\nAlso, I didn't realize that ShieldBreak is now **CVE-2026-69414** and was resolved on September 1st via a MS Defender engine update.",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8lluxg/",
+        "commentDate": "2026-09-08T18:55:22+00:00",
+        "cvePublishedDate": "2026-08-14T22:17:06.810000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 24,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-58231",
+        "cveIds": [
+          "CVE-2026-81963",
+          "CVE-2026-85880",
+          "CVE-2026-58231",
+          "CVE-2026-44758",
+          "CVE-2026-34265",
+          "CVE-2026-62913",
+          "CVE-2026-62911",
+          "CVE-2026-62910",
+          "CVE-2026-62912",
+          "CVE-2026-62914",
+          "CVE-2026-62915",
+          "CVE-2024-55591",
+          "CVE-2025-24472",
+          "CVE-2026-20263",
+          "CVE-2026-20267",
+          "CVE-2026-20268",
+          "CVE-2026-20269",
+          "CVE-2026-20270",
+          "CVE-2026-20271",
+          "CVE-2026-20272",
+          "CVE-2026-20273",
+          "CVE-2026-10090",
+          "CVE-2026-18367",
+          "CVE-2026-18667",
+          "CVE-2026-20349",
+          "CVE-2026-72898",
+          "CVE-2026-71362",
+          "CVE-2026-48414",
+          "CVE-2026-48413"
+        ],
+        "source": "Comment",
+        "commentText": "Quick summary (top 10 by importance and impact):\n\n* **Windows**: 995 vulnerabilities, including 119 rated critical and two zero-days (CVE-2026-81963 and CVE-2026-85880)\n* **SAP Products:** Three Critical flaws across SAP Commerce Cloud, Manufacturing Integration and Intelligence, and NetWeaver/ABAP Platform (CVE-2026-58231, CVE-2026-44758, CVE-2026-34265, CVSS 10.0, 9.1, 9.8)\n* **Microsoft Exchange Server 2016 CU23:** Six vulnerabilities (CVE-2026-62913, CVE-2026-62911, CVE-2026-62910, CVE-2026-62912, CVE-2026-62914, CVE-2026-62915, CVSS up to 8.8)\n* **~~Fortinet FortiOS:~~** ~~Two actively exploited authentication bypass flaws (CVE-2024-55591, CVE-2025-24472, CVSS 9.6, 8.1)~~\n* **Cisco IOS XE Software:** Eight Critical and High-severity vulnerabilities (CVE-2026-20263, CVE-2026-20267, CVE-2026-20268, CVE-2026-20269, CVE-2026-20270, CVE-2026-20271, CVE-2026-20272, CVE-2026-20273, CVSS up to 9.8)\n* **Red Hat Advanced Cluster Management for Kubernetes 2:** Critical privilege escalation flaw (CVE-2026-10090, CVSS 9.0)\n* **Sophos Endpoint for macOS:** Critical privilege escalation vulnerability (CVE-2026-18367, CVSS 9.3)\n* **Tenable Sensor Proxy:** Critical flaw that can enable elevated code execution (CVE-2026-18667, CVSS 9.6)\n* **Cisco Secure Firewall ASA Software:** Actively exploited unauthenticated denial-of-service vulnerability (CVE-2026-20349, CVSS 8.6)\n* **Metabase:** Actively exploited maximum-severity SQL injection vulnerability  (CVE-2026-72898, CVSS 10.0)\n* **Adobe Commerce:** Three vulnerabilities exposing Commerce environments  (CVE-2026-71362, CVE-2026-48414, CVE-2026-48413, CVSS 9.1, 7.7, 8.7)\n\nMore details: [https://www.action1.com/patch-tuesday](https://www.action1.com/patch-tuesday?vmr)\n\n**Sources:**\n\n\\- [Action1 Vulnerability Digest](https://www.action1.com/patch-tuesday?vmr)\n\n\\- [Microsoft Security Update Guide](https://msrc.microsoft.com/update-guide/releaseNote/2026-Sep)",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8kkv2y/",
+        "commentDate": "2026-09-08T16:16:09+00:00",
+        "cvePublishedDate": "2026-08-11T11:17:15.390000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 28,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-69414",
+        "cveIds": [
+          "CVE-2026-69414"
+        ],
+        "source": "Comment",
+        "commentText": "[https://www.securityweek.com/nightmare-eclipse-drops-crowdstrike-nvidia-avast-zero-day-exploits/](https://www.securityweek.com/nightmare-eclipse-drops-crowdstrike-nvidia-avast-zero-day-exploits/)\n\nAlso, I didn't realize that ShieldBreak is now **CVE-2026-69414** and was resolved on September 1st via a MS Defender engine update.",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8lluxg/",
+        "commentDate": "2026-09-08T18:55:22+00:00",
+        "cvePublishedDate": "2026-08-14T22:17:06.810000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 24,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
       }
     ],
     "sourceBot": "reddit.py",
@@ -836,7 +1391,15 @@
         "created_utc": "2026-09-08T14:06:58",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8js09d/",
         "parent_id": "t3_1wap96b",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.735,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.447,
+          "pos": 0.553,
+          "compound": 0.7345
+        }
       },
       {
         "id": "p8js4iz",
@@ -847,7 +1410,15 @@
         "created_utc": "2026-09-08T14:07:32",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8js4iz/",
         "parent_id": "t3_1wap96b",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.71,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.337,
+          "pos": 0.663,
+          "compound": 0.7096
+        }
       },
       {
         "id": "p8jsai4",
@@ -858,7 +1429,15 @@
         "created_utc": "2026-09-08T14:08:20",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8jsai4/",
         "parent_id": "t3_1wap96b",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p8jsdmc",
@@ -869,7 +1448,15 @@
         "created_utc": "2026-09-08T14:08:46",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8jsdmc/",
         "parent_id": "t3_1wap96b",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.909,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.466,
+          "pos": 0.534,
+          "compound": 0.9095
+        }
       },
       {
         "id": "p8jtss0",
@@ -880,7 +1467,15 @@
         "created_utc": "2026-09-08T14:15:30",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8jtss0/",
         "parent_id": "t3_1wap96b",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.285,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.059,
+          "neu": 0.901,
+          "pos": 0.04,
+          "compound": -0.2846
+        }
       },
       {
         "id": "p8jugoy",
@@ -891,7 +1486,15 @@
         "created_utc": "2026-09-08T14:18:38",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8jugoy/",
         "parent_id": "t1_p8jsdmc",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p8jx25e",
@@ -902,7 +1505,15 @@
         "created_utc": "2026-09-08T14:30:47",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8jx25e/",
         "parent_id": "t3_1wap96b",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.735,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.244,
+          "pos": 0.756,
+          "compound": 0.7345
+        }
       },
       {
         "id": "p8jx58x",
@@ -913,7 +1524,15 @@
         "created_utc": "2026-09-08T14:31:11",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8jx58x/",
         "parent_id": "t1_p8js4iz",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.7,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.508,
+          "pos": 0.492,
+          "compound": 0.7003
+        }
       },
       {
         "id": "p8k4xx8",
@@ -924,7 +1543,15 @@
         "created_utc": "2026-09-08T15:06:25",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8k4xx8/",
         "parent_id": "t3_1wap96b",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.457,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.751,
+          "pos": 0.249,
+          "compound": 0.4574
+        }
       },
       {
         "id": "p8k8jx2",
@@ -935,7 +1562,15 @@
         "created_utc": "2026-09-08T15:22:30",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8k8jx2/",
         "parent_id": "t3_1wap96b",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.421,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.703,
+          "pos": 0.297,
+          "compound": 0.4215
+        }
       },
       {
         "id": "p8kcqdg",
@@ -946,7 +1581,15 @@
         "created_utc": "2026-09-08T15:40:47",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8kcqdg/",
         "parent_id": "t3_1wap96b",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.103,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.877,
+          "pos": 0.123,
+          "compound": 0.1027
+        }
       },
       {
         "id": "p8kg4b9",
@@ -957,7 +1600,15 @@
         "created_utc": "2026-09-08T15:55:28",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8kg4b9/",
         "parent_id": "t3_1wap96b",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.948,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.025,
+          "neu": 0.899,
+          "pos": 0.076,
+          "compound": 0.9482
+        }
       },
       {
         "id": "p8kkv2y",
@@ -968,7 +1619,15 @@
         "created_utc": "2026-09-08T16:16:09",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8kkv2y/",
         "parent_id": "t3_1wap96b",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.901,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.162,
+          "neu": 0.74,
+          "pos": 0.098,
+          "compound": -0.9009
+        }
       },
       {
         "id": "p8l05wn",
@@ -979,7 +1638,15 @@
         "created_utc": "2026-09-08T17:22:29",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8l05wn/",
         "parent_id": "t3_1wap96b",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p8l4fvy",
@@ -990,7 +1657,15 @@
         "created_utc": "2026-09-08T17:40:52",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8l4fvy/",
         "parent_id": "t1_p8l05wn",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p8l6v3p",
@@ -1001,7 +1676,15 @@
         "created_utc": "2026-09-08T17:51:15",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8l6v3p/",
         "parent_id": "t1_p8js09d",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p8l7hgr",
@@ -1012,7 +1695,15 @@
         "created_utc": "2026-09-08T17:53:54",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8l7hgr/",
         "parent_id": "t1_p8jsdmc",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.361,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.839,
+          "pos": 0.161,
+          "compound": 0.3612
+        }
       },
       {
         "id": "p8l864s",
@@ -1023,7 +1714,15 @@
         "created_utc": "2026-09-08T17:56:51",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8l864s/",
         "parent_id": "t1_p8kkv2y",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.026,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0.061,
+          "neu": 0.855,
+          "pos": 0.084,
+          "compound": 0.0258
+        }
       },
       {
         "id": "p8l8kf8",
@@ -1034,7 +1733,15 @@
         "created_utc": "2026-09-08T17:58:33",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8l8kf8/",
         "parent_id": "t3_1wap96b",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.625,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.746,
+          "pos": 0.254,
+          "compound": 0.6249
+        }
       },
       {
         "id": "p8l97i6",
@@ -1045,7 +1752,15 @@
         "created_utc": "2026-09-08T18:01:20",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8l97i6/",
         "parent_id": "t3_1wap96b",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.273,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.178,
+          "neu": 0.698,
+          "pos": 0.124,
+          "compound": -0.2732
+        }
       },
       {
         "id": "p8lbuq9",
@@ -1056,7 +1771,15 @@
         "created_utc": "2026-09-08T18:12:49",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8lbuq9/",
         "parent_id": "t3_1wap96b",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.511,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.387,
+          "neu": 0.42,
+          "pos": 0.193,
+          "compound": -0.5106
+        }
       },
       {
         "id": "p8lcn8m",
@@ -1067,7 +1790,15 @@
         "created_utc": "2026-09-08T18:16:12",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8lcn8m/",
         "parent_id": "t1_p8l8kf8",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p8ldmji",
@@ -1078,7 +1809,15 @@
         "created_utc": "2026-09-08T18:20:19",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8ldmji/",
         "parent_id": "t1_p8l8kf8",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.361,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.667,
+          "pos": 0.333,
+          "compound": 0.3612
+        }
       },
       {
         "id": "p8le68b",
@@ -1089,7 +1828,15 @@
         "created_utc": "2026-09-08T18:22:39",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8le68b/",
         "parent_id": "t1_p8l8kf8",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.869,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.783,
+          "pos": 0.217,
+          "compound": 0.8689
+        }
       },
       {
         "id": "p8leiks",
@@ -1100,7 +1847,15 @@
         "created_utc": "2026-09-08T18:24:05",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8leiks/",
         "parent_id": "t3_1wap96b",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.459,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.062,
+          "neu": 0.806,
+          "pos": 0.131,
+          "compound": 0.4588
+        }
       },
       {
         "id": "p8levdu",
@@ -1111,7 +1866,15 @@
         "created_utc": "2026-09-08T18:25:35",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8levdu/",
         "parent_id": "t3_1wap96b",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.872,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.067,
+          "neu": 0.909,
+          "pos": 0.024,
+          "compound": -0.8715
+        }
       },
       {
         "id": "p8lfjef",
@@ -1122,7 +1885,15 @@
         "created_utc": "2026-09-08T18:28:25",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8lfjef/",
         "parent_id": "t3_1wap96b",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.361,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.063,
+          "neu": 0.807,
+          "pos": 0.13,
+          "compound": 0.3612
+        }
       },
       {
         "id": "p8lgtni",
@@ -1133,7 +1904,15 @@
         "created_utc": "2026-09-08T18:33:54",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8lgtni/",
         "parent_id": "t1_p8l8kf8",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p8lh1cc",
@@ -1144,7 +1923,15 @@
         "created_utc": "2026-09-08T18:34:49",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8lh1cc/",
         "parent_id": "t1_p8l8kf8",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.74,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.84,
+          "pos": 0.16,
+          "compound": 0.7396
+        }
       },
       {
         "id": "p8li544",
@@ -1155,7 +1942,15 @@
         "created_utc": "2026-09-08T18:39:31",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8li544/",
         "parent_id": "t1_p8l8kf8",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p8lixqr",
@@ -1166,7 +1961,15 @@
         "created_utc": "2026-09-08T18:42:56",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8lixqr/",
         "parent_id": "t1_p8jtss0",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p8lkx5b",
@@ -1177,7 +1980,15 @@
         "created_utc": "2026-09-08T18:51:23",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8lkx5b/",
         "parent_id": "t3_1wap96b",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.677,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.069,
+          "neu": 0.758,
+          "pos": 0.173,
+          "compound": 0.6774
+        }
       },
       {
         "id": "p8lluxg",
@@ -1188,7 +1999,15 @@
         "created_utc": "2026-09-08T18:55:22",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8lluxg/",
         "parent_id": "t3_1wap96b",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.34,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.048,
+          "neu": 0.837,
+          "pos": 0.116,
+          "compound": 0.34
+        }
       },
       {
         "id": "p8lntct",
@@ -1199,7 +2018,15 @@
         "created_utc": "2026-09-08T19:03:45",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8lntct/",
         "parent_id": "t1_p8kcqdg",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p8lply2",
@@ -1210,7 +2037,15 @@
         "created_utc": "2026-09-08T19:11:39",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8lply2/",
         "parent_id": "t1_p8leiks",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.273,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.038,
+          "neu": 0.878,
+          "pos": 0.083,
+          "compound": 0.2732
+        }
       },
       {
         "id": "p8lqxd0",
@@ -1221,7 +2056,15 @@
         "created_utc": "2026-09-08T19:17:20",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8lqxd0/",
         "parent_id": "t3_1wap96b",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.128,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0.03,
+          "neu": 0.97,
+          "pos": 0,
+          "compound": -0.128
+        }
       },
       {
         "id": "p8lrpcx",
@@ -1232,7 +2075,15 @@
         "created_utc": "2026-09-08T19:20:39",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8lrpcx/",
         "parent_id": "t1_p8lluxg",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p8ls9b4",
@@ -1243,7 +2094,15 @@
         "created_utc": "2026-09-08T19:23:00",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8ls9b4/",
         "parent_id": "t1_p8kcqdg",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p8lug75",
@@ -1254,7 +2113,15 @@
         "created_utc": "2026-09-08T19:32:23",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8lug75/",
         "parent_id": "t3_1wap96b",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.557,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.078,
+          "neu": 0.722,
+          "pos": 0.201,
+          "compound": 0.5574
+        }
       },
       {
         "id": "p8lxnkn",
@@ -1265,7 +2132,15 @@
         "created_utc": "2026-09-08T19:46:18",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8lxnkn/",
         "parent_id": "t1_p8l8kf8",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.825,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.782,
+          "pos": 0.218,
+          "compound": 0.8248
+        }
       },
       {
         "id": "p8lyzpg",
@@ -1276,7 +2151,15 @@
         "created_utc": "2026-09-08T19:52:01",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8lyzpg/",
         "parent_id": "t1_p8kg4b9",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.846,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.031,
+          "neu": 0.85,
+          "pos": 0.12,
+          "compound": 0.8458
+        }
       },
       {
         "id": "p8m3pnh",
@@ -1287,7 +2170,15 @@
         "created_utc": "2026-09-08T20:12:35",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8m3pnh/",
         "parent_id": "t3_1wap96b",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.727,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.071,
+          "neu": 0.788,
+          "pos": 0.141,
+          "compound": 0.7269
+        }
       },
       {
         "id": "p8m5m9y",
@@ -1298,7 +2189,15 @@
         "created_utc": "2026-09-08T20:20:52",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8m5m9y/",
         "parent_id": "t3_1wap96b",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.226,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.84,
+          "pos": 0.16,
+          "compound": 0.2263
+        }
       },
       {
         "id": "p8m6gsh",
@@ -1309,7 +2208,15 @@
         "created_utc": "2026-09-08T20:24:34",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8m6gsh/",
         "parent_id": "t3_1wap96b",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p8mbezz",
@@ -1320,7 +2227,15 @@
         "created_utc": "2026-09-08T20:46:25",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8mbezz/",
         "parent_id": "t1_p8m5m9y",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p8mgww7",
@@ -1331,7 +2246,15 @@
         "created_utc": "2026-09-08T21:11:07",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8mgww7/",
         "parent_id": "t3_1wap96b",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p8mh708",
@@ -1342,7 +2265,15 @@
         "created_utc": "2026-09-08T21:12:25",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8mh708/",
         "parent_id": "t3_1wap96b",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p8mmgok",
@@ -1353,7 +2284,15 @@
         "created_utc": "2026-09-08T21:36:52",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8mmgok/",
         "parent_id": "t1_p8kkv2y",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.709,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.543,
+          "pos": 0.457,
+          "compound": 0.7088
+        }
       },
       {
         "id": "p8mneir",
@@ -1364,7 +2303,15 @@
         "created_utc": "2026-09-08T21:41:18",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8mneir/",
         "parent_id": "t1_p8lkx5b",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.679,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.763,
+          "pos": 0.237,
+          "compound": 0.6792
+        }
       },
       {
         "id": "p8mo1cv",
@@ -1375,7 +2322,15 @@
         "created_utc": "2026-09-08T21:44:18",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8mo1cv/",
         "parent_id": "t1_p8l8kf8",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.296,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.078,
+          "neu": 0.922,
+          "pos": 0,
+          "compound": -0.296
+        }
       },
       {
         "id": "p8mo35w",
@@ -1386,7 +2341,15 @@
         "created_utc": "2026-09-08T21:44:32",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8mo35w/",
         "parent_id": "t1_p8lbuq9",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p8mp6dn",
@@ -1397,7 +2360,15 @@
         "created_utc": "2026-09-08T21:49:43",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8mp6dn/",
         "parent_id": "t1_p8lluxg",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.788,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.136,
+          "neu": 0.808,
+          "pos": 0.056,
+          "compound": -0.7876
+        }
       },
       {
         "id": "p8mpds6",
@@ -1408,7 +2379,15 @@
         "created_utc": "2026-09-08T21:50:42",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8mpds6/",
         "parent_id": "t1_p8kcqdg",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.788,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.134,
+          "neu": 0.81,
+          "pos": 0.056,
+          "compound": -0.7876
+        }
       },
       {
         "id": "p8mqbko",
@@ -1419,7 +2398,15 @@
         "created_utc": "2026-09-08T21:55:12",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8mqbko/",
         "parent_id": "t3_1wap96b",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0.086,
+          "neu": 0.829,
+          "pos": 0.086,
+          "compound": 0
+        }
       },
       {
         "id": "p8mswyt",
@@ -1430,7 +2417,15 @@
         "created_utc": "2026-09-08T22:07:56",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8mswyt/",
         "parent_id": "t1_p8kcqdg",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.128,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.865,
+          "pos": 0.135,
+          "compound": 0.128
+        }
       },
       {
         "id": "p8mtsqu",
@@ -1441,7 +2436,15 @@
         "created_utc": "2026-09-08T22:12:19",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8mtsqu/",
         "parent_id": "t3_1wap96b",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.115,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0.039,
+          "neu": 0.93,
+          "pos": 0.031,
+          "compound": -0.1154
+        }
       },
       {
         "id": "p8nc1st",
@@ -1452,7 +2455,15 @@
         "created_utc": "2026-09-08T23:48:17",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8nc1st/",
         "parent_id": "t1_p8levdu",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.477,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.193,
+          "neu": 0.807,
+          "pos": 0,
+          "compound": -0.4767
+        }
       },
       {
         "id": "p8ncruy",
@@ -1463,7 +2474,15 @@
         "created_utc": "2026-09-08T23:52:15",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8ncruy/",
         "parent_id": "t1_p8jsdmc",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.71,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.809,
+          "pos": 0.191,
+          "compound": 0.7096
+        }
       },
       {
         "id": "p8ndvo2",
@@ -1474,7 +2493,15 @@
         "created_utc": "2026-09-08T23:58:22",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8ndvo2/",
         "parent_id": "t1_p8mqbko",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p8nk5y7",
@@ -1485,7 +2512,15 @@
         "created_utc": "2026-09-09T00:32:29",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8nk5y7/",
         "parent_id": "t3_1wap96b",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.494,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.842,
+          "pos": 0.158,
+          "compound": 0.4939
+        }
       },
       {
         "id": "p8o655v",
@@ -1496,7 +2531,15 @@
         "created_utc": "2026-09-09T02:35:31",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8o655v/",
         "parent_id": "t1_p8levdu",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.421,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.093,
+          "neu": 0.907,
+          "pos": 0,
+          "compound": -0.4215
+        }
       },
       {
         "id": "p8o7a9v",
@@ -1507,7 +2550,15 @@
         "created_utc": "2026-09-09T02:42:10",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8o7a9v/",
         "parent_id": "t1_p8m3pnh",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p8o8s7h",
@@ -1518,7 +2569,15 @@
         "created_utc": "2026-09-09T02:50:57",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8o8s7h/",
         "parent_id": "t3_1wap96b",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.423,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.111,
+          "neu": 0.817,
+          "pos": 0.072,
+          "compound": -0.4226
+        }
       },
       {
         "id": "p8oet9s",
@@ -1529,7 +2588,15 @@
         "created_utc": "2026-09-09T03:27:21",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8oet9s/",
         "parent_id": "t3_1wap96b",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.637,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.679,
+          "pos": 0.321,
+          "compound": 0.6369
+        }
       },
       {
         "id": "p8ohjk9",
@@ -1540,7 +2607,15 @@
         "created_utc": "2026-09-09T03:44:42",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8ohjk9/",
         "parent_id": "t1_p8lug75",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p8osl9n",
@@ -1551,7 +2626,15 @@
         "created_utc": "2026-09-09T05:00:17",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8osl9n/",
         "parent_id": "t3_1wap96b",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.477,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.069,
+          "neu": 0.905,
+          "pos": 0.025,
+          "compound": -0.4767
+        }
       },
       {
         "id": "p8oxih4",
@@ -1562,7 +2645,15 @@
         "created_utc": "2026-09-09T05:37:37",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8oxih4/",
         "parent_id": "t1_p8mqbko",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.506,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.29,
+          "neu": 0.71,
+          "pos": 0,
+          "compound": -0.5057
+        }
       },
       {
         "id": "p8ozftt",
@@ -1573,7 +2664,110 @@
         "created_utc": "2026-09-09T05:52:42",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8ozftt/",
         "parent_id": "t1_p8l8kf8",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.359,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.616,
+          "pos": 0.384,
+          "compound": 0.3595
+        }
+      },
+      {
+        "id": "p8p0zk6",
+        "author": "n1ckst33r",
+        "body": "Have anyone becomes Updates for Office 2024 ltsc ? Build are 190 and No Updates available .",
+        "score": 1,
+        "created_utc_ts": 1788933893,
+        "created_utc": "2026-09-09T06:04:53",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8p0zk6/",
+        "parent_id": "t3_1wap96b",
+        "is_submitter": false,
+        "sentiment_score": -0.296,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.136,
+          "neu": 0.864,
+          "pos": 0,
+          "compound": -0.296
+        }
+      },
+      {
+        "id": "p8p4p2m",
+        "author": "Twist_and_pull",
+        "body": "So many bugs with it and I got 2 tickets open from Sec asking to basically check every reg setting, GPO and image....",
+        "score": 1,
+        "created_utc_ts": 1788935668,
+        "created_utc": "2026-09-09T06:34:28",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8p4p2m/",
+        "parent_id": "t1_p8lug75",
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
+      },
+      {
+        "id": "p8p4sej",
+        "author": "Twist_and_pull",
+        "body": "Placing bets",
+        "score": 1,
+        "created_utc_ts": 1788935714,
+        "created_utc": "2026-09-09T06:35:14",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8p4sej/",
+        "parent_id": "t1_p8k8jx2",
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
+      },
+      {
+        "id": "p8p4y2t",
+        "author": "wes1007",
+        "body": "Seeing the same thing with 2024 LTSC. says its up to date but we are still on last month's build 17932.20910",
+        "score": 1,
+        "created_utc_ts": 1788935791,
+        "created_utc": "2026-09-09T06:36:31",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8p4y2t/",
+        "parent_id": "t1_p8mtsqu",
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
+      },
+      {
+        "id": "p8pc6uu",
+        "author": "Tricky_Republic_94",
+        "body": "We are seeing the same thing with 2024 LTSC, I have made a support case to Microsoft about Office LTSC 2024 Sep-2026 update is missing in Windows update catalog and at ODT",
+        "score": 1,
+        "created_utc_ts": 1788939343,
+        "created_utc": "2026-09-09T07:35:43",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/p8pc6uu/",
+        "parent_id": "t1_p8p0zk6",
+        "is_submitter": false,
+        "sentiment_score": 0.128,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0.067,
+          "neu": 0.851,
+          "pos": 0.082,
+          "compound": 0.128
+        }
       }
     ]
   },
@@ -1591,7 +2785,7 @@
     "tag": null,
     "tags": [],
     "title": "UpdraftPlus: PHP backdoor delivery attempts via CVE-2026-10795",
-    "updatedAt": "2026-09-09T06:02:16.256Z",
+    "updatedAt": "2026-09-10T06:07:00.045Z",
     "upvote_ratio": 0.67,
     "url": "https://reddit.com/r/Wordpress/comments/1w9lisq/updraftplus_php_backdoor_delivery_attempts_via/",
     "versionList": [
@@ -1630,7 +2824,7 @@
     "tag": null,
     "tags": [],
     "title": "N-Able N-Central second hotfix of the day for a different issue",
-    "updatedAt": "2026-09-09T06:04:30.728Z",
+    "updatedAt": "2026-09-10T06:09:05.779Z",
     "upvote_ratio": 0.82,
     "url": "https://reddit.com/r/sysadmin/comments/1w8n7po/nable_ncentral_second_hotfix_of_the_day_for_a/",
     "versionList": [],
@@ -2733,7 +3927,7 @@
     "tag": "❓ Support",
     "tags": [],
     "title": "Genie Aladdin Connect API leaking OTHER USERS' garage door devices into my account - real security issue, not a display bug",
-    "updatedAt": "2026-09-09T06:04:33.885Z",
+    "updatedAt": "2026-09-10T06:09:08.659Z",
     "upvote_ratio": 0.89,
     "url": "https://reddit.com/r/homeassistant/comments/1w8m4e0/genie_aladdin_connect_api_leaking_other_users/",
     "versionList": [],
@@ -2903,7 +4097,7 @@
     "tag": null,
     "tags": [],
     "title": "N-Able N-Central patching again for CVE-2026-86206 and CVE-2026-86207",
-    "updatedAt": "2026-09-09T06:05:02.258Z",
+    "updatedAt": "2026-09-10T06:09:36.314Z",
     "upvote_ratio": 0.77,
     "url": "https://reddit.com/r/sysadmin/comments/1w8ckla/nable_ncentral_patching_again_for_cve202686206/",
     "versionList": [
@@ -2962,13 +4156,13 @@
     "created_utc": "2026-09-01T12:28:03",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 12,
+    "score": 11,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Off the Hook: Discovering and Observing Active Exploitation of Sangoma Switchvox CVE-2026-9586",
-    "updatedAt": "2026-09-09T06:22:46.257Z",
-    "upvote_ratio": 0.94,
+    "updatedAt": "2026-09-10T06:22:36.299Z",
+    "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/netsec/comments/1w4aj8x/off_the_hook_discovering_and_observing_active/",
     "versionList": [
       "2026.0.0",
@@ -2992,7 +4186,7 @@
     "sourceUrl": "https://reddit.com/r/netsec/comments/1w4aj8x/off_the_hook_discovering_and_observing_active/"
   },
   {
-    "_id": "6aa0ddee648fea687151e0cd",
+    "_id": "6aa22f6a648fea6871525478",
     "redditId": "1w25s1a",
     "author": "Sam_-_-_",
     "author_description": "I've been rolling pfSense for about 5 years. Decided to try Unifi. Couldn't find a manual or one-to-one feature documentation for each panel (only various spotlight articles). \n\nAsked the community for help: every response said basically \"things change too often, no need to have a manual\". \n\nExcuse me, what? I'm not a networking pro, and I do need a manual. (pfSense was hard for me, but had great documentation.) \n\nI can't believe this was the response. Is everyone in their community a bot or a cultist? \n\nI still have few days left on my return window, and might come back, LOL.",
@@ -3002,7 +4196,7 @@
         "id": "p6q65xn",
         "author": "PepperdotNet",
         "body": "Unifi access points are fantastic. But I have not seen anything yet that would convince me to abandon pfSense for a Unifi router/firewall. And I prefer Cisco switches, personally (3850s are reasonably cheap on ebay right now)",
-        "score": 61,
+        "score": 64,
         "created_utc_ts": 1788059015,
         "created_utc": "2026-08-30T03:03:35",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6q65xn/",
@@ -3024,7 +4218,7 @@
         "id": "p6q81uj",
         "author": "DifferentSpecific",
         "body": "There are so many Youtube tutorials that you don't need a manual.\n\nStart with episode #1 and go through the series. By the end you'll have a great setup.\n\n[https://youtu.be/TLsnEzSNhQs?si=dw-I7YpL-ogGp0HS](https://youtu.be/TLsnEzSNhQs?si=dw-I7YpL-ogGp0HS)\n\n",
-        "score": -4,
+        "score": -2,
         "created_utc_ts": 1788059782,
         "created_utc": "2026-08-30T03:16:22",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6q81uj/",
@@ -3035,7 +4229,7 @@
         "id": "p6q8gsr",
         "author": "spacebass",
         "body": "Bro been rolling pf for five and now the Fi community gon do him dirty like that? Fr? Naw. \n\nOp, is this a pfSense issue or a frustration with another vendor? And if the later, can you help us help you? \n\nI get the frustration when you want to learn something and can’t find the materials. Been there too. But how is this a pfSense issue? \n\nAlso we’d love to help if we can but you have to give us more than vibes. ",
-        "score": -5,
+        "score": -6,
         "created_utc_ts": 1788059954,
         "created_utc": "2026-08-30T03:19:14",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6q8gsr/",
@@ -3046,7 +4240,7 @@
         "id": "p6q8k64",
         "author": "Sam_-_-_",
         "body": "Yes, I agree there are a ton of good videos. But if I just want to know what a specific feature does, there is literally no official manual I can check. (And apparently all the fanboys think I'm unreasonable for wanting a manual.) ",
-        "score": 6,
+        "score": 5,
         "created_utc_ts": 1788059994,
         "created_utc": "2026-08-30T03:19:54",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6q8k64/",
@@ -3057,7 +4251,7 @@
         "id": "p6q9f7m",
         "author": "Sam_-_-_",
         "body": "Comparative experience coming from pfSense. Ignore and move on. ",
-        "score": 3,
+        "score": 2,
         "created_utc_ts": 1788060348,
         "created_utc": "2026-08-30T03:25:48",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6q9f7m/",
@@ -3068,7 +4262,7 @@
         "id": "p6qbfib",
         "author": "Microflunkie",
         "body": "I use pfSense and two UniFi APs at home. \n\nI have dealt with UniFi firewalls, switches and APs both professionally and personally. I read somewhere here on reddit that the founder of Ubiquiti used to work at Apple and I can totally see the aesthetic. I feel like UniFi is to networking what BMW is to cars, nice and good quality but expensive for what they are and with a large customer base who can be a bit… cult-ish.\n\nIf the UniFi can do everything you want to do it is a great ecosystem. But you will not get the granularity or capability of pfSense in the UniFi ecosystem. Conversely you will get firewall, switch and AP integration and management with unit which you can’t get with pfSense. It’s all a matter of what is inportmat and what matters to you and your needs. ",
-        "score": 3,
+        "score": 5,
         "created_utc_ts": 1788061184,
         "created_utc": "2026-08-30T03:39:44",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6qbfib/",
@@ -3079,7 +4273,7 @@
         "id": "p6qc7ka",
         "author": "NotYourNanny",
         "body": "And they recently discontinued their cloud key devices, which served only to run the Unifi gear, without any router functions. The recommended replacement is a router/firewall with those functions, but (I'm told) if set to bridge mode, you lose most of the cloud key functionality. So it really can't coexist with other gear behind a real firewall.\n\nAs soon as there's time, we'll be experimenting with running their software package on a Raspberry Pi, but we haven't gotten to it yet.",
-        "score": 3,
+        "score": 4,
         "created_utc_ts": 1788061517,
         "created_utc": "2026-08-30T03:45:17",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6qc7ka/",
@@ -3090,7 +4284,7 @@
         "id": "p6qd2w1",
         "author": "OutsideTech",
         "body": "Until it breaks, or the expected functionality doesn’t match reality, then documentation is quite necessary.",
-        "score": 9,
+        "score": 8,
         "created_utc_ts": 1788061888,
         "created_utc": "2026-08-30T03:51:28",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6qd2w1/",
@@ -3123,7 +4317,7 @@
         "id": "p6qk5kd",
         "author": "TheRealSeeThruHead",
         "body": "Unifi has been great for me so far\n\nI swapped my huge pfsense box for a better performing ucg fibre and got two switches \n\nCan’t wait to add more",
-        "score": 2,
+        "score": 1,
         "created_utc_ts": 1788064982,
         "created_utc": "2026-08-30T04:43:02",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6qk5kd/",
@@ -3145,7 +4339,7 @@
         "id": "p6qputt",
         "author": "SirEDCaLot",
         "body": "I use a mix of pfSense and UniFi.  \n\nBottom line for me- UniFi works great for WiFi and switching.  Routing/firewall, pfSense has more features, more capability, more ability to tweak it, but also takes more time to set up and (re)configure.  \n\nIf you're doing full-stack UniFi (router/firewall, switch, WAP) it's a really compelling platform that makes a lot of the basic management stuff easier.  \nFor example let's say you want to assign a static DHCP lease to a device.  pfSense you have to go to status-DHCP leases, find the device, then add the static there.  UniFi you just go to 'clients', the device is way easier to find, and give it an IP.  \nOTOH, with pfSense you can assign static IPs to that device on various subnets.  Like if it plugs into VLAN A it gets IP 1.2.3.4, if it plugs into VLAN B it gets IP 5.6.7.8, etc.  UniFi doesn't have that.  pfSense you can make a lot of very custom DHCP stuff for a device, like give it special DNS servers.  Not so with UniFi.  \n\nUniFi switches also lack detailed STP controls that even Netgear business level switches have.  But the UniFi system will instantly tell you which port on which switch a device is plugged into, or what device is plugged into a particular port.  \n\n------\n\n&gt; Excuse me, what? I'm not a networking pro, and I do need a manual.  \n\nThen UniFi is not for you.  I mean no insult by that.  It's a different approach to things.  \nYou have the Cisco type way where innovation is slow and everything is documented.  You have the pfSense way where innovation is at a medium pace and there's good documentation but not to the same degree as Cisco.  And on the other end you have UniFi where innovation is VERY rapid and Google is your documentation.  \n\nSome of that also goes to the org culture.  If you're at a place with a change control process for example, you'll hate UniFi because it's very easy to make quick changes.  \n\nHope that's helpful.  \n\nI am not a bot, I am a dog.  Woof.",
-        "score": 38,
+        "score": 35,
         "created_utc_ts": 1788067629,
         "created_utc": "2026-08-30T05:27:09",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6qputt/",
@@ -3189,7 +4383,7 @@
         "id": "p6r5zc8",
         "author": "forgotmypasswdAGAIN-",
         "body": "You also swapped out actual security. ",
-        "score": 4,
+        "score": 5,
         "created_utc_ts": 1788075749,
         "created_utc": "2026-08-30T07:42:29",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6r5zc8/",
@@ -3266,7 +4460,7 @@
         "id": "p6rt2gj",
         "author": "rh681",
         "body": "Ubiquiti is enterprise software on top of consumer hardware.  Their physical products are nothing special, but they do a good job with what they make.\n\nMy home ecosystem is pfSense firewall, Ruckus AP, and Cisco SMB switch.  Everything just purrs along.",
-        "score": 4,
+        "score": 3,
         "created_utc_ts": 1788087635,
         "created_utc": "2026-08-30T11:00:35",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6rt2gj/",
@@ -3321,7 +4515,7 @@
         "id": "p6rxq1y",
         "author": "UDP69",
         "body": "The dream machine line created a cult.",
-        "score": 4,
+        "score": 3,
         "created_utc_ts": 1788089725,
         "created_utc": "2026-08-30T11:35:25",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6rxq1y/",
@@ -3387,7 +4581,7 @@
         "id": "p6s4vlg",
         "author": "baker_miller",
         "body": "I wouldn’t call it a cult, but there many fanboys. There are also many enthusiasts who like the idea of networking, but don’t have a ton of experience and just want to roll with defaults and look at a shiny dashboard. ",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1788092593,
         "created_utc": "2026-08-30T12:23:13",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6s4vlg/",
@@ -3431,7 +4625,7 @@
         "id": "p6slo93",
         "author": "8l1uvgrjbfxem2",
         "body": "For me, it’s pfSense at the edge and TP-Link Omada for switches and APs.",
-        "score": 3,
+        "score": 5,
         "created_utc_ts": 1788098255,
         "created_utc": "2026-08-30T13:57:35",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6slo93/",
@@ -3475,7 +4669,7 @@
         "id": "p6tdzqb",
         "author": "i-Hermit",
         "body": "Do you know every feature inside and out? Yeah, googling will get you there, but a manual isn't a big ask. And if they're blowing out budgets to rewrite the manual so often, they might do well to take it as a hint to stop changing the UI so much.\n\nYour comment reads like you're saying if OP doesn't know everything then he shouldnt try. I'm sure that wasn't your intention, but it comes across that way.",
-        "score": 6,
+        "score": 5,
         "created_utc_ts": 1788106357,
         "created_utc": "2026-08-30T16:12:37",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6tdzqb/",
@@ -3508,7 +4702,7 @@
         "id": "p6toagy",
         "author": "gonzopancho",
         "body": "Calling the Ubiquiti firmware “enterprise”, when it’s not.  Enterprise runs on stability and security.  Ubiquiti is anything but. \n\nUbiquiti recently disclosed 22 UniFi flaws, including 21 Critical bugs with severity scores of 9.0 or higher. Attackers with network access could bypass authentication, gain full control, and run commands on affected devices.\n\nThe bugs affected nearly the entire product line: UniFi OS, Protect, Talk, Access, storage devices, gateways, routers, recorders, and more.\n\nhttps://community.ui.com/releases/Security-Advisory-Bulletin-067/fc4a3488-7c43-4628-8bab-f715e96dbfc9\n\nThe fork (you know who) has had a lot of security issues as well. A quick rundown of what happened just between April and May 2026:\n\nApril 9: an information disclosure bug ([WID-SEC-2026-1044](https://wz-it.com/en/blog/opnsense-26-1-8-cve-2026-44194-45158-rce-patch-management/), CVSS 8.2) affecting anything before 26.1.6.\n\nMay 6: [CVE-2026-44193](https://www.cve.org/cverecord?id=CVE-2026-44193), a 9.1 critical, authenticated command injection through XMLRPC's restore\\_config\\_section that gets you root RCE. Same day, [CVE-2026-44195](https://www.cve.org/cverecord?id=CVE-2026-44195), a login lockout bypass caused by a regex ordering mistake, which basically lets someone brute force credentials without getting locked out.\n\nMay 12: two more. [CVE-2026-44194](https://nvd.nist.gov/vuln/detail/CVE-2026-44194), another 9.1 critical, command injection through sync\\_user.php because shell metacharacters in the email field weren't being sanitized. And [CVE-2026-45158](https://nvd.nist.gov/vuln/detail/CVE-2026-45158), an argument injection bug through DHCP hostname handling, also rated critical.\n\nThat's five disclosed issues in about five weeks, including two critical root RCEs six days apart, both of which had public proof of concept code floating around not long after disclosure. It took three point releases back to back ([26.1.6](https://docs.opnsense.org/releases/CE_26.1.html#april-09-2026) on April 9, then [26.1.7](https://docs.opnsense.org/releases/CE_26.1.html#april-30-2026) on April 30, then [26.1.8](https://docs.opnsense.org/releases/CE_26.1.html#may-12-2026) on May 12) to actually get it all patched. Nor are their release notes (already linked) clear about what happened.\n\nMeanwhile, in 20 years, pfSense has never had a 9.0 or higher.  ",
-        "score": 4,
+        "score": 3,
         "created_utc_ts": 1788109138,
         "created_utc": "2026-08-30T16:58:58",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6toagy/",
@@ -3530,7 +4724,7 @@
         "id": "p6tr4er",
         "author": "hawkeye000021",
         "body": "The Firewall group I’m in is also toxic. I think it comes down to whenever you put your money into something, not to mention time, it’s like Stockholm syndrome for all products. The advantage of my solution is that it’s painfully simple to setup but that creates a new batch of issue. People say it’s the best thing ever and no one was shown me an example or a blocked attack. I’ve caught a few things here and there but nothing that has saved me from anything. Their AP7 wireless solution though, is the best thing ever in that space. I can’t type the name of the group in here because it rejects me from mentioning a competitor it seems. \n\nI’ve thought about running pfsense against to compare, but I don’t have the time. Doing this for a living eats it all up. \n\nTLDR; you’re in a cult. 😊 ",
-        "score": 4,
+        "score": 5,
         "created_utc_ts": 1788109894,
         "created_utc": "2026-08-30T17:11:34",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6tr4er/",
@@ -3860,17 +5054,15 @@
     "created_utc": "2026-08-30T02:57:05",
     "first_author_comment": "I thought \"user friendly\" + affordable 10GbE gateway, might be the reason. But \"no manual\" + community shills, is scaring me off. ",
     "num_comments": 206,
-    "score": 71,
+    "score": 69,
     "subreddit": "PFSENSE",
     "tag": null,
     "tags": [],
     "title": "Did I join a cult? (Unifi)",
-    "updatedAt": "2026-09-09T06:17:30.063Z",
+    "updatedAt": "2026-09-10T06:17:15.921Z",
     "upvote_ratio": 0.81,
     "url": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/",
     "versionList": [],
-    "isAboutCve": false,
-    "isAboutLatestUpdate": false,
     "author_description_sentiment": {
       "score": 0.919,
       "detail": {
@@ -3882,7 +5074,9 @@
     },
     "category": "Positive",
     "comments_avg_sentiment_score": 0.322,
-    "sentiment_score": 0.62
+    "sentiment_score": 0.62,
+    "isAboutCve": false,
+    "isAboutLatestUpdate": false
   },
   {
     "_id": "6a93447556679d0d2924b712",
@@ -3898,7 +5092,7 @@
     "tag": null,
     "tags": [],
     "title": "I built an automated tool to compile &amp; deploy the latest upstream open-vm-tools via Docker &amp; Ansible (multi-distro, CVE-clean)",
-    "updatedAt": "2026-09-09T06:11:20.978Z",
+    "updatedAt": "2026-09-10T06:15:24.265Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/sysadmin/comments/1w0u9ju/i_built_an_automated_tool_to_compile_deploy_the/",
     "versionList": [],
@@ -3934,7 +5128,7 @@
     "tag": null,
     "tags": [],
     "title": "One Resident Login, an Entire Apartment Complex: The Master PIN in Rently's API (CVE-2026-75960)",
-    "updatedAt": "2026-09-09T06:11:55.197Z",
+    "updatedAt": "2026-09-10T06:16:00.009Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/netsec/comments/1w0lg9k/one_resident_login_an_entire_apartment_complex/",
     "versionList": [
@@ -3991,7 +5185,7 @@
     "tag": null,
     "tags": [],
     "title": "CVE-2026-73570: Zimbra SNMP RCE abused to deploy coin-miner malware",
-    "updatedAt": "2026-09-09T06:13:39.975Z",
+    "updatedAt": "2026-09-10T06:17:44.821Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/sysadmin/comments/1vzmdo0/cve202673570_zimbra_snmp_rce_abused_to_deploy/",
     "versionList": [
@@ -4066,7 +5260,7 @@
     "tag": null,
     "tags": [],
     "title": "Emac cve guys, you should update your Emac package",
-    "updatedAt": "2026-09-09T06:45:18.166Z",
+    "updatedAt": "2026-09-10T06:18:28.011Z",
     "upvote_ratio": 0.84,
     "url": "https://reddit.com/r/debian/comments/1vz6or9/emac_cve_guys_you_should_update_your_emac_package/",
     "versionList": [],
@@ -4102,6 +5296,258 @@
     },
     "commentCount": 8,
     "detectedCVEs": [
+      {
+        "cveId": "CVE-2026-77219",
+        "cveIds": [
+          "CVE-2026-77219",
+          "CVE-2026-6861"
+        ],
+        "source": "Comment",
+        "commentText": "After looking at [https://security-tracker.debian.org/tracker/source-package/emacs](https://security-tracker.debian.org/tracker/source-package/emacs), the [cve](https://security-tracker.debian.org/tracker/CVE-2026-77219) regarding the PBM images seems still unfixed, while the [one](https://security-tracker.debian.org/tracker/CVE-2026-6861) your image names, is about SVG images.",
+        "linkToComment": "https://reddit.com/r/debian/comments/1vz6or9/emac_cve_guys_you_should_update_your_emac_package/p63elqn/",
+        "commentDate": "2026-08-26T21:46:08+00:00",
+        "cvePublishedDate": "2026-08-21T21:17:06.590000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 5,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77219",
+        "cveIds": [
+          "CVE-2026-77219",
+          "CVE-2026-6861"
+        ],
+        "source": "Comment",
+        "commentText": "After looking at [https://security-tracker.debian.org/tracker/source-package/emacs](https://security-tracker.debian.org/tracker/source-package/emacs), the [cve](https://security-tracker.debian.org/tracker/CVE-2026-77219) regarding the PBM images seems still unfixed, while the [one](https://security-tracker.debian.org/tracker/CVE-2026-6861) your image names, is about SVG images.",
+        "linkToComment": "https://reddit.com/r/debian/comments/1vz6or9/emac_cve_guys_you_should_update_your_emac_package/p63elqn/",
+        "commentDate": "2026-08-26T21:46:08+00:00",
+        "cvePublishedDate": "2026-08-21T21:17:06.590000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 5,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77219",
+        "cveIds": [
+          "CVE-2026-77219",
+          "CVE-2026-6861"
+        ],
+        "source": "Comment",
+        "commentText": "After looking at [https://security-tracker.debian.org/tracker/source-package/emacs](https://security-tracker.debian.org/tracker/source-package/emacs), the [cve](https://security-tracker.debian.org/tracker/CVE-2026-77219) regarding the PBM images seems still unfixed, while the [one](https://security-tracker.debian.org/tracker/CVE-2026-6861) your image names, is about SVG images.",
+        "linkToComment": "https://reddit.com/r/debian/comments/1vz6or9/emac_cve_guys_you_should_update_your_emac_package/p63elqn/",
+        "commentDate": "2026-08-26T21:46:08+00:00",
+        "cvePublishedDate": "2026-08-21T21:17:06.590000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 5,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77219",
+        "cveIds": [
+          "CVE-2026-77219",
+          "CVE-2026-6861"
+        ],
+        "source": "Comment",
+        "commentText": "After looking at [https://security-tracker.debian.org/tracker/source-package/emacs](https://security-tracker.debian.org/tracker/source-package/emacs), the [cve](https://security-tracker.debian.org/tracker/CVE-2026-77219) regarding the PBM images seems still unfixed, while the [one](https://security-tracker.debian.org/tracker/CVE-2026-6861) your image names, is about SVG images.",
+        "linkToComment": "https://reddit.com/r/debian/comments/1vz6or9/emac_cve_guys_you_should_update_your_emac_package/p63elqn/",
+        "commentDate": "2026-08-26T21:46:08+00:00",
+        "cvePublishedDate": "2026-08-21T21:17:06.590000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 5,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77219",
+        "cveIds": [
+          "CVE-2026-77219",
+          "CVE-2026-6861"
+        ],
+        "source": "Comment",
+        "commentText": "After looking at [https://security-tracker.debian.org/tracker/source-package/emacs](https://security-tracker.debian.org/tracker/source-package/emacs), the [cve](https://security-tracker.debian.org/tracker/CVE-2026-77219) regarding the PBM images seems still unfixed, while the [one](https://security-tracker.debian.org/tracker/CVE-2026-6861) your image names, is about SVG images.",
+        "linkToComment": "https://reddit.com/r/debian/comments/1vz6or9/emac_cve_guys_you_should_update_your_emac_package/p63elqn/",
+        "commentDate": "2026-08-26T21:46:08+00:00",
+        "cvePublishedDate": "2026-08-21T21:17:06.590000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 5,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77219",
+        "cveIds": [
+          "CVE-2026-77219",
+          "CVE-2026-6861"
+        ],
+        "source": "Comment",
+        "commentText": "After looking at [https://security-tracker.debian.org/tracker/source-package/emacs](https://security-tracker.debian.org/tracker/source-package/emacs), the [cve](https://security-tracker.debian.org/tracker/CVE-2026-77219) regarding the PBM images seems still unfixed, while the [one](https://security-tracker.debian.org/tracker/CVE-2026-6861) your image names, is about SVG images.",
+        "linkToComment": "https://reddit.com/r/debian/comments/1vz6or9/emac_cve_guys_you_should_update_your_emac_package/p63elqn/",
+        "commentDate": "2026-08-26T21:46:08+00:00",
+        "cvePublishedDate": "2026-08-21T21:17:06.590000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 5,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77219",
+        "cveIds": [
+          "CVE-2026-77219",
+          "CVE-2026-6861"
+        ],
+        "source": "Comment",
+        "commentText": "After looking at [https://security-tracker.debian.org/tracker/source-package/emacs](https://security-tracker.debian.org/tracker/source-package/emacs), the [cve](https://security-tracker.debian.org/tracker/CVE-2026-77219) regarding the PBM images seems still unfixed, while the [one](https://security-tracker.debian.org/tracker/CVE-2026-6861) your image names, is about SVG images.",
+        "linkToComment": "https://reddit.com/r/debian/comments/1vz6or9/emac_cve_guys_you_should_update_your_emac_package/p63elqn/",
+        "commentDate": "2026-08-26T21:46:08+00:00",
+        "cvePublishedDate": "2026-08-21T21:17:06.590000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 5,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77219",
+        "cveIds": [
+          "CVE-2026-77219",
+          "CVE-2026-6861"
+        ],
+        "source": "Comment",
+        "commentText": "After looking at [https://security-tracker.debian.org/tracker/source-package/emacs](https://security-tracker.debian.org/tracker/source-package/emacs), the [cve](https://security-tracker.debian.org/tracker/CVE-2026-77219) regarding the PBM images seems still unfixed, while the [one](https://security-tracker.debian.org/tracker/CVE-2026-6861) your image names, is about SVG images.",
+        "linkToComment": "https://reddit.com/r/debian/comments/1vz6or9/emac_cve_guys_you_should_update_your_emac_package/p63elqn/",
+        "commentDate": "2026-08-26T21:46:08+00:00",
+        "cvePublishedDate": "2026-08-21T21:17:06.590000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 5,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77219",
+        "cveIds": [
+          "CVE-2026-77219",
+          "CVE-2026-6861"
+        ],
+        "source": "Comment",
+        "commentText": "After looking at [https://security-tracker.debian.org/tracker/source-package/emacs](https://security-tracker.debian.org/tracker/source-package/emacs), the [cve](https://security-tracker.debian.org/tracker/CVE-2026-77219) regarding the PBM images seems still unfixed, while the [one](https://security-tracker.debian.org/tracker/CVE-2026-6861) your image names, is about SVG images.",
+        "linkToComment": "https://reddit.com/r/debian/comments/1vz6or9/emac_cve_guys_you_should_update_your_emac_package/p63elqn/",
+        "commentDate": "2026-08-26T21:46:08+00:00",
+        "cvePublishedDate": "2026-08-21T21:17:06.590000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 5,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77219",
+        "cveIds": [
+          "CVE-2026-77219",
+          "CVE-2026-6861"
+        ],
+        "source": "Comment",
+        "commentText": "After looking at [https://security-tracker.debian.org/tracker/source-package/emacs](https://security-tracker.debian.org/tracker/source-package/emacs), the [cve](https://security-tracker.debian.org/tracker/CVE-2026-77219) regarding the PBM images seems still unfixed, while the [one](https://security-tracker.debian.org/tracker/CVE-2026-6861) your image names, is about SVG images.",
+        "linkToComment": "https://reddit.com/r/debian/comments/1vz6or9/emac_cve_guys_you_should_update_your_emac_package/p63elqn/",
+        "commentDate": "2026-08-26T21:46:08+00:00",
+        "cvePublishedDate": "2026-08-21T21:17:06.590000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 5,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77219",
+        "cveIds": [
+          "CVE-2026-77219",
+          "CVE-2026-6861"
+        ],
+        "source": "Comment",
+        "commentText": "After looking at [https://security-tracker.debian.org/tracker/source-package/emacs](https://security-tracker.debian.org/tracker/source-package/emacs), the [cve](https://security-tracker.debian.org/tracker/CVE-2026-77219) regarding the PBM images seems still unfixed, while the [one](https://security-tracker.debian.org/tracker/CVE-2026-6861) your image names, is about SVG images.",
+        "linkToComment": "https://reddit.com/r/debian/comments/1vz6or9/emac_cve_guys_you_should_update_your_emac_package/p63elqn/",
+        "commentDate": "2026-08-26T21:46:08+00:00",
+        "cvePublishedDate": "2026-08-21T21:17:06.590000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 5,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77219",
+        "cveIds": [
+          "CVE-2026-77219",
+          "CVE-2026-6861"
+        ],
+        "source": "Comment",
+        "commentText": "After looking at [https://security-tracker.debian.org/tracker/source-package/emacs](https://security-tracker.debian.org/tracker/source-package/emacs), the [cve](https://security-tracker.debian.org/tracker/CVE-2026-77219) regarding the PBM images seems still unfixed, while the [one](https://security-tracker.debian.org/tracker/CVE-2026-6861) your image names, is about SVG images.",
+        "linkToComment": "https://reddit.com/r/debian/comments/1vz6or9/emac_cve_guys_you_should_update_your_emac_package/p63elqn/",
+        "commentDate": "2026-08-26T21:46:08+00:00",
+        "cvePublishedDate": "2026-08-21T21:17:06.590000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 5,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77219",
+        "cveIds": [
+          "CVE-2026-77219",
+          "CVE-2026-6861"
+        ],
+        "source": "Comment",
+        "commentText": "After looking at [https://security-tracker.debian.org/tracker/source-package/emacs](https://security-tracker.debian.org/tracker/source-package/emacs), the [cve](https://security-tracker.debian.org/tracker/CVE-2026-77219) regarding the PBM images seems still unfixed, while the [one](https://security-tracker.debian.org/tracker/CVE-2026-6861) your image names, is about SVG images.",
+        "linkToComment": "https://reddit.com/r/debian/comments/1vz6or9/emac_cve_guys_you_should_update_your_emac_package/p63elqn/",
+        "commentDate": "2026-08-26T21:46:08+00:00",
+        "cvePublishedDate": "2026-08-21T21:17:06.590000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 5,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77219",
+        "cveIds": [
+          "CVE-2026-77219",
+          "CVE-2026-6861"
+        ],
+        "source": "Comment",
+        "commentText": "After looking at [https://security-tracker.debian.org/tracker/source-package/emacs](https://security-tracker.debian.org/tracker/source-package/emacs), the [cve](https://security-tracker.debian.org/tracker/CVE-2026-77219) regarding the PBM images seems still unfixed, while the [one](https://security-tracker.debian.org/tracker/CVE-2026-6861) your image names, is about SVG images.",
+        "linkToComment": "https://reddit.com/r/debian/comments/1vz6or9/emac_cve_guys_you_should_update_your_emac_package/p63elqn/",
+        "commentDate": "2026-08-26T21:46:08+00:00",
+        "cvePublishedDate": "2026-08-21T21:17:06.590000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 5,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
       {
         "cveId": "CVE-2026-77219",
         "cveIds": [
@@ -6030,7 +7476,7 @@
     "tag": null,
     "tags": [],
     "title": "How serious is this CVE for Elementor? ",
-    "updatedAt": "2026-09-09T06:14:46.742Z",
+    "updatedAt": "2026-09-10T06:18:52.571Z",
     "upvote_ratio": 0.5,
     "url": "https://reddit.com/r/Wordpress/comments/1vz0z3z/how_serious_is_this_cve_for_elementor/",
     "versionList": [],
@@ -6076,13 +7522,13 @@
     "created_utc": "2026-08-26T13:59:47",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 24,
+    "score": 25,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "☢️ Philippine Nuclear Agency and Naval Contractor Targeted by Suspected Chinese-Speaking Operator",
-    "updatedAt": "2026-09-09T06:22:57.209Z",
-    "upvote_ratio": 0.81,
+    "updatedAt": "2026-09-10T06:22:46.390Z",
+    "upvote_ratio": 0.8,
     "url": "https://reddit.com/r/netsec/comments/1vyxx41/philippine_nuclear_agency_and_naval_contractor/",
     "versionList": [],
     "classification": {
@@ -6120,7 +7566,7 @@
     "sourceUrl": "https://reddit.com/r/netsec/comments/1vyxx41/philippine_nuclear_agency_and_naval_contractor/"
   },
   {
-    "_id": "6aa0def7648fea687151e1b9",
+    "_id": "6aa2306b648fea687152556d",
     "redditId": "1vy5zqu",
     "author": "wez32",
     "author_description": null,
@@ -6128,18 +7574,30 @@
     "created_utc": "2026-08-25T17:14:25",
     "first_author_comment": null,
     "num_comments": 34,
-    "score": 41,
+    "score": 40,
     "subreddit": "netsec",
     "tag": "Contains AI",
     "tags": [],
     "title": "Pwning Call of Duty 1: a 20-year-old RCE, found in an evening with AI",
-    "updatedAt": "2026-09-09T06:45:18.994Z",
+    "updatedAt": "2026-09-10T06:50:27.760Z",
     "upvote_ratio": 0.61,
     "url": "https://reddit.com/r/netsec/comments/1vy5zqu/pwning_call_of_duty_1_a_20yearold_rce_found_in_an/",
     "versionList": [
       "1.0.0",
       "20.0.0"
     ],
+    "author_description_sentiment": {
+      "score": 0,
+      "detail": {
+        "neg": 0,
+        "neu": 0,
+        "pos": 0,
+        "compound": 0
+      }
+    },
+    "category": "Neutral",
+    "comments_avg_sentiment_score": 0.008,
+    "sentiment_score": 0.004,
     "commentCount": 18,
     "detectedCVEs": [
       {
@@ -6175,37 +7633,8 @@
         "isAnalyzed": false,
         "cveChangeHistory": "No change history returned.\n",
         "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2004-2599",
-        "cveIds": [
-          "CVE-2004-2599"
-        ],
-        "source": "Comment",
-        "commentText": "Although it's also not the first time something like this has happened, Quake 2 had a bunch of serious vulnerabilities in its server, including a few rcon buffer overflows (https://nvd.nist.gov/vuln/detail/cve-2004-2599) and some kind of exploit that could leak the rcon password.",
-        "linkToComment": "https://reddit.com/r/netsec/comments/1vy5zqu/pwning_call_of_duty_1_a_20yearold_rce_found_in_an/p649v74/",
-        "commentDate": "2026-08-27T00:25:12+00:00",
-        "cvePublishedDate": "2004-12-31T05:00:00+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 7908,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
       }
     ],
-    "author_description_sentiment": {
-      "score": 0,
-      "detail": {
-        "neg": 0,
-        "neu": 0,
-        "pos": 0,
-        "compound": 0
-      }
-    },
-    "category": "Neutral",
-    "comments_avg_sentiment_score": 0.008,
-    "sentiment_score": 0.004,
     "isAboutCve": false,
     "isAboutLatestUpdate": false,
     "comments": [
@@ -6213,7 +7642,7 @@
         "id": "p5uf2b9",
         "author": "yournicknamehere",
         "body": "Nice article",
-        "score": -37,
+        "score": -39,
         "created_utc_ts": 1787679622,
         "created_utc": "2026-08-25T17:40:22",
         "permalink": "https://reddit.com/r/netsec/comments/1vy5zqu/pwning_call_of_duty_1_a_20yearold_rce_found_in_an/p5uf2b9/",
@@ -6224,7 +7653,7 @@
         "id": "p5uum9x",
         "author": "brixton_",
         "body": "Nice, enjoyed the writeup. Was this vuln previously known or unknown?",
-        "score": -28,
+        "score": -25,
         "created_utc_ts": 1787683455,
         "created_utc": "2026-08-25T18:44:15",
         "permalink": "https://reddit.com/r/netsec/comments/1vy5zqu/pwning_call_of_duty_1_a_20yearold_rce_found_in_an/p5uum9x/",
@@ -6235,7 +7664,7 @@
         "id": "p5vif7i",
         "author": "tyndar3us",
         "body": "cost is not mentioned.. how much did it cost to run?",
-        "score": 24,
+        "score": 23,
         "created_utc_ts": 1787689528,
         "created_utc": "2026-08-25T20:25:28",
         "permalink": "https://reddit.com/r/netsec/comments/1vy5zqu/pwning_call_of_duty_1_a_20yearold_rce_found_in_an/p5vif7i/",
@@ -6257,7 +7686,7 @@
         "id": "p5wme22",
         "author": "eckstuhc",
         "body": "Not this, but that.\n\nFull stop.\n\nAnd here’s why that matters.",
-        "score": 58,
+        "score": 57,
         "created_utc_ts": 1787700992,
         "created_utc": "2026-08-25T23:36:32",
         "permalink": "https://reddit.com/r/netsec/comments/1vy5zqu/pwning_call_of_duty_1_a_20yearold_rce_found_in_an/p5wme22/",
@@ -6268,7 +7697,7 @@
         "id": "p5ykjw3",
         "author": "uNki23",
         "body": "All the negative comments and downvotes of other comments - is it the same like with programming subs? Butt-hurt, hard coping people who are pissed because AI makes their skills obsolete and now everything is just labeled „AI slop“ to feel better?\n\nIt doesn’t matter what writing patterns LLMs use, as long as the content is legit. If you don’t like the style, copy, paste, rephrase to your liking.\n\nIT „professionals“ these days are really old people yelling at clouds 😂",
-        "score": -30,
+        "score": -32,
         "created_utc_ts": 1787727257,
         "created_utc": "2026-08-26T06:54:17",
         "permalink": "https://reddit.com/r/netsec/comments/1vy5zqu/pwning_call_of_duty_1_a_20yearold_rce_found_in_an/p5ykjw3/",
@@ -6312,7 +7741,7 @@
         "id": "p63lev2",
         "author": "MisterKokiri",
         "body": "Oof, this guy is really upset that people don't like AI, lol. Calm down friend, go touch grass.",
-        "score": 4,
+        "score": 3,
         "created_utc_ts": 1787782707,
         "created_utc": "2026-08-26T22:18:27",
         "permalink": "https://reddit.com/r/netsec/comments/1vy5zqu/pwning_call_of_duty_1_a_20yearold_rce_found_in_an/p63lev2/",
@@ -6423,7 +7852,7 @@
     "tag": null,
     "tags": [],
     "title": "PSA: Critical (9.8) account takeover in TranslatePress, update to 3.3.2 now",
-    "updatedAt": "2026-09-09T06:16:33.460Z",
+    "updatedAt": "2026-09-10T06:20:36.278Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/Wordpress/comments/1vy4y2i/psa_critical_98_account_takeover_in/",
     "versionList": [
@@ -6478,7 +7907,7 @@
     "tag": null,
     "tags": [],
     "title": "CVE-2026-8508: Trust-Boundary Bypass in Zyxel social_login.cgi Facebook Identity Handling",
-    "updatedAt": "2026-09-09T06:16:53.609Z",
+    "updatedAt": "2026-09-10T06:20:55.599Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/netsec/comments/1vy03c7/cve20268508_trustboundary_bypass_in_zyxel_social/",
     "versionList": [
@@ -6533,7 +7962,7 @@
     "tag": null,
     "tags": [],
     "title": "Dahua lost password",
-    "updatedAt": "2026-09-09T06:17:01.347Z",
+    "updatedAt": "2026-09-10T06:21:03.503Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/SecurityCamera/comments/1vxy4by/dahua_lost_password/",
     "versionList": [],
@@ -6587,7 +8016,7 @@
       "Security"
     ],
     "title": "CVE-2026-73570: Zimbra SNMP/logwatch RCE exploited in the wild, malware persists via /dev/shm and zimbra cron",
-    "updatedAt": "2026-09-09T06:17:05.501Z",
+    "updatedAt": "2026-09-10T06:21:07.367Z",
     "upvote_ratio": 0.83,
     "url": "https://reddit.com/r/linux/comments/1vxxfiu/cve202673570_zimbra_snmplogwatch_rce_exploited_in/",
     "versionList": [
@@ -6946,7 +8375,7 @@
     "tag": null,
     "tags": [],
     "title": "I need a sanity check: wpmudev",
-    "updatedAt": "2026-09-09T06:18:07.654Z",
+    "updatedAt": "2026-09-10T06:22:01.951Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/Wordpress/comments/1vxcktc/i_need_a_sanity_check_wpmudev/",
     "versionList": [],
@@ -6982,6 +8411,66 @@
     "isAboutLatestUpdate": true,
     "sourceBot": "reddit.py",
     "sourceUrl": "https://reddit.com/r/Wordpress/comments/1vxcktc/i_need_a_sanity_check_wpmudev/"
+  },
+  {
+    "_id": "6aa10d48648fea687151f0b3",
+    "redditId": "1vwy1ps",
+    "author": "socradario",
+    "author_description": "Heads up for anyone running self-managed GitLab CE/EE a critical GraphQL code injection vulnerability (CVE-2026-19478, CVSS 9.4) is currently being exploited in the wild.\nUnder certain conditions, unauthenticated attackers can modify or delete public projects and user data without needing valid credentials first.\nIf you're running an affected instance:\n→ Upgrade to the latest fixed release ASAP\n→ Check your logs for suspicious @gl_introduced GraphQL requests — this seems to be a marker tied to exploitation attempts\n→ Don't wait for a scheduled maintenance window given active exploitation is confirmed\nMore technical details here if useful: https://hubs.la/Q04tYL5c0",
+    "awards": [],
+    "comments": [
+      {
+        "id": "p5s3z5x",
+        "author": "Double_Ebb4130",
+        "body": "Worth noting for anyone checking their instance right now: the Gitlab website and API have been returning 502s and running slow since roughly 11am UK time today, so patch checks and API calls may fail for reasons unrelated to this CVE. CI pipelines still appear to be running fine.",
+        "score": 2,
+        "created_utc_ts": 1787656572,
+        "created_utc": "2026-08-25T11:16:12",
+        "permalink": "https://reddit.com/r/gitlab/comments/1vwy1ps/actively_exploited_gitlab_vulnerability/p5s3z5x/",
+        "parent_id": "t3_1vwy1ps",
+        "is_submitter": false,
+        "sentiment_score": -0.202,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.066,
+          "neu": 0.865,
+          "pos": 0.07,
+          "compound": -0.2023
+        }
+      }
+    ],
+    "created_utc": "2026-08-24T09:38:50",
+    "first_author_comment": null,
+    "num_comments": 1,
+    "score": 1,
+    "subreddit": "gitlab",
+    "tag": null,
+    "tags": [],
+    "title": "Actively exploited GitLab vulnerability (CVE-2026-19478, CVSS 9.4) - GraphQL code injection",
+    "updatedAt": "2026-09-10T06:22:32.273Z",
+    "upvote_ratio": 0.67,
+    "url": "https://reddit.com/r/gitlab/comments/1vwy1ps/actively_exploited_gitlab_vulnerability/",
+    "versionList": [
+      "2026.0.0",
+      "19478.0.0",
+      "9.4.0"
+    ],
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true,
+    "author_description_sentiment": {
+      "score": -0.743,
+      "detail": {
+        "neg": 0.145,
+        "neu": 0.781,
+        "pos": 0.074,
+        "compound": -0.743
+      }
+    },
+    "category": "Negative",
+    "comments_avg_sentiment_score": -0.202,
+    "sentiment_score": -0.473,
+    "sourceBot": "reddit.py",
+    "sourceUrl": "https://reddit.com/r/gitlab/comments/1vwy1ps/actively_exploited_gitlab_vulnerability/"
   },
   {
     "_id": "6a8b734a49715ba39189ba9a",
@@ -7645,7 +9134,7 @@
     "tag": null,
     "tags": [],
     "title": "Microsoft dropped a CVSS 10.0 Entra ID RCE, said it was exploited, then walked that back a day later. No customer patch.",
-    "updatedAt": "2026-09-09T06:19:27.088Z",
+    "updatedAt": "2026-09-10T06:22:49.096Z",
     "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/sysadmin/comments/1vwibli/microsoft_dropped_a_cvss_100_entra_id_rce_said_it/",
     "versionList": [
@@ -7814,7 +9303,7 @@
     "tag": null,
     "tags": [],
     "title": "CVE-2026-59310 rant incoming",
-    "updatedAt": "2026-09-09T06:21:15.073Z",
+    "updatedAt": "2026-09-10T06:24:38.045Z",
     "upvote_ratio": 0.14,
     "url": "https://reddit.com/r/sysadmin/comments/1vud9ln/cve202659310_rant_incoming/",
     "versionList": [
@@ -8117,7 +9606,7 @@
     "tag": null,
     "tags": [],
     "title": "Critical Elementor Pro Vulnerability 9.8/10",
-    "updatedAt": "2026-09-09T06:21:16.332Z",
+    "updatedAt": "2026-09-10T06:24:39.286Z",
     "upvote_ratio": 0.95,
     "url": "https://reddit.com/r/Wordpress/comments/1vucskk/critical_elementor_pro_vulnerability_9810/",
     "versionList": [
@@ -8168,7 +9657,7 @@
         "id": "p4wg1i3",
         "author": "Neccie",
         "body": "Time to upgrade! Or wait a little? Nah let's do it! 😀",
-        "score": 29,
+        "score": 28,
         "created_utc_ts": 1787259614,
         "created_utc": "2026-08-20T21:00:14",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4wg1i3/",
@@ -8206,7 +9695,7 @@
         "id": "p4wimqn",
         "author": "Cutoffjeanshortz37",
         "body": "I'm wfh so couldn't risk using the beta release but I'm surely not waiting once a stable release is out. ",
-        "score": 8,
+        "score": 7,
         "created_utc_ts": 1787260332,
         "created_utc": "2026-08-20T21:12:12",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4wimqn/",
@@ -8225,7 +9714,7 @@
         "id": "p4wj7n0",
         "author": "gonzopancho",
         "body": "it's not the CPU per se, it's poor vendor implementation in UEFI (and the data blocks consumed by same)",
-        "score": 13,
+        "score": 14,
         "created_utc_ts": 1787260494,
         "created_utc": "2026-08-20T21:14:54",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4wj7n0/",
@@ -8263,7 +9752,7 @@
         "id": "p4wojbw",
         "author": "RedikhetDev",
         "body": "Made an appointment in my agenda to have a look at it in 6 months. Great that development goes on.",
-        "score": 9,
+        "score": 7,
         "created_utc_ts": 1787261999,
         "created_utc": "2026-08-20T21:39:59",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4wojbw/",
@@ -8301,7 +9790,7 @@
         "id": "p4wrtk6",
         "author": "dsco88",
         "body": "Just upgraded, zero issues thus far :)",
-        "score": 8,
+        "score": 7,
         "created_utc_ts": 1787262955,
         "created_utc": "2026-08-20T21:55:55",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4wrtk6/",
@@ -8339,7 +9828,7 @@
         "id": "p4wt3bd",
         "author": "ForeheadMeetScope",
         "body": "Yet another indicator of how dead pfSense CE is :)",
-        "score": 4,
+        "score": 5,
         "created_utc_ts": 1787263330,
         "created_utc": "2026-08-20T22:02:10",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4wt3bd/",
@@ -8358,7 +9847,7 @@
         "id": "p4wu9ho",
         "author": "kphillips-netgate",
         "body": "[A day in the life of CE](https://media1.tenor.com/m/2lMoNRA0o5QAAAAC/megamind-metroman.gif)",
-        "score": 16,
+        "score": 15,
         "created_utc_ts": 1787263681,
         "created_utc": "2026-08-20T22:08:01",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4wu9ho/",
@@ -8605,7 +10094,7 @@
         "id": "p4xw3l8",
         "author": "devexis",
         "body": "Is 2.9 only available by upgrading 2.8? I’m looking to perform a fresh install of pfsense with a 2.9 img file",
-        "score": 3,
+        "score": 4,
         "created_utc_ts": 1787275804,
         "created_utc": "2026-08-21T01:30:04",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4xw3l8/",
@@ -8624,7 +10113,7 @@
         "id": "p4xx5te",
         "author": "gonzopancho",
         "body": "Don’t die!",
-        "score": 13,
+        "score": 12,
         "created_utc_ts": 1787276163,
         "created_utc": "2026-08-21T01:36:03",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4xx5te/",
@@ -8643,7 +10132,7 @@
         "id": "p4xxqas",
         "author": "real_weirdcrap",
         "body": "upgrade was smooth. Only thing I noticed is my gateway dashboard widget no longer displays a unit of measurement? It's just numbers no ms or % for the loss. Cleared my cache and cookies, tried a different browser so I don't think it's me. \n\nHaven't done my second router yet.\n\n2.9:\nhttps://imgur.com/uHaUgDY\n\n2.8.1: \nhttps://imgur.com/n6H8Xm6",
-        "score": 8,
+        "score": 9,
         "created_utc_ts": 1787276359,
         "created_utc": "2026-08-21T01:39:19",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4xxqas/",
@@ -8662,7 +10151,7 @@
         "id": "p4xyx8r",
         "author": "real_weirdcrap",
         "body": "no direct image files for 2.9 I'm aware of, you have to use netgate's installer. Or upgrade from IIRC 2.7.2 was the last disc image offered which you can find kicking around online.",
-        "score": 4,
+        "score": 5,
         "created_utc_ts": 1787276764,
         "created_utc": "2026-08-21T01:46:04",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4xyx8r/",
@@ -8738,7 +10227,7 @@
         "id": "p4yhkmm",
         "author": "cmcdonald-netgate",
         "body": "If you have a device that is hitting this, please reach out. My DMs are open. We need ASL dumps. The more the merrier. ",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1787283467,
         "created_utc": "2026-08-21T03:37:47",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4yhkmm/",
@@ -8757,7 +10246,7 @@
         "id": "p4yjmj1",
         "author": "cmcdonald-netgate",
         "body": "Some of this is to be expected when upgrading PHP... Classical chicken-egg problem. During the upgrade there are brief moments where parts of the PHP stack are being ripped out and upgraded, while the extensions have yet to be upgraded. It's mostly noise and can be ignored. ",
-        "score": 4,
+        "score": 3,
         "created_utc_ts": 1787284292,
         "created_utc": "2026-08-21T03:51:32",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4yjmj1/",
@@ -8776,7 +10265,7 @@
         "id": "p4ylxyh",
         "author": "faux123",
         "body": "I’ll wait until the dust settles",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1787285231,
         "created_utc": "2026-08-21T04:07:11",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4ylxyh/",
@@ -9004,7 +10493,7 @@
         "id": "p510aqz",
         "author": "gonzopancho",
         "body": "Soon",
-        "score": 4,
+        "score": 6,
         "created_utc_ts": 1787321015,
         "created_utc": "2026-08-21T14:03:35",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p510aqz/",
@@ -9061,7 +10550,7 @@
         "id": "p53d7w6",
         "author": "StealthNet",
         "body": "Flawless upgrade. No patches removed, no packages removed (including suricata, pfblocker devel ntopng etc).\n\nAdGuard running installed in it, also running.",
-        "score": 3,
+        "score": 4,
         "created_utc_ts": 1787343284,
         "created_utc": "2026-08-21T20:14:44",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p53d7w6/",
@@ -9175,7 +10664,7 @@
         "id": "p56z896",
         "author": "djprathikmixx",
         "body": "Because the base PHP engine upgraded to version **8.5.7**, any active packages (like Suricata, pfBlockerNG, or HAProxy) must be recompiled against the new PHP binaries.\n\nEnsure to disable/remove the above packages before upgrade, and post upgrade you can  reinstall them with settings intact. (saves you from lot of headache of DNS and internet issues post upgrade)",
-        "score": 6,
+        "score": 7,
         "created_utc_ts": 1787393149,
         "created_utc": "2026-08-22T10:05:49",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p56z896/",
@@ -9289,7 +10778,7 @@
         "id": "p5ccndx",
         "author": "Snoo91117",
         "body": "I switched earlier today to 2.9 from 2.8.1 with system patches at home.  Everything seems to be working well.\n\nI am on the second day and all is well.",
-        "score": 3,
+        "score": 4,
         "created_utc_ts": 1787455886,
         "created_utc": "2026-08-23T03:31:26",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p5ccndx/",
@@ -9498,12 +10987,12 @@
     "created_utc": "2026-08-20T20:55:28",
     "first_author_comment": null,
     "num_comments": 112,
-    "score": 152,
+    "score": 155,
     "subreddit": "PFSENSE",
     "tag": null,
     "tags": [],
     "title": "Netgate Releases pfSense Community Edition Version 2.9.0",
-    "updatedAt": "2026-09-09T06:21:40.872Z",
+    "updatedAt": "2026-09-10T06:25:03.922Z",
     "upvote_ratio": 0.98,
     "url": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/",
     "versionList": [
@@ -10128,7 +11617,7 @@
     "tag": null,
     "tags": [],
     "title": "Notepad++ downloads secure?",
-    "updatedAt": "2026-09-09T06:22:00.222Z",
+    "updatedAt": "2026-09-10T06:25:23.441Z",
     "upvote_ratio": 0.77,
     "url": "https://reddit.com/r/sysadmin/comments/1vtml1a/notepad_downloads_secure/",
     "versionList": [],
@@ -10181,7 +11670,7 @@
       "Microsoft"
     ],
     "title": "Edge Browser Updates On WS2025 Domain Controllers?",
-    "updatedAt": "2026-09-09T06:22:46.600Z",
+    "updatedAt": "2026-09-10T06:26:10.899Z",
     "upvote_ratio": 0.63,
     "url": "https://reddit.com/r/sysadmin/comments/1vsuo5j/edge_browser_updates_on_ws2025_domain_controllers/",
     "versionList": [],
@@ -11177,12 +12666,12 @@
     "created_utc": "2026-08-19T12:01:19",
     "first_author_comment": "From offensive security perspective or even from a product security standpoint it can be eye opening when you stop having tunnel vision on the secure boot crypto implementation and start looking all the different actors and assumptions around it.   \nThe blog touches on a bunch of mostly software related issues. It’s getting even more interesting when taking into account fault injection. That would have made this a 2 hour article. Maybe that’s some good material for a follow up ",
     "num_comments": 14,
-    "score": 123,
+    "score": 121,
     "subreddit": "netsec",
     "tag": "Contains AI",
     "tags": [],
     "title": "How to break secure boot without touching any cryptography",
-    "updatedAt": "2026-09-09T06:23:07.800Z",
+    "updatedAt": "2026-09-10T06:26:31.842Z",
     "upvote_ratio": 0.97,
     "url": "https://reddit.com/r/netsec/comments/1vskftw/how_to_break_secure_boot_without_touching_any/",
     "versionList": [],
@@ -11211,7 +12700,7 @@
         "id": "p4msq15",
         "author": "Even_Package_8573",
         "body": "The “without touching the crypto” part is what caught my attention. It really shows how the security of a boot chain can come down to the assumptions and implementation around the cryptography, rather than the cryptography itself. Definitely a good reminder that “signed” doesn’t automatically mean “safe.”",
-        "score": 24,
+        "score": 22,
         "created_utc_ts": 1787151844,
         "created_utc": "2026-08-19T15:04:04",
         "permalink": "https://reddit.com/r/netsec/comments/1vskftw/how_to_break_secure_boot_without_touching_any/p4msq15/",
@@ -11249,7 +12738,7 @@
         "id": "p4s1lj8",
         "author": "Every-Progress-1117",
         "body": "Really nice article, and just to add to your first section \"Trust before the operating system exists\" please please please read Ken Thompson's Trusting Trust: [https://dl.acm.org/doi/10.1145/358198.358210](https://dl.acm.org/doi/10.1145/358198.358210) , PDF here: [https://people.cs.umass.edu/\\~emery/classes/cmpsci691st/readings/Sec/Reflections-on-Trusting-Trust.pdf](https://people.cs.umass.edu/~emery/classes/cmpsci691st/readings/Sec/Reflections-on-Trusting-Trust.pdf)\n\nI've worked with trusted systems for a long time, and it all comes down to how strong that chair of trust actually is and from where it starts...and that might be LONG before you power on the computer.\n\nBut again, really nice article! Thanks! I will forward this one to my students!",
-        "score": 10,
+        "score": 9,
         "created_utc_ts": 1787210577,
         "created_utc": "2026-08-20T07:22:57",
         "permalink": "https://reddit.com/r/netsec/comments/1vskftw/how_to_break_secure_boot_without_touching_any/p4s1lj8/",
@@ -11448,7 +12937,7 @@
       "Question"
     ],
     "title": "Tenable - Windows Package Manager (WinGet) &lt; 1.30.80 Elevation of Privilege (CVE-2026-68821)",
-    "updatedAt": "2026-09-09T06:23:29.007Z",
+    "updatedAt": "2026-09-10T06:26:52.937Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/sysadmin/comments/1vs6uu4/tenable_windows_package_manager_winget_13080/",
     "versionList": [
@@ -11622,7 +13111,7 @@
     "tag": null,
     "tags": [],
     "title": "[Hardware/Firmware] Investigating local shell/RTSP access on Blurams A31C-family camera (SoC unconfirmed — possibly ANYKA)",
-    "updatedAt": "2026-09-09T06:23:31.777Z",
+    "updatedAt": "2026-09-10T06:26:56.049Z",
     "upvote_ratio": 0.5,
     "url": "https://reddit.com/r/hardwarehacking/comments/1vs4dtb/hardwarefirmware_investigating_local_shellrtsp/",
     "versionList": [],
@@ -11737,7 +13226,7 @@
     "tag": null,
     "tags": [],
     "title": "PSA - Major security issue with the PODS plugin - CVE-2026-19598",
-    "updatedAt": "2026-09-09T06:23:39.095Z",
+    "updatedAt": "2026-09-10T06:27:03.433Z",
     "upvote_ratio": 0.98,
     "url": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/",
     "versionList": [
@@ -12639,13 +14128,13 @@
     "created_utc": "2026-08-18T17:34:14",
     "first_author_comment": null,
     "num_comments": 0,
-    "score": 29,
+    "score": 31,
     "subreddit": "netsec",
     "tag": "Contains AI",
     "tags": [],
     "title": "🎥 Operation CameraSwarm: over 14,000 Dahua cameras compromised across Ukraine and Russia",
-    "updatedAt": "2026-09-09T06:23:48.343Z",
-    "upvote_ratio": 0.87,
+    "updatedAt": "2026-09-10T06:27:14.165Z",
+    "upvote_ratio": 0.85,
     "url": "https://reddit.com/r/netsec/comments/1vrw3fd/operation_cameraswarm_over_14000_dahua_cameras/",
     "versionList": [
       "14.0.0",
@@ -12853,7 +14342,7 @@
     "tag": null,
     "tags": [],
     "title": "Found PopCash \"stealth pop-under\" malware hiding in WordPress mu-plugins — bypassed every scanner, here's how to find and remove it",
-    "updatedAt": "2026-09-09T06:24:14.278Z",
+    "updatedAt": "2026-09-10T06:27:39.832Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/Wordpress/comments/1vrjuu3/found_popcash_stealth_popunder_malware_hiding_in/",
     "versionList": [],
@@ -13060,7 +14549,7 @@
     "tag": null,
     "tags": [],
     "title": "Windows Entra login exploit used from the event log data. Check out the demo link",
-    "updatedAt": "2026-09-09T06:24:43.633Z",
+    "updatedAt": "2026-09-10T06:28:09.844Z",
     "upvote_ratio": 0.8,
     "url": "https://reddit.com/r/sysadmin/comments/1vqwmq6/windows_entra_login_exploit_used_from_the_event/",
     "versionList": [],
@@ -13109,13 +14598,13 @@
     "created_utc": "2026-08-17T12:17:40",
     "first_author_comment": "Hi, author here, happy to answer any questions!\n\nA root-on-the-AKS-node vulnerability (CVE-2026-32193, CVSS 8.8, fixed by MSRC April 2026), the research behind it, plus a fully-working exploit on Microsoft Copilot.\n\nDisclosure: I'm a security researcher at Rubrik Zero Labs, this is our blog.\n\nShort summary of the research in a comment ⬇️",
     "num_comments": 5,
-    "score": 19,
+    "score": 20,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "From AKS node root vulnerability to Microsoft Copilot hijack (CVE-2026-32193)",
-    "updatedAt": "2026-09-09T06:24:53.900Z",
-    "upvote_ratio": 0.89,
+    "updatedAt": "2026-09-10T06:28:20.536Z",
+    "upvote_ratio": 0.87,
     "url": "https://reddit.com/r/netsec/comments/1vqqpwn/from_aks_node_root_vulnerability_to_microsoft/",
     "versionList": [
       "2026.0.0",
@@ -13265,7 +14754,7 @@
     "tag": null,
     "tags": [],
     "title": "CVE-2026-6837: Command Injection in Zyxel export-cgi PKCS#12 Export Handling",
-    "updatedAt": "2026-09-09T06:25:28.257Z",
+    "updatedAt": "2026-09-10T06:28:52.784Z",
     "upvote_ratio": 0.83,
     "url": "https://reddit.com/r/netsec/comments/1vq55y4/cve20266837_command_injection_in_zyxel_exportcgi/",
     "versionList": [
@@ -13357,13 +14846,13 @@
     "created_utc": "2026-08-16T13:33:02",
     "first_author_comment": "They already patched this",
     "num_comments": 8,
-    "score": 43,
+    "score": 45,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-33696: From a Schema Name to RCE in n8n",
-    "updatedAt": "2026-09-09T06:25:38.287Z",
-    "upvote_ratio": 0.86,
+    "updatedAt": "2026-09-10T06:29:02.504Z",
+    "upvote_ratio": 0.87,
     "url": "https://reddit.com/r/netsec/comments/1vpx6ku/cve202633696_from_a_schema_name_to_rce_in_n8n/",
     "versionList": [
       "2026.0.0",
@@ -13392,7 +14881,7 @@
         "id": "p44tvfs",
         "author": "ckwalsh",
         "body": "\\&gt; One request, full shell.\n\nOne sentence, full confidence of AI authorship.",
-        "score": 4,
+        "score": 5,
         "created_utc_ts": 1786928792,
         "created_utc": "2026-08-17T01:06:32",
         "permalink": "https://reddit.com/r/netsec/comments/1vpx6ku/cve202633696_from_a_schema_name_to_rce_in_n8n/p44tvfs/",
@@ -13990,7 +15479,7 @@
     "tag": null,
     "tags": [],
     "title": "Half our dev time now goes into security. Some thoughts on open source’s future.",
-    "updatedAt": "2026-09-09T06:26:34.289Z",
+    "updatedAt": "2026-09-10T06:29:55.429Z",
     "upvote_ratio": 0.82,
     "url": "https://reddit.com/r/Wordpress/comments/1vov68k/half_our_dev_time_now_goes_into_security_some/",
     "versionList": [],
@@ -14041,7 +15530,7 @@
     "tag": null,
     "tags": [],
     "title": "August 2026 Patch Tuesday Issue - WDS TFTP CVE Fix for PXE boot.",
-    "updatedAt": "2026-09-09T06:26:47.468Z",
+    "updatedAt": "2026-09-10T06:30:07.921Z",
     "upvote_ratio": 0.97,
     "url": "https://reddit.com/r/sysadmin/comments/1vojhyi/august_2026_patch_tuesday_issue_wds_tftp_cve_fix/",
     "versionList": [
@@ -14518,7 +16007,7 @@
     "tag": "Discussion",
     "tags": [],
     "title": "Highest number of kernel updates on Fedora I've seen in years?",
-    "updatedAt": "2026-09-09T06:27:06.670Z",
+    "updatedAt": "2026-09-10T06:30:27.616Z",
     "upvote_ratio": 0.64,
     "url": "https://reddit.com/r/Fedora/comments/1vo6zr9/highest_number_of_kernel_updates_on_fedora_ive/",
     "versionList": [],
@@ -14571,7 +16060,7 @@
     "tag": null,
     "tags": [],
     "title": "You’re Back In The Room (Citrix NetScaler Pre-Auth RCE CVE-2026-8452(?)) - watchTowr Labs",
-    "updatedAt": "2026-09-09T06:27:19.302Z",
+    "updatedAt": "2026-09-10T06:30:40.537Z",
     "upvote_ratio": 0.94,
     "url": "https://reddit.com/r/netsec/comments/1vo06aj/youre_back_in_the_room_citrix_netscaler_preauth/",
     "versionList": [
@@ -14703,7 +16192,7 @@
     "tag": "Announcement",
     "tags": [],
     "title": "Netgate Releases pfSense Plus Software Version 26.07",
-    "updatedAt": "2026-09-09T06:27:36.197Z",
+    "updatedAt": "2026-09-10T06:30:57.812Z",
     "upvote_ratio": 0.87,
     "url": "https://reddit.com/r/PFSENSE/comments/1vnmhke/netgate_releases_pfsense_plus_software_version/",
     "versionList": [
@@ -15976,7 +17465,7 @@
     "tag": null,
     "tags": [],
     "title": "CVE-2026-59310 Under Active Exploitation",
-    "updatedAt": "2026-09-09T06:27:47.459Z",
+    "updatedAt": "2026-09-10T06:31:08.960Z",
     "upvote_ratio": 0.94,
     "url": "https://reddit.com/r/sysadmin/comments/1vnh3kn/cve202659310_under_active_exploitation/",
     "versionList": [
@@ -16089,7 +17578,7 @@
     "tag": "Administration/Technical",
     "tags": [],
     "title": "Why an AntonKill Joomla site can still look hacked after a clean file scan",
-    "updatedAt": "2026-09-09T06:27:48.353Z",
+    "updatedAt": "2026-09-10T06:31:09.820Z",
     "upvote_ratio": 0.5,
     "url": "https://reddit.com/r/joomla/comments/1vngswj/why_an_antonkill_joomla_site_can_still_look/",
     "versionList": [],
@@ -16126,7 +17615,7 @@
       "Security"
     ],
     "title": "CVE-2026-53360: KVM SEV-SNP guest-to-host heap OOB and analysis of the upstream fix",
-    "updatedAt": "2026-09-09T06:28:53.239Z",
+    "updatedAt": "2026-09-10T06:32:14.708Z",
     "upvote_ratio": 0.86,
     "url": "https://reddit.com/r/linux/comments/1vmcn4a/cve202653360_kvm_sevsnp_guesttohost_heap_oob_and/",
     "versionList": [
@@ -16232,13 +17721,13 @@
     "created_utc": "2026-08-12T10:31:17",
     "first_author_comment": "Hello author here  \nI independently found this in May while looking at KVM's SEVSNP PSC path, but Stan Shaw had reported it about a month before me.  \nI decided to publish my analysis anyway, as the most interesting part for me ended up being why the patch I originally proposed was incomplete and how the upstream KVM fix handled the problem differently.  \nI also dive into the exploitation side failure oracle, constrained write, repeatability, slab selection... I have not demonstrated a reliable complete VM escape, and I have tried to keep that distinction explicit in the writeup.  \nI have tried creating 2 safe CTF style exercises that model the primitive without touching real KVM or requiring SEV-SNP hardware. (becasue why not as it was fun)  \nComments/Correction to the exploitation analysis are very welcome.",
     "num_comments": 4,
-    "score": 36,
+    "score": 33,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-53360: KVM SEV-SNP guest-to-host heap OOB and analysis of the upstream fix",
-    "updatedAt": "2026-09-09T06:28:57.263Z",
-    "upvote_ratio": 0.94,
+    "updatedAt": "2026-09-10T06:32:18.794Z",
+    "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/netsec/comments/1vmadcw/cve202653360_kvm_sevsnp_guesttohost_heap_oob_and/",
     "versionList": [
       "2026.0.0",
@@ -16296,7 +17785,7 @@
     "tag": null,
     "tags": [],
     "title": "ERPNext's Document Follow feature exposed unauthorized data",
-    "updatedAt": "2026-09-09T06:28:59.278Z",
+    "updatedAt": "2026-09-10T06:32:20.845Z",
     "upvote_ratio": 0.82,
     "url": "https://reddit.com/r/netsec/comments/1vm95nk/erpnexts_document_follow_feature_exposed/",
     "versionList": [],
@@ -16428,7 +17917,7 @@
     "tag": null,
     "tags": [],
     "title": "CopyEscape: Container-to-host arbitrary file write via docker cp (CVE-2026-17106)",
-    "updatedAt": "2026-09-09T06:29:17.781Z",
+    "updatedAt": "2026-09-10T06:32:39.543Z",
     "upvote_ratio": 0.98,
     "url": "https://reddit.com/r/netsec/comments/1vlkth5/copyescape_containertohost_arbitrary_file_write/",
     "versionList": [
@@ -16544,7 +18033,7 @@
     "tag": null,
     "tags": [],
     "title": "Inside a Russian-speaking operator's toolkit for compromising Ukrainian IP cameras",
-    "updatedAt": "2026-09-09T06:29:34.679Z",
+    "updatedAt": "2026-09-10T06:32:56.235Z",
     "upvote_ratio": 0.87,
     "url": "https://reddit.com/r/netsec/comments/1vktfi3/inside_a_russianspeaking_operators_toolkit_for/",
     "versionList": [],
@@ -16619,7 +18108,7 @@
     "tag": "Administration/Technical",
     "tags": [],
     "title": "Fabrik for Joomla Fixes an Unauthenticated RCE in 4.6.7",
-    "updatedAt": "2026-09-09T06:29:40.184Z",
+    "updatedAt": "2026-09-10T06:33:01.899Z",
     "upvote_ratio": 0.63,
     "url": "https://reddit.com/r/joomla/comments/1vkk9mi/fabrik_for_joomla_fixes_an_unauthenticated_rce_in/",
     "versionList": [
@@ -16886,7 +18375,7 @@
     "tag": null,
     "tags": [],
     "title": "Got Root on my S22 Ultra! Ported CVE-2026-43499 exploit (Android 15)",
-    "updatedAt": "2026-09-09T06:29:53.821Z",
+    "updatedAt": "2026-09-10T06:33:15.099Z",
     "upvote_ratio": 0.89,
     "url": "https://reddit.com/r/Android/comments/1vjndfi/got_root_on_my_s22_ultra_ported_cve202643499/",
     "versionList": [
@@ -17174,7 +18663,7 @@
     "tag": null,
     "tags": [],
     "title": "FreeBSD Security Advisory: Serious FreeBSD wireguard flaw",
-    "updatedAt": "2026-09-09T06:30:15.361Z",
+    "updatedAt": "2026-09-10T06:33:35.939Z",
     "upvote_ratio": 0.91,
     "url": "https://reddit.com/r/PFSENSE/comments/1vhcpvl/freebsd_security_advisory_serious_freebsd/",
     "versionList": [],
@@ -18104,7 +19593,7 @@
     "tag": null,
     "tags": [],
     "title": "Call for Testing: pfSense® Community Edition 2.9 Beta Now Available!",
-    "updatedAt": "2026-09-09T06:30:22.854Z",
+    "updatedAt": "2026-09-10T06:33:43.291Z",
     "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/",
     "versionList": [
@@ -18181,7 +19670,7 @@
     "tag": "Contains AI",
     "tags": [],
     "title": "Stored XSS in Django's admin via an unvalidated URLField display path (CVE-2026-15920)",
-    "updatedAt": "2026-09-09T06:30:24.343Z",
+    "updatedAt": "2026-09-10T06:33:44.698Z",
     "upvote_ratio": 0.83,
     "url": "https://reddit.com/r/netsec/comments/1vg9704/stored_xss_in_djangos_admin_via_an_unvalidated/",
     "versionList": [
@@ -18848,7 +20337,7 @@
     "tag": null,
     "tags": [],
     "title": "A New Release Candidate for pfSense Plus Software Version 26.07 Available!",
-    "updatedAt": "2026-09-09T06:30:28.011Z",
+    "updatedAt": "2026-09-10T06:33:48.303Z",
     "upvote_ratio": 0.76,
     "url": "https://reddit.com/r/PFSENSE/comments/1vfo3lg/a_new_release_candidate_for_pfsense_plus_software/",
     "versionList": [
@@ -18885,7 +20374,7 @@
     "tag": null,
     "tags": [],
     "title": "Simple Job Board ≤ 2.11.0 - Unauthenticated RCE (CVE-2024-1813)",
-    "updatedAt": "2026-09-09T06:30:48.433Z",
+    "updatedAt": "2026-09-10T06:34:08.174Z",
     "upvote_ratio": 0.5,
     "url": "https://reddit.com/r/netsec/comments/1v8zh25/simple_job_board_2110_unauthenticated_rce/",
     "versionList": [
@@ -19383,7 +20872,7 @@
     "tag": null,
     "tags": [],
     "title": "How We Hacked Thousands of Data Centers in Minutes Using a 20-Year-Old Vulnerability",
-    "updatedAt": "2026-09-09T06:30:48.638Z",
+    "updatedAt": "2026-09-10T06:34:08.378Z",
     "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/netsec/comments/1v8ylt4/how_we_hacked_thousands_of_data_centers_in/",
     "versionList": [
@@ -19460,7 +20949,7 @@
     "tag": null,
     "tags": [],
     "title": "New vBulletin Vulnerability!",
-    "updatedAt": "2026-09-09T06:30:51.411Z",
+    "updatedAt": "2026-09-10T06:34:11.115Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/netsec/comments/1v8192k/new_vbulletin_vulnerability/",
     "versionList": [],
@@ -19495,7 +20984,7 @@
     "tag": "Pending Moderation",
     "tags": [],
     "title": "[CVE-2026-61511] vBulletin &lt;= 6.2.1 (runMaths) Pre-Auth RCE Vulnerability",
-    "updatedAt": "2026-09-09T06:30:51.763Z",
+    "updatedAt": "2026-09-10T06:34:11.306Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/netsec/comments/1v7x7i9/cve202661511_vbulletin_621_runmaths_preauth_rce/",
     "versionList": [
@@ -19651,7 +21140,7 @@
     "tag": "Contains AI",
     "tags": [],
     "title": "Escaping Claude Cowork’s local VM sandbox via CVE-2026-46331",
-    "updatedAt": "2026-09-09T06:30:59.113Z",
+    "updatedAt": "2026-09-10T06:34:18.275Z",
     "upvote_ratio": 0.97,
     "url": "https://reddit.com/r/netsec/comments/1v52lix/escaping_claude_coworks_local_vm_sandbox_via/",
     "versionList": [
@@ -19689,7 +21178,7 @@
     "tag": "Solved",
     "tags": [],
     "title": "UGOS Pro forced update broke Docker permissions",
-    "updatedAt": "2026-09-09T06:31:07.117Z",
+    "updatedAt": "2026-09-10T06:34:26.220Z",
     "upvote_ratio": 0.63,
     "url": "https://reddit.com/r/homelab/comments/1v3b91p/ugos_pro_forced_update_broke_docker_permissions/",
     "versionList": [],
@@ -19743,7 +21232,7 @@
     "tag": null,
     "tags": [],
     "title": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
-    "updatedAt": "2026-09-09T06:45:18.675Z",
+    "updatedAt": "2026-09-10T06:50:27.369Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
     "versionList": [
@@ -19768,6 +21257,438 @@
     "sentiment_score": -0.046,
     "commentCount": 0,
     "detectedCVEs": [
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
       {
         "cveId": "CVE-2026-14902",
         "cveIds": [
@@ -20310,7 +22231,7 @@
     "tag": "Joomla 6",
     "tags": [],
     "title": "Serious attack on JCE Editor- CVE-2026-48907",
-    "updatedAt": "2026-09-09T06:32:11.641Z",
+    "updatedAt": "2026-09-10T06:35:33.009Z",
     "upvote_ratio": 0.94,
     "url": "https://reddit.com/r/joomla/comments/1urs5ye/serious_attack_on_jce_editor_cve202648907/",
     "versionList": [
@@ -20388,7 +22309,7 @@
     "tag": "Administration/Technical",
     "tags": [],
     "title": "AcyMailing SQL Injection Vulnerability - Upgrade Today!",
-    "updatedAt": "2026-09-09T06:32:12.648Z",
+    "updatedAt": "2026-09-10T06:35:33.992Z",
     "upvote_ratio": 0.85,
     "url": "https://reddit.com/r/joomla/comments/1urr2ye/acymailing_sql_injection_vulnerability_upgrade/",
     "versionList": [],
@@ -20423,7 +22344,7 @@
     "tag": "Administration/Technical",
     "tags": [],
     "title": "Balbooa Forms Fixes an Unauthenticated File Upload RCE",
-    "updatedAt": "2026-09-09T06:32:14.605Z",
+    "updatedAt": "2026-09-10T06:35:36.019Z",
     "upvote_ratio": 0.83,
     "url": "https://reddit.com/r/joomla/comments/1urlq47/balbooa_forms_fixes_an_unauthenticated_file/",
     "versionList": [],
@@ -20556,7 +22477,7 @@
     "tag": null,
     "tags": [],
     "title": "Defender AV CVE-2023-36010 still flagged even on latest engine/platform?",
-    "updatedAt": "2026-09-09T06:33:30.820Z",
+    "updatedAt": "2026-09-10T06:36:54.023Z",
     "upvote_ratio": 0.78,
     "url": "https://reddit.com/r/sysadmin/comments/1ucezrg/defender_av_cve202336010_still_flagged_even_on/",
     "versionList": [
@@ -20688,7 +22609,7 @@
     "tag": null,
     "tags": [],
     "title": "WEIRD RUSTDESK REQUEST FROM MY OWN MACBOOK",
-    "updatedAt": "2026-09-09T06:33:36.153Z",
+    "updatedAt": "2026-09-10T06:36:59.267Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/rustdesk/comments/1ub5cdv/weird_rustdesk_request_from_my_own_macbook/",
     "versionList": [],
@@ -20739,7 +22660,7 @@
     "tag": null,
     "tags": [],
     "title": "CVE-2026-9189: payment bypass in the Contact Form 7 PayPal &amp; Stripe Add-on (now patched, update if you use it)",
-    "updatedAt": "2026-09-09T06:33:45.755Z",
+    "updatedAt": "2026-09-10T06:37:08.859Z",
     "upvote_ratio": 0.78,
     "url": "https://reddit.com/r/Wordpress/comments/1u9ea81/cve20269189_payment_bypass_in_the_contact_form_7/",
     "versionList": [
@@ -20816,7 +22737,7 @@
     "tag": null,
     "tags": [],
     "title": "The HTTP/2 Bomb That Knocks nginx and Apache Offline With a Single Connection",
-    "updatedAt": "2026-09-09T06:34:32.437Z",
+    "updatedAt": "2026-09-10T06:37:57.319Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/apache/comments/1tws4w7/the_http2_bomb_that_knocks_nginx_and_apache/",
     "versionList": [
@@ -20853,7 +22774,7 @@
     "tag": null,
     "tags": [],
     "title": "How to add a peripheral to QEMU",
-    "updatedAt": "2026-09-09T06:35:51.841Z",
+    "updatedAt": "2026-09-10T06:39:16.970Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/QEMU/comments/1tbx8sa/how_to_add_a_peripheral_to_qemu/",
     "versionList": [],
@@ -20876,6 +22797,136 @@
     "sourceUrl": "https://reddit.com/r/QEMU/comments/1tbx8sa/how_to_add_a_peripheral_to_qemu/"
   },
   {
+    "_id": "6aa24563648fea6871525e51",
+    "redditId": "1t4trkb",
+    "author": "juanbqt",
+    "author_description": "Friends, anyone have news on Centos Stream and copy fail CVE?\n\nRHEL resolved yesterday\n\n[https://nvd.nist.gov/vuln/detail/CVE-2026-31431](https://nvd.nist.gov/vuln/detail/CVE-2026-31431)\n\n[https://www.openwall.com/lists/oss-security/2026/04/29/23](https://www.openwall.com/lists/oss-security/2026/04/29/23)\n\n  \nThank you!",
+    "awards": [],
+    "comments": [
+      {
+        "id": "ok5f1va",
+        "author": "carlwgeorge",
+        "body": "It's working through the process right now.  Here's the kernel source pull requests:\n\n* C9: https://gitlab.com/redhat/centos-stream/src/kernel/centos-stream-9/-/merge_requests/8078 (already merged)\n* C10: https://gitlab.com/redhat/centos-stream/src/kernel/centos-stream-10/-/merge_requests/2510\n\nHere's the corresponding package pull request:\n\n* C9: https://gitlab.com/redhat/centos-stream/rpms/kernel/-/merge_requests/1259 (already merged)\n* C10: https://gitlab.com/redhat/centos-stream/rpms/kernel/-/merge_requests/1263\n\nSince only the C9 work has been merged, that's the only one with an official build so far.\n\n* kernel-5.14.0-701.el9: https://kojihub.stream.centos.org/koji/buildinfo?buildID=109787\n\nI see kernel-5.14.0-701.el9 is in CentOS-Stream-9-20260505.0 compose, so it should go out to the mirrors with the next push.  That normally happens on Mondays, but the release engineering team may do an extra push midweek to get these out sooner (possibly once C10 is done as well).\n\nWhile CentOS is upstream of RHEL, it's important to keep in mind that RHEL maintainers have to resolve this for many releases (currently 15 by my count), of which CentOS is just two (9.9 and 10.3).\n\nEdit: The C10 pull requests have been merged, and here's the build:\n\nhttps://kojihub.stream.centos.org/koji/buildinfo?buildID=109930\n\nEdit 2: The C9 kernel has been published to the mirror network.  If dnf on your system doesn't see it, your local mirrror may not have synced it yet but likely will get it soon (most mirrors sync once per day).  The C10 kernel is still waiting for a compose, but unfortunately that is blocked by an s390x outage.\n\nhttps://forge.fedoraproject.org/infra/tickets/issues/13326\n\nIf you just can't wait, the RPM can be downloaded from the koji build and installed manually.\n\nEdit 3: The C10 kernel has been published to the mirror network as well.",
+        "score": 7,
+        "created_utc_ts": 1778022240,
+        "created_utc": "2026-05-05T23:04:00",
+        "permalink": "https://reddit.com/r/CentOS/comments/1t4trkb/copy_fail_cve_update_info/ok5f1va/",
+        "parent_id": "t3_1t4trkb",
+        "is_submitter": false,
+        "sentiment_score": 0.433,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.023,
+          "neu": 0.941,
+          "pos": 0.035,
+          "compound": 0.4329
+        }
+      },
+      {
+        "id": "ok5yo0o",
+        "author": "juanbqt",
+        "body": "Much appreciated, thank you!",
+        "score": 1,
+        "created_utc_ts": 1778028867,
+        "created_utc": "2026-05-06T00:54:27",
+        "permalink": "https://reddit.com/r/CentOS/comments/1t4trkb/copy_fail_cve_update_info/ok5yo0o/",
+        "parent_id": "t1_ok5f1va",
+        "is_submitter": true,
+        "sentiment_score": 0.726,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.247,
+          "pos": 0.753,
+          "compound": 0.7263
+        }
+      },
+      {
+        "id": "ok6fh87",
+        "author": "mehx9",
+        "body": "Always helpful - thanks Carl!",
+        "score": 1,
+        "created_utc_ts": 1778034623,
+        "created_utc": "2026-05-06T02:30:23",
+        "permalink": "https://reddit.com/r/CentOS/comments/1t4trkb/copy_fail_cve_update_info/ok6fh87/",
+        "parent_id": "t1_ok5f1va",
+        "is_submitter": false,
+        "sentiment_score": 0.718,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.25,
+          "pos": 0.75,
+          "compound": 0.7177
+        }
+      },
+      {
+        "id": "okacht2",
+        "author": "danixdefcon5",
+        "body": "C10 is now merged as well, but it sems that at least the C9 5.14.0-701 build hasn't been pushed yet.",
+        "score": 1,
+        "created_utc_ts": 1778087767,
+        "created_utc": "2026-05-06T17:16:07",
+        "permalink": "https://reddit.com/r/CentOS/comments/1t4trkb/copy_fail_cve_update_info/okacht2/",
+        "parent_id": "t1_ok5f1va",
+        "is_submitter": false,
+        "sentiment_score": 0.141,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.925,
+          "pos": 0.075,
+          "compound": 0.1406
+        }
+      },
+      {
+        "id": "okf7vce",
+        "author": "billm4",
+        "body": "assuming RH team found out about this CVE when it went public, it seems odd the updated kernels were released for RHEL prior to Stream. The entire point of Stream was to have an upstream where changes go first, but that seems less and less the case. ",
+        "score": 0,
+        "created_utc_ts": 1778150756,
+        "created_utc": "2026-05-07T10:45:56",
+        "permalink": "https://reddit.com/r/CentOS/comments/1t4trkb/copy_fail_cve_update_info/okf7vce/",
+        "parent_id": "t1_ok5f1va",
+        "is_submitter": false,
+        "sentiment_score": -0.166,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0.035,
+          "neu": 0.965,
+          "pos": 0,
+          "compound": -0.1655
+        }
+      }
+    ],
+    "created_utc": "2026-05-05T21:55:53",
+    "first_author_comment": "Much appreciated, thank you!",
+    "num_comments": 9,
+    "score": 9,
+    "subreddit": "CentOS",
+    "tag": null,
+    "tags": [],
+    "title": "copy fail CVE update info",
+    "updatedAt": "2026-09-10T06:39:24.450Z",
+    "upvote_ratio": 0.86,
+    "url": "https://reddit.com/r/CentOS/comments/1t4trkb/copy_fail_cve_update_info/",
+    "versionList": [],
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true,
+    "author_description_sentiment": {
+      "score": 0.475,
+      "detail": {
+        "neg": 0.139,
+        "neu": 0.558,
+        "pos": 0.303,
+        "compound": 0.4753
+      }
+    },
+    "category": "Positive",
+    "comments_avg_sentiment_score": 0.37,
+    "sentiment_score": 0.423
+  },
+  {
     "_id": "69e7c44dda0850f83830da70",
     "redditId": "1srpodd",
     "author": "Temporary-Leek6861",
@@ -20892,7 +22943,7 @@
       "Use Cases"
     ],
     "title": "openclaw crossed 500k downloads a day this week. here are the 5 things nobody tells you when you're one of them",
-    "updatedAt": "2026-09-09T06:36:57.869Z",
+    "updatedAt": "2026-09-10T06:40:23.339Z",
     "upvote_ratio": 0.8,
     "url": "https://reddit.com/r/openclaw/comments/1srpodd/openclaw_crossed_500k_downloads_a_day_this_week/",
     "versionList": [
@@ -20941,7 +22992,7 @@
       "General Discussion"
     ],
     "title": "Security Check Recommended (CVE-2025-55182): Please review your application's dependencies. If you are running React or Next.js",
-    "updatedAt": "2026-09-09T06:41:15.866Z",
+    "updatedAt": "2026-09-10T06:44:45.256Z",
     "upvote_ratio": 0.91,
     "url": "https://reddit.com/r/react/comments/1pfyta0/security_check_recommended_cve202555182_please/",
     "versionList": [
@@ -21386,7 +23437,7 @@
       "vercel"
     ],
     "title": "What is React Server Components vulnerability CVE-2025-55182 and how does it affect Next.js?",
-    "updatedAt": "2026-09-09T06:41:24.617Z",
+    "updatedAt": "2026-09-10T06:44:53.943Z",
     "upvote_ratio": null,
     "url": "https://stackoverflow.com/questions/79837478/what-is-react-server-components-vulnerability-cve-2025-55182-and-how-does-it-aff",
     "versionList": [
@@ -21444,7 +23495,7 @@
       "Troubleshooting | Android"
     ],
     "title": "Chromebook not updating to the new update that fixes CVE-2025-6554",
-    "updatedAt": "2026-09-09T06:43:22.882Z",
+    "updatedAt": "2026-09-10T06:46:54.537Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/chrome/comments/1lpij7v/chromebook_not_updating_to_the_new_update_that/",
     "versionList": [
@@ -21569,7 +23620,7 @@
       "News"
     ],
     "title": "🔒 Update Chrome Today! – New 0-day Vulnerability (CVE-2025-5419) Is Being Exploited in the Wild",
-    "updatedAt": "2026-09-09T06:43:29.562Z",
+    "updatedAt": "2026-09-10T06:47:00.695Z",
     "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/chrome/comments/1l2zxcb/update_chrome_today_new_0day_vulnerability/",
     "versionList": [
@@ -21694,7 +23745,7 @@
     "tag": null,
     "tags": [],
     "title": "Attention All Veeam Backup Enterprise Manager Users - Patch Now!",
-    "updatedAt": "2026-09-09T06:43:59.696Z",
+    "updatedAt": "2026-09-10T06:47:35.516Z",
     "upvote_ratio": 0.67,
     "url": "https://reddit.com/r/dia/comments/1cy3aoh/attention_all_veeam_backup_enterprise_manager/",
     "versionList": [],
