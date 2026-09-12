@@ -1,5 +1,343 @@
 [
   {
+    "_id": "6aa4258e648fea687164a701",
+    "redditId": "1wdjt3p",
+    "author": "SeaChange9",
+    "author_description": "https://www.tenable.com/plugins/nessus/344359\n\nCVE-2026-0310",
+    "awards": [],
+    "created_utc": "2026-09-11T15:41:01",
+    "first_author_comment": null,
+    "num_comments": 12,
+    "score": 23,
+    "subreddit": "sysadmin",
+    "tag": null,
+    "tags": [],
+    "title": "Palo Alto CVE: PAN-OS Vulnerability Enables Arbitrary Code Execution as Root User",
+    "updatedAt": "2026-09-12T06:07:20.346Z",
+    "upvote_ratio": 0.97,
+    "url": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/",
+    "versionList": [],
+    "isAboutCve": true,
+    "isAboutLatestUpdate": false,
+    "commentCount": 8,
+    "detectedCVEs": [
+      {
+        "cveId": "CVE-2026-0310",
+        "cveIds": [
+          "CVE-2026-0310"
+        ],
+        "source": "Comment",
+        "commentText": "https://security.paloaltonetworks.com/CVE-2026-0310",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p973e90/",
+        "commentDate": "2026-09-11T17:38:11+00:00",
+        "cvePublishedDate": "2026-09-10T06:17:04.450000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-0310",
+        "cveIds": [
+          "CVE-2026-0310"
+        ],
+        "source": "Comment",
+        "commentText": "https://security.paloaltonetworks.com/CVE-2026-0310",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p973e90/",
+        "commentDate": "2026-09-11T17:38:11+00:00",
+        "cvePublishedDate": "2026-09-10T06:17:04.450000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-0310",
+        "cveIds": [
+          "CVE-2026-0310"
+        ],
+        "source": "Comment",
+        "commentText": "https://security.paloaltonetworks.com/CVE-2026-0310",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p973e90/",
+        "commentDate": "2026-09-11T17:38:11+00:00",
+        "cvePublishedDate": "2026-09-10T06:17:04.450000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-0310",
+        "cveIds": [
+          "CVE-2026-0310"
+        ],
+        "source": "Comment",
+        "commentText": "https://security.paloaltonetworks.com/CVE-2026-0310",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p973e90/",
+        "commentDate": "2026-09-11T17:38:11+00:00",
+        "cvePublishedDate": "2026-09-10T06:17:04.450000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-0310",
+        "cveIds": [
+          "CVE-2026-0310"
+        ],
+        "source": "Comment",
+        "commentText": "https://security.paloaltonetworks.com/CVE-2026-0310",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p973e90/",
+        "commentDate": "2026-09-11T17:38:11+00:00",
+        "cvePublishedDate": "2026-09-10T06:17:04.450000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-0310",
+        "cveIds": [
+          "CVE-2026-0310"
+        ],
+        "source": "Comment",
+        "commentText": "https://security.paloaltonetworks.com/CVE-2026-0310",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p973e90/",
+        "commentDate": "2026-09-11T17:38:11+00:00",
+        "cvePublishedDate": "2026-09-10T06:17:04.450000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-0310",
+        "cveIds": [
+          "CVE-2026-0310"
+        ],
+        "source": "Comment",
+        "commentText": "https://security.paloaltonetworks.com/CVE-2026-0310",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p973e90/",
+        "commentDate": "2026-09-11T17:38:11+00:00",
+        "cvePublishedDate": "2026-09-10T06:17:04.450000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-0310",
+        "cveIds": [
+          "CVE-2026-0310"
+        ],
+        "source": "Comment",
+        "commentText": "https://security.paloaltonetworks.com/CVE-2026-0310",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p973e90/",
+        "commentDate": "2026-09-11T17:38:11+00:00",
+        "cvePublishedDate": "2026-09-10T06:17:04.450000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-0310",
+        "cveIds": [
+          "CVE-2026-0310"
+        ],
+        "source": "Comment",
+        "commentText": "https://security.paloaltonetworks.com/CVE-2026-0310",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p973e90/",
+        "commentDate": "2026-09-11T17:38:11+00:00",
+        "cvePublishedDate": "2026-09-10T06:17:04.450000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-0310",
+        "cveIds": [
+          "CVE-2026-0310"
+        ],
+        "source": "Comment",
+        "commentText": "https://security.paloaltonetworks.com/CVE-2026-0310",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p973e90/",
+        "commentDate": "2026-09-11T17:38:11+00:00",
+        "cvePublishedDate": "2026-09-10T06:17:04.450000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-0310",
+        "cveIds": [
+          "CVE-2026-0310"
+        ],
+        "source": "Comment",
+        "commentText": "https://security.paloaltonetworks.com/CVE-2026-0310",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p973e90/",
+        "commentDate": "2026-09-11T17:38:11+00:00",
+        "cvePublishedDate": "2026-09-10T06:17:04.450000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-0310",
+        "cveIds": [
+          "CVE-2026-0310"
+        ],
+        "source": "Comment",
+        "commentText": "https://security.paloaltonetworks.com/CVE-2026-0310",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p973e90/",
+        "commentDate": "2026-09-11T17:38:11+00:00",
+        "cvePublishedDate": "2026-09-10T06:17:04.450000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-0310",
+        "cveIds": [
+          "CVE-2026-0310"
+        ],
+        "source": "Comment",
+        "commentText": "https://security.paloaltonetworks.com/CVE-2026-0310",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p973e90/",
+        "commentDate": "2026-09-11T17:38:11+00:00",
+        "cvePublishedDate": "2026-09-10T06:17:04.450000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      }
+    ],
+    "sourceBot": "reddit.py",
+    "sourceUrl": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/",
+    "source": "reddit",
+    "comments": [
+      {
+        "id": "p96scs2",
+        "author": "tacticalAlmonds",
+        "body": "How could fortinet do this to me? ",
+        "score": 1,
+        "created_utc_ts": 1789145439,
+        "created_utc": "2026-09-11T16:50:39",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p96scs2/",
+        "parent_id": "t3_1wdjt3p",
+        "is_submitter": false
+      },
+      {
+        "id": "p973e90",
+        "author": "not_that_azure",
+        "body": "It's especially important to read the information from Palo for this vuln in particular, it only has the potential for root code execution on PA series firewalls, it leads to denial of service on VM series firewalls. \n\nhttps://security.paloaltonetworks.com/CVE-2026-0310",
+        "score": 1,
+        "created_utc_ts": 1789148291,
+        "created_utc": "2026-09-11T17:38:11",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p973e90/",
+        "parent_id": "t3_1wdjt3p",
+        "is_submitter": false
+      },
+      {
+        "id": "p97c23m",
+        "author": "SharpieThunderflare",
+        "body": "Weekly reminder to never have your management web interfaces open to the internet!",
+        "score": 1,
+        "created_utc_ts": 1789150528,
+        "created_utc": "2026-09-11T18:15:28",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p97c23m/",
+        "parent_id": "t3_1wdjt3p",
+        "is_submitter": false
+      },
+      {
+        "id": "p97tptv",
+        "author": "Hg-203",
+        "body": "If you read the advisory closely, it reads worse then that. It specifies the data plane. Which to me reads like if your FW inspects the traffic (which is the whole point). Then you at risk of the RCE. ",
+        "score": 1,
+        "created_utc_ts": 1789155132,
+        "created_utc": "2026-09-11T19:32:12",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p97tptv/",
+        "parent_id": "t1_p97c23m",
+        "is_submitter": false
+      },
+      {
+        "id": "p97y6h9",
+        "author": "smargh",
+        "body": "Anyone know why RCE only on PA series but not VM?",
+        "score": 1,
+        "created_utc_ts": 1789156313,
+        "created_utc": "2026-09-11T19:51:53",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p97y6h9/",
+        "parent_id": "t3_1wdjt3p",
+        "is_submitter": false
+      },
+      {
+        "id": "p989wsw",
+        "author": "Darkk_Knight",
+        "body": "Followed by Microsoft. ",
+        "score": 1,
+        "created_utc_ts": 1789159460,
+        "created_utc": "2026-09-11T20:44:20",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p989wsw/",
+        "parent_id": "t1_p96scs2",
+        "is_submitter": false
+      },
+      {
+        "id": "p98siz9",
+        "author": "perkia",
+        "body": "...Again?",
+        "score": 1,
+        "created_utc_ts": 1789164857,
+        "created_utc": "2026-09-11T22:14:17",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p98siz9/",
+        "parent_id": "t1_p96scs2",
+        "is_submitter": false
+      },
+      {
+        "id": "p99n0j8",
+        "author": "Business-Wasabi-3193",
+        "body": "This is so confusing. What exactly is going on here. Are we all exposed simply because of the data plane? Please explain. ",
+        "score": 1,
+        "created_utc_ts": 1789175015,
+        "created_utc": "2026-09-12T01:03:35",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p99n0j8/",
+        "parent_id": "t3_1wdjt3p",
+        "is_submitter": false
+      }
+    ]
+  },
+  {
     "_id": "6aa2f560648fea6871529e5f",
     "redditId": "1wcqbvq",
     "author": "Straight-Practice-99",
@@ -8,13 +346,13 @@
     "created_utc": "2026-09-10T17:48:31",
     "first_author_comment": null,
     "num_comments": 0,
-    "score": 4,
+    "score": 3,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "🕵️‍♂️ SonicWall SMA1000 (CVE-2026-15409): SSRF to Erlang RCE chained into automated DCSync from the appliance",
-    "updatedAt": "2026-09-11T06:22:03.541Z",
-    "upvote_ratio": 0.68,
+    "updatedAt": "2026-09-11T21:21:55.315Z",
+    "upvote_ratio": 0.65,
     "url": "https://reddit.com/r/netsec/comments/1wcqbvq/sonicwall_sma1000_cve202615409_ssrf_to_erlang_rce/",
     "versionList": [
       "2026.0.0",
@@ -59,7 +397,7 @@
         "id": "p8z4v1c",
         "author": "soowhatchathink",
         "body": "This looks interesting, I wonder if the code in this repo could be adopted into the composer project itself \n\nThere is the [GitHub issue](https://github.com/composer/composer/issues/12989) in the `composer/composer` repo for introducing the equivalent of `npm audit fix` into composer, I think there is a lot of overlap in this library vs that functionality. The maintainer added a \"Nice to Have\" tag on the issue, which shows they are willing to adopt similar functionality.",
-        "score": 2,
+        "score": 4,
         "created_utc_ts": 1789056236,
         "created_utc": "2026-09-10T16:03:56",
         "permalink": "https://reddit.com/r/PHP/comments/1wclfrt/i_built_a_composer_tool_to_answer_composer_audit/p8z4v1c/",
@@ -70,7 +408,7 @@
         "id": "p8z5iu9",
         "author": "Leading-Cold6409",
         "body": "That’s a very interesting issue — thanks for pointing it out. There’s definitely overlap in the core remediation problem. Composer Remediate currently goes somewhat further into remediation planning/explanation, ranking candidates by blast radius, CI/reporting and advisory-data handling, while deliberately using Composer’s own solver to prove proposed changes rather than implementing dependency resolution itself.\n\nI’d be very happy if some of the underlying remediation capability eventually made sense upstream in Composer. I’ll follow that issue and have a closer look at what they’re considering.",
-        "score": 1,
+        "score": 0,
         "created_utc_ts": 1789056403,
         "created_utc": "2026-09-10T16:06:43",
         "permalink": "https://reddit.com/r/PHP/comments/1wclfrt/i_built_a_composer_tool_to_answer_composer_audit/p8z5iu9/",
@@ -87,26 +425,60 @@
         "permalink": "https://reddit.com/r/PHP/comments/1wclfrt/i_built_a_composer_tool_to_answer_composer_audit/p934631/",
         "parent_id": "t3_1wclfrt",
         "is_submitter": false
+      },
+      {
+        "id": "p940hbj",
+        "author": "Leading-Cold6409",
+        "body": "Thanks, that’s useful feedback!\n\nBackports first: advisory ranges are branch-aware (e.g. `&gt;=2.0,&lt;2.16|&gt;=3.0,&lt;3.11`), so Remediate first looks for a fixed release on the existing branch and tries the narrowest updates. A major bump only enters the picture when there is no fixed version on that branch, or a parent constraint prevents reaching it. The latter is reported separately as **constraint drag**, including the parent and constraint blocking the fix.\n\nWhat it *can’t* discover is a fix published under another identity — maintained fork/vendor-patched package/etc. That’s not represented in the advisory/package metadata it has. Good point though: I’ll add that as guidance on constraint-drag findings so the human knows to check before widening.\n\n`conflict` is useful too. The verified command can already carry e.g. `--with 'twig/twig:&gt;=3.14'`; a root `\"conflict\": {\"twig/twig\": \"&lt;3.14\"}` can then act as a persistent guardrail against regressing below the fixed version. Composer doesn’t have a command to add that, so I wouldn’t make it part of the verified remediation, but showing it as optional follow-up advice makes sense.\n\n`replace` I’d avoid for this purpose: it tells Composer that the root package *provides/replaces* that package, potentially removing it from the graph entirely. That’s appropriate for things like forks/monorepos, not as a vulnerability pin.\n\nDistro backports don’t affect packages installed into `vendor/`, so I’d consider those outside the scope of a Composer remediation tool.\n\nI’ve added the two useful additions to the roadmap: [https://hexblot.github.io/composer-remediate/roadmap/](https://hexblot.github.io/composer-remediate/roadmap/) ",
+        "score": 1,
+        "created_utc_ts": 1789111103,
+        "created_utc": "2026-09-11T07:18:23",
+        "permalink": "https://reddit.com/r/PHP/comments/1wclfrt/i_built_a_composer_tool_to_answer_composer_audit/p940hbj/",
+        "parent_id": "t1_p934631",
+        "is_submitter": true
+      },
+      {
+        "id": "p98lsa6",
+        "author": "Winter-Paramedic3900",
+        "body": "It's shokcing how you have absolutely no idea how to use PHP. Grow up",
+        "score": 1,
+        "created_utc_ts": 1789162827,
+        "created_utc": "2026-09-11T21:40:27",
+        "permalink": "https://reddit.com/r/PHP/comments/1wclfrt/i_built_a_composer_tool_to_answer_composer_audit/p98lsa6/",
+        "parent_id": "t3_1wclfrt",
+        "is_submitter": false
+      },
+      {
+        "id": "p9aa89d",
+        "author": "Hour-Swimmer7140",
+        "body": "blast radius by graph churn is the intuitive metric but it isn't really the one that bites. a patch bump that moves nothing else can be the dangerous one if that version picked up a postinstall script or started shelling out, and a minor that shifts fifteen packages is often completely inert.\n\nyou're already pulling the candidate versions to feed the solver so you've got the tarballs in hand. scoring what changed about what the package can do is cheap from there, install scripts appearing, new hosts in the source, a different publisher than last release. ranks a lot closer to actual risk than package count does.",
+        "score": 1,
+        "created_utc_ts": 1789183409,
+        "created_utc": "2026-09-12T03:23:29",
+        "permalink": "https://reddit.com/r/PHP/comments/1wclfrt/i_built_a_composer_tool_to_answer_composer_audit/p9aa89d/",
+        "parent_id": "t3_1wclfrt",
+        "is_submitter": false
       }
     ],
     "created_utc": "2026-09-10T14:52:23",
     "first_author_comment": "Thank you for the comment! he project has already gone through a fairly aggressive correctness/security review, but maintainability/readability is the next thing I want to attack before 1.0.   \n  \nI've used Aikido for a first pass (no hits other than github configuration), and just applied for SonarQube Cloud OSS (waiting for their approval). ",
-    "num_comments": 7,
-    "score": 6,
+    "num_comments": 10,
+    "score": 9,
     "subreddit": "PHP",
     "tag": "Discussion",
     "tags": [
       "Discussion"
     ],
     "title": "I built a Composer tool to answer “composer audit found a vulnerability — what do I actually update?”",
-    "updatedAt": "2026-09-11T06:44:42.768Z",
-    "upvote_ratio": 0.8,
+    "updatedAt": "2026-09-12T05:45:52.437Z",
+    "upvote_ratio": 0.76,
     "url": "https://reddit.com/r/PHP/comments/1wclfrt/i_built_a_composer_tool_to_answer_composer_audit/",
     "versionList": [],
     "isAboutCve": true,
     "isAboutLatestUpdate": true,
     "sourceBot": "reddit.py",
-    "sourceUrl": "https://reddit.com/r/PHP/comments/1wclfrt/i_built_a_composer_tool_to_answer_composer_audit/"
+    "sourceUrl": "https://reddit.com/r/PHP/comments/1wclfrt/i_built_a_composer_tool_to_answer_composer_audit/",
+    "source": "reddit"
   },
   {
     "_id": "6aa28dc1648fea6871526b01",
@@ -625,7 +997,7 @@
     "tag": null,
     "tags": [],
     "title": "KB5122882 installed - DNS/AD issues Windows Server 2022",
-    "updatedAt": "2026-09-11T06:00:54.829Z",
+    "updatedAt": "2026-09-11T08:00:56.950Z",
     "upvote_ratio": 0.96,
     "url": "https://reddit.com/r/sysadmin/comments/1wcdyxp/kb5122882_installed_dnsad_issues_windows_server/",
     "versionList": [
@@ -1008,13 +1380,13 @@
     "created_utc": "2026-09-09T10:47:25",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 34,
+    "score": 33,
     "subreddit": "netsec",
     "tag": "Contains AI",
     "tags": [],
     "title": "Fortinet Privileged Access Agent: Any Site Could Control Your Proxy and Watch Your Tab",
-    "updatedAt": "2026-09-11T06:22:06.634Z",
-    "upvote_ratio": 0.88,
+    "updatedAt": "2026-09-12T06:22:22.981Z",
+    "upvote_ratio": 0.86,
     "url": "https://reddit.com/r/netsec/comments/1wbi40d/fortinet_privileged_access_agent_any_site_could/",
     "versionList": [],
     "isAboutCve": true,
@@ -1024,7 +1396,7 @@
         "id": "p8qnwor",
         "author": "Hizonner",
         "body": "Class, what have we learned about the security impact of adding attack surface?\n\nNot much, based on how corporate IT behaves....",
-        "score": 5,
+        "score": 2,
         "created_utc_ts": 1788959455,
         "created_utc": "2026-09-09T13:10:55",
         "permalink": "https://reddit.com/r/netsec/comments/1wbi40d/fortinet_privileged_access_agent_any_site_could/p8qnwor/",
@@ -1056,7 +1428,8 @@
     "comments_avg_sentiment_score": -0.178,
     "sentiment_score": 0.036,
     "sourceBot": "reddit.py",
-    "sourceUrl": "https://reddit.com/r/netsec/comments/1wbi40d/fortinet_privileged_access_agent_any_site_could/"
+    "sourceUrl": "https://reddit.com/r/netsec/comments/1wbi40d/fortinet_privileged_access_agent_any_site_could/",
+    "source": "reddit"
   },
   {
     "_id": "6aa0856c648fea687151ca9f",
@@ -5225,13 +5598,13 @@
     "created_utc": "2026-09-01T12:28:03",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 9,
+    "score": 12,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Off the Hook: Discovering and Observing Active Exploitation of Sangoma Switchvox CVE-2026-9586",
-    "updatedAt": "2026-09-11T06:22:19.704Z",
-    "upvote_ratio": 0.82,
+    "updatedAt": "2026-09-12T06:22:39.841Z",
+    "upvote_ratio": 0.89,
     "url": "https://reddit.com/r/netsec/comments/1w4aj8x/off_the_hook_discovering_and_observing_active/",
     "versionList": [
       "2026.0.0",
@@ -5252,10 +5625,11 @@
     "comments_avg_sentiment_score": 0.579,
     "sentiment_score": 0.29,
     "sourceBot": "reddit.py",
-    "sourceUrl": "https://reddit.com/r/netsec/comments/1w4aj8x/off_the_hook_discovering_and_observing_active/"
+    "sourceUrl": "https://reddit.com/r/netsec/comments/1w4aj8x/off_the_hook_discovering_and_observing_active/",
+    "source": "reddit"
   },
   {
-    "_id": "6aa38102648fea6871641adc",
+    "_id": "6aa4d273648fea687164f003",
     "redditId": "1w25s1a",
     "author": "Sam_-_-_",
     "author_description": "I've been rolling pfSense for about 5 years. Decided to try Unifi. Couldn't find a manual or one-to-one feature documentation for each panel (only various spotlight articles). \n\nAsked the community for help: every response said basically \"things change too often, no need to have a manual\". \n\nExcuse me, what? I'm not a networking pro, and I do need a manual. (pfSense was hard for me, but had great documentation.) \n\nI can't believe this was the response. Is everyone in their community a bot or a cultist? \n\nI still have few days left on my return window, and might come back, LOL.",
@@ -5265,7 +5639,7 @@
         "id": "p6q65xn",
         "author": "PepperdotNet",
         "body": "Unifi access points are fantastic. But I have not seen anything yet that would convince me to abandon pfSense for a Unifi router/firewall. And I prefer Cisco switches, personally (3850s are reasonably cheap on ebay right now)",
-        "score": 61,
+        "score": 64,
         "created_utc_ts": 1788059015,
         "created_utc": "2026-08-30T03:03:35",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6q65xn/",
@@ -5276,7 +5650,7 @@
         "id": "p6q6sqf",
         "author": "Sam_-_-_",
         "body": "I thought \"user friendly\" + affordable 10GbE gateway, might be the reason. But \"no manual\" + community shills, is scaring me off. ",
-        "score": 1,
+        "score": 2,
         "created_utc_ts": 1788059274,
         "created_utc": "2026-08-30T03:07:54",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6q6sqf/",
@@ -5298,7 +5672,7 @@
         "id": "p6q8gsr",
         "author": "spacebass",
         "body": "Bro been rolling pf for five and now the Fi community gon do him dirty like that? Fr? Naw. \n\nOp, is this a pfSense issue or a frustration with another vendor? And if the later, can you help us help you? \n\nI get the frustration when you want to learn something and can’t find the materials. Been there too. But how is this a pfSense issue? \n\nAlso we’d love to help if we can but you have to give us more than vibes. ",
-        "score": -6,
+        "score": -5,
         "created_utc_ts": 1788059954,
         "created_utc": "2026-08-30T03:19:14",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6q8gsr/",
@@ -5320,7 +5694,7 @@
         "id": "p6q9f7m",
         "author": "Sam_-_-_",
         "body": "Comparative experience coming from pfSense. Ignore and move on. ",
-        "score": 1,
+        "score": 2,
         "created_utc_ts": 1788060348,
         "created_utc": "2026-08-30T03:25:48",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6q9f7m/",
@@ -5353,7 +5727,7 @@
         "id": "p6qd2w1",
         "author": "OutsideTech",
         "body": "Until it breaks, or the expected functionality doesn’t match reality, then documentation is quite necessary.",
-        "score": 8,
+        "score": 9,
         "created_utc_ts": 1788061888,
         "created_utc": "2026-08-30T03:51:28",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6qd2w1/",
@@ -5364,7 +5738,7 @@
         "id": "p6qddun",
         "author": "Blindbatts",
         "body": "pfsense in a VM, brocade 1u 48 port Poe switch with some 10gig sfp's, and 3 unifi waps for me for over a decade. Very reliable. ",
-        "score": 13,
+        "score": 15,
         "created_utc_ts": 1788062017,
         "created_utc": "2026-08-30T03:53:37",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6qddun/",
@@ -5386,7 +5760,7 @@
         "id": "p6qk5kd",
         "author": "TheRealSeeThruHead",
         "body": "Unifi has been great for me so far\n\nI swapped my huge pfsense box for a better performing ucg fibre and got two switches \n\nCan’t wait to add more",
-        "score": 2,
+        "score": 1,
         "created_utc_ts": 1788064982,
         "created_utc": "2026-08-30T04:43:02",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6qk5kd/",
@@ -5408,7 +5782,7 @@
         "id": "p6qputt",
         "author": "SirEDCaLot",
         "body": "I use a mix of pfSense and UniFi.  \n\nBottom line for me- UniFi works great for WiFi and switching.  Routing/firewall, pfSense has more features, more capability, more ability to tweak it, but also takes more time to set up and (re)configure.  \n\nIf you're doing full-stack UniFi (router/firewall, switch, WAP) it's a really compelling platform that makes a lot of the basic management stuff easier.  \nFor example let's say you want to assign a static DHCP lease to a device.  pfSense you have to go to status-DHCP leases, find the device, then add the static there.  UniFi you just go to 'clients', the device is way easier to find, and give it an IP.  \nOTOH, with pfSense you can assign static IPs to that device on various subnets.  Like if it plugs into VLAN A it gets IP 1.2.3.4, if it plugs into VLAN B it gets IP 5.6.7.8, etc.  UniFi doesn't have that.  pfSense you can make a lot of very custom DHCP stuff for a device, like give it special DNS servers.  Not so with UniFi.  \n\nUniFi switches also lack detailed STP controls that even Netgear business level switches have.  But the UniFi system will instantly tell you which port on which switch a device is plugged into, or what device is plugged into a particular port.  \n\n------\n\n&gt; Excuse me, what? I'm not a networking pro, and I do need a manual.  \n\nThen UniFi is not for you.  I mean no insult by that.  It's a different approach to things.  \nYou have the Cisco type way where innovation is slow and everything is documented.  You have the pfSense way where innovation is at a medium pace and there's good documentation but not to the same degree as Cisco.  And on the other end you have UniFi where innovation is VERY rapid and Google is your documentation.  \n\nSome of that also goes to the org culture.  If you're at a place with a change control process for example, you'll hate UniFi because it's very easy to make quick changes.  \n\nHope that's helpful.  \n\nI am not a bot, I am a dog.  Woof.",
-        "score": 41,
+        "score": 36,
         "created_utc_ts": 1788067629,
         "created_utc": "2026-08-30T05:27:09",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6qputt/",
@@ -5430,7 +5804,7 @@
         "id": "p6qviyn",
         "author": "pythosynthesis",
         "body": "Go back. pfSense is hard, but absolutely worth it. Don't fall for the deceiving musings promising you to be the emperor of the internet. Stick with what works.",
-        "score": 7,
+        "score": 8,
         "created_utc_ts": 1788070419,
         "created_utc": "2026-08-30T06:13:39",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6qviyn/",
@@ -5441,7 +5815,7 @@
         "id": "p6r18gl",
         "author": "thomasfr",
         "body": "I am proportionally more worried every time I have to update my UniFi firmwares than any other network gear I have ever used. They do change a lot and some times the release notes just say “improved stability” or something which tells you nothing at all. \n\nThey do provide a lot of features for the price over a lot of products which I guess is the selling point but you have to deal with the chaos because of it.",
-        "score": 3,
+        "score": 4,
         "created_utc_ts": 1788073309,
         "created_utc": "2026-08-30T07:01:49",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6r18gl/",
@@ -5485,7 +5859,7 @@
         "id": "p6ro1mu",
         "author": "needchr",
         "body": "For the price?  They are by far the most expensive equipment I have come across (for consumer).\n\nI just dont get it how they are successful, they about 3-4x the price of established players.\n\nI come across people who moan about spending a fiver on a USB stick, or an £10 a month on their broadband but have just spent £500 on unifi, madless. :)",
-        "score": 0,
+        "score": -3,
         "created_utc_ts": 1788085169,
         "created_utc": "2026-08-30T10:19:29",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6ro1mu/",
@@ -5584,7 +5958,7 @@
         "id": "p6rxq1y",
         "author": "UDP69",
         "body": "The dream machine line created a cult.",
-        "score": 4,
+        "score": 5,
         "created_utc_ts": 1788089725,
         "created_utc": "2026-08-30T11:35:25",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6rxq1y/",
@@ -5694,7 +6068,7 @@
         "id": "p6slo93",
         "author": "8l1uvgrjbfxem2",
         "body": "For me, it’s pfSense at the edge and TP-Link Omada for switches and APs.",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1788098255,
         "created_utc": "2026-08-30T13:57:35",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6slo93/",
@@ -5716,7 +6090,7 @@
         "id": "p6sr5a1",
         "author": "Caddy666",
         "body": "1: if you need a manual for these things, these things might not be aimed at your skill level.\n\n2: if you understand how to do a basic google search on whatever option on the web interface is, i'm sure you can work it out.\n\nbut they're right, unifi does change the interface a fair bit, so things don't stay static for a manual to be worth it.",
-        "score": -1,
+        "score": -2,
         "created_utc_ts": 1788099909,
         "created_utc": "2026-08-30T14:25:09",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6sr5a1/",
@@ -5749,7 +6123,7 @@
         "id": "p6tkex6",
         "author": "gonzopancho",
         "body": "Be nice.  OP literally wrote, “I'm not a networking pro”",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1788108113,
         "created_utc": "2026-08-30T16:41:53",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6tkex6/",
@@ -5771,7 +6145,7 @@
         "id": "p6toagy",
         "author": "gonzopancho",
         "body": "Calling the Ubiquiti firmware “enterprise”, when it’s not.  Enterprise runs on stability and security.  Ubiquiti is anything but. \n\nUbiquiti recently disclosed 22 UniFi flaws, including 21 Critical bugs with severity scores of 9.0 or higher. Attackers with network access could bypass authentication, gain full control, and run commands on affected devices.\n\nThe bugs affected nearly the entire product line: UniFi OS, Protect, Talk, Access, storage devices, gateways, routers, recorders, and more.\n\nhttps://community.ui.com/releases/Security-Advisory-Bulletin-067/fc4a3488-7c43-4628-8bab-f715e96dbfc9\n\nThe fork (you know who) has had a lot of security issues as well. A quick rundown of what happened just between April and May 2026:\n\nApril 9: an information disclosure bug ([WID-SEC-2026-1044](https://wz-it.com/en/blog/opnsense-26-1-8-cve-2026-44194-45158-rce-patch-management/), CVSS 8.2) affecting anything before 26.1.6.\n\nMay 6: [CVE-2026-44193](https://www.cve.org/cverecord?id=CVE-2026-44193), a 9.1 critical, authenticated command injection through XMLRPC's restore\\_config\\_section that gets you root RCE. Same day, [CVE-2026-44195](https://www.cve.org/cverecord?id=CVE-2026-44195), a login lockout bypass caused by a regex ordering mistake, which basically lets someone brute force credentials without getting locked out.\n\nMay 12: two more. [CVE-2026-44194](https://nvd.nist.gov/vuln/detail/CVE-2026-44194), another 9.1 critical, command injection through sync\\_user.php because shell metacharacters in the email field weren't being sanitized. And [CVE-2026-45158](https://nvd.nist.gov/vuln/detail/CVE-2026-45158), an argument injection bug through DHCP hostname handling, also rated critical.\n\nThat's five disclosed issues in about five weeks, including two critical root RCEs six days apart, both of which had public proof of concept code floating around not long after disclosure. It took three point releases back to back ([26.1.6](https://docs.opnsense.org/releases/CE_26.1.html#april-09-2026) on April 9, then [26.1.7](https://docs.opnsense.org/releases/CE_26.1.html#april-30-2026) on April 30, then [26.1.8](https://docs.opnsense.org/releases/CE_26.1.html#may-12-2026) on May 12) to actually get it all patched. Nor are their release notes (already linked) clear about what happened.\n\nMeanwhile, in 20 years, pfSense has never had a 9.0 or higher.  ",
-        "score": 3,
+        "score": 4,
         "created_utc_ts": 1788109138,
         "created_utc": "2026-08-30T16:58:58",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6toagy/",
@@ -5815,7 +6189,7 @@
         "id": "p6ug03y",
         "author": "LeadershipSuperb6176",
         "body": "I use Unifi WAPs and switches almost exclusively, but there is no world in which I trade my pfsense routers for unifi.",
-        "score": 6,
+        "score": 4,
         "created_utc_ts": 1788116606,
         "created_utc": "2026-08-30T19:03:26",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6ug03y/",
@@ -5859,7 +6233,7 @@
         "id": "p6v36n2",
         "author": "ThatUsrnameIsAlready",
         "body": "&gt; \nBut the UniFi system will instantly tell you which port on which switch a device is plugged into, or what device is plugged into a particular port.\n\n- Not instantly.\n\n- Is sometimes wrong.\n\n- Good luck with multiple devices e.g. VMs.",
-        "score": 4,
+        "score": 5,
         "created_utc_ts": 1788123185,
         "created_utc": "2026-08-30T20:53:05",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6v36n2/",
@@ -6124,11 +6498,12 @@
     "first_author_comment": "I thought \"user friendly\" + affordable 10GbE gateway, might be the reason. But \"no manual\" + community shills, is scaring me off. ",
     "num_comments": 206,
     "score": 71,
+    "source": "reddit",
     "subreddit": "PFSENSE",
     "tag": null,
     "tags": [],
     "title": "Did I join a cult? (Unifi)",
-    "updatedAt": "2026-09-11T06:17:53.231Z",
+    "updatedAt": "2026-09-12T06:17:39.164Z",
     "upvote_ratio": 0.81,
     "url": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/",
     "versionList": [],
@@ -8695,13 +9070,13 @@
     "created_utc": "2026-08-26T13:59:47",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 25,
+    "score": 24,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "☢️ Philippine Nuclear Agency and Naval Contractor Targeted by Suspected Chinese-Speaking Operator",
-    "updatedAt": "2026-09-11T06:22:30.083Z",
-    "upvote_ratio": 0.81,
+    "updatedAt": "2026-09-12T06:22:53.425Z",
+    "upvote_ratio": 0.8,
     "url": "https://reddit.com/r/netsec/comments/1vyxx41/philippine_nuclear_agency_and_naval_contractor/",
     "versionList": [],
     "classification": {
@@ -8736,10 +9111,11 @@
     "comments_avg_sentiment_score": 0,
     "sentiment_score": 0.22,
     "sourceBot": "reddit.py",
-    "sourceUrl": "https://reddit.com/r/netsec/comments/1vyxx41/philippine_nuclear_agency_and_naval_contractor/"
+    "sourceUrl": "https://reddit.com/r/netsec/comments/1vyxx41/philippine_nuclear_agency_and_naval_contractor/",
+    "source": "reddit"
   },
   {
-    "_id": "6aa3821a648fea6871641bd5",
+    "_id": "6aa4d388648fea687164f0fc",
     "redditId": "1vy5zqu",
     "author": "wez32",
     "author_description": null,
@@ -8748,11 +9124,12 @@
     "first_author_comment": null,
     "num_comments": 34,
     "score": 41,
+    "source": "reddit",
     "subreddit": "netsec",
     "tag": "Contains AI",
     "tags": [],
     "title": "Pwning Call of Duty 1: a 20-year-old RCE, found in an evening with AI",
-    "updatedAt": "2026-09-11T06:22:31.894Z",
+    "updatedAt": "2026-09-12T06:22:55.685Z",
     "upvote_ratio": 0.61,
     "url": "https://reddit.com/r/netsec/comments/1vy5zqu/pwning_call_of_duty_1_a_20yearold_rce_found_in_an/",
     "versionList": [
@@ -8814,7 +9191,7 @@
         "id": "p5uum9x",
         "author": "brixton_",
         "body": "Nice, enjoyed the writeup. Was this vuln previously known or unknown?",
-        "score": -28,
+        "score": -26,
         "created_utc_ts": 1787683455,
         "created_utc": "2026-08-25T18:44:15",
         "permalink": "https://reddit.com/r/netsec/comments/1vy5zqu/pwning_call_of_duty_1_a_20yearold_rce_found_in_an/p5uum9x/",
@@ -8825,7 +9202,7 @@
         "id": "p5vif7i",
         "author": "tyndar3us",
         "body": "cost is not mentioned.. how much did it cost to run?",
-        "score": 22,
+        "score": 23,
         "created_utc_ts": 1787689528,
         "created_utc": "2026-08-25T20:25:28",
         "permalink": "https://reddit.com/r/netsec/comments/1vy5zqu/pwning_call_of_duty_1_a_20yearold_rce_found_in_an/p5vif7i/",
@@ -8836,7 +9213,7 @@
         "id": "p5w15no",
         "author": "retornam",
         "body": "My god AI writing sucks \n\n\"It is a 32-bit ELF. And when you actually look at how it was compiled, no PIE, no stack canary, no RELRO, and an executable stack\"\n\nNo x, no y, no z. Is always a dead giveaway ",
-        "score": 85,
+        "score": 86,
         "created_utc_ts": 1787694512,
         "created_utc": "2026-08-25T21:48:32",
         "permalink": "https://reddit.com/r/netsec/comments/1vy5zqu/pwning_call_of_duty_1_a_20yearold_rce_found_in_an/p5w15no/",
@@ -8847,7 +9224,7 @@
         "id": "p5wme22",
         "author": "eckstuhc",
         "body": "Not this, but that.\n\nFull stop.\n\nAnd here’s why that matters.",
-        "score": 60,
+        "score": 57,
         "created_utc_ts": 1787700992,
         "created_utc": "2026-08-25T23:36:32",
         "permalink": "https://reddit.com/r/netsec/comments/1vy5zqu/pwning_call_of_duty_1_a_20yearold_rce_found_in_an/p5wme22/",
@@ -8858,7 +9235,7 @@
         "id": "p5ykjw3",
         "author": "uNki23",
         "body": "All the negative comments and downvotes of other comments - is it the same like with programming subs? Butt-hurt, hard coping people who are pissed because AI makes their skills obsolete and now everything is just labeled „AI slop“ to feel better?\n\nIt doesn’t matter what writing patterns LLMs use, as long as the content is legit. If you don’t like the style, copy, paste, rephrase to your liking.\n\nIT „professionals“ these days are really old people yelling at clouds 😂",
-        "score": -34,
+        "score": -32,
         "created_utc_ts": 1787727257,
         "created_utc": "2026-08-26T06:54:17",
         "permalink": "https://reddit.com/r/netsec/comments/1vy5zqu/pwning_call_of_duty_1_a_20yearold_rce_found_in_an/p5ykjw3/",
@@ -8869,7 +9246,7 @@
         "id": "p5ynsyh",
         "author": "05K4R",
         "body": "It's like reading a blog post by someone who don't use punctuation and paragraphs, it's just horrible to read and takes away from the content.",
-        "score": 14,
+        "score": 12,
         "created_utc_ts": 1787728812,
         "created_utc": "2026-08-26T07:20:12",
         "permalink": "https://reddit.com/r/netsec/comments/1vy5zqu/pwning_call_of_duty_1_a_20yearold_rce_found_in_an/p5ynsyh/",
@@ -8880,7 +9257,7 @@
         "id": "p5yp2jo",
         "author": "Scar3cr0w_",
         "body": "I’m afraid you don’t know what you are talking about. \n\nPeople who find vulnerabilities like this are not “IT professionals”. We are security researchers. \n\nIt’s also not making us obsolete. These models don’t just find bugs with no assistance. They need guiding. They are an extension of the team and they accelerate the process. Security researchers aren’t concerned we are being replaced… we are excited about how these capabilities are going to transform our work. ",
-        "score": 18,
+        "score": 19,
         "created_utc_ts": 1787729430,
         "created_utc": "2026-08-26T07:30:30",
         "permalink": "https://reddit.com/r/netsec/comments/1vy5zqu/pwning_call_of_duty_1_a_20yearold_rce_found_in_an/p5yp2jo/",
@@ -8891,7 +9268,7 @@
         "id": "p62mloi",
         "author": "AllForProgress1",
         "body": "Code that no one has cared about in 20 years had a flaw... Golly what a find ",
-        "score": 8,
+        "score": 7,
         "created_utc_ts": 1787773359,
         "created_utc": "2026-08-26T19:42:39",
         "permalink": "https://reddit.com/r/netsec/comments/1vy5zqu/pwning_call_of_duty_1_a_20yearold_rce_found_in_an/p62mloi/",
@@ -9587,7 +9964,7 @@
     "tag": "Administration/Technical",
     "tags": [],
     "title": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-    "updatedAt": "2026-09-11T06:07:22.012Z",
+    "updatedAt": "2026-09-12T06:07:17.261Z",
     "upvote_ratio": 0.75,
     "url": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
     "versionList": [
@@ -9596,6 +9973,414 @@
     ],
     "commentCount": 2,
     "detectedCVEs": [
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
       {
         "cveId": "CVE-2026-77995",
         "cveIds": [
@@ -11251,7 +12036,7 @@
         "id": "p4wifs7",
         "author": "SgtTurtle",
         "body": "Make sure you read the release notes if you have a Celeron J processor. There is a warning about a possible kernel panic issue for these processors and instructions on how to mitigate before the upgrade.",
-        "score": 17,
+        "score": 19,
         "created_utc_ts": 1787260278,
         "created_utc": "2026-08-20T21:11:18",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4wifs7/",
@@ -11273,7 +12058,7 @@
         "id": "p4wj7n0",
         "author": "gonzopancho",
         "body": "it's not the CPU per se, it's poor vendor implementation in UEFI (and the data blocks consumed by same)",
-        "score": 13,
+        "score": 14,
         "created_utc_ts": 1787260494,
         "created_utc": "2026-08-20T21:14:54",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4wj7n0/",
@@ -11306,7 +12091,7 @@
         "id": "p4wpjs0",
         "author": "zhrkassar",
         "body": "Wait what😲, I thought CE was dead lol 😂😎",
-        "score": 29,
+        "score": 28,
         "created_utc_ts": 1787262291,
         "created_utc": "2026-08-20T21:44:51",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4wpjs0/",
@@ -11317,7 +12102,7 @@
         "id": "p4wrtk6",
         "author": "dsco88",
         "body": "Just upgraded, zero issues thus far :)",
-        "score": 8,
+        "score": 7,
         "created_utc_ts": 1787262955,
         "created_utc": "2026-08-20T21:55:55",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4wrtk6/",
@@ -11350,7 +12135,7 @@
         "id": "p4wu9ho",
         "author": "kphillips-netgate",
         "body": "[A day in the life of CE](https://media1.tenor.com/m/2lMoNRA0o5QAAAAC/megamind-metroman.gif)",
-        "score": 15,
+        "score": 17,
         "created_utc_ts": 1787263681,
         "created_utc": "2026-08-20T22:08:01",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4wu9ho/",
@@ -11361,7 +12146,7 @@
         "id": "p4wv2ce",
         "author": "Amazing_Vehicle_5192",
         "body": "Can I install offline?",
-        "score": 8,
+        "score": 10,
         "created_utc_ts": 1787263922,
         "created_utc": "2026-08-20T22:12:02",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4wv2ce/",
@@ -11394,7 +12179,7 @@
         "id": "p4x09so",
         "author": "gonzopancho",
         "body": "whatdayamean?  it's not dead!   Edit: yet",
-        "score": 5,
+        "score": 6,
         "created_utc_ts": 1787265506,
         "created_utc": "2026-08-20T22:38:26",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4x09so/",
@@ -11471,7 +12256,7 @@
         "id": "p4xlzj9",
         "author": "getgoingfast",
         "body": "Want to confirm update went smoothly, and everything is up and running without any obvious hiccups. \n\nThanks a lot team Netgate!",
-        "score": 4,
+        "score": 3,
         "created_utc_ts": 1787272471,
         "created_utc": "2026-08-21T00:34:31",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4xlzj9/",
@@ -11493,7 +12278,7 @@
         "id": "p4xw3l8",
         "author": "devexis",
         "body": "Is 2.9 only available by upgrading 2.8? I’m looking to perform a fresh install of pfsense with a 2.9 img file",
-        "score": 4,
+        "score": 5,
         "created_utc_ts": 1787275804,
         "created_utc": "2026-08-21T01:30:04",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4xw3l8/",
@@ -11515,7 +12300,7 @@
         "id": "p4xxqas",
         "author": "real_weirdcrap",
         "body": "upgrade was smooth. Only thing I noticed is my gateway dashboard widget no longer displays a unit of measurement? It's just numbers no ms or % for the loss. Cleared my cache and cookies, tried a different browser so I don't think it's me. \n\nHaven't done my second router yet.\n\n2.9:\nhttps://imgur.com/uHaUgDY\n\n2.8.1: \nhttps://imgur.com/n6H8Xm6",
-        "score": 10,
+        "score": 9,
         "created_utc_ts": 1787276359,
         "created_utc": "2026-08-21T01:39:19",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4xxqas/",
@@ -11526,7 +12311,7 @@
         "id": "p4xyx8r",
         "author": "real_weirdcrap",
         "body": "no direct image files for 2.9 I'm aware of, you have to use netgate's installer. Or upgrade from IIRC 2.7.2 was the last disc image offered which you can find kicking around online.",
-        "score": 4,
+        "score": 5,
         "created_utc_ts": 1787276764,
         "created_utc": "2026-08-21T01:46:04",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4xyx8r/",
@@ -11570,7 +12355,7 @@
         "id": "p4yhkmm",
         "author": "cmcdonald-netgate",
         "body": "If you have a device that is hitting this, please reach out. My DMs are open. We need ASL dumps. The more the merrier. ",
-        "score": 4,
+        "score": 6,
         "created_utc_ts": 1787283467,
         "created_utc": "2026-08-21T03:37:47",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4yhkmm/",
@@ -11581,7 +12366,7 @@
         "id": "p4yjmj1",
         "author": "cmcdonald-netgate",
         "body": "Some of this is to be expected when upgrading PHP... Classical chicken-egg problem. During the upgrade there are brief moments where parts of the PHP stack are being ripped out and upgraded, while the extensions have yet to be upgraded. It's mostly noise and can be ignored. ",
-        "score": 4,
+        "score": 3,
         "created_utc_ts": 1787284292,
         "created_utc": "2026-08-21T03:51:32",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4yjmj1/",
@@ -11592,7 +12377,7 @@
         "id": "p4ylxyh",
         "author": "faux123",
         "body": "I’ll wait until the dust settles",
-        "score": 4,
+        "score": 6,
         "created_utc_ts": 1787285231,
         "created_utc": "2026-08-21T04:07:11",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4ylxyh/",
@@ -11757,7 +12542,7 @@
         "id": "p53d7w6",
         "author": "StealthNet",
         "body": "Flawless upgrade. No patches removed, no packages removed (including suricata, pfblocker devel ntopng etc).\n\nAdGuard running installed in it, also running.",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1787343284,
         "created_utc": "2026-08-21T20:14:44",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p53d7w6/",
@@ -11823,7 +12608,7 @@
         "id": "p56z896",
         "author": "djprathikmixx",
         "body": "Because the base PHP engine upgraded to version **8.5.7**, any active packages (like Suricata, pfBlockerNG, or HAProxy) must be recompiled against the new PHP binaries.\n\nEnsure to disable/remove the above packages before upgrade, and post upgrade you can  reinstall them with settings intact. (saves you from lot of headache of DNS and internet issues post upgrade)",
-        "score": 7,
+        "score": 8,
         "created_utc_ts": 1787393149,
         "created_utc": "2026-08-22T10:05:49",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p56z896/",
@@ -11834,7 +12619,7 @@
         "id": "p576w5o",
         "author": "colin79666",
         "body": "Upgrade from 2.8.1 not 2.9.0 went mostly ok for me. On one of those Chinese marketplace N100 boxes.\n\nI did pre-empt things by adding the line to the boot file to disable the potentially troublesome driver and I did encounter the DNSBL VIP being missing, lack of units on the dashboard and a PHP error, all of which have been covered already.",
-        "score": 4,
+        "score": 5,
         "created_utc_ts": 1787396775,
         "created_utc": "2026-08-22T11:06:15",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p576w5o/",
@@ -11889,7 +12674,7 @@
         "id": "p5ccndx",
         "author": "Snoo91117",
         "body": "I switched earlier today to 2.9 from 2.8.1 with system patches at home.  Everything seems to be working well.\n\nI am on the second day and all is well.",
-        "score": 3,
+        "score": 4,
         "created_utc_ts": 1787455886,
         "created_utc": "2026-08-23T03:31:26",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p5ccndx/",
@@ -12015,7 +12800,7 @@
     "tag": null,
     "tags": [],
     "title": "Netgate Releases pfSense Community Edition Version 2.9.0",
-    "updatedAt": "2026-09-11T06:18:10.434Z",
+    "updatedAt": "2026-09-12T06:17:56.262Z",
     "upvote_ratio": 0.98,
     "url": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/",
     "versionList": [
@@ -12052,7 +12837,8 @@
     "comments_avg_sentiment_score": 0.078,
     "sentiment_score": 0.524,
     "sourceBot": "reddit.py",
-    "sourceUrl": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/"
+    "sourceUrl": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/",
+    "source": "reddit"
   },
   {
     "_id": "6a872a6b49715ba39188fe8e",
@@ -13694,7 +14480,7 @@
     "tag": "Contains AI",
     "tags": [],
     "title": "How to break secure boot without touching any cryptography",
-    "updatedAt": "2026-09-11T06:22:36.358Z",
+    "updatedAt": "2026-09-12T06:23:01.693Z",
     "upvote_ratio": 0.97,
     "url": "https://reddit.com/r/netsec/comments/1vskftw/how_to_break_secure_boot_without_touching_any/",
     "versionList": [],
@@ -13723,7 +14509,7 @@
         "id": "p4msq15",
         "author": "Even_Package_8573",
         "body": "The “without touching the crypto” part is what caught my attention. It really shows how the security of a boot chain can come down to the assumptions and implementation around the cryptography, rather than the cryptography itself. Definitely a good reminder that “signed” doesn’t automatically mean “safe.”",
-        "score": 23,
+        "score": 22,
         "created_utc_ts": 1787151844,
         "created_utc": "2026-08-19T15:04:04",
         "permalink": "https://reddit.com/r/netsec/comments/1vskftw/how_to_break_secure_boot_without_touching_any/p4msq15/",
@@ -13745,7 +14531,7 @@
         "id": "p4s1lj8",
         "author": "Every-Progress-1117",
         "body": "Really nice article, and just to add to your first section \"Trust before the operating system exists\" please please please read Ken Thompson's Trusting Trust: [https://dl.acm.org/doi/10.1145/358198.358210](https://dl.acm.org/doi/10.1145/358198.358210) , PDF here: [https://people.cs.umass.edu/\\~emery/classes/cmpsci691st/readings/Sec/Reflections-on-Trusting-Trust.pdf](https://people.cs.umass.edu/~emery/classes/cmpsci691st/readings/Sec/Reflections-on-Trusting-Trust.pdf)\n\nI've worked with trusted systems for a long time, and it all comes down to how strong that chair of trust actually is and from where it starts...and that might be LONG before you power on the computer.\n\nBut again, really nice article! Thanks! I will forward this one to my students!",
-        "score": 10,
+        "score": 9,
         "created_utc_ts": 1787210577,
         "created_utc": "2026-08-20T07:22:57",
         "permalink": "https://reddit.com/r/netsec/comments/1vskftw/how_to_break_secure_boot_without_touching_any/p4s1lj8/",
@@ -13854,7 +14640,8 @@
     "comments_avg_sentiment_score": 0.391,
     "sentiment_score": 0.69,
     "sourceBot": "reddit.py",
-    "sourceUrl": "https://reddit.com/r/netsec/comments/1vskftw/how_to_break_secure_boot_without_touching_any/"
+    "sourceUrl": "https://reddit.com/r/netsec/comments/1vskftw/how_to_break_secure_boot_without_touching_any/",
+    "source": "reddit"
   },
   {
     "_id": "6a84f7f149715ba391888a58",
@@ -15063,12 +15850,12 @@
     "created_utc": "2026-08-18T17:34:14",
     "first_author_comment": null,
     "num_comments": 0,
-    "score": 33,
+    "score": 34,
     "subreddit": "netsec",
     "tag": "Contains AI",
     "tags": [],
     "title": "🎥 Operation CameraSwarm: over 14,000 Dahua cameras compromised across Ukraine and Russia",
-    "updatedAt": "2026-09-11T06:22:38.269Z",
+    "updatedAt": "2026-09-12T06:23:04.281Z",
     "upvote_ratio": 0.9,
     "url": "https://reddit.com/r/netsec/comments/1vrw3fd/operation_cameraswarm_over_14000_dahua_cameras/",
     "versionList": [
@@ -15107,7 +15894,8 @@
     "comments_avg_sentiment_score": 0,
     "sentiment_score": -0.355,
     "sourceBot": "reddit.py",
-    "sourceUrl": "https://reddit.com/r/netsec/comments/1vrw3fd/operation_cameraswarm_over_14000_dahua_cameras/"
+    "sourceUrl": "https://reddit.com/r/netsec/comments/1vrw3fd/operation_cameraswarm_over_14000_dahua_cameras/",
+    "source": "reddit"
   },
   {
     "_id": "6a843ccd49715ba3918865e2",
@@ -15533,13 +16321,13 @@
     "created_utc": "2026-08-17T12:17:40",
     "first_author_comment": "Hi, author here, happy to answer any questions!\n\nA root-on-the-AKS-node vulnerability (CVE-2026-32193, CVSS 8.8, fixed by MSRC April 2026), the research behind it, plus a fully-working exploit on Microsoft Copilot.\n\nDisclosure: I'm a security researcher at Rubrik Zero Labs, this is our blog.\n\nShort summary of the research in a comment ⬇️",
     "num_comments": 5,
-    "score": 20,
+    "score": 22,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "From AKS node root vulnerability to Microsoft Copilot hijack (CVE-2026-32193)",
-    "updatedAt": "2026-09-11T06:22:43.658Z",
-    "upvote_ratio": 0.87,
+    "updatedAt": "2026-09-12T06:23:11.413Z",
+    "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/netsec/comments/1vqqpwn/from_aks_node_root_vulnerability_to_microsoft/",
     "versionList": [
       "2026.0.0",
@@ -15633,7 +16421,8 @@
     "comments_avg_sentiment_score": -0.064,
     "sentiment_score": -0.032,
     "sourceBot": "reddit.py",
-    "sourceUrl": "https://reddit.com/r/netsec/comments/1vqqpwn/from_aks_node_root_vulnerability_to_microsoft/"
+    "sourceUrl": "https://reddit.com/r/netsec/comments/1vqqpwn/from_aks_node_root_vulnerability_to_microsoft/",
+    "source": "reddit"
   },
   {
     "_id": "6a82218749715ba39187fe8b",
@@ -15644,13 +16433,13 @@
     "created_utc": "2026-08-16T18:48:50",
     "first_author_comment": "Appreciate it ;)",
     "num_comments": 2,
-    "score": 16,
+    "score": 14,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-6837: Command Injection in Zyxel export-cgi PKCS#12 Export Handling",
-    "updatedAt": "2026-09-10T22:30:15.439Z",
-    "upvote_ratio": 0.88,
+    "updatedAt": "2026-09-12T06:23:13.221Z",
+    "upvote_ratio": 0.86,
     "url": "https://reddit.com/r/netsec/comments/1vq55y4/cve20266837_command_injection_in_zyxel_exportcgi/",
     "versionList": [
       "2026.0.0",
@@ -15714,7 +16503,8 @@
     "comments_avg_sentiment_score": 0.459,
     "sentiment_score": -0.034,
     "sourceBot": "reddit.py",
-    "sourceUrl": "https://reddit.com/r/netsec/comments/1vq55y4/cve20266837_command_injection_in_zyxel_exportcgi/"
+    "sourceUrl": "https://reddit.com/r/netsec/comments/1vq55y4/cve20266837_command_injection_in_zyxel_exportcgi/",
+    "source": "reddit"
   },
   {
     "_id": "6a81cd2849715ba39187f575",
@@ -15724,14 +16514,14 @@
     "awards": [],
     "created_utc": "2026-08-16T13:33:02",
     "first_author_comment": "They already patched this",
-    "num_comments": 8,
+    "num_comments": 9,
     "score": 44,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-33696: From a Schema Name to RCE in n8n",
-    "updatedAt": "2026-09-10T22:30:16.031Z",
-    "upvote_ratio": 0.88,
+    "updatedAt": "2026-09-12T06:23:13.978Z",
+    "upvote_ratio": 0.87,
     "url": "https://reddit.com/r/netsec/comments/1vpx6ku/cve202633696_from_a_schema_name_to_rce_in_n8n/",
     "versionList": [
       "2026.0.0",
@@ -15810,6 +16600,17 @@
         "permalink": "https://reddit.com/r/netsec/comments/1vpx6ku/cve202633696_from_a_schema_name_to_rce_in_n8n/p87nkvk/",
         "parent_id": "t1_p4bc2lz",
         "is_submitter": false
+      },
+      {
+        "id": "p94hks6",
+        "author": "AcceptableWash5616",
+        "body": "Wild how a schema name can end up leading to something this serious.",
+        "score": 2,
+        "created_utc_ts": 1789119863,
+        "created_utc": "2026-09-11T09:44:23",
+        "permalink": "https://reddit.com/r/netsec/comments/1vpx6ku/cve202633696_from_a_schema_name_to_rce_in_n8n/p94hks6/",
+        "parent_id": "t3_1vpx6ku",
+        "is_submitter": false
       }
     ],
     "author_description_sentiment": {
@@ -15825,7 +16626,8 @@
     "comments_avg_sentiment_score": 0.313,
     "sentiment_score": 0.157,
     "sourceBot": "reddit.py",
-    "sourceUrl": "https://reddit.com/r/netsec/comments/1vpx6ku/cve202633696_from_a_schema_name_to_rce_in_n8n/"
+    "sourceUrl": "https://reddit.com/r/netsec/comments/1vpx6ku/cve202633696_from_a_schema_name_to_rce_in_n8n/",
+    "source": "reddit"
   },
   {
     "_id": "6a80104f49715ba391876294",
@@ -22021,7 +22823,7 @@
     "tag": null,
     "tags": [],
     "title": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
-    "updatedAt": "2026-09-11T06:07:20.782Z",
+    "updatedAt": "2026-09-12T06:07:15.350Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
     "versionList": [
@@ -22046,6 +22848,438 @@
     "sentiment_score": -0.046,
     "commentCount": 0,
     "detectedCVEs": [
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
       {
         "cveId": "CVE-2026-14902",
         "cveIds": [
@@ -23782,7 +25016,7 @@
         "id": "oprf3cd",
         "author": "throwaway234f32423df",
         "body": "fixed on Ubuntu about an hour ago even though they haven't put up a CVE page for it yet",
-        "score": 4,
+        "score": 3,
         "created_utc_ts": 1780598242,
         "created_utc": "2026-06-04T18:37:22",
         "permalink": "https://reddit.com/r/apache/comments/1tws4w7/the_http2_bomb_that_knocks_nginx_and_apache/oprf3cd/",
@@ -23798,7 +25032,7 @@
     "tag": null,
     "tags": [],
     "title": "The HTTP/2 Bomb That Knocks nginx and Apache Offline With a Single Connection",
-    "updatedAt": "2026-09-11T06:26:36.352Z",
+    "updatedAt": "2026-09-12T06:28:13.759Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/apache/comments/1tws4w7/the_http2_bomb_that_knocks_nginx_and_apache/",
     "versionList": [
@@ -23819,7 +25053,8 @@
     "comments_avg_sentiment_score": 0,
     "sentiment_score": -0.191,
     "sourceBot": "reddit.py",
-    "sourceUrl": "https://reddit.com/r/apache/comments/1tws4w7/the_http2_bomb_that_knocks_nginx_and_apache/"
+    "sourceUrl": "https://reddit.com/r/apache/comments/1tws4w7/the_http2_bomb_that_knocks_nginx_and_apache/",
+    "source": "reddit"
   },
   {
     "_id": "6a88a26b49715ba39189487c",

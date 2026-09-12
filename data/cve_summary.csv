@@ -49,6 +49,7 @@ CVE-2025-5419,1,2025-06-04T08:02:09+00:00,1749024129,chrome,https://reddit.com/r
 CVE-2025-59287,1,2026-09-10T02:20:38+00:00,1789006838,sysadmin,https://reddit.com/r/sysadmin/comments/1wc60m1/anyone_seeing_rds_session_hosts_hang_rdp_stuck_at/
 CVE-2025-6554,1,2025-07-02T00:50:53+00:00,1751417453,chrome,https://reddit.com/r/chrome/comments/1lpij7v/chromebook_not_updating_to_the_new_update_that/
 CVE-2025-66478,1,2025-12-04T02:54:02+00:00,1764816842,reactjs,https://stackoverflow.com/questions/79837478/what-is-react-server-components-vulnerability-cve-2025-55182-and-how-does-it-aff
+CVE-2026-0310,1,2026-09-11T15:41:01+00:00,1789141261,sysadmin,https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/
 CVE-2026-10090,1,2026-09-08T14:01:18+00:00,1788876078,sysadmin,https://reddit.com/r/sysadmin/comments/1wap96b/patch_tuesday_megathread_september_08_2026/
 CVE-2026-10795,1,2026-09-07T07:39:40+00:00,1788766780,Wordpress,https://reddit.com/r/Wordpress/comments/1w9lisq/updraftplus_php_backdoor_delivery_attempts_via/
 CVE-2026-14902,1,2026-07-14T15:36:17+00:00,1784043377,ivanti,https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/
