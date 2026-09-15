@@ -8,14 +8,14 @@
     "created_utc": "2026-09-13T22:23:46",
     "first_author_comment": null,
     "num_comments": 0,
-    "score": 6,
+    "score": 7,
     "source": "reddit",
     "subreddit": "homelab",
     "tag": "Tutorial",
     "tags": [],
     "title": "I replaced my Cisco C240 M5's inlet-based fan curve with a real CPU-temp-reactive one. 11k RPM pinned -&gt; 3k idle, ramps on actual CPU temp, survives reboots.",
-    "updatedAt": "2026-09-14T07:16:12.798Z",
-    "upvote_ratio": 0.88,
+    "updatedAt": "2026-09-14T12:16:59.554Z",
+    "upvote_ratio": 0.89,
     "url": "https://reddit.com/r/homelab/comments/1wflmwb/i_replaced_my_cisco_c240_m5s_inletbased_fan_curve/",
     "versionList": [],
     "isAboutCve": true,
@@ -94,7 +94,7 @@
         "id": "p9btvc5",
         "author": "jsabater76",
         "body": "Wow! That is a very long list of bug fixes and security fixes! Just `imagemagick` alone has a lot of them! 👏",
-        "score": 39,
+        "score": 37,
         "created_utc_ts": 1789210088,
         "created_utc": "2026-09-12T10:48:08",
         "permalink": "https://reddit.com/r/debian/comments/1we99ok/updated_debian_13_137_released/p9btvc5/",
@@ -116,7 +116,7 @@
         "id": "p9bywcv",
         "author": "_IvOo_",
         "body": "Sorry if newbie question, I'm using debian with xfce, how can I update to this new release? Just sudo update upgrade?",
-        "score": 12,
+        "score": 13,
         "created_utc_ts": 1789212320,
         "created_utc": "2026-09-12T11:25:20",
         "permalink": "https://reddit.com/r/debian/comments/1we99ok/updated_debian_13_137_released/p9bywcv/",
@@ -149,7 +149,7 @@
         "id": "p9c1f5v",
         "author": "Nice-Object-5599",
         "body": "The Synaptic package manager is your friend.",
-        "score": 4,
+        "score": 3,
         "created_utc_ts": 1789213372,
         "created_utc": "2026-09-12T11:42:52",
         "permalink": "https://reddit.com/r/debian/comments/1we99ok/updated_debian_13_137_released/p9c1f5v/",
@@ -160,7 +160,7 @@
         "id": "p9cl4ae",
         "author": "antdude",
         "body": "No kernel update this time? ;) I still had to reboot other core updates.",
-        "score": 8,
+        "score": 6,
         "created_utc_ts": 1789220278,
         "created_utc": "2026-09-12T13:37:58",
         "permalink": "https://reddit.com/r/debian/comments/1we99ok/updated_debian_13_137_released/p9cl4ae/",
@@ -171,7 +171,7 @@
         "id": "p9csloe",
         "author": "BENJAMlN8a",
         "body": "I don't currently use Debian, but I've read that there are more updates now than before because they're using AI to find and fix bugs. I don't know if that's true, but it sounds interesting. Can anyone confirm that? ",
-        "score": 2,
+        "score": 1,
         "created_utc_ts": 1789222543,
         "created_utc": "2026-09-12T14:15:43",
         "permalink": "https://reddit.com/r/debian/comments/1we99ok/updated_debian_13_137_released/p9csloe/",
@@ -193,7 +193,7 @@
         "id": "p9d0hcq",
         "author": "Lt--Spicy",
         "body": "ImageMagik and Adobe are constantly on my PCI/SOC2 vuln list. No surprise there.",
-        "score": 7,
+        "score": 6,
         "created_utc_ts": 1789224802,
         "created_utc": "2026-09-12T14:53:22",
         "permalink": "https://reddit.com/r/debian/comments/1we99ok/updated_debian_13_137_released/p9d0hcq/",
@@ -204,7 +204,7 @@
         "id": "p9d0ps7",
         "author": "Lt--Spicy",
         "body": "That's pretty much true across the entire board in the industry, red team and blue team alike.",
-        "score": 19,
+        "score": 18,
         "created_utc_ts": 1789224867,
         "created_utc": "2026-09-12T14:54:27",
         "permalink": "https://reddit.com/r/debian/comments/1we99ok/updated_debian_13_137_released/p9d0ps7/",
@@ -215,7 +215,7 @@
         "id": "p9d1i2s",
         "author": "lokiisagoodkitten",
         "body": "It's not a bad thing if it is. The humans will review the code for sure.",
-        "score": 3,
+        "score": 5,
         "created_utc_ts": 1789225087,
         "created_utc": "2026-09-12T14:58:07",
         "permalink": "https://reddit.com/r/debian/comments/1we99ok/updated_debian_13_137_released/p9d1i2s/",
@@ -313,14 +313,14 @@
     ],
     "created_utc": "2026-09-12T10:42:11",
     "first_author_comment": null,
-    "num_comments": 30,
-    "score": 230,
+    "num_comments": 31,
+    "score": 241,
     "source": "reddit",
     "subreddit": "debian",
     "tag": "News",
     "tags": [],
     "title": "Updated Debian 13: 13.7 released",
-    "updatedAt": "2026-09-14T06:30:37.925Z",
+    "updatedAt": "2026-09-15T06:31:25.204Z",
     "upvote_ratio": 0.99,
     "url": "https://reddit.com/r/debian/comments/1we99ok/updated_debian_13_137_released/",
     "versionList": [
@@ -373,7 +373,7 @@
     "tag": null,
     "tags": [],
     "title": "Palo Alto CVE: PAN-OS Vulnerability Enables Arbitrary Code Execution as Root User",
-    "updatedAt": "2026-09-14T07:02:29.560Z",
+    "updatedAt": "2026-09-15T06:07:26.132Z",
     "upvote_ratio": 0.95,
     "url": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/",
     "versionList": [],
@@ -1400,6 +1400,449 @@
         "isAnalyzed": false,
         "cveChangeHistory": "No change history returned.\n",
         "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-0310",
+        "cveIds": [
+          "CVE-2026-0310"
+        ],
+        "source": "Comment",
+        "commentText": "https://security.paloaltonetworks.com/CVE-2026-0310",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p973e90/",
+        "commentDate": "2026-09-11T17:38:11+00:00",
+        "cvePublishedDate": "2026-09-10T06:17:04.450000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-0310",
+        "cveIds": [
+          "CVE-2026-0310"
+        ],
+        "source": "Comment",
+        "commentText": "https://security.paloaltonetworks.com/CVE-2026-0310",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p973e90/",
+        "commentDate": "2026-09-11T17:38:11+00:00",
+        "cvePublishedDate": "2026-09-10T06:17:04.450000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-0310",
+        "cveIds": [
+          "CVE-2026-0310"
+        ],
+        "source": "Comment",
+        "commentText": "https://security.paloaltonetworks.com/CVE-2026-0310",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p973e90/",
+        "commentDate": "2026-09-11T17:38:11+00:00",
+        "cvePublishedDate": "2026-09-10T06:17:04.450000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-0310",
+        "cveIds": [
+          "CVE-2026-0310"
+        ],
+        "source": "Comment",
+        "commentText": "https://security.paloaltonetworks.com/CVE-2026-0310",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p973e90/",
+        "commentDate": "2026-09-11T17:38:11+00:00",
+        "cvePublishedDate": "2026-09-10T06:17:04.450000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-0310",
+        "cveIds": [
+          "CVE-2026-0310"
+        ],
+        "source": "Comment",
+        "commentText": "https://security.paloaltonetworks.com/CVE-2026-0310",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p973e90/",
+        "commentDate": "2026-09-11T17:38:11+00:00",
+        "cvePublishedDate": "2026-09-10T06:17:04.450000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-0310",
+        "cveIds": [
+          "CVE-2026-0310"
+        ],
+        "source": "Comment",
+        "commentText": "https://security.paloaltonetworks.com/CVE-2026-0310",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p973e90/",
+        "commentDate": "2026-09-11T17:38:11+00:00",
+        "cvePublishedDate": "2026-09-10T06:17:04.450000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-0310",
+        "cveIds": [
+          "CVE-2026-0310"
+        ],
+        "source": "Comment",
+        "commentText": "https://security.paloaltonetworks.com/CVE-2026-0310",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p973e90/",
+        "commentDate": "2026-09-11T17:38:11+00:00",
+        "cvePublishedDate": "2026-09-10T06:17:04.450000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-0310",
+        "cveIds": [
+          "CVE-2026-0310"
+        ],
+        "source": "Comment",
+        "commentText": "https://security.paloaltonetworks.com/CVE-2026-0310",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p973e90/",
+        "commentDate": "2026-09-11T17:38:11+00:00",
+        "cvePublishedDate": "2026-09-10T06:17:04.450000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-0310",
+        "cveIds": [
+          "CVE-2026-0310"
+        ],
+        "source": "Comment",
+        "commentText": "https://security.paloaltonetworks.com/CVE-2026-0310",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p973e90/",
+        "commentDate": "2026-09-11T17:38:11+00:00",
+        "cvePublishedDate": "2026-09-10T06:17:04.450000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-0310",
+        "cveIds": [
+          "CVE-2026-0310"
+        ],
+        "source": "Comment",
+        "commentText": "https://security.paloaltonetworks.com/CVE-2026-0310",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p973e90/",
+        "commentDate": "2026-09-11T17:38:11+00:00",
+        "cvePublishedDate": "2026-09-10T06:17:04.450000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-0310",
+        "cveIds": [
+          "CVE-2026-0310"
+        ],
+        "source": "Comment",
+        "commentText": "https://security.paloaltonetworks.com/CVE-2026-0310",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p973e90/",
+        "commentDate": "2026-09-11T17:38:11+00:00",
+        "cvePublishedDate": "2026-09-10T06:17:04.450000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-11T04:17:13.060 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=832AA968-E1A0-460C-9469-4B40FB79DC9D\n   - Changed SSVC: {'timestamp': '2026-09-10T13:04:47.967132Z', 'id': 'CVE-2026-0310', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'} -> {'timestamp': '2026-09-10T00:00:00+00:00', 'id': 'CVE-2026-0310', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-09-10T14:16:59.327 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=774F427F-4BE0-4CB4-A08F-5E4B4352BB84\n   - Added SSVC: {'timestamp': '2026-09-10T13:04:47.967132Z', 'id': 'CVE-2026-0310', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n3. 2026-09-10T06:17:04.450 | New CVE Received | source=psirt@paloaltonetworks.com | changeId=97025989-6B3C-41BB-BC63-D520C9794EA5\n   - Added Description: A buffer overflow vulnerability in the XML processing functionality of Palo Alto Networks PAN-OS® software enables an unauthenticated attacker with network access to the management web or dataplane interface to cause a denial of service (DoS) condition on VM-Series firewalls or execute arbitrary code with root privileges on the PA-Series firewalls.\n\nThe security risk posed by this issue is minimized when the management interface is restricted to only trusted internal IP addresses according to our recommended  best practice deployment guidelines https://live.paloaltonetworks.com/t5/community-blogs/tips-amp-tricks-how-to-secure-the-management-access-of-your-palo/ba-p/464431 . \n\nPanorama is impacted by this vulnerability.\n   - Added CVSS V4.0: AV:N/AC:H/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:L/SI:L/SA:N/E:U/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:N/R:U/V:D/RE:M/U:Red\n   - Added CWE: CWE-787\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/0xxx/CVE-2026-0310.json\">CVE-2026-0310</a>\n   - Added Reference: https://security.paloaltonetworks.com/CVE-2026-0310\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-0310",
+        "cveIds": [
+          "CVE-2026-0310"
+        ],
+        "source": "Comment",
+        "commentText": "https://security.paloaltonetworks.com/CVE-2026-0310",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p973e90/",
+        "commentDate": "2026-09-11T17:38:11+00:00",
+        "cvePublishedDate": "2026-09-10T06:17:04.450000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-11T04:17:13.060 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=832AA968-E1A0-460C-9469-4B40FB79DC9D\n   - Changed SSVC: {'timestamp': '2026-09-10T13:04:47.967132Z', 'id': 'CVE-2026-0310', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'} -> {'timestamp': '2026-09-10T00:00:00+00:00', 'id': 'CVE-2026-0310', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-09-10T14:16:59.327 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=774F427F-4BE0-4CB4-A08F-5E4B4352BB84\n   - Added SSVC: {'timestamp': '2026-09-10T13:04:47.967132Z', 'id': 'CVE-2026-0310', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n3. 2026-09-10T06:17:04.450 | New CVE Received | source=psirt@paloaltonetworks.com | changeId=97025989-6B3C-41BB-BC63-D520C9794EA5\n   - Added Description: A buffer overflow vulnerability in the XML processing functionality of Palo Alto Networks PAN-OS® software enables an unauthenticated attacker with network access to the management web or dataplane interface to cause a denial of service (DoS) condition on VM-Series firewalls or execute arbitrary code with root privileges on the PA-Series firewalls.\n\nThe security risk posed by this issue is minimized when the management interface is restricted to only trusted internal IP addresses according to our recommended  best practice deployment guidelines https://live.paloaltonetworks.com/t5/community-blogs/tips-amp-tricks-how-to-secure-the-management-access-of-your-palo/ba-p/464431 . \n\nPanorama is impacted by this vulnerability.\n   - Added CVSS V4.0: AV:N/AC:H/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:L/SI:L/SA:N/E:U/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:N/R:U/V:D/RE:M/U:Red\n   - Added CWE: CWE-787\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/0xxx/CVE-2026-0310.json\">CVE-2026-0310</a>\n   - Added Reference: https://security.paloaltonetworks.com/CVE-2026-0310\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-0310",
+        "cveIds": [
+          "CVE-2026-0310"
+        ],
+        "source": "Comment",
+        "commentText": "https://security.paloaltonetworks.com/CVE-2026-0310",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p973e90/",
+        "commentDate": "2026-09-11T17:38:11+00:00",
+        "cvePublishedDate": "2026-09-10T06:17:04.450000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-11T04:17:13.060 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=832AA968-E1A0-460C-9469-4B40FB79DC9D\n   - Changed SSVC: {'timestamp': '2026-09-10T13:04:47.967132Z', 'id': 'CVE-2026-0310', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'} -> {'timestamp': '2026-09-10T00:00:00+00:00', 'id': 'CVE-2026-0310', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-09-10T14:16:59.327 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=774F427F-4BE0-4CB4-A08F-5E4B4352BB84\n   - Added SSVC: {'timestamp': '2026-09-10T13:04:47.967132Z', 'id': 'CVE-2026-0310', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n3. 2026-09-10T06:17:04.450 | New CVE Received | source=psirt@paloaltonetworks.com | changeId=97025989-6B3C-41BB-BC63-D520C9794EA5\n   - Added Description: A buffer overflow vulnerability in the XML processing functionality of Palo Alto Networks PAN-OS® software enables an unauthenticated attacker with network access to the management web or dataplane interface to cause a denial of service (DoS) condition on VM-Series firewalls or execute arbitrary code with root privileges on the PA-Series firewalls.\n\nThe security risk posed by this issue is minimized when the management interface is restricted to only trusted internal IP addresses according to our recommended  best practice deployment guidelines https://live.paloaltonetworks.com/t5/community-blogs/tips-amp-tricks-how-to-secure-the-management-access-of-your-palo/ba-p/464431 . \n\nPanorama is impacted by this vulnerability.\n   - Added CVSS V4.0: AV:N/AC:H/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:L/SI:L/SA:N/E:U/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:N/R:U/V:D/RE:M/U:Red\n   - Added CWE: CWE-787\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/0xxx/CVE-2026-0310.json\">CVE-2026-0310</a>\n   - Added Reference: https://security.paloaltonetworks.com/CVE-2026-0310\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-0310",
+        "cveIds": [
+          "CVE-2026-0310"
+        ],
+        "source": "Comment",
+        "commentText": "https://security.paloaltonetworks.com/CVE-2026-0310",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p973e90/",
+        "commentDate": "2026-09-11T17:38:11+00:00",
+        "cvePublishedDate": "2026-09-10T06:17:04.450000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-11T04:17:13.060 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=832AA968-E1A0-460C-9469-4B40FB79DC9D\n   - Changed SSVC: {'timestamp': '2026-09-10T13:04:47.967132Z', 'id': 'CVE-2026-0310', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'} -> {'timestamp': '2026-09-10T00:00:00+00:00', 'id': 'CVE-2026-0310', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-09-10T14:16:59.327 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=774F427F-4BE0-4CB4-A08F-5E4B4352BB84\n   - Added SSVC: {'timestamp': '2026-09-10T13:04:47.967132Z', 'id': 'CVE-2026-0310', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n3. 2026-09-10T06:17:04.450 | New CVE Received | source=psirt@paloaltonetworks.com | changeId=97025989-6B3C-41BB-BC63-D520C9794EA5\n   - Added Description: A buffer overflow vulnerability in the XML processing functionality of Palo Alto Networks PAN-OS® software enables an unauthenticated attacker with network access to the management web or dataplane interface to cause a denial of service (DoS) condition on VM-Series firewalls or execute arbitrary code with root privileges on the PA-Series firewalls.\n\nThe security risk posed by this issue is minimized when the management interface is restricted to only trusted internal IP addresses according to our recommended  best practice deployment guidelines https://live.paloaltonetworks.com/t5/community-blogs/tips-amp-tricks-how-to-secure-the-management-access-of-your-palo/ba-p/464431 . \n\nPanorama is impacted by this vulnerability.\n   - Added CVSS V4.0: AV:N/AC:H/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:L/SI:L/SA:N/E:U/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:N/R:U/V:D/RE:M/U:Red\n   - Added CWE: CWE-787\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/0xxx/CVE-2026-0310.json\">CVE-2026-0310</a>\n   - Added Reference: https://security.paloaltonetworks.com/CVE-2026-0310\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-0310",
+        "cveIds": [
+          "CVE-2026-0310"
+        ],
+        "source": "Comment",
+        "commentText": "https://security.paloaltonetworks.com/CVE-2026-0310",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p973e90/",
+        "commentDate": "2026-09-11T17:38:11+00:00",
+        "cvePublishedDate": "2026-09-10T06:17:04.450000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-11T04:17:13.060 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=832AA968-E1A0-460C-9469-4B40FB79DC9D\n   - Changed SSVC: {'timestamp': '2026-09-10T13:04:47.967132Z', 'id': 'CVE-2026-0310', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'} -> {'timestamp': '2026-09-10T00:00:00+00:00', 'id': 'CVE-2026-0310', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-09-10T14:16:59.327 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=774F427F-4BE0-4CB4-A08F-5E4B4352BB84\n   - Added SSVC: {'timestamp': '2026-09-10T13:04:47.967132Z', 'id': 'CVE-2026-0310', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n3. 2026-09-10T06:17:04.450 | New CVE Received | source=psirt@paloaltonetworks.com | changeId=97025989-6B3C-41BB-BC63-D520C9794EA5\n   - Added Description: A buffer overflow vulnerability in the XML processing functionality of Palo Alto Networks PAN-OS® software enables an unauthenticated attacker with network access to the management web or dataplane interface to cause a denial of service (DoS) condition on VM-Series firewalls or execute arbitrary code with root privileges on the PA-Series firewalls.\n\nThe security risk posed by this issue is minimized when the management interface is restricted to only trusted internal IP addresses according to our recommended  best practice deployment guidelines https://live.paloaltonetworks.com/t5/community-blogs/tips-amp-tricks-how-to-secure-the-management-access-of-your-palo/ba-p/464431 . \n\nPanorama is impacted by this vulnerability.\n   - Added CVSS V4.0: AV:N/AC:H/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:L/SI:L/SA:N/E:U/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:N/R:U/V:D/RE:M/U:Red\n   - Added CWE: CWE-787\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/0xxx/CVE-2026-0310.json\">CVE-2026-0310</a>\n   - Added Reference: https://security.paloaltonetworks.com/CVE-2026-0310\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-0310",
+        "cveIds": [
+          "CVE-2026-0310"
+        ],
+        "source": "Comment",
+        "commentText": "https://security.paloaltonetworks.com/CVE-2026-0310",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p973e90/",
+        "commentDate": "2026-09-11T17:38:11+00:00",
+        "cvePublishedDate": "2026-09-10T06:17:04.450000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-11T04:17:13.060 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=832AA968-E1A0-460C-9469-4B40FB79DC9D\n   - Changed SSVC: {'timestamp': '2026-09-10T13:04:47.967132Z', 'id': 'CVE-2026-0310', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'} -> {'timestamp': '2026-09-10T00:00:00+00:00', 'id': 'CVE-2026-0310', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-09-10T14:16:59.327 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=774F427F-4BE0-4CB4-A08F-5E4B4352BB84\n   - Added SSVC: {'timestamp': '2026-09-10T13:04:47.967132Z', 'id': 'CVE-2026-0310', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n3. 2026-09-10T06:17:04.450 | New CVE Received | source=psirt@paloaltonetworks.com | changeId=97025989-6B3C-41BB-BC63-D520C9794EA5\n   - Added Description: A buffer overflow vulnerability in the XML processing functionality of Palo Alto Networks PAN-OS® software enables an unauthenticated attacker with network access to the management web or dataplane interface to cause a denial of service (DoS) condition on VM-Series firewalls or execute arbitrary code with root privileges on the PA-Series firewalls.\n\nThe security risk posed by this issue is minimized when the management interface is restricted to only trusted internal IP addresses according to our recommended  best practice deployment guidelines https://live.paloaltonetworks.com/t5/community-blogs/tips-amp-tricks-how-to-secure-the-management-access-of-your-palo/ba-p/464431 . \n\nPanorama is impacted by this vulnerability.\n   - Added CVSS V4.0: AV:N/AC:H/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:L/SI:L/SA:N/E:U/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:N/R:U/V:D/RE:M/U:Red\n   - Added CWE: CWE-787\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/0xxx/CVE-2026-0310.json\">CVE-2026-0310</a>\n   - Added Reference: https://security.paloaltonetworks.com/CVE-2026-0310\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-0310",
+        "cveIds": [
+          "CVE-2026-0310"
+        ],
+        "source": "Comment",
+        "commentText": "https://security.paloaltonetworks.com/CVE-2026-0310",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p973e90/",
+        "commentDate": "2026-09-11T17:38:11+00:00",
+        "cvePublishedDate": "2026-09-10T06:17:04.450000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-11T04:17:13.060 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=832AA968-E1A0-460C-9469-4B40FB79DC9D\n   - Changed SSVC: {'timestamp': '2026-09-10T13:04:47.967132Z', 'id': 'CVE-2026-0310', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'} -> {'timestamp': '2026-09-10T00:00:00+00:00', 'id': 'CVE-2026-0310', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-09-10T14:16:59.327 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=774F427F-4BE0-4CB4-A08F-5E4B4352BB84\n   - Added SSVC: {'timestamp': '2026-09-10T13:04:47.967132Z', 'id': 'CVE-2026-0310', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n3. 2026-09-10T06:17:04.450 | New CVE Received | source=psirt@paloaltonetworks.com | changeId=97025989-6B3C-41BB-BC63-D520C9794EA5\n   - Added Description: A buffer overflow vulnerability in the XML processing functionality of Palo Alto Networks PAN-OS® software enables an unauthenticated attacker with network access to the management web or dataplane interface to cause a denial of service (DoS) condition on VM-Series firewalls or execute arbitrary code with root privileges on the PA-Series firewalls.\n\nThe security risk posed by this issue is minimized when the management interface is restricted to only trusted internal IP addresses according to our recommended  best practice deployment guidelines https://live.paloaltonetworks.com/t5/community-blogs/tips-amp-tricks-how-to-secure-the-management-access-of-your-palo/ba-p/464431 . \n\nPanorama is impacted by this vulnerability.\n   - Added CVSS V4.0: AV:N/AC:H/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:L/SI:L/SA:N/E:U/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:N/R:U/V:D/RE:M/U:Red\n   - Added CWE: CWE-787\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/0xxx/CVE-2026-0310.json\">CVE-2026-0310</a>\n   - Added Reference: https://security.paloaltonetworks.com/CVE-2026-0310\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-0310",
+        "cveIds": [
+          "CVE-2026-0310"
+        ],
+        "source": "Comment",
+        "commentText": "https://security.paloaltonetworks.com/CVE-2026-0310",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p973e90/",
+        "commentDate": "2026-09-11T17:38:11+00:00",
+        "cvePublishedDate": "2026-09-10T06:17:04.450000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-11T04:17:13.060 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=832AA968-E1A0-460C-9469-4B40FB79DC9D\n   - Changed SSVC: {'timestamp': '2026-09-10T13:04:47.967132Z', 'id': 'CVE-2026-0310', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'} -> {'timestamp': '2026-09-10T00:00:00+00:00', 'id': 'CVE-2026-0310', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-09-10T14:16:59.327 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=774F427F-4BE0-4CB4-A08F-5E4B4352BB84\n   - Added SSVC: {'timestamp': '2026-09-10T13:04:47.967132Z', 'id': 'CVE-2026-0310', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n3. 2026-09-10T06:17:04.450 | New CVE Received | source=psirt@paloaltonetworks.com | changeId=97025989-6B3C-41BB-BC63-D520C9794EA5\n   - Added Description: A buffer overflow vulnerability in the XML processing functionality of Palo Alto Networks PAN-OS® software enables an unauthenticated attacker with network access to the management web or dataplane interface to cause a denial of service (DoS) condition on VM-Series firewalls or execute arbitrary code with root privileges on the PA-Series firewalls.\n\nThe security risk posed by this issue is minimized when the management interface is restricted to only trusted internal IP addresses according to our recommended  best practice deployment guidelines https://live.paloaltonetworks.com/t5/community-blogs/tips-amp-tricks-how-to-secure-the-management-access-of-your-palo/ba-p/464431 . \n\nPanorama is impacted by this vulnerability.\n   - Added CVSS V4.0: AV:N/AC:H/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:L/SI:L/SA:N/E:U/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:N/R:U/V:D/RE:M/U:Red\n   - Added CWE: CWE-787\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/0xxx/CVE-2026-0310.json\">CVE-2026-0310</a>\n   - Added Reference: https://security.paloaltonetworks.com/CVE-2026-0310\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-0310",
+        "cveIds": [
+          "CVE-2026-0310"
+        ],
+        "source": "Comment",
+        "commentText": "https://security.paloaltonetworks.com/CVE-2026-0310",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p973e90/",
+        "commentDate": "2026-09-11T17:38:11+00:00",
+        "cvePublishedDate": "2026-09-10T06:17:04.450000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-11T04:17:13.060 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=832AA968-E1A0-460C-9469-4B40FB79DC9D\n   - Changed SSVC: {'timestamp': '2026-09-10T13:04:47.967132Z', 'id': 'CVE-2026-0310', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'} -> {'timestamp': '2026-09-10T00:00:00+00:00', 'id': 'CVE-2026-0310', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-09-10T14:16:59.327 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=774F427F-4BE0-4CB4-A08F-5E4B4352BB84\n   - Added SSVC: {'timestamp': '2026-09-10T13:04:47.967132Z', 'id': 'CVE-2026-0310', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n3. 2026-09-10T06:17:04.450 | New CVE Received | source=psirt@paloaltonetworks.com | changeId=97025989-6B3C-41BB-BC63-D520C9794EA5\n   - Added Description: A buffer overflow vulnerability in the XML processing functionality of Palo Alto Networks PAN-OS® software enables an unauthenticated attacker with network access to the management web or dataplane interface to cause a denial of service (DoS) condition on VM-Series firewalls or execute arbitrary code with root privileges on the PA-Series firewalls.\n\nThe security risk posed by this issue is minimized when the management interface is restricted to only trusted internal IP addresses according to our recommended  best practice deployment guidelines https://live.paloaltonetworks.com/t5/community-blogs/tips-amp-tricks-how-to-secure-the-management-access-of-your-palo/ba-p/464431 . \n\nPanorama is impacted by this vulnerability.\n   - Added CVSS V4.0: AV:N/AC:H/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:L/SI:L/SA:N/E:U/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:N/R:U/V:D/RE:M/U:Red\n   - Added CWE: CWE-787\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/0xxx/CVE-2026-0310.json\">CVE-2026-0310</a>\n   - Added Reference: https://security.paloaltonetworks.com/CVE-2026-0310\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-0310",
+        "cveIds": [
+          "CVE-2026-0310"
+        ],
+        "source": "Comment",
+        "commentText": "https://security.paloaltonetworks.com/CVE-2026-0310",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p973e90/",
+        "commentDate": "2026-09-11T17:38:11+00:00",
+        "cvePublishedDate": "2026-09-10T06:17:04.450000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-11T04:17:13.060 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=832AA968-E1A0-460C-9469-4B40FB79DC9D\n   - Changed SSVC: {'timestamp': '2026-09-10T13:04:47.967132Z', 'id': 'CVE-2026-0310', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'} -> {'timestamp': '2026-09-10T00:00:00+00:00', 'id': 'CVE-2026-0310', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-09-10T14:16:59.327 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=774F427F-4BE0-4CB4-A08F-5E4B4352BB84\n   - Added SSVC: {'timestamp': '2026-09-10T13:04:47.967132Z', 'id': 'CVE-2026-0310', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n3. 2026-09-10T06:17:04.450 | New CVE Received | source=psirt@paloaltonetworks.com | changeId=97025989-6B3C-41BB-BC63-D520C9794EA5\n   - Added Description: A buffer overflow vulnerability in the XML processing functionality of Palo Alto Networks PAN-OS® software enables an unauthenticated attacker with network access to the management web or dataplane interface to cause a denial of service (DoS) condition on VM-Series firewalls or execute arbitrary code with root privileges on the PA-Series firewalls.\n\nThe security risk posed by this issue is minimized when the management interface is restricted to only trusted internal IP addresses according to our recommended  best practice deployment guidelines https://live.paloaltonetworks.com/t5/community-blogs/tips-amp-tricks-how-to-secure-the-management-access-of-your-palo/ba-p/464431 . \n\nPanorama is impacted by this vulnerability.\n   - Added CVSS V4.0: AV:N/AC:H/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:L/SI:L/SA:N/E:U/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:N/R:U/V:D/RE:M/U:Red\n   - Added CWE: CWE-787\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/0xxx/CVE-2026-0310.json\">CVE-2026-0310</a>\n   - Added Reference: https://security.paloaltonetworks.com/CVE-2026-0310\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-0310",
+        "cveIds": [
+          "CVE-2026-0310"
+        ],
+        "source": "Comment",
+        "commentText": "https://security.paloaltonetworks.com/CVE-2026-0310",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p973e90/",
+        "commentDate": "2026-09-11T17:38:11+00:00",
+        "cvePublishedDate": "2026-09-10T06:17:04.450000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-11T04:17:13.060 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=832AA968-E1A0-460C-9469-4B40FB79DC9D\n   - Changed SSVC: {'timestamp': '2026-09-10T13:04:47.967132Z', 'id': 'CVE-2026-0310', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'} -> {'timestamp': '2026-09-10T00:00:00+00:00', 'id': 'CVE-2026-0310', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-09-10T14:16:59.327 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=774F427F-4BE0-4CB4-A08F-5E4B4352BB84\n   - Added SSVC: {'timestamp': '2026-09-10T13:04:47.967132Z', 'id': 'CVE-2026-0310', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n3. 2026-09-10T06:17:04.450 | New CVE Received | source=psirt@paloaltonetworks.com | changeId=97025989-6B3C-41BB-BC63-D520C9794EA5\n   - Added Description: A buffer overflow vulnerability in the XML processing functionality of Palo Alto Networks PAN-OS® software enables an unauthenticated attacker with network access to the management web or dataplane interface to cause a denial of service (DoS) condition on VM-Series firewalls or execute arbitrary code with root privileges on the PA-Series firewalls.\n\nThe security risk posed by this issue is minimized when the management interface is restricted to only trusted internal IP addresses according to our recommended  best practice deployment guidelines https://live.paloaltonetworks.com/t5/community-blogs/tips-amp-tricks-how-to-secure-the-management-access-of-your-palo/ba-p/464431 . \n\nPanorama is impacted by this vulnerability.\n   - Added CVSS V4.0: AV:N/AC:H/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:L/SI:L/SA:N/E:U/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:N/R:U/V:D/RE:M/U:Red\n   - Added CWE: CWE-787\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/0xxx/CVE-2026-0310.json\">CVE-2026-0310</a>\n   - Added Reference: https://security.paloaltonetworks.com/CVE-2026-0310\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-0310",
+        "cveIds": [
+          "CVE-2026-0310"
+        ],
+        "source": "Comment",
+        "commentText": "https://security.paloaltonetworks.com/CVE-2026-0310",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p973e90/",
+        "commentDate": "2026-09-11T17:38:11+00:00",
+        "cvePublishedDate": "2026-09-10T06:17:04.450000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-11T04:17:13.060 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=832AA968-E1A0-460C-9469-4B40FB79DC9D\n   - Changed SSVC: {'timestamp': '2026-09-10T13:04:47.967132Z', 'id': 'CVE-2026-0310', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'} -> {'timestamp': '2026-09-10T00:00:00+00:00', 'id': 'CVE-2026-0310', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-09-10T14:16:59.327 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=774F427F-4BE0-4CB4-A08F-5E4B4352BB84\n   - Added SSVC: {'timestamp': '2026-09-10T13:04:47.967132Z', 'id': 'CVE-2026-0310', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n3. 2026-09-10T06:17:04.450 | New CVE Received | source=psirt@paloaltonetworks.com | changeId=97025989-6B3C-41BB-BC63-D520C9794EA5\n   - Added Description: A buffer overflow vulnerability in the XML processing functionality of Palo Alto Networks PAN-OS® software enables an unauthenticated attacker with network access to the management web or dataplane interface to cause a denial of service (DoS) condition on VM-Series firewalls or execute arbitrary code with root privileges on the PA-Series firewalls.\n\nThe security risk posed by this issue is minimized when the management interface is restricted to only trusted internal IP addresses according to our recommended  best practice deployment guidelines https://live.paloaltonetworks.com/t5/community-blogs/tips-amp-tricks-how-to-secure-the-management-access-of-your-palo/ba-p/464431 . \n\nPanorama is impacted by this vulnerability.\n   - Added CVSS V4.0: AV:N/AC:H/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:L/SI:L/SA:N/E:U/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:N/R:U/V:D/RE:M/U:Red\n   - Added CWE: CWE-787\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/0xxx/CVE-2026-0310.json\">CVE-2026-0310</a>\n   - Added Reference: https://security.paloaltonetworks.com/CVE-2026-0310\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-0310",
+        "cveIds": [
+          "CVE-2026-0310"
+        ],
+        "source": "Comment",
+        "commentText": "https://security.paloaltonetworks.com/CVE-2026-0310",
+        "linkToComment": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/p973e90/",
+        "commentDate": "2026-09-11T17:38:11+00:00",
+        "cvePublishedDate": "2026-09-10T06:17:04.450000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-11T04:17:13.060 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=832AA968-E1A0-460C-9469-4B40FB79DC9D\n   - Changed SSVC: {'timestamp': '2026-09-10T13:04:47.967132Z', 'id': 'CVE-2026-0310', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'} -> {'timestamp': '2026-09-10T00:00:00+00:00', 'id': 'CVE-2026-0310', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-09-10T14:16:59.327 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=774F427F-4BE0-4CB4-A08F-5E4B4352BB84\n   - Added SSVC: {'timestamp': '2026-09-10T13:04:47.967132Z', 'id': 'CVE-2026-0310', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n3. 2026-09-10T06:17:04.450 | New CVE Received | source=psirt@paloaltonetworks.com | changeId=97025989-6B3C-41BB-BC63-D520C9794EA5\n   - Added Description: A buffer overflow vulnerability in the XML processing functionality of Palo Alto Networks PAN-OS® software enables an unauthenticated attacker with network access to the management web or dataplane interface to cause a denial of service (DoS) condition on VM-Series firewalls or execute arbitrary code with root privileges on the PA-Series firewalls.\n\nThe security risk posed by this issue is minimized when the management interface is restricted to only trusted internal IP addresses according to our recommended  best practice deployment guidelines https://live.paloaltonetworks.com/t5/community-blogs/tips-amp-tricks-how-to-secure-the-management-access-of-your-palo/ba-p/464431 . \n\nPanorama is impacted by this vulnerability.\n   - Added CVSS V4.0: AV:N/AC:H/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:L/SI:L/SA:N/E:U/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:N/R:U/V:D/RE:M/U:Red\n   - Added CWE: CWE-787\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/0xxx/CVE-2026-0310.json\">CVE-2026-0310</a>\n   - Added Reference: https://security.paloaltonetworks.com/CVE-2026-0310\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified"
+        ]
       }
     ],
     "sourceBot": "reddit.py",
@@ -1674,7 +2117,7 @@
         "id": "p8ytky5",
         "author": "NL_Northsider",
         "body": "I really like what you're trying to do and this for sure can be useful. But I would spend some more time on the code quality. I see a lot of things that AI introduces, which isn't \"deslopped\". For example class constants that could better be an enum, repeated string literals, but what stood out most: it feels like most classes generally boil down to a handle method which contain all the business logic. \n\nAs your project is Open Source, an easy way to get some ideas on how to improve maintainability/complexity is by using SonarQube Cloud, which is free for opensource projects.",
-        "score": 1,
+        "score": 2,
         "created_utc_ts": 1789053381,
         "created_utc": "2026-09-10T15:16:21",
         "permalink": "https://reddit.com/r/PHP/comments/1wclfrt/i_built_a_composer_tool_to_answer_composer_audit/p8ytky5/",
@@ -1685,7 +2128,7 @@
         "id": "p8yxq3t",
         "author": "Leading-Cold6409",
         "body": "Thank you for the comment! he project has already gone through a fairly aggressive correctness/security review, but maintainability/readability is the next thing I want to attack before 1.0.   \n  \nI've used Aikido for a first pass (no hits other than github configuration), and just applied for SonarQube Cloud OSS (waiting for their approval). ",
-        "score": 2,
+        "score": 3,
         "created_utc_ts": 1789054439,
         "created_utc": "2026-09-10T15:33:59",
         "permalink": "https://reddit.com/r/PHP/comments/1wclfrt/i_built_a_composer_tool_to_answer_composer_audit/p8yxq3t/",
@@ -1707,7 +2150,7 @@
         "id": "p8z5iu9",
         "author": "Leading-Cold6409",
         "body": "That’s a very interesting issue — thanks for pointing it out. There’s definitely overlap in the core remediation problem. Composer Remediate currently goes somewhat further into remediation planning/explanation, ranking candidates by blast radius, CI/reporting and advisory-data handling, while deliberately using Composer’s own solver to prove proposed changes rather than implementing dependency resolution itself.\n\nI’d be very happy if some of the underlying remediation capability eventually made sense upstream in Composer. I’ll follow that issue and have a closer look at what they’re considering.",
-        "score": 0,
+        "score": 2,
         "created_utc_ts": 1789056403,
         "created_utc": "2026-09-10T16:06:43",
         "permalink": "https://reddit.com/r/PHP/comments/1wclfrt/i_built_a_composer_tool_to_answer_composer_audit/p8z5iu9/",
@@ -1816,7 +2259,7 @@
     ],
     "created_utc": "2026-09-10T14:52:23",
     "first_author_comment": "Thank you for the comment! he project has already gone through a fairly aggressive correctness/security review, but maintainability/readability is the next thing I want to attack before 1.0.   \n  \nI've used Aikido for a first pass (no hits other than github configuration), and just applied for SonarQube Cloud OSS (waiting for their approval). ",
-    "num_comments": 18,
+    "num_comments": 20,
     "score": 14,
     "subreddit": "PHP",
     "tag": "Discussion",
@@ -1824,8 +2267,8 @@
       "Discussion"
     ],
     "title": "I built a Composer tool to answer “composer audit found a vulnerability — what do I actually update?”",
-    "updatedAt": "2026-09-14T06:43:42.001Z",
-    "upvote_ratio": 0.82,
+    "updatedAt": "2026-09-15T06:44:19.525Z",
+    "upvote_ratio": 0.8,
     "url": "https://reddit.com/r/PHP/comments/1wclfrt/i_built_a_composer_tool_to_answer_composer_audit/",
     "versionList": [],
     "isAboutCve": true,
@@ -2734,13 +3177,13 @@
     "created_utc": "2026-09-09T10:47:25",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 38,
+    "score": 39,
     "subreddit": "netsec",
     "tag": "Contains AI",
     "tags": [],
     "title": "Fortinet Privileged Access Agent: Any Site Could Control Your Proxy and Watch Your Tab",
-    "updatedAt": "2026-09-14T07:22:40.237Z",
-    "upvote_ratio": 0.88,
+    "updatedAt": "2026-09-15T06:22:44.143Z",
+    "upvote_ratio": 0.9,
     "url": "https://reddit.com/r/netsec/comments/1wbi40d/fortinet_privileged_access_agent_any_site_could/",
     "versionList": [],
     "isAboutCve": true,
@@ -2750,7 +3193,7 @@
         "id": "p8qnwor",
         "author": "Hizonner",
         "body": "Class, what have we learned about the security impact of adding attack surface?\n\nNot much, based on how corporate IT behaves....",
-        "score": 5,
+        "score": 8,
         "created_utc_ts": 1788959455,
         "created_utc": "2026-09-09T13:10:55",
         "permalink": "https://reddit.com/r/netsec/comments/1wbi40d/fortinet_privileged_access_agent_any_site_could/p8qnwor/",
@@ -6952,13 +7395,13 @@
     "created_utc": "2026-09-01T12:28:03",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 11,
+    "score": 13,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Off the Hook: Discovering and Observing Active Exploitation of Sangoma Switchvox CVE-2026-9586",
-    "updatedAt": "2026-09-14T07:22:52.677Z",
-    "upvote_ratio": 0.93,
+    "updatedAt": "2026-09-15T06:22:56.517Z",
+    "upvote_ratio": 0.94,
     "url": "https://reddit.com/r/netsec/comments/1w4aj8x/off_the_hook_discovering_and_observing_active/",
     "versionList": [
       "2026.0.0",
@@ -6983,7 +7426,7 @@
     "source": "reddit"
   },
   {
-    "_id": "6aa7755c648fea6871669630",
+    "_id": "6aa8c6dc648fea687166fd52",
     "redditId": "1w25s1a",
     "author": "Sam_-_-_",
     "author_description": "I've been rolling pfSense for about 5 years. Decided to try Unifi. Couldn't find a manual or one-to-one feature documentation for each panel (only various spotlight articles). \n\nAsked the community for help: every response said basically \"things change too often, no need to have a manual\". \n\nExcuse me, what? I'm not a networking pro, and I do need a manual. (pfSense was hard for me, but had great documentation.) \n\nI can't believe this was the response. Is everyone in their community a bot or a cultist? \n\nI still have few days left on my return window, and might come back, LOL.",
@@ -6993,7 +7436,7 @@
         "id": "p6q65xn",
         "author": "PepperdotNet",
         "body": "Unifi access points are fantastic. But I have not seen anything yet that would convince me to abandon pfSense for a Unifi router/firewall. And I prefer Cisco switches, personally (3850s are reasonably cheap on ebay right now)",
-        "score": 64,
+        "score": 61,
         "created_utc_ts": 1788059015,
         "created_utc": "2026-08-30T03:03:35",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6q65xn/",
@@ -7004,7 +7447,7 @@
         "id": "p6q6sqf",
         "author": "Sam_-_-_",
         "body": "I thought \"user friendly\" + affordable 10GbE gateway, might be the reason. But \"no manual\" + community shills, is scaring me off. ",
-        "score": 2,
+        "score": 1,
         "created_utc_ts": 1788059274,
         "created_utc": "2026-08-30T03:07:54",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6q6sqf/",
@@ -7015,7 +7458,7 @@
         "id": "p6q81uj",
         "author": "DifferentSpecific",
         "body": "There are so many Youtube tutorials that you don't need a manual.\n\nStart with episode #1 and go through the series. By the end you'll have a great setup.\n\n[https://youtu.be/TLsnEzSNhQs?si=dw-I7YpL-ogGp0HS](https://youtu.be/TLsnEzSNhQs?si=dw-I7YpL-ogGp0HS)\n\n",
-        "score": -2,
+        "score": -3,
         "created_utc_ts": 1788059782,
         "created_utc": "2026-08-30T03:16:22",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6q81uj/",
@@ -7026,7 +7469,7 @@
         "id": "p6q8gsr",
         "author": "spacebass",
         "body": "Bro been rolling pf for five and now the Fi community gon do him dirty like that? Fr? Naw. \n\nOp, is this a pfSense issue or a frustration with another vendor? And if the later, can you help us help you? \n\nI get the frustration when you want to learn something and can’t find the materials. Been there too. But how is this a pfSense issue? \n\nAlso we’d love to help if we can but you have to give us more than vibes. ",
-        "score": -4,
+        "score": -6,
         "created_utc_ts": 1788059954,
         "created_utc": "2026-08-30T03:19:14",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6q8gsr/",
@@ -7048,7 +7491,7 @@
         "id": "p6q9f7m",
         "author": "Sam_-_-_",
         "body": "Comparative experience coming from pfSense. Ignore and move on. ",
-        "score": 2,
+        "score": 3,
         "created_utc_ts": 1788060348,
         "created_utc": "2026-08-30T03:25:48",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6q9f7m/",
@@ -7059,7 +7502,7 @@
         "id": "p6qbfib",
         "author": "Microflunkie",
         "body": "I use pfSense and two UniFi APs at home. \n\nI have dealt with UniFi firewalls, switches and APs both professionally and personally. I read somewhere here on reddit that the founder of Ubiquiti used to work at Apple and I can totally see the aesthetic. I feel like UniFi is to networking what BMW is to cars, nice and good quality but expensive for what they are and with a large customer base who can be a bit… cult-ish.\n\nIf the UniFi can do everything you want to do it is a great ecosystem. But you will not get the granularity or capability of pfSense in the UniFi ecosystem. Conversely you will get firewall, switch and AP integration and management with unit which you can’t get with pfSense. It’s all a matter of what is inportmat and what matters to you and your needs. ",
-        "score": 3,
+        "score": 4,
         "created_utc_ts": 1788061184,
         "created_utc": "2026-08-30T03:39:44",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6qbfib/",
@@ -7070,7 +7513,7 @@
         "id": "p6qc7ka",
         "author": "NotYourNanny",
         "body": "And they recently discontinued their cloud key devices, which served only to run the Unifi gear, without any router functions. The recommended replacement is a router/firewall with those functions, but (I'm told) if set to bridge mode, you lose most of the cloud key functionality. So it really can't coexist with other gear behind a real firewall.\n\nAs soon as there's time, we'll be experimenting with running their software package on a Raspberry Pi, but we haven't gotten to it yet.",
-        "score": 4,
+        "score": 3,
         "created_utc_ts": 1788061517,
         "created_utc": "2026-08-30T03:45:17",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6qc7ka/",
@@ -7081,7 +7524,7 @@
         "id": "p6qd2w1",
         "author": "OutsideTech",
         "body": "Until it breaks, or the expected functionality doesn’t match reality, then documentation is quite necessary.",
-        "score": 8,
+        "score": 9,
         "created_utc_ts": 1788061888,
         "created_utc": "2026-08-30T03:51:28",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6qd2w1/",
@@ -7136,7 +7579,7 @@
         "id": "p6qputt",
         "author": "SirEDCaLot",
         "body": "I use a mix of pfSense and UniFi.  \n\nBottom line for me- UniFi works great for WiFi and switching.  Routing/firewall, pfSense has more features, more capability, more ability to tweak it, but also takes more time to set up and (re)configure.  \n\nIf you're doing full-stack UniFi (router/firewall, switch, WAP) it's a really compelling platform that makes a lot of the basic management stuff easier.  \nFor example let's say you want to assign a static DHCP lease to a device.  pfSense you have to go to status-DHCP leases, find the device, then add the static there.  UniFi you just go to 'clients', the device is way easier to find, and give it an IP.  \nOTOH, with pfSense you can assign static IPs to that device on various subnets.  Like if it plugs into VLAN A it gets IP 1.2.3.4, if it plugs into VLAN B it gets IP 5.6.7.8, etc.  UniFi doesn't have that.  pfSense you can make a lot of very custom DHCP stuff for a device, like give it special DNS servers.  Not so with UniFi.  \n\nUniFi switches also lack detailed STP controls that even Netgear business level switches have.  But the UniFi system will instantly tell you which port on which switch a device is plugged into, or what device is plugged into a particular port.  \n\n------\n\n&gt; Excuse me, what? I'm not a networking pro, and I do need a manual.  \n\nThen UniFi is not for you.  I mean no insult by that.  It's a different approach to things.  \nYou have the Cisco type way where innovation is slow and everything is documented.  You have the pfSense way where innovation is at a medium pace and there's good documentation but not to the same degree as Cisco.  And on the other end you have UniFi where innovation is VERY rapid and Google is your documentation.  \n\nSome of that also goes to the org culture.  If you're at a place with a change control process for example, you'll hate UniFi because it's very easy to make quick changes.  \n\nHope that's helpful.  \n\nI am not a bot, I am a dog.  Woof.",
-        "score": 41,
+        "score": 37,
         "created_utc_ts": 1788067629,
         "created_utc": "2026-08-30T05:27:09",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6qputt/",
@@ -7147,7 +7590,7 @@
         "id": "p6qqxku",
         "author": "Extra_Can_4837",
         "body": "The more I use Unifi, the more I hate them.\n\nI attempted to move completely over to Unifi Protect for CCTV (as a security installer) and they're just a pain in the butt, and super expensive.\n\nThey update things too often and make changes to the UI (sometimes drastically). So for me it's become \"What's easy to find today, will be basically hidden tomorrow\".\n\nThat being said, they do have good wifi access points. Even if they do run hot AF.\n\n\n\nWhich Unifi devices are you using? You didn't specify.",
-        "score": 12,
+        "score": 13,
         "created_utc_ts": 1788068147,
         "created_utc": "2026-08-30T05:35:47",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6qqxku/",
@@ -7158,7 +7601,7 @@
         "id": "p6qviyn",
         "author": "pythosynthesis",
         "body": "Go back. pfSense is hard, but absolutely worth it. Don't fall for the deceiving musings promising you to be the emperor of the internet. Stick with what works.",
-        "score": 8,
+        "score": 9,
         "created_utc_ts": 1788070419,
         "created_utc": "2026-08-30T06:13:39",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6qviyn/",
@@ -7169,7 +7612,7 @@
         "id": "p6r18gl",
         "author": "thomasfr",
         "body": "I am proportionally more worried every time I have to update my UniFi firmwares than any other network gear I have ever used. They do change a lot and some times the release notes just say “improved stability” or something which tells you nothing at all. \n\nThey do provide a lot of features for the price over a lot of products which I guess is the selling point but you have to deal with the chaos because of it.",
-        "score": 4,
+        "score": 5,
         "created_utc_ts": 1788073309,
         "created_utc": "2026-08-30T07:01:49",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6r18gl/",
@@ -7235,7 +7678,7 @@
         "id": "p6rofye",
         "author": "needchr",
         "body": "Personally I use pfSense for firewall, routing, VPN, and DHCP, OpenWRT for wifi/switch.",
-        "score": 1,
+        "score": 2,
         "created_utc_ts": 1788085371,
         "created_utc": "2026-08-30T10:22:51",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6rofye/",
@@ -7257,7 +7700,7 @@
         "id": "p6rt2gj",
         "author": "rh681",
         "body": "Ubiquiti is enterprise software on top of consumer hardware.  Their physical products are nothing special, but they do a good job with what they make.\n\nMy home ecosystem is pfSense firewall, Ruckus AP, and Cisco SMB switch.  Everything just purrs along.",
-        "score": 4,
+        "score": 2,
         "created_utc_ts": 1788087635,
         "created_utc": "2026-08-30T11:00:35",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6rt2gj/",
@@ -7301,7 +7744,7 @@
         "id": "p6rwnlz",
         "author": "retrohaz3",
         "body": "Not a cult. Just a large pack of fanboys who will defend the product to justify their home remortgage after being sucked into the Unifi ecosystem. \n\nThe product is decent but their are 'as good ' options for cheaper and better options if you're happy getting your hands dirty. ",
-        "score": 7,
+        "score": 8,
         "created_utc_ts": 1788089262,
         "created_utc": "2026-08-30T11:27:42",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6rwnlz/",
@@ -7312,7 +7755,7 @@
         "id": "p6rxq1y",
         "author": "UDP69",
         "body": "The dream machine line created a cult.",
-        "score": 4,
+        "score": 3,
         "created_utc_ts": 1788089725,
         "created_utc": "2026-08-30T11:35:25",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6rxq1y/",
@@ -7499,7 +7942,7 @@
         "id": "p6toagy",
         "author": "gonzopancho",
         "body": "Calling the Ubiquiti firmware “enterprise”, when it’s not.  Enterprise runs on stability and security.  Ubiquiti is anything but. \n\nUbiquiti recently disclosed 22 UniFi flaws, including 21 Critical bugs with severity scores of 9.0 or higher. Attackers with network access could bypass authentication, gain full control, and run commands on affected devices.\n\nThe bugs affected nearly the entire product line: UniFi OS, Protect, Talk, Access, storage devices, gateways, routers, recorders, and more.\n\nhttps://community.ui.com/releases/Security-Advisory-Bulletin-067/fc4a3488-7c43-4628-8bab-f715e96dbfc9\n\nThe fork (you know who) has had a lot of security issues as well. A quick rundown of what happened just between April and May 2026:\n\nApril 9: an information disclosure bug ([WID-SEC-2026-1044](https://wz-it.com/en/blog/opnsense-26-1-8-cve-2026-44194-45158-rce-patch-management/), CVSS 8.2) affecting anything before 26.1.6.\n\nMay 6: [CVE-2026-44193](https://www.cve.org/cverecord?id=CVE-2026-44193), a 9.1 critical, authenticated command injection through XMLRPC's restore\\_config\\_section that gets you root RCE. Same day, [CVE-2026-44195](https://www.cve.org/cverecord?id=CVE-2026-44195), a login lockout bypass caused by a regex ordering mistake, which basically lets someone brute force credentials without getting locked out.\n\nMay 12: two more. [CVE-2026-44194](https://nvd.nist.gov/vuln/detail/CVE-2026-44194), another 9.1 critical, command injection through sync\\_user.php because shell metacharacters in the email field weren't being sanitized. And [CVE-2026-45158](https://nvd.nist.gov/vuln/detail/CVE-2026-45158), an argument injection bug through DHCP hostname handling, also rated critical.\n\nThat's five disclosed issues in about five weeks, including two critical root RCEs six days apart, both of which had public proof of concept code floating around not long after disclosure. It took three point releases back to back ([26.1.6](https://docs.opnsense.org/releases/CE_26.1.html#april-09-2026) on April 9, then [26.1.7](https://docs.opnsense.org/releases/CE_26.1.html#april-30-2026) on April 30, then [26.1.8](https://docs.opnsense.org/releases/CE_26.1.html#may-12-2026) on May 12) to actually get it all patched. Nor are their release notes (already linked) clear about what happened.\n\nMeanwhile, in 20 years, pfSense has never had a 9.0 or higher.  ",
-        "score": 4,
+        "score": 5,
         "created_utc_ts": 1788109138,
         "created_utc": "2026-08-30T16:58:58",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6toagy/",
@@ -7543,7 +7986,7 @@
         "id": "p6ug03y",
         "author": "LeadershipSuperb6176",
         "body": "I use Unifi WAPs and switches almost exclusively, but there is no world in which I trade my pfsense routers for unifi.",
-        "score": 5,
+        "score": 6,
         "created_utc_ts": 1788116606,
         "created_utc": "2026-08-30T19:03:26",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6ug03y/",
@@ -7587,7 +8030,7 @@
         "id": "p6v36n2",
         "author": "ThatUsrnameIsAlready",
         "body": "&gt; \nBut the UniFi system will instantly tell you which port on which switch a device is plugged into, or what device is plugged into a particular port.\n\n- Not instantly.\n\n- Is sometimes wrong.\n\n- Good luck with multiple devices e.g. VMs.",
-        "score": 5,
+        "score": 6,
         "created_utc_ts": 1788123185,
         "created_utc": "2026-08-30T20:53:05",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6v36n2/",
@@ -7851,14 +8294,14 @@
     "created_utc": "2026-08-30T02:57:05",
     "first_author_comment": "I thought \"user friendly\" + affordable 10GbE gateway, might be the reason. But \"no manual\" + community shills, is scaring me off. ",
     "num_comments": 206,
-    "score": 70,
+    "score": 66,
     "source": "reddit",
     "subreddit": "PFSENSE",
     "tag": null,
     "tags": [],
     "title": "Did I join a cult? (Unifi)",
-    "updatedAt": "2026-09-14T07:17:30.826Z",
-    "upvote_ratio": 0.81,
+    "updatedAt": "2026-09-15T06:17:35.980Z",
+    "upvote_ratio": 0.8,
     "url": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/",
     "versionList": [],
     "isAboutCve": false,
@@ -10424,13 +10867,13 @@
     "created_utc": "2026-08-26T13:59:47",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 26,
+    "score": 25,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "☢️ Philippine Nuclear Agency and Naval Contractor Targeted by Suspected Chinese-Speaking Operator",
-    "updatedAt": "2026-09-14T07:23:02.284Z",
-    "upvote_ratio": 0.82,
+    "updatedAt": "2026-09-15T06:23:06.002Z",
+    "upvote_ratio": 0.83,
     "url": "https://reddit.com/r/netsec/comments/1vyxx41/philippine_nuclear_agency_and_naval_contractor/",
     "versionList": [],
     "classification": {
@@ -10469,7 +10912,7 @@
     "source": "reddit"
   },
   {
-    "_id": "6aa776aa648fea687166972b",
+    "_id": "6aa8c825648fea687166fe4e",
     "redditId": "1vy5zqu",
     "author": "wez32",
     "author_description": null,
@@ -10483,8 +10926,8 @@
     "tag": "Contains AI",
     "tags": [],
     "title": "Pwning Call of Duty 1: a 20-year-old RCE, found in an evening with AI",
-    "updatedAt": "2026-09-14T07:23:04.047Z",
-    "upvote_ratio": 0.61,
+    "updatedAt": "2026-09-15T06:23:07.640Z",
+    "upvote_ratio": 0.6,
     "url": "https://reddit.com/r/netsec/comments/1vy5zqu/pwning_call_of_duty_1_a_20yearold_rce_found_in_an/",
     "versionList": [
       "1.0.0",
@@ -10502,11 +10945,11 @@
         "linkToComment": "https://reddit.com/r/netsec/comments/1vy5zqu/pwning_call_of_duty_1_a_20yearold_rce_found_in_an/p649v74/",
         "commentDate": "2026-08-27T00:25:12+00:00",
         "cvePublishedDate": "2004-12-31T05:00:00+00:00",
-        "initialAnalysisDate": null,
+        "initialAnalysisDate": "2005-12-15T16:00:00.000",
         "daysAfterPublication": 7908,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-06-16T22:09:57.397 | CVE Modified | source=cve@mitre.org | changeId=C8E7971F-FEA4-46F6-BB6F-63C41324FCC2\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2004/2xxx/CVE-2004-2599.json\">CVE-2004-2599</a>\n2. 2026-04-16T00:27:16.627 | CVE Status Change | source=nvd@nist.gov | changeId=02279C33-2A27-4A9F-B433-04B884156E05\n3. 2024-11-20T23:53:46.000 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=A4181745-6830-4DCD-9EDA-028C52E08220\n   - Added Reference: http://archives.neohapsis.com/archives/bugtraq/2004-10/0299.html\n   - Added Reference: http://secur1ty.net/advisories/001\n   - Added Reference: http://securitytracker.com/id?1011979\n   - Added Reference: http://web.archive.org/web/20041130092749/www.r1ch.net/stuff/r1q2/\n   - Added Reference: http://www.osvdb.org/11188\n   - Added Reference: https://exchange.xforce.ibmcloud.com/vulnerabilities/17898\n4. 2024-05-14T01:28:04.303 | CVE Modified | source=cve@mitre.org | changeId=19EE7540-083F-42FF-A7A6-CC3DBDB10402\n5. 2017-07-11T01:32:02.560 | CVE Modified | source=cve@mitre.org | changeId=22BCCFC2-21A2-4DF5-B196-1929071AB5EC\n   - Removed Reference: http://xforce.iss.net/xforce/xfdb/17898 [No Types Assigned] -> None\n   - Added Reference: https://exchange.xforce.ibmcloud.com/vulnerabilities/17898 [No Types Assigned]\n6. 2005-12-15T16:00:00.000 | Initial Analysis | source=nvd@nist.gov | changeId=13CBB0EB-30AC-4EB6-8485-41B9B3B5BC48\n",
         "eventNamesBeforeAnalysis": []
       },
       {
@@ -10519,28 +10962,11 @@
         "linkToComment": "https://reddit.com/r/netsec/comments/1vy5zqu/pwning_call_of_duty_1_a_20yearold_rce_found_in_an/p649v74/",
         "commentDate": "2026-08-27T00:25:12+00:00",
         "cvePublishedDate": "2004-12-31T05:00:00+00:00",
-        "initialAnalysisDate": null,
+        "initialAnalysisDate": "2005-12-15T16:00:00.000",
         "daysAfterPublication": 7908,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2004-2599",
-        "cveIds": [
-          "CVE-2004-2599"
-        ],
-        "source": "Comment",
-        "commentText": "Although it's also not the first time something like this has happened, Quake 2 had a bunch of serious vulnerabilities in its server, including a few rcon buffer overflows (https://nvd.nist.gov/vuln/detail/cve-2004-2599) and some kind of exploit that could leak the rcon password.",
-        "linkToComment": "https://reddit.com/r/netsec/comments/1vy5zqu/pwning_call_of_duty_1_a_20yearold_rce_found_in_an/p649v74/",
-        "commentDate": "2026-08-27T00:25:12+00:00",
-        "cvePublishedDate": "2004-12-31T05:00:00+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 7908,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
+        "isPreAnalysis": false,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-06-16T22:09:57.397 | CVE Modified | source=cve@mitre.org | changeId=C8E7971F-FEA4-46F6-BB6F-63C41324FCC2\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2004/2xxx/CVE-2004-2599.json\">CVE-2004-2599</a>\n2. 2026-04-16T00:27:16.627 | CVE Status Change | source=nvd@nist.gov | changeId=02279C33-2A27-4A9F-B433-04B884156E05\n3. 2024-11-20T23:53:46.000 | CVE Modified | source=af854a3a-2127-422b-91ae-364da2661108 | changeId=A4181745-6830-4DCD-9EDA-028C52E08220\n   - Added Reference: http://archives.neohapsis.com/archives/bugtraq/2004-10/0299.html\n   - Added Reference: http://secur1ty.net/advisories/001\n   - Added Reference: http://securitytracker.com/id?1011979\n   - Added Reference: http://web.archive.org/web/20041130092749/www.r1ch.net/stuff/r1q2/\n   - Added Reference: http://www.osvdb.org/11188\n   - Added Reference: https://exchange.xforce.ibmcloud.com/vulnerabilities/17898\n4. 2024-05-14T01:28:04.303 | CVE Modified | source=cve@mitre.org | changeId=19EE7540-083F-42FF-A7A6-CC3DBDB10402\n5. 2017-07-11T01:32:02.560 | CVE Modified | source=cve@mitre.org | changeId=22BCCFC2-21A2-4DF5-B196-1929071AB5EC\n   - Removed Reference: http://xforce.iss.net/xforce/xfdb/17898 [No Types Assigned] -> None\n   - Added Reference: https://exchange.xforce.ibmcloud.com/vulnerabilities/17898 [No Types Assigned]\n6. 2005-12-15T16:00:00.000 | Initial Analysis | source=nvd@nist.gov | changeId=13CBB0EB-30AC-4EB6-8485-41B9B3B5BC48\n",
         "eventNamesBeforeAnalysis": []
       }
     ],
@@ -10562,7 +10988,7 @@
         "id": "p5uum9x",
         "author": "brixton_",
         "body": "Nice, enjoyed the writeup. Was this vuln previously known or unknown?",
-        "score": -29,
+        "score": -30,
         "created_utc_ts": 1787683455,
         "created_utc": "2026-08-25T18:44:15",
         "permalink": "https://reddit.com/r/netsec/comments/1vy5zqu/pwning_call_of_duty_1_a_20yearold_rce_found_in_an/p5uum9x/",
@@ -10573,7 +10999,7 @@
         "id": "p5vif7i",
         "author": "tyndar3us",
         "body": "cost is not mentioned.. how much did it cost to run?",
-        "score": 24,
+        "score": 23,
         "created_utc_ts": 1787689528,
         "created_utc": "2026-08-25T20:25:28",
         "permalink": "https://reddit.com/r/netsec/comments/1vy5zqu/pwning_call_of_duty_1_a_20yearold_rce_found_in_an/p5vif7i/",
@@ -10584,7 +11010,7 @@
         "id": "p5w15no",
         "author": "retornam",
         "body": "My god AI writing sucks \n\n\"It is a 32-bit ELF. And when you actually look at how it was compiled, no PIE, no stack canary, no RELRO, and an executable stack\"\n\nNo x, no y, no z. Is always a dead giveaway ",
-        "score": 86,
+        "score": 87,
         "created_utc_ts": 1787694512,
         "created_utc": "2026-08-25T21:48:32",
         "permalink": "https://reddit.com/r/netsec/comments/1vy5zqu/pwning_call_of_duty_1_a_20yearold_rce_found_in_an/p5w15no/",
@@ -10595,7 +11021,7 @@
         "id": "p5wme22",
         "author": "eckstuhc",
         "body": "Not this, but that.\n\nFull stop.\n\nAnd here’s why that matters.",
-        "score": 61,
+        "score": 59,
         "created_utc_ts": 1787700992,
         "created_utc": "2026-08-25T23:36:32",
         "permalink": "https://reddit.com/r/netsec/comments/1vy5zqu/pwning_call_of_duty_1_a_20yearold_rce_found_in_an/p5wme22/",
@@ -10628,7 +11054,7 @@
         "id": "p5yp2jo",
         "author": "Scar3cr0w_",
         "body": "I’m afraid you don’t know what you are talking about. \n\nPeople who find vulnerabilities like this are not “IT professionals”. We are security researchers. \n\nIt’s also not making us obsolete. These models don’t just find bugs with no assistance. They need guiding. They are an extension of the team and they accelerate the process. Security researchers aren’t concerned we are being replaced… we are excited about how these capabilities are going to transform our work. ",
-        "score": 19,
+        "score": 18,
         "created_utc_ts": 1787729430,
         "created_utc": "2026-08-26T07:30:30",
         "permalink": "https://reddit.com/r/netsec/comments/1vy5zqu/pwning_call_of_duty_1_a_20yearold_rce_found_in_an/p5yp2jo/",
@@ -10639,7 +11065,7 @@
         "id": "p62mloi",
         "author": "AllForProgress1",
         "body": "Code that no one has cared about in 20 years had a flaw... Golly what a find ",
-        "score": 8,
+        "score": 7,
         "created_utc_ts": 1787773359,
         "created_utc": "2026-08-26T19:42:39",
         "permalink": "https://reddit.com/r/netsec/comments/1vy5zqu/pwning_call_of_duty_1_a_20yearold_rce_found_in_an/p62mloi/",
@@ -10650,7 +11076,7 @@
         "id": "p63lev2",
         "author": "MisterKokiri",
         "body": "Oof, this guy is really upset that people don't like AI, lol. Calm down friend, go touch grass.",
-        "score": 4,
+        "score": 3,
         "created_utc_ts": 1787782707,
         "created_utc": "2026-08-26T22:18:27",
         "permalink": "https://reddit.com/r/netsec/comments/1vy5zqu/pwning_call_of_duty_1_a_20yearold_rce_found_in_an/p63lev2/",
@@ -11330,13 +11756,13 @@
     "created_utc": "2026-08-24T14:35:47",
     "first_author_comment": "The blogpost has been updated today (26 Aug) with more information [https://mysites.guru/blog/miniorange-oauth-joomla-account-takeover/?refresh=1](https://mysites.guru/blog/miniorange-oauth-joomla-account-takeover/?refresh=1)",
     "num_comments": 2,
-    "score": 4,
+    "score": 5,
     "subreddit": "joomla",
     "tag": "Administration/Technical",
     "tags": [],
     "title": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-    "updatedAt": "2026-09-14T07:02:25.514Z",
-    "upvote_ratio": 0.75,
+    "updatedAt": "2026-09-15T06:07:20.345Z",
+    "upvote_ratio": 0.86,
     "url": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
     "versionList": [
       "2026.0.0",
@@ -12856,6 +13282,462 @@
         "isAnalyzed": false,
         "cveChangeHistory": "No change history returned.\n",
         "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-08T11:17:44.423 | CVE Modified | source=security@joomla.org | changeId=5F315DCE-FA5D-4E77-AA1E-D89852E1A548\n   - Changed Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins. -> Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0, OAuth Single Sign-On – OIDC SSO < 1.2.2, Login with Keycloak OAuth Single Sign-On (SSO) < 1.2.2, Single Sign-On for Educational Institutes < 1.2.2 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n2. 2026-09-04T12:17:18.583 | CVE Modified | source=security@joomla.org | changeId=FC68505B-44E4-41D8-B183-D18E256B5E27\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n   - Removed Reference: https://www.miniorange.com/ -> None\n3. 2026-08-24T18:17:23.417 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=FE7A8CC9-72E0-486A-BC17-9E7D7BFD79EC\n   - Added SSVC: {'timestamp': '2026-08-24T17:25:41.162522Z', 'id': 'CVE-2026-77995', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n4. 2026-08-24T14:17:03.403 | New CVE Received | source=security@joomla.org | changeId=CC7AC736-1F37-48AB-89DE-ADE1AF656445\n   - Added Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CWE: CWE-639\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-08T11:17:44.423 | CVE Modified | source=security@joomla.org | changeId=5F315DCE-FA5D-4E77-AA1E-D89852E1A548\n   - Changed Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins. -> Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0, OAuth Single Sign-On – OIDC SSO < 1.2.2, Login with Keycloak OAuth Single Sign-On (SSO) < 1.2.2, Single Sign-On for Educational Institutes < 1.2.2 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n2. 2026-09-04T12:17:18.583 | CVE Modified | source=security@joomla.org | changeId=FC68505B-44E4-41D8-B183-D18E256B5E27\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n   - Removed Reference: https://www.miniorange.com/ -> None\n3. 2026-08-24T18:17:23.417 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=FE7A8CC9-72E0-486A-BC17-9E7D7BFD79EC\n   - Added SSVC: {'timestamp': '2026-08-24T17:25:41.162522Z', 'id': 'CVE-2026-77995', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n4. 2026-08-24T14:17:03.403 | New CVE Received | source=security@joomla.org | changeId=CC7AC736-1F37-48AB-89DE-ADE1AF656445\n   - Added Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CWE: CWE-639\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-08T11:17:44.423 | CVE Modified | source=security@joomla.org | changeId=5F315DCE-FA5D-4E77-AA1E-D89852E1A548\n   - Changed Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins. -> Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0, OAuth Single Sign-On – OIDC SSO < 1.2.2, Login with Keycloak OAuth Single Sign-On (SSO) < 1.2.2, Single Sign-On for Educational Institutes < 1.2.2 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n2. 2026-09-04T12:17:18.583 | CVE Modified | source=security@joomla.org | changeId=FC68505B-44E4-41D8-B183-D18E256B5E27\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n   - Removed Reference: https://www.miniorange.com/ -> None\n3. 2026-08-24T18:17:23.417 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=FE7A8CC9-72E0-486A-BC17-9E7D7BFD79EC\n   - Added SSVC: {'timestamp': '2026-08-24T17:25:41.162522Z', 'id': 'CVE-2026-77995', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n4. 2026-08-24T14:17:03.403 | New CVE Received | source=security@joomla.org | changeId=CC7AC736-1F37-48AB-89DE-ADE1AF656445\n   - Added Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CWE: CWE-639\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-08T11:17:44.423 | CVE Modified | source=security@joomla.org | changeId=5F315DCE-FA5D-4E77-AA1E-D89852E1A548\n   - Changed Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins. -> Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0, OAuth Single Sign-On – OIDC SSO < 1.2.2, Login with Keycloak OAuth Single Sign-On (SSO) < 1.2.2, Single Sign-On for Educational Institutes < 1.2.2 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n2. 2026-09-04T12:17:18.583 | CVE Modified | source=security@joomla.org | changeId=FC68505B-44E4-41D8-B183-D18E256B5E27\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n   - Removed Reference: https://www.miniorange.com/ -> None\n3. 2026-08-24T18:17:23.417 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=FE7A8CC9-72E0-486A-BC17-9E7D7BFD79EC\n   - Added SSVC: {'timestamp': '2026-08-24T17:25:41.162522Z', 'id': 'CVE-2026-77995', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n4. 2026-08-24T14:17:03.403 | New CVE Received | source=security@joomla.org | changeId=CC7AC736-1F37-48AB-89DE-ADE1AF656445\n   - Added Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CWE: CWE-639\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-08T11:17:44.423 | CVE Modified | source=security@joomla.org | changeId=5F315DCE-FA5D-4E77-AA1E-D89852E1A548\n   - Changed Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins. -> Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0, OAuth Single Sign-On – OIDC SSO < 1.2.2, Login with Keycloak OAuth Single Sign-On (SSO) < 1.2.2, Single Sign-On for Educational Institutes < 1.2.2 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n2. 2026-09-04T12:17:18.583 | CVE Modified | source=security@joomla.org | changeId=FC68505B-44E4-41D8-B183-D18E256B5E27\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n   - Removed Reference: https://www.miniorange.com/ -> None\n3. 2026-08-24T18:17:23.417 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=FE7A8CC9-72E0-486A-BC17-9E7D7BFD79EC\n   - Added SSVC: {'timestamp': '2026-08-24T17:25:41.162522Z', 'id': 'CVE-2026-77995', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n4. 2026-08-24T14:17:03.403 | New CVE Received | source=security@joomla.org | changeId=CC7AC736-1F37-48AB-89DE-ADE1AF656445\n   - Added Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CWE: CWE-639\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-08T11:17:44.423 | CVE Modified | source=security@joomla.org | changeId=5F315DCE-FA5D-4E77-AA1E-D89852E1A548\n   - Changed Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins. -> Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0, OAuth Single Sign-On – OIDC SSO < 1.2.2, Login with Keycloak OAuth Single Sign-On (SSO) < 1.2.2, Single Sign-On for Educational Institutes < 1.2.2 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n2. 2026-09-04T12:17:18.583 | CVE Modified | source=security@joomla.org | changeId=FC68505B-44E4-41D8-B183-D18E256B5E27\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n   - Removed Reference: https://www.miniorange.com/ -> None\n3. 2026-08-24T18:17:23.417 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=FE7A8CC9-72E0-486A-BC17-9E7D7BFD79EC\n   - Added SSVC: {'timestamp': '2026-08-24T17:25:41.162522Z', 'id': 'CVE-2026-77995', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n4. 2026-08-24T14:17:03.403 | New CVE Received | source=security@joomla.org | changeId=CC7AC736-1F37-48AB-89DE-ADE1AF656445\n   - Added Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CWE: CWE-639\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-08T11:17:44.423 | CVE Modified | source=security@joomla.org | changeId=5F315DCE-FA5D-4E77-AA1E-D89852E1A548\n   - Changed Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins. -> Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0, OAuth Single Sign-On – OIDC SSO < 1.2.2, Login with Keycloak OAuth Single Sign-On (SSO) < 1.2.2, Single Sign-On for Educational Institutes < 1.2.2 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n2. 2026-09-04T12:17:18.583 | CVE Modified | source=security@joomla.org | changeId=FC68505B-44E4-41D8-B183-D18E256B5E27\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n   - Removed Reference: https://www.miniorange.com/ -> None\n3. 2026-08-24T18:17:23.417 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=FE7A8CC9-72E0-486A-BC17-9E7D7BFD79EC\n   - Added SSVC: {'timestamp': '2026-08-24T17:25:41.162522Z', 'id': 'CVE-2026-77995', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n4. 2026-08-24T14:17:03.403 | New CVE Received | source=security@joomla.org | changeId=CC7AC736-1F37-48AB-89DE-ADE1AF656445\n   - Added Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CWE: CWE-639\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-08T11:17:44.423 | CVE Modified | source=security@joomla.org | changeId=5F315DCE-FA5D-4E77-AA1E-D89852E1A548\n   - Changed Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins. -> Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0, OAuth Single Sign-On – OIDC SSO < 1.2.2, Login with Keycloak OAuth Single Sign-On (SSO) < 1.2.2, Single Sign-On for Educational Institutes < 1.2.2 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n2. 2026-09-04T12:17:18.583 | CVE Modified | source=security@joomla.org | changeId=FC68505B-44E4-41D8-B183-D18E256B5E27\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n   - Removed Reference: https://www.miniorange.com/ -> None\n3. 2026-08-24T18:17:23.417 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=FE7A8CC9-72E0-486A-BC17-9E7D7BFD79EC\n   - Added SSVC: {'timestamp': '2026-08-24T17:25:41.162522Z', 'id': 'CVE-2026-77995', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n4. 2026-08-24T14:17:03.403 | New CVE Received | source=security@joomla.org | changeId=CC7AC736-1F37-48AB-89DE-ADE1AF656445\n   - Added Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CWE: CWE-639\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-08T11:17:44.423 | CVE Modified | source=security@joomla.org | changeId=5F315DCE-FA5D-4E77-AA1E-D89852E1A548\n   - Changed Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins. -> Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0, OAuth Single Sign-On – OIDC SSO < 1.2.2, Login with Keycloak OAuth Single Sign-On (SSO) < 1.2.2, Single Sign-On for Educational Institutes < 1.2.2 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n2. 2026-09-04T12:17:18.583 | CVE Modified | source=security@joomla.org | changeId=FC68505B-44E4-41D8-B183-D18E256B5E27\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n   - Removed Reference: https://www.miniorange.com/ -> None\n3. 2026-08-24T18:17:23.417 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=FE7A8CC9-72E0-486A-BC17-9E7D7BFD79EC\n   - Added SSVC: {'timestamp': '2026-08-24T17:25:41.162522Z', 'id': 'CVE-2026-77995', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n4. 2026-08-24T14:17:03.403 | New CVE Received | source=security@joomla.org | changeId=CC7AC736-1F37-48AB-89DE-ADE1AF656445\n   - Added Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CWE: CWE-639\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-08T11:17:44.423 | CVE Modified | source=security@joomla.org | changeId=5F315DCE-FA5D-4E77-AA1E-D89852E1A548\n   - Changed Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins. -> Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0, OAuth Single Sign-On – OIDC SSO < 1.2.2, Login with Keycloak OAuth Single Sign-On (SSO) < 1.2.2, Single Sign-On for Educational Institutes < 1.2.2 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n2. 2026-09-04T12:17:18.583 | CVE Modified | source=security@joomla.org | changeId=FC68505B-44E4-41D8-B183-D18E256B5E27\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n   - Removed Reference: https://www.miniorange.com/ -> None\n3. 2026-08-24T18:17:23.417 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=FE7A8CC9-72E0-486A-BC17-9E7D7BFD79EC\n   - Added SSVC: {'timestamp': '2026-08-24T17:25:41.162522Z', 'id': 'CVE-2026-77995', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n4. 2026-08-24T14:17:03.403 | New CVE Received | source=security@joomla.org | changeId=CC7AC736-1F37-48AB-89DE-ADE1AF656445\n   - Added Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CWE: CWE-639\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-08T11:17:44.423 | CVE Modified | source=security@joomla.org | changeId=5F315DCE-FA5D-4E77-AA1E-D89852E1A548\n   - Changed Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins. -> Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0, OAuth Single Sign-On – OIDC SSO < 1.2.2, Login with Keycloak OAuth Single Sign-On (SSO) < 1.2.2, Single Sign-On for Educational Institutes < 1.2.2 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n2. 2026-09-04T12:17:18.583 | CVE Modified | source=security@joomla.org | changeId=FC68505B-44E4-41D8-B183-D18E256B5E27\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n   - Removed Reference: https://www.miniorange.com/ -> None\n3. 2026-08-24T18:17:23.417 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=FE7A8CC9-72E0-486A-BC17-9E7D7BFD79EC\n   - Added SSVC: {'timestamp': '2026-08-24T17:25:41.162522Z', 'id': 'CVE-2026-77995', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n4. 2026-08-24T14:17:03.403 | New CVE Received | source=security@joomla.org | changeId=CC7AC736-1F37-48AB-89DE-ADE1AF656445\n   - Added Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CWE: CWE-639\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-08T11:17:44.423 | CVE Modified | source=security@joomla.org | changeId=5F315DCE-FA5D-4E77-AA1E-D89852E1A548\n   - Changed Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins. -> Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0, OAuth Single Sign-On – OIDC SSO < 1.2.2, Login with Keycloak OAuth Single Sign-On (SSO) < 1.2.2, Single Sign-On for Educational Institutes < 1.2.2 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n2. 2026-09-04T12:17:18.583 | CVE Modified | source=security@joomla.org | changeId=FC68505B-44E4-41D8-B183-D18E256B5E27\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n   - Removed Reference: https://www.miniorange.com/ -> None\n3. 2026-08-24T18:17:23.417 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=FE7A8CC9-72E0-486A-BC17-9E7D7BFD79EC\n   - Added SSVC: {'timestamp': '2026-08-24T17:25:41.162522Z', 'id': 'CVE-2026-77995', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n4. 2026-08-24T14:17:03.403 | New CVE Received | source=security@joomla.org | changeId=CC7AC736-1F37-48AB-89DE-ADE1AF656445\n   - Added Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CWE: CWE-639\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-77995",
+        "cveIds": [
+          "CVE-2026-77995"
+        ],
+        "source": "Title",
+        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
+        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+        "commentDate": "2026-08-24T14:35:47+00:00",
+        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-08T11:17:44.423 | CVE Modified | source=security@joomla.org | changeId=5F315DCE-FA5D-4E77-AA1E-D89852E1A548\n   - Changed Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins. -> Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0, OAuth Single Sign-On – OIDC SSO < 1.2.2, Login with Keycloak OAuth Single Sign-On (SSO) < 1.2.2, Single Sign-On for Educational Institutes < 1.2.2 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n2. 2026-09-04T12:17:18.583 | CVE Modified | source=security@joomla.org | changeId=FC68505B-44E4-41D8-B183-D18E256B5E27\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n   - Removed Reference: https://www.miniorange.com/ -> None\n3. 2026-08-24T18:17:23.417 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=FE7A8CC9-72E0-486A-BC17-9E7D7BFD79EC\n   - Added SSVC: {'timestamp': '2026-08-24T17:25:41.162522Z', 'id': 'CVE-2026-77995', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n4. 2026-08-24T14:17:03.403 | New CVE Received | source=security@joomla.org | changeId=CC7AC736-1F37-48AB-89DE-ADE1AF656445\n   - Added Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CWE: CWE-639\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
       }
     ],
     "isAboutCve": true,
@@ -12874,6 +13756,7 @@
     "sentiment_score": -0.351,
     "sourceBot": "reddit.py",
     "sourceUrl": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
+    "source": "reddit",
     "comments": [
       {
         "id": "p5pbsy9",
@@ -13691,7 +14574,7 @@
     "tag": "Joomla 6",
     "tags": [],
     "title": "Yootheme Critical Security Patch",
-    "updatedAt": "2026-09-10T23:56:05.093Z",
+    "updatedAt": "2026-09-15T00:00:30.364Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/joomla/comments/1vukvjo/yootheme_critical_security_patch/",
     "versionList": [],
@@ -13710,7 +14593,8 @@
     "comments_avg_sentiment_score": -0.192,
     "sentiment_score": -0.083,
     "sourceBot": "reddit.py",
-    "sourceUrl": "https://reddit.com/r/joomla/comments/1vukvjo/yootheme_critical_security_patch/"
+    "sourceUrl": "https://reddit.com/r/joomla/comments/1vukvjo/yootheme_critical_security_patch/",
+    "source": "reddit"
   },
   {
     "_id": "6a8843b149715ba391893566",
@@ -14207,7 +15091,7 @@
         "id": "p4wifs7",
         "author": "SgtTurtle",
         "body": "Make sure you read the release notes if you have a Celeron J processor. There is a warning about a possible kernel panic issue for these processors and instructions on how to mitigate before the upgrade.",
-        "score": 18,
+        "score": 17,
         "created_utc_ts": 1787260278,
         "created_utc": "2026-08-20T21:11:18",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4wifs7/",
@@ -14229,7 +15113,7 @@
         "id": "p4wj7n0",
         "author": "gonzopancho",
         "body": "it's not the CPU per se, it's poor vendor implementation in UEFI (and the data blocks consumed by same)",
-        "score": 14,
+        "score": 13,
         "created_utc_ts": 1787260494,
         "created_utc": "2026-08-20T21:14:54",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4wj7n0/",
@@ -14251,7 +15135,7 @@
         "id": "p4wojbw",
         "author": "RedikhetDev",
         "body": "Made an appointment in my agenda to have a look at it in 6 months. Great that development goes on.",
-        "score": 7,
+        "score": 9,
         "created_utc_ts": 1787261999,
         "created_utc": "2026-08-20T21:39:59",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4wojbw/",
@@ -14295,7 +15179,7 @@
         "id": "p4wt3bd",
         "author": "ForeheadMeetScope",
         "body": "Yet another indicator of how dead pfSense CE is :)",
-        "score": 4,
+        "score": 6,
         "created_utc_ts": 1787263330,
         "created_utc": "2026-08-20T22:02:10",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4wt3bd/",
@@ -14306,7 +15190,7 @@
         "id": "p4wu9ho",
         "author": "kphillips-netgate",
         "body": "[A day in the life of CE](https://media1.tenor.com/m/2lMoNRA0o5QAAAAC/megamind-metroman.gif)",
-        "score": 16,
+        "score": 17,
         "created_utc_ts": 1787263681,
         "created_utc": "2026-08-20T22:08:01",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4wu9ho/",
@@ -14317,7 +15201,7 @@
         "id": "p4wv2ce",
         "author": "Amazing_Vehicle_5192",
         "body": "Can I install offline?",
-        "score": 9,
+        "score": 8,
         "created_utc_ts": 1787263922,
         "created_utc": "2026-08-20T22:12:02",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4wv2ce/",
@@ -14394,7 +15278,7 @@
         "id": "p4xbep9",
         "author": "mj1003",
         "body": "At this rate I'll be dead before pfSense CE is... Thanks devs for keeping it going! ",
-        "score": 25,
+        "score": 24,
         "created_utc_ts": 1787269016,
         "created_utc": "2026-08-20T23:36:56",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4xbep9/",
@@ -14449,7 +15333,7 @@
         "id": "p4xw3l8",
         "author": "devexis",
         "body": "Is 2.9 only available by upgrading 2.8? I’m looking to perform a fresh install of pfsense with a 2.9 img file",
-        "score": 4,
+        "score": 5,
         "created_utc_ts": 1787275804,
         "created_utc": "2026-08-21T01:30:04",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4xw3l8/",
@@ -14460,7 +15344,7 @@
         "id": "p4xx5te",
         "author": "gonzopancho",
         "body": "Don’t die!",
-        "score": 13,
+        "score": 14,
         "created_utc_ts": 1787276163,
         "created_utc": "2026-08-21T01:36:03",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4xx5te/",
@@ -14471,7 +15355,7 @@
         "id": "p4xxqas",
         "author": "real_weirdcrap",
         "body": "upgrade was smooth. Only thing I noticed is my gateway dashboard widget no longer displays a unit of measurement? It's just numbers no ms or % for the loss. Cleared my cache and cookies, tried a different browser so I don't think it's me. \n\nHaven't done my second router yet.\n\n2.9:\nhttps://imgur.com/uHaUgDY\n\n2.8.1: \nhttps://imgur.com/n6H8Xm6",
-        "score": 9,
+        "score": 10,
         "created_utc_ts": 1787276359,
         "created_utc": "2026-08-21T01:39:19",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4xxqas/",
@@ -14482,7 +15366,7 @@
         "id": "p4xyx8r",
         "author": "real_weirdcrap",
         "body": "no direct image files for 2.9 I'm aware of, you have to use netgate's installer. Or upgrade from IIRC 2.7.2 was the last disc image offered which you can find kicking around online.",
-        "score": 3,
+        "score": 4,
         "created_utc_ts": 1787276764,
         "created_utc": "2026-08-21T01:46:04",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4xyx8r/",
@@ -14537,7 +15421,7 @@
         "id": "p4yjmj1",
         "author": "cmcdonald-netgate",
         "body": "Some of this is to be expected when upgrading PHP... Classical chicken-egg problem. During the upgrade there are brief moments where parts of the PHP stack are being ripped out and upgraded, while the extensions have yet to be upgraded. It's mostly noise and can be ignored. ",
-        "score": 4,
+        "score": 3,
         "created_utc_ts": 1787284292,
         "created_utc": "2026-08-21T03:51:32",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4yjmj1/",
@@ -14581,7 +15465,7 @@
         "id": "p4zkqk0",
         "author": "FlashPan73",
         "body": "Thank you for this.  Upon updating I got the following error: pfBlockerNG - The DNSBL VIP needs to be configured manually\n\nQuick google and did this:\n\n\n\n* Go to **Firewall &gt; Virtual IPs** in your pfSense web interface and click **+ Add**.\n* Set the **Type** to `IP Alias` and the **Interface** to `Localhost`.\n* Enter a dedicated **Virtual IP address** (for example, [`10.10.10.1/32`](http://10.10.10.1/32) or another unused private IP outside your LAN range).\n* Navigate to **Firewall &gt; pfBlockerNG &gt; DNSBL** and locate the **DNSBL Webserver Configuration** section.\n* Choose your newly created Virtual IP from the **DNSBL Virtual IP** drop-down list, save the settings, and run a force reload update.\n\nReboot and all is well again after running a forced update on pfblocker\n\n",
-        "score": 7,
+        "score": 6,
         "created_utc_ts": 1787301787,
         "created_utc": "2026-08-21T08:43:07",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p4zkqk0/",
@@ -14680,7 +15564,7 @@
         "id": "p510aqz",
         "author": "gonzopancho",
         "body": "Soon",
-        "score": 4,
+        "score": 5,
         "created_utc_ts": 1787321015,
         "created_utc": "2026-08-21T14:03:35",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p510aqz/",
@@ -14713,7 +15597,7 @@
         "id": "p53d7w6",
         "author": "StealthNet",
         "body": "Flawless upgrade. No patches removed, no packages removed (including suricata, pfblocker devel ntopng etc).\n\nAdGuard running installed in it, also running.",
-        "score": 3,
+        "score": 5,
         "created_utc_ts": 1787343284,
         "created_utc": "2026-08-21T20:14:44",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p53d7w6/",
@@ -14779,7 +15663,7 @@
         "id": "p56z896",
         "author": "djprathikmixx",
         "body": "Because the base PHP engine upgraded to version **8.5.7**, any active packages (like Suricata, pfBlockerNG, or HAProxy) must be recompiled against the new PHP binaries.\n\nEnsure to disable/remove the above packages before upgrade, and post upgrade you can  reinstall them with settings intact. (saves you from lot of headache of DNS and internet issues post upgrade)",
-        "score": 6,
+        "score": 7,
         "created_utc_ts": 1787393149,
         "created_utc": "2026-08-22T10:05:49",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p56z896/",
@@ -14845,7 +15729,7 @@
         "id": "p5ccndx",
         "author": "Snoo91117",
         "body": "I switched earlier today to 2.9 from 2.8.1 with system patches at home.  Everything seems to be working well.\n\nI am on the second day and all is well.",
-        "score": 5,
+        "score": 3,
         "created_utc_ts": 1787455886,
         "created_utc": "2026-08-23T03:31:26",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/p5ccndx/",
@@ -14966,12 +15850,12 @@
     "created_utc": "2026-08-20T20:55:28",
     "first_author_comment": null,
     "num_comments": 112,
-    "score": 149,
+    "score": 153,
     "subreddit": "PFSENSE",
     "tag": null,
     "tags": [],
     "title": "Netgate Releases pfSense Community Edition Version 2.9.0",
-    "updatedAt": "2026-09-14T07:17:47.111Z",
+    "updatedAt": "2026-09-15T06:17:51.423Z",
     "upvote_ratio": 0.98,
     "url": "https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/",
     "versionList": [
@@ -16646,12 +17530,12 @@
     "created_utc": "2026-08-19T12:01:19",
     "first_author_comment": "From offensive security perspective or even from a product security standpoint it can be eye opening when you stop having tunnel vision on the secure boot crypto implementation and start looking all the different actors and assumptions around it.   \nThe blog touches on a bunch of mostly software related issues. It’s getting even more interesting when taking into account fault injection. That would have made this a 2 hour article. Maybe that’s some good material for a follow up ",
     "num_comments": 14,
-    "score": 120,
+    "score": 119,
     "subreddit": "netsec",
     "tag": "Contains AI",
     "tags": [],
     "title": "How to break secure boot without touching any cryptography",
-    "updatedAt": "2026-09-14T07:23:08.475Z",
+    "updatedAt": "2026-09-15T06:23:12.042Z",
     "upvote_ratio": 0.97,
     "url": "https://reddit.com/r/netsec/comments/1vskftw/how_to_break_secure_boot_without_touching_any/",
     "versionList": [],
@@ -16680,7 +17564,7 @@
         "id": "p4msq15",
         "author": "Even_Package_8573",
         "body": "The “without touching the crypto” part is what caught my attention. It really shows how the security of a boot chain can come down to the assumptions and implementation around the cryptography, rather than the cryptography itself. Definitely a good reminder that “signed” doesn’t automatically mean “safe.”",
-        "score": 24,
+        "score": 25,
         "created_utc_ts": 1787151844,
         "created_utc": "2026-08-19T15:04:04",
         "permalink": "https://reddit.com/r/netsec/comments/1vskftw/how_to_break_secure_boot_without_touching_any/p4msq15/",
@@ -16691,7 +17575,7 @@
         "id": "p4nne2p",
         "author": "0x00rick",
         "body": "From offensive security perspective or even from a product security standpoint it can be eye opening when you stop having tunnel vision on the secure boot crypto implementation and start looking all the different actors and assumptions around it.   \nThe blog touches on a bunch of mostly software related issues. It’s getting even more interesting when taking into account fault injection. That would have made this a 2 hour article. Maybe that’s some good material for a follow up ",
-        "score": 10,
+        "score": 9,
         "created_utc_ts": 1787159672,
         "created_utc": "2026-08-19T17:14:32",
         "permalink": "https://reddit.com/r/netsec/comments/1vskftw/how_to_break_secure_boot_without_touching_any/p4nne2p/",
@@ -16702,7 +17586,7 @@
         "id": "p4s1lj8",
         "author": "Every-Progress-1117",
         "body": "Really nice article, and just to add to your first section \"Trust before the operating system exists\" please please please read Ken Thompson's Trusting Trust: [https://dl.acm.org/doi/10.1145/358198.358210](https://dl.acm.org/doi/10.1145/358198.358210) , PDF here: [https://people.cs.umass.edu/\\~emery/classes/cmpsci691st/readings/Sec/Reflections-on-Trusting-Trust.pdf](https://people.cs.umass.edu/~emery/classes/cmpsci691st/readings/Sec/Reflections-on-Trusting-Trust.pdf)\n\nI've worked with trusted systems for a long time, and it all comes down to how strong that chair of trust actually is and from where it starts...and that might be LONG before you power on the computer.\n\nBut again, really nice article! Thanks! I will forward this one to my students!",
-        "score": 9,
+        "score": 11,
         "created_utc_ts": 1787210577,
         "created_utc": "2026-08-20T07:22:57",
         "permalink": "https://reddit.com/r/netsec/comments/1vskftw/how_to_break_secure_boot_without_touching_any/p4s1lj8/",
@@ -18021,12 +18905,12 @@
     "created_utc": "2026-08-18T17:34:14",
     "first_author_comment": null,
     "num_comments": 0,
-    "score": 29,
+    "score": 32,
     "subreddit": "netsec",
     "tag": "Contains AI",
     "tags": [],
     "title": "🎥 Operation CameraSwarm: over 14,000 Dahua cameras compromised across Ukraine and Russia",
-    "updatedAt": "2026-09-14T07:23:10.452Z",
+    "updatedAt": "2026-09-15T06:23:13.896Z",
     "upvote_ratio": 0.86,
     "url": "https://reddit.com/r/netsec/comments/1vrw3fd/operation_cameraswarm_over_14000_dahua_cameras/",
     "versionList": [
@@ -21334,7 +22218,7 @@
     "tag": "Administration/Technical",
     "tags": [],
     "title": "Why an AntonKill Joomla site can still look hacked after a clean file scan",
-    "updatedAt": "2026-09-10T23:56:05.578Z",
+    "updatedAt": "2026-09-15T00:00:30.966Z",
     "upvote_ratio": 0.5,
     "url": "https://reddit.com/r/joomla/comments/1vngswj/why_an_antonkill_joomla_site_can_still_look/",
     "versionList": [],
@@ -21353,7 +22237,8 @@
     "comments_avg_sentiment_score": 0.067,
     "sentiment_score": 0.46,
     "sourceBot": "reddit.py",
-    "sourceUrl": "https://reddit.com/r/joomla/comments/1vngswj/why_an_antonkill_joomla_site_can_still_look/"
+    "sourceUrl": "https://reddit.com/r/joomla/comments/1vngswj/why_an_antonkill_joomla_site_can_still_look/",
+    "source": "reddit"
   },
   {
     "_id": "6a7cf93e49715ba39184c3bc",
@@ -21870,7 +22755,7 @@
     "tag": "Administration/Technical",
     "tags": [],
     "title": "Fabrik for Joomla Fixes an Unauthenticated RCE in 4.6.7",
-    "updatedAt": "2026-09-10T23:56:08.152Z",
+    "updatedAt": "2026-09-15T00:00:33.983Z",
     "upvote_ratio": 0.67,
     "url": "https://reddit.com/r/joomla/comments/1vkk9mi/fabrik_for_joomla_fixes_an_unauthenticated_rce_in/",
     "versionList": [
@@ -21891,7 +22776,8 @@
     "comments_avg_sentiment_score": 0.199,
     "sentiment_score": 0.27,
     "sourceBot": "reddit.py",
-    "sourceUrl": "https://reddit.com/r/joomla/comments/1vkk9mi/fabrik_for_joomla_fixes_an_unauthenticated_rce_in/"
+    "sourceUrl": "https://reddit.com/r/joomla/comments/1vkk9mi/fabrik_for_joomla_fixes_an_unauthenticated_rce_in/",
+    "source": "reddit"
   },
   {
     "_id": "6a7cfaa149715ba39184c56a",
@@ -24994,7 +25880,7 @@
     "tag": null,
     "tags": [],
     "title": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
-    "updatedAt": "2026-09-14T07:02:22.653Z",
+    "updatedAt": "2026-09-15T01:16:19.093Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
     "versionList": [
@@ -27358,6 +28244,354 @@
         "isAnalyzed": false,
         "cveChangeHistory": "No change history returned.\n",
         "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": "2026-08-06T17:43:17.117",
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-08-06T17:43:17.117 | Initial Analysis | source=nvd@nist.gov | changeId=32D3E52F-4FAE-432E-AD03-7FC6E7BF1B7B\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N\n   - Added CPE Configuration: OR\n          *cpe:2.3:a:ivanti:xtraction:*:*:*:*:*:*:*:* versions up to (excluding) 2026.2.1\n   - Added Reference Type: ivanti: https://hub.ivanti.com/s/article/Security-Advisory-Ivanti-Xtraction-CVE-2026-14902-CVE-2026-14903?language=en_US Types: Vendor Advisory\n2. 2026-07-14T15:16:56.977 | New CVE Received | source=3c1d8aa1-5a33-4ea4-8992-aadd6440af75 | changeId=0F4F8663-BCF4-4EE8-A433-FB95E0565FC6\n   - Added Description: An open redirect in Ivanti Xtraction before version 2026.2.1 allows a remote unauthenticated attacker to redirect users to arbitrary external URLs.\n   - Added CVSS V3.1: AV:N/AC:H/PR:N/UI:N/S:C/C:N/I:L/A:N\n   - Added CWE: CWE-601\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/14xxx/CVE-2026-14902.json\">CVE-2026-14902</a>\n   - Added Reference: https://hub.ivanti.com/s/article/Security-Advisory-Ivanti-Xtraction-CVE-2026-14902-CVE-2026-14903?language=en_US\n3. 2026-07-14T15:16:56.977 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=62D0B3FC-E68A-4A70-A573-526EDB1C0032\n   - Added SSVC: {'timestamp': '2026-07-14T14:49:29.489922Z', 'id': 'CVE-2026-14902', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": "2026-08-06T17:43:17.117",
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-08-06T17:43:17.117 | Initial Analysis | source=nvd@nist.gov | changeId=32D3E52F-4FAE-432E-AD03-7FC6E7BF1B7B\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N\n   - Added CPE Configuration: OR\n          *cpe:2.3:a:ivanti:xtraction:*:*:*:*:*:*:*:* versions up to (excluding) 2026.2.1\n   - Added Reference Type: ivanti: https://hub.ivanti.com/s/article/Security-Advisory-Ivanti-Xtraction-CVE-2026-14902-CVE-2026-14903?language=en_US Types: Vendor Advisory\n2. 2026-07-14T15:16:56.977 | New CVE Received | source=3c1d8aa1-5a33-4ea4-8992-aadd6440af75 | changeId=0F4F8663-BCF4-4EE8-A433-FB95E0565FC6\n   - Added Description: An open redirect in Ivanti Xtraction before version 2026.2.1 allows a remote unauthenticated attacker to redirect users to arbitrary external URLs.\n   - Added CVSS V3.1: AV:N/AC:H/PR:N/UI:N/S:C/C:N/I:L/A:N\n   - Added CWE: CWE-601\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/14xxx/CVE-2026-14902.json\">CVE-2026-14902</a>\n   - Added Reference: https://hub.ivanti.com/s/article/Security-Advisory-Ivanti-Xtraction-CVE-2026-14902-CVE-2026-14903?language=en_US\n3. 2026-07-14T15:16:56.977 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=62D0B3FC-E68A-4A70-A573-526EDB1C0032\n   - Added SSVC: {'timestamp': '2026-07-14T14:49:29.489922Z', 'id': 'CVE-2026-14902', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": "2026-08-06T17:43:17.117",
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-08-06T17:43:17.117 | Initial Analysis | source=nvd@nist.gov | changeId=32D3E52F-4FAE-432E-AD03-7FC6E7BF1B7B\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N\n   - Added CPE Configuration: OR\n          *cpe:2.3:a:ivanti:xtraction:*:*:*:*:*:*:*:* versions up to (excluding) 2026.2.1\n   - Added Reference Type: ivanti: https://hub.ivanti.com/s/article/Security-Advisory-Ivanti-Xtraction-CVE-2026-14902-CVE-2026-14903?language=en_US Types: Vendor Advisory\n2. 2026-07-14T15:16:56.977 | New CVE Received | source=3c1d8aa1-5a33-4ea4-8992-aadd6440af75 | changeId=0F4F8663-BCF4-4EE8-A433-FB95E0565FC6\n   - Added Description: An open redirect in Ivanti Xtraction before version 2026.2.1 allows a remote unauthenticated attacker to redirect users to arbitrary external URLs.\n   - Added CVSS V3.1: AV:N/AC:H/PR:N/UI:N/S:C/C:N/I:L/A:N\n   - Added CWE: CWE-601\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/14xxx/CVE-2026-14902.json\">CVE-2026-14902</a>\n   - Added Reference: https://hub.ivanti.com/s/article/Security-Advisory-Ivanti-Xtraction-CVE-2026-14902-CVE-2026-14903?language=en_US\n3. 2026-07-14T15:16:56.977 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=62D0B3FC-E68A-4A70-A573-526EDB1C0032\n   - Added SSVC: {'timestamp': '2026-07-14T14:49:29.489922Z', 'id': 'CVE-2026-14902', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": "2026-08-06T17:43:17.117",
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-08-06T17:43:17.117 | Initial Analysis | source=nvd@nist.gov | changeId=32D3E52F-4FAE-432E-AD03-7FC6E7BF1B7B\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N\n   - Added CPE Configuration: OR\n          *cpe:2.3:a:ivanti:xtraction:*:*:*:*:*:*:*:* versions up to (excluding) 2026.2.1\n   - Added Reference Type: ivanti: https://hub.ivanti.com/s/article/Security-Advisory-Ivanti-Xtraction-CVE-2026-14902-CVE-2026-14903?language=en_US Types: Vendor Advisory\n2. 2026-07-14T15:16:56.977 | New CVE Received | source=3c1d8aa1-5a33-4ea4-8992-aadd6440af75 | changeId=0F4F8663-BCF4-4EE8-A433-FB95E0565FC6\n   - Added Description: An open redirect in Ivanti Xtraction before version 2026.2.1 allows a remote unauthenticated attacker to redirect users to arbitrary external URLs.\n   - Added CVSS V3.1: AV:N/AC:H/PR:N/UI:N/S:C/C:N/I:L/A:N\n   - Added CWE: CWE-601\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/14xxx/CVE-2026-14902.json\">CVE-2026-14902</a>\n   - Added Reference: https://hub.ivanti.com/s/article/Security-Advisory-Ivanti-Xtraction-CVE-2026-14902-CVE-2026-14903?language=en_US\n3. 2026-07-14T15:16:56.977 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=62D0B3FC-E68A-4A70-A573-526EDB1C0032\n   - Added SSVC: {'timestamp': '2026-07-14T14:49:29.489922Z', 'id': 'CVE-2026-14902', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": "2026-08-06T17:43:17.117",
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-08-06T17:43:17.117 | Initial Analysis | source=nvd@nist.gov | changeId=32D3E52F-4FAE-432E-AD03-7FC6E7BF1B7B\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N\n   - Added CPE Configuration: OR\n          *cpe:2.3:a:ivanti:xtraction:*:*:*:*:*:*:*:* versions up to (excluding) 2026.2.1\n   - Added Reference Type: ivanti: https://hub.ivanti.com/s/article/Security-Advisory-Ivanti-Xtraction-CVE-2026-14902-CVE-2026-14903?language=en_US Types: Vendor Advisory\n2. 2026-07-14T15:16:56.977 | New CVE Received | source=3c1d8aa1-5a33-4ea4-8992-aadd6440af75 | changeId=0F4F8663-BCF4-4EE8-A433-FB95E0565FC6\n   - Added Description: An open redirect in Ivanti Xtraction before version 2026.2.1 allows a remote unauthenticated attacker to redirect users to arbitrary external URLs.\n   - Added CVSS V3.1: AV:N/AC:H/PR:N/UI:N/S:C/C:N/I:L/A:N\n   - Added CWE: CWE-601\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/14xxx/CVE-2026-14902.json\">CVE-2026-14902</a>\n   - Added Reference: https://hub.ivanti.com/s/article/Security-Advisory-Ivanti-Xtraction-CVE-2026-14902-CVE-2026-14903?language=en_US\n3. 2026-07-14T15:16:56.977 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=62D0B3FC-E68A-4A70-A573-526EDB1C0032\n   - Added SSVC: {'timestamp': '2026-07-14T14:49:29.489922Z', 'id': 'CVE-2026-14902', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": "2026-08-06T17:43:17.117",
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-08-06T17:43:17.117 | Initial Analysis | source=nvd@nist.gov | changeId=32D3E52F-4FAE-432E-AD03-7FC6E7BF1B7B\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N\n   - Added CPE Configuration: OR\n          *cpe:2.3:a:ivanti:xtraction:*:*:*:*:*:*:*:* versions up to (excluding) 2026.2.1\n   - Added Reference Type: ivanti: https://hub.ivanti.com/s/article/Security-Advisory-Ivanti-Xtraction-CVE-2026-14902-CVE-2026-14903?language=en_US Types: Vendor Advisory\n2. 2026-07-14T15:16:56.977 | New CVE Received | source=3c1d8aa1-5a33-4ea4-8992-aadd6440af75 | changeId=0F4F8663-BCF4-4EE8-A433-FB95E0565FC6\n   - Added Description: An open redirect in Ivanti Xtraction before version 2026.2.1 allows a remote unauthenticated attacker to redirect users to arbitrary external URLs.\n   - Added CVSS V3.1: AV:N/AC:H/PR:N/UI:N/S:C/C:N/I:L/A:N\n   - Added CWE: CWE-601\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/14xxx/CVE-2026-14902.json\">CVE-2026-14902</a>\n   - Added Reference: https://hub.ivanti.com/s/article/Security-Advisory-Ivanti-Xtraction-CVE-2026-14902-CVE-2026-14903?language=en_US\n3. 2026-07-14T15:16:56.977 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=62D0B3FC-E68A-4A70-A573-526EDB1C0032\n   - Added SSVC: {'timestamp': '2026-07-14T14:49:29.489922Z', 'id': 'CVE-2026-14902', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": "2026-08-06T17:43:17.117",
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-08-06T17:43:17.117 | Initial Analysis | source=nvd@nist.gov | changeId=32D3E52F-4FAE-432E-AD03-7FC6E7BF1B7B\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N\n   - Added CPE Configuration: OR\n          *cpe:2.3:a:ivanti:xtraction:*:*:*:*:*:*:*:* versions up to (excluding) 2026.2.1\n   - Added Reference Type: ivanti: https://hub.ivanti.com/s/article/Security-Advisory-Ivanti-Xtraction-CVE-2026-14902-CVE-2026-14903?language=en_US Types: Vendor Advisory\n2. 2026-07-14T15:16:56.977 | New CVE Received | source=3c1d8aa1-5a33-4ea4-8992-aadd6440af75 | changeId=0F4F8663-BCF4-4EE8-A433-FB95E0565FC6\n   - Added Description: An open redirect in Ivanti Xtraction before version 2026.2.1 allows a remote unauthenticated attacker to redirect users to arbitrary external URLs.\n   - Added CVSS V3.1: AV:N/AC:H/PR:N/UI:N/S:C/C:N/I:L/A:N\n   - Added CWE: CWE-601\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/14xxx/CVE-2026-14902.json\">CVE-2026-14902</a>\n   - Added Reference: https://hub.ivanti.com/s/article/Security-Advisory-Ivanti-Xtraction-CVE-2026-14902-CVE-2026-14903?language=en_US\n3. 2026-07-14T15:16:56.977 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=62D0B3FC-E68A-4A70-A573-526EDB1C0032\n   - Added SSVC: {'timestamp': '2026-07-14T14:49:29.489922Z', 'id': 'CVE-2026-14902', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-14902",
+        "cveIds": [
+          "CVE-2026-14902",
+          "CVE-2026-14903"
+        ],
+        "source": "Title",
+        "commentText": "Security Advisory Ivanti Xtraction (CVE-2026-14902, CVE-2026-14903)",
+        "linkToComment": "https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/",
+        "commentDate": "2026-07-14T15:36:17+00:00",
+        "cvePublishedDate": "2026-07-14T15:16:56.977000+00:00",
+        "initialAnalysisDate": "2026-08-06T17:43:17.117",
+        "daysAfterPublication": 0,
+        "isPreAnalysis": true,
+        "isAnalyzed": true,
+        "cveChangeHistory": "1. 2026-08-06T17:43:17.117 | Initial Analysis | source=nvd@nist.gov | changeId=32D3E52F-4FAE-432E-AD03-7FC6E7BF1B7B\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N\n   - Added CPE Configuration: OR\n          *cpe:2.3:a:ivanti:xtraction:*:*:*:*:*:*:*:* versions up to (excluding) 2026.2.1\n   - Added Reference Type: ivanti: https://hub.ivanti.com/s/article/Security-Advisory-Ivanti-Xtraction-CVE-2026-14902-CVE-2026-14903?language=en_US Types: Vendor Advisory\n2. 2026-07-14T15:16:56.977 | New CVE Received | source=3c1d8aa1-5a33-4ea4-8992-aadd6440af75 | changeId=0F4F8663-BCF4-4EE8-A433-FB95E0565FC6\n   - Added Description: An open redirect in Ivanti Xtraction before version 2026.2.1 allows a remote unauthenticated attacker to redirect users to arbitrary external URLs.\n   - Added CVSS V3.1: AV:N/AC:H/PR:N/UI:N/S:C/C:N/I:L/A:N\n   - Added CWE: CWE-601\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/14xxx/CVE-2026-14902.json\">CVE-2026-14902</a>\n   - Added Reference: https://hub.ivanti.com/s/article/Security-Advisory-Ivanti-Xtraction-CVE-2026-14902-CVE-2026-14903?language=en_US\n3. 2026-07-14T15:16:56.977 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=62D0B3FC-E68A-4A70-A573-526EDB1C0032\n   - Added SSVC: {'timestamp': '2026-07-14T14:49:29.489922Z', 'id': 'CVE-2026-14902', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
       }
     ],
     "sourceBot": "reddit.py",
@@ -27529,7 +28763,7 @@
         "id": "owpbvrn",
         "author": "PixelCharlie",
         "body": "Here's 100 WordPress plugins with severe security issues and no roadmap to fix. https://www.reddit.com/r/StopBadBots/s/LPWlxD7D7F",
-        "score": 5,
+        "score": 3,
         "created_utc_ts": 1783693004,
         "created_utc": "2026-07-10T14:16:44",
         "permalink": "https://reddit.com/r/joomla/comments/1urs5ye/serious_attack_on_jce_editor_cve202648907/owpbvrn/",
@@ -27567,7 +28801,7 @@
     "tag": "Joomla 6",
     "tags": [],
     "title": "Serious attack on JCE Editor- CVE-2026-48907",
-    "updatedAt": "2026-09-10T23:56:18.540Z",
+    "updatedAt": "2026-09-15T00:00:45.677Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/joomla/comments/1urs5ye/serious_attack_on_jce_editor_cve202648907/",
     "versionList": [
@@ -27589,7 +28823,8 @@
     "comments_avg_sentiment_score": 0.108,
     "sentiment_score": -0.209,
     "sourceBot": "reddit.py",
-    "sourceUrl": "https://reddit.com/r/joomla/comments/1urs5ye/serious_attack_on_jce_editor_cve202648907/"
+    "sourceUrl": "https://reddit.com/r/joomla/comments/1urs5ye/serious_attack_on_jce_editor_cve202648907/",
+    "source": "reddit"
   },
   {
     "_id": "6a84ad4149715ba391887c88",
@@ -28049,7 +29284,7 @@
     "tag": null,
     "tags": [],
     "title": "The HTTP/2 Bomb That Knocks nginx and Apache Offline With a Single Connection",
-    "updatedAt": "2026-09-14T06:27:17.789Z",
+    "updatedAt": "2026-09-15T06:27:06.842Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/apache/comments/1tws4w7/the_http2_bomb_that_knocks_nginx_and_apache/",
     "versionList": [
