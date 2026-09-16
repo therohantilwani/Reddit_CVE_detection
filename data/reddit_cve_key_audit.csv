@@ -1,4 +1,6 @@
 post_id,subreddit,created_iso_utc,title,cves,cve_paths,url
+,Wordpress,2026-09-15T22:43:31+00:00,[PROMO] FOSS Wordpress Forensic Analysis Tool,,,https://reddit.com/r/Wordpress/comments/1whfdjh/promo_foss_wordpress_forensic_analysis_tool/
+,netsec,2026-09-15T18:05:21+00:00,"Red Heron exploits Gitea n-day flaw in multinational campaign, exposing new Linux rootkit",CVE-2026-60004,author_description,https://reddit.com/r/netsec/comments/1wh7wol/red_heron_exploits_gitea_nday_flaw_in/
 ,homelab,2026-09-13T22:23:46+00:00,"I replaced my Cisco C240 M5's inlet-based fan curve with a real CPU-temp-reactive one. 11k RPM pinned -&gt; 3k idle, ramps on actual CPU tem",CVE-2026-20288,author_description,https://reddit.com/r/homelab/comments/1wflmwb/i_replaced_my_cisco_c240_m5s_inletbased_fan_curve/
 ,google,2026-09-13T09:06:59+00:00,Why you need the September Android update: A look at the zero-click exploits patched this month,CVE-2026-28581;CVE-2026-28609;CVE-2026-28618;CVE-2026-28662;CVE-2026-28664;CVE-2026-45527;CVE-2026-49881,author_description,https://reddit.com/r/google/comments/1wf2oas/why_you_need_the_september_android_update_a_look/
 ,debian,2026-09-12T10:42:11+00:00,Updated Debian 13: 13.7 released,CVE-2026-14258,comments[14].body,https://reddit.com/r/debian/comments/1we99ok/updated_debian_13_137_released/
