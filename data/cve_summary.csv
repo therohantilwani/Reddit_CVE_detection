@@ -71,7 +71,6 @@ CVE-2026-45158,1,2026-08-30T02:57:05+00:00,1788058625,PFSENSE,https://reddit.com
 CVE-2026-46331,1,2026-07-24T05:53:48+00:00,1784872428,netsec,https://reddit.com/r/netsec/comments/1v52lix/escaping_claude_coworks_local_vm_sandbox_via/
 CVE-2026-48908,1,2026-08-13T17:10:50+00:00,1786641050,joomla,https://reddit.com/r/joomla/comments/1vngswj/why_an_antonkill_joomla_site_can_still_look/
 CVE-2026-49049,1,2026-08-13T17:10:50+00:00,1786641050,joomla,https://reddit.com/r/joomla/comments/1vngswj/why_an_antonkill_joomla_site_can_still_look/
-CVE-2026-49975,1,2026-06-04T16:08:00+00:00,1780589280,apache,https://reddit.com/r/apache/comments/1tws4w7/the_http2_bomb_that_knocks_nginx_and_apache/
 CVE-2026-56291,1,2026-07-09T09:55:22+00:00,1783590922,joomla,https://reddit.com/r/joomla/comments/1urlq47/balbooa_forms_fixes_an_unauthenticated_file/
 CVE-2026-56292,1,2026-07-09T13:58:22+00:00,1783605502,joomla,https://reddit.com/r/joomla/comments/1urr2ye/acymailing_sql_injection_vulnerability_upgrade/
 CVE-2026-57233,1,2026-08-20T15:25:43+00:00,1787239543,sysadmin,https://reddit.com/r/sysadmin/comments/1vtml1a/notepad_downloads_secure/
@@ -142,6 +141,10 @@ CVE-2026-85880,1,2026-09-10T10:09:03+00:00,1789034943,sysadmin,https://reddit.co
 CVE-2026-86206,1,2026-09-05T21:06:51+00:00,1788642411,sysadmin,https://reddit.com/r/sysadmin/comments/1w8ckla/nable_ncentral_patching_again_for_cve202686206/
 CVE-2026-86207,1,2026-09-05T21:06:51+00:00,1788642411,sysadmin,https://reddit.com/r/sysadmin/comments/1w8ckla/nable_ncentral_patching_again_for_cve202686206/
 CVE-2026-86218,1,2026-09-06T05:27:14+00:00,1788672434,sysadmin,https://reddit.com/r/sysadmin/comments/1w8n7po/nable_ncentral_second_hotfix_of_the_day_for_a/
+CVE-2026-86552,1,2026-09-21T16:30:48+00:00,1790008248,netsec,https://reddit.com/r/netsec/comments/1wmhror/zte_smarthome_account_takeover_password_reset/
+CVE-2026-86553,1,2026-09-21T16:30:48+00:00,1790008248,netsec,https://reddit.com/r/netsec/comments/1wmhror/zte_smarthome_account_takeover_password_reset/
+CVE-2026-86554,1,2026-09-21T16:30:48+00:00,1790008248,netsec,https://reddit.com/r/netsec/comments/1wmhror/zte_smarthome_account_takeover_password_reset/
+CVE-2026-86555,1,2026-09-21T16:30:48+00:00,1790008248,netsec,https://reddit.com/r/netsec/comments/1wmhror/zte_smarthome_account_takeover_password_reset/
 CVE-2026-90999,1,2026-09-17T14:11:25+00:00,1789654285,netsec,https://reddit.com/r/netsec/comments/1wiv4bm/cve202690999_a_fabricated_sentry_bug_report_can/
 CVE-2026-9189,1,2026-06-18T18:28:58+00:00,1781807338,Wordpress,https://reddit.com/r/Wordpress/comments/1u9ea81/cve20269189_payment_bypass_in_the_contact_form_7/
 CVE-2026-93372,1,2026-09-16T18:07:48+00:00,1789582068,debian,https://reddit.com/r/debian/comments/1wi4wwy/chromium_behind_on_security_updates_again/
