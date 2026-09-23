@@ -1,5 +1,6 @@
 cve,post_count,earliest_post_iso_utc,earliest_post_epoch,subreddits,example_urls
 CVE-2026-58085,5,2026-08-04T21:47:17+00:00,1785880037,PFSENSE,https://reddit.com/r/PFSENSE/comments/1vtvsgz/netgate_releases_pfsense_community_edition/;https://reddit.com/r/PFSENSE/comments/1vnmhke/netgate_releases_pfsense_plus_software_version/;https://reddit.com/r/PFSENSE/comments/1vhcpvl/freebsd_security_advisory_serious_freebsd/;https://reddit.com/r/PFSENSE/comments/1vgnp8z/call_for_testing_pfsense_community_edition_29/;https://reddit.com/r/PFSENSE/comments/1vfo3lg/a_new_release_candidate_for_pfsense_plus_software/
+CVE-2026-59310,3,2026-08-13T17:21:13+00:00,1786641673,netsec;sysadmin,https://reddit.com/r/netsec/comments/1wn37be/vcenter_preauth_rce_cve20265930959310/;https://reddit.com/r/sysadmin/comments/1vud9ln/cve202659310_rant_incoming/;https://reddit.com/r/sysadmin/comments/1vnh3kn/cve202659310_under_active_exploitation/
 CVE-2015-7547,2,2026-09-19T16:49:28+00:00,1789836568,Ubiquiti,https://reddit.com/r/Ubiquiti/comments/1wkyomd/weird_error_message_from_quad9_to_pihole_in_ips/;https://reddit.com/r/Ubiquiti/comments/1wkr5c7/repeated_cve20157547_warnings_from_one_machine/
 CVE-2021-33044,2,2026-08-10T18:41:25+00:00,1786387285,netsec,https://reddit.com/r/netsec/comments/1vrw3fd/operation_cameraswarm_over_14000_dahua_cameras/;https://reddit.com/r/netsec/comments/1vktfi3/inside_a_russianspeaking_operators_toolkit_for/
 CVE-2026-28581,2,2026-09-12T05:33:00+00:00,1789191180,Android;google,https://reddit.com/r/google/comments/1wf2oas/why_you_need_the_september_android_update_a_look/;https://reddit.com/r/Android/comments/1we3ubl/security_updates_in_google_play_system_updates_in/
@@ -9,12 +10,13 @@ CVE-2026-28662,2,2026-09-12T05:33:00+00:00,1789191180,Android;google,https://red
 CVE-2026-28664,2,2026-09-12T05:33:00+00:00,1789191180,Android;google,https://reddit.com/r/google/comments/1wf2oas/why_you_need_the_september_android_update_a_look/;https://reddit.com/r/Android/comments/1we3ubl/security_updates_in_google_play_system_updates_in/
 CVE-2026-32475,2,2026-08-21T10:42:39+00:00,1787308959,Wordpress,https://reddit.com/r/Wordpress/comments/1vz0z3z/how_serious_is_this_cve_for_elementor/;https://reddit.com/r/Wordpress/comments/1vucskk/critical_elementor_pro_vulnerability_9810/
 CVE-2026-45527,2,2026-09-12T05:33:00+00:00,1789191180,Android;google,https://reddit.com/r/google/comments/1wf2oas/why_you_need_the_september_android_update_a_look/;https://reddit.com/r/Android/comments/1we3ubl/security_updates_in_google_play_system_updates_in/
+CVE-2026-45756,2,2026-09-22T11:15:05+00:00,1790075705,PHP;netsec,https://reddit.com/r/PHP/comments/1wn7g1c/cve202645756_attackercontrolled_regex_in_symfony/;https://reddit.com/r/netsec/comments/1wn6m39/cve202645756_attackercontrolled_regex_in_symfony/
 CVE-2026-48907,2,2026-07-09T14:38:13+00:00,1783607893,joomla,https://reddit.com/r/joomla/comments/1vngswj/why_an_antonkill_joomla_site_can_still_look/;https://reddit.com/r/joomla/comments/1urs5ye/serious_attack_on_jce_editor_cve202648907/
 CVE-2026-49881,2,2026-09-12T05:33:00+00:00,1789191180,Android;google,https://reddit.com/r/google/comments/1wf2oas/why_you_need_the_september_android_update_a_look/;https://reddit.com/r/Android/comments/1we3ubl/security_updates_in_google_play_system_updates_in/
 CVE-2026-53360,2,2026-08-12T10:31:17+00:00,1786530677,linux;netsec,https://reddit.com/r/linux/comments/1vmcn4a/cve202653360_kvm_sevsnp_guesttohost_heap_oob_and/;https://reddit.com/r/netsec/comments/1vmadcw/cve202653360_kvm_sevsnp_guesttohost_heap_oob_and/
-CVE-2026-59310,2,2026-08-13T17:21:13+00:00,1786641673,sysadmin,https://reddit.com/r/sysadmin/comments/1vud9ln/cve202659310_rant_incoming/;https://reddit.com/r/sysadmin/comments/1vnh3kn/cve202659310_under_active_exploitation/
 CVE-2026-61511,2,2026-07-27T11:05:55+00:00,1785150355,netsec,https://reddit.com/r/netsec/comments/1v8192k/new_vbulletin_vulnerability/;https://reddit.com/r/netsec/comments/1v7x7i9/cve202661511_vbulletin_621_runmaths_preauth_rce/
 CVE-2026-65643,2,2026-08-28T02:03:59+00:00,1787882639,cpanel,https://reddit.com/r/cpanel/comments/1w6jnij/any_cpanel_user_with_parked_domains_can_get_root/;https://reddit.com/r/cpanel/comments/1w0dkzz/cve202665643_affected_versions/
+CVE-2026-66694,2,2026-08-18T09:05:04+00:00,1787043904,Wordpress,https://reddit.com/r/Wordpress/comments/1wnaydr/selfhealing_wordpress_malware_survived_a_manual/;https://reddit.com/r/Wordpress/comments/1vrjuu3/found_popcash_stealth_popunder_malware_hiding_in/
 CVE-2026-73570,2,2026-08-25T11:42:46+00:00,1787658166,linux;sysadmin,https://reddit.com/r/sysadmin/comments/1vzmdo0/cve202673570_zimbra_snmp_rce_abused_to_deploy/;https://reddit.com/r/linux/comments/1vxxfiu/cve202673570_zimbra_snmplogwatch_rce_exploited_in/
 CVE-2013-4786,1,2026-07-28T13:31:09+00:00,1785245469,netsec,https://reddit.com/r/netsec/comments/1v8ylt4/how_we_hacked_thousands_of_data_centers_in/
 CVE-2017-5487,1,2026-09-16T14:53:14+00:00,1789570394,Wordpress,https://reddit.com/r/Wordpress/comments/1whzh8r/securitytxt_files/
@@ -26,7 +28,6 @@ CVE-2020-25078,1,2026-08-10T18:41:25+00:00,1786387285,netsec,https://reddit.com/
 CVE-2020-25169,1,2026-08-10T18:41:25+00:00,1786387285,netsec,https://reddit.com/r/netsec/comments/1vktfi3/inside_a_russianspeaking_operators_toolkit_for/
 CVE-2021-33045,1,2026-08-25T12:14:13+00:00,1787660053,SecurityCamera,https://reddit.com/r/SecurityCamera/comments/1vxy4by/dahua_lost_password/
 CVE-2021-36260,1,2026-08-10T18:41:25+00:00,1786387285,netsec,https://reddit.com/r/netsec/comments/1vktfi3/inside_a_russianspeaking_operators_toolkit_for/
-CVE-2023-36010,1,2026-06-22T08:38:34+00:00,1782117514,sysadmin,https://reddit.com/r/sysadmin/comments/1ucezrg/defender_av_cve202336010_still_flagged_even_on/
 CVE-2023-49105,1,2026-08-26T13:59:47+00:00,1787752787,netsec,https://reddit.com/r/netsec/comments/1vyxx41/philippine_nuclear_agency_and_naval_contractor/
 CVE-2023-50488,1,2026-08-18T22:38:47+00:00,1787092727,hardwarehacking,https://reddit.com/r/hardwarehacking/comments/1vs4dtb/hardwarefirmware_investigating_local_shellrtsp/
 CVE-2023-51820,1,2026-08-18T22:38:47+00:00,1787092727,hardwarehacking,https://reddit.com/r/hardwarehacking/comments/1vs4dtb/hardwarefirmware_investigating_local_shellrtsp/
@@ -43,7 +44,6 @@ CVE-2025-31702,1,2026-08-18T17:34:14+00:00,1787074454,netsec,https://reddit.com/
 CVE-2025-48827,1,2026-07-27T14:00:29+00:00,1785160829,netsec,https://reddit.com/r/netsec/comments/1v8192k/new_vbulletin_vulnerability/
 CVE-2026-0310,1,2026-09-11T15:41:01+00:00,1789141261,sysadmin,https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/
 CVE-2026-10795,1,2026-09-07T07:39:40+00:00,1788766780,Wordpress,https://reddit.com/r/Wordpress/comments/1w9lisq/updraftplus_php_backdoor_delivery_attempts_via/
-CVE-2026-14258,1,2026-09-12T10:42:11+00:00,1789209731,debian,https://reddit.com/r/debian/comments/1we99ok/updated_debian_13_137_released/
 CVE-2026-14902,1,2026-07-14T15:36:17+00:00,1784043377,ivanti,https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/
 CVE-2026-14903,1,2026-07-14T15:36:17+00:00,1784043377,ivanti,https://reddit.com/r/ivanti/comments/1uwc523/security_advisory_ivanti_xtraction_cve202614902/
 CVE-2026-15409,1,2026-09-10T17:48:31+00:00,1789062511,netsec,https://reddit.com/r/netsec/comments/1wcqbvq/sonicwall_sma1000_cve202615409_ssrf_to_erlang_rce/
@@ -55,8 +55,6 @@ CVE-2026-19598,1,2026-08-18T19:49:39+00:00,1787082579,Wordpress,https://reddit.c
 CVE-2026-19632,1,2026-08-25T16:37:23+00:00,1787675843,Wordpress,https://reddit.com/r/Wordpress/comments/1vy4y2i/psa_critical_98_account_takeover_in/
 CVE-2026-20288,1,2026-09-13T22:23:46+00:00,1789338226,homelab,https://reddit.com/r/homelab/comments/1wflmwb/i_replaced_my_cisco_c240_m5s_inletbased_fan_curve/
 CVE-2026-23550,1,2026-08-15T06:18:59+00:00,1786774739,Wordpress,https://reddit.com/r/Wordpress/comments/1vov68k/half_our_dev_time_now_goes_into_security_some/
-CVE-2026-30792,1,2026-06-20T19:33:03+00:00,1781983983,rustdesk,https://reddit.com/r/rustdesk/comments/1ub5cdv/weird_rustdesk_request_from_my_own_macbook/
-CVE-2026-30797,1,2026-06-20T19:33:03+00:00,1781983983,rustdesk,https://reddit.com/r/rustdesk/comments/1ub5cdv/weird_rustdesk_request_from_my_own_macbook/
 CVE-2026-31431,1,2026-07-22T09:37:51+00:00,1784713071,homelab,https://reddit.com/r/homelab/comments/1v3b91p/ugos_pro_forced_update_broke_docker_permissions/
 CVE-2026-32193,1,2026-08-17T12:17:40+00:00,1786969060,netsec,https://reddit.com/r/netsec/comments/1vqqpwn/from_aks_node_root_vulnerability_to_microsoft/
 CVE-2026-32882,1,2026-09-19T10:56:26+00:00,1789815386,homeassistant,https://reddit.com/r/homeassistant/comments/1wkj5mf/openai_hacked_by_hacktron_ai_using_discourse_via/
@@ -75,11 +73,11 @@ CVE-2026-56291,1,2026-07-09T09:55:22+00:00,1783590922,joomla,https://reddit.com/
 CVE-2026-56292,1,2026-07-09T13:58:22+00:00,1783605502,joomla,https://reddit.com/r/joomla/comments/1urr2ye/acymailing_sql_injection_vulnerability_upgrade/
 CVE-2026-57233,1,2026-08-20T15:25:43+00:00,1787239543,sysadmin,https://reddit.com/r/sysadmin/comments/1vtml1a/notepad_downloads_secure/
 CVE-2026-58286,1,2026-08-19T18:23:19+00:00,1787163799,sysadmin,https://reddit.com/r/sysadmin/comments/1vsuo5j/edge_browser_updates_on_ws2025_domain_controllers/
+CVE-2026-59309,1,2026-09-22T07:58:09+00:00,1790063889,netsec,https://reddit.com/r/netsec/comments/1wn37be/vcenter_preauth_rce_cve20265930959310/
 CVE-2026-60004,1,2026-09-15T18:05:21+00:00,1789495521,netsec,https://reddit.com/r/netsec/comments/1wh7wol/red_heron_exploits_gitea_nday_flaw_in/
 CVE-2026-62893,1,2026-08-14T21:04:14+00:00,1786741454,sysadmin,https://reddit.com/r/sysadmin/comments/1vojhyi/august_2026_patch_tuesday_issue_wds_tftp_cve_fix/
 CVE-2026-65669,1,2026-09-08T21:14:13+00:00,1788902053,sysadmin,https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/
 CVE-2026-66000,1,2026-08-12T09:23:41+00:00,1786526621,netsec,https://reddit.com/r/netsec/comments/1vm95nk/erpnexts_document_follow_feature_exposed/
-CVE-2026-66694,1,2026-08-18T09:05:04+00:00,1787043904,Wordpress,https://reddit.com/r/Wordpress/comments/1vrjuu3/found_popcash_stealth_popunder_malware_hiding_in/
 CVE-2026-66915,1,2026-08-10T13:03:30+00:00,1786367010,joomla,https://reddit.com/r/joomla/comments/1vkk9mi/fabrik_for_joomla_fixes_an_unauthenticated_rce_in/
 CVE-2026-67401,1,2026-09-08T16:06:37+00:00,1788883597,cpanel,https://reddit.com/r/cpanel/comments/1wasnck/security_cve202667401_sql_injection_vulnerability/
 CVE-2026-67402,1,2026-09-13T14:12:39+00:00,1789308759,cpanel,https://reddit.com/r/cpanel/comments/1wf8ra1/critical_rce_in_configserver_firewall_update_csf/
@@ -146,7 +144,6 @@ CVE-2026-86553,1,2026-09-21T16:30:48+00:00,1790008248,netsec,https://reddit.com/
 CVE-2026-86554,1,2026-09-21T16:30:48+00:00,1790008248,netsec,https://reddit.com/r/netsec/comments/1wmhror/zte_smarthome_account_takeover_password_reset/
 CVE-2026-86555,1,2026-09-21T16:30:48+00:00,1790008248,netsec,https://reddit.com/r/netsec/comments/1wmhror/zte_smarthome_account_takeover_password_reset/
 CVE-2026-90999,1,2026-09-17T14:11:25+00:00,1789654285,netsec,https://reddit.com/r/netsec/comments/1wiv4bm/cve202690999_a_fabricated_sentry_bug_report_can/
-CVE-2026-9189,1,2026-06-18T18:28:58+00:00,1781807338,Wordpress,https://reddit.com/r/Wordpress/comments/1u9ea81/cve20269189_payment_bypass_in_the_contact_form_7/
 CVE-2026-93372,1,2026-09-16T18:07:48+00:00,1789582068,debian,https://reddit.com/r/debian/comments/1wi4wwy/chromium_behind_on_security_updates_again/
 CVE-2026-93373,1,2026-09-16T18:07:48+00:00,1789582068,debian,https://reddit.com/r/debian/comments/1wi4wwy/chromium_behind_on_security_updates_again/
 CVE-2026-93374,1,2026-09-16T18:07:48+00:00,1789582068,debian,https://reddit.com/r/debian/comments/1wi4wwy/chromium_behind_on_security_updates_again/

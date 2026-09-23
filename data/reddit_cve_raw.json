@@ -1,5 +1,440 @@
 [
   {
+    "_id": "6ab296c0648fea68716d95d6",
+    "redditId": "1wnaydr",
+    "author": "ClassifiedReport",
+    "author_description": "We just cleaned a self-healing infection on a couple of WordPress sites. A manual file cleanup was not enough: it came back within 24 hours because the malware’s source of truth was in the database and in `wp-config.php`.\n\nPosting this so others can hunt the same traces. I’m not dropping payloads or backdoor keys.\n\n# What visitors saw\n\nA fake Cloudflare “Verify you are human” overlay (ClickFix). Interaction tried to get people to paste PowerShell from the clipboard.\n\n# How it persisted (this is why it returned)\n\nThree layers restored each other:\n\n1. Database — base64 payloads in `wp_options` as transients named like `_site_transient_health_*`\n2. Files — fake plugins, MU-plugins, copies in `wp-includes/assets/` and sometimes `uploads/`\n3. Boot code — restore logic in `wp-config.php` and/or `wp-content/object-cache.php` that rewrote the plugin from the DB on every request, plus hourly cron hooks\n\nIf you only delete the PHP files, the next page load recreates them.\n\n# Hunt these filenames / folders\n\n    wp-content/mu-plugins/wp-own-assets.php\n    wp-content/mu-plugins/wp-feed-normalize-*.php\n    wp-content/mu-plugins/wp-rest-cache-*.php\n    wp-content/mu-plugins/wp-rest-hardening-*.php\n    wp-content/mu-plugins/wp-rest-optimizer-*.php\n    \n    wp-content/plugins/wp-cache-*/\n    wp-content/plugins/security-headers-manager-*/\n    wp-content/plugins/site-performance-toolkit-*/\n    \n    wp-content/object-cache.php   (only if you did not install an object cache yourself)\n    wp-includes/assets/class-walker_*.php   (hex suffix, NOT core Walker files)\n    \n    .own-releases/   (hidden folder inside the fake plugin)\n    own-stego.php / own-stg.php / qtt-own-core.php.obf\n    pc_pack.py\n    _w10_up.php   (often dropped in a theme js/ folder)\n\nAlso search `wp-config.php` for a block around `WP_Core_Integrity` or a function named `_wp_cuh_restore` / `_wp_cuh_sql`. That block is the self-heal. Remove it.\n\n# .htaccess\n\nLook for:\n\n    # own-stego-v4\n\nand lots of:\n\n    # BEGIN wp_compat_*\n    &lt;FilesMatch ...&gt;\n\nThe stego block silently rewrites a normal image URL (`featured-default.jpg`, `slide-01.jpg`, etc.) to `own-stego.php`.\n\n# Database / cron\n\nIn phpMyAdmin or WP-CLI:\n\n    SELECT option_name, LENGTH(option_value)\n    FROM wp_options\n    WHERE option_name LIKE '%\\_site\\_transient\\_health\\_%';\n\nUse your real table prefix instead of `wp_`.\n\nCron hooks to remove (inside the `cron` option, or via a cron plugin):\n\n    wp_cache_health_*\n    wp_compat_heal_*\n\nOn our sites the transients were \\~125–225 KB of base64. Legitimate site-health transients are not that size.\n\n# Hidden admins\n\nCheck `wp_users` / Users in wp-admin for recent administrators with names like:\n\n    wpsvc_*\n    *_infra*\n    *_dev*\n    emails on u/wordpress-svc.internal\n\nDo not assume every `wpsvc_*` account is Plesk/Toolkit. Ours were created the same day as the webshell plugin.\n\n# REST backdoors\n\nMalicious MU-plugins registered extra routes under the core namespace:\n\n    /wp-json/wp-site-health/v1/check-*\n\nCore WordPress uses `/tests/...` under that namespace. Random `check-&lt;hex&gt;` POST routes with `permission_callback` wide open are not core. After cleanup those URLs should 404.\n\n# Cleanup order (important)\n\n1. Put the site in maintenance / take it off the public internet if you can.\n2. Break self-heal first: remove the `wp-config.php` injection and `object-cache.php` drop-in (if it is not yours).\n3. Delete the fake MU-plugins and fake plugins (including hidden `.own-releases`).\n4. Delete `class-walker_&lt;hex&gt;.php` copies in `wp-includes/assets/` (keep the real `script-loader-packages.php` / `icon-library-manifest.php`).\n5. Delete the `_site_transient_health_*` rows and the unknown cron hooks.\n6. Rotate all salts in `wp-config.php` (not only `AUTH_KEY`).\n7. Reset every remaining admin password. Rotate FTP/SFTP and DB passwords too. Attackers with RCE can steal those.\n8. Update WordPress, themes, and plugins from clean sources. Reinstall anything you cannot verify.\n9. Re-enable security plugins if they were renamed (`wordfence.disabled_*` etc.).\n10. Watch 24 hours: if `wp-cache-*` or those MU-plugins come back, a copy is still on disk or in the DB.\n\n# Initial access note\n\nOur copy was attributed to Thrive Architect. CVE-2026-66694 is public as unauthenticated XSS in Thrive Architect `&lt;=` [`10.9.3.1`](http://10.9.3.1), patched in `10.9.3.2`. Our sites were already on 11.x; the *reinfection* was the leftover self-heal, not that CVE still being open. Still: update Thrive (and everything else). An older Thrive file-write bug has existed in the past, so don’t treat “we patched XSS” as a full incident review.\n\nIf you find `wp-own-assets.php` loading a script from another vhost on the same server, clean that vhost too. In our case production was being reinfected from a sibling site.\n\n# If you are not sure\n\nDo not “edit the malware until it looks clean.” Remove the listed files, the `wp-config` block, and the transients. If the site is a mess, restore WordPress core + themes + plugins from vendor copies and keep only `wp-content/uploads` after scanning it for `.php` files.\n\nHappy to answer hunt questions. Don’t ask for a copy of the payload.",
+    "awards": [],
+    "comments": [
+      {
+        "id": "pbdh9cv",
+        "author": "noggstaj",
+        "body": "I mean it's good that you are sharing how you sorted it out. But in what world does the manual clean-up process NOT include scanning core files and checking the database?",
+        "score": 15,
+        "created_utc_ts": 1790087997,
+        "created_utc": "2026-09-22T14:39:57",
+        "permalink": "https://reddit.com/r/Wordpress/comments/1wnaydr/selfhealing_wordpress_malware_survived_a_manual/pbdh9cv/",
+        "parent_id": "t3_1wnaydr",
+        "is_submitter": false
+      },
+      {
+        "id": "pbdleba",
+        "author": "ranta_m",
+        "body": "the transient one is the bit people miss. i had the same fight on a client box, deleted the mu-plugin and it was back on the next request because object-cache.php was dropping it back from the db. check file mtimes against the install date, anything with a hex suffix in wp-includes isnt core. also grep the whole tree for base64_decode, mine had it stashed in a theme functions file.",
+        "score": 1,
+        "created_utc_ts": 1790089087,
+        "created_utc": "2026-09-22T14:58:07",
+        "permalink": "https://reddit.com/r/Wordpress/comments/1wnaydr/selfhealing_wordpress_malware_survived_a_manual/pbdleba/",
+        "parent_id": "t3_1wnaydr",
+        "is_submitter": false
+      },
+      {
+        "id": "pbdpxim",
+        "author": "theguymatter",
+        "body": "It’s becoming part of the job scope for traditional CMSes, when you could just harden the whole thing with a modern CMS and save everyone the trouble. But apparently, we prefer fixing the problems we created ourselves.",
+        "score": 2,
+        "created_utc_ts": 1790090286,
+        "created_utc": "2026-09-22T15:18:06",
+        "permalink": "https://reddit.com/r/Wordpress/comments/1wnaydr/selfhealing_wordpress_malware_survived_a_manual/pbdpxim/",
+        "parent_id": "t3_1wnaydr",
+        "is_submitter": false
+      },
+      {
+        "id": "pbdqy7t",
+        "author": "Emergency-Answer5549",
+        "body": "Me ha ocurrido en una web, pero solo se activaba desde mac. Muchas gracias por compartirlo en cuanto tenga un rato sigo estas instrucciones.",
+        "score": 1,
+        "created_utc_ts": 1790090552,
+        "created_utc": "2026-09-22T15:22:32",
+        "permalink": "https://reddit.com/r/Wordpress/comments/1wnaydr/selfhealing_wordpress_malware_survived_a_manual/pbdqy7t/",
+        "parent_id": "t3_1wnaydr",
+        "is_submitter": false
+      },
+      {
+        "id": "pbdx7uw",
+        "author": "pyrolols",
+        "body": "I would replace core files and plugins with clean ones, you dont have to clean db just change user passwords, wp app keys and change auth tokens = clean.",
+        "score": -1,
+        "created_utc_ts": 1790092159,
+        "created_utc": "2026-09-22T15:49:19",
+        "permalink": "https://reddit.com/r/Wordpress/comments/1wnaydr/selfhealing_wordpress_malware_survived_a_manual/pbdx7uw/",
+        "parent_id": "t1_pbdh9cv",
+        "is_submitter": false
+      },
+      {
+        "id": "pbdxjr1",
+        "author": "TopSydeWP",
+        "body": "good writeup. one persistence layer missing from the list: application passwords. they live in usermeta (`_application_passwords`) and survive a password reset, a salt rotation and a full file replacement, so an attacker keeps authenticated REST access after you think you're clean. dump that meta key for every user and revoke anything you didn't create yourself.\n\nalso worth checking mu-plugins with no plugin header, since they still load but don't render in any admin list, and timestomped files where mtime was set back to match core. on the fleet i run the daily scan happens over ssh from outside the site rather than from a plugin inside it, mostly because anything living in wp-content can be switched off by whatever you're hunting.",
+        "score": 2,
+        "created_utc_ts": 1790092243,
+        "created_utc": "2026-09-22T15:50:43",
+        "permalink": "https://reddit.com/r/Wordpress/comments/1wnaydr/selfhealing_wordpress_malware_survived_a_manual/pbdxjr1/",
+        "parent_id": "t3_1wnaydr",
+        "is_submitter": false
+      },
+      {
+        "id": "pbf35ch",
+        "author": "Kwarkvocht",
+        "body": "He had his site fixed by codex/Claude and write up what it did. ",
+        "score": 9,
+        "created_utc_ts": 1790102697,
+        "created_utc": "2026-09-22T18:44:57",
+        "permalink": "https://reddit.com/r/Wordpress/comments/1wnaydr/selfhealing_wordpress_malware_survived_a_manual/pbf35ch/",
+        "parent_id": "t1_pbdh9cv",
+        "is_submitter": false
+      },
+      {
+        "id": "pbf3dnp",
+        "author": "1Luc1",
+        "body": "sorry for dump question, but how does one get one of those in the first place?",
+        "score": 1,
+        "created_utc_ts": 1790102755,
+        "created_utc": "2026-09-22T18:45:55",
+        "permalink": "https://reddit.com/r/Wordpress/comments/1wnaydr/selfhealing_wordpress_malware_survived_a_manual/pbf3dnp/",
+        "parent_id": "t3_1wnaydr",
+        "is_submitter": false
+      },
+      {
+        "id": "pbf6ute",
+        "author": "bluesix_v2",
+        "body": "By not keeping plugins and WP core up to date. ",
+        "score": 2,
+        "created_utc_ts": 1790103634,
+        "created_utc": "2026-09-22T19:00:34",
+        "permalink": "https://reddit.com/r/Wordpress/comments/1wnaydr/selfhealing_wordpress_malware_survived_a_manual/pbf6ute/",
+        "parent_id": "t1_pbf3dnp",
+        "is_submitter": false
+      },
+      {
+        "id": "pbfikyw",
+        "author": "otto4242",
+        "body": "May I suggest that to avoid this sort of manual cleanup process in the future, you take regular backups, and simply restore from a clean backup.",
+        "score": 2,
+        "created_utc_ts": 1790106658,
+        "created_utc": "2026-09-22T19:50:58",
+        "permalink": "https://reddit.com/r/Wordpress/comments/1wnaydr/selfhealing_wordpress_malware_survived_a_manual/pbfikyw/",
+        "parent_id": "t3_1wnaydr",
+        "is_submitter": false
+      },
+      {
+        "id": "pbhgl2s",
+        "author": "Jealous-Bunch-6992",
+        "body": "DON'T use wp-cli to perform actions, that can trigger the self-heal as well. So perform DB commands in phpmyadmin or similar. If you host multiple wp sites on the same account, you will probably notice they are all affected. In our case it was an unused site and a staging site so I took those out of their respective webroots.",
+        "score": 1,
+        "created_utc_ts": 1790127833,
+        "created_utc": "2026-09-23T01:43:53",
+        "permalink": "https://reddit.com/r/Wordpress/comments/1wnaydr/selfhealing_wordpress_malware_survived_a_manual/pbhgl2s/",
+        "parent_id": "t3_1wnaydr",
+        "is_submitter": false
+      },
+      {
+        "id": "pbhgwtt",
+        "author": "Jealous-Bunch-6992",
+        "body": "Because sometimes you're working with different agencies and if they come in and have a whinge because the site is in astro or some non wp cms the actual client can start to think you made a bad decision. Depends on if they have been burned before and if the person who was there when the burn happened is still there or not otherwise it can be difficult to explain why you're not building in WP unfortunately.",
+        "score": 1,
+        "created_utc_ts": 1790127941,
+        "created_utc": "2026-09-23T01:45:41",
+        "permalink": "https://reddit.com/r/Wordpress/comments/1wnaydr/selfhealing_wordpress_malware_survived_a_manual/pbhgwtt/",
+        "parent_id": "t1_pbdpxim",
+        "is_submitter": false
+      },
+      {
+        "id": "pbhuuyv",
+        "author": "rob94708",
+        "body": "Yeah, this should start off as “Why we failed at cleaning up a malware infection”.",
+        "score": 2,
+        "created_utc_ts": 1790132822,
+        "created_utc": "2026-09-23T03:07:02",
+        "permalink": "https://reddit.com/r/Wordpress/comments/1wnaydr/selfhealing_wordpress_malware_survived_a_manual/pbhuuyv/",
+        "parent_id": "t1_pbdh9cv",
+        "is_submitter": false
+      },
+      {
+        "id": "pbigq8z",
+        "author": "dwncm",
+        "body": "Do not forget to clean the malware hiding in service workers - nobody checks them, and then get surprised when the infection comes back on admin login…\n\nYou can see them here:\n* Chrome or Edge: chrome://serviceworker-internals (or edge://serviceworker-internals) lists every registration with its script URL and lets you unregister it there.\n* Firefox: about:debugging#/runtime/this-firefox, under Service Workers.\n* Safari: Develop, then Service Workers.\n\n(copied instructions from \nhttps://blog.imunify360.com/imunify360-removes-malicious-service-workers/)",
+        "score": 1,
+        "created_utc_ts": 1790142058,
+        "created_utc": "2026-09-23T05:40:58",
+        "permalink": "https://reddit.com/r/Wordpress/comments/1wnaydr/selfhealing_wordpress_malware_survived_a_manual/pbigq8z/",
+        "parent_id": "t3_1wnaydr",
+        "is_submitter": false
+      }
+    ],
+    "created_utc": "2026-09-22T14:25:06",
+    "first_author_comment": null,
+    "num_comments": 17,
+    "score": 27,
+    "source": "reddit",
+    "subreddit": "Wordpress",
+    "tag": null,
+    "tags": [],
+    "title": "Self-healing WordPress malware survived a manual cleanup (ClickFix + MU-plugins + DB transients). Here’s how to find and remove it.",
+    "updatedAt": "2026-09-23T06:52:01.186Z",
+    "upvote_ratio": 0.86,
+    "url": "https://reddit.com/r/Wordpress/comments/1wnaydr/selfhealing_wordpress_malware_survived_a_manual/",
+    "versionList": [],
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true,
+    "sourceBot": "reddit.py",
+    "sourceUrl": "https://reddit.com/r/Wordpress/comments/1wnaydr/selfhealing_wordpress_malware_survived_a_manual/"
+  },
+  {
+    "_id": "6ab27894648fea68716d8503",
+    "redditId": "1wn7g1c",
+    "author": "AlexandreDaubois",
+    "author_description": null,
+    "awards": [],
+    "created_utc": "2026-09-22T11:57:01",
+    "first_author_comment": "I didn’t know that about the JS ecosystem! I was astonished how “common” are ReDoS pattern",
+    "num_comments": 8,
+    "score": 17,
+    "source": "reddit",
+    "subreddit": "PHP",
+    "tag": "Article",
+    "tags": [
+      "Article"
+    ],
+    "title": "CVE-2026-45756: attacker-controlled regex in Symfony JsonPath filters (ReDoS)",
+    "updatedAt": "2026-09-23T06:45:08.906Z",
+    "upvote_ratio": 0.84,
+    "url": "https://reddit.com/r/PHP/comments/1wn7g1c/cve202645756_attackercontrolled_regex_in_symfony/",
+    "versionList": [
+      "2026.0.0",
+      "45756.0.0"
+    ],
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true,
+    "comments": [
+      {
+        "id": "pbd0roe",
+        "author": "obstreperous_troll",
+        "body": "Hey, a ReDOS that might legit be exposed to user-facing code, good to know.  The backtrack limit is good to know too, so if one's not up for slogging through the mountain of AI writing cliches in TFA, the gist is to tune the default php.ini setting of `pcre.backtrack_limit = 1000000` to something more conservative, like chopping off a zero or two (its a setting you can tune dynamically too, so you can always raise it when you need to).\n\nI've been trained for years to ignore this entire class of vulnerability on the JS side, because npm audit never stops screaming about them even though 99% of them are in dev tools.",
+        "score": 7,
+        "created_utc_ts": 1790083367,
+        "created_utc": "2026-09-22T13:22:47",
+        "permalink": "https://reddit.com/r/PHP/comments/1wn7g1c/cve202645756_attackercontrolled_regex_in_symfony/pbd0roe/",
+        "parent_id": "t3_1wn7g1c",
+        "is_submitter": false
+      },
+      {
+        "id": "pbd4ua9",
+        "author": "AlexandreDaubois",
+        "body": "I didn’t know that about the JS ecosystem! I was astonished how “common” are ReDoS pattern",
+        "score": 2,
+        "created_utc_ts": 1790084565,
+        "created_utc": "2026-09-22T13:42:45",
+        "permalink": "https://reddit.com/r/PHP/comments/1wn7g1c/cve202645756_attackercontrolled_regex_in_symfony/pbd4ua9/",
+        "parent_id": "t1_pbd0roe",
+        "is_submitter": true
+      },
+      {
+        "id": "pbdizxt",
+        "author": "Glittering_Bath3848",
+        "body": "Why the hell this post is getting downvoted? This sub is full of assholes who just spam downvotes with seeing the content first.",
+        "score": 7,
+        "created_utc_ts": 1790088457,
+        "created_utc": "2026-09-22T14:47:37",
+        "permalink": "https://reddit.com/r/PHP/comments/1wn7g1c/cve202645756_attackercontrolled_regex_in_symfony/pbdizxt/",
+        "parent_id": "t3_1wn7g1c",
+        "is_submitter": false
+      },
+      {
+        "id": "pbe6zfr",
+        "author": "MateusAzevedo",
+        "body": "After reading the article, I guess it's the AI content. The tone is very characteristic and, to me, even tiring to read.",
+        "score": 2,
+        "created_utc_ts": 1790094629,
+        "created_utc": "2026-09-22T16:30:29",
+        "permalink": "https://reddit.com/r/PHP/comments/1wn7g1c/cve202645756_attackercontrolled_regex_in_symfony/pbe6zfr/",
+        "parent_id": "t1_pbdizxt",
+        "is_submitter": false
+      },
+      {
+        "id": "pbfbzd8",
+        "author": "lostmedia766",
+        "body": "Thanks for finding this, but I gotta admit, I don't love the solution. It seems far too hackish. In my opinion, a better solution would've been to throw an exception if the `pcre.backtrack_limit` wasn't set, or was set to a value exceeding the reasonable `1000000` default.\n\nAn exception can alert the developer to to investigate further and set the `php.ini` setting, or further prevent user controlled regex's to begin with.",
+        "score": 1,
+        "created_utc_ts": 1790104945,
+        "created_utc": "2026-09-22T19:22:25",
+        "permalink": "https://reddit.com/r/PHP/comments/1wn7g1c/cve202645756_attackercontrolled_regex_in_symfony/pbfbzd8/",
+        "parent_id": "t3_1wn7g1c",
+        "is_submitter": false
+      }
+    ],
+    "sourceBot": "reddit.py",
+    "sourceUrl": "https://reddit.com/r/PHP/comments/1wn7g1c/cve202645756_attackercontrolled_regex_in_symfony/"
+  },
+  {
+    "_id": "6ab264cb648fea68716d7eac",
+    "redditId": "1wn6m39",
+    "author": "AlexandreDaubois",
+    "author_description": null,
+    "awards": [],
+    "comments": [
+      {
+        "id": "pbceaac",
+        "author": "AlexandreDaubois",
+        "body": "Author of the component and the fix here. Happy to take any question you may have about this CVE, the process to handle security reports or anything related!",
+        "score": 6,
+        "created_utc_ts": 1790075773,
+        "created_utc": "2026-09-22T11:16:13",
+        "permalink": "https://reddit.com/r/netsec/comments/1wn6m39/cve202645756_attackercontrolled_regex_in_symfony/pbceaac/",
+        "parent_id": "t3_1wn6m39",
+        "is_submitter": true
+      },
+      {
+        "id": "pbcomv0",
+        "author": "_vavkamil_",
+        "body": "where to report a possible bypass?",
+        "score": 2,
+        "created_utc_ts": 1790079571,
+        "created_utc": "2026-09-22T12:19:31",
+        "permalink": "https://reddit.com/r/netsec/comments/1wn6m39/cve202645756_attackercontrolled_regex_in_symfony/pbcomv0/",
+        "parent_id": "t1_pbceaac",
+        "is_submitter": false
+      },
+      {
+        "id": "pbeu7tu",
+        "author": "Tureallious",
+        "body": "if I'm understanding this correctly, the fix here isn't a fix but a 10x reduction of likelyhood. The underlying issue still can occur, the attack vector remains.\n\nThe advise is sound, don't pass userland regex directly into filters, if you do, you're the one exposing the surface not symfony. \n\nSo a courtesy solution to stop stuff dying as often, but introduces a new constant.\n\nHonestly I don't know if there is a better answer other than to not allow userland regex to be passed in at all. I personally would see that as a code smell, but do see the potential usefulness (although honestly, I'd give the userland a choice of options or use a DQL and translate that).\n\nIn a way I question if this is a CVE at all or simply a lesson for the implementing developer 🤔",
+        "score": 2,
+        "created_utc_ts": 1790100438,
+        "created_utc": "2026-09-22T18:07:18",
+        "permalink": "https://reddit.com/r/netsec/comments/1wn6m39/cve202645756_attackercontrolled_regex_in_symfony/pbeu7tu/",
+        "parent_id": "t3_1wn6m39",
+        "is_submitter": false
+      },
+      {
+        "id": "pbey4i5",
+        "author": "AlexandreDaubois",
+        "body": "Yes, clearly a user-supplied regex is a code smell, but it’s also our responsibility (in my opinion) to provide code that protects against an easy DOS attack if someone were to carry one out.",
+        "score": 2,
+        "created_utc_ts": 1790101423,
+        "created_utc": "2026-09-22T18:23:43",
+        "permalink": "https://reddit.com/r/netsec/comments/1wn6m39/cve202645756_attackercontrolled_regex_in_symfony/pbey4i5/",
+        "parent_id": "t1_pbeu7tu",
+        "is_submitter": true
+      },
+      {
+        "id": "pbgwcyf",
+        "author": "endor_sarah",
+        "body": "You mention a capped match reads as no match, and with the `@` a malformed pattern comes back false too, so the caller can't tell \"no match\" from \"gave up\" from \"bad regex.\" At 10k that'll trip a lot more often than at the default 1M. Did you look at checking `preg_last_error()` and throwing instead, or would that have broken BC?",
+        "score": 1,
+        "created_utc_ts": 1790121243,
+        "created_utc": "2026-09-22T23:54:03",
+        "permalink": "https://reddit.com/r/netsec/comments/1wn6m39/cve202645756_attackercontrolled_regex_in_symfony/pbgwcyf/",
+        "parent_id": "t1_pbceaac",
+        "is_submitter": false
+      }
+    ],
+    "created_utc": "2026-09-22T11:15:05",
+    "first_author_comment": "Author of the component and the fix here. Happy to take any question you may have about this CVE, the process to handle security reports or anything related!",
+    "num_comments": 8,
+    "score": 21,
+    "source": "reddit",
+    "subreddit": "netsec",
+    "tag": null,
+    "tags": [],
+    "title": "CVE-2026-45756: attacker-controlled regex in Symfony JsonPath filters (ReDoS)",
+    "updatedAt": "2026-09-23T06:22:36.286Z",
+    "upvote_ratio": 0.87,
+    "url": "https://reddit.com/r/netsec/comments/1wn6m39/cve202645756_attackercontrolled_regex_in_symfony/",
+    "versionList": [
+      "2026.0.0",
+      "45756.0.0"
+    ],
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true,
+    "sourceBot": "reddit.py",
+    "sourceUrl": "https://reddit.com/r/netsec/comments/1wn6m39/cve202645756_attackercontrolled_regex_in_symfony/"
+  },
+  {
+    "_id": "6ab23ab1648fea68716d71e4",
+    "redditId": "1wn37be",
+    "author": "MobetaSec",
+    "author_description": "CVE-2026-59309 &amp; CVE-2026-59310: patch-diffing VMware vCenter reveals two pre-auth 9.8 bugs - an auth bypass and a syslog path traversal to RCE",
+    "awards": [],
+    "created_utc": "2026-09-22T07:58:09",
+    "first_author_comment": null,
+    "num_comments": 5,
+    "score": 35,
+    "source": "reddit",
+    "subreddit": "netsec",
+    "tag": null,
+    "tags": [],
+    "title": "vCenter pre-auth RCE: CVE-2026-59309/59310",
+    "updatedAt": "2026-09-23T06:22:37.055Z",
+    "upvote_ratio": 0.87,
+    "url": "https://reddit.com/r/netsec/comments/1wn37be/vcenter_preauth_rce_cve20265930959310/",
+    "versionList": [
+      "2026.0.0",
+      "59309.0.0",
+      "59310.0.0"
+    ],
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true,
+    "comments": [
+      {
+        "id": "pbcw6ku",
+        "author": "Real_Pepe_Silvia",
+        "body": "I’m so sick of reading AI writeups. ",
+        "score": 12,
+        "created_utc_ts": 1790081990,
+        "created_utc": "2026-09-22T12:59:50",
+        "permalink": "https://reddit.com/r/netsec/comments/1wn37be/vcenter_preauth_rce_cve20265930959310/pbcw6ku/",
+        "parent_id": "t3_1wn37be",
+        "is_submitter": false
+      },
+      {
+        "id": "pbd6en8",
+        "author": "ElonTaco",
+        "body": "At least the diagrams were nice, I like that style",
+        "score": 2,
+        "created_utc_ts": 1790085016,
+        "created_utc": "2026-09-22T13:50:16",
+        "permalink": "https://reddit.com/r/netsec/comments/1wn37be/vcenter_preauth_rce_cve20265930959310/pbd6en8/",
+        "parent_id": "t1_pbcw6ku",
+        "is_submitter": false
+      },
+      {
+        "id": "pbdcm7o",
+        "author": "RememberCitadel",
+        "body": "I am pretty sick on anything written by it tbh.",
+        "score": 3,
+        "created_utc_ts": 1790086745,
+        "created_utc": "2026-09-22T14:19:05",
+        "permalink": "https://reddit.com/r/netsec/comments/1wn37be/vcenter_preauth_rce_cve20265930959310/pbdcm7o/",
+        "parent_id": "t1_pbcw6ku",
+        "is_submitter": false
+      },
+      {
+        "id": "pbe1zzx",
+        "author": "tetyys",
+        "body": "slop",
+        "score": 4,
+        "created_utc_ts": 1790093371,
+        "created_utc": "2026-09-22T16:09:31",
+        "permalink": "https://reddit.com/r/netsec/comments/1wn37be/vcenter_preauth_rce_cve20265930959310/pbe1zzx/",
+        "parent_id": "t3_1wn37be",
+        "is_submitter": false
+      },
+      {
+        "id": "pbh72aa",
+        "author": "1esproc",
+        "body": "So is this all limited to 8.0.3.x?",
+        "score": 2,
+        "created_utc_ts": 1790124720,
+        "created_utc": "2026-09-23T00:52:00",
+        "permalink": "https://reddit.com/r/netsec/comments/1wn37be/vcenter_preauth_rce_cve20265930959310/pbh72aa/",
+        "parent_id": "t3_1wn37be",
+        "is_submitter": false
+      }
+    ],
+    "sourceBot": "reddit.py",
+    "sourceUrl": "https://reddit.com/r/netsec/comments/1wn37be/vcenter_preauth_rce_cve20265930959310/"
+  },
+  {
     "_id": "6ab167dc648fea68716d17e0",
     "redditId": "1wmhror",
     "author": "TheReedemer69",
@@ -8,14 +443,14 @@
     "created_utc": "2026-09-21T16:30:48",
     "first_author_comment": "And it took them almost 4 months to solve. they made me fill a ducking docx file template to even consider looking at it : (",
     "num_comments": 2,
-    "score": 26,
+    "score": 29,
     "source": "reddit",
     "subreddit": "netsec",
-    "tag": null,
+    "tag": "Contains AI",
     "tags": [],
     "title": "ZTE SmartHome Account Takeover: Password Reset Without Verification Code. 4 CVEs, 100K+ Android Downloads - CVE-2026-86553",
-    "updatedAt": "2026-09-22T07:07:16.901Z",
-    "upvote_ratio": 0.9,
+    "updatedAt": "2026-09-23T06:22:39.549Z",
+    "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/netsec/comments/1wmhror/zte_smarthome_account_takeover_password_reset/",
     "versionList": [
       "4.0.0",
@@ -326,6 +761,512 @@
           "CVE Modified",
           "CVE Modified"
         ]
+      },
+      {
+        "cveId": "CVE-2026-86553",
+        "cveIds": [
+          "CVE-2026-86553"
+        ],
+        "source": "Title",
+        "commentText": "ZTE SmartHome Account Takeover: Password Reset Without Verification Code. 4 CVEs, 100K+ Android Downloads - CVE-2026-86553",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1wmhror/zte_smarthome_account_takeover_password_reset/",
+        "commentDate": "2026-09-21T16:30:48+00:00",
+        "cvePublishedDate": "2026-09-20T04:17:06.240000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-21T19:17:14.327 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=6BA9ABFE-75DC-4EBF-8856-25487281ABDE\n   - Added SSVC: {'timestamp': '2026-09-21T18:10:11.751927Z', 'id': 'CVE-2026-86553', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-09-20T10:16:52.607 | CVE Modified | source=psirt@zte.com.cn | changeId=B9769640-FF48-4CEE-B417-DED3C3FEF36A\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n3. 2026-09-20T08:16:50.843 | CVE Modified | source=psirt@zte.com.cn | changeId=0B1C05F0-62FE-4A0D-B94F-F2287C9E2E68\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H\n   - Removed CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N -> None\n4. 2026-09-20T04:17:06.240 | New CVE Received | source=psirt@zte.com.cn | changeId=22169F4B-15E9-4F9E-B263-D1FB04D60DA8\n   - Added Description: SmartLife app dynamically generates fresh SmartLife application authentication parameters inside its runtime process. Using the acquired SmartLife application authentication parameters, an attacker can directly call the backend interface /account/verify.serv to obtain the real account ID corresponding to a registered email address. By spoofing the application authentication information together with the target account ID, the attacker can reset the password of the target account.\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N\n   - Added CWE: CWE-269\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n   - Added Reference: https://support.zte.com.cn/zte-iccp-isupport-webui/bulletin/detail/2171542593031840100\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-86553",
+        "cveIds": [
+          "CVE-2026-86553"
+        ],
+        "source": "Title",
+        "commentText": "ZTE SmartHome Account Takeover: Password Reset Without Verification Code. 4 CVEs, 100K+ Android Downloads - CVE-2026-86553",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1wmhror/zte_smarthome_account_takeover_password_reset/",
+        "commentDate": "2026-09-21T16:30:48+00:00",
+        "cvePublishedDate": "2026-09-20T04:17:06.240000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-21T19:17:14.327 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=6BA9ABFE-75DC-4EBF-8856-25487281ABDE\n   - Added SSVC: {'timestamp': '2026-09-21T18:10:11.751927Z', 'id': 'CVE-2026-86553', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-09-20T10:16:52.607 | CVE Modified | source=psirt@zte.com.cn | changeId=B9769640-FF48-4CEE-B417-DED3C3FEF36A\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n3. 2026-09-20T08:16:50.843 | CVE Modified | source=psirt@zte.com.cn | changeId=0B1C05F0-62FE-4A0D-B94F-F2287C9E2E68\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H\n   - Removed CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N -> None\n4. 2026-09-20T04:17:06.240 | New CVE Received | source=psirt@zte.com.cn | changeId=22169F4B-15E9-4F9E-B263-D1FB04D60DA8\n   - Added Description: SmartLife app dynamically generates fresh SmartLife application authentication parameters inside its runtime process. Using the acquired SmartLife application authentication parameters, an attacker can directly call the backend interface /account/verify.serv to obtain the real account ID corresponding to a registered email address. By spoofing the application authentication information together with the target account ID, the attacker can reset the password of the target account.\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N\n   - Added CWE: CWE-269\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n   - Added Reference: https://support.zte.com.cn/zte-iccp-isupport-webui/bulletin/detail/2171542593031840100\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-86553",
+        "cveIds": [
+          "CVE-2026-86553"
+        ],
+        "source": "Title",
+        "commentText": "ZTE SmartHome Account Takeover: Password Reset Without Verification Code. 4 CVEs, 100K+ Android Downloads - CVE-2026-86553",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1wmhror/zte_smarthome_account_takeover_password_reset/",
+        "commentDate": "2026-09-21T16:30:48+00:00",
+        "cvePublishedDate": "2026-09-20T04:17:06.240000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-21T19:17:14.327 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=6BA9ABFE-75DC-4EBF-8856-25487281ABDE\n   - Added SSVC: {'timestamp': '2026-09-21T18:10:11.751927Z', 'id': 'CVE-2026-86553', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-09-20T10:16:52.607 | CVE Modified | source=psirt@zte.com.cn | changeId=B9769640-FF48-4CEE-B417-DED3C3FEF36A\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n3. 2026-09-20T08:16:50.843 | CVE Modified | source=psirt@zte.com.cn | changeId=0B1C05F0-62FE-4A0D-B94F-F2287C9E2E68\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H\n   - Removed CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N -> None\n4. 2026-09-20T04:17:06.240 | New CVE Received | source=psirt@zte.com.cn | changeId=22169F4B-15E9-4F9E-B263-D1FB04D60DA8\n   - Added Description: SmartLife app dynamically generates fresh SmartLife application authentication parameters inside its runtime process. Using the acquired SmartLife application authentication parameters, an attacker can directly call the backend interface /account/verify.serv to obtain the real account ID corresponding to a registered email address. By spoofing the application authentication information together with the target account ID, the attacker can reset the password of the target account.\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N\n   - Added CWE: CWE-269\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n   - Added Reference: https://support.zte.com.cn/zte-iccp-isupport-webui/bulletin/detail/2171542593031840100\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-86553",
+        "cveIds": [
+          "CVE-2026-86553"
+        ],
+        "source": "Title",
+        "commentText": "ZTE SmartHome Account Takeover: Password Reset Without Verification Code. 4 CVEs, 100K+ Android Downloads - CVE-2026-86553",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1wmhror/zte_smarthome_account_takeover_password_reset/",
+        "commentDate": "2026-09-21T16:30:48+00:00",
+        "cvePublishedDate": "2026-09-20T04:17:06.240000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-21T19:17:14.327 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=6BA9ABFE-75DC-4EBF-8856-25487281ABDE\n   - Added SSVC: {'timestamp': '2026-09-21T18:10:11.751927Z', 'id': 'CVE-2026-86553', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-09-20T10:16:52.607 | CVE Modified | source=psirt@zte.com.cn | changeId=B9769640-FF48-4CEE-B417-DED3C3FEF36A\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n3. 2026-09-20T08:16:50.843 | CVE Modified | source=psirt@zte.com.cn | changeId=0B1C05F0-62FE-4A0D-B94F-F2287C9E2E68\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H\n   - Removed CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N -> None\n4. 2026-09-20T04:17:06.240 | New CVE Received | source=psirt@zte.com.cn | changeId=22169F4B-15E9-4F9E-B263-D1FB04D60DA8\n   - Added Description: SmartLife app dynamically generates fresh SmartLife application authentication parameters inside its runtime process. Using the acquired SmartLife application authentication parameters, an attacker can directly call the backend interface /account/verify.serv to obtain the real account ID corresponding to a registered email address. By spoofing the application authentication information together with the target account ID, the attacker can reset the password of the target account.\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N\n   - Added CWE: CWE-269\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n   - Added Reference: https://support.zte.com.cn/zte-iccp-isupport-webui/bulletin/detail/2171542593031840100\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-86553",
+        "cveIds": [
+          "CVE-2026-86553"
+        ],
+        "source": "Title",
+        "commentText": "ZTE SmartHome Account Takeover: Password Reset Without Verification Code. 4 CVEs, 100K+ Android Downloads - CVE-2026-86553",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1wmhror/zte_smarthome_account_takeover_password_reset/",
+        "commentDate": "2026-09-21T16:30:48+00:00",
+        "cvePublishedDate": "2026-09-20T04:17:06.240000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-21T19:17:14.327 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=6BA9ABFE-75DC-4EBF-8856-25487281ABDE\n   - Added SSVC: {'timestamp': '2026-09-21T18:10:11.751927Z', 'id': 'CVE-2026-86553', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-09-20T10:16:52.607 | CVE Modified | source=psirt@zte.com.cn | changeId=B9769640-FF48-4CEE-B417-DED3C3FEF36A\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n3. 2026-09-20T08:16:50.843 | CVE Modified | source=psirt@zte.com.cn | changeId=0B1C05F0-62FE-4A0D-B94F-F2287C9E2E68\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H\n   - Removed CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N -> None\n4. 2026-09-20T04:17:06.240 | New CVE Received | source=psirt@zte.com.cn | changeId=22169F4B-15E9-4F9E-B263-D1FB04D60DA8\n   - Added Description: SmartLife app dynamically generates fresh SmartLife application authentication parameters inside its runtime process. Using the acquired SmartLife application authentication parameters, an attacker can directly call the backend interface /account/verify.serv to obtain the real account ID corresponding to a registered email address. By spoofing the application authentication information together with the target account ID, the attacker can reset the password of the target account.\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N\n   - Added CWE: CWE-269\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n   - Added Reference: https://support.zte.com.cn/zte-iccp-isupport-webui/bulletin/detail/2171542593031840100\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-86553",
+        "cveIds": [
+          "CVE-2026-86553"
+        ],
+        "source": "Title",
+        "commentText": "ZTE SmartHome Account Takeover: Password Reset Without Verification Code. 4 CVEs, 100K+ Android Downloads - CVE-2026-86553",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1wmhror/zte_smarthome_account_takeover_password_reset/",
+        "commentDate": "2026-09-21T16:30:48+00:00",
+        "cvePublishedDate": "2026-09-20T04:17:06.240000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-21T19:17:14.327 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=6BA9ABFE-75DC-4EBF-8856-25487281ABDE\n   - Added SSVC: {'timestamp': '2026-09-21T18:10:11.751927Z', 'id': 'CVE-2026-86553', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-09-20T10:16:52.607 | CVE Modified | source=psirt@zte.com.cn | changeId=B9769640-FF48-4CEE-B417-DED3C3FEF36A\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n3. 2026-09-20T08:16:50.843 | CVE Modified | source=psirt@zte.com.cn | changeId=0B1C05F0-62FE-4A0D-B94F-F2287C9E2E68\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H\n   - Removed CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N -> None\n4. 2026-09-20T04:17:06.240 | New CVE Received | source=psirt@zte.com.cn | changeId=22169F4B-15E9-4F9E-B263-D1FB04D60DA8\n   - Added Description: SmartLife app dynamically generates fresh SmartLife application authentication parameters inside its runtime process. Using the acquired SmartLife application authentication parameters, an attacker can directly call the backend interface /account/verify.serv to obtain the real account ID corresponding to a registered email address. By spoofing the application authentication information together with the target account ID, the attacker can reset the password of the target account.\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N\n   - Added CWE: CWE-269\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n   - Added Reference: https://support.zte.com.cn/zte-iccp-isupport-webui/bulletin/detail/2171542593031840100\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-86553",
+        "cveIds": [
+          "CVE-2026-86553"
+        ],
+        "source": "Title",
+        "commentText": "ZTE SmartHome Account Takeover: Password Reset Without Verification Code. 4 CVEs, 100K+ Android Downloads - CVE-2026-86553",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1wmhror/zte_smarthome_account_takeover_password_reset/",
+        "commentDate": "2026-09-21T16:30:48+00:00",
+        "cvePublishedDate": "2026-09-20T04:17:06.240000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-21T19:17:14.327 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=6BA9ABFE-75DC-4EBF-8856-25487281ABDE\n   - Added SSVC: {'timestamp': '2026-09-21T18:10:11.751927Z', 'id': 'CVE-2026-86553', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-09-20T10:16:52.607 | CVE Modified | source=psirt@zte.com.cn | changeId=B9769640-FF48-4CEE-B417-DED3C3FEF36A\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n3. 2026-09-20T08:16:50.843 | CVE Modified | source=psirt@zte.com.cn | changeId=0B1C05F0-62FE-4A0D-B94F-F2287C9E2E68\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H\n   - Removed CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N -> None\n4. 2026-09-20T04:17:06.240 | New CVE Received | source=psirt@zte.com.cn | changeId=22169F4B-15E9-4F9E-B263-D1FB04D60DA8\n   - Added Description: SmartLife app dynamically generates fresh SmartLife application authentication parameters inside its runtime process. Using the acquired SmartLife application authentication parameters, an attacker can directly call the backend interface /account/verify.serv to obtain the real account ID corresponding to a registered email address. By spoofing the application authentication information together with the target account ID, the attacker can reset the password of the target account.\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N\n   - Added CWE: CWE-269\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n   - Added Reference: https://support.zte.com.cn/zte-iccp-isupport-webui/bulletin/detail/2171542593031840100\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-86553",
+        "cveIds": [
+          "CVE-2026-86553"
+        ],
+        "source": "Title",
+        "commentText": "ZTE SmartHome Account Takeover: Password Reset Without Verification Code. 4 CVEs, 100K+ Android Downloads - CVE-2026-86553",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1wmhror/zte_smarthome_account_takeover_password_reset/",
+        "commentDate": "2026-09-21T16:30:48+00:00",
+        "cvePublishedDate": "2026-09-20T04:17:06.240000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-21T19:17:14.327 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=6BA9ABFE-75DC-4EBF-8856-25487281ABDE\n   - Added SSVC: {'timestamp': '2026-09-21T18:10:11.751927Z', 'id': 'CVE-2026-86553', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-09-20T10:16:52.607 | CVE Modified | source=psirt@zte.com.cn | changeId=B9769640-FF48-4CEE-B417-DED3C3FEF36A\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n3. 2026-09-20T08:16:50.843 | CVE Modified | source=psirt@zte.com.cn | changeId=0B1C05F0-62FE-4A0D-B94F-F2287C9E2E68\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H\n   - Removed CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N -> None\n4. 2026-09-20T04:17:06.240 | New CVE Received | source=psirt@zte.com.cn | changeId=22169F4B-15E9-4F9E-B263-D1FB04D60DA8\n   - Added Description: SmartLife app dynamically generates fresh SmartLife application authentication parameters inside its runtime process. Using the acquired SmartLife application authentication parameters, an attacker can directly call the backend interface /account/verify.serv to obtain the real account ID corresponding to a registered email address. By spoofing the application authentication information together with the target account ID, the attacker can reset the password of the target account.\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N\n   - Added CWE: CWE-269\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n   - Added Reference: https://support.zte.com.cn/zte-iccp-isupport-webui/bulletin/detail/2171542593031840100\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-86553",
+        "cveIds": [
+          "CVE-2026-86553"
+        ],
+        "source": "Title",
+        "commentText": "ZTE SmartHome Account Takeover: Password Reset Without Verification Code. 4 CVEs, 100K+ Android Downloads - CVE-2026-86553",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1wmhror/zte_smarthome_account_takeover_password_reset/",
+        "commentDate": "2026-09-21T16:30:48+00:00",
+        "cvePublishedDate": "2026-09-20T04:17:06.240000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-21T19:17:14.327 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=6BA9ABFE-75DC-4EBF-8856-25487281ABDE\n   - Added SSVC: {'timestamp': '2026-09-21T18:10:11.751927Z', 'id': 'CVE-2026-86553', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-09-20T10:16:52.607 | CVE Modified | source=psirt@zte.com.cn | changeId=B9769640-FF48-4CEE-B417-DED3C3FEF36A\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n3. 2026-09-20T08:16:50.843 | CVE Modified | source=psirt@zte.com.cn | changeId=0B1C05F0-62FE-4A0D-B94F-F2287C9E2E68\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H\n   - Removed CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N -> None\n4. 2026-09-20T04:17:06.240 | New CVE Received | source=psirt@zte.com.cn | changeId=22169F4B-15E9-4F9E-B263-D1FB04D60DA8\n   - Added Description: SmartLife app dynamically generates fresh SmartLife application authentication parameters inside its runtime process. Using the acquired SmartLife application authentication parameters, an attacker can directly call the backend interface /account/verify.serv to obtain the real account ID corresponding to a registered email address. By spoofing the application authentication information together with the target account ID, the attacker can reset the password of the target account.\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N\n   - Added CWE: CWE-269\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n   - Added Reference: https://support.zte.com.cn/zte-iccp-isupport-webui/bulletin/detail/2171542593031840100\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-86553",
+        "cveIds": [
+          "CVE-2026-86553"
+        ],
+        "source": "Title",
+        "commentText": "ZTE SmartHome Account Takeover: Password Reset Without Verification Code. 4 CVEs, 100K+ Android Downloads - CVE-2026-86553",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1wmhror/zte_smarthome_account_takeover_password_reset/",
+        "commentDate": "2026-09-21T16:30:48+00:00",
+        "cvePublishedDate": "2026-09-20T04:17:06.240000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-21T19:17:14.327 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=6BA9ABFE-75DC-4EBF-8856-25487281ABDE\n   - Added SSVC: {'timestamp': '2026-09-21T18:10:11.751927Z', 'id': 'CVE-2026-86553', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-09-20T10:16:52.607 | CVE Modified | source=psirt@zte.com.cn | changeId=B9769640-FF48-4CEE-B417-DED3C3FEF36A\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n3. 2026-09-20T08:16:50.843 | CVE Modified | source=psirt@zte.com.cn | changeId=0B1C05F0-62FE-4A0D-B94F-F2287C9E2E68\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H\n   - Removed CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N -> None\n4. 2026-09-20T04:17:06.240 | New CVE Received | source=psirt@zte.com.cn | changeId=22169F4B-15E9-4F9E-B263-D1FB04D60DA8\n   - Added Description: SmartLife app dynamically generates fresh SmartLife application authentication parameters inside its runtime process. Using the acquired SmartLife application authentication parameters, an attacker can directly call the backend interface /account/verify.serv to obtain the real account ID corresponding to a registered email address. By spoofing the application authentication information together with the target account ID, the attacker can reset the password of the target account.\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N\n   - Added CWE: CWE-269\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n   - Added Reference: https://support.zte.com.cn/zte-iccp-isupport-webui/bulletin/detail/2171542593031840100\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-86553",
+        "cveIds": [
+          "CVE-2026-86553"
+        ],
+        "source": "Title",
+        "commentText": "ZTE SmartHome Account Takeover: Password Reset Without Verification Code. 4 CVEs, 100K+ Android Downloads - CVE-2026-86553",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1wmhror/zte_smarthome_account_takeover_password_reset/",
+        "commentDate": "2026-09-21T16:30:48+00:00",
+        "cvePublishedDate": "2026-09-20T04:17:06.240000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-21T19:17:14.327 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=6BA9ABFE-75DC-4EBF-8856-25487281ABDE\n   - Added SSVC: {'timestamp': '2026-09-21T18:10:11.751927Z', 'id': 'CVE-2026-86553', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-09-20T10:16:52.607 | CVE Modified | source=psirt@zte.com.cn | changeId=B9769640-FF48-4CEE-B417-DED3C3FEF36A\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n3. 2026-09-20T08:16:50.843 | CVE Modified | source=psirt@zte.com.cn | changeId=0B1C05F0-62FE-4A0D-B94F-F2287C9E2E68\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H\n   - Removed CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N -> None\n4. 2026-09-20T04:17:06.240 | New CVE Received | source=psirt@zte.com.cn | changeId=22169F4B-15E9-4F9E-B263-D1FB04D60DA8\n   - Added Description: SmartLife app dynamically generates fresh SmartLife application authentication parameters inside its runtime process. Using the acquired SmartLife application authentication parameters, an attacker can directly call the backend interface /account/verify.serv to obtain the real account ID corresponding to a registered email address. By spoofing the application authentication information together with the target account ID, the attacker can reset the password of the target account.\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N\n   - Added CWE: CWE-269\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n   - Added Reference: https://support.zte.com.cn/zte-iccp-isupport-webui/bulletin/detail/2171542593031840100\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-86553",
+        "cveIds": [
+          "CVE-2026-86553"
+        ],
+        "source": "Title",
+        "commentText": "ZTE SmartHome Account Takeover: Password Reset Without Verification Code. 4 CVEs, 100K+ Android Downloads - CVE-2026-86553",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1wmhror/zte_smarthome_account_takeover_password_reset/",
+        "commentDate": "2026-09-21T16:30:48+00:00",
+        "cvePublishedDate": "2026-09-20T04:17:06.240000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-21T19:17:14.327 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=6BA9ABFE-75DC-4EBF-8856-25487281ABDE\n   - Added SSVC: {'timestamp': '2026-09-21T18:10:11.751927Z', 'id': 'CVE-2026-86553', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-09-20T10:16:52.607 | CVE Modified | source=psirt@zte.com.cn | changeId=B9769640-FF48-4CEE-B417-DED3C3FEF36A\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n3. 2026-09-20T08:16:50.843 | CVE Modified | source=psirt@zte.com.cn | changeId=0B1C05F0-62FE-4A0D-B94F-F2287C9E2E68\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H\n   - Removed CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N -> None\n4. 2026-09-20T04:17:06.240 | New CVE Received | source=psirt@zte.com.cn | changeId=22169F4B-15E9-4F9E-B263-D1FB04D60DA8\n   - Added Description: SmartLife app dynamically generates fresh SmartLife application authentication parameters inside its runtime process. Using the acquired SmartLife application authentication parameters, an attacker can directly call the backend interface /account/verify.serv to obtain the real account ID corresponding to a registered email address. By spoofing the application authentication information together with the target account ID, the attacker can reset the password of the target account.\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N\n   - Added CWE: CWE-269\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n   - Added Reference: https://support.zte.com.cn/zte-iccp-isupport-webui/bulletin/detail/2171542593031840100\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-86553",
+        "cveIds": [
+          "CVE-2026-86553"
+        ],
+        "source": "Title",
+        "commentText": "ZTE SmartHome Account Takeover: Password Reset Without Verification Code. 4 CVEs, 100K+ Android Downloads - CVE-2026-86553",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1wmhror/zte_smarthome_account_takeover_password_reset/",
+        "commentDate": "2026-09-21T16:30:48+00:00",
+        "cvePublishedDate": "2026-09-20T04:17:06.240000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-21T19:17:14.327 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=6BA9ABFE-75DC-4EBF-8856-25487281ABDE\n   - Added SSVC: {'timestamp': '2026-09-21T18:10:11.751927Z', 'id': 'CVE-2026-86553', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-09-20T10:16:52.607 | CVE Modified | source=psirt@zte.com.cn | changeId=B9769640-FF48-4CEE-B417-DED3C3FEF36A\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n3. 2026-09-20T08:16:50.843 | CVE Modified | source=psirt@zte.com.cn | changeId=0B1C05F0-62FE-4A0D-B94F-F2287C9E2E68\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H\n   - Removed CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N -> None\n4. 2026-09-20T04:17:06.240 | New CVE Received | source=psirt@zte.com.cn | changeId=22169F4B-15E9-4F9E-B263-D1FB04D60DA8\n   - Added Description: SmartLife app dynamically generates fresh SmartLife application authentication parameters inside its runtime process. Using the acquired SmartLife application authentication parameters, an attacker can directly call the backend interface /account/verify.serv to obtain the real account ID corresponding to a registered email address. By spoofing the application authentication information together with the target account ID, the attacker can reset the password of the target account.\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N\n   - Added CWE: CWE-269\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n   - Added Reference: https://support.zte.com.cn/zte-iccp-isupport-webui/bulletin/detail/2171542593031840100\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-86553",
+        "cveIds": [
+          "CVE-2026-86553"
+        ],
+        "source": "Title",
+        "commentText": "ZTE SmartHome Account Takeover: Password Reset Without Verification Code. 4 CVEs, 100K+ Android Downloads - CVE-2026-86553",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1wmhror/zte_smarthome_account_takeover_password_reset/",
+        "commentDate": "2026-09-21T16:30:48+00:00",
+        "cvePublishedDate": "2026-09-20T04:17:06.240000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-21T19:17:14.327 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=6BA9ABFE-75DC-4EBF-8856-25487281ABDE\n   - Added SSVC: {'timestamp': '2026-09-21T18:10:11.751927Z', 'id': 'CVE-2026-86553', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-09-20T10:16:52.607 | CVE Modified | source=psirt@zte.com.cn | changeId=B9769640-FF48-4CEE-B417-DED3C3FEF36A\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n3. 2026-09-20T08:16:50.843 | CVE Modified | source=psirt@zte.com.cn | changeId=0B1C05F0-62FE-4A0D-B94F-F2287C9E2E68\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H\n   - Removed CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N -> None\n4. 2026-09-20T04:17:06.240 | New CVE Received | source=psirt@zte.com.cn | changeId=22169F4B-15E9-4F9E-B263-D1FB04D60DA8\n   - Added Description: SmartLife app dynamically generates fresh SmartLife application authentication parameters inside its runtime process. Using the acquired SmartLife application authentication parameters, an attacker can directly call the backend interface /account/verify.serv to obtain the real account ID corresponding to a registered email address. By spoofing the application authentication information together with the target account ID, the attacker can reset the password of the target account.\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N\n   - Added CWE: CWE-269\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n   - Added Reference: https://support.zte.com.cn/zte-iccp-isupport-webui/bulletin/detail/2171542593031840100\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-86553",
+        "cveIds": [
+          "CVE-2026-86553"
+        ],
+        "source": "Title",
+        "commentText": "ZTE SmartHome Account Takeover: Password Reset Without Verification Code. 4 CVEs, 100K+ Android Downloads - CVE-2026-86553",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1wmhror/zte_smarthome_account_takeover_password_reset/",
+        "commentDate": "2026-09-21T16:30:48+00:00",
+        "cvePublishedDate": "2026-09-20T04:17:06.240000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-21T19:17:14.327 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=6BA9ABFE-75DC-4EBF-8856-25487281ABDE\n   - Added SSVC: {'timestamp': '2026-09-21T18:10:11.751927Z', 'id': 'CVE-2026-86553', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-09-20T10:16:52.607 | CVE Modified | source=psirt@zte.com.cn | changeId=B9769640-FF48-4CEE-B417-DED3C3FEF36A\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n3. 2026-09-20T08:16:50.843 | CVE Modified | source=psirt@zte.com.cn | changeId=0B1C05F0-62FE-4A0D-B94F-F2287C9E2E68\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H\n   - Removed CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N -> None\n4. 2026-09-20T04:17:06.240 | New CVE Received | source=psirt@zte.com.cn | changeId=22169F4B-15E9-4F9E-B263-D1FB04D60DA8\n   - Added Description: SmartLife app dynamically generates fresh SmartLife application authentication parameters inside its runtime process. Using the acquired SmartLife application authentication parameters, an attacker can directly call the backend interface /account/verify.serv to obtain the real account ID corresponding to a registered email address. By spoofing the application authentication information together with the target account ID, the attacker can reset the password of the target account.\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N\n   - Added CWE: CWE-269\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n   - Added Reference: https://support.zte.com.cn/zte-iccp-isupport-webui/bulletin/detail/2171542593031840100\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-86553",
+        "cveIds": [
+          "CVE-2026-86553"
+        ],
+        "source": "Title",
+        "commentText": "ZTE SmartHome Account Takeover: Password Reset Without Verification Code. 4 CVEs, 100K+ Android Downloads - CVE-2026-86553",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1wmhror/zte_smarthome_account_takeover_password_reset/",
+        "commentDate": "2026-09-21T16:30:48+00:00",
+        "cvePublishedDate": "2026-09-20T04:17:06.240000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-21T19:17:14.327 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=6BA9ABFE-75DC-4EBF-8856-25487281ABDE\n   - Added SSVC: {'timestamp': '2026-09-21T18:10:11.751927Z', 'id': 'CVE-2026-86553', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-09-20T10:16:52.607 | CVE Modified | source=psirt@zte.com.cn | changeId=B9769640-FF48-4CEE-B417-DED3C3FEF36A\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n3. 2026-09-20T08:16:50.843 | CVE Modified | source=psirt@zte.com.cn | changeId=0B1C05F0-62FE-4A0D-B94F-F2287C9E2E68\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H\n   - Removed CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N -> None\n4. 2026-09-20T04:17:06.240 | New CVE Received | source=psirt@zte.com.cn | changeId=22169F4B-15E9-4F9E-B263-D1FB04D60DA8\n   - Added Description: SmartLife app dynamically generates fresh SmartLife application authentication parameters inside its runtime process. Using the acquired SmartLife application authentication parameters, an attacker can directly call the backend interface /account/verify.serv to obtain the real account ID corresponding to a registered email address. By spoofing the application authentication information together with the target account ID, the attacker can reset the password of the target account.\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N\n   - Added CWE: CWE-269\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n   - Added Reference: https://support.zte.com.cn/zte-iccp-isupport-webui/bulletin/detail/2171542593031840100\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-86553",
+        "cveIds": [
+          "CVE-2026-86553"
+        ],
+        "source": "Title",
+        "commentText": "ZTE SmartHome Account Takeover: Password Reset Without Verification Code. 4 CVEs, 100K+ Android Downloads - CVE-2026-86553",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1wmhror/zte_smarthome_account_takeover_password_reset/",
+        "commentDate": "2026-09-21T16:30:48+00:00",
+        "cvePublishedDate": "2026-09-20T04:17:06.240000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-21T19:17:14.327 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=6BA9ABFE-75DC-4EBF-8856-25487281ABDE\n   - Added SSVC: {'timestamp': '2026-09-21T18:10:11.751927Z', 'id': 'CVE-2026-86553', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-09-20T10:16:52.607 | CVE Modified | source=psirt@zte.com.cn | changeId=B9769640-FF48-4CEE-B417-DED3C3FEF36A\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n3. 2026-09-20T08:16:50.843 | CVE Modified | source=psirt@zte.com.cn | changeId=0B1C05F0-62FE-4A0D-B94F-F2287C9E2E68\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H\n   - Removed CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N -> None\n4. 2026-09-20T04:17:06.240 | New CVE Received | source=psirt@zte.com.cn | changeId=22169F4B-15E9-4F9E-B263-D1FB04D60DA8\n   - Added Description: SmartLife app dynamically generates fresh SmartLife application authentication parameters inside its runtime process. Using the acquired SmartLife application authentication parameters, an attacker can directly call the backend interface /account/verify.serv to obtain the real account ID corresponding to a registered email address. By spoofing the application authentication information together with the target account ID, the attacker can reset the password of the target account.\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N\n   - Added CWE: CWE-269\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n   - Added Reference: https://support.zte.com.cn/zte-iccp-isupport-webui/bulletin/detail/2171542593031840100\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-86553",
+        "cveIds": [
+          "CVE-2026-86553"
+        ],
+        "source": "Title",
+        "commentText": "ZTE SmartHome Account Takeover: Password Reset Without Verification Code. 4 CVEs, 100K+ Android Downloads - CVE-2026-86553",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1wmhror/zte_smarthome_account_takeover_password_reset/",
+        "commentDate": "2026-09-21T16:30:48+00:00",
+        "cvePublishedDate": "2026-09-20T04:17:06.240000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-21T19:17:14.327 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=6BA9ABFE-75DC-4EBF-8856-25487281ABDE\n   - Added SSVC: {'timestamp': '2026-09-21T18:10:11.751927Z', 'id': 'CVE-2026-86553', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-09-20T10:16:52.607 | CVE Modified | source=psirt@zte.com.cn | changeId=B9769640-FF48-4CEE-B417-DED3C3FEF36A\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n3. 2026-09-20T08:16:50.843 | CVE Modified | source=psirt@zte.com.cn | changeId=0B1C05F0-62FE-4A0D-B94F-F2287C9E2E68\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H\n   - Removed CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N -> None\n4. 2026-09-20T04:17:06.240 | New CVE Received | source=psirt@zte.com.cn | changeId=22169F4B-15E9-4F9E-B263-D1FB04D60DA8\n   - Added Description: SmartLife app dynamically generates fresh SmartLife application authentication parameters inside its runtime process. Using the acquired SmartLife application authentication parameters, an attacker can directly call the backend interface /account/verify.serv to obtain the real account ID corresponding to a registered email address. By spoofing the application authentication information together with the target account ID, the attacker can reset the password of the target account.\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N\n   - Added CWE: CWE-269\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n   - Added Reference: https://support.zte.com.cn/zte-iccp-isupport-webui/bulletin/detail/2171542593031840100\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-86553",
+        "cveIds": [
+          "CVE-2026-86553"
+        ],
+        "source": "Title",
+        "commentText": "ZTE SmartHome Account Takeover: Password Reset Without Verification Code. 4 CVEs, 100K+ Android Downloads - CVE-2026-86553",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1wmhror/zte_smarthome_account_takeover_password_reset/",
+        "commentDate": "2026-09-21T16:30:48+00:00",
+        "cvePublishedDate": "2026-09-20T04:17:06.240000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-21T19:17:14.327 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=6BA9ABFE-75DC-4EBF-8856-25487281ABDE\n   - Added SSVC: {'timestamp': '2026-09-21T18:10:11.751927Z', 'id': 'CVE-2026-86553', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-09-20T10:16:52.607 | CVE Modified | source=psirt@zte.com.cn | changeId=B9769640-FF48-4CEE-B417-DED3C3FEF36A\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n3. 2026-09-20T08:16:50.843 | CVE Modified | source=psirt@zte.com.cn | changeId=0B1C05F0-62FE-4A0D-B94F-F2287C9E2E68\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H\n   - Removed CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N -> None\n4. 2026-09-20T04:17:06.240 | New CVE Received | source=psirt@zte.com.cn | changeId=22169F4B-15E9-4F9E-B263-D1FB04D60DA8\n   - Added Description: SmartLife app dynamically generates fresh SmartLife application authentication parameters inside its runtime process. Using the acquired SmartLife application authentication parameters, an attacker can directly call the backend interface /account/verify.serv to obtain the real account ID corresponding to a registered email address. By spoofing the application authentication information together with the target account ID, the attacker can reset the password of the target account.\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N\n   - Added CWE: CWE-269\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n   - Added Reference: https://support.zte.com.cn/zte-iccp-isupport-webui/bulletin/detail/2171542593031840100\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-86553",
+        "cveIds": [
+          "CVE-2026-86553"
+        ],
+        "source": "Title",
+        "commentText": "ZTE SmartHome Account Takeover: Password Reset Without Verification Code. 4 CVEs, 100K+ Android Downloads - CVE-2026-86553",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1wmhror/zte_smarthome_account_takeover_password_reset/",
+        "commentDate": "2026-09-21T16:30:48+00:00",
+        "cvePublishedDate": "2026-09-20T04:17:06.240000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-21T19:17:14.327 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=6BA9ABFE-75DC-4EBF-8856-25487281ABDE\n   - Added SSVC: {'timestamp': '2026-09-21T18:10:11.751927Z', 'id': 'CVE-2026-86553', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-09-20T10:16:52.607 | CVE Modified | source=psirt@zte.com.cn | changeId=B9769640-FF48-4CEE-B417-DED3C3FEF36A\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n3. 2026-09-20T08:16:50.843 | CVE Modified | source=psirt@zte.com.cn | changeId=0B1C05F0-62FE-4A0D-B94F-F2287C9E2E68\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H\n   - Removed CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N -> None\n4. 2026-09-20T04:17:06.240 | New CVE Received | source=psirt@zte.com.cn | changeId=22169F4B-15E9-4F9E-B263-D1FB04D60DA8\n   - Added Description: SmartLife app dynamically generates fresh SmartLife application authentication parameters inside its runtime process. Using the acquired SmartLife application authentication parameters, an attacker can directly call the backend interface /account/verify.serv to obtain the real account ID corresponding to a registered email address. By spoofing the application authentication information together with the target account ID, the attacker can reset the password of the target account.\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N\n   - Added CWE: CWE-269\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n   - Added Reference: https://support.zte.com.cn/zte-iccp-isupport-webui/bulletin/detail/2171542593031840100\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-86553",
+        "cveIds": [
+          "CVE-2026-86553"
+        ],
+        "source": "Title",
+        "commentText": "ZTE SmartHome Account Takeover: Password Reset Without Verification Code. 4 CVEs, 100K+ Android Downloads - CVE-2026-86553",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1wmhror/zte_smarthome_account_takeover_password_reset/",
+        "commentDate": "2026-09-21T16:30:48+00:00",
+        "cvePublishedDate": "2026-09-20T04:17:06.240000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-21T19:17:14.327 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=6BA9ABFE-75DC-4EBF-8856-25487281ABDE\n   - Added SSVC: {'timestamp': '2026-09-21T18:10:11.751927Z', 'id': 'CVE-2026-86553', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-09-20T10:16:52.607 | CVE Modified | source=psirt@zte.com.cn | changeId=B9769640-FF48-4CEE-B417-DED3C3FEF36A\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n3. 2026-09-20T08:16:50.843 | CVE Modified | source=psirt@zte.com.cn | changeId=0B1C05F0-62FE-4A0D-B94F-F2287C9E2E68\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H\n   - Removed CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N -> None\n4. 2026-09-20T04:17:06.240 | New CVE Received | source=psirt@zte.com.cn | changeId=22169F4B-15E9-4F9E-B263-D1FB04D60DA8\n   - Added Description: SmartLife app dynamically generates fresh SmartLife application authentication parameters inside its runtime process. Using the acquired SmartLife application authentication parameters, an attacker can directly call the backend interface /account/verify.serv to obtain the real account ID corresponding to a registered email address. By spoofing the application authentication information together with the target account ID, the attacker can reset the password of the target account.\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N\n   - Added CWE: CWE-269\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n   - Added Reference: https://support.zte.com.cn/zte-iccp-isupport-webui/bulletin/detail/2171542593031840100\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-86553",
+        "cveIds": [
+          "CVE-2026-86553"
+        ],
+        "source": "Title",
+        "commentText": "ZTE SmartHome Account Takeover: Password Reset Without Verification Code. 4 CVEs, 100K+ Android Downloads - CVE-2026-86553",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1wmhror/zte_smarthome_account_takeover_password_reset/",
+        "commentDate": "2026-09-21T16:30:48+00:00",
+        "cvePublishedDate": "2026-09-20T04:17:06.240000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-21T19:17:14.327 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=6BA9ABFE-75DC-4EBF-8856-25487281ABDE\n   - Added SSVC: {'timestamp': '2026-09-21T18:10:11.751927Z', 'id': 'CVE-2026-86553', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-09-20T10:16:52.607 | CVE Modified | source=psirt@zte.com.cn | changeId=B9769640-FF48-4CEE-B417-DED3C3FEF36A\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n3. 2026-09-20T08:16:50.843 | CVE Modified | source=psirt@zte.com.cn | changeId=0B1C05F0-62FE-4A0D-B94F-F2287C9E2E68\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H\n   - Removed CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N -> None\n4. 2026-09-20T04:17:06.240 | New CVE Received | source=psirt@zte.com.cn | changeId=22169F4B-15E9-4F9E-B263-D1FB04D60DA8\n   - Added Description: SmartLife app dynamically generates fresh SmartLife application authentication parameters inside its runtime process. Using the acquired SmartLife application authentication parameters, an attacker can directly call the backend interface /account/verify.serv to obtain the real account ID corresponding to a registered email address. By spoofing the application authentication information together with the target account ID, the attacker can reset the password of the target account.\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N\n   - Added CWE: CWE-269\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n   - Added Reference: https://support.zte.com.cn/zte-iccp-isupport-webui/bulletin/detail/2171542593031840100\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-86553",
+        "cveIds": [
+          "CVE-2026-86553"
+        ],
+        "source": "Title",
+        "commentText": "ZTE SmartHome Account Takeover: Password Reset Without Verification Code. 4 CVEs, 100K+ Android Downloads - CVE-2026-86553",
+        "linkToComment": "https://reddit.com/r/netsec/comments/1wmhror/zte_smarthome_account_takeover_password_reset/",
+        "commentDate": "2026-09-21T16:30:48+00:00",
+        "cvePublishedDate": "2026-09-20T04:17:06.240000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-09-21T19:17:14.327 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=6BA9ABFE-75DC-4EBF-8856-25487281ABDE\n   - Added SSVC: {'timestamp': '2026-09-21T18:10:11.751927Z', 'id': 'CVE-2026-86553', 'options': [{'exploitation': 'none'}, {'automatable': 'no'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-09-20T10:16:52.607 | CVE Modified | source=psirt@zte.com.cn | changeId=B9769640-FF48-4CEE-B417-DED3C3FEF36A\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n3. 2026-09-20T08:16:50.843 | CVE Modified | source=psirt@zte.com.cn | changeId=0B1C05F0-62FE-4A0D-B94F-F2287C9E2E68\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H\n   - Removed CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N -> None\n4. 2026-09-20T04:17:06.240 | New CVE Received | source=psirt@zte.com.cn | changeId=22169F4B-15E9-4F9E-B263-D1FB04D60DA8\n   - Added Description: SmartLife app dynamically generates fresh SmartLife application authentication parameters inside its runtime process. Using the acquired SmartLife application authentication parameters, an attacker can directly call the backend interface /account/verify.serv to obtain the real account ID corresponding to a registered email address. By spoofing the application authentication information together with the target account ID, the attacker can reset the password of the target account.\n   - Added CVSS V3.1: AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N\n   - Added CWE: CWE-269\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/86xxx/CVE-2026-86553.json\">CVE-2026-86553</a>\n   - Added Reference: https://support.zte.com.cn/zte-iccp-isupport-webui/bulletin/detail/2171542593031840100\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified",
+          "CVE Modified",
+          "CVE Modified"
+        ]
       }
     ],
     "sourceBot": "reddit.py",
@@ -335,7 +1276,7 @@
         "id": "pb9cy16",
         "author": "demunted",
         "body": "Wow this is bad.",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1790031321,
         "created_utc": "2026-09-21T22:55:21",
         "permalink": "https://reddit.com/r/netsec/comments/1wmhror/zte_smarthome_account_takeover_password_reset/pb9cy16/",
@@ -346,7 +1287,7 @@
         "id": "pb9dbp6",
         "author": "TheReedemer69",
         "body": "And it took them almost 4 months to solve. they made me fill a ducking docx file template to even consider looking at it : (",
-        "score": 3,
+        "score": 4,
         "created_utc_ts": 1790031441,
         "created_utc": "2026-09-21T22:57:21",
         "permalink": "https://reddit.com/r/netsec/comments/1wmhror/zte_smarthome_account_takeover_password_reset/pb9dbp6/",
@@ -366,7 +1307,7 @@
         "id": "pb0c50h",
         "author": "coastalwebdev",
         "body": "They sure seem to have a number of security vulnerabilities compared to their competitors.\n\nDefinitely my last pick of the big 3 form plugins.",
-        "score": 1,
+        "score": 0,
         "created_utc_ts": 1789928574,
         "created_utc": "2026-09-20T18:22:54",
         "permalink": "https://reddit.com/r/Wordpress/comments/1wln8p5/major_vulnerability_98_cvss_in_gravity_forms/pb0c50h/",
@@ -377,7 +1318,7 @@
         "id": "pb0vrae",
         "author": "RealBasics",
         "body": "They released a patch more than two weeks ago, in version 3.1.1.  They're already up to version 3.1.2.\n\nWho waits two weeks to update their client sites?\n\nLooking through WPScan, it looks like a ton of vulnerabilities have been uncovered in most significant plugins in 2026.  Probably because AI now makes it cheap enough that regular people can run code reviews, as opposed to black-hats and \"state actors.\"  \n\nSo we'll probably see this trend across the board with open-source.  The \"good\" news is that we'll eventually see diminishing returns, since vulnerabilities are a \"limited resource\" even in the worst code.\n\nThe real question is how fast developers are going to start running their own code reviews through Claude, etc., before their releases.",
-        "score": 7,
+        "score": 6,
         "created_utc_ts": 1789933321,
         "created_utc": "2026-09-20T19:42:01",
         "permalink": "https://reddit.com/r/Wordpress/comments/1wln8p5/major_vulnerability_98_cvss_in_gravity_forms/pb0vrae/",
@@ -386,9 +1327,9 @@
       },
       {
         "id": "pb12brn",
-        "author": "bluesix_v2",
-        "body": "Patched weeks ago - are you only learning about this now? It’s amazing you haven’t been hacked.\n\nedit: you can't rely on CVE's to dictate plugin updates, and don't ignore updates. This CVE was released **2 weeks** after the vulnerability was known, and patched - meaning if you didn't update, your site was vulnerable for 2 weeks. Once a vulnerability is patched, hackers then known exactly what to target, so it's critical you keep on top of updates.",
-        "score": 3,
+        "author": "[deleted]",
+        "body": "[deleted]",
+        "score": 2,
         "created_utc_ts": 1789934903,
         "created_utc": "2026-09-20T20:08:23",
         "permalink": "https://reddit.com/r/Wordpress/comments/1wln8p5/major_vulnerability_98_cvss_in_gravity_forms/pb12brn/",
@@ -410,7 +1351,7 @@
         "id": "pb16vwi",
         "author": "bluesix_v2",
         "body": "Simple - you don’t get updates.",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1789936039,
         "created_utc": "2026-09-20T20:27:19",
         "permalink": "https://reddit.com/r/Wordpress/comments/1wln8p5/major_vulnerability_98_cvss_in_gravity_forms/pb16vwi/",
@@ -432,7 +1373,7 @@
         "id": "pb1e20o",
         "author": "WillmanRacingv2",
         "body": "The actual vulnerability was only published yesterday. Nothing in the 3.1.1 update notes makes it clear that it was a key security release, and the most common update cadance among the dozens of agencies I have consulted with is monthly.",
-        "score": 4,
+        "score": 3,
         "created_utc_ts": 1789937888,
         "created_utc": "2026-09-20T20:58:08",
         "permalink": "https://reddit.com/r/Wordpress/comments/1wln8p5/major_vulnerability_98_cvss_in_gravity_forms/pb1e20o/",
@@ -465,7 +1406,7 @@
         "id": "pb41ea0",
         "author": "Alocasia_Sanderiana",
         "body": "I've recently gotten into CVE hunting with AI and yes it's fairly easy. Now that said, the hard part is testing, documenting, and communication vulnerabilities, and not just providing AI slop. No paid bounties yet though lol ",
-        "score": 3,
+        "score": 4,
         "created_utc_ts": 1789970578,
         "created_utc": "2026-09-21T06:02:58",
         "permalink": "https://reddit.com/r/Wordpress/comments/1wln8p5/major_vulnerability_98_cvss_in_gravity_forms/pb41ea0/",
@@ -504,19 +1445,30 @@
         "permalink": "https://reddit.com/r/Wordpress/comments/1wln8p5/major_vulnerability_98_cvss_in_gravity_forms/pb6irr4/",
         "parent_id": "t3_1wln8p5",
         "is_submitter": false
+      },
+      {
+        "id": "pbbsso2",
+        "author": "jonathan8080",
+        "body": "You'd be surprised - I was just in a thread last week or the week before where people were actively encouraging others to disable automatic updates",
+        "score": 1,
+        "created_utc_ts": 1790065459,
+        "created_utc": "2026-09-22T08:24:19",
+        "permalink": "https://reddit.com/r/Wordpress/comments/1wln8p5/major_vulnerability_98_cvss_in_gravity_forms/pbbsso2/",
+        "parent_id": "t1_pb0vrae",
+        "is_submitter": false
       }
     ],
     "created_utc": "2026-09-20T17:31:51",
     "first_author_comment": "The actual vulnerability was only published yesterday. Nothing in the 3.1.1 update notes makes it clear that it was a key security release, and the most common update cadance among the dozens of agencies I have consulted with is monthly.",
-    "num_comments": 44,
-    "score": 56,
+    "num_comments": 43,
+    "score": 58,
     "source": "reddit",
     "subreddit": "Wordpress",
     "tag": null,
     "tags": [],
     "title": "Major vulnerability (9.8 CVSS) in Gravity Forms plugin",
-    "updatedAt": "2026-09-22T06:50:40.495Z",
-    "upvote_ratio": 0.97,
+    "updatedAt": "2026-09-23T06:52:13.349Z",
+    "upvote_ratio": 0.96,
     "url": "https://reddit.com/r/Wordpress/comments/1wln8p5/major_vulnerability_98_cvss_in_gravity_forms/",
     "versionList": [
       "9.8.0"
@@ -692,7 +1644,7 @@
     "sourceUrl": "https://reddit.com/r/Ubiquiti/comments/1wkr5c7/repeated_cve20157547_warnings_from_one_machine/"
   },
   {
-    "_id": "6ab202b8648fea68716d618a",
+    "_id": "6ab35436648fea68716deb35",
     "redditId": "1wkqmiu",
     "author": "DevECoisas",
     "author_description": "I am a newbie in all of this, but I have some experience with embedded systems.\n\nShould I look for UART pins?\n\n(Also, I found this part that resembles USB micro)\n\nWhat should I do?",
@@ -702,7 +1654,7 @@
         "id": "paslqah",
         "author": "Barbateau",
         "body": "You can start looking at Rx and Tx point.\nIt's probably UART. ",
-        "score": 44,
+        "score": 45,
         "created_utc_ts": 1789835533,
         "created_utc": "2026-09-19T16:32:13",
         "permalink": "https://reddit.com/r/hardwarehacking/comments/1wkqmiu/where_are_the_debug_pins/paslqah/",
@@ -713,7 +1665,7 @@
         "id": "paslt51",
         "author": "flatsehats",
         "body": "Rx/tx second picture ",
-        "score": 5,
+        "score": 6,
         "created_utc_ts": 1789835554,
         "created_utc": "2026-09-19T16:32:34",
         "permalink": "https://reddit.com/r/hardwarehacking/comments/1wkqmiu/where_are_the_debug_pins/paslt51/",
@@ -724,7 +1676,7 @@
         "id": "pasm2vs",
         "author": "twostrokegoat",
         "body": "I would check the Tx and Rx pins in your second photo. Four pads in a line like that is probably uart. Other two pads likely v+ and gnd. Pull out the multimeter and have a look",
-        "score": 13,
+        "score": 15,
         "created_utc_ts": 1789835629,
         "created_utc": "2026-09-19T16:33:49",
         "permalink": "https://reddit.com/r/hardwarehacking/comments/1wkqmiu/where_are_the_debug_pins/pasm2vs/",
@@ -746,7 +1698,7 @@
         "id": "patf45g",
         "author": "donaciano2000",
         "body": "I agree with the UART pin comments. But another important thing to do is look up the FCC info for that board. Patents, that kind of thing. You might find the schematics there. ",
-        "score": 8,
+        "score": 9,
         "created_utc_ts": 1789843533,
         "created_utc": "2026-09-19T18:45:33",
         "permalink": "https://reddit.com/r/hardwarehacking/comments/1wkqmiu/where_are_the_debug_pins/patf45g/",
@@ -779,7 +1731,7 @@
         "id": "pauaqjr",
         "author": "No_Committee8392",
         "body": "Hm you might be able to exploit CVE-2025-24857 through that sd card assuming this is using uboot",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1789852578,
         "created_utc": "2026-09-19T21:16:18",
         "permalink": "https://reddit.com/r/hardwarehacking/comments/1wkqmiu/where_are_the_debug_pins/pauaqjr/",
@@ -911,14 +1863,14 @@
     "created_utc": "2026-09-19T16:28:42",
     "first_author_comment": "Ok, it was a UART port indeed, and it runs linux! But how can I proceed from here?\n\nhttps://reddit.com/link/pb983eu/video/9z47hnql9yqh1/player",
     "num_comments": 23,
-    "score": 74,
+    "score": 83,
     "source": "reddit",
     "subreddit": "hardwarehacking",
     "tag": null,
     "tags": [],
     "title": "Where are the debug pins?",
-    "updatedAt": "2026-09-22T06:22:52.449Z",
-    "upvote_ratio": 0.9,
+    "updatedAt": "2026-09-23T06:23:46.974Z",
+    "upvote_ratio": 0.91,
     "url": "https://reddit.com/r/hardwarehacking/comments/1wkqmiu/where_are_the_debug_pins/",
     "versionList": [],
     "isAboutCve": false,
@@ -983,7 +1935,7 @@
         "id": "paq4e0r",
         "author": "ni5arga",
         "body": "\\&gt; Deleting the file removes the volfs path. Holding it open keeps the nodeid. Together they leave the server with nothing but the string. Then the guest replaces the parent folder with a symlink. The server reads that string and sees a path that’s inside the mounted folder and allows it, but then the kernel reads the same string, follows the symlink, and opens a file on the host outside of the mounted folder.\n\nvery interesting.",
-        "score": 41,
+        "score": 46,
         "created_utc_ts": 1789802373,
         "created_utc": "2026-09-19T07:19:33",
         "permalink": "https://reddit.com/r/netsec/comments/1wkeh8n/cve202677179_dockers_hypervisor_for_mac/paq4e0r/",
@@ -994,7 +1946,7 @@
         "id": "paqmsa1",
         "author": "Bismalz",
         "body": "It’s talking about the Docker hypervisor, not the management application ",
-        "score": 13,
+        "score": 14,
         "created_utc_ts": 1789811962,
         "created_utc": "2026-09-19T09:59:22",
         "permalink": "https://reddit.com/r/netsec/comments/1wkeh8n/cve202677179_dockers_hypervisor_for_mac/paqmsa1/",
@@ -1005,7 +1957,7 @@
         "id": "paratbn",
         "author": "lcurole",
         "body": "That's not what the word compromised means in this context, click bait",
-        "score": 18,
+        "score": 20,
         "created_utc_ts": 1789821992,
         "created_utc": "2026-09-19T12:46:32",
         "permalink": "https://reddit.com/r/netsec/comments/1wkeh8n/cve202677179_dockers_hypervisor_for_mac/paratbn/",
@@ -1016,7 +1968,7 @@
         "id": "pasynky",
         "author": "hypnoticlife",
         "body": "\\&gt; a sandbox escape in Docker's hypervisor for Mac: a container gets complete read and write access to the host filesystem\n\nHow is this clickbait? A container escaping on my primary desktop system seems pretty important.",
-        "score": 36,
+        "score": 38,
         "created_utc_ts": 1789839042,
         "created_utc": "2026-09-19T17:30:42",
         "permalink": "https://reddit.com/r/netsec/comments/1wkeh8n/cve202677179_dockers_hypervisor_for_mac/pasynky/",
@@ -1027,7 +1979,7 @@
         "id": "patw1x8",
         "author": "whatisuser",
         "body": "Idk why downvotes. It’s just a bit naive. Your comment is a bit like saying “I don’t think I’m affected by this Linux kernel bug: I’m using Ubuntu”",
-        "score": 7,
+        "score": 8,
         "created_utc_ts": 1789848310,
         "created_utc": "2026-09-19T20:05:10",
         "permalink": "https://reddit.com/r/netsec/comments/1wkeh8n/cve202677179_dockers_hypervisor_for_mac/patw1x8/",
@@ -1049,13 +2001,13 @@
     "created_utc": "2026-09-19T06:25:58",
     "first_author_comment": null,
     "num_comments": 13,
-    "score": 136,
+    "score": 139,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": "Contains AI",
     "tags": [],
     "title": "CVE-2026-77179: Docker's hypervisor for Mac compromised (Docker Desktop, Docker Sandboxes)",
-    "updatedAt": "2026-09-22T06:21:44.713Z",
+    "updatedAt": "2026-09-23T06:22:43.916Z",
     "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/netsec/comments/1wkeh8n/cve202677179_dockers_hypervisor_for_mac/",
     "versionList": [
@@ -1326,14 +2278,14 @@
     "awards": [],
     "created_utc": "2026-09-18T06:01:27",
     "first_author_comment": "I couldn't find any setting explicitly named \"DNSSEC validation\" so I just checked that in \"Services\" -&gt; \"DNS Resolver\" -&gt; \"General Settings\" -&gt; scroll down to \"DNSSEC\" -&gt; \"Enable DNSSEC Support\" is unchecked. This should be enough for the time being, shouldn't it?  \nI assume the \"Harden DNSSEC Data\" in the \"Advanced Settings\" then can be ignored if DNSSEC is disabled.",
-    "num_comments": 30,
+    "num_comments": 31,
     "score": 47,
     "source": "reddit",
     "subreddit": "PFSENSE",
     "tag": null,
     "tags": [],
     "title": "Unbound CVE-2026-81642",
-    "updatedAt": "2026-09-22T06:17:23.842Z",
+    "updatedAt": "2026-09-23T06:17:22.223Z",
     "upvote_ratio": 0.98,
     "url": "https://reddit.com/r/PFSENSE/comments/1wjhz3e/unbound_cve202681642/",
     "versionList": [
@@ -1347,7 +2299,7 @@
         "id": "paiuef8",
         "author": "syncerx",
         "body": "Make sure that the DNSSEC validation is disabled.",
-        "score": 7,
+        "score": 6,
         "created_utc_ts": 1789713052,
         "created_utc": "2026-09-18T06:30:52",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1wjhz3e/unbound_cve202681642/paiuef8/",
@@ -1369,7 +2321,7 @@
         "id": "paiyl15",
         "author": "gromhelmu",
         "body": "Yep. To add: Do this, even if your firewall is locked down from the outside:\n\n- An internal device (phone, laptop, IoT device, or guest) browsing the web or running an app can request a domain controlled by an attacker.\n- Unbound performs recursive resolution, querying the attacker’s nameserver.\n- The nameserver responds with a specially crafted DNSKEY record containing pointers to exploit the CVE (an overflow).",
-        "score": 9,
+        "score": 7,
         "created_utc_ts": 1789715310,
         "created_utc": "2026-09-18T07:08:30",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1wjhz3e/unbound_cve202681642/paiyl15/",
@@ -1380,7 +2332,7 @@
         "id": "paj851l",
         "author": "Worried_Tangelo_2689",
         "body": "I couldn't find any setting explicitly named \"DNSSEC validation\" so I just checked that in \"Services\" -&gt; \"DNS Resolver\" -&gt; \"General Settings\" -&gt; scroll down to \"DNSSEC\" -&gt; \"Enable DNSSEC Support\" is unchecked. This should be enough for the time being, shouldn't it?  \nI assume the \"Harden DNSSEC Data\" in the \"Advanced Settings\" then can be ignored if DNSSEC is disabled.",
-        "score": 6,
+        "score": 5,
         "created_utc_ts": 1789720213,
         "created_utc": "2026-09-18T08:30:13",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1wjhz3e/unbound_cve202681642/paj851l/",
@@ -1391,7 +2343,7 @@
         "id": "pajhmfr",
         "author": "d007us",
         "body": "\\+1, I do not want do disable DNSEC. I expect Netgate will release an update shortly for unbound.",
-        "score": 5,
+        "score": 6,
         "created_utc_ts": 1789725056,
         "created_utc": "2026-09-18T09:50:56",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1wjhz3e/unbound_cve202681642/pajhmfr/",
@@ -1435,7 +2387,7 @@
         "id": "palnslg",
         "author": "NewRedditor23",
         "body": "I think the threat is if our internal LAN devices query an malicious DNS name server, then that name server can RCE on our internal device (like open a reverse proxy)",
-        "score": 1,
+        "score": 2,
         "created_utc_ts": 1789749160,
         "created_utc": "2026-09-18T16:32:40",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1wjhz3e/unbound_cve202681642/palnslg/",
@@ -1483,6 +2435,17 @@
         "created_utc_ts": 1789807214,
         "created_utc": "2026-09-19T08:40:14",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1wjhz3e/unbound_cve202681642/paqdqdi/",
+        "parent_id": "t3_1wjhz3e",
+        "is_submitter": false
+      },
+      {
+        "id": "pbij2r7",
+        "author": "dpr0n",
+        "body": "You don’t need to run a package upgrade on every single package. Even if you’re not on the very latest release, this should work. I am still running 26.03 and the repo has an updated unbound built.\n\npkg update  \npkg upgrade unbound\n\nThat will just upgrade the unbound package (and dependencies).",
+        "score": 1,
+        "created_utc_ts": 1790143183,
+        "created_utc": "2026-09-23T05:59:43",
+        "permalink": "https://reddit.com/r/PFSENSE/comments/1wjhz3e/unbound_cve202681642/pbij2r7/",
         "parent_id": "t3_1wjhz3e",
         "is_submitter": false
       }
@@ -3259,255 +4222,6 @@
     ],
     "sourceBot": "reddit.py",
     "sourceUrl": "https://reddit.com/r/google/comments/1wf2oas/why_you_need_the_september_android_update_a_look/"
-  },
-  {
-    "_id": "6aa537b5648fea68716505f5",
-    "redditId": "1we99ok",
-    "author": "turok2",
-    "author_description": null,
-    "awards": [],
-    "comments": [
-      {
-        "id": "p9btvc5",
-        "author": "jsabater76",
-        "body": "Wow! That is a very long list of bug fixes and security fixes! Just `imagemagick` alone has a lot of them! 👏",
-        "score": 41,
-        "created_utc_ts": 1789210088,
-        "created_utc": "2026-09-12T10:48:08",
-        "permalink": "https://reddit.com/r/debian/comments/1we99ok/updated_debian_13_137_released/p9btvc5/",
-        "parent_id": "t3_1we99ok",
-        "is_submitter": false
-      },
-      {
-        "id": "p9bwh6v",
-        "author": "The_Hubster",
-        "body": "Love it. And we KNOW it's gonna be stable AF. No flash, just the reliability we know and love.",
-        "score": 27,
-        "created_utc_ts": 1789211271,
-        "created_utc": "2026-09-12T11:07:51",
-        "permalink": "https://reddit.com/r/debian/comments/1we99ok/updated_debian_13_137_released/p9bwh6v/",
-        "parent_id": "t3_1we99ok",
-        "is_submitter": false
-      },
-      {
-        "id": "p9bywcv",
-        "author": "_IvOo_",
-        "body": "Sorry if newbie question, I'm using debian with xfce, how can I update to this new release? Just sudo update upgrade?",
-        "score": 11,
-        "created_utc_ts": 1789212320,
-        "created_utc": "2026-09-12T11:25:20",
-        "permalink": "https://reddit.com/r/debian/comments/1we99ok/updated_debian_13_137_released/p9bywcv/",
-        "parent_id": "t3_1we99ok",
-        "is_submitter": false
-      },
-      {
-        "id": "p9byz07",
-        "author": "[deleted]",
-        "body": "[deleted]",
-        "score": -1,
-        "created_utc_ts": 1789212351,
-        "created_utc": "2026-09-12T11:25:51",
-        "permalink": "https://reddit.com/r/debian/comments/1we99ok/updated_debian_13_137_released/p9byz07/",
-        "parent_id": "t1_p9bywcv",
-        "is_submitter": false
-      },
-      {
-        "id": "p9c0fck",
-        "author": "sjsepan2",
-        "body": "That worked for me :-)\n\n  \n`sudo apt update`  \n`sudo apt list --upgradeable`  \n`sudo apt upgrade`  \n`sudo reboot`",
-        "score": 27,
-        "created_utc_ts": 1789212962,
-        "created_utc": "2026-09-12T11:36:02",
-        "permalink": "https://reddit.com/r/debian/comments/1we99ok/updated_debian_13_137_released/p9c0fck/",
-        "parent_id": "t1_p9bywcv",
-        "is_submitter": false
-      },
-      {
-        "id": "p9c1f5v",
-        "author": "Nice-Object-5599",
-        "body": "The Synaptic package manager is your friend.",
-        "score": 2,
-        "created_utc_ts": 1789213372,
-        "created_utc": "2026-09-12T11:42:52",
-        "permalink": "https://reddit.com/r/debian/comments/1we99ok/updated_debian_13_137_released/p9c1f5v/",
-        "parent_id": "t1_p9bywcv",
-        "is_submitter": false
-      },
-      {
-        "id": "p9cl4ae",
-        "author": "antdude",
-        "body": "No kernel update this time? ;) I still had to reboot other core updates.",
-        "score": 9,
-        "created_utc_ts": 1789220278,
-        "created_utc": "2026-09-12T13:37:58",
-        "permalink": "https://reddit.com/r/debian/comments/1we99ok/updated_debian_13_137_released/p9cl4ae/",
-        "parent_id": "t3_1we99ok",
-        "is_submitter": false
-      },
-      {
-        "id": "p9csloe",
-        "author": "BENJAMlN8a",
-        "body": "I don't currently use Debian, but I've read that there are more updates now than before because they're using AI to find and fix bugs. I don't know if that's true, but it sounds interesting. Can anyone confirm that? ",
-        "score": 1,
-        "created_utc_ts": 1789222543,
-        "created_utc": "2026-09-12T14:15:43",
-        "permalink": "https://reddit.com/r/debian/comments/1we99ok/updated_debian_13_137_released/p9csloe/",
-        "parent_id": "t3_1we99ok",
-        "is_submitter": false
-      },
-      {
-        "id": "p9ctxxw",
-        "author": "DeliciousIncident",
-        "body": "Yep, you do it via the package manager. You can `cat /etc/os-release` and `cat /etc/debian_version` to verify what version you are on.",
-        "score": 4,
-        "created_utc_ts": 1789222940,
-        "created_utc": "2026-09-12T14:22:20",
-        "permalink": "https://reddit.com/r/debian/comments/1we99ok/updated_debian_13_137_released/p9ctxxw/",
-        "parent_id": "t1_p9bywcv",
-        "is_submitter": false
-      },
-      {
-        "id": "p9d0hcq",
-        "author": "Lt--Spicy",
-        "body": "ImageMagik and Adobe are constantly on my PCI/SOC2 vuln list. No surprise there.",
-        "score": 8,
-        "created_utc_ts": 1789224802,
-        "created_utc": "2026-09-12T14:53:22",
-        "permalink": "https://reddit.com/r/debian/comments/1we99ok/updated_debian_13_137_released/p9d0hcq/",
-        "parent_id": "t1_p9btvc5",
-        "is_submitter": false
-      },
-      {
-        "id": "p9d0ps7",
-        "author": "Lt--Spicy",
-        "body": "That's pretty much true across the entire board in the industry, red team and blue team alike.",
-        "score": 19,
-        "created_utc_ts": 1789224867,
-        "created_utc": "2026-09-12T14:54:27",
-        "permalink": "https://reddit.com/r/debian/comments/1we99ok/updated_debian_13_137_released/p9d0ps7/",
-        "parent_id": "t1_p9csloe",
-        "is_submitter": false
-      },
-      {
-        "id": "p9d1i2s",
-        "author": "lokiisagoodkitten",
-        "body": "It's not a bad thing if it is. The humans will review the code for sure.",
-        "score": 3,
-        "created_utc_ts": 1789225087,
-        "created_utc": "2026-09-12T14:58:07",
-        "permalink": "https://reddit.com/r/debian/comments/1we99ok/updated_debian_13_137_released/p9d1i2s/",
-        "parent_id": "t1_p9csloe",
-        "is_submitter": false
-      },
-      {
-        "id": "p9fbatu",
-        "author": "mok000",
-        "body": "Yes.",
-        "score": 1,
-        "created_utc_ts": 1789246999,
-        "created_utc": "2026-09-12T21:03:19",
-        "permalink": "https://reddit.com/r/debian/comments/1we99ok/updated_debian_13_137_released/p9fbatu/",
-        "parent_id": "t1_p9bywcv",
-        "is_submitter": false
-      },
-      {
-        "id": "p9fm402",
-        "author": "shrimpdiddle",
-        "body": "That's fine.",
-        "score": 1,
-        "created_utc_ts": 1789250081,
-        "created_utc": "2026-09-12T21:54:41",
-        "permalink": "https://reddit.com/r/debian/comments/1we99ok/updated_debian_13_137_released/p9fm402/",
-        "parent_id": "t1_p9bywcv",
-        "is_submitter": false
-      },
-      {
-        "id": "p9fmup8",
-        "author": "RayneYoruka",
-        "body": "&gt; Fix IPv6 Neighbor Discovery option parsing to discard advertisements with zero-length options [CVE-2026-14258]\n\nI was wondering why it was not working like it was on my Rhel machines. Now I know why.",
-        "score": 2,
-        "created_utc_ts": 1789250304,
-        "created_utc": "2026-09-12T21:58:24",
-        "permalink": "https://reddit.com/r/debian/comments/1we99ok/updated_debian_13_137_released/p9fmup8/",
-        "parent_id": "t3_1we99ok",
-        "is_submitter": false
-      },
-      {
-        "id": "p9gc4oa",
-        "author": "sndq",
-        "body": "When was the last time Debian had a minor version upgrade without a Linux update?",
-        "score": 8,
-        "created_utc_ts": 1789258277,
-        "created_utc": "2026-09-13T00:11:17",
-        "permalink": "https://reddit.com/r/debian/comments/1we99ok/updated_debian_13_137_released/p9gc4oa/",
-        "parent_id": "t1_p9cl4ae",
-        "is_submitter": false
-      },
-      {
-        "id": "p9h3owp",
-        "author": "sndq",
-        "body": "*magick",
-        "score": 4,
-        "created_utc_ts": 1789267679,
-        "created_utc": "2026-09-13T02:47:59",
-        "permalink": "https://reddit.com/r/debian/comments/1we99ok/updated_debian_13_137_released/p9h3owp/",
-        "parent_id": "t1_p9btvc5",
-        "is_submitter": false
-      },
-      {
-        "id": "p9htzf6",
-        "author": "Gaben_is_awesome",
-        "body": "Yes. Let others venture out to the cutting edge, while we kick back, observe, and run Debian stable",
-        "score": 7,
-        "created_utc_ts": 1789278359,
-        "created_utc": "2026-09-13T05:45:59",
-        "permalink": "https://reddit.com/r/debian/comments/1we99ok/updated_debian_13_137_released/p9htzf6/",
-        "parent_id": "t1_p9bwh6v",
-        "is_submitter": false
-      },
-      {
-        "id": "p9j0dm2",
-        "author": "SnillyWead",
-        "body": "I always do sudo apt update &amp;&amp; sudo apt full-upgrade. sudo reboot when done.",
-        "score": 1,
-        "created_utc_ts": 1789298830,
-        "created_utc": "2026-09-13T11:27:10",
-        "permalink": "https://reddit.com/r/debian/comments/1we99ok/updated_debian_13_137_released/p9j0dm2/",
-        "parent_id": "t1_p9bywcv",
-        "is_submitter": false
-      },
-      {
-        "id": "p9ml10p",
-        "author": "djlilis",
-        "body": "Do I dare break the x server on the D430 again hmhmhh\n\nAnyone have any reassuring words on the process from bringing Debian 12 systems up to 13?",
-        "score": 1,
-        "created_utc_ts": 1789333267,
-        "created_utc": "2026-09-13T21:01:07",
-        "permalink": "https://reddit.com/r/debian/comments/1we99ok/updated_debian_13_137_released/p9ml10p/",
-        "parent_id": "t3_1we99ok",
-        "is_submitter": false
-      }
-    ],
-    "created_utc": "2026-09-12T10:42:11",
-    "first_author_comment": null,
-    "num_comments": 33,
-    "score": 246,
-    "source": "reddit",
-    "subreddit": "debian",
-    "tag": "News",
-    "tags": [],
-    "title": "Updated Debian 13: 13.7 released",
-    "updatedAt": "2026-09-17T08:31:41.798Z",
-    "upvote_ratio": 0.99,
-    "url": "https://reddit.com/r/debian/comments/1we99ok/updated_debian_13_137_released/",
-    "versionList": [
-      "13.0.0",
-      "13.7.0"
-    ],
-    "isAboutCve": false,
-    "isAboutLatestUpdate": true,
-    "sourceBot": "reddit.py",
-    "sourceUrl": "https://reddit.com/r/debian/comments/1we99ok/updated_debian_13_137_released/"
   },
   {
     "_id": "6aa5d32b648fea68716621d0",
@@ -6195,13 +6909,13 @@
     "created_utc": "2026-09-09T10:47:25",
     "first_author_comment": null,
     "num_comments": 4,
-    "score": 40,
+    "score": 38,
     "subreddit": "netsec",
     "tag": "Contains AI",
     "tags": [],
     "title": "Fortinet Privileged Access Agent: Any Site Could Control Your Proxy and Watch Your Tab",
-    "updatedAt": "2026-09-22T06:22:08.722Z",
-    "upvote_ratio": 0.88,
+    "updatedAt": "2026-09-23T06:23:04.664Z",
+    "upvote_ratio": 0.86,
     "url": "https://reddit.com/r/netsec/comments/1wbi40d/fortinet_privileged_access_agent_any_site_could/",
     "versionList": [],
     "isAboutCve": true,
@@ -6211,7 +6925,7 @@
         "id": "p8qnwor",
         "author": "Hizonner",
         "body": "Class, what have we learned about the security impact of adding attack surface?\n\nNot much, based on how corporate IT behaves....",
-        "score": 8,
+        "score": 6,
         "created_utc_ts": 1788959455,
         "created_utc": "2026-09-09T13:10:55",
         "permalink": "https://reddit.com/r/netsec/comments/1wbi40d/fortinet_privileged_access_agent_any_site_could/p8qnwor/",
@@ -8188,13 +8902,13 @@
     "created_utc": "2026-09-01T12:28:03",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 12,
+    "score": 11,
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Off the Hook: Discovering and Observing Active Exploitation of Sangoma Switchvox CVE-2026-9586",
-    "updatedAt": "2026-09-22T06:22:21.506Z",
-    "upvote_ratio": 0.89,
+    "updatedAt": "2026-09-23T06:23:19.058Z",
+    "upvote_ratio": 0.88,
     "url": "https://reddit.com/r/netsec/comments/1w4aj8x/off_the_hook_discovering_and_observing_active/",
     "versionList": [
       "2026.0.0",
@@ -8219,7 +8933,7 @@
     "source": "reddit"
   },
   {
-    "_id": "6ab2015c648fea68716d6077",
+    "_id": "6ab352dc648fea68716dea31",
     "redditId": "1w25s1a",
     "author": "Sam_-_-_",
     "author_description": "I've been rolling pfSense for about 5 years. Decided to try Unifi. Couldn't find a manual or one-to-one feature documentation for each panel (only various spotlight articles). \n\nAsked the community for help: every response said basically \"things change too often, no need to have a manual\". \n\nExcuse me, what? I'm not a networking pro, and I do need a manual. (pfSense was hard for me, but had great documentation.) \n\nI can't believe this was the response. Is everyone in their community a bot or a cultist? \n\nI still have few days left on my return window, and might come back, LOL.",
@@ -8229,7 +8943,7 @@
         "id": "p6q65xn",
         "author": "PepperdotNet",
         "body": "Unifi access points are fantastic. But I have not seen anything yet that would convince me to abandon pfSense for a Unifi router/firewall. And I prefer Cisco switches, personally (3850s are reasonably cheap on ebay right now)",
-        "score": 64,
+        "score": 61,
         "created_utc_ts": 1788059015,
         "created_utc": "2026-08-30T03:03:35",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6q65xn/",
@@ -8251,7 +8965,7 @@
         "id": "p6q81uj",
         "author": "DifferentSpecific",
         "body": "There are so many Youtube tutorials that you don't need a manual.\n\nStart with episode #1 and go through the series. By the end you'll have a great setup.\n\n[https://youtu.be/TLsnEzSNhQs?si=dw-I7YpL-ogGp0HS](https://youtu.be/TLsnEzSNhQs?si=dw-I7YpL-ogGp0HS)\n\n",
-        "score": -2,
+        "score": -4,
         "created_utc_ts": 1788059782,
         "created_utc": "2026-08-30T03:16:22",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6q81uj/",
@@ -8262,7 +8976,7 @@
         "id": "p6q8gsr",
         "author": "spacebass",
         "body": "Bro been rolling pf for five and now the Fi community gon do him dirty like that? Fr? Naw. \n\nOp, is this a pfSense issue or a frustration with another vendor? And if the later, can you help us help you? \n\nI get the frustration when you want to learn something and can’t find the materials. Been there too. But how is this a pfSense issue? \n\nAlso we’d love to help if we can but you have to give us more than vibes. ",
-        "score": -5,
+        "score": -4,
         "created_utc_ts": 1788059954,
         "created_utc": "2026-08-30T03:19:14",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6q8gsr/",
@@ -8284,7 +8998,7 @@
         "id": "p6q9f7m",
         "author": "Sam_-_-_",
         "body": "Comparative experience coming from pfSense. Ignore and move on. ",
-        "score": 1,
+        "score": 2,
         "created_utc_ts": 1788060348,
         "created_utc": "2026-08-30T03:25:48",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6q9f7m/",
@@ -8295,7 +9009,7 @@
         "id": "p6qbfib",
         "author": "Microflunkie",
         "body": "I use pfSense and two UniFi APs at home. \n\nI have dealt with UniFi firewalls, switches and APs both professionally and personally. I read somewhere here on reddit that the founder of Ubiquiti used to work at Apple and I can totally see the aesthetic. I feel like UniFi is to networking what BMW is to cars, nice and good quality but expensive for what they are and with a large customer base who can be a bit… cult-ish.\n\nIf the UniFi can do everything you want to do it is a great ecosystem. But you will not get the granularity or capability of pfSense in the UniFi ecosystem. Conversely you will get firewall, switch and AP integration and management with unit which you can’t get with pfSense. It’s all a matter of what is inportmat and what matters to you and your needs. ",
-        "score": 5,
+        "score": 3,
         "created_utc_ts": 1788061184,
         "created_utc": "2026-08-30T03:39:44",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6qbfib/",
@@ -8306,7 +9020,7 @@
         "id": "p6qc7ka",
         "author": "NotYourNanny",
         "body": "And they recently discontinued their cloud key devices, which served only to run the Unifi gear, without any router functions. The recommended replacement is a router/firewall with those functions, but (I'm told) if set to bridge mode, you lose most of the cloud key functionality. So it really can't coexist with other gear behind a real firewall.\n\nAs soon as there's time, we'll be experimenting with running their software package on a Raspberry Pi, but we haven't gotten to it yet.",
-        "score": 3,
+        "score": 4,
         "created_utc_ts": 1788061517,
         "created_utc": "2026-08-30T03:45:17",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6qc7ka/",
@@ -8317,7 +9031,7 @@
         "id": "p6qd2w1",
         "author": "OutsideTech",
         "body": "Until it breaks, or the expected functionality doesn’t match reality, then documentation is quite necessary.",
-        "score": 8,
+        "score": 9,
         "created_utc_ts": 1788061888,
         "created_utc": "2026-08-30T03:51:28",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6qd2w1/",
@@ -8350,7 +9064,7 @@
         "id": "p6qk5kd",
         "author": "TheRealSeeThruHead",
         "body": "Unifi has been great for me so far\n\nI swapped my huge pfsense box for a better performing ucg fibre and got two switches \n\nCan’t wait to add more",
-        "score": 2,
+        "score": 3,
         "created_utc_ts": 1788064982,
         "created_utc": "2026-08-30T04:43:02",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6qk5kd/",
@@ -8394,7 +9108,7 @@
         "id": "p6r18gl",
         "author": "thomasfr",
         "body": "I am proportionally more worried every time I have to update my UniFi firmwares than any other network gear I have ever used. They do change a lot and some times the release notes just say “improved stability” or something which tells you nothing at all. \n\nThey do provide a lot of features for the price over a lot of products which I guess is the selling point but you have to deal with the chaos because of it.",
-        "score": 3,
+        "score": 4,
         "created_utc_ts": 1788073309,
         "created_utc": "2026-08-30T07:01:49",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6r18gl/",
@@ -8405,7 +9119,7 @@
         "id": "p6r5zc8",
         "author": "forgotmypasswdAGAIN-",
         "body": "You also swapped out actual security. ",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1788075749,
         "created_utc": "2026-08-30T07:42:29",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6r5zc8/",
@@ -8438,7 +9152,7 @@
         "id": "p6ro1mu",
         "author": "needchr",
         "body": "For the price?  They are by far the most expensive equipment I have come across (for consumer).\n\nI just dont get it how they are successful, they about 3-4x the price of established players.\n\nI come across people who moan about spending a fiver on a USB stick, or an £10 a month on their broadband but have just spent £500 on unifi, madless. :)",
-        "score": -3,
+        "score": -1,
         "created_utc_ts": 1788085169,
         "created_utc": "2026-08-30T10:19:29",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6ro1mu/",
@@ -8482,7 +9196,7 @@
         "id": "p6rt2gj",
         "author": "rh681",
         "body": "Ubiquiti is enterprise software on top of consumer hardware.  Their physical products are nothing special, but they do a good job with what they make.\n\nMy home ecosystem is pfSense firewall, Ruckus AP, and Cisco SMB switch.  Everything just purrs along.",
-        "score": 4,
+        "score": 2,
         "created_utc_ts": 1788087635,
         "created_utc": "2026-08-30T11:00:35",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6rt2gj/",
@@ -8526,7 +9240,7 @@
         "id": "p6rwnlz",
         "author": "retrohaz3",
         "body": "Not a cult. Just a large pack of fanboys who will defend the product to justify their home remortgage after being sucked into the Unifi ecosystem. \n\nThe product is decent but their are 'as good ' options for cheaper and better options if you're happy getting your hands dirty. ",
-        "score": 7,
+        "score": 6,
         "created_utc_ts": 1788089262,
         "created_utc": "2026-08-30T11:27:42",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6rwnlz/",
@@ -8603,7 +9317,7 @@
         "id": "p6s4vlg",
         "author": "baker_miller",
         "body": "I wouldn’t call it a cult, but there many fanboys. There are also many enthusiasts who like the idea of networking, but don’t have a ton of experience and just want to roll with defaults and look at a shiny dashboard. ",
-        "score": 5,
+        "score": 3,
         "created_utc_ts": 1788092593,
         "created_utc": "2026-08-30T12:23:13",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6s4vlg/",
@@ -8647,7 +9361,7 @@
         "id": "p6slo93",
         "author": "8l1uvgrjbfxem2",
         "body": "For me, it’s pfSense at the edge and TP-Link Omada for switches and APs.",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1788098255,
         "created_utc": "2026-08-30T13:57:35",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6slo93/",
@@ -8691,7 +9405,7 @@
         "id": "p6tdzqb",
         "author": "i-Hermit",
         "body": "Do you know every feature inside and out? Yeah, googling will get you there, but a manual isn't a big ask. And if they're blowing out budgets to rewrite the manual so often, they might do well to take it as a hint to stop changing the UI so much.\n\nYour comment reads like you're saying if OP doesn't know everything then he shouldnt try. I'm sure that wasn't your intention, but it comes across that way.",
-        "score": 6,
+        "score": 4,
         "created_utc_ts": 1788106357,
         "created_utc": "2026-08-30T16:12:37",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6tdzqb/",
@@ -8746,7 +9460,7 @@
         "id": "p6tr4er",
         "author": "hawkeye000021",
         "body": "The Firewall group I’m in is also toxic. I think it comes down to whenever you put your money into something, not to mention time, it’s like Stockholm syndrome for all products. The advantage of my solution is that it’s painfully simple to setup but that creates a new batch of issue. People say it’s the best thing ever and no one was shown me an example or a blocked attack. I’ve caught a few things here and there but nothing that has saved me from anything. Their AP7 wireless solution though, is the best thing ever in that space. I can’t type the name of the group in here because it rejects me from mentioning a competitor it seems. \n\nI’ve thought about running pfsense against to compare, but I don’t have the time. Doing this for a living eats it all up. \n\nTLDR; you’re in a cult. 😊 ",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1788109894,
         "created_utc": "2026-08-30T17:11:34",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6tr4er/",
@@ -8768,7 +9482,7 @@
         "id": "p6ug03y",
         "author": "LeadershipSuperb6176",
         "body": "I use Unifi WAPs and switches almost exclusively, but there is no world in which I trade my pfsense routers for unifi.",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1788116606,
         "created_utc": "2026-08-30T19:03:26",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6ug03y/",
@@ -8812,7 +9526,7 @@
         "id": "p6v36n2",
         "author": "ThatUsrnameIsAlready",
         "body": "&gt; \nBut the UniFi system will instantly tell you which port on which switch a device is plugged into, or what device is plugged into a particular port.\n\n- Not instantly.\n\n- Is sometimes wrong.\n\n- Good luck with multiple devices e.g. VMs.",
-        "score": 4,
+        "score": 6,
         "created_utc_ts": 1788123185,
         "created_utc": "2026-08-30T20:53:05",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/p6v36n2/",
@@ -9087,14 +9801,14 @@
     "created_utc": "2026-08-30T02:57:05",
     "first_author_comment": "I thought \"user friendly\" + affordable 10GbE gateway, might be the reason. But \"no manual\" + community shills, is scaring me off. ",
     "num_comments": 207,
-    "score": 70,
+    "score": 67,
     "source": "reddit",
     "subreddit": "PFSENSE",
     "tag": null,
     "tags": [],
     "title": "Did I join a cult? (Unifi)",
-    "updatedAt": "2026-09-22T06:17:54.760Z",
-    "upvote_ratio": 0.81,
+    "updatedAt": "2026-09-23T06:17:51.846Z",
+    "upvote_ratio": 0.8,
     "url": "https://reddit.com/r/PFSENSE/comments/1w25s1a/did_i_join_a_cult_unifi/",
     "versionList": [],
     "isAboutCve": false,
@@ -23684,7 +24398,7 @@
     "tag": null,
     "tags": [],
     "title": "FreeBSD Security Advisory: Serious FreeBSD wireguard flaw",
-    "updatedAt": "2026-09-21T09:03:49.217Z",
+    "updatedAt": "2026-09-22T22:10:31.928Z",
     "upvote_ratio": 0.91,
     "url": "https://reddit.com/r/PFSENSE/comments/1vhcpvl/freebsd_security_advisory_serious_freebsd/",
     "versionList": [],
@@ -24146,6 +24860,23 @@
           "CVE Modified",
           "CVE Modified"
         ]
+      },
+      {
+        "cveId": "CVE-2026-58085",
+        "cveIds": [
+          "CVE-2026-58085"
+        ],
+        "source": "Comment",
+        "commentText": "[Netgate Releases pfSense Community Edition Version 2.9.0](https://www.netgate.com/blog/netgate-releases-pfsense-community-edition-version-2.9.0)\n\n\"This Release software includes critical security updates for WireGuard (CVE-2026-58085), \"",
+        "linkToComment": "https://reddit.com/r/PFSENSE/comments/1vhcpvl/freebsd_security_advisory_serious_freebsd/p51ef7n/",
+        "commentDate": "2026-08-21T15:06:23+00:00",
+        "cvePublishedDate": "2026-08-19T08:17:12.673000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 2,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
       },
       {
         "cveId": "CVE-2026-58085",
@@ -30101,341 +30832,5 @@
     "sentiment_score": -0.463,
     "sourceBot": "reddit.py",
     "sourceUrl": "https://reddit.com/r/joomla/comments/1urlq47/balbooa_forms_fixes_an_unauthenticated_file/"
-  },
-  {
-    "_id": "6a390d8a4ce8d84a7e45aca8",
-    "redditId": "1ucezrg",
-    "author": "Budget-Half7493",
-    "author_description": "Hey, \n\nWe just received an alert this weekend for CVE-2023-36010 in Microsoft Defender for Endpoint, and I’m trying to understand if this is expected behavior.\n\nOn the affected servers I currently have:\n\n* AMEngineVersion: 1.1.26050.11\n* AMProductVersion (Platform): 4.18.26050.15\n* AntivirusSignatureVersion: 1.453.221.0\n\nAccording to Microsoft’s latest published security intelligence update, the current versions are:\n\n* Engine Version: 1.1.26050.11\n* Platform Version: 4.18.26050.15\n* Signature Version: 1.453.224.0\n\nSo it looks like engine and platform are already on the latest available versions, only signatures are slightly behind (and updating fine).\n\nHowever, MDE is still flagging the CVE on multiple devices.\n\nHas anyone else seen this recently (especially since this weekend)?  \nIs this just a detection/mapping issue in Defender, or is there some additional mitigation/config required beyond version updates?\n\nWould appreciate any insights\n\nThank you :)",
-    "awards": [],
-    "comments": [
-      {
-        "id": "ot3h1ip",
-        "author": "xMr-Tea",
-        "body": "This also appeared in my tenant on the 18th June. All our endpoints/servers are up-to-date.\n\nThinking this might be a bug. The affected software for the CVE shows \"Microsoft Windows Defender 4.18.23110.3 (excluding) and earlier versions\" as vulnerable versions but our endpoints are all running 4.18.26050.15.",
-        "score": 1,
-        "created_utc_ts": 1782120454,
-        "created_utc": "2026-06-22T09:27:34",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1ucezrg/defender_av_cve202336010_still_flagged_even_on/ot3h1ip/",
-        "parent_id": "t3_1ucezrg",
-        "is_submitter": false,
-        "sentiment_score": -0.141,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0.06,
-          "neu": 0.914,
-          "pos": 0.026,
-          "compound": -0.1406
-        }
-      },
-      {
-        "id": "ot3hrs5",
-        "author": "cacheqzor",
-        "body": "same here, seeing it on fully up to date boxes and it makes zero sense with that version range in the CVE notes  \nkinda leaning toward bad mapping / bug in Defender rather than an actual vuln, hoping MS silently fixes it in the next sig or platform push",
-        "score": 1,
-        "created_utc_ts": 1782120830,
-        "created_utc": "2026-06-22T09:33:50",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1ucezrg/defender_av_cve202336010_still_flagged_even_on/ot3hrs5/",
-        "parent_id": "t1_ot3h1ip",
-        "is_submitter": false,
-        "sentiment_score": -0.009,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0.062,
-          "neu": 0.858,
-          "pos": 0.08,
-          "compound": -0.0094
-        }
-      },
-      {
-        "id": "ot3wou7",
-        "author": "InvisibleTextArea",
-        "body": "Me too. Ignored it as a false positive and moved on with life.",
-        "score": 1,
-        "created_utc_ts": 1782127669,
-        "created_utc": "2026-06-22T11:27:49",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1ucezrg/defender_av_cve202336010_still_flagged_even_on/ot3wou7/",
-        "parent_id": "t3_1ucezrg",
-        "is_submitter": false,
-        "sentiment_score": 0.318,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0.145,
-          "neu": 0.629,
-          "pos": 0.226,
-          "compound": 0.3182
-        }
-      },
-      {
-        "id": "ot55u90",
-        "author": "Independent_Yak_6273",
-        "body": "It seems to be another MS fup!  \nmy OCD is triggered! ",
-        "score": 1,
-        "created_utc_ts": 1782141853,
-        "created_utc": "2026-06-22T15:24:13",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1ucezrg/defender_av_cve202336010_still_flagged_even_on/ot55u90/",
-        "parent_id": "t3_1ucezrg",
-        "is_submitter": false,
-        "sentiment_score": 0,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 1,
-          "pos": 0,
-          "compound": 0
-        }
-      },
-      {
-        "id": "ot5rsmk",
-        "author": "Zgame200",
-        "body": "Man I love Microsoft so much",
-        "score": 1,
-        "created_utc_ts": 1782147873,
-        "created_utc": "2026-06-22T17:04:33",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1ucezrg/defender_av_cve202336010_still_flagged_even_on/ot5rsmk/",
-        "parent_id": "t3_1ucezrg",
-        "is_submitter": false,
-        "sentiment_score": 0.637,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 0.488,
-          "pos": 0.512,
-          "compound": 0.6369
-        }
-      }
-    ],
-    "created_utc": "2026-06-22T08:38:34",
-    "first_author_comment": null,
-    "num_comments": 5,
-    "score": 5,
-    "subreddit": "sysadmin",
-    "tag": null,
-    "tags": [],
-    "title": "Defender AV CVE-2023-36010 still flagged even on latest engine/platform?",
-    "updatedAt": "2026-09-10T17:43:57.066Z",
-    "upvote_ratio": 0.78,
-    "url": "https://reddit.com/r/sysadmin/comments/1ucezrg/defender_av_cve202336010_still_flagged_even_on/",
-    "versionList": [
-      "2023.0.0",
-      "36010.0.0"
-    ],
-    "metadata": {
-      "predicted": {
-        "isUpdateRelated": true,
-        "positiveScore": 0.6398855299469433,
-        "timestampPredicted": "2026-06-22T16:01:05.270379+00:00"
-      },
-      "labeled": {
-        "isUpdateRelated": null
-      }
-    },
-    "isAboutCve": true,
-    "isAboutLatestUpdate": true,
-    "classification": {
-      "componentType": [],
-      "securityType": [
-        "SECURITY"
-      ]
-    },
-    "author_description_sentiment": {
-      "score": 0.953,
-      "detail": {
-        "neg": 0.012,
-        "neu": 0.831,
-        "pos": 0.158,
-        "compound": 0.9533
-      }
-    },
-    "category": "Positive",
-    "comments_avg_sentiment_score": 0.161,
-    "sentiment_score": 0.557,
-    "sourceBot": "reddit.py",
-    "sourceUrl": "https://reddit.com/r/sysadmin/comments/1ucezrg/defender_av_cve202336010_still_flagged_even_on/"
-  },
-  {
-    "_id": "6a3703004ce8d84a7e43fabe",
-    "redditId": "1ub5cdv",
-    "author": "Khang5687",
-    "author_description": "I was using my Windows PC, then I suddenly got a connection request from my RustDesk Macbook, with my account name and my exact RustDesk ID!\n\nI denied the request, but this is a nightmare, I'm afraid my Macbook got compromised, but I think the likelihood of macOS having a RAT is fairly low. \n\nI tried to remote access to my Macbook from my Windows PC, but no matter what password I entered, they were all wrong; my Macbook was in sleep mode btw, I closed the lid.\n\nBecause I cannot physically be at my Macbook, I locked my Mac with Find My iPhone.\n\n  \nThe version I was using when this happened:\n\n\\- Windows PC: 1.4.2 (I think they are vulnerable to CVE-2026-30797 and CVE-2026-30792)\n\n\\- Macbook: 1.4.6\n\nThough after this I updated the Windows one\n\n  \nCan you guys please tell me what is going on? This is giving me a nightmare...\n\nhttps://preview.redd.it/sli79wv7ph8h1.jpg?width=1102&amp;format=pjpg&amp;auto=webp&amp;s=b6aa38a5f31852c0b1f3a781d717ada247651f50",
-    "awards": [],
-    "comments": [
-      {
-        "id": "ostiotw",
-        "author": "Darknicks",
-        "body": "Did you confirm if that ID belongs to your MacBook? ",
-        "score": 1,
-        "created_utc_ts": 1781984890,
-        "created_utc": "2026-06-20T19:48:10",
-        "permalink": "https://reddit.com/r/rustdesk/comments/1ub5cdv/weird_rustdesk_request_from_my_own_macbook/ostiotw/",
-        "parent_id": "t3_1ub5cdv",
-        "is_submitter": false,
-        "sentiment_score": 0,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 1,
-          "pos": 0,
-          "compound": 0
-        }
-      },
-      {
-        "id": "ostjinh",
-        "author": "Kilosren",
-        "body": "If you are not sure, \n\nChange any important passwords you used on your mqc\nBackup your docs on your mac\nWipe it out \nAdd 2fa to all your rustdesk logins",
-        "score": 3,
-        "created_utc_ts": 1781985146,
-        "created_utc": "2026-06-20T19:52:26",
-        "permalink": "https://reddit.com/r/rustdesk/comments/1ub5cdv/weird_rustdesk_request_from_my_own_macbook/ostjinh/",
-        "parent_id": "t3_1ub5cdv",
-        "is_submitter": false,
-        "sentiment_score": -0.042,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0.062,
-          "neu": 0.882,
-          "pos": 0.057,
-          "compound": -0.0418
-        }
-      },
-      {
-        "id": "osuf91b",
-        "author": "mflan1066",
-        "body": "Uninstall restart the reinstall RustDesk that should give you a new number.",
-        "score": 1,
-        "created_utc_ts": 1781995184,
-        "created_utc": "2026-06-20T22:39:44",
-        "permalink": "https://reddit.com/r/rustdesk/comments/1ub5cdv/weird_rustdesk_request_from_my_own_macbook/osuf91b/",
-        "parent_id": "t3_1ub5cdv",
-        "is_submitter": false,
-        "sentiment_score": 0.077,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 0.885,
-          "pos": 0.115,
-          "compound": 0.0772
-        }
-      },
-      {
-        "id": "osv8c3p",
-        "author": "Expert-Conclusion214",
-        "body": "Enable 2FA",
-        "score": 1,
-        "created_utc_ts": 1782005908,
-        "created_utc": "2026-06-21T01:38:28",
-        "permalink": "https://reddit.com/r/rustdesk/comments/1ub5cdv/weird_rustdesk_request_from_my_own_macbook/osv8c3p/",
-        "parent_id": "t3_1ub5cdv",
-        "is_submitter": false,
-        "sentiment_score": 0,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 1,
-          "pos": 0,
-          "compound": 0
-        }
-      }
-    ],
-    "created_utc": "2026-06-20T19:33:03",
-    "first_author_comment": null,
-    "num_comments": 4,
-    "score": 9,
-    "subreddit": "rustdesk",
-    "tag": null,
-    "tags": [],
-    "title": "WEIRD RUSTDESK REQUEST FROM MY OWN MACBOOK",
-    "updatedAt": "2026-09-10T17:44:05.637Z",
-    "upvote_ratio": 1,
-    "url": "https://reddit.com/r/rustdesk/comments/1ub5cdv/weird_rustdesk_request_from_my_own_macbook/",
-    "versionList": [],
-    "classification": {
-      "componentType": [],
-      "securityType": [
-        "UNKNOWN"
-      ]
-    },
-    "metadata": {
-      "predicted": {
-        "isUpdateRelated": true,
-        "positiveScore": 0.9407480335611552,
-        "timestampPredicted": "2026-06-21T08:01:21.124040+00:00"
-      },
-      "labeled": {
-        "isUpdateRelated": null
-      }
-    },
-    "isAboutCve": true,
-    "isAboutLatestUpdate": true,
-    "author_description_sentiment": {
-      "score": -0.81,
-      "detail": {
-        "neg": 0.096,
-        "neu": 0.857,
-        "pos": 0.047,
-        "compound": -0.8101
-      }
-    },
-    "category": "Negative",
-    "comments_avg_sentiment_score": 0.009,
-    "sentiment_score": -0.401,
-    "sourceBot": "reddit.py",
-    "sourceUrl": "https://reddit.com/r/rustdesk/comments/1ub5cdv/weird_rustdesk_request_from_my_own_macbook/"
-  },
-  {
-    "_id": "6a34464e4ce8d84a7e43368c",
-    "redditId": "1u9ea81",
-    "author": "StrangeR_825",
-    "author_description": "I reported this one. If you run the Contact Form 7 PayPal &amp; Stripe Add-on at 2.4.9 or older to take PayPal payments, update to the latest version. The bug let an order be marked paid without a matching payment, because the plugin verified that the PayPal notification was genuine but never checked the amount, currency, or recipient. It is patched now. The writeup explains the root cause and the fix in plain language.",
-    "awards": [],
-    "created_utc": "2026-06-18T18:28:58",
-    "first_author_comment": null,
-    "num_comments": 0,
-    "score": 5,
-    "subreddit": "Wordpress",
-    "tag": null,
-    "tags": [],
-    "title": "CVE-2026-9189: payment bypass in the Contact Form 7 PayPal &amp; Stripe Add-on (now patched, update if you use it)",
-    "updatedAt": "2026-09-10T17:44:19.899Z",
-    "upvote_ratio": 0.78,
-    "url": "https://reddit.com/r/Wordpress/comments/1u9ea81/cve20269189_payment_bypass_in_the_contact_form_7/",
-    "versionList": [
-      "2026.0.0",
-      "9189.0.0",
-      "7.0.0"
-    ],
-    "metadata": {
-      "predicted": {
-        "isUpdateRelated": true,
-        "positiveScore": 0.8746913554774065,
-        "timestampPredicted": "2026-06-19T04:01:13.847245+00:00"
-      },
-      "labeled": {
-        "isUpdateRelated": null
-      }
-    },
-    "isAboutCve": true,
-    "isAboutLatestUpdate": true,
-    "classification": {
-      "componentType": [],
-      "securityType": [
-        "SECURITY"
-      ]
-    },
-    "author_description_sentiment": {
-      "score": 0,
-      "detail": {
-        "neg": 0,
-        "neu": 1,
-        "pos": 0,
-        "compound": 0
-      }
-    },
-    "category": "Neutral",
-    "comments": [],
-    "comments_avg_sentiment_score": 0,
-    "sentiment_score": 0,
-    "sourceBot": "reddit.py",
-    "sourceUrl": "https://reddit.com/r/Wordpress/comments/1u9ea81/cve20269189_payment_bypass_in_the_contact_form_7/"
   }
 ]
