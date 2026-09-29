@@ -1,6 +1,6 @@
 cve,post_count,earliest_post_iso_utc,earliest_post_epoch,subreddits,example_urls
+CVE-2026-88771,4,2026-09-26T06:43:22+00:00,1790405002,Citrix;netsec,https://reddit.com/r/netsec/comments/1wsbh8j/oh_look_the_foot_gun_went_off_again_citrix/;https://reddit.com/r/Citrix/comments/1wro1yf/critical_update_citrix_netscaler_adc_and_citrix/;https://reddit.com/r/Citrix/comments/1wrnfya/citrix_advisory_out/;https://reddit.com/r/Citrix/comments/1wqjk9a/netscaler_leak/
 CVE-2008-0166,3,2026-09-26T19:37:39+00:00,1790451459,debian;homelab,https://reddit.com/r/homelab/comments/1wrncl0/sshvulnkey_is_gone_from_the_repos_and_the_2008/;https://reddit.com/r/homelab/comments/1wr1sxi/anyone_still_have_an_untouched_debianubuntu/;https://reddit.com/r/debian/comments/1wqzi4q/did_you_run_bitcoin_using_debian_in_2009_to_2011/
-CVE-2026-88771,3,2026-09-26T06:43:22+00:00,1790405002,Citrix,https://reddit.com/r/Citrix/comments/1wro1yf/critical_update_citrix_netscaler_adc_and_citrix/;https://reddit.com/r/Citrix/comments/1wrnfya/citrix_advisory_out/;https://reddit.com/r/Citrix/comments/1wqjk9a/netscaler_leak/
 CVE-2026-88778,3,2026-09-26T06:43:22+00:00,1790405002,Citrix,https://reddit.com/r/Citrix/comments/1wro1yf/critical_update_citrix_netscaler_adc_and_citrix/;https://reddit.com/r/Citrix/comments/1wrnfya/citrix_advisory_out/;https://reddit.com/r/Citrix/comments/1wqjk9a/netscaler_leak/
 CVE-2015-7547,2,2026-09-19T16:49:28+00:00,1789836568,Ubiquiti,https://reddit.com/r/Ubiquiti/comments/1wkyomd/weird_error_message_from_quad9_to_pihole_in_ips/;https://reddit.com/r/Ubiquiti/comments/1wkr5c7/repeated_cve20157547_warnings_from_one_machine/
 CVE-2026-19490,2,2026-09-18T20:32:56+00:00,1789763576,Citrix,https://reddit.com/r/Citrix/comments/1wqjk9a/netscaler_leak/;https://reddit.com/r/Citrix/comments/1wk1l87/new_research_safe_detection_tool_for_cve202619490/
@@ -40,11 +40,9 @@ CVE-2024-39943,1,2026-08-18T17:34:14+00:00,1787074454,netsec,https://reddit.com/
 CVE-2024-45411,1,2026-09-10T14:52:23+00:00,1789051943,PHP,https://reddit.com/r/PHP/comments/1wclfrt/i_built_a_composer_tool_to_answer_composer_audit/
 CVE-2024-6387,1,2026-09-24T03:21:03+00:00,1790220063,homelab,https://reddit.com/r/homelab/comments/1woqpab/r740xd_completely_locked_down_or_broken/
 CVE-2025-13032,1,2026-09-25T14:54:02+00:00,1790348042,netsec,https://reddit.com/r/netsec/comments/1wpyg75/cve202513032_entering_and_breaking_the_avast/
-CVE-2025-24857,1,2026-09-19T16:28:42+00:00,1789835322,hardwarehacking,https://reddit.com/r/hardwarehacking/comments/1wkqmiu/where_are_the_debug_pins/
 CVE-2025-31702,1,2026-08-18T17:34:14+00:00,1787074454,netsec,https://reddit.com/r/netsec/comments/1vrw3fd/operation_cameraswarm_over_14000_dahua_cameras/
 CVE-2026-0310,1,2026-09-11T15:41:01+00:00,1789141261,sysadmin,https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/
 CVE-2026-10795,1,2026-09-07T07:39:40+00:00,1788766780,Wordpress,https://reddit.com/r/Wordpress/comments/1w9lisq/updraftplus_php_backdoor_delivery_attempts_via/
-CVE-2026-11405,1,2026-09-28T00:20:49+00:00,1790554849,homelab,https://reddit.com/r/homelab/comments/1ws02te/rauter/
 CVE-2026-15409,1,2026-09-10T17:48:31+00:00,1789062511,netsec,https://reddit.com/r/netsec/comments/1wcqbvq/sonicwall_sma1000_cve202615409_ssrf_to_erlang_rce/
 CVE-2026-15459,1,2026-08-24T19:19:09+00:00,1787599149,Wordpress,https://reddit.com/r/Wordpress/comments/1vxcktc/i_need_a_sanity_check_wpmudev/
 CVE-2026-19478,1,2026-08-24T09:38:50+00:00,1787564330,gitlab,https://reddit.com/r/gitlab/comments/1vwy1ps/actively_exploited_gitlab_vulnerability/
@@ -53,6 +51,7 @@ CVE-2026-19598,1,2026-08-18T19:49:39+00:00,1787082579,Wordpress,https://reddit.c
 CVE-2026-19632,1,2026-08-25T16:37:23+00:00,1787675843,Wordpress,https://reddit.com/r/Wordpress/comments/1vy4y2i/psa_critical_98_account_takeover_in/
 CVE-2026-20288,1,2026-09-13T22:23:46+00:00,1789338226,homelab,https://reddit.com/r/homelab/comments/1wflmwb/i_replaced_my_cisco_c240_m5s_inletbased_fan_curve/
 CVE-2026-32193,1,2026-08-17T12:17:40+00:00,1786969060,netsec,https://reddit.com/r/netsec/comments/1vqqpwn/from_aks_node_root_vulnerability_to_microsoft/
+CVE-2026-32740,1,2026-09-28T10:03:49+00:00,1790589829,netsec,https://reddit.com/r/netsec/comments/1wsajyx/cve202632740_rce_in_a_pie_nextjs_sharplibheif/
 CVE-2026-32882,1,2026-09-19T10:56:26+00:00,1789815386,homeassistant,https://reddit.com/r/homeassistant/comments/1wkj5mf/openai_hacked_by_hacktron_ai_using_discourse_via/
 CVE-2026-34348,1,2026-08-17T16:17:43+00:00,1786983463,sysadmin,https://reddit.com/r/sysadmin/comments/1vqwmq6/windows_entra_login_exploit_used_from_the_event/
 CVE-2026-34743,1,2026-09-26T16:44:46+00:00,1790441086,Fedora,https://reddit.com/r/Fedora/comments/1wqv73r/fedora_44_missing_xz_cve_patches/
