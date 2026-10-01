@@ -24,7 +24,6 @@ CVE-2026-94127,2,2026-09-23T21:29:42+00:00,1790198982,netsec,https://reddit.com/
 CVE-2017-5487,1,2026-09-16T14:53:14+00:00,1789570394,Wordpress,https://reddit.com/r/Wordpress/comments/1whzh8r/securitytxt_files/
 CVE-2017-7932,1,2026-09-26T04:49:37+00:00,1790398177,hardwarehacking,https://reddit.com/r/hardwarehacking/comments/1wqhkc2/imx28_nand_firmware_extractiondecryption_cobb/
 CVE-2020-10713,1,2026-08-19T12:01:19+00:00,1787140879,netsec,https://reddit.com/r/netsec/comments/1vskftw/how_to_break_secure_boot_without_touching_any/
-CVE-2021-33044,1,2026-08-18T17:34:14+00:00,1787074454,netsec,https://reddit.com/r/netsec/comments/1vrw3fd/operation_cameraswarm_over_14000_dahua_cameras/
 CVE-2021-33045,1,2026-08-25T12:14:13+00:00,1787660053,SecurityCamera,https://reddit.com/r/SecurityCamera/comments/1vxy4by/dahua_lost_password/
 CVE-2023-42824,1,2026-09-24T09:01:30+00:00,1790240490,whatsapp,https://reddit.com/r/whatsapp/comments/1wowlgz/someone_got_into_my_whatsapp/
 CVE-2023-42916,1,2026-09-24T09:01:30+00:00,1790240490,whatsapp,https://reddit.com/r/whatsapp/comments/1wowlgz/someone_got_into_my_whatsapp/
@@ -35,12 +34,11 @@ CVE-2023-51820,1,2026-08-18T22:38:47+00:00,1787092727,hardwarehacking,https://re
 CVE-2023-5217,1,2026-09-24T09:01:30+00:00,1790240490,whatsapp,https://reddit.com/r/whatsapp/comments/1wowlgz/someone_got_into_my_whatsapp/
 CVE-2023-5879,1,2026-09-06T04:29:02+00:00,1788668942,homeassistant,https://reddit.com/r/homeassistant/comments/1w8m4e0/genie_aladdin_connect_api_leaking_other_users/
 CVE-2023-5881,1,2026-09-06T04:29:02+00:00,1788668942,homeassistant,https://reddit.com/r/homeassistant/comments/1w8m4e0/genie_aladdin_connect_api_leaking_other_users/
+CVE-2024-23692,1,2026-09-30T13:08:04+00:00,1790773684,netsec,https://reddit.com/r/netsec/comments/1wu4hwd/tales_from_the_trenches_anthropics_mythos_and/
 CVE-2024-28000,1,2026-08-26T13:59:47+00:00,1787752787,netsec,https://reddit.com/r/netsec/comments/1vyxx41/philippine_nuclear_agency_and_naval_contractor/
-CVE-2024-39943,1,2026-08-18T17:34:14+00:00,1787074454,netsec,https://reddit.com/r/netsec/comments/1vrw3fd/operation_cameraswarm_over_14000_dahua_cameras/
 CVE-2024-45411,1,2026-09-10T14:52:23+00:00,1789051943,PHP,https://reddit.com/r/PHP/comments/1wclfrt/i_built_a_composer_tool_to_answer_composer_audit/
 CVE-2024-6387,1,2026-09-24T03:21:03+00:00,1790220063,homelab,https://reddit.com/r/homelab/comments/1woqpab/r740xd_completely_locked_down_or_broken/
 CVE-2025-13032,1,2026-09-25T14:54:02+00:00,1790348042,netsec,https://reddit.com/r/netsec/comments/1wpyg75/cve202513032_entering_and_breaking_the_avast/
-CVE-2025-31702,1,2026-08-18T17:34:14+00:00,1787074454,netsec,https://reddit.com/r/netsec/comments/1vrw3fd/operation_cameraswarm_over_14000_dahua_cameras/
 CVE-2026-0310,1,2026-09-11T15:41:01+00:00,1789141261,sysadmin,https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/
 CVE-2026-10795,1,2026-09-07T07:39:40+00:00,1788766780,Wordpress,https://reddit.com/r/Wordpress/comments/1w9lisq/updraftplus_php_backdoor_delivery_attempts_via/
 CVE-2026-15409,1,2026-09-10T17:48:31+00:00,1789062511,netsec,https://reddit.com/r/netsec/comments/1wcqbvq/sonicwall_sma1000_cve202615409_ssrf_to_erlang_rce/
