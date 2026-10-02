@@ -1,38 +1,147 @@
 [
   {
-    "_id": "6abde00c1dfec7b856477a7b",
-    "redditId": "1wu4hwd",
-    "author": "scopedsecurity",
-    "author_description": null,
+    "_id": "6abefcb5ed94ec00e076b8e0",
+    "redditId": "1wvfp66",
+    "author": "ProjektGopher",
+    "author_description": "**Preface:** what follows is the _word-for-word_ transcript of the spoken dialogue in the video, chapter by chapter with timestamps, for anyone who'd rather read than click through. If this digest is still too long for you, we recommend copying it into your LLM of choice and asking for a summary of our summary.\n\n## Cold Open (00:00)\n\nPick a password longer than 72 bytes for a PHP app on the default hash. PHP keeps the first 72 and throws the rest away, without a word. Then it lets you log in with only part of it. This week someone proposed that PHP refuse instead, and the list can't agree it's worth the break.\n\nHello world, it's Thursday, October 1, 2026, and here's what happened This Week in PHP Internals. 14 stories this week, so let's get into it. *But first,*\n\nI think we can all agree that the number of small, paid subscription services we're all being bombarded with is getting a little bit out of hand. And this is what Scalpels aims to solve. It's a collection of professionally built, open source alternatives to the parts you actually use of things like Private Packagist, Mailtrap and remove.bg. You fork them into your own GitHub organization and deploy them to your own Laravel Cloud account, so you're only paying for your own usage, it scales to zero when it's not being used, and you're not just feeding another company's profits. If you want updates, you just pull them down from upstream. And since it's your own fork, you have complete control over the code and the features. And it's all MIT. Find your next tool at [scalpels.app](https://scalpels.app).\n\n## Bcrypt Limit (01:19)\n\nThis week's top story is a password that's too long. Sjoerd Langkemper's new RFC targets `password_hash` with bcrypt, which silently drops everything past the 72nd byte. He'd make that a deprecation in 8.7 and a `ValueError` in 8.8. His case is FreshRSS, where a 64-character nonce went in front of the hash, so the 72 bytes held no password at all.\n\nKamil Tekiela replied that checking the length is the application's job, not the algorithm's, and Tim Düsterhus agreed in full. It's also 72 bytes, not characters, Tim noted, so non-ASCII passwords could hit it. Rowan Tommins answered: \"If every PHP login implementation was reviewed by an expert senior developer, we would not need the password_* API in the first place. The value of this API is that it makes doing the right thing easy, so that you don't need to be an expert in the underlying algorithms to use it safely.\"\n\nRobert Chapin showed a shortened password verifying against the full one's hash, and asked: \"Is the function named password_verify going to verify the password or not?\" Tim says the lost bytes are not where the risk is, and he wrote: \"I don't necessarily disagree with the BCrypt truncation being a problem, but in this case the cure is worse than the disease.\" Derick Rethans is a minus 1, writing: \"The problem for me is that this a scary BC break.\" Overnight, Sjoerd asked Derick what would win him over, *maybe switching the default away from bcrypt first*.\n\n**Links:** [bcrypt max password length RFC](https://wiki.php.net/rfc/bcrypt_max_password_length) · [thread](https://externals.io/message/132689) · [implementation](https://github.com/php/php-src/pull/23076) · [FreshRSS bcrypt truncation write-up (CVE-2025-68402)](https://pentesterlab.com/blog/freshrss-bcrypt-truncation-auth-bypass) · [password_hash() manual](https://www.php.net/manual/en/function.password-hash.php)\n\n## Regex Object (03:00)\n\nPHP's proposed regex object has broad support and one unpopular word in its name. Gina P. Banyard's `CompiledRegex` prototype drew 18 replies, and Sjoerd Langkemper was in favour of \"improving the API, instead of slapping more flags onto the existing one.\" Larry Garfield wrote: \"I would ask that we just call it Regex, not CompiledRegex.\" Casper Langemeijer, Jordi Kroon and Juris Evertovskis also want it to lose the *Compiled*.\n\nThen there are the 8 boolean flags. Juris says named arguments already make them readable, Gina would rather pass an enum set, which PHP doesn't have yet, and Ayesh Karunaratne and Jordi Boggiano want a factory that takes the modifier letters you already know.\n\nOsama Aldemeery, who wrote the regex exceptions RFC, pointed out what a compiled pattern can't catch, writing: \"Compilation errors are only half of the error story...the other half happens at match time, on patterns that compiled just fine.\" Tim Düsterhus suggested passing the class could simply switch on throw-on-error, and Osama says he may park his RFC until Gina's reaches a vote.\n\n**Links:** [pre-RFC thread](https://externals.io/message/132609) · [prototype](https://github.com/php/php-src/pull/23868) · [PREG_THROW_ON_ERROR thread](https://externals.io/message/132426) · [composer/pcre, cited by Jordi Boggiano](https://github.com/composer/pcre)\n\n## Io Terminal (04:16)\n\nPHP may finally read single key presses without shelling out to `stty`. Pratik Bhujel's terminal extension is now the `Io\\Terminal` RFC for 8.7, covering terminal size, raw mode that restores itself, single keys and hidden input.\n\nA Symfony Console pull request, approved by Nicolas Grekas, already uses the extension when it's installed, and Nicolas wrote: \"PHP definitely needs native terminal support, calling stty is a workaround we've been carrying since way too long.\" Nicolas suggested raw mode stay on while any token for that terminal is alive and reset when the last one goes, and Pratik adopted it the same day.\n\nLarry Garfield is in favour, but called false-on-error an anti-pattern and asked for a way to mock it. Version 0.3 makes `Terminal` the interface and `SystemTerminal` the native class. Pratik is giving it the full 14 days before an intent to vote.\n\n**Links:** [Io\\Terminal RFC](https://wiki.php.net/rfc/io_terminal) · [thread](https://externals.io/message/132663) · [implementation](https://github.com/php/php-src/pull/23941) · [reference extension](https://github.com/prateekbhujel/php-terminal) · [Symfony Console PR using it](https://github.com/symfony/symfony/pull/66173)\n\n## Time Instant (05:15)\n\nThe proposed `Time\\Instant` class got a bridge back to `DateTime` this week. Tim Düsterhus and Derick Rethans added `toInstant()` to `DateTime` and `DateTimeImmutable`, and ISO strings now keep their trailing zeros, to show how precise the value is. They won't write the RFC for testing clocks, because they're not convinced it belongs in core, so Tim wrote: \"we want to invite you (as the PHP internals community) to write the follow-up RFC for testing clocks\". He also asked for a \"LGTM, ship it\" if people are happy.\n\nMirco Babin answered with 8 comments. One is that `Time\\Clock` and the PSR-20 clock both define `now()`, so one class can't implement both. Tim is keeping `now()`, with a 15-year horizon in mind, but he'll discuss a single `SystemClock::get()` with Derick. And when Mirco asked for minute precision for bus timetables, Morgan replied: \"Well, then it's not an instant, is it?\"\n\n**Links:** [Time\\Instant and Time\\Clock RFC](https://wiki.php.net/rfc/time_instant_class) · [thread](https://externals.io/message/132588) · [PSR-20 Clock](https://www.php-fig.org/psr/psr-20/)\n\n## Array Shorthand (06:14)\n\nWeilin Du wants PHP arrays to stop making you type every name twice. His new RFC turns `=$x` into `'x' =&gt; $x`, in arrays, destructuring and `foreach`. It started with a colon and switched to the equals sign within the hour, because the colon clashes with the ternary.\n\nSebastian Bergmann will vote against, writing: \"A syntax change should be backed by data, for instance an analysis of a representative body of real-world code.\" David Carlier showed that one missing comma would silently turn one valid program into another. Anton Smirnov pointed out that `compact` and `extract` still exist.\n\nOn the other side, Christian Schneider has run a local patch for this \"for many years\". Weilin pointed to the same pattern in Composer, Laravel, PHPUnit and Symfony, but says it already feels like he could withdraw the RFC.\n\n**Links:** [array shorthand RFC](https://wiki.php.net/rfc/array_shorthand) · [thread](https://externals.io/message/132700) · [implementation](https://github.com/php/php-src/pull/24034)\n\n## IO Hooks (07:14)\n\nA new RFC would let ordinary blocking PHP run concurrently, without rewriting it. Jakub Zelenka's IO Hooks starts from the fact that PHP has had Fibers since 8.1, but every blocking function still blocks the whole process, so AMPHP, ReactPHP and Revolt reimplement IO themselves.\n\nUnder his proposal, blocking calls in streams, sockets, curl and the sleep functions get handed to a provider, usually an event loop, which suspends the Fiber until the IO is done. The RFC compares it to Go's runtime. With no provider installed, PHP behaves exactly as today. With one, `sleep(1)` in one Fiber is a second of work for the others.\n\nIt depends on a second RFC posted the same evening, Polling API Additions, which fills the gaps in 8.6's Poll API, like sockets, timers and signals. IO Hooks is in an early stage, and neither has replies yet.\n\n**Links:** [IO Hooks RFC](https://wiki.php.net/rfc/io_hooks) · [IO Hooks thread](https://externals.io/message/132727) · [proof of concept](https://github.com/php/php-src/pull/23997) · [Polling API Additions RFC](https://wiki.php.net/rfc/poll_api_additions) · [Polling API Additions thread](https://externals.io/message/132725)\n\n## List Ban (08:14)\n\nThe internals list has removed a contributor. Sepehr Mahmoudi spent the last month posting new-function proposals. On September 15, Derick Rethans warned him over AI-generated content and the number of new threads. On September 21, Ilija Tovilo, as list moderator, set limits of one new thread a month and three emails a week, and called it a last warning. On Sunday Sepehr proposed another RFC, an `intl_date_format` function.\n\nOn Monday Derick confirmed that, after consultation off list, the address is blocked from emailing php.net, wiki access is withdrawn, and it's unsubscribed from the list.\n\nAnd this is a tough one. It sucks having to take the nuclear option. He was clearly eager to help, but the list had spent literal weeks trying to get him to slow down, and to stop burdening the list with AI responses, and at some point you've got to enforce the consequences that have been laid out.\n\n**Links:** [thread](https://externals.io/message/132664) · [Derick Rethans, Sep 28 (news-web)](https://news-web.php.net/php.internals/132684)\n\n## Quick Hits (09:18)\n\nQuick hits. PHP `8.6.0` RC2 is out. RC1 was skipped over a packaging error, so RC2 is the first release candidate, and RC3 is due October 8.\n\n**Links:** [PHP 8.6.0RC2](https://externals.io/message/132617) · [why RC1 was skipped](https://scherzer.dev/Blog/20260923-no-php86-rc-1)\n\nThe same day brought security releases for 8.5, 8.4, 8.3 and 8.2.\n\n**Links:** [PHP 8.5.11](https://www.php.net/releases/8_5_11.php) · [PHP 8.4.26, 8.3.35, 8.2.34](https://www.php.net/releases/)\n\nSjoerd Langkemper changed his number-base RFC to throw a plain `Exception` instead of a `ValueError`, since bad input isn't necessarily a bug in your program. `intval` stays as it is.\n\n**Links:** [number-base functions RFC](https://wiki.php.net/rfc/throw_error_for_invalid_characters_for_number_base) · [thread](https://externals.io/message/132379)\n\nJuliette Reinders Folmer wants to deprecate the `b` string prefix, a leftover from PHP 6, and Tim suggested adding it to the 8.7 deprecations RFC.\n\n**Links:** [deprecate the b prefix](https://externals.io/message/132634) · [8.7 deprecations RFC](https://wiki.php.net/rfc/deprecations_php_8_7)\n\nPedro Veloso floated a `#[Pure]` attribute the engine would enforce. Larry Garfield said it needs to do more than the static analysers already do, like memoizing.\n\n**Links:** [pure functions idea](https://externals.io/message/132643)\n\nKaroly Negyesi posted a pre-RFC with an implementation for `implements … by`, which hands an interface's methods to a property, modelled on Kotlin.\n\n**Links:** [automated delegation pre-RFC](https://externals.io/message/132737) · [implementation](https://github.com/php/php-src/pull/24030)\n\nAnd Alexander Danilov found that much of post-quantum OpenSSL already works in PHP, and offered small PRs for the gaps.\n\n**Links:** [OpenSSL post-quantum](https://externals.io/message/132629)\n\nAnd the PEAR vote Nick S. planned for September 28 hasn't opened. The RFC is still in discussion.\n\n**Links:** [End PEAR Project Endorsement RFC](https://wiki.php.net/rfc/end_pear_endorsement)\n\n## TL;DR (10:36)\n\nSo that's the week. An RFC wants bcrypt to refuse passwords past 72 bytes, and the list is split on whether it's worth the break. Several replies want the regex object called just `Regex`, `Io\\Terminal` is an RFC, and `Time\\Instant` is looking for someone to write testing clocks. The array shorthand met skeptics, and IO Hooks would make blocking code concurrent. The list also removed a contributor after two warnings. Nothing is in voting for a 7th straight week. Links below.\n\nThe PHP Foundation funds more than half of ongoing `php-src` commits, so if you use the language, maybe consider donating at [opencollective.com/phpfoundation](https://opencollective.com/phpfoundation) — or try guilting your employer into it.\n\nIf you found this useful, a like or a comment helps more people find it. And if you missed [last week's episode](https://www.reddit.com/r/PHP/comments/1wpkg6z/this_week_in_php_internals_sept_24_2026/) — where a new time class couldn't tell you what time it is — that's a good one to watch next. Thanks again to [Scalpels.app](https://scalpels.app) for supporting this week's episode. We're Artisan Build. See you next week.\n\n**Links:** [raw feed](https://externals.io) · [RFC wiki](https://wiki.php.net/rfc)",
+    "awards": [],
+    "created_utc": "2026-10-02T00:22:01",
+    "first_author_comment": null,
+    "num_comments": 0,
+    "score": 4,
+    "source": "reddit",
+    "subreddit": "PHP",
+    "tag": "News",
+    "tags": [
+      "News"
+    ],
+    "title": "This Week in PHP Internals | Oct 1, 2026",
+    "updatedAt": "2026-10-02T07:46:03.145Z",
+    "upvote_ratio": 0.64,
+    "url": "https://reddit.com/r/PHP/comments/1wvfp66/this_week_in_php_internals_oct_1_2026/",
+    "versionList": [
+      "1.0.0",
+      "2026.0.0"
+    ],
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true,
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.020656875658117226,
+        "timestampPredicted": "2026-10-02T07:10:37.166538+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "author_description_sentiment": {
+      "score": 0.925,
+      "detail": {
+        "neg": 0.056,
+        "neu": 0.879,
+        "pos": 0.066,
+        "compound": 0.9255
+      }
+    },
+    "category": "Positive",
+    "comments": [],
+    "comments_avg_sentiment_score": 0,
+    "sentiment_score": 0.463,
+    "sourceBot": "reddit.py",
+    "sourceUrl": "https://reddit.com/r/PHP/comments/1wvfp66/this_week_in_php_internals_oct_1_2026/"
+  },
+  {
+    "_id": "6abe712f1dfec7b85647c13b",
+    "redditId": "1wv0i8d",
+    "author": "twodimenssion",
+    "author_description": "Over the past nine months of engineering autonomous agent infrastructure, an inescapable architectural reality became clear. Every existing agentic memory framework relies on a fundamentally broken premise. By treating memory as a fuzzy text retrieval problem and placing a probabilistic model directly inside the execution plane, the entire AI ecosystem has built on quicksand.\n\nRelying on vector similarity metrics like cosine distance to feed an agent its past context or system rules inevitably exposes the system to permanent goal drift, state corruption, and adversarial memory poisoning vectors like MemGhost. When an agent cannot cryptographically verify its own historical lineage, catastrophic execution loops and severe hallucinations are not rare edge cases. They are mathematical certainties.\n\nTo eliminate this vulnerability at the foundational level, I stepped outside the standard mutable database paradigm and engineered STRATA, short for Sequential Topological Recording for Autonomous Transaction Authorization.\n\nSTRATA completely replaces mutable storage with a cryptographically signed, append only local log governed by FSRS6 decay algorithms. Trivial operational noise decays naturally over time, while critical system objectives remain immutably anchored. Even under an active memory injection attack, an adversary can no longer rewrite history, because every incoming state modification is forced to exist loudly on disk as an unalterable attribute record.\n\nGuarding the execution boundary behind the sandbox sits Opator Lite, a deterministic execution effect gate. Rather than attempting to guess intent through semantic text analysis, Opator Lite intercepts tool and system calls at the boundary level before execution occurs. If a proposed command violates hardcoded constraints, a default deny circuit breaker instantly trips and fails closed in under one millisecond.\n\nWhen multi agent topologies fracture or enter infinite loops, Retroactive Salience Backfill delivers instant root cause isolation. Instead of parsing ambiguous logs, the engine executes a deterministic graph traversal along the cryptographic receipt chain. It backtracks to the exact chronological index and isolates the root cause state mutation in precisely eleven milliseconds.\n\nTo clarify the exact threat model, this system is not a network firewall, container sandbox, or transport layer patch. It operates on a singular paradigm shift, I secure the cryptographic integrity of execution history rather than guessing the semantic truth of text.\n\nThe entire engine is fully open source. A reproducible local benchmark suite is included directly inside the repository so you can audit lookup latencies, decay curves, and execution bounds on your own hardware.\n\nI welcome deep architectural stress testing, community code audits, and technical questions in the comments.",
     "awards": [],
     "comments": [
       {
-        "id": "pd2159w",
-        "author": "Royallllllil",
-        "body": "The ugly part isn't Math.random() for key material — that mistake is old enough to vote — it's that the app hands remote clients raw xorshift128+ outputs in Set-Cookie, so recovering the signing key doesn't take guessing, just patience. Walking the state backwards to the process-start randomId(30) is the neat trick here. Same project already sat on CISA KEV for CVE-2024-23692 though, so if you're still exposing HFS 3.x to the internet, consider this your second wake-up call.",
-        "score": -1,
-        "created_utc_ts": 1790793235,
-        "created_utc": "2026-09-30T18:33:55",
-        "permalink": "https://reddit.com/r/netsec/comments/1wu4hwd/tales_from_the_trenches_anthropics_mythos_and/pd2159w/",
-        "parent_id": "t3_1wu4hwd",
-        "is_submitter": false
+        "id": "pd7phvf",
+        "author": "Page_Specialist",
+        "body": "Am I the only one who is outraged when they don't put the fucking link?",
+        "score": 1,
+        "created_utc_ts": 1790864621,
+        "created_utc": "2026-10-01T14:23:41",
+        "permalink": "https://reddit.com/r/openclaw/comments/1wv0i8d/openclaw_enterprise_launched_with_543_tracked/pd7phvf/",
+        "parent_id": "t3_1wv0i8d",
+        "is_submitter": false,
+        "sentiment_score": -0.542,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.212,
+          "neu": 0.788,
+          "pos": 0,
+          "compound": -0.5423
+        }
+      },
+      {
+        "id": "pd7q669",
+        "author": "twodimenssion",
+        "body": "Repo Link Here: [https://github.com/samvallad33/vestige](https://github.com/samvallad33/vestige)",
+        "score": 1,
+        "created_utc_ts": 1790864807,
+        "created_utc": "2026-10-01T14:26:47",
+        "permalink": "https://reddit.com/r/openclaw/comments/1wv0i8d/openclaw_enterprise_launched_with_543_tracked/pd7q669/",
+        "parent_id": "t3_1wv0i8d",
+        "is_submitter": true,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       }
     ],
-    "created_utc": "2026-09-30T13:08:04",
-    "first_author_comment": null,
-    "num_comments": 1,
-    "score": 12,
+    "created_utc": "2026-10-01T14:12:31",
+    "first_author_comment": "Repo Link Here: [https://github.com/samvallad33/vestige](https://github.com/samvallad33/vestige)",
+    "num_comments": 2,
+    "score": 0,
     "source": "reddit",
-    "subreddit": "netsec",
-    "tag": null,
-    "tags": [],
-    "title": "Tales from the Trenches: Anthropic’s Mythos and Rejetto HFS",
-    "updatedAt": "2026-10-01T07:21:52.753Z",
-    "upvote_ratio": 0.84,
-    "url": "https://reddit.com/r/netsec/comments/1wu4hwd/tales_from_the_trenches_anthropics_mythos_and/",
-    "versionList": [],
-    "isAboutCve": false,
-    "isAboutLatestUpdate": false
+    "subreddit": "openclaw",
+    "tag": "Showcase",
+    "tags": [
+      "Showcase"
+    ],
+    "title": "OpenClaw Enterprise Launched With 543 Tracked CVEs: How Cryptographic History Neutralized MemGhost and CVE-2026-44112.",
+    "updatedAt": "2026-10-02T04:12:18.992Z",
+    "upvote_ratio": 0,
+    "url": "https://reddit.com/r/openclaw/comments/1wv0i8d/openclaw_enterprise_launched_with_543_tracked/",
+    "versionList": [
+      "543.0.0",
+      "2026.0.0",
+      "44112.0.0"
+    ],
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true,
+    "author_description_sentiment": {
+      "score": -0.989,
+      "detail": {
+        "neg": 0.141,
+        "neu": 0.808,
+        "pos": 0.051,
+        "compound": -0.9885
+      }
+    },
+    "category": "Negative",
+    "comments_avg_sentiment_score": -0.271,
+    "sentiment_score": -0.63,
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.002057096430815642,
+        "timestampPredicted": "2026-10-02T04:11:37.272842+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "sourceBot": "reddit.py",
+    "sourceUrl": "https://reddit.com/r/openclaw/comments/1wv0i8d/openclaw_enterprise_launched_with_543_tracked/"
   },
   {
     "_id": "6abbf26b648fea6871ad30c1",
@@ -148,14 +257,14 @@
     "created_utc": "2026-09-29T13:57:34",
     "first_author_comment": null,
     "num_comments": 0,
-    "score": 30,
+    "score": 28,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Here We Go Again (Citrix NetScaler DTLS Preauth Memory Overflow CVE-2026-88772) - watchTowr Labs",
-    "updatedAt": "2026-10-01T07:21:59.515Z",
-    "upvote_ratio": 0.89,
+    "updatedAt": "2026-10-02T07:22:40.336Z",
+    "upvote_ratio": 0.9,
     "url": "https://reddit.com/r/netsec/comments/1wtattu/here_we_go_again_citrix_netscaler_dtls_preauth/",
     "versionList": [
       "2026.0.0",
@@ -204,7 +313,7 @@
     "tag": null,
     "tags": [],
     "title": "We tested Ray + vLLM distributed inference on EKS: a pod in an unrelated namespace could reach Ray GCS and raylet ports, and 4 scanners didn't flag it",
-    "updatedAt": "2026-09-30T12:41:43.115Z",
+    "updatedAt": "2026-10-02T03:58:25.533Z",
     "upvote_ratio": 0.13,
     "url": "https://reddit.com/r/kubernetes/comments/1wt5kgq/we_tested_ray_vllm_distributed_inference_on_eks_a/",
     "versionList": [
@@ -247,13 +356,13 @@
     "created_utc": "2026-09-28T10:58:09",
     "first_author_comment": null,
     "num_comments": 25,
-    "score": 77,
+    "score": 76,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Oh Look, The Foot Gun Went Off Again (Citrix NetScaler PreAuth Command Injection CVE-2026-88771) - watchTowr Labs",
-    "updatedAt": "2026-10-01T07:22:03.363Z",
+    "updatedAt": "2026-10-02T07:22:44.104Z",
     "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/netsec/comments/1wsbh8j/oh_look_the_foot_gun_went_off_again_citrix/",
     "versionList": [
@@ -277,7 +386,7 @@
         "id": "pclvxgn",
         "author": "AmITheAsshole_2020",
         "body": "That was one of the least professional company posts I've read in a long time. Is this normal for watchTowr? If I were a prospective customer, I would, frankly, keep looking.",
-        "score": 26,
+        "score": 24,
         "created_utc_ts": 1790613406,
         "created_utc": "2026-09-28T16:36:46",
         "permalink": "https://reddit.com/r/netsec/comments/1wsbh8j/oh_look_the_foot_gun_went_off_again_citrix/pclvxgn/",
@@ -288,7 +397,7 @@
         "id": "pcmbbjc",
         "author": "abluedinosaur",
         "body": "How is this not professional? It's written by an expert and is not AI slop. It explains the technical details well. \n\nFrankly, it's insane this kind of garbage code is on this type of product, as it's similar to what you would expect on a 10 year old Chinese SOHO router.\n\nIt seems like the vendor has not even bothered to run AI scanners on their own source for a very high risk area. ",
-        "score": 1,
+        "score": 2,
         "created_utc_ts": 1790617054,
         "created_utc": "2026-09-28T17:37:34",
         "permalink": "https://reddit.com/r/netsec/comments/1wsbh8j/oh_look_the_foot_gun_went_off_again_citrix/pcmbbjc/",
@@ -299,7 +408,7 @@
         "id": "pcmio3t",
         "author": "thehalfmetaljacket",
         "body": "Sadly, yes it normal for them. ",
-        "score": 24,
+        "score": 23,
         "created_utc_ts": 1790618781,
         "created_utc": "2026-09-28T18:06:21",
         "permalink": "https://reddit.com/r/netsec/comments/1wsbh8j/oh_look_the_foot_gun_went_off_again_citrix/pcmio3t/",
@@ -310,7 +419,7 @@
         "id": "pcoiimr",
         "author": "eck-",
         "body": "Found the Citrix employee.",
-        "score": 2,
+        "score": 1,
         "created_utc_ts": 1790637142,
         "created_utc": "2026-09-28T23:12:22",
         "permalink": "https://reddit.com/r/netsec/comments/1wsbh8j/oh_look_the_foot_gun_went_off_again_citrix/pcoiimr/",
@@ -321,7 +430,7 @@
         "id": "pcp9rt6",
         "author": "DingleDangleTangle",
         "body": "I literally can’t finish reading it the secondhand cringe was too difficult. Jesus Christ that is embarrassing writing to represent your company. It’s like a high schooler found a CVE and wrote a blog post about how they totally owned some noobs",
-        "score": 12,
+        "score": 13,
         "created_utc_ts": 1790645543,
         "created_utc": "2026-09-29T01:32:23",
         "permalink": "https://reddit.com/r/netsec/comments/1wsbh8j/oh_look_the_foot_gun_went_off_again_citrix/pcp9rt6/",
@@ -332,7 +441,7 @@
         "id": "pcpgldm",
         "author": "peva3",
         "body": "Yeah seriously that writeup sucked.",
-        "score": 5,
+        "score": 3,
         "created_utc_ts": 1790647680,
         "created_utc": "2026-09-29T02:08:00",
         "permalink": "https://reddit.com/r/netsec/comments/1wsbh8j/oh_look_the_foot_gun_went_off_again_citrix/pcpgldm/",
@@ -343,7 +452,7 @@
         "id": "pcpzkuo",
         "author": "beefknuckle",
         "body": "You don't read these for literary inspiration, it's for the technical details. and Watchtowr are in the top tier because of that.\n\nWrong audience I guess.",
-        "score": 3,
+        "score": 1,
         "created_utc_ts": 1790654071,
         "created_utc": "2026-09-29T03:54:31",
         "permalink": "https://reddit.com/r/netsec/comments/1wsbh8j/oh_look_the_foot_gun_went_off_again_citrix/pcpzkuo/",
@@ -398,7 +507,7 @@
         "id": "pcytyve",
         "author": "RoganDawes",
         "body": "Vendors who sell security products have a higher duty of care than others. When your product is positioned to be exposed to the unfiltered Internet (i.e. VPN gateways \\*are\\* the filter!), then you have to do better.\n\nAt a very basic level, security architecture involves minimizing unauthenticated attack surfaces in particular, but also attack surfaces in general. Take an example of OpenSSH, which is probably THE most exposed service out there. How many RCE vulns have they had in their entire existence (25+ years), compared to other \"security\" products (Fortinet, Palo Alto, Ivanti, and yes, Citrix)?\n\nWant to tell me OpenSSH coders are just better? I don't think so. They started with a secure architecture, including things like privilege separation (added in 2002), along with setting coding practices avoiding known bad constructs in the (horror!) memory-unsafe C language.\n\nAll of which to say, I can't fault the snark that comes from WatchTowr. Looking at a vuln in 2025 that had been patched in a different parameter of the same script in 2018 (Fortinet, IIRC) is just faceslapping. You do what you have to to remain sane and motivated.",
-        "score": 2,
+        "score": 3,
         "created_utc_ts": 1790759757,
         "created_utc": "2026-09-30T09:15:57",
         "permalink": "https://reddit.com/r/netsec/comments/1wsbh8j/oh_look_the_foot_gun_went_off_again_citrix/pcytyve/",
@@ -430,14 +539,14 @@
     "created_utc": "2026-09-28T10:03:49",
     "first_author_comment": null,
     "num_comments": 3,
-    "score": 11,
+    "score": 10,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-32740: RCE in a PIE Next.js sharp/libheif Stack",
-    "updatedAt": "2026-10-01T07:22:04.260Z",
-    "upvote_ratio": 0.78,
+    "updatedAt": "2026-10-02T07:22:44.982Z",
+    "upvote_ratio": 0.77,
     "url": "https://reddit.com/r/netsec/comments/1wsajyx/cve202632740_rce_in_a_pie_nextjs_sharplibheif/",
     "versionList": [
       "2026.0.0",
@@ -2679,7 +2788,7 @@
     "tag": null,
     "tags": [],
     "title": "Did you run Bitcoin using Debian in 2009 to 2011?",
-    "updatedAt": "2026-10-01T07:31:22.854Z",
+    "updatedAt": "2026-10-01T18:31:43.322Z",
     "upvote_ratio": 0.66,
     "url": "https://reddit.com/r/debian/comments/1wqzi4q/did_you_run_bitcoin_using_debian_in_2009_to_2011/",
     "versionList": [
@@ -5831,14 +5940,14 @@
     "created_utc": "2026-09-26T04:49:37",
     "first_author_comment": "we have go it, but it was definietly encrypted, unless there ways of decrypting it that have better chance of success that i havent tried.  \ni did get very far with that method",
     "num_comments": 7,
-    "score": 5,
+    "score": 4,
     "source": "reddit",
     "subreddit": "hardwarehacking",
     "tag": null,
     "tags": [],
     "title": "i.MX28 + NAND Firmware Extraction/Decryption - Cobb Tuner Unmarry Project",
-    "updatedAt": "2026-10-01T07:22:59.495Z",
-    "upvote_ratio": 0.78,
+    "updatedAt": "2026-10-02T07:23:36.261Z",
+    "upvote_ratio": 0.7,
     "url": "https://reddit.com/r/hardwarehacking/comments/1wqhkc2/imx28_nand_firmware_extractiondecryption_cobb/",
     "versionList": [],
     "isAboutCve": true,
@@ -6139,8 +6248,8 @@
     "tag": null,
     "tags": [],
     "title": "CVE-2025-13032: Entering and Breaking the Avast Antivirus Sandbox Part 2",
-    "updatedAt": "2026-10-01T07:56:18.441Z",
-    "upvote_ratio": 0.9,
+    "updatedAt": "2026-10-02T07:22:51.310Z",
+    "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/netsec/comments/1wpyg75/cve202513032_entering_and_breaking_the_avast/",
     "versionList": [
       "2025.0.0",
@@ -6180,7 +6289,7 @@
     "tag": null,
     "tags": [],
     "title": "CSRF vulnerability in Elementor 4.3.0 and 4.3.1",
-    "updatedAt": "2026-09-28T12:48:36.042Z",
+    "updatedAt": "2026-10-01T19:59:48.086Z",
     "upvote_ratio": 0.95,
     "url": "https://reddit.com/r/Wordpress/comments/1wpqz4s/csrf_vulnerability_in_elementor_430_and_431/",
     "versionList": [
@@ -6199,7 +6308,15 @@
         "created_utc": "2026-09-25T11:04:01",
         "permalink": "https://reddit.com/r/Wordpress/comments/1wpqz4s/csrf_vulnerability_in_elementor_430_and_431/pby5bza/",
         "parent_id": "t3_1wpqz4s",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "pbyw7mo",
@@ -6210,7 +6327,15 @@
         "created_utc": "2026-09-25T13:30:41",
         "permalink": "https://reddit.com/r/Wordpress/comments/1wpqz4s/csrf_vulnerability_in_elementor_430_and_431/pbyw7mo/",
         "parent_id": "t1_pby5bza",
-        "is_submitter": true
+        "is_submitter": true,
+        "sentiment_score": 0.917,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.606,
+          "pos": 0.394,
+          "compound": 0.9174
+        }
       },
       {
         "id": "pbyyikj",
@@ -6221,7 +6346,15 @@
         "created_utc": "2026-09-25T13:41:34",
         "permalink": "https://reddit.com/r/Wordpress/comments/1wpqz4s/csrf_vulnerability_in_elementor_430_and_431/pbyyikj/",
         "parent_id": "t3_1wpqz4s",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "pbz03x9",
@@ -6232,7 +6365,15 @@
         "created_utc": "2026-09-25T13:48:57",
         "permalink": "https://reddit.com/r/Wordpress/comments/1wpqz4s/csrf_vulnerability_in_elementor_430_and_431/pbz03x9/",
         "parent_id": "t3_1wpqz4s",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.924,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.176,
+          "neu": 0.824,
+          "pos": 0,
+          "compound": -0.924
+        }
       },
       {
         "id": "pbzbioz",
@@ -6243,7 +6384,15 @@
         "created_utc": "2026-09-25T14:39:36",
         "permalink": "https://reddit.com/r/Wordpress/comments/1wpqz4s/csrf_vulnerability_in_elementor_430_and_431/pbzbioz/",
         "parent_id": "t3_1wpqz4s",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.458,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.2,
+          "neu": 0.8,
+          "pos": 0,
+          "compound": -0.4576
+        }
       },
       {
         "id": "pc0m3z1",
@@ -6254,7 +6403,15 @@
         "created_utc": "2026-09-25T17:55:26",
         "permalink": "https://reddit.com/r/Wordpress/comments/1wpqz4s/csrf_vulnerability_in_elementor_430_and_431/pc0m3z1/",
         "parent_id": "t3_1wpqz4s",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.052,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0.221,
+          "neu": 0.574,
+          "pos": 0.205,
+          "compound": -0.0516
+        }
       },
       {
         "id": "pc1rb26",
@@ -6265,7 +6422,15 @@
         "created_utc": "2026-09-25T20:56:28",
         "permalink": "https://reddit.com/r/Wordpress/comments/1wpqz4s/csrf_vulnerability_in_elementor_430_and_431/pc1rb26/",
         "parent_id": "t3_1wpqz4s",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.421,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.833,
+          "pos": 0.167,
+          "compound": 0.4215
+        }
       },
       {
         "id": "pc6sxge",
@@ -6276,7 +6441,15 @@
         "created_utc": "2026-09-26T15:39:32",
         "permalink": "https://reddit.com/r/Wordpress/comments/1wpqz4s/csrf_vulnerability_in_elementor_430_and_431/pc6sxge/",
         "parent_id": "t3_1wpqz4s",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.542,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.279,
+          "neu": 0.605,
+          "pos": 0.116,
+          "compound": -0.5423
+        }
       },
       {
         "id": "pc6t5cg",
@@ -6287,7 +6460,15 @@
         "created_utc": "2026-09-26T15:40:32",
         "permalink": "https://reddit.com/r/Wordpress/comments/1wpqz4s/csrf_vulnerability_in_elementor_430_and_431/pc6t5cg/",
         "parent_id": "t1_pc6sxge",
-        "is_submitter": true
+        "is_submitter": true,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "pc8qtll",
@@ -6298,7 +6479,15 @@
         "created_utc": "2026-09-26T20:52:37",
         "permalink": "https://reddit.com/r/Wordpress/comments/1wpqz4s/csrf_vulnerability_in_elementor_430_and_431/pc8qtll/",
         "parent_id": "t1_pc6sxge",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "pccw53c",
@@ -6309,11 +6498,31 @@
         "created_utc": "2026-09-27T12:49:45",
         "permalink": "https://reddit.com/r/Wordpress/comments/1wpqz4s/csrf_vulnerability_in_elementor_430_and_431/pccw53c/",
         "parent_id": "t1_pc6sxge",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.272,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.87,
+          "pos": 0.13,
+          "compound": 0.2716
+        }
       }
     ],
     "sourceBot": "reddit.py",
-    "sourceUrl": "https://reddit.com/r/Wordpress/comments/1wpqz4s/csrf_vulnerability_in_elementor_430_and_431/"
+    "sourceUrl": "https://reddit.com/r/Wordpress/comments/1wpqz4s/csrf_vulnerability_in_elementor_430_and_431/",
+    "author_description_sentiment": {
+      "score": -0.226,
+      "detail": {
+        "neg": 0.275,
+        "neu": 0.725,
+        "pos": 0,
+        "compound": -0.2263
+      }
+    },
+    "category": "Neutral",
+    "comments_avg_sentiment_score": -0.033,
+    "sentiment_score": -0.13
   },
   {
     "_id": "6ab5dafd648fea68716f1510",
@@ -6324,14 +6533,14 @@
     "created_utc": "2026-09-25T02:13:27",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 4,
+    "score": 3,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Argus Monitor Local Denial-of-Service Vulnerability (CVE-2026-79417)",
-    "updatedAt": "2026-10-01T07:22:11.543Z",
-    "upvote_ratio": 0.76,
+    "updatedAt": "2026-10-02T07:22:52.179Z",
+    "upvote_ratio": 0.81,
     "url": "https://reddit.com/r/netsec/comments/1wpkc7q/argus_monitor_local_denialofservice_vulnerability/",
     "versionList": [
       "2026.0.0",
@@ -6364,13 +6573,13 @@
     "created_utc": "2026-09-24T20:25:58",
     "first_author_comment": "No, that's a separate problem: the fix only decides which headers survive a redirect, the wrapper still does its own DNS lookup on every hop, and there's no CURLOPT\\_RESOLVE equivalent. curl remains the right tool for that!",
     "num_comments": 2,
-    "score": 33,
+    "score": 31,
     "source": "reddit",
     "subreddit": "PHP",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-91766: PHP had the redirect credential leak curl fixed in 2018",
-    "updatedAt": "2026-10-01T07:43:44.917Z",
+    "updatedAt": "2026-10-01T20:58:48.554Z",
     "upvote_ratio": 0.97,
     "url": "https://reddit.com/r/PHP/comments/1wpcmds/cve202691766_php_had_the_redirect_credential_leak/",
     "versionList": [
@@ -6385,23 +6594,39 @@
         "id": "pbuth6f",
         "author": "ildyria",
         "body": "Hi, pretty damn cool!\n\nI am wondering, does that also solve the TOCTOU on f\\_open()/file\\_get\\_contents()? \n\nOne of the issue I have is that if you do a DNS resolve in order to validate that the domain name you are hitting is not on your internal network for example, you cannot guarantee that the resolution is going to be the same when you use the same url in f\\_open() after your check, the reason being that f\\_open does its own ns lookup.\n\nIn Lychee, we have to use curl, which allows to specify the resolution:   \nCURLOPT\\_RESOLVE =&gt; \\[$host . ':' . $port . ':' . $url-&gt;resolved\\_ip\\] for this.  \n[https://github.com/LycheeOrg/Lychee/blob/master/app/Image/Files/DownloadedFile.php#L135](https://github.com/LycheeOrg/Lychee/blob/master/app/Image/Files/DownloadedFile.php#L135)\n\nSo wondering if that gap between the two is finally closed. :)",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1790287529,
         "created_utc": "2026-09-24T22:05:29",
         "permalink": "https://reddit.com/r/PHP/comments/1wpcmds/cve202691766_php_had_the_redirect_credential_leak/pbuth6f/",
         "parent_id": "t3_1wpcmds",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.882,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.035,
+          "neu": 0.839,
+          "pos": 0.125,
+          "compound": 0.8821
+        }
       },
       {
         "id": "pbv0dqt",
         "author": "AlexandreDaubois",
         "body": "No, that's a separate problem: the fix only decides which headers survive a redirect, the wrapper still does its own DNS lookup on every hop, and there's no CURLOPT\\_RESOLVE equivalent. curl remains the right tool for that!",
-        "score": 4,
+        "score": 3,
         "created_utc_ts": 1790289663,
         "created_utc": "2026-09-24T22:41:03",
         "permalink": "https://reddit.com/r/PHP/comments/1wpcmds/cve202691766_php_had_the_redirect_credential_leak/pbv0dqt/",
         "parent_id": "t1_pbuth6f",
-        "is_submitter": true
+        "is_submitter": true,
+        "sentiment_score": -0.75,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.188,
+          "neu": 0.812,
+          "pos": 0,
+          "compound": -0.75
+        }
       }
     ],
     "sourceBot": "reddit.py",
@@ -6430,7 +6655,7 @@
         "id": "pbu6iz1",
         "author": "AlexandreDaubois",
         "body": "I co-wrote the fix we shipped in today's PHP security releases. We could argue with the origin check, because we compare scheme, host and port the way curl has since 2022 instead of following Go's \"same domain or subdomain\" rule. Once we strip the header, it stays stripped even if a later hop redirects back to the original host. I'll take questions if you have some!",
-        "score": 23,
+        "score": 20,
         "created_utc_ts": 1790281213,
         "created_utc": "2026-09-24T20:20:13",
         "permalink": "https://reddit.com/r/netsec/comments/1wpcgf9/cve202691766_php_had_the_redirect_credential_leak/pbu6iz1/",
@@ -6452,7 +6677,7 @@
         "id": "pc0e0x5",
         "author": "AlexandreDaubois",
         "body": "Indeed! But I would always advise just bumping your container/binary, there’s no risk of BC break. If you’re running a maintained version of course",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1790356876,
         "created_utc": "2026-09-25T17:21:16",
         "permalink": "https://reddit.com/r/netsec/comments/1wpcgf9/cve202691766_php_had_the_redirect_credential_leak/pc0e0x5/",
@@ -6480,7 +6705,7 @@
     "tag": null,
     "tags": [],
     "title": "CVE-2026-91766: PHP had the redirect credential leak curl fixed in 2018",
-    "updatedAt": "2026-10-01T07:22:12.792Z",
+    "updatedAt": "2026-10-02T07:22:53.430Z",
     "upvote_ratio": 0.98,
     "url": "https://reddit.com/r/netsec/comments/1wpcgf9/cve202691766_php_had_the_redirect_credential_leak/",
     "versionList": [
@@ -6826,7 +7051,7 @@
     "tag": null,
     "tags": [],
     "title": "PSA: Cisco ISE CVSS 10.0 (CVE-2026-76460) — actively exploited, no workarounds",
-    "updatedAt": "2026-09-30T20:09:04.165Z",
+    "updatedAt": "2026-10-01T20:59:01.662Z",
     "upvote_ratio": 0.72,
     "url": "https://reddit.com/r/sysadmin/comments/1wp9n8z/psa_cisco_ise_cvss_100_cve202676460_actively/",
     "versionList": [
@@ -6862,7 +7087,7 @@
         "id": "pbtlh6j",
         "author": "KingDaveRa",
         "body": "A perfect 10, nice!",
-        "score": 85,
+        "score": 79,
         "created_utc_ts": 1790275763,
         "created_utc": "2026-09-24T18:49:23",
         "permalink": "https://reddit.com/r/networking/comments/1wp9mgk/emergency_patch_advisory_cisco_ise_cve202676460/pbtlh6j/",
@@ -6873,7 +7098,7 @@
         "id": "pbtlj29",
         "author": "gotfcgo",
         "body": "They list fixed releases?",
-        "score": 9,
+        "score": 8,
         "created_utc_ts": 1790275776,
         "created_utc": "2026-09-24T18:49:36",
         "permalink": "https://reddit.com/r/networking/comments/1wp9mgk/emergency_patch_advisory_cisco_ise_cve202676460/pbtlj29/",
@@ -6895,7 +7120,7 @@
         "id": "pbto9bu",
         "author": "sideblinded",
         "body": "We did the patch 7 install for 3.4 and it went smoothly.",
-        "score": 7,
+        "score": 8,
         "created_utc_ts": 1790276469,
         "created_utc": "2026-09-24T19:01:09",
         "permalink": "https://reddit.com/r/networking/comments/1wp9mgk/emergency_patch_advisory_cisco_ise_cve202676460/pbto9bu/",
@@ -6928,7 +7153,7 @@
         "id": "pbtup32",
         "author": "farfarfinn",
         "body": "Be advised that those that use pxgrid with almost 100% chance will run into a change in regards to certificate validation so that fx a fw and pxgrid will stop working because of a cert error. \nNot a bug but a change in the way certificates are trusted. \nIf you use it already now make a TAC case and have them on standby during the upgrade. \n\nThe above information is from a friend in another company that patched just as the patch came out. \nAnd they where screwed. Fw did not allow any traffic because they didn't get any SGT updates from ISE to the fw.",
-        "score": 14,
+        "score": 11,
         "created_utc_ts": 1790278134,
         "created_utc": "2026-09-24T19:28:54",
         "permalink": "https://reddit.com/r/networking/comments/1wp9mgk/emergency_patch_advisory_cisco_ise_cve202676460/pbtup32/",
@@ -6939,7 +7164,7 @@
         "id": "pbtz183",
         "author": "SteveAngelis",
         "body": "Was just going to say, this came out a week ago and a lot of people are already patched up.",
-        "score": 20,
+        "score": 21,
         "created_utc_ts": 1790279264,
         "created_utc": "2026-09-24T19:47:44",
         "permalink": "https://reddit.com/r/networking/comments/1wp9mgk/emergency_patch_advisory_cisco_ise_cve202676460/pbtz183/",
@@ -6950,7 +7175,7 @@
         "id": "pbu1dra",
         "author": "pants6000",
         "body": "Water is wet, death and taxes, unprotected management ports will be 'sploited.",
-        "score": 36,
+        "score": 35,
         "created_utc_ts": 1790279873,
         "created_utc": "2026-09-24T19:57:53",
         "permalink": "https://reddit.com/r/networking/comments/1wp9mgk/emergency_patch_advisory_cisco_ise_cve202676460/pbu1dra/",
@@ -6961,7 +7186,7 @@
         "id": "pbu2cvk",
         "author": "Geekenstein",
         "body": "Cisco released a massive amount of patches recently, all in the 9+ range. \n\nGood to see they finally heard about this “AI” thing.",
-        "score": 2,
+        "score": 5,
         "created_utc_ts": 1790280126,
         "created_utc": "2026-09-24T20:02:06",
         "permalink": "https://reddit.com/r/networking/comments/1wp9mgk/emergency_patch_advisory_cisco_ise_cve202676460/pbu2cvk/",
@@ -6972,7 +7197,7 @@
         "id": "pbu4g51",
         "author": "morph9494",
         "body": "currently doing the ftd's......\n\n",
-        "score": 3,
+        "score": 5,
         "created_utc_ts": 1790280675,
         "created_utc": "2026-09-24T20:11:15",
         "permalink": "https://reddit.com/r/networking/comments/1wp9mgk/emergency_patch_advisory_cisco_ise_cve202676460/pbu4g51/",
@@ -7005,7 +7230,7 @@
         "id": "pbv349n",
         "author": "ElectricYello",
         "body": "This is last weeks emergency patch.",
-        "score": 7,
+        "score": 5,
         "created_utc_ts": 1790290533,
         "created_utc": "2026-09-24T22:55:33",
         "permalink": "https://reddit.com/r/networking/comments/1wp9mgk/emergency_patch_advisory_cisco_ise_cve202676460/pbv349n/",
@@ -7027,7 +7252,7 @@
         "id": "pbvyam3",
         "author": "dc88228",
         "body": "You’re a whole week behind. You need to get on your Cisco AM and see why they didn’t contact you directly",
-        "score": 12,
+        "score": 11,
         "created_utc_ts": 1790300469,
         "created_utc": "2026-09-25T01:41:09",
         "permalink": "https://reddit.com/r/networking/comments/1wp9mgk/emergency_patch_advisory_cisco_ise_cve202676460/pbvyam3/",
@@ -7049,7 +7274,7 @@
         "id": "pbwupbf",
         "author": "samsn1983",
         "body": "I really can't think of a scenario were someone would expose their mgmt interfaces of an ISE to untrusted clients.... I mean ths whole point of an ISE is to segment your network properly ",
-        "score": 8,
+        "score": 9,
         "created_utc_ts": 1790311964,
         "created_utc": "2026-09-25T04:52:44",
         "permalink": "https://reddit.com/r/networking/comments/1wp9mgk/emergency_patch_advisory_cisco_ise_cve202676460/pbwupbf/",
@@ -7060,7 +7285,7 @@
         "id": "pbyedvz",
         "author": "amarao_san",
         "body": "But it is only 10. We never patch anything below CVSS 12.5\n\n  \n/S",
-        "score": 8,
+        "score": 7,
         "created_utc_ts": 1790337574,
         "created_utc": "2026-09-25T11:59:34",
         "permalink": "https://reddit.com/r/networking/comments/1wp9mgk/emergency_patch_advisory_cisco_ise_cve202676460/pbyedvz/",
@@ -7126,13 +7351,13 @@
     "created_utc": "2026-09-24T18:30:42",
     "first_author_comment": null,
     "num_comments": 29,
-    "score": 162,
+    "score": 159,
     "source": "reddit",
     "subreddit": "networking",
     "tag": "Security",
     "tags": [],
     "title": "Emergency patch advisory: Cisco ISE CVE-2026-76460 (CVSS 10.0) — no workarounds, active exploitation",
-    "updatedAt": "2026-10-01T07:15:12.428Z",
+    "updatedAt": "2026-10-02T07:15:49.352Z",
     "upvote_ratio": 0.97,
     "url": "https://reddit.com/r/networking/comments/1wp9mgk/emergency_patch_advisory_cisco_ise_cve202676460/",
     "versionList": [
@@ -7252,7 +7477,7 @@
       "Question"
     ],
     "title": "Azure AKS Node Update Channel \"SecurityPatch\" and Kured",
-    "updatedAt": "2026-10-01T01:51:20.136Z",
+    "updatedAt": "2026-10-01T20:00:14.370Z",
     "upvote_ratio": 0.84,
     "url": "https://reddit.com/r/AZURE/comments/1wp3uw3/azure_aks_node_update_channel_securitypatch_and/",
     "versionList": [],
@@ -7288,7 +7513,7 @@
     "tag": null,
     "tags": [],
     "title": "Someone got into my WhatsApp",
-    "updatedAt": "2026-10-01T00:51:19.522Z",
+    "updatedAt": "2026-10-01T18:59:15.810Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/whatsapp/comments/1wowlgz/someone_got_into_my_whatsapp/",
     "versionList": [],
@@ -7782,7 +8007,7 @@
     "tag": "Help",
     "tags": [],
     "title": "R740XD Completely locked down, or broken?",
-    "updatedAt": "2026-10-01T05:48:36.616Z",
+    "updatedAt": "2026-10-02T02:53:25.095Z",
     "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/homelab/comments/1woqpab/r740xd_completely_locked_down_or_broken/",
     "versionList": [],
@@ -7812,14 +8037,14 @@
     "created_utc": "2026-09-23T23:20:45",
     "first_author_comment": null,
     "num_comments": 3,
-    "score": 55,
+    "score": 56,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Is This A Joke? In The Auth Header? (F5 BIG-IP UnAuth Heap-Overflow to RCE CVE-2026-94127) - watchTowr Labs",
-    "updatedAt": "2026-10-01T07:22:18.684Z",
-    "upvote_ratio": 0.82,
+    "updatedAt": "2026-10-02T07:22:59.952Z",
+    "upvote_ratio": 0.83,
     "url": "https://reddit.com/r/netsec/comments/1woli59/is_this_a_joke_in_the_auth_header_f5_bigip_unauth/",
     "versionList": [
       "2026.0.0",
@@ -7832,7 +8057,7 @@
         "id": "pbo5voy",
         "author": "synept",
         "body": "AGI isn't here. What a crappy way to end a write-up.",
-        "score": 18,
+        "score": 17,
         "created_utc_ts": 1790207928,
         "created_utc": "2026-09-23T23:58:48",
         "permalink": "https://reddit.com/r/netsec/comments/1woli59/is_this_a_joke_in_the_auth_header_f5_bigip_unauth/pbo5voy/",
@@ -7843,7 +8068,7 @@
         "id": "pbpu1jw",
         "author": "BrainPitiful5347",
         "body": "stashing payload data in the auth header is such a nasty vector, def check ur edge device logs for weird high entropy strings",
-        "score": 9,
+        "score": 10,
         "created_utc_ts": 1790230699,
         "created_utc": "2026-09-24T06:18:19",
         "permalink": "https://reddit.com/r/netsec/comments/1woli59/is_this_a_joke_in_the_auth_header_f5_bigip_unauth/pbpu1jw/",
@@ -7863,7 +8088,19 @@
       }
     ],
     "sourceBot": "reddit.py",
-    "sourceUrl": "https://reddit.com/r/netsec/comments/1woli59/is_this_a_joke_in_the_auth_header_f5_bigip_unauth/"
+    "sourceUrl": "https://reddit.com/r/netsec/comments/1woli59/is_this_a_joke_in_the_auth_header_f5_bigip_unauth/",
+    "author_description_sentiment": {
+      "score": 0,
+      "detail": {
+        "neg": 0,
+        "neu": 0,
+        "pos": 0,
+        "compound": 0
+      }
+    },
+    "category": "Neutral",
+    "comments_avg_sentiment_score": 0.031,
+    "sentiment_score": 0.015
   },
   {
     "_id": "6ab45281648fea68716e5cd3",
@@ -7909,7 +8146,7 @@
       "Discussion"
     ],
     "title": "Should dependency scanners flag unmaintained packages, or stick to CVEs?",
-    "updatedAt": "2026-09-30T13:45:37.829Z",
+    "updatedAt": "2026-10-01T12:57:11.247Z",
     "upvote_ratio": 0.5,
     "url": "https://reddit.com/r/Python/comments/1wo6ak8/should_dependency_scanners_flag_unmaintained/",
     "versionList": [],
@@ -7946,7 +8183,7 @@
     "tag": null,
     "tags": [],
     "title": "Hardened Firefox in Docker: resistFingerprinting plus a fail-closed VPN kill switch",
-    "updatedAt": "2026-09-29T23:22:18.762Z",
+    "updatedAt": "2026-10-01T11:57:30.296Z",
     "upvote_ratio": 0.67,
     "url": "https://reddit.com/r/firefox/comments/1wo4zu6/hardened_firefox_in_docker_resistfingerprinting/",
     "versionList": [],
@@ -8368,7 +8605,7 @@
     "tag": null,
     "tags": [],
     "title": "Self-healing WordPress malware survived a manual cleanup (ClickFix + MU-plugins + DB transients). Here’s how to find and remove it.",
-    "updatedAt": "2026-09-30T06:59:34.249Z",
+    "updatedAt": "2026-10-01T17:57:11.023Z",
     "upvote_ratio": 0.88,
     "url": "https://reddit.com/r/Wordpress/comments/1wnaydr/selfhealing_wordpress_malware_survived_a_manual/",
     "versionList": [],
@@ -8406,7 +8643,7 @@
       "Article"
     ],
     "title": "CVE-2026-45756: attacker-controlled regex in Symfony JsonPath filters (ReDoS)",
-    "updatedAt": "2026-09-30T09:00:06.583Z",
+    "updatedAt": "2026-10-02T05:04:09.403Z",
     "upvote_ratio": 0.89,
     "url": "https://reddit.com/r/PHP/comments/1wn7g1c/cve202645756_attackercontrolled_regex_in_symfony/",
     "versionList": [
@@ -8538,7 +8775,7 @@
         "id": "pbceaac",
         "author": "AlexandreDaubois",
         "body": "Author of the component and the fix here. Happy to take any question you may have about this CVE, the process to handle security reports or anything related!",
-        "score": 4,
+        "score": 5,
         "created_utc_ts": 1790075773,
         "created_utc": "2026-09-22T11:16:13",
         "permalink": "https://reddit.com/r/netsec/comments/1wn6m39/cve202645756_attackercontrolled_regex_in_symfony/pbceaac/",
@@ -8599,8 +8836,8 @@
     "tag": null,
     "tags": [],
     "title": "CVE-2026-45756: attacker-controlled regex in Symfony JsonPath filters (ReDoS)",
-    "updatedAt": "2026-10-01T07:22:24.386Z",
-    "upvote_ratio": 0.82,
+    "updatedAt": "2026-10-02T07:23:05.833Z",
+    "upvote_ratio": 0.8,
     "url": "https://reddit.com/r/netsec/comments/1wn6m39/cve202645756_attackercontrolled_regex_in_symfony/",
     "versionList": [
       "2026.0.0",
@@ -8632,14 +8869,14 @@
     "created_utc": "2026-09-22T07:58:09",
     "first_author_comment": null,
     "num_comments": 5,
-    "score": 45,
+    "score": 39,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "vCenter pre-auth RCE: CVE-2026-59309/59310",
-    "updatedAt": "2026-10-01T07:22:25.996Z",
-    "upvote_ratio": 0.91,
+    "updatedAt": "2026-10-02T07:23:07.542Z",
+    "upvote_ratio": 0.87,
     "url": "https://reddit.com/r/netsec/comments/1wn37be/vcenter_preauth_rce_cve20265930959310/",
     "versionList": [
       "2026.0.0",
@@ -8653,7 +8890,7 @@
         "id": "pbcw6ku",
         "author": "Real_Pepe_Silvia",
         "body": "I’m so sick of reading AI writeups. ",
-        "score": 13,
+        "score": 14,
         "created_utc_ts": 1790081990,
         "created_utc": "2026-09-22T12:59:50",
         "permalink": "https://reddit.com/r/netsec/comments/1wn37be/vcenter_preauth_rce_cve20265930959310/pbcw6ku/",
@@ -8735,8 +8972,8 @@
     "tag": "Contains AI",
     "tags": [],
     "title": "ZTE SmartHome Account Takeover: Password Reset Without Verification Code. 4 CVEs, 100K+ Android Downloads - CVE-2026-86553",
-    "updatedAt": "2026-10-01T07:57:16.595Z",
-    "upvote_ratio": 0.89,
+    "updatedAt": "2026-10-02T07:23:10.936Z",
+    "upvote_ratio": 0.87,
     "url": "https://reddit.com/r/netsec/comments/1wmhror/zte_smarthome_account_takeover_password_reset/",
     "versionList": [
       "4.0.0",
@@ -9645,39 +9882,23 @@
         "id": "pb9cy16",
         "author": "demunted",
         "body": "Wow this is bad.",
-        "score": 7,
+        "score": 5,
         "created_utc_ts": 1790031321,
         "created_utc": "2026-09-21T22:55:21",
         "permalink": "https://reddit.com/r/netsec/comments/1wmhror/zte_smarthome_account_takeover_password_reset/pb9cy16/",
         "parent_id": "t3_1wmhror",
-        "is_submitter": false,
-        "sentiment_score": 0.077,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0.376,
-          "neu": 0.215,
-          "pos": 0.409,
-          "compound": 0.0772
-        }
+        "is_submitter": false
       },
       {
         "id": "pb9dbp6",
         "author": "TheReedemer69",
         "body": "And it took them almost 4 months to solve. they made me fill a ducking docx file template to even consider looking at it : (",
-        "score": 3,
+        "score": 5,
         "created_utc_ts": 1790031441,
         "created_utc": "2026-09-21T22:57:21",
         "permalink": "https://reddit.com/r/netsec/comments/1wmhror/zte_smarthome_account_takeover_password_reset/pb9dbp6/",
         "parent_id": "t1_pb9cy16",
-        "is_submitter": true,
-        "sentiment_score": 0.137,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 0.932,
-          "pos": 0.068,
-          "compound": 0.1372
-        }
+        "is_submitter": true
       }
     ],
     "author_description_sentiment": {
@@ -9976,7 +10197,7 @@
     "tag": null,
     "tags": [],
     "title": "Major vulnerability (9.8 CVSS) in Gravity Forms plugin",
-    "updatedAt": "2026-09-30T23:51:18.231Z",
+    "updatedAt": "2026-10-01T08:58:11.677Z",
     "upvote_ratio": 0.97,
     "url": "https://reddit.com/r/Wordpress/comments/1wln8p5/major_vulnerability_98_cvss_in_gravity_forms/",
     "versionList": [
@@ -10092,7 +10313,7 @@
     "tag": "Question",
     "tags": [],
     "title": "Weird error message from Quad9 to PiHole in IPS",
-    "updatedAt": "2026-09-30T20:10:28.026Z",
+    "updatedAt": "2026-10-02T01:53:20.986Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/Ubiquiti/comments/1wkyomd/weird_error_message_from_quad9_to_pihole_in_ips/",
     "versionList": [],
@@ -10244,7 +10465,7 @@
     "tag": "Question",
     "tags": [],
     "title": "Repeated CVE-2015-7547 warnings from one machine",
-    "updatedAt": "2026-10-01T00:52:01.581Z",
+    "updatedAt": "2026-10-01T20:59:57.546Z",
     "upvote_ratio": 0.84,
     "url": "https://reddit.com/r/Ubiquiti/comments/1wkr5c7/repeated_cve20157547_warnings_from_one_machine/",
     "versionList": [
@@ -10304,7 +10525,7 @@
     "tag": "📰 News",
     "tags": [],
     "title": "OpenAI hacked by Hacktron AI using discourse via libheif",
-    "updatedAt": "2026-10-01T00:52:14.737Z",
+    "updatedAt": "2026-10-01T13:57:28.383Z",
     "upvote_ratio": 0.36,
     "url": "https://reddit.com/r/homeassistant/comments/1wkj5mf/openai_hacked_by_hacktron_ai_using_discourse_via/",
     "versionList": [],
@@ -10336,7 +10557,7 @@
         "id": "paq1plu",
         "author": "Redditperegrino",
         "body": "I’m a bit new to docker on MAC. I’m using orbstack for userland docker contianers. I don’t think I’m affected: not using docker desktop or “sandboxes”.",
-        "score": -6,
+        "score": -7,
         "created_utc_ts": 1789801048,
         "created_utc": "2026-09-19T06:57:28",
         "permalink": "https://reddit.com/r/netsec/comments/1wkeh8n/cve202677179_dockers_hypervisor_for_mac/paq1plu/",
@@ -10347,7 +10568,7 @@
         "id": "paq4e0r",
         "author": "ni5arga",
         "body": "\\&gt; Deleting the file removes the volfs path. Holding it open keeps the nodeid. Together they leave the server with nothing but the string. Then the guest replaces the parent folder with a symlink. The server reads that string and sees a path that’s inside the mounted folder and allows it, but then the kernel reads the same string, follows the symlink, and opens a file on the host outside of the mounted folder.\n\nvery interesting.",
-        "score": 48,
+        "score": 45,
         "created_utc_ts": 1789802373,
         "created_utc": "2026-09-19T07:19:33",
         "permalink": "https://reddit.com/r/netsec/comments/1wkeh8n/cve202677179_dockers_hypervisor_for_mac/paq4e0r/",
@@ -10358,7 +10579,7 @@
         "id": "paqmsa1",
         "author": "Bismalz",
         "body": "It’s talking about the Docker hypervisor, not the management application ",
-        "score": 15,
+        "score": 14,
         "created_utc_ts": 1789811962,
         "created_utc": "2026-09-19T09:59:22",
         "permalink": "https://reddit.com/r/netsec/comments/1wkeh8n/cve202677179_dockers_hypervisor_for_mac/paqmsa1/",
@@ -10369,7 +10590,7 @@
         "id": "paratbn",
         "author": "lcurole",
         "body": "That's not what the word compromised means in this context, click bait",
-        "score": 23,
+        "score": 24,
         "created_utc_ts": 1789821992,
         "created_utc": "2026-09-19T12:46:32",
         "permalink": "https://reddit.com/r/netsec/comments/1wkeh8n/cve202677179_dockers_hypervisor_for_mac/paratbn/",
@@ -10380,7 +10601,7 @@
         "id": "pasynky",
         "author": "hypnoticlife",
         "body": "\\&gt; a sandbox escape in Docker's hypervisor for Mac: a container gets complete read and write access to the host filesystem\n\nHow is this clickbait? A container escaping on my primary desktop system seems pretty important.",
-        "score": 38,
+        "score": 37,
         "created_utc_ts": 1789839042,
         "created_utc": "2026-09-19T17:30:42",
         "permalink": "https://reddit.com/r/netsec/comments/1wkeh8n/cve202677179_dockers_hypervisor_for_mac/pasynky/",
@@ -10413,13 +10634,13 @@
     "created_utc": "2026-09-19T06:25:58",
     "first_author_comment": null,
     "num_comments": 13,
-    "score": 144,
+    "score": 143,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": "Contains AI",
     "tags": [],
     "title": "CVE-2026-77179: Docker's hypervisor for Mac compromised (Docker Desktop, Docker Sandboxes)",
-    "updatedAt": "2026-10-01T07:22:33.388Z",
+    "updatedAt": "2026-10-01T13:23:31.829Z",
     "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/netsec/comments/1wkeh8n/cve202677179_dockers_hypervisor_for_mac/",
     "versionList": [
@@ -10724,7 +10945,7 @@
     "tag": null,
     "tags": [],
     "title": "A quartet of Linux local root vulns: DirtyAH6, PPPoEject, TUNderflow, and DiagSpill",
-    "updatedAt": "2026-09-30T22:13:10.001Z",
+    "updatedAt": "2026-10-01T19:00:22.078Z",
     "upvote_ratio": 0.5,
     "url": "https://reddit.com/r/netsec/comments/1wjjxd0/a_quartet_of_linux_local_root_vulns_dirtyah6/",
     "versionList": [],
@@ -10755,13 +10976,13 @@
     "created_utc": "2026-09-18T06:01:27",
     "first_author_comment": "I couldn't find any setting explicitly named \"DNSSEC validation\" so I just checked that in \"Services\" -&gt; \"DNS Resolver\" -&gt; \"General Settings\" -&gt; scroll down to \"DNSSEC\" -&gt; \"Enable DNSSEC Support\" is unchecked. This should be enough for the time being, shouldn't it?  \nI assume the \"Harden DNSSEC Data\" in the \"Advanced Settings\" then can be ignored if DNSSEC is disabled.",
     "num_comments": 31,
-    "score": 47,
+    "score": 48,
     "source": "reddit",
     "subreddit": "PFSENSE",
     "tag": null,
     "tags": [],
     "title": "Unbound CVE-2026-81642",
-    "updatedAt": "2026-10-01T07:17:08.099Z",
+    "updatedAt": "2026-10-02T07:17:37.281Z",
     "upvote_ratio": 0.98,
     "url": "https://reddit.com/r/PFSENSE/comments/1wjhz3e/unbound_cve202681642/",
     "versionList": [
@@ -10775,7 +10996,7 @@
         "id": "paiuef8",
         "author": "syncerx",
         "body": "Make sure that the DNSSEC validation is disabled.",
-        "score": 6,
+        "score": 7,
         "created_utc_ts": 1789713052,
         "created_utc": "2026-09-18T06:30:52",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1wjhz3e/unbound_cve202681642/paiuef8/",
@@ -10808,7 +11029,7 @@
         "id": "paj851l",
         "author": "Worried_Tangelo_2689",
         "body": "I couldn't find any setting explicitly named \"DNSSEC validation\" so I just checked that in \"Services\" -&gt; \"DNS Resolver\" -&gt; \"General Settings\" -&gt; scroll down to \"DNSSEC\" -&gt; \"Enable DNSSEC Support\" is unchecked. This should be enough for the time being, shouldn't it?  \nI assume the \"Harden DNSSEC Data\" in the \"Advanced Settings\" then can be ignored if DNSSEC is disabled.",
-        "score": 4,
+        "score": 5,
         "created_utc_ts": 1789720213,
         "created_utc": "2026-09-18T08:30:13",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1wjhz3e/unbound_cve202681642/paj851l/",
@@ -11128,7 +11349,7 @@
     "tag": null,
     "tags": [],
     "title": "Bubblewrap update breaks flatpak on Kubuntu",
-    "updatedAt": "2026-09-30T10:01:16.693Z",
+    "updatedAt": "2026-10-01T11:58:12.193Z",
     "upvote_ratio": 0.96,
     "url": "https://reddit.com/r/flatpak/comments/1wj0o5r/bubblewrap_update_breaks_flatpak_on_kubuntu/",
     "versionList": [],
@@ -11164,7 +11385,7 @@
     "tag": null,
     "tags": [],
     "title": "CVE-2026-90999: A fabricated Sentry bug report can make Seer's coding agent run attacker code",
-    "updatedAt": "2026-09-30T09:01:03.984Z",
+    "updatedAt": "2026-10-01T17:00:11.669Z",
     "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/netsec/comments/1wiv4bm/cve202690999_a_fabricated_sentry_bug_report_can/",
     "versionList": [
@@ -13218,7 +13439,7 @@
     "tag": "Tutorial",
     "tags": [],
     "title": "I replaced my Cisco C240 M5's inlet-based fan curve with a real CPU-temp-reactive one. 11k RPM pinned -&gt; 3k idle, ramps on actual CPU temp, survives reboots.",
-    "updatedAt": "2026-10-01T07:58:12.219Z",
+    "updatedAt": "2026-10-01T23:01:09.754Z",
     "upvote_ratio": 0.89,
     "url": "https://reddit.com/r/homelab/comments/1wflmwb/i_replaced_my_cisco_c240_m5s_inletbased_fan_curve/",
     "versionList": [],
@@ -13314,7 +13535,7 @@
     "tag": null,
     "tags": [],
     "title": "Critical RCE in ConfigServer Firewall — Update CSF Now",
-    "updatedAt": "2026-09-29T18:05:21.091Z",
+    "updatedAt": "2026-10-01T10:58:29.650Z",
     "upvote_ratio": 0.29,
     "url": "https://reddit.com/r/cpanel/comments/1wf8ra1/critical_rce_in_configserver_firewall_update_csf/",
     "versionList": [],
@@ -13445,7 +13666,7 @@
     "tag": null,
     "tags": [],
     "title": "Security updates in Google Play system updates in September 2026 as per gemini",
-    "updatedAt": "2026-10-01T01:53:14.026Z",
+    "updatedAt": "2026-10-02T01:54:08.955Z",
     "upvote_ratio": 0.15,
     "url": "https://reddit.com/r/Android/comments/1we3ubl/security_updates_in_google_play_system_updates_in/",
     "versionList": [
@@ -13483,7 +13704,7 @@
     "tag": null,
     "tags": [],
     "title": "Palo Alto CVE: PAN-OS Vulnerability Enables Arbitrary Code Execution as Root User",
-    "updatedAt": "2026-09-30T23:52:19.466Z",
+    "updatedAt": "2026-10-01T13:58:28.619Z",
     "upvote_ratio": 0.95,
     "url": "https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/",
     "versionList": [],
@@ -15626,7 +15847,7 @@
     "tag": null,
     "tags": [],
     "title": "🕵️‍♂️ SonicWall SMA1000 (CVE-2026-15409): SSRF to Erlang RCE chained into automated DCSync from the appliance",
-    "updatedAt": "2026-09-30T23:14:10.122Z",
+    "updatedAt": "2026-10-02T02:55:14.526Z",
     "upvote_ratio": 0.65,
     "url": "https://reddit.com/r/netsec/comments/1wcqbvq/sonicwall_sma1000_cve202615409_ssrf_to_erlang_rce/",
     "versionList": [
@@ -15916,7 +16137,7 @@
       "Discussion"
     ],
     "title": "I built a Composer tool to answer “composer audit found a vulnerability — what do I actually update?”",
-    "updatedAt": "2026-09-30T23:14:19.822Z",
+    "updatedAt": "2026-10-02T02:55:23.904Z",
     "upvote_ratio": 0.81,
     "url": "https://reddit.com/r/PHP/comments/1wclfrt/i_built_a_composer_tool_to_answer_composer_audit/",
     "versionList": [],
@@ -16828,7 +17049,7 @@
     "tag": "Contains AI",
     "tags": [],
     "title": "Fortinet Privileged Access Agent: Any Site Could Control Your Proxy and Watch Your Tab",
-    "updatedAt": "2026-09-30T18:07:20.519Z",
+    "updatedAt": "2026-10-01T12:59:01.776Z",
     "upvote_ratio": 0.89,
     "url": "https://reddit.com/r/netsec/comments/1wbi40d/fortinet_privileged_access_agent_any_site_could/",
     "versionList": [],
@@ -17267,7 +17488,7 @@
     "tag": null,
     "tags": [],
     "title": "MS vulnerabilities email today",
-    "updatedAt": "2026-09-30T08:03:19.052Z",
+    "updatedAt": "2026-10-02T05:06:13.480Z",
     "upvote_ratio": 0.83,
     "url": "https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/",
     "versionList": [],
@@ -17432,7 +17653,7 @@
     "tag": null,
     "tags": [],
     "title": "UpdraftPlus: PHP backdoor delivery attempts via CVE-2026-10795",
-    "updatedAt": "2026-10-01T06:59:27.506Z",
+    "updatedAt": "2026-10-01T23:02:06.277Z",
     "upvote_ratio": 0.67,
     "url": "https://reddit.com/r/Wordpress/comments/1w9lisq/updraftplus_php_backdoor_delivery_attempts_via/",
     "versionList": [
@@ -18881,7 +19102,7 @@
     "tag": null,
     "tags": [],
     "title": "Off the Hook: Discovering and Observing Active Exploitation of Sangoma Switchvox CVE-2026-9586",
-    "updatedAt": "2026-09-29T22:24:08.116Z",
+    "updatedAt": "2026-10-01T15:00:03.624Z",
     "upvote_ratio": 0.87,
     "url": "https://reddit.com/r/netsec/comments/1w4aj8x/off_the_hook_discovering_and_observing_active/",
     "versionList": [
@@ -18921,7 +19142,7 @@
     "tag": null,
     "tags": [],
     "title": "I built an automated tool to compile &amp; deploy the latest upstream open-vm-tools via Docker &amp; Ansible (multi-distro, CVE-clean)",
-    "updatedAt": "2026-10-01T05:04:44.778Z",
+    "updatedAt": "2026-10-02T01:55:15.527Z",
     "upvote_ratio": 0.75,
     "url": "https://reddit.com/r/openstack/comments/1w2dpsl/i_built_an_automated_tool_to_compile_deploy_the/",
     "versionList": [],
@@ -18993,7 +19214,7 @@
     "tag": null,
     "tags": [],
     "title": "One Resident Login, an Entire Apartment Complex: The Master PIN in Rently's API (CVE-2026-75960)",
-    "updatedAt": "2026-09-30T23:15:17.194Z",
+    "updatedAt": "2026-10-02T02:56:08.022Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/netsec/comments/1w0lg9k/one_resident_login_an_entire_apartment_complex/",
     "versionList": [
@@ -19204,7 +19425,7 @@
     "tag": null,
     "tags": [],
     "title": "CVE-2026-65643 affected versions",
-    "updatedAt": "2026-09-30T23:15:27.174Z",
+    "updatedAt": "2026-10-02T02:56:17.100Z",
     "upvote_ratio": 0.82,
     "url": "https://reddit.com/r/cpanel/comments/1w0dkzz/cve202665643_affected_versions/",
     "versionList": [
@@ -19318,7 +19539,7 @@
     "tag": null,
     "tags": [],
     "title": "Emac cve guys, you should update your Emac package",
-    "updatedAt": "2026-09-30T18:08:21.250Z",
+    "updatedAt": "2026-10-02T00:03:19.463Z",
     "upvote_ratio": 0.84,
     "url": "https://reddit.com/r/debian/comments/1vz6or9/emac_cve_guys_you_should_update_your_emac_package/",
     "versionList": [],
@@ -21534,7 +21755,7 @@
     "tag": null,
     "tags": [],
     "title": "How serious is this CVE for Elementor? ",
-    "updatedAt": "2026-09-30T05:07:09.663Z",
+    "updatedAt": "2026-10-02T05:07:16.656Z",
     "upvote_ratio": 0.5,
     "url": "https://reddit.com/r/Wordpress/comments/1vz0z3z/how_serious_is_this_cve_for_elementor/",
     "versionList": [],
@@ -21585,7 +21806,7 @@
     "tag": null,
     "tags": [],
     "title": "☢️ Philippine Nuclear Agency and Naval Contractor Targeted by Suspected Chinese-Speaking Operator",
-    "updatedAt": "2026-09-30T05:07:15.415Z",
+    "updatedAt": "2026-10-02T05:07:22.521Z",
     "upvote_ratio": 0.83,
     "url": "https://reddit.com/r/netsec/comments/1vyxx41/philippine_nuclear_agency_and_naval_contractor/",
     "versionList": [],
@@ -21638,7 +21859,7 @@
     "tag": null,
     "tags": [],
     "title": "PSA: Critical (9.8) account takeover in TranslatePress, update to 3.3.2 now",
-    "updatedAt": "2026-10-01T00:54:08.938Z",
+    "updatedAt": "2026-10-01T21:03:08.656Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/Wordpress/comments/1vy4y2i/psa_critical_98_account_takeover_in/",
     "versionList": [
@@ -22161,7 +22382,7 @@
     "tag": null,
     "tags": [],
     "title": "I need a sanity check: wpmudev",
-    "updatedAt": "2026-09-10T17:21:49.302Z",
+    "updatedAt": "2026-10-01T23:03:16.687Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/Wordpress/comments/1vxcktc/i_need_a_sanity_check_wpmudev/",
     "versionList": [],
@@ -24358,7 +24579,7 @@
     "tag": null,
     "tags": [],
     "title": "Actively exploited GitLab vulnerability (CVE-2026-19478, CVSS 9.4) - GraphQL code injection",
-    "updatedAt": "2026-09-30T06:06:11.521Z",
+    "updatedAt": "2026-10-01T09:01:07.896Z",
     "upvote_ratio": 0.67,
     "url": "https://reddit.com/r/gitlab/comments/1vwy1ps/actively_exploited_gitlab_vulnerability/",
     "versionList": [
@@ -25046,7 +25267,7 @@
     "tag": null,
     "tags": [],
     "title": "Microsoft dropped a CVSS 10.0 Entra ID RCE, said it was exploited, then walked that back a day later. No customer patch.",
-    "updatedAt": "2026-09-29T19:06:47.263Z",
+    "updatedAt": "2026-10-01T15:50:20.555Z",
     "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/sysadmin/comments/1vwibli/microsoft_dropped_a_cvss_100_entra_id_rce_said_it/",
     "versionList": [
@@ -25275,7 +25496,7 @@
     "tag": null,
     "tags": [],
     "title": "CVE-2026-59310 rant incoming",
-    "updatedAt": "2026-10-01T05:05:48.393Z",
+    "updatedAt": "2026-10-01T17:03:10.595Z",
     "upvote_ratio": 0.14,
     "url": "https://reddit.com/r/sysadmin/comments/1vud9ln/cve202659310_rant_incoming/",
     "versionList": [
@@ -25578,7 +25799,7 @@
     "tag": null,
     "tags": [],
     "title": "Critical Elementor Pro Vulnerability 9.8/10",
-    "updatedAt": "2026-10-01T05:05:49.617Z",
+    "updatedAt": "2026-10-01T17:03:12.071Z",
     "upvote_ratio": 0.95,
     "url": "https://reddit.com/r/Wordpress/comments/1vucskk/critical_elementor_pro_vulnerability_9810/",
     "versionList": [
@@ -27643,7 +27864,7 @@
       "Microsoft"
     ],
     "title": "Edge Browser Updates On WS2025 Domain Controllers?",
-    "updatedAt": "2026-09-10T17:25:50.282Z",
+    "updatedAt": "2026-10-01T12:01:11.144Z",
     "upvote_ratio": 0.63,
     "url": "https://reddit.com/r/sysadmin/comments/1vsuo5j/edge_browser_updates_on_ws2025_domain_controllers/",
     "versionList": [],
@@ -28644,7 +28865,7 @@
     "tag": "Contains AI",
     "tags": [],
     "title": "How to break secure boot without touching any cryptography",
-    "updatedAt": "2026-09-16T21:23:13.373Z",
+    "updatedAt": "2026-10-02T01:56:18.434Z",
     "upvote_ratio": 0.97,
     "url": "https://reddit.com/r/netsec/comments/1vskftw/how_to_break_secure_boot_without_touching_any/",
     "versionList": [],
@@ -28678,7 +28899,15 @@
         "created_utc": "2026-08-19T15:04:04",
         "permalink": "https://reddit.com/r/netsec/comments/1vskftw/how_to_break_secure_boot_without_touching_any/p4msq15/",
         "parent_id": "t3_1vskftw",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.791,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.84,
+          "pos": 0.16,
+          "compound": 0.7906
+        }
       },
       {
         "id": "p4nne2p",
@@ -28689,7 +28918,15 @@
         "created_utc": "2026-08-19T17:14:32",
         "permalink": "https://reddit.com/r/netsec/comments/1vskftw/how_to_break_secure_boot_without_touching_any/p4nne2p/",
         "parent_id": "t1_p4msq15",
-        "is_submitter": true
+        "is_submitter": true,
+        "sentiment_score": 0.735,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.09,
+          "neu": 0.739,
+          "pos": 0.172,
+          "compound": 0.7346
+        }
       },
       {
         "id": "p4s1lj8",
@@ -28700,7 +28937,15 @@
         "created_utc": "2026-08-20T07:22:57",
         "permalink": "https://reddit.com/r/netsec/comments/1vskftw/how_to_break_secure_boot_without_touching_any/p4s1lj8/",
         "parent_id": "t3_1vskftw",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.974,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.7,
+          "pos": 0.3,
+          "compound": 0.9743
+        }
       },
       {
         "id": "p4s2vi4",
@@ -28711,7 +28956,15 @@
         "created_utc": "2026-08-20T07:33:35",
         "permalink": "https://reddit.com/r/netsec/comments/1vskftw/how_to_break_secure_boot_without_touching_any/p4s2vi4/",
         "parent_id": "t1_p4s1lj8",
-        "is_submitter": true
+        "is_submitter": true,
+        "sentiment_score": 0.909,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.51,
+          "pos": 0.49,
+          "compound": 0.9094
+        }
       },
       {
         "id": "p4tidus",
@@ -28722,7 +28975,15 @@
         "created_utc": "2026-08-20T13:22:49",
         "permalink": "https://reddit.com/r/netsec/comments/1vskftw/how_to_break_secure_boot_without_touching_any/p4tidus/",
         "parent_id": "t3_1vskftw",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "p4vtjrq",
@@ -28733,7 +28994,15 @@
         "created_utc": "2026-08-20T19:21:06",
         "permalink": "https://reddit.com/r/netsec/comments/1vskftw/how_to_break_secure_boot_without_touching_any/p4vtjrq/",
         "parent_id": "t1_p4msq15",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.7,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.275,
+          "neu": 0.592,
+          "pos": 0.133,
+          "compound": -0.7003
+        }
       },
       {
         "id": "p4wbh38",
@@ -28744,7 +29013,15 @@
         "created_utc": "2026-08-20T20:39:54",
         "permalink": "https://reddit.com/r/netsec/comments/1vskftw/how_to_break_secure_boot_without_touching_any/p4wbh38/",
         "parent_id": "t1_p4tidus",
-        "is_submitter": true
+        "is_submitter": true,
+        "sentiment_score": 0.493,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.239,
+          "pos": 0.761,
+          "compound": 0.4926
+        }
       },
       {
         "id": "p58mbad",
@@ -28755,7 +29032,15 @@
         "created_utc": "2026-08-22T15:47:46",
         "permalink": "https://reddit.com/r/netsec/comments/1vskftw/how_to_break_secure_boot_without_touching_any/p58mbad/",
         "parent_id": "t3_1vskftw",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.943,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.184,
+          "neu": 0.795,
+          "pos": 0.021,
+          "compound": -0.943
+        }
       },
       {
         "id": "p5yi4a1",
@@ -28766,7 +29051,15 @@
         "created_utc": "2026-08-26T06:34:47",
         "permalink": "https://reddit.com/r/netsec/comments/1vskftw/how_to_break_secure_boot_without_touching_any/p5yi4a1/",
         "parent_id": "t1_p58mbad",
-        "is_submitter": true
+        "is_submitter": true,
+        "sentiment_score": 0.493,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0,
+          "pos": 1,
+          "compound": 0.4926
+        }
       },
       {
         "id": "p5ys38h",
@@ -28777,7 +29070,15 @@
         "created_utc": "2026-08-26T07:55:33",
         "permalink": "https://reddit.com/r/netsec/comments/1vskftw/how_to_break_secure_boot_without_touching_any/p5ys38h/",
         "parent_id": "t1_p4s1lj8",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.691,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.045,
+          "neu": 0.804,
+          "pos": 0.151,
+          "compound": 0.6908
+        }
       },
       {
         "id": "p6coxtb",
@@ -28788,7 +29089,15 @@
         "created_utc": "2026-08-28T03:58:10",
         "permalink": "https://reddit.com/r/netsec/comments/1vskftw/how_to_break_secure_boot_without_touching_any/p6coxtb/",
         "parent_id": "t3_1vskftw",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.858,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.052,
+          "neu": 0.705,
+          "pos": 0.243,
+          "compound": 0.8578
+        }
       }
     ],
     "author_description_sentiment": {
@@ -28823,7 +29132,7 @@
       "Question"
     ],
     "title": "Tenable - Windows Package Manager (WinGet) &lt; 1.30.80 Elevation of Privilege (CVE-2026-68821)",
-    "updatedAt": "2026-09-30T18:09:18.138Z",
+    "updatedAt": "2026-10-02T05:08:07.502Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/sysadmin/comments/1vs6uu4/tenable_windows_package_manager_winget_13080/",
     "versionList": [
@@ -28997,7 +29306,7 @@
     "tag": null,
     "tags": [],
     "title": "[Hardware/Firmware] Investigating local shell/RTSP access on Blurams A31C-family camera (SoC unconfirmed — possibly ANYKA)",
-    "updatedAt": "2026-09-30T18:09:20.997Z",
+    "updatedAt": "2026-10-02T05:08:10.623Z",
     "upvote_ratio": 0.5,
     "url": "https://reddit.com/r/hardwarehacking/comments/1vs4dtb/hardwarefirmware_investigating_local_shellrtsp/",
     "versionList": [],
@@ -29097,912 +29406,5 @@
     },
     "sourceBot": "reddit.py",
     "sourceUrl": "https://reddit.com/r/hardwarehacking/comments/1vs4dtb/hardwarefirmware_investigating_local_shellrtsp/"
-  },
-  {
-    "_id": "6a84cade49715ba391888272",
-    "redditId": "1vrzxlo",
-    "author": "KuntStink",
-    "author_description": "As an agency with several hundred sites, we see vulnerabilities pop up all the time, and update them in a timely manner. We use automatic plugin updaters through Flywheel and WP Engine to do this, and generally there is no issue.\n\nToday was different. We have the PODS plugin on about 80 of our sites, and at least 70 of them had fake administrator users added. The vulnerability patch came out on Friday and most of our sites were updated by Saturday / Sunday. \n\nNeedless to say, we've had to scramble big time to roll back sites and clean them up, removing all these users and running scans. If you use PODS, I suggest you update it as soon as you can.\n\nThis is outlined here: CVE-2026-19598\n\nI figured people in this sub might appreciate the heads up, if they aren't already aware of this!",
-    "awards": [],
-    "created_utc": "2026-08-18T19:49:39",
-    "first_author_comment": "Yeah we've been using it for years as well, and only stopped using on newer sites when we went to ACF.\n\nThe users we were seeing look like \"wp\\_dfsdas\", \"wp\\_232j\\_3213\", \"wp\\_admin\\_312312\", and most of them had random emails with either gmail or random domains.",
-    "num_comments": 16,
-    "score": 50,
-    "subreddit": "Wordpress",
-    "tag": null,
-    "tags": [],
-    "title": "PSA - Major security issue with the PODS plugin - CVE-2026-19598",
-    "updatedAt": "2026-09-30T18:09:28.070Z",
-    "upvote_ratio": 0.98,
-    "url": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/",
-    "versionList": [
-      "2026.0.0",
-      "19598.0.0"
-    ],
-    "commentCount": 12,
-    "detectedCVEs": [
-      {
-        "cveId": "CVE-2026-19598",
-        "cveIds": [
-          "CVE-2026-19598"
-        ],
-        "source": "Title",
-        "commentText": "PSA - Major security issue with the PODS plugin - CVE-2026-19598",
-        "linkToComment": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/",
-        "commentDate": "2026-08-18T19:49:39+00:00",
-        "cvePublishedDate": "2026-08-15T18:16:23.860000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 3,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-08-17T16:16:52.700 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=613246D9-E555-473D-8967-C15DC49C1DD2\n   - Added SSVC: {'timestamp': '2026-08-17T15:49:11.035762Z', 'id': 'CVE-2026-19598', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-08-15T18:16:23.860 | New CVE Received | source=security@wordfence.com | changeId=4F53DDA9-E872-4144-88EE-0008F220394B\n   - Added Affected: [{'vendor': 'sc0ttkclark', 'product': 'Pods – Custom Content Types and Fields', 'defaultStatus': 'unaffected', 'versions': [{'version': '2.8', 'lessThanOrEqual': '2.8.23.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '2.9', 'lessThanOrEqual': '2.9.19.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.0', 'lessThanOrEqual': '3.0.10.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.1', 'lessThanOrEqual': '3.1.4.1', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.2', 'lessThanOrEqual': '3.2.8.2', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.3', 'lessThanOrEqual': '3.3.9', 'versionType': 'semver', 'status': 'affected'}]}]\n   - Added Description: The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization Bypass in all versions up to, and including, 3.3.9. The vulnerability exists because the pods_admin AJAX router funnels every access check — including the method allowlist, nonce verification, login enforcement, and capability gate — through pods_error(), which under the JSON meta-box-loader compatibility path only writes failures to the PHP error log and returns false instead of terminating the request, rendering all guards ineffective.  This makes it possible for unauthenticated attackers to escalate their privileges to Administrator or overwrite the password of any user account, including the site owner's, enabling complete site takeover, or perform another administrator action.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-863\n   - Added Reference: https://plugins.trac.wordpress.org/browser/pods/tags/3.3.9/includes/general.php#L400\n   - Added Reference: https://www.wordfence.com/threat-intel/vulnerabilities/id/3628032a-3121-45a7-8a78-cfcd8ba6af2f?source=cve\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-19598",
-        "cveIds": [
-          "CVE-2026-19598"
-        ],
-        "source": "Title",
-        "commentText": "PSA - Major security issue with the PODS plugin - CVE-2026-19598",
-        "linkToComment": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/",
-        "commentDate": "2026-08-18T19:49:39+00:00",
-        "cvePublishedDate": "2026-08-15T18:16:23.860000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 3,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-08-17T16:16:52.700 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=613246D9-E555-473D-8967-C15DC49C1DD2\n   - Added SSVC: {'timestamp': '2026-08-17T15:49:11.035762Z', 'id': 'CVE-2026-19598', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-08-15T18:16:23.860 | New CVE Received | source=security@wordfence.com | changeId=4F53DDA9-E872-4144-88EE-0008F220394B\n   - Added Affected: [{'vendor': 'sc0ttkclark', 'product': 'Pods – Custom Content Types and Fields', 'defaultStatus': 'unaffected', 'versions': [{'version': '2.8', 'lessThanOrEqual': '2.8.23.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '2.9', 'lessThanOrEqual': '2.9.19.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.0', 'lessThanOrEqual': '3.0.10.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.1', 'lessThanOrEqual': '3.1.4.1', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.2', 'lessThanOrEqual': '3.2.8.2', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.3', 'lessThanOrEqual': '3.3.9', 'versionType': 'semver', 'status': 'affected'}]}]\n   - Added Description: The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization Bypass in all versions up to, and including, 3.3.9. The vulnerability exists because the pods_admin AJAX router funnels every access check — including the method allowlist, nonce verification, login enforcement, and capability gate — through pods_error(), which under the JSON meta-box-loader compatibility path only writes failures to the PHP error log and returns false instead of terminating the request, rendering all guards ineffective.  This makes it possible for unauthenticated attackers to escalate their privileges to Administrator or overwrite the password of any user account, including the site owner's, enabling complete site takeover, or perform another administrator action.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-863\n   - Added Reference: https://plugins.trac.wordpress.org/browser/pods/tags/3.3.9/includes/general.php#L400\n   - Added Reference: https://www.wordfence.com/threat-intel/vulnerabilities/id/3628032a-3121-45a7-8a78-cfcd8ba6af2f?source=cve\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-19598",
-        "cveIds": [
-          "CVE-2026-19598"
-        ],
-        "source": "Title",
-        "commentText": "PSA - Major security issue with the PODS plugin - CVE-2026-19598",
-        "linkToComment": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/",
-        "commentDate": "2026-08-18T19:49:39+00:00",
-        "cvePublishedDate": "2026-08-15T18:16:23.860000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 3,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-08-17T16:16:52.700 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=613246D9-E555-473D-8967-C15DC49C1DD2\n   - Added SSVC: {'timestamp': '2026-08-17T15:49:11.035762Z', 'id': 'CVE-2026-19598', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-08-15T18:16:23.860 | New CVE Received | source=security@wordfence.com | changeId=4F53DDA9-E872-4144-88EE-0008F220394B\n   - Added Affected: [{'vendor': 'sc0ttkclark', 'product': 'Pods – Custom Content Types and Fields', 'defaultStatus': 'unaffected', 'versions': [{'version': '2.8', 'lessThanOrEqual': '2.8.23.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '2.9', 'lessThanOrEqual': '2.9.19.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.0', 'lessThanOrEqual': '3.0.10.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.1', 'lessThanOrEqual': '3.1.4.1', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.2', 'lessThanOrEqual': '3.2.8.2', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.3', 'lessThanOrEqual': '3.3.9', 'versionType': 'semver', 'status': 'affected'}]}]\n   - Added Description: The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization Bypass in all versions up to, and including, 3.3.9. The vulnerability exists because the pods_admin AJAX router funnels every access check — including the method allowlist, nonce verification, login enforcement, and capability gate — through pods_error(), which under the JSON meta-box-loader compatibility path only writes failures to the PHP error log and returns false instead of terminating the request, rendering all guards ineffective.  This makes it possible for unauthenticated attackers to escalate their privileges to Administrator or overwrite the password of any user account, including the site owner's, enabling complete site takeover, or perform another administrator action.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-863\n   - Added Reference: https://plugins.trac.wordpress.org/browser/pods/tags/3.3.9/includes/general.php#L400\n   - Added Reference: https://www.wordfence.com/threat-intel/vulnerabilities/id/3628032a-3121-45a7-8a78-cfcd8ba6af2f?source=cve\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-19598",
-        "cveIds": [
-          "CVE-2026-19598"
-        ],
-        "source": "Title",
-        "commentText": "PSA - Major security issue with the PODS plugin - CVE-2026-19598",
-        "linkToComment": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/",
-        "commentDate": "2026-08-18T19:49:39+00:00",
-        "cvePublishedDate": "2026-08-15T18:16:23.860000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 3,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-08-17T16:16:52.700 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=613246D9-E555-473D-8967-C15DC49C1DD2\n   - Added SSVC: {'timestamp': '2026-08-17T15:49:11.035762Z', 'id': 'CVE-2026-19598', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-08-15T18:16:23.860 | New CVE Received | source=security@wordfence.com | changeId=4F53DDA9-E872-4144-88EE-0008F220394B\n   - Added Affected: [{'vendor': 'sc0ttkclark', 'product': 'Pods – Custom Content Types and Fields', 'defaultStatus': 'unaffected', 'versions': [{'version': '2.8', 'lessThanOrEqual': '2.8.23.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '2.9', 'lessThanOrEqual': '2.9.19.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.0', 'lessThanOrEqual': '3.0.10.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.1', 'lessThanOrEqual': '3.1.4.1', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.2', 'lessThanOrEqual': '3.2.8.2', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.3', 'lessThanOrEqual': '3.3.9', 'versionType': 'semver', 'status': 'affected'}]}]\n   - Added Description: The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization Bypass in all versions up to, and including, 3.3.9. The vulnerability exists because the pods_admin AJAX router funnels every access check — including the method allowlist, nonce verification, login enforcement, and capability gate — through pods_error(), which under the JSON meta-box-loader compatibility path only writes failures to the PHP error log and returns false instead of terminating the request, rendering all guards ineffective.  This makes it possible for unauthenticated attackers to escalate their privileges to Administrator or overwrite the password of any user account, including the site owner's, enabling complete site takeover, or perform another administrator action.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-863\n   - Added Reference: https://plugins.trac.wordpress.org/browser/pods/tags/3.3.9/includes/general.php#L400\n   - Added Reference: https://www.wordfence.com/threat-intel/vulnerabilities/id/3628032a-3121-45a7-8a78-cfcd8ba6af2f?source=cve\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-19598",
-        "cveIds": [
-          "CVE-2026-19598"
-        ],
-        "source": "Title",
-        "commentText": "PSA - Major security issue with the PODS plugin - CVE-2026-19598",
-        "linkToComment": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/",
-        "commentDate": "2026-08-18T19:49:39+00:00",
-        "cvePublishedDate": "2026-08-15T18:16:23.860000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 3,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-08-17T16:16:52.700 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=613246D9-E555-473D-8967-C15DC49C1DD2\n   - Added SSVC: {'timestamp': '2026-08-17T15:49:11.035762Z', 'id': 'CVE-2026-19598', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-08-15T18:16:23.860 | New CVE Received | source=security@wordfence.com | changeId=4F53DDA9-E872-4144-88EE-0008F220394B\n   - Added Affected: [{'vendor': 'sc0ttkclark', 'product': 'Pods – Custom Content Types and Fields', 'defaultStatus': 'unaffected', 'versions': [{'version': '2.8', 'lessThanOrEqual': '2.8.23.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '2.9', 'lessThanOrEqual': '2.9.19.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.0', 'lessThanOrEqual': '3.0.10.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.1', 'lessThanOrEqual': '3.1.4.1', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.2', 'lessThanOrEqual': '3.2.8.2', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.3', 'lessThanOrEqual': '3.3.9', 'versionType': 'semver', 'status': 'affected'}]}]\n   - Added Description: The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization Bypass in all versions up to, and including, 3.3.9. The vulnerability exists because the pods_admin AJAX router funnels every access check — including the method allowlist, nonce verification, login enforcement, and capability gate — through pods_error(), which under the JSON meta-box-loader compatibility path only writes failures to the PHP error log and returns false instead of terminating the request, rendering all guards ineffective.  This makes it possible for unauthenticated attackers to escalate their privileges to Administrator or overwrite the password of any user account, including the site owner's, enabling complete site takeover, or perform another administrator action.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-863\n   - Added Reference: https://plugins.trac.wordpress.org/browser/pods/tags/3.3.9/includes/general.php#L400\n   - Added Reference: https://www.wordfence.com/threat-intel/vulnerabilities/id/3628032a-3121-45a7-8a78-cfcd8ba6af2f?source=cve\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-19598",
-        "cveIds": [
-          "CVE-2026-19598"
-        ],
-        "source": "Title",
-        "commentText": "PSA - Major security issue with the PODS plugin - CVE-2026-19598",
-        "linkToComment": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/",
-        "commentDate": "2026-08-18T19:49:39+00:00",
-        "cvePublishedDate": "2026-08-15T18:16:23.860000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 3,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-08-17T16:16:52.700 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=613246D9-E555-473D-8967-C15DC49C1DD2\n   - Added SSVC: {'timestamp': '2026-08-17T15:49:11.035762Z', 'id': 'CVE-2026-19598', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-08-15T18:16:23.860 | New CVE Received | source=security@wordfence.com | changeId=4F53DDA9-E872-4144-88EE-0008F220394B\n   - Added Affected: [{'vendor': 'sc0ttkclark', 'product': 'Pods – Custom Content Types and Fields', 'defaultStatus': 'unaffected', 'versions': [{'version': '2.8', 'lessThanOrEqual': '2.8.23.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '2.9', 'lessThanOrEqual': '2.9.19.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.0', 'lessThanOrEqual': '3.0.10.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.1', 'lessThanOrEqual': '3.1.4.1', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.2', 'lessThanOrEqual': '3.2.8.2', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.3', 'lessThanOrEqual': '3.3.9', 'versionType': 'semver', 'status': 'affected'}]}]\n   - Added Description: The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization Bypass in all versions up to, and including, 3.3.9. The vulnerability exists because the pods_admin AJAX router funnels every access check — including the method allowlist, nonce verification, login enforcement, and capability gate — through pods_error(), which under the JSON meta-box-loader compatibility path only writes failures to the PHP error log and returns false instead of terminating the request, rendering all guards ineffective.  This makes it possible for unauthenticated attackers to escalate their privileges to Administrator or overwrite the password of any user account, including the site owner's, enabling complete site takeover, or perform another administrator action.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-863\n   - Added Reference: https://plugins.trac.wordpress.org/browser/pods/tags/3.3.9/includes/general.php#L400\n   - Added Reference: https://www.wordfence.com/threat-intel/vulnerabilities/id/3628032a-3121-45a7-8a78-cfcd8ba6af2f?source=cve\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-19598",
-        "cveIds": [
-          "CVE-2026-19598"
-        ],
-        "source": "Title",
-        "commentText": "PSA - Major security issue with the PODS plugin - CVE-2026-19598",
-        "linkToComment": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/",
-        "commentDate": "2026-08-18T19:49:39+00:00",
-        "cvePublishedDate": "2026-08-15T18:16:23.860000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 3,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-08-17T16:16:52.700 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=613246D9-E555-473D-8967-C15DC49C1DD2\n   - Added SSVC: {'timestamp': '2026-08-17T15:49:11.035762Z', 'id': 'CVE-2026-19598', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-08-15T18:16:23.860 | New CVE Received | source=security@wordfence.com | changeId=4F53DDA9-E872-4144-88EE-0008F220394B\n   - Added Affected: [{'vendor': 'sc0ttkclark', 'product': 'Pods – Custom Content Types and Fields', 'defaultStatus': 'unaffected', 'versions': [{'version': '2.8', 'lessThanOrEqual': '2.8.23.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '2.9', 'lessThanOrEqual': '2.9.19.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.0', 'lessThanOrEqual': '3.0.10.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.1', 'lessThanOrEqual': '3.1.4.1', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.2', 'lessThanOrEqual': '3.2.8.2', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.3', 'lessThanOrEqual': '3.3.9', 'versionType': 'semver', 'status': 'affected'}]}]\n   - Added Description: The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization Bypass in all versions up to, and including, 3.3.9. The vulnerability exists because the pods_admin AJAX router funnels every access check — including the method allowlist, nonce verification, login enforcement, and capability gate — through pods_error(), which under the JSON meta-box-loader compatibility path only writes failures to the PHP error log and returns false instead of terminating the request, rendering all guards ineffective.  This makes it possible for unauthenticated attackers to escalate their privileges to Administrator or overwrite the password of any user account, including the site owner's, enabling complete site takeover, or perform another administrator action.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-863\n   - Added Reference: https://plugins.trac.wordpress.org/browser/pods/tags/3.3.9/includes/general.php#L400\n   - Added Reference: https://www.wordfence.com/threat-intel/vulnerabilities/id/3628032a-3121-45a7-8a78-cfcd8ba6af2f?source=cve\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-19598",
-        "cveIds": [
-          "CVE-2026-19598"
-        ],
-        "source": "Title",
-        "commentText": "PSA - Major security issue with the PODS plugin - CVE-2026-19598",
-        "linkToComment": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/",
-        "commentDate": "2026-08-18T19:49:39+00:00",
-        "cvePublishedDate": "2026-08-15T18:16:23.860000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 3,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-08-17T16:16:52.700 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=613246D9-E555-473D-8967-C15DC49C1DD2\n   - Added SSVC: {'timestamp': '2026-08-17T15:49:11.035762Z', 'id': 'CVE-2026-19598', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-08-15T18:16:23.860 | New CVE Received | source=security@wordfence.com | changeId=4F53DDA9-E872-4144-88EE-0008F220394B\n   - Added Affected: [{'vendor': 'sc0ttkclark', 'product': 'Pods – Custom Content Types and Fields', 'defaultStatus': 'unaffected', 'versions': [{'version': '2.8', 'lessThanOrEqual': '2.8.23.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '2.9', 'lessThanOrEqual': '2.9.19.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.0', 'lessThanOrEqual': '3.0.10.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.1', 'lessThanOrEqual': '3.1.4.1', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.2', 'lessThanOrEqual': '3.2.8.2', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.3', 'lessThanOrEqual': '3.3.9', 'versionType': 'semver', 'status': 'affected'}]}]\n   - Added Description: The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization Bypass in all versions up to, and including, 3.3.9. The vulnerability exists because the pods_admin AJAX router funnels every access check — including the method allowlist, nonce verification, login enforcement, and capability gate — through pods_error(), which under the JSON meta-box-loader compatibility path only writes failures to the PHP error log and returns false instead of terminating the request, rendering all guards ineffective.  This makes it possible for unauthenticated attackers to escalate their privileges to Administrator or overwrite the password of any user account, including the site owner's, enabling complete site takeover, or perform another administrator action.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-863\n   - Added Reference: https://plugins.trac.wordpress.org/browser/pods/tags/3.3.9/includes/general.php#L400\n   - Added Reference: https://www.wordfence.com/threat-intel/vulnerabilities/id/3628032a-3121-45a7-8a78-cfcd8ba6af2f?source=cve\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-19598",
-        "cveIds": [
-          "CVE-2026-19598"
-        ],
-        "source": "Title",
-        "commentText": "PSA - Major security issue with the PODS plugin - CVE-2026-19598",
-        "linkToComment": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/",
-        "commentDate": "2026-08-18T19:49:39+00:00",
-        "cvePublishedDate": "2026-08-15T18:16:23.860000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 3,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-08-17T16:16:52.700 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=613246D9-E555-473D-8967-C15DC49C1DD2\n   - Added SSVC: {'timestamp': '2026-08-17T15:49:11.035762Z', 'id': 'CVE-2026-19598', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-08-15T18:16:23.860 | New CVE Received | source=security@wordfence.com | changeId=4F53DDA9-E872-4144-88EE-0008F220394B\n   - Added Affected: [{'vendor': 'sc0ttkclark', 'product': 'Pods – Custom Content Types and Fields', 'defaultStatus': 'unaffected', 'versions': [{'version': '2.8', 'lessThanOrEqual': '2.8.23.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '2.9', 'lessThanOrEqual': '2.9.19.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.0', 'lessThanOrEqual': '3.0.10.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.1', 'lessThanOrEqual': '3.1.4.1', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.2', 'lessThanOrEqual': '3.2.8.2', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.3', 'lessThanOrEqual': '3.3.9', 'versionType': 'semver', 'status': 'affected'}]}]\n   - Added Description: The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization Bypass in all versions up to, and including, 3.3.9. The vulnerability exists because the pods_admin AJAX router funnels every access check — including the method allowlist, nonce verification, login enforcement, and capability gate — through pods_error(), which under the JSON meta-box-loader compatibility path only writes failures to the PHP error log and returns false instead of terminating the request, rendering all guards ineffective.  This makes it possible for unauthenticated attackers to escalate their privileges to Administrator or overwrite the password of any user account, including the site owner's, enabling complete site takeover, or perform another administrator action.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-863\n   - Added Reference: https://plugins.trac.wordpress.org/browser/pods/tags/3.3.9/includes/general.php#L400\n   - Added Reference: https://www.wordfence.com/threat-intel/vulnerabilities/id/3628032a-3121-45a7-8a78-cfcd8ba6af2f?source=cve\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-19598",
-        "cveIds": [
-          "CVE-2026-19598"
-        ],
-        "source": "Title",
-        "commentText": "PSA - Major security issue with the PODS plugin - CVE-2026-19598",
-        "linkToComment": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/",
-        "commentDate": "2026-08-18T19:49:39+00:00",
-        "cvePublishedDate": "2026-08-15T18:16:23.860000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 3,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-08-17T16:16:52.700 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=613246D9-E555-473D-8967-C15DC49C1DD2\n   - Added SSVC: {'timestamp': '2026-08-17T15:49:11.035762Z', 'id': 'CVE-2026-19598', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-08-15T18:16:23.860 | New CVE Received | source=security@wordfence.com | changeId=4F53DDA9-E872-4144-88EE-0008F220394B\n   - Added Affected: [{'vendor': 'sc0ttkclark', 'product': 'Pods – Custom Content Types and Fields', 'defaultStatus': 'unaffected', 'versions': [{'version': '2.8', 'lessThanOrEqual': '2.8.23.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '2.9', 'lessThanOrEqual': '2.9.19.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.0', 'lessThanOrEqual': '3.0.10.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.1', 'lessThanOrEqual': '3.1.4.1', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.2', 'lessThanOrEqual': '3.2.8.2', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.3', 'lessThanOrEqual': '3.3.9', 'versionType': 'semver', 'status': 'affected'}]}]\n   - Added Description: The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization Bypass in all versions up to, and including, 3.3.9. The vulnerability exists because the pods_admin AJAX router funnels every access check — including the method allowlist, nonce verification, login enforcement, and capability gate — through pods_error(), which under the JSON meta-box-loader compatibility path only writes failures to the PHP error log and returns false instead of terminating the request, rendering all guards ineffective.  This makes it possible for unauthenticated attackers to escalate their privileges to Administrator or overwrite the password of any user account, including the site owner's, enabling complete site takeover, or perform another administrator action.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-863\n   - Added Reference: https://plugins.trac.wordpress.org/browser/pods/tags/3.3.9/includes/general.php#L400\n   - Added Reference: https://www.wordfence.com/threat-intel/vulnerabilities/id/3628032a-3121-45a7-8a78-cfcd8ba6af2f?source=cve\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-19598",
-        "cveIds": [
-          "CVE-2026-19598"
-        ],
-        "source": "Title",
-        "commentText": "PSA - Major security issue with the PODS plugin - CVE-2026-19598",
-        "linkToComment": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/",
-        "commentDate": "2026-08-18T19:49:39+00:00",
-        "cvePublishedDate": "2026-08-15T18:16:23.860000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 3,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-08-17T16:16:52.700 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=613246D9-E555-473D-8967-C15DC49C1DD2\n   - Added SSVC: {'timestamp': '2026-08-17T15:49:11.035762Z', 'id': 'CVE-2026-19598', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-08-15T18:16:23.860 | New CVE Received | source=security@wordfence.com | changeId=4F53DDA9-E872-4144-88EE-0008F220394B\n   - Added Affected: [{'vendor': 'sc0ttkclark', 'product': 'Pods – Custom Content Types and Fields', 'defaultStatus': 'unaffected', 'versions': [{'version': '2.8', 'lessThanOrEqual': '2.8.23.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '2.9', 'lessThanOrEqual': '2.9.19.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.0', 'lessThanOrEqual': '3.0.10.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.1', 'lessThanOrEqual': '3.1.4.1', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.2', 'lessThanOrEqual': '3.2.8.2', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.3', 'lessThanOrEqual': '3.3.9', 'versionType': 'semver', 'status': 'affected'}]}]\n   - Added Description: The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization Bypass in all versions up to, and including, 3.3.9. The vulnerability exists because the pods_admin AJAX router funnels every access check — including the method allowlist, nonce verification, login enforcement, and capability gate — through pods_error(), which under the JSON meta-box-loader compatibility path only writes failures to the PHP error log and returns false instead of terminating the request, rendering all guards ineffective.  This makes it possible for unauthenticated attackers to escalate their privileges to Administrator or overwrite the password of any user account, including the site owner's, enabling complete site takeover, or perform another administrator action.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-863\n   - Added Reference: https://plugins.trac.wordpress.org/browser/pods/tags/3.3.9/includes/general.php#L400\n   - Added Reference: https://www.wordfence.com/threat-intel/vulnerabilities/id/3628032a-3121-45a7-8a78-cfcd8ba6af2f?source=cve\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-19598",
-        "cveIds": [
-          "CVE-2026-19598"
-        ],
-        "source": "Title",
-        "commentText": "PSA - Major security issue with the PODS plugin - CVE-2026-19598",
-        "linkToComment": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/",
-        "commentDate": "2026-08-18T19:49:39+00:00",
-        "cvePublishedDate": "2026-08-15T18:16:23.860000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 3,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-08-17T16:16:52.700 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=613246D9-E555-473D-8967-C15DC49C1DD2\n   - Added SSVC: {'timestamp': '2026-08-17T15:49:11.035762Z', 'id': 'CVE-2026-19598', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-08-15T18:16:23.860 | New CVE Received | source=security@wordfence.com | changeId=4F53DDA9-E872-4144-88EE-0008F220394B\n   - Added Affected: [{'vendor': 'sc0ttkclark', 'product': 'Pods – Custom Content Types and Fields', 'defaultStatus': 'unaffected', 'versions': [{'version': '2.8', 'lessThanOrEqual': '2.8.23.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '2.9', 'lessThanOrEqual': '2.9.19.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.0', 'lessThanOrEqual': '3.0.10.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.1', 'lessThanOrEqual': '3.1.4.1', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.2', 'lessThanOrEqual': '3.2.8.2', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.3', 'lessThanOrEqual': '3.3.9', 'versionType': 'semver', 'status': 'affected'}]}]\n   - Added Description: The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization Bypass in all versions up to, and including, 3.3.9. The vulnerability exists because the pods_admin AJAX router funnels every access check — including the method allowlist, nonce verification, login enforcement, and capability gate — through pods_error(), which under the JSON meta-box-loader compatibility path only writes failures to the PHP error log and returns false instead of terminating the request, rendering all guards ineffective.  This makes it possible for unauthenticated attackers to escalate their privileges to Administrator or overwrite the password of any user account, including the site owner's, enabling complete site takeover, or perform another administrator action.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-863\n   - Added Reference: https://plugins.trac.wordpress.org/browser/pods/tags/3.3.9/includes/general.php#L400\n   - Added Reference: https://www.wordfence.com/threat-intel/vulnerabilities/id/3628032a-3121-45a7-8a78-cfcd8ba6af2f?source=cve\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-19598",
-        "cveIds": [
-          "CVE-2026-19598"
-        ],
-        "source": "Title",
-        "commentText": "PSA - Major security issue with the PODS plugin - CVE-2026-19598",
-        "linkToComment": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/",
-        "commentDate": "2026-08-18T19:49:39+00:00",
-        "cvePublishedDate": "2026-08-15T18:16:23.860000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 3,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-08-17T16:16:52.700 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=613246D9-E555-473D-8967-C15DC49C1DD2\n   - Added SSVC: {'timestamp': '2026-08-17T15:49:11.035762Z', 'id': 'CVE-2026-19598', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-08-15T18:16:23.860 | New CVE Received | source=security@wordfence.com | changeId=4F53DDA9-E872-4144-88EE-0008F220394B\n   - Added Affected: [{'vendor': 'sc0ttkclark', 'product': 'Pods – Custom Content Types and Fields', 'defaultStatus': 'unaffected', 'versions': [{'version': '2.8', 'lessThanOrEqual': '2.8.23.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '2.9', 'lessThanOrEqual': '2.9.19.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.0', 'lessThanOrEqual': '3.0.10.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.1', 'lessThanOrEqual': '3.1.4.1', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.2', 'lessThanOrEqual': '3.2.8.2', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.3', 'lessThanOrEqual': '3.3.9', 'versionType': 'semver', 'status': 'affected'}]}]\n   - Added Description: The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization Bypass in all versions up to, and including, 3.3.9. The vulnerability exists because the pods_admin AJAX router funnels every access check — including the method allowlist, nonce verification, login enforcement, and capability gate — through pods_error(), which under the JSON meta-box-loader compatibility path only writes failures to the PHP error log and returns false instead of terminating the request, rendering all guards ineffective.  This makes it possible for unauthenticated attackers to escalate their privileges to Administrator or overwrite the password of any user account, including the site owner's, enabling complete site takeover, or perform another administrator action.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-863\n   - Added Reference: https://plugins.trac.wordpress.org/browser/pods/tags/3.3.9/includes/general.php#L400\n   - Added Reference: https://www.wordfence.com/threat-intel/vulnerabilities/id/3628032a-3121-45a7-8a78-cfcd8ba6af2f?source=cve\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-19598",
-        "cveIds": [
-          "CVE-2026-19598"
-        ],
-        "source": "Title",
-        "commentText": "PSA - Major security issue with the PODS plugin - CVE-2026-19598",
-        "linkToComment": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/",
-        "commentDate": "2026-08-18T19:49:39+00:00",
-        "cvePublishedDate": "2026-08-15T18:16:23.860000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 3,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-08-17T16:16:52.700 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=613246D9-E555-473D-8967-C15DC49C1DD2\n   - Added SSVC: {'timestamp': '2026-08-17T15:49:11.035762Z', 'id': 'CVE-2026-19598', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-08-15T18:16:23.860 | New CVE Received | source=security@wordfence.com | changeId=4F53DDA9-E872-4144-88EE-0008F220394B\n   - Added Affected: [{'vendor': 'sc0ttkclark', 'product': 'Pods – Custom Content Types and Fields', 'defaultStatus': 'unaffected', 'versions': [{'version': '2.8', 'lessThanOrEqual': '2.8.23.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '2.9', 'lessThanOrEqual': '2.9.19.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.0', 'lessThanOrEqual': '3.0.10.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.1', 'lessThanOrEqual': '3.1.4.1', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.2', 'lessThanOrEqual': '3.2.8.2', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.3', 'lessThanOrEqual': '3.3.9', 'versionType': 'semver', 'status': 'affected'}]}]\n   - Added Description: The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization Bypass in all versions up to, and including, 3.3.9. The vulnerability exists because the pods_admin AJAX router funnels every access check — including the method allowlist, nonce verification, login enforcement, and capability gate — through pods_error(), which under the JSON meta-box-loader compatibility path only writes failures to the PHP error log and returns false instead of terminating the request, rendering all guards ineffective.  This makes it possible for unauthenticated attackers to escalate their privileges to Administrator or overwrite the password of any user account, including the site owner's, enabling complete site takeover, or perform another administrator action.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-863\n   - Added Reference: https://plugins.trac.wordpress.org/browser/pods/tags/3.3.9/includes/general.php#L400\n   - Added Reference: https://www.wordfence.com/threat-intel/vulnerabilities/id/3628032a-3121-45a7-8a78-cfcd8ba6af2f?source=cve\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-19598",
-        "cveIds": [
-          "CVE-2026-19598"
-        ],
-        "source": "Title",
-        "commentText": "PSA - Major security issue with the PODS plugin - CVE-2026-19598",
-        "linkToComment": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/",
-        "commentDate": "2026-08-18T19:49:39+00:00",
-        "cvePublishedDate": "2026-08-15T18:16:23.860000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 3,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-08-17T16:16:52.700 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=613246D9-E555-473D-8967-C15DC49C1DD2\n   - Added SSVC: {'timestamp': '2026-08-17T15:49:11.035762Z', 'id': 'CVE-2026-19598', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-08-15T18:16:23.860 | New CVE Received | source=security@wordfence.com | changeId=4F53DDA9-E872-4144-88EE-0008F220394B\n   - Added Affected: [{'vendor': 'sc0ttkclark', 'product': 'Pods – Custom Content Types and Fields', 'defaultStatus': 'unaffected', 'versions': [{'version': '2.8', 'lessThanOrEqual': '2.8.23.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '2.9', 'lessThanOrEqual': '2.9.19.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.0', 'lessThanOrEqual': '3.0.10.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.1', 'lessThanOrEqual': '3.1.4.1', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.2', 'lessThanOrEqual': '3.2.8.2', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.3', 'lessThanOrEqual': '3.3.9', 'versionType': 'semver', 'status': 'affected'}]}]\n   - Added Description: The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization Bypass in all versions up to, and including, 3.3.9. The vulnerability exists because the pods_admin AJAX router funnels every access check — including the method allowlist, nonce verification, login enforcement, and capability gate — through pods_error(), which under the JSON meta-box-loader compatibility path only writes failures to the PHP error log and returns false instead of terminating the request, rendering all guards ineffective.  This makes it possible for unauthenticated attackers to escalate their privileges to Administrator or overwrite the password of any user account, including the site owner's, enabling complete site takeover, or perform another administrator action.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-863\n   - Added Reference: https://plugins.trac.wordpress.org/browser/pods/tags/3.3.9/includes/general.php#L400\n   - Added Reference: https://www.wordfence.com/threat-intel/vulnerabilities/id/3628032a-3121-45a7-8a78-cfcd8ba6af2f?source=cve\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-19598",
-        "cveIds": [
-          "CVE-2026-19598"
-        ],
-        "source": "Title",
-        "commentText": "PSA - Major security issue with the PODS plugin - CVE-2026-19598",
-        "linkToComment": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/",
-        "commentDate": "2026-08-18T19:49:39+00:00",
-        "cvePublishedDate": "2026-08-15T18:16:23.860000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 3,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-08-17T16:16:52.700 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=613246D9-E555-473D-8967-C15DC49C1DD2\n   - Added SSVC: {'timestamp': '2026-08-17T15:49:11.035762Z', 'id': 'CVE-2026-19598', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-08-15T18:16:23.860 | New CVE Received | source=security@wordfence.com | changeId=4F53DDA9-E872-4144-88EE-0008F220394B\n   - Added Affected: [{'vendor': 'sc0ttkclark', 'product': 'Pods – Custom Content Types and Fields', 'defaultStatus': 'unaffected', 'versions': [{'version': '2.8', 'lessThanOrEqual': '2.8.23.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '2.9', 'lessThanOrEqual': '2.9.19.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.0', 'lessThanOrEqual': '3.0.10.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.1', 'lessThanOrEqual': '3.1.4.1', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.2', 'lessThanOrEqual': '3.2.8.2', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.3', 'lessThanOrEqual': '3.3.9', 'versionType': 'semver', 'status': 'affected'}]}]\n   - Added Description: The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization Bypass in all versions up to, and including, 3.3.9. The vulnerability exists because the pods_admin AJAX router funnels every access check — including the method allowlist, nonce verification, login enforcement, and capability gate — through pods_error(), which under the JSON meta-box-loader compatibility path only writes failures to the PHP error log and returns false instead of terminating the request, rendering all guards ineffective.  This makes it possible for unauthenticated attackers to escalate their privileges to Administrator or overwrite the password of any user account, including the site owner's, enabling complete site takeover, or perform another administrator action.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-863\n   - Added Reference: https://plugins.trac.wordpress.org/browser/pods/tags/3.3.9/includes/general.php#L400\n   - Added Reference: https://www.wordfence.com/threat-intel/vulnerabilities/id/3628032a-3121-45a7-8a78-cfcd8ba6af2f?source=cve\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-19598",
-        "cveIds": [
-          "CVE-2026-19598"
-        ],
-        "source": "Title",
-        "commentText": "PSA - Major security issue with the PODS plugin - CVE-2026-19598",
-        "linkToComment": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/",
-        "commentDate": "2026-08-18T19:49:39+00:00",
-        "cvePublishedDate": "2026-08-15T18:16:23.860000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 3,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-08-17T16:16:52.700 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=613246D9-E555-473D-8967-C15DC49C1DD2\n   - Added SSVC: {'timestamp': '2026-08-17T15:49:11.035762Z', 'id': 'CVE-2026-19598', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-08-15T18:16:23.860 | New CVE Received | source=security@wordfence.com | changeId=4F53DDA9-E872-4144-88EE-0008F220394B\n   - Added Affected: [{'vendor': 'sc0ttkclark', 'product': 'Pods – Custom Content Types and Fields', 'defaultStatus': 'unaffected', 'versions': [{'version': '2.8', 'lessThanOrEqual': '2.8.23.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '2.9', 'lessThanOrEqual': '2.9.19.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.0', 'lessThanOrEqual': '3.0.10.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.1', 'lessThanOrEqual': '3.1.4.1', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.2', 'lessThanOrEqual': '3.2.8.2', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.3', 'lessThanOrEqual': '3.3.9', 'versionType': 'semver', 'status': 'affected'}]}]\n   - Added Description: The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization Bypass in all versions up to, and including, 3.3.9. The vulnerability exists because the pods_admin AJAX router funnels every access check — including the method allowlist, nonce verification, login enforcement, and capability gate — through pods_error(), which under the JSON meta-box-loader compatibility path only writes failures to the PHP error log and returns false instead of terminating the request, rendering all guards ineffective.  This makes it possible for unauthenticated attackers to escalate their privileges to Administrator or overwrite the password of any user account, including the site owner's, enabling complete site takeover, or perform another administrator action.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-863\n   - Added Reference: https://plugins.trac.wordpress.org/browser/pods/tags/3.3.9/includes/general.php#L400\n   - Added Reference: https://www.wordfence.com/threat-intel/vulnerabilities/id/3628032a-3121-45a7-8a78-cfcd8ba6af2f?source=cve\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-19598",
-        "cveIds": [
-          "CVE-2026-19598"
-        ],
-        "source": "Title",
-        "commentText": "PSA - Major security issue with the PODS plugin - CVE-2026-19598",
-        "linkToComment": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/",
-        "commentDate": "2026-08-18T19:49:39+00:00",
-        "cvePublishedDate": "2026-08-15T18:16:23.860000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 3,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-08-17T16:16:52.700 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=613246D9-E555-473D-8967-C15DC49C1DD2\n   - Added SSVC: {'timestamp': '2026-08-17T15:49:11.035762Z', 'id': 'CVE-2026-19598', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-08-15T18:16:23.860 | New CVE Received | source=security@wordfence.com | changeId=4F53DDA9-E872-4144-88EE-0008F220394B\n   - Added Affected: [{'vendor': 'sc0ttkclark', 'product': 'Pods – Custom Content Types and Fields', 'defaultStatus': 'unaffected', 'versions': [{'version': '2.8', 'lessThanOrEqual': '2.8.23.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '2.9', 'lessThanOrEqual': '2.9.19.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.0', 'lessThanOrEqual': '3.0.10.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.1', 'lessThanOrEqual': '3.1.4.1', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.2', 'lessThanOrEqual': '3.2.8.2', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.3', 'lessThanOrEqual': '3.3.9', 'versionType': 'semver', 'status': 'affected'}]}]\n   - Added Description: The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization Bypass in all versions up to, and including, 3.3.9. The vulnerability exists because the pods_admin AJAX router funnels every access check — including the method allowlist, nonce verification, login enforcement, and capability gate — through pods_error(), which under the JSON meta-box-loader compatibility path only writes failures to the PHP error log and returns false instead of terminating the request, rendering all guards ineffective.  This makes it possible for unauthenticated attackers to escalate their privileges to Administrator or overwrite the password of any user account, including the site owner's, enabling complete site takeover, or perform another administrator action.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-863\n   - Added Reference: https://plugins.trac.wordpress.org/browser/pods/tags/3.3.9/includes/general.php#L400\n   - Added Reference: https://www.wordfence.com/threat-intel/vulnerabilities/id/3628032a-3121-45a7-8a78-cfcd8ba6af2f?source=cve\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-19598",
-        "cveIds": [
-          "CVE-2026-19598"
-        ],
-        "source": "Title",
-        "commentText": "PSA - Major security issue with the PODS plugin - CVE-2026-19598",
-        "linkToComment": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/",
-        "commentDate": "2026-08-18T19:49:39+00:00",
-        "cvePublishedDate": "2026-08-15T18:16:23.860000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 3,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-08-17T16:16:52.700 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=613246D9-E555-473D-8967-C15DC49C1DD2\n   - Added SSVC: {'timestamp': '2026-08-17T15:49:11.035762Z', 'id': 'CVE-2026-19598', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-08-15T18:16:23.860 | New CVE Received | source=security@wordfence.com | changeId=4F53DDA9-E872-4144-88EE-0008F220394B\n   - Added Affected: [{'vendor': 'sc0ttkclark', 'product': 'Pods – Custom Content Types and Fields', 'defaultStatus': 'unaffected', 'versions': [{'version': '2.8', 'lessThanOrEqual': '2.8.23.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '2.9', 'lessThanOrEqual': '2.9.19.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.0', 'lessThanOrEqual': '3.0.10.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.1', 'lessThanOrEqual': '3.1.4.1', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.2', 'lessThanOrEqual': '3.2.8.2', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.3', 'lessThanOrEqual': '3.3.9', 'versionType': 'semver', 'status': 'affected'}]}]\n   - Added Description: The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization Bypass in all versions up to, and including, 3.3.9. The vulnerability exists because the pods_admin AJAX router funnels every access check — including the method allowlist, nonce verification, login enforcement, and capability gate — through pods_error(), which under the JSON meta-box-loader compatibility path only writes failures to the PHP error log and returns false instead of terminating the request, rendering all guards ineffective.  This makes it possible for unauthenticated attackers to escalate their privileges to Administrator or overwrite the password of any user account, including the site owner's, enabling complete site takeover, or perform another administrator action.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-863\n   - Added Reference: https://plugins.trac.wordpress.org/browser/pods/tags/3.3.9/includes/general.php#L400\n   - Added Reference: https://www.wordfence.com/threat-intel/vulnerabilities/id/3628032a-3121-45a7-8a78-cfcd8ba6af2f?source=cve\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-19598",
-        "cveIds": [
-          "CVE-2026-19598"
-        ],
-        "source": "Title",
-        "commentText": "PSA - Major security issue with the PODS plugin - CVE-2026-19598",
-        "linkToComment": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/",
-        "commentDate": "2026-08-18T19:49:39+00:00",
-        "cvePublishedDate": "2026-08-15T18:16:23.860000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 3,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-08-17T16:16:52.700 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=613246D9-E555-473D-8967-C15DC49C1DD2\n   - Added SSVC: {'timestamp': '2026-08-17T15:49:11.035762Z', 'id': 'CVE-2026-19598', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-08-15T18:16:23.860 | New CVE Received | source=security@wordfence.com | changeId=4F53DDA9-E872-4144-88EE-0008F220394B\n   - Added Affected: [{'vendor': 'sc0ttkclark', 'product': 'Pods – Custom Content Types and Fields', 'defaultStatus': 'unaffected', 'versions': [{'version': '2.8', 'lessThanOrEqual': '2.8.23.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '2.9', 'lessThanOrEqual': '2.9.19.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.0', 'lessThanOrEqual': '3.0.10.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.1', 'lessThanOrEqual': '3.1.4.1', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.2', 'lessThanOrEqual': '3.2.8.2', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.3', 'lessThanOrEqual': '3.3.9', 'versionType': 'semver', 'status': 'affected'}]}]\n   - Added Description: The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization Bypass in all versions up to, and including, 3.3.9. The vulnerability exists because the pods_admin AJAX router funnels every access check — including the method allowlist, nonce verification, login enforcement, and capability gate — through pods_error(), which under the JSON meta-box-loader compatibility path only writes failures to the PHP error log and returns false instead of terminating the request, rendering all guards ineffective.  This makes it possible for unauthenticated attackers to escalate their privileges to Administrator or overwrite the password of any user account, including the site owner's, enabling complete site takeover, or perform another administrator action.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-863\n   - Added Reference: https://plugins.trac.wordpress.org/browser/pods/tags/3.3.9/includes/general.php#L400\n   - Added Reference: https://www.wordfence.com/threat-intel/vulnerabilities/id/3628032a-3121-45a7-8a78-cfcd8ba6af2f?source=cve\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-19598",
-        "cveIds": [
-          "CVE-2026-19598"
-        ],
-        "source": "Title",
-        "commentText": "PSA - Major security issue with the PODS plugin - CVE-2026-19598",
-        "linkToComment": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/",
-        "commentDate": "2026-08-18T19:49:39+00:00",
-        "cvePublishedDate": "2026-08-15T18:16:23.860000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 3,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-08-17T16:16:52.700 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=613246D9-E555-473D-8967-C15DC49C1DD2\n   - Added SSVC: {'timestamp': '2026-08-17T15:49:11.035762Z', 'id': 'CVE-2026-19598', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-08-15T18:16:23.860 | New CVE Received | source=security@wordfence.com | changeId=4F53DDA9-E872-4144-88EE-0008F220394B\n   - Added Affected: [{'vendor': 'sc0ttkclark', 'product': 'Pods – Custom Content Types and Fields', 'defaultStatus': 'unaffected', 'versions': [{'version': '2.8', 'lessThanOrEqual': '2.8.23.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '2.9', 'lessThanOrEqual': '2.9.19.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.0', 'lessThanOrEqual': '3.0.10.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.1', 'lessThanOrEqual': '3.1.4.1', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.2', 'lessThanOrEqual': '3.2.8.2', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.3', 'lessThanOrEqual': '3.3.9', 'versionType': 'semver', 'status': 'affected'}]}]\n   - Added Description: The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization Bypass in all versions up to, and including, 3.3.9. The vulnerability exists because the pods_admin AJAX router funnels every access check — including the method allowlist, nonce verification, login enforcement, and capability gate — through pods_error(), which under the JSON meta-box-loader compatibility path only writes failures to the PHP error log and returns false instead of terminating the request, rendering all guards ineffective.  This makes it possible for unauthenticated attackers to escalate their privileges to Administrator or overwrite the password of any user account, including the site owner's, enabling complete site takeover, or perform another administrator action.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-863\n   - Added Reference: https://plugins.trac.wordpress.org/browser/pods/tags/3.3.9/includes/general.php#L400\n   - Added Reference: https://www.wordfence.com/threat-intel/vulnerabilities/id/3628032a-3121-45a7-8a78-cfcd8ba6af2f?source=cve\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-19598",
-        "cveIds": [
-          "CVE-2026-19598"
-        ],
-        "source": "Title",
-        "commentText": "PSA - Major security issue with the PODS plugin - CVE-2026-19598",
-        "linkToComment": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/",
-        "commentDate": "2026-08-18T19:49:39+00:00",
-        "cvePublishedDate": "2026-08-15T18:16:23.860000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 3,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-08-17T16:16:52.700 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=613246D9-E555-473D-8967-C15DC49C1DD2\n   - Added SSVC: {'timestamp': '2026-08-17T15:49:11.035762Z', 'id': 'CVE-2026-19598', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-08-15T18:16:23.860 | New CVE Received | source=security@wordfence.com | changeId=4F53DDA9-E872-4144-88EE-0008F220394B\n   - Added Affected: [{'vendor': 'sc0ttkclark', 'product': 'Pods – Custom Content Types and Fields', 'defaultStatus': 'unaffected', 'versions': [{'version': '2.8', 'lessThanOrEqual': '2.8.23.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '2.9', 'lessThanOrEqual': '2.9.19.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.0', 'lessThanOrEqual': '3.0.10.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.1', 'lessThanOrEqual': '3.1.4.1', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.2', 'lessThanOrEqual': '3.2.8.2', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.3', 'lessThanOrEqual': '3.3.9', 'versionType': 'semver', 'status': 'affected'}]}]\n   - Added Description: The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization Bypass in all versions up to, and including, 3.3.9. The vulnerability exists because the pods_admin AJAX router funnels every access check — including the method allowlist, nonce verification, login enforcement, and capability gate — through pods_error(), which under the JSON meta-box-loader compatibility path only writes failures to the PHP error log and returns false instead of terminating the request, rendering all guards ineffective.  This makes it possible for unauthenticated attackers to escalate their privileges to Administrator or overwrite the password of any user account, including the site owner's, enabling complete site takeover, or perform another administrator action.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-863\n   - Added Reference: https://plugins.trac.wordpress.org/browser/pods/tags/3.3.9/includes/general.php#L400\n   - Added Reference: https://www.wordfence.com/threat-intel/vulnerabilities/id/3628032a-3121-45a7-8a78-cfcd8ba6af2f?source=cve\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-19598",
-        "cveIds": [
-          "CVE-2026-19598"
-        ],
-        "source": "Title",
-        "commentText": "PSA - Major security issue with the PODS plugin - CVE-2026-19598",
-        "linkToComment": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/",
-        "commentDate": "2026-08-18T19:49:39+00:00",
-        "cvePublishedDate": "2026-08-15T18:16:23.860000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 3,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-08-17T16:16:52.700 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=613246D9-E555-473D-8967-C15DC49C1DD2\n   - Added SSVC: {'timestamp': '2026-08-17T15:49:11.035762Z', 'id': 'CVE-2026-19598', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-08-15T18:16:23.860 | New CVE Received | source=security@wordfence.com | changeId=4F53DDA9-E872-4144-88EE-0008F220394B\n   - Added Affected: [{'vendor': 'sc0ttkclark', 'product': 'Pods – Custom Content Types and Fields', 'defaultStatus': 'unaffected', 'versions': [{'version': '2.8', 'lessThanOrEqual': '2.8.23.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '2.9', 'lessThanOrEqual': '2.9.19.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.0', 'lessThanOrEqual': '3.0.10.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.1', 'lessThanOrEqual': '3.1.4.1', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.2', 'lessThanOrEqual': '3.2.8.2', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.3', 'lessThanOrEqual': '3.3.9', 'versionType': 'semver', 'status': 'affected'}]}]\n   - Added Description: The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization Bypass in all versions up to, and including, 3.3.9. The vulnerability exists because the pods_admin AJAX router funnels every access check — including the method allowlist, nonce verification, login enforcement, and capability gate — through pods_error(), which under the JSON meta-box-loader compatibility path only writes failures to the PHP error log and returns false instead of terminating the request, rendering all guards ineffective.  This makes it possible for unauthenticated attackers to escalate their privileges to Administrator or overwrite the password of any user account, including the site owner's, enabling complete site takeover, or perform another administrator action.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-863\n   - Added Reference: https://plugins.trac.wordpress.org/browser/pods/tags/3.3.9/includes/general.php#L400\n   - Added Reference: https://www.wordfence.com/threat-intel/vulnerabilities/id/3628032a-3121-45a7-8a78-cfcd8ba6af2f?source=cve\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-19598",
-        "cveIds": [
-          "CVE-2026-19598"
-        ],
-        "source": "Title",
-        "commentText": "PSA - Major security issue with the PODS plugin - CVE-2026-19598",
-        "linkToComment": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/",
-        "commentDate": "2026-08-18T19:49:39+00:00",
-        "cvePublishedDate": "2026-08-15T18:16:23.860000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 3,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-08-17T16:16:52.700 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=613246D9-E555-473D-8967-C15DC49C1DD2\n   - Added SSVC: {'timestamp': '2026-08-17T15:49:11.035762Z', 'id': 'CVE-2026-19598', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-08-15T18:16:23.860 | New CVE Received | source=security@wordfence.com | changeId=4F53DDA9-E872-4144-88EE-0008F220394B\n   - Added Affected: [{'vendor': 'sc0ttkclark', 'product': 'Pods – Custom Content Types and Fields', 'defaultStatus': 'unaffected', 'versions': [{'version': '2.8', 'lessThanOrEqual': '2.8.23.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '2.9', 'lessThanOrEqual': '2.9.19.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.0', 'lessThanOrEqual': '3.0.10.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.1', 'lessThanOrEqual': '3.1.4.1', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.2', 'lessThanOrEqual': '3.2.8.2', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.3', 'lessThanOrEqual': '3.3.9', 'versionType': 'semver', 'status': 'affected'}]}]\n   - Added Description: The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization Bypass in all versions up to, and including, 3.3.9. The vulnerability exists because the pods_admin AJAX router funnels every access check — including the method allowlist, nonce verification, login enforcement, and capability gate — through pods_error(), which under the JSON meta-box-loader compatibility path only writes failures to the PHP error log and returns false instead of terminating the request, rendering all guards ineffective.  This makes it possible for unauthenticated attackers to escalate their privileges to Administrator or overwrite the password of any user account, including the site owner's, enabling complete site takeover, or perform another administrator action.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-863\n   - Added Reference: https://plugins.trac.wordpress.org/browser/pods/tags/3.3.9/includes/general.php#L400\n   - Added Reference: https://www.wordfence.com/threat-intel/vulnerabilities/id/3628032a-3121-45a7-8a78-cfcd8ba6af2f?source=cve\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-19598",
-        "cveIds": [
-          "CVE-2026-19598"
-        ],
-        "source": "Title",
-        "commentText": "PSA - Major security issue with the PODS plugin - CVE-2026-19598",
-        "linkToComment": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/",
-        "commentDate": "2026-08-18T19:49:39+00:00",
-        "cvePublishedDate": "2026-08-15T18:16:23.860000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 3,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-08-17T16:16:52.700 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=613246D9-E555-473D-8967-C15DC49C1DD2\n   - Added SSVC: {'timestamp': '2026-08-17T15:49:11.035762Z', 'id': 'CVE-2026-19598', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-08-15T18:16:23.860 | New CVE Received | source=security@wordfence.com | changeId=4F53DDA9-E872-4144-88EE-0008F220394B\n   - Added Affected: [{'vendor': 'sc0ttkclark', 'product': 'Pods – Custom Content Types and Fields', 'defaultStatus': 'unaffected', 'versions': [{'version': '2.8', 'lessThanOrEqual': '2.8.23.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '2.9', 'lessThanOrEqual': '2.9.19.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.0', 'lessThanOrEqual': '3.0.10.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.1', 'lessThanOrEqual': '3.1.4.1', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.2', 'lessThanOrEqual': '3.2.8.2', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.3', 'lessThanOrEqual': '3.3.9', 'versionType': 'semver', 'status': 'affected'}]}]\n   - Added Description: The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization Bypass in all versions up to, and including, 3.3.9. The vulnerability exists because the pods_admin AJAX router funnels every access check — including the method allowlist, nonce verification, login enforcement, and capability gate — through pods_error(), which under the JSON meta-box-loader compatibility path only writes failures to the PHP error log and returns false instead of terminating the request, rendering all guards ineffective.  This makes it possible for unauthenticated attackers to escalate their privileges to Administrator or overwrite the password of any user account, including the site owner's, enabling complete site takeover, or perform another administrator action.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-863\n   - Added Reference: https://plugins.trac.wordpress.org/browser/pods/tags/3.3.9/includes/general.php#L400\n   - Added Reference: https://www.wordfence.com/threat-intel/vulnerabilities/id/3628032a-3121-45a7-8a78-cfcd8ba6af2f?source=cve\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-19598",
-        "cveIds": [
-          "CVE-2026-19598"
-        ],
-        "source": "Title",
-        "commentText": "PSA - Major security issue with the PODS plugin - CVE-2026-19598",
-        "linkToComment": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/",
-        "commentDate": "2026-08-18T19:49:39+00:00",
-        "cvePublishedDate": "2026-08-15T18:16:23.860000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 3,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-08-17T16:16:52.700 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=613246D9-E555-473D-8967-C15DC49C1DD2\n   - Added SSVC: {'timestamp': '2026-08-17T15:49:11.035762Z', 'id': 'CVE-2026-19598', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-08-15T18:16:23.860 | New CVE Received | source=security@wordfence.com | changeId=4F53DDA9-E872-4144-88EE-0008F220394B\n   - Added Affected: [{'vendor': 'sc0ttkclark', 'product': 'Pods – Custom Content Types and Fields', 'defaultStatus': 'unaffected', 'versions': [{'version': '2.8', 'lessThanOrEqual': '2.8.23.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '2.9', 'lessThanOrEqual': '2.9.19.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.0', 'lessThanOrEqual': '3.0.10.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.1', 'lessThanOrEqual': '3.1.4.1', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.2', 'lessThanOrEqual': '3.2.8.2', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.3', 'lessThanOrEqual': '3.3.9', 'versionType': 'semver', 'status': 'affected'}]}]\n   - Added Description: The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization Bypass in all versions up to, and including, 3.3.9. The vulnerability exists because the pods_admin AJAX router funnels every access check — including the method allowlist, nonce verification, login enforcement, and capability gate — through pods_error(), which under the JSON meta-box-loader compatibility path only writes failures to the PHP error log and returns false instead of terminating the request, rendering all guards ineffective.  This makes it possible for unauthenticated attackers to escalate their privileges to Administrator or overwrite the password of any user account, including the site owner's, enabling complete site takeover, or perform another administrator action.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-863\n   - Added Reference: https://plugins.trac.wordpress.org/browser/pods/tags/3.3.9/includes/general.php#L400\n   - Added Reference: https://www.wordfence.com/threat-intel/vulnerabilities/id/3628032a-3121-45a7-8a78-cfcd8ba6af2f?source=cve\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-19598",
-        "cveIds": [
-          "CVE-2026-19598"
-        ],
-        "source": "Title",
-        "commentText": "PSA - Major security issue with the PODS plugin - CVE-2026-19598",
-        "linkToComment": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/",
-        "commentDate": "2026-08-18T19:49:39+00:00",
-        "cvePublishedDate": "2026-08-15T18:16:23.860000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 3,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-08-17T16:16:52.700 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=613246D9-E555-473D-8967-C15DC49C1DD2\n   - Added SSVC: {'timestamp': '2026-08-17T15:49:11.035762Z', 'id': 'CVE-2026-19598', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-08-15T18:16:23.860 | New CVE Received | source=security@wordfence.com | changeId=4F53DDA9-E872-4144-88EE-0008F220394B\n   - Added Affected: [{'vendor': 'sc0ttkclark', 'product': 'Pods – Custom Content Types and Fields', 'defaultStatus': 'unaffected', 'versions': [{'version': '2.8', 'lessThanOrEqual': '2.8.23.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '2.9', 'lessThanOrEqual': '2.9.19.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.0', 'lessThanOrEqual': '3.0.10.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.1', 'lessThanOrEqual': '3.1.4.1', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.2', 'lessThanOrEqual': '3.2.8.2', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.3', 'lessThanOrEqual': '3.3.9', 'versionType': 'semver', 'status': 'affected'}]}]\n   - Added Description: The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization Bypass in all versions up to, and including, 3.3.9. The vulnerability exists because the pods_admin AJAX router funnels every access check — including the method allowlist, nonce verification, login enforcement, and capability gate — through pods_error(), which under the JSON meta-box-loader compatibility path only writes failures to the PHP error log and returns false instead of terminating the request, rendering all guards ineffective.  This makes it possible for unauthenticated attackers to escalate their privileges to Administrator or overwrite the password of any user account, including the site owner's, enabling complete site takeover, or perform another administrator action.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-863\n   - Added Reference: https://plugins.trac.wordpress.org/browser/pods/tags/3.3.9/includes/general.php#L400\n   - Added Reference: https://www.wordfence.com/threat-intel/vulnerabilities/id/3628032a-3121-45a7-8a78-cfcd8ba6af2f?source=cve\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-19598",
-        "cveIds": [
-          "CVE-2026-19598"
-        ],
-        "source": "Title",
-        "commentText": "PSA - Major security issue with the PODS plugin - CVE-2026-19598",
-        "linkToComment": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/",
-        "commentDate": "2026-08-18T19:49:39+00:00",
-        "cvePublishedDate": "2026-08-15T18:16:23.860000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 3,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-08-17T16:16:52.700 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=613246D9-E555-473D-8967-C15DC49C1DD2\n   - Added SSVC: {'timestamp': '2026-08-17T15:49:11.035762Z', 'id': 'CVE-2026-19598', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-08-15T18:16:23.860 | New CVE Received | source=security@wordfence.com | changeId=4F53DDA9-E872-4144-88EE-0008F220394B\n   - Added Affected: [{'vendor': 'sc0ttkclark', 'product': 'Pods – Custom Content Types and Fields', 'defaultStatus': 'unaffected', 'versions': [{'version': '2.8', 'lessThanOrEqual': '2.8.23.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '2.9', 'lessThanOrEqual': '2.9.19.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.0', 'lessThanOrEqual': '3.0.10.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.1', 'lessThanOrEqual': '3.1.4.1', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.2', 'lessThanOrEqual': '3.2.8.2', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.3', 'lessThanOrEqual': '3.3.9', 'versionType': 'semver', 'status': 'affected'}]}]\n   - Added Description: The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization Bypass in all versions up to, and including, 3.3.9. The vulnerability exists because the pods_admin AJAX router funnels every access check — including the method allowlist, nonce verification, login enforcement, and capability gate — through pods_error(), which under the JSON meta-box-loader compatibility path only writes failures to the PHP error log and returns false instead of terminating the request, rendering all guards ineffective.  This makes it possible for unauthenticated attackers to escalate their privileges to Administrator or overwrite the password of any user account, including the site owner's, enabling complete site takeover, or perform another administrator action.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-863\n   - Added Reference: https://plugins.trac.wordpress.org/browser/pods/tags/3.3.9/includes/general.php#L400\n   - Added Reference: https://www.wordfence.com/threat-intel/vulnerabilities/id/3628032a-3121-45a7-8a78-cfcd8ba6af2f?source=cve\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-19598",
-        "cveIds": [
-          "CVE-2026-19598"
-        ],
-        "source": "Title",
-        "commentText": "PSA - Major security issue with the PODS plugin - CVE-2026-19598",
-        "linkToComment": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/",
-        "commentDate": "2026-08-18T19:49:39+00:00",
-        "cvePublishedDate": "2026-08-15T18:16:23.860000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 3,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-08-17T16:16:52.700 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=613246D9-E555-473D-8967-C15DC49C1DD2\n   - Added SSVC: {'timestamp': '2026-08-17T15:49:11.035762Z', 'id': 'CVE-2026-19598', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-08-15T18:16:23.860 | New CVE Received | source=security@wordfence.com | changeId=4F53DDA9-E872-4144-88EE-0008F220394B\n   - Added Affected: [{'vendor': 'sc0ttkclark', 'product': 'Pods – Custom Content Types and Fields', 'defaultStatus': 'unaffected', 'versions': [{'version': '2.8', 'lessThanOrEqual': '2.8.23.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '2.9', 'lessThanOrEqual': '2.9.19.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.0', 'lessThanOrEqual': '3.0.10.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.1', 'lessThanOrEqual': '3.1.4.1', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.2', 'lessThanOrEqual': '3.2.8.2', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.3', 'lessThanOrEqual': '3.3.9', 'versionType': 'semver', 'status': 'affected'}]}]\n   - Added Description: The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization Bypass in all versions up to, and including, 3.3.9. The vulnerability exists because the pods_admin AJAX router funnels every access check — including the method allowlist, nonce verification, login enforcement, and capability gate — through pods_error(), which under the JSON meta-box-loader compatibility path only writes failures to the PHP error log and returns false instead of terminating the request, rendering all guards ineffective.  This makes it possible for unauthenticated attackers to escalate their privileges to Administrator or overwrite the password of any user account, including the site owner's, enabling complete site takeover, or perform another administrator action.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-863\n   - Added Reference: https://plugins.trac.wordpress.org/browser/pods/tags/3.3.9/includes/general.php#L400\n   - Added Reference: https://www.wordfence.com/threat-intel/vulnerabilities/id/3628032a-3121-45a7-8a78-cfcd8ba6af2f?source=cve\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-19598",
-        "cveIds": [
-          "CVE-2026-19598"
-        ],
-        "source": "Title",
-        "commentText": "PSA - Major security issue with the PODS plugin - CVE-2026-19598",
-        "linkToComment": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/",
-        "commentDate": "2026-08-18T19:49:39+00:00",
-        "cvePublishedDate": "2026-08-15T18:16:23.860000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 3,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-08-17T16:16:52.700 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=613246D9-E555-473D-8967-C15DC49C1DD2\n   - Added SSVC: {'timestamp': '2026-08-17T15:49:11.035762Z', 'id': 'CVE-2026-19598', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-08-15T18:16:23.860 | New CVE Received | source=security@wordfence.com | changeId=4F53DDA9-E872-4144-88EE-0008F220394B\n   - Added Affected: [{'vendor': 'sc0ttkclark', 'product': 'Pods – Custom Content Types and Fields', 'defaultStatus': 'unaffected', 'versions': [{'version': '2.8', 'lessThanOrEqual': '2.8.23.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '2.9', 'lessThanOrEqual': '2.9.19.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.0', 'lessThanOrEqual': '3.0.10.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.1', 'lessThanOrEqual': '3.1.4.1', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.2', 'lessThanOrEqual': '3.2.8.2', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.3', 'lessThanOrEqual': '3.3.9', 'versionType': 'semver', 'status': 'affected'}]}]\n   - Added Description: The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization Bypass in all versions up to, and including, 3.3.9. The vulnerability exists because the pods_admin AJAX router funnels every access check — including the method allowlist, nonce verification, login enforcement, and capability gate — through pods_error(), which under the JSON meta-box-loader compatibility path only writes failures to the PHP error log and returns false instead of terminating the request, rendering all guards ineffective.  This makes it possible for unauthenticated attackers to escalate their privileges to Administrator or overwrite the password of any user account, including the site owner's, enabling complete site takeover, or perform another administrator action.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-863\n   - Added Reference: https://plugins.trac.wordpress.org/browser/pods/tags/3.3.9/includes/general.php#L400\n   - Added Reference: https://www.wordfence.com/threat-intel/vulnerabilities/id/3628032a-3121-45a7-8a78-cfcd8ba6af2f?source=cve\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-19598",
-        "cveIds": [
-          "CVE-2026-19598"
-        ],
-        "source": "Title",
-        "commentText": "PSA - Major security issue with the PODS plugin - CVE-2026-19598",
-        "linkToComment": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/",
-        "commentDate": "2026-08-18T19:49:39+00:00",
-        "cvePublishedDate": "2026-08-15T18:16:23.860000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 3,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-08-17T16:16:52.700 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=613246D9-E555-473D-8967-C15DC49C1DD2\n   - Added SSVC: {'timestamp': '2026-08-17T15:49:11.035762Z', 'id': 'CVE-2026-19598', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-08-15T18:16:23.860 | New CVE Received | source=security@wordfence.com | changeId=4F53DDA9-E872-4144-88EE-0008F220394B\n   - Added Affected: [{'vendor': 'sc0ttkclark', 'product': 'Pods – Custom Content Types and Fields', 'defaultStatus': 'unaffected', 'versions': [{'version': '2.8', 'lessThanOrEqual': '2.8.23.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '2.9', 'lessThanOrEqual': '2.9.19.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.0', 'lessThanOrEqual': '3.0.10.3', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.1', 'lessThanOrEqual': '3.1.4.1', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.2', 'lessThanOrEqual': '3.2.8.2', 'versionType': 'semver', 'status': 'affected'}, {'version': '3.3', 'lessThanOrEqual': '3.3.9', 'versionType': 'semver', 'status': 'affected'}]}]\n   - Added Description: The Pods – Custom Content Types and Fields plugin for WordPress is vulnerable to Privilege Escalation via Authorization Bypass in all versions up to, and including, 3.3.9. The vulnerability exists because the pods_admin AJAX router funnels every access check — including the method allowlist, nonce verification, login enforcement, and capability gate — through pods_error(), which under the JSON meta-box-loader compatibility path only writes failures to the PHP error log and returns false instead of terminating the request, rendering all guards ineffective.  This makes it possible for unauthenticated attackers to escalate their privileges to Administrator or overwrite the password of any user account, including the site owner's, enabling complete site takeover, or perform another administrator action.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\n   - Added CWE: CWE-863\n   - Added Reference: https://plugins.trac.wordpress.org/browser/pods/tags/3.3.9/includes/general.php#L400\n   - Added Reference: https://www.wordfence.com/threat-intel/vulnerabilities/id/3628032a-3121-45a7-8a78-cfcd8ba6af2f?source=cve\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified"
-        ]
-      }
-    ],
-    "classification": {
-      "componentType": [],
-      "securityType": [
-        "SECURITY"
-      ]
-    },
-    "metadata": {
-      "predicted": {
-        "isUpdateRelated": false,
-        "positiveScore": 0.029132449846656642,
-        "timestampPredicted": "2026-08-19T08:01:29.535238+00:00"
-      },
-      "labeled": {
-        "isUpdateRelated": null
-      }
-    },
-    "isAboutCve": true,
-    "isAboutLatestUpdate": true,
-    "author_description_sentiment": {
-      "score": 0.159,
-      "detail": {
-        "neg": 0.06,
-        "neu": 0.886,
-        "pos": 0.054,
-        "compound": 0.1593
-      }
-    },
-    "category": "Positive",
-    "comments_avg_sentiment_score": 0.363,
-    "sentiment_score": 0.261,
-    "comments": [
-      {
-        "id": "p4hj9ml",
-        "author": "S2JESSICA",
-        "body": "i appreciate the heads up... i use pods on all of my sites and i noticed pods updated itself over the weekend on one of them (i don't have auto-updates enabled) and i thought it weird. i did end up having a few bogus admin accounts on one of my sites! i've deleted and will run scans.\n\ni've been using pods since they started and i can't remember this ever happening before... wild.",
-        "score": 7,
-        "created_utc_ts": 1787084062,
-        "created_utc": "2026-08-18T20:14:22",
-        "permalink": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/p4hj9ml/",
-        "parent_id": "t3_1vrzxlo",
-        "is_submitter": false,
-        "sentiment_score": 0.316,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0.025,
-          "neu": 0.932,
-          "pos": 0.044,
-          "compound": 0.3164
-        }
-      },
-      {
-        "id": "p4hkq9u",
-        "author": "KuntStink",
-        "body": "Yeah we've been using it for years as well, and only stopped using on newer sites when we went to ACF.\n\nThe users we were seeing look like \"wp\\_dfsdas\", \"wp\\_232j\\_3213\", \"wp\\_admin\\_312312\", and most of them had random emails with either gmail or random domains.",
-        "score": 5,
-        "created_utc_ts": 1787084447,
-        "created_utc": "2026-08-18T20:20:47",
-        "permalink": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/p4hkq9u/",
-        "parent_id": "t1_p4hj9ml",
-        "is_submitter": true,
-        "sentiment_score": 0.599,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0.039,
-          "neu": 0.821,
-          "pos": 0.14,
-          "compound": 0.5994
-        }
-      },
-      {
-        "id": "p4im2x7",
-        "author": "Traditional_Jello436",
-        "body": "Thank you for sharing this. I checked my sites and updated the plugin. I hope everyone does the same.",
-        "score": 3,
-        "created_utc_ts": 1787095199,
-        "created_utc": "2026-08-18T23:19:59",
-        "permalink": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/p4im2x7/",
-        "parent_id": "t3_1vrzxlo",
-        "is_submitter": false,
-        "sentiment_score": 0.802,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 0.631,
-          "pos": 0.369,
-          "compound": 0.802
-        }
-      },
-      {
-        "id": "p4j3ydd",
-        "author": "azhousepro",
-        "body": "Thank you for this post. I had a site get hacked yesterday, but I caught it within minutes. (Thank you Wordfence admin login notifications). There were already 20 or so bogus admin accounts added. ",
-        "score": 4,
-        "created_utc_ts": 1787100957,
-        "created_utc": "2026-08-19T00:55:57",
-        "permalink": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/p4j3ydd/",
-        "parent_id": "t3_1vrzxlo",
-        "is_submitter": false,
-        "sentiment_score": -0.026,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0.057,
-          "neu": 0.89,
-          "pos": 0.054,
-          "compound": -0.0258
-        }
-      },
-      {
-        "id": "p4j7i9l",
-        "author": "martyz",
-        "body": "Really appreciate this security alert KuntStink. ",
-        "score": 7,
-        "created_utc_ts": 1787102135,
-        "created_utc": "2026-08-19T01:15:35",
-        "permalink": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/p4j7i9l/",
-        "parent_id": "t3_1vrzxlo",
-        "is_submitter": false,
-        "sentiment_score": 0.806,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 0.266,
-          "pos": 0.734,
-          "compound": 0.8059
-        }
-      },
-      {
-        "id": "p4j8pgu",
-        "author": "MoiraineVR",
-        "body": "I had 3 client sites affected out of the 30  or so that are current clients. I've used Pods since it was first released (20 years now?) – use it in almost all my builds – and this has never happened before. They will remain in my most trusted plugin set.",
-        "score": 3,
-        "created_utc_ts": 1787102526,
-        "created_utc": "2026-08-19T01:22:06",
-        "permalink": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/p4j8pgu/",
-        "parent_id": "t3_1vrzxlo",
-        "is_submitter": false,
-        "sentiment_score": 0.42,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0.032,
-          "neu": 0.9,
-          "pos": 0.068,
-          "compound": 0.4201
-        }
-      },
-      {
-        "id": "p4jl8vv",
-        "author": "coyote1942",
-        "body": "Was the user crated wpc##### then  random numbers? Pretty serious vulnerability.   \nMy only site that has pods got it. Anyone else notice any secondary effects other than creating admin user.",
-        "score": 5,
-        "created_utc_ts": 1787106745,
-        "created_utc": "2026-08-19T02:32:25",
-        "permalink": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/p4jl8vv/",
-        "parent_id": "t3_1vrzxlo",
-        "is_submitter": false,
-        "sentiment_score": 0.494,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0.092,
-          "neu": 0.751,
-          "pos": 0.156,
-          "compound": 0.4939
-        }
-      },
-      {
-        "id": "p4jtobo",
-        "author": "MoiraineVR",
-        "body": "Great question - forgot to mention that in my comment.   \n  \nOn my client sites, they installed a MU caching plugin that's full of malicious code, which then gets added to all your site cache files (if you use caching plugins). There was also a WP Fixit (or similar name) that I think was MU too, which needed to be removed.",
-        "score": 3,
-        "created_utc_ts": 1787109724,
-        "created_utc": "2026-08-19T03:22:04",
-        "permalink": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/p4jtobo/",
-        "parent_id": "t1_p4jl8vv",
-        "is_submitter": false,
-        "sentiment_score": 0.78,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 0.888,
-          "pos": 0.112,
-          "compound": 0.7804
-        }
-      },
-      {
-        "id": "p4jtwck",
-        "author": "MoiraineVR",
-        "body": "Replied to another comment but will add here too for visiblity. This isn't just an admin user injection. \n\nThey install a MU caching plugin containing malicious code, which then gets added to all your site cache files (if you use caching plugins). There was also a WP Fixit (or similar name) added that (I think) was MU too, which needed to be removed.",
-        "score": 3,
-        "created_utc_ts": 1787109807,
-        "created_utc": "2026-08-19T03:23:27",
-        "permalink": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/p4jtwck/",
-        "parent_id": "t3_1vrzxlo",
-        "is_submitter": false,
-        "sentiment_score": 0.557,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 0.943,
-          "pos": 0.057,
-          "compound": 0.5573
-        }
-      },
-      {
-        "id": "p4kgub5",
-        "author": "zushiba",
-        "body": "I think I might still have PODS installed on one or two sites, but I have the login ip restricted so I won’t be able to check till tomorrow morning. ",
-        "score": 2,
-        "created_utc_ts": 1787119702,
-        "created_utc": "2026-08-19T06:08:22",
-        "permalink": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/p4kgub5/",
-        "parent_id": "t3_1vrzxlo",
-        "is_submitter": false,
-        "sentiment_score": -0.527,
-        "sentiment_bucket": "Negative",
-        "sentiment_detail": {
-          "neg": 0.12,
-          "neu": 0.88,
-          "pos": 0,
-          "compound": -0.5267
-        }
-      },
-      {
-        "id": "p4ksfi8",
-        "author": "Sweet_Culture_2529",
-        "body": "I think the maintenance cost of Wordpress will need to go way up in the future, thanks to AI used for  \nexploits  ",
-        "score": 4,
-        "created_utc_ts": 1787125417,
-        "created_utc": "2026-08-19T07:43:37",
-        "permalink": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/p4ksfi8/",
-        "parent_id": "t3_1vrzxlo",
-        "is_submitter": false,
-        "sentiment_score": 0.128,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0.099,
-          "neu": 0.782,
-          "pos": 0.119,
-          "compound": 0.128
-        }
-      },
-      {
-        "id": "p4nqxp1",
-        "author": "regnskygge",
-        "body": "what was the slug for the MU caching plugin?",
-        "score": 1,
-        "created_utc_ts": 1787160551,
-        "created_utc": "2026-08-19T17:29:11",
-        "permalink": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/p4nqxp1/",
-        "parent_id": "t1_p4jtwck",
-        "is_submitter": false,
-        "sentiment_score": 0,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 1,
-          "pos": 0,
-          "compound": 0
-        }
-      }
-    ],
-    "sourceBot": "reddit.py",
-    "sourceUrl": "https://reddit.com/r/Wordpress/comments/1vrzxlo/psa_major_security_issue_with_the_pods_plugin/"
   }
 ]
