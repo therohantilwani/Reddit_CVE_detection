@@ -1,5 +1,128 @@
 [
   {
+    "_id": "6abfe862ed94ec00e0773956",
+    "redditId": "1wvyt5b",
+    "author": "Emergency_Stable_923",
+    "author_description": "When analysing firmware attack surfaces, image decoders built into bootloaders get less scrutiny than cryptographically verified OS kernels. If image parsing happens before signature verification, any memory corruption in the parser breaks the secure boot trust model.\n\nresearchers analysed U-Boot's video subsystem (drivers/video/video\\_bmp.c) and identified an unbounded write in the RLE8 bitmap decoder (video\\_display\\_rle8\\_bitmap()) that leads to a **pre-authentication Secure Boot bypass**.\n\n**Root Cause and Vulnerability Mechanics**\n\nWhen **U-Boot** displays a boot logo or splash screen, it parses a BMP image loaded from local storage (SPI flash, MMC/eMMC, USB, or SD card).\n\n**Unbounded framebuffer write:** During RLE8 decompression, `video_display_rle8_bitmap()` decodes run-length encoded streams directly into the active framebuffer without validating stream bounds against the frame boundary or allocated buffer size.\n\n**Pre-authentication execution window:** In many embedded target configurations, the boot splash screen is rendered immediately on startup, before U-Boot calls Android Verified Boot (AVB) or FIT image signature verification routines.\n\n**Storage disparity:** The kernel image and rootfs are signed, but **splash images are frequently stored in unsigned, user-writable partitions or external media**.\n\nAn attacker who writes a crafted RLE8 BMP to the boot storage can trigger an out-of-bounds write past the framebuffer during early boot, corrupting adjacent bootloader data structures, function pointers, or verification flags in memory. \n\nThis hijacks the execution flow before signature checking completes.",
+    "awards": [],
+    "created_utc": "2026-10-02T16:50:08",
+    "first_author_comment": null,
+    "num_comments": 2,
+    "score": 32,
+    "source": "reddit",
+    "subreddit": "netsec",
+    "tag": null,
+    "tags": [],
+    "title": "Bypassing Secure Boot via Unbounded RLE8 Splash Images in U-Boot (CVE-2026-71972)",
+    "updatedAt": "2026-10-03T07:22:09.586Z",
+    "upvote_ratio": 0.97,
+    "url": "https://reddit.com/r/netsec/comments/1wvyt5b/bypassing_secure_boot_via_unbounded_rle8_splash/",
+    "versionList": [
+      "2026.0.0",
+      "71972.0.0"
+    ],
+    "isAboutCve": true,
+    "isAboutLatestUpdate": false,
+    "author_description_sentiment": {
+      "score": -0.372,
+      "detail": {
+        "neg": 0.045,
+        "neu": 0.912,
+        "pos": 0.043,
+        "compound": -0.3719
+      }
+    },
+    "category": "Neutral",
+    "comments": [
+      {
+        "id": "pdhbz6u",
+        "author": "upalse",
+        "body": "I guess that explains why most devices had the splash image partition signed in the sboot chain.\n\n&gt; This hijacks the execution flow before signature checking completes.\n\nThe chain above AVB is vendor one, but it's there. At least as far qualcomm and mediatek goes.",
+        "score": 5,
+        "created_utc_ts": 1790971878,
+        "created_utc": "2026-10-02T20:11:18",
+        "permalink": "https://reddit.com/r/netsec/comments/1wvyt5b/bypassing_secure_boot_via_unbounded_rle8_splash/pdhbz6u/",
+        "parent_id": "t3_1wvyt5b",
+        "is_submitter": false
+      },
+      {
+        "id": "pdjojh4",
+        "author": "Toiling-Donkey",
+        "body": "UEFI had LogoFail…\n\nNice to see uboot is maintaining vulnerability parity …",
+        "score": 2,
+        "created_utc_ts": 1790999268,
+        "created_utc": "2026-10-03T03:47:48",
+        "permalink": "https://reddit.com/r/netsec/comments/1wvyt5b/bypassing_secure_boot_via_unbounded_rle8_splash/pdjojh4/",
+        "parent_id": "t3_1wvyt5b",
+        "is_submitter": false
+      }
+    ],
+    "comments_avg_sentiment_score": 0,
+    "sentiment_score": -0.186,
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.0017917662364787476,
+        "timestampPredicted": "2026-10-03T06:13:07.211445+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "sourceBot": "reddit.py",
+    "sourceUrl": "https://reddit.com/r/netsec/comments/1wvyt5b/bypassing_secure_boot_via_unbounded_rle8_splash/"
+  },
+  {
+    "_id": "6abfda7ced94ec00e0773192",
+    "redditId": "1wvxp1p",
+    "author": "acorn222",
+    "author_description": "**TL;DR.** [SConnect](https://chromewebstore.google.com/detail/sconnect/mjhbkkaddmmnkghdnnmkjcgpphnopnfk) \\- 1M+ users, an extension middleware+native host for authentication with eIDs, 3SKeys and other hardware signing tokens had a drive-by RCE which enabled any site or iframe a user saw to silently download and execute a dll due to a poor hand-rolled implementation of RSA-2048 token validation, enabling a use of uninitialized memory validation bypass which enabled \"plugins\" (DLLs) to be loaded. v2.16.0.0 of the extension and native host is vulnerable. [CVE-2026-18397](https://nvd.nist.gov/vuln/detail/cve-2026-18397). CVSS 9.4.",
+    "awards": [],
+    "created_utc": "2026-10-02T16:05:04",
+    "first_author_comment": null,
+    "num_comments": 0,
+    "score": 4,
+    "source": "reddit",
+    "subreddit": "netsec",
+    "tag": null,
+    "tags": [],
+    "title": "8 out of 10 Banks HATE This One Weird 3SKey RCE",
+    "updatedAt": "2026-10-03T07:22:10.392Z",
+    "upvote_ratio": 0.67,
+    "url": "https://reddit.com/r/netsec/comments/1wvxp1p/8_out_of_10_banks_hate_this_one_weird_3skey_rce/",
+    "versionList": [
+      "8.0.0",
+      "10.0.0"
+    ],
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true,
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.0001681430277911432,
+        "timestampPredicted": "2026-10-03T04:10:53.417279+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "author_description_sentiment": {
+      "score": -0.612,
+      "detail": {
+        "neg": 0.068,
+        "neu": 0.932,
+        "pos": 0,
+        "compound": -0.6124
+      }
+    },
+    "category": "Negative",
+    "comments": [],
+    "comments_avg_sentiment_score": 0,
+    "sentiment_score": -0.306,
+    "sourceBot": "reddit.py",
+    "sourceUrl": "https://reddit.com/r/netsec/comments/1wvxp1p/8_out_of_10_banks_hate_this_one_weird_3skey_rce/"
+  },
+  {
     "_id": "6abefcb5ed94ec00e076b8e0",
     "redditId": "1wvfp66",
     "author": "ProjektGopher",
@@ -8,7 +131,7 @@
     "created_utc": "2026-10-02T00:22:01",
     "first_author_comment": null,
     "num_comments": 0,
-    "score": 4,
+    "score": 5,
     "source": "reddit",
     "subreddit": "PHP",
     "tag": "News",
@@ -16,8 +139,8 @@
       "News"
     ],
     "title": "This Week in PHP Internals | Oct 1, 2026",
-    "updatedAt": "2026-10-02T07:46:03.145Z",
-    "upvote_ratio": 0.64,
+    "updatedAt": "2026-10-03T06:43:34.154Z",
+    "upvote_ratio": 0.63,
     "url": "https://reddit.com/r/PHP/comments/1wvfp66/this_week_in_php_internals_oct_1_2026/",
     "versionList": [
       "1.0.0",
@@ -29,7 +152,7 @@
       "predicted": {
         "isUpdateRelated": false,
         "positiveScore": 0.020656875658117226,
-        "timestampPredicted": "2026-10-02T07:10:37.166538+00:00"
+        "timestampPredicted": "2026-10-02T14:14:17.530599+00:00"
       },
       "labeled": {
         "isUpdateRelated": null
@@ -257,14 +380,14 @@
     "created_utc": "2026-09-29T13:57:34",
     "first_author_comment": null,
     "num_comments": 0,
-    "score": 28,
+    "score": 29,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Here We Go Again (Citrix NetScaler DTLS Preauth Memory Overflow CVE-2026-88772) - watchTowr Labs",
-    "updatedAt": "2026-10-02T07:22:40.336Z",
-    "upvote_ratio": 0.9,
+    "updatedAt": "2026-10-03T07:22:25.724Z",
+    "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/netsec/comments/1wtattu/here_we_go_again_citrix_netscaler_dtls_preauth/",
     "versionList": [
       "2026.0.0",
@@ -356,13 +479,13 @@
     "created_utc": "2026-09-28T10:58:09",
     "first_author_comment": null,
     "num_comments": 25,
-    "score": 76,
+    "score": 79,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Oh Look, The Foot Gun Went Off Again (Citrix NetScaler PreAuth Command Injection CVE-2026-88771) - watchTowr Labs",
-    "updatedAt": "2026-10-02T07:22:44.104Z",
+    "updatedAt": "2026-10-03T07:22:29.239Z",
     "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/netsec/comments/1wsbh8j/oh_look_the_foot_gun_went_off_again_citrix/",
     "versionList": [
@@ -386,7 +509,7 @@
         "id": "pclvxgn",
         "author": "AmITheAsshole_2020",
         "body": "That was one of the least professional company posts I've read in a long time. Is this normal for watchTowr? If I were a prospective customer, I would, frankly, keep looking.",
-        "score": 24,
+        "score": 23,
         "created_utc_ts": 1790613406,
         "created_utc": "2026-09-28T16:36:46",
         "permalink": "https://reddit.com/r/netsec/comments/1wsbh8j/oh_look_the_foot_gun_went_off_again_citrix/pclvxgn/",
@@ -397,7 +520,7 @@
         "id": "pcmbbjc",
         "author": "abluedinosaur",
         "body": "How is this not professional? It's written by an expert and is not AI slop. It explains the technical details well. \n\nFrankly, it's insane this kind of garbage code is on this type of product, as it's similar to what you would expect on a 10 year old Chinese SOHO router.\n\nIt seems like the vendor has not even bothered to run AI scanners on their own source for a very high risk area. ",
-        "score": 2,
+        "score": 3,
         "created_utc_ts": 1790617054,
         "created_utc": "2026-09-28T17:37:34",
         "permalink": "https://reddit.com/r/netsec/comments/1wsbh8j/oh_look_the_foot_gun_went_off_again_citrix/pcmbbjc/",
@@ -408,7 +531,7 @@
         "id": "pcmio3t",
         "author": "thehalfmetaljacket",
         "body": "Sadly, yes it normal for them. ",
-        "score": 23,
+        "score": 21,
         "created_utc_ts": 1790618781,
         "created_utc": "2026-09-28T18:06:21",
         "permalink": "https://reddit.com/r/netsec/comments/1wsbh8j/oh_look_the_foot_gun_went_off_again_citrix/pcmio3t/",
@@ -419,7 +542,7 @@
         "id": "pcoiimr",
         "author": "eck-",
         "body": "Found the Citrix employee.",
-        "score": 1,
+        "score": 3,
         "created_utc_ts": 1790637142,
         "created_utc": "2026-09-28T23:12:22",
         "permalink": "https://reddit.com/r/netsec/comments/1wsbh8j/oh_look_the_foot_gun_went_off_again_citrix/pcoiimr/",
@@ -441,7 +564,7 @@
         "id": "pcpgldm",
         "author": "peva3",
         "body": "Yeah seriously that writeup sucked.",
-        "score": 3,
+        "score": 4,
         "created_utc_ts": 1790647680,
         "created_utc": "2026-09-29T02:08:00",
         "permalink": "https://reddit.com/r/netsec/comments/1wsbh8j/oh_look_the_foot_gun_went_off_again_citrix/pcpgldm/",
@@ -452,7 +575,7 @@
         "id": "pcpzkuo",
         "author": "beefknuckle",
         "body": "You don't read these for literary inspiration, it's for the technical details. and Watchtowr are in the top tier because of that.\n\nWrong audience I guess.",
-        "score": 1,
+        "score": 2,
         "created_utc_ts": 1790654071,
         "created_utc": "2026-09-29T03:54:31",
         "permalink": "https://reddit.com/r/netsec/comments/1wsbh8j/oh_look_the_foot_gun_went_off_again_citrix/pcpzkuo/",
@@ -539,14 +662,14 @@
     "created_utc": "2026-09-28T10:03:49",
     "first_author_comment": null,
     "num_comments": 3,
-    "score": 10,
+    "score": 7,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-32740: RCE in a PIE Next.js sharp/libheif Stack",
-    "updatedAt": "2026-10-02T07:22:44.982Z",
-    "upvote_ratio": 0.77,
+    "updatedAt": "2026-10-03T07:22:30.056Z",
+    "upvote_ratio": 0.7,
     "url": "https://reddit.com/r/netsec/comments/1wsajyx/cve202632740_rce_in_a_pie_nextjs_sharplibheif/",
     "versionList": [
       "2026.0.0",
@@ -1369,7 +1492,7 @@
     "tag": "Official Announcements ",
     "tags": [],
     "title": "CRITICAL UPDATE: Citrix NetScaler ADC and Citrix NetScaler Gateway Security Bulletin for CVE-2026-88771 through CVE-2026-88778",
-    "updatedAt": "2026-09-30T02:50:39.166Z",
+    "updatedAt": "2026-10-02T08:01:34.890Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/Citrix/comments/1wro1yf/critical_update_citrix_netscaler_adc_and_citrix/",
     "versionList": [
@@ -1498,7 +1621,7 @@
     "tag": null,
     "tags": [],
     "title": "Citrix Advisory out",
-    "updatedAt": "2026-09-30T06:01:04.519Z",
+    "updatedAt": "2026-10-02T08:01:38.049Z",
     "upvote_ratio": 0.94,
     "url": "https://reddit.com/r/Citrix/comments/1wrnfya/citrix_advisory_out/",
     "versionList": [],
@@ -1698,7 +1821,7 @@
     "tag": "Discussion",
     "tags": [],
     "title": "ssh-vulnkey is gone from the repos, and the 2008 Debian keys are still out there",
-    "updatedAt": "2026-09-30T06:01:04.718Z",
+    "updatedAt": "2026-10-02T08:01:38.272Z",
     "upvote_ratio": 0.4,
     "url": "https://reddit.com/r/homelab/comments/1wrncl0/sshvulnkey_is_gone_from_the_repos_and_the_2008/",
     "versionList": [
@@ -2670,7 +2793,7 @@
     "tag": "Discussion",
     "tags": [],
     "title": "Anyone still have an untouched Debian/Ubuntu system or drive from 2006–2011?",
-    "updatedAt": "2026-09-30T11:59:05.072Z",
+    "updatedAt": "2026-10-03T05:03:09.443Z",
     "upvote_ratio": 0.65,
     "url": "https://reddit.com/r/homelab/comments/1wr1sxi/anyone_still_have_an_untouched_debianubuntu/",
     "versionList": [
@@ -2710,7 +2833,15 @@
         "created_utc": "2026-09-26T20:01:25",
         "permalink": "https://reddit.com/r/debian/comments/1wqzi4q/did_you_run_bitcoin_using_debian_in_2009_to_2011/pc8fmye/",
         "parent_id": "t3_1wqzi4q",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.226,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.085,
+          "neu": 0.863,
+          "pos": 0.052,
+          "compound": -0.2263
+        }
       },
       {
         "id": "pc8oaeq",
@@ -2721,7 +2852,15 @@
         "created_utc": "2026-09-26T20:41:08",
         "permalink": "https://reddit.com/r/debian/comments/1wqzi4q/did_you_run_bitcoin_using_debian_in_2009_to_2011/pc8oaeq/",
         "parent_id": "t3_1wqzi4q",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.402,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.526,
+          "pos": 0.474,
+          "compound": 0.4019
+        }
       },
       {
         "id": "pc8qnf5",
@@ -2732,7 +2871,15 @@
         "created_utc": "2026-09-26T20:51:51",
         "permalink": "https://reddit.com/r/debian/comments/1wqzi4q/did_you_run_bitcoin_using_debian_in_2009_to_2011/pc8qnf5/",
         "parent_id": "t1_pc8fmye",
-        "is_submitter": true
+        "is_submitter": true,
+        "sentiment_score": 0.421,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.058,
+          "neu": 0.837,
+          "pos": 0.106,
+          "compound": 0.4213
+        }
       },
       {
         "id": "pc8v354",
@@ -2743,7 +2890,15 @@
         "created_utc": "2026-09-26T21:12:04",
         "permalink": "https://reddit.com/r/debian/comments/1wqzi4q/did_you_run_bitcoin_using_debian_in_2009_to_2011/pc8v354/",
         "parent_id": "t3_1wqzi4q",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.439,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.046,
+          "neu": 0.884,
+          "pos": 0.07,
+          "compound": 0.4389
+        }
       },
       {
         "id": "pc8zj7a",
@@ -2754,7 +2909,15 @@
         "created_utc": "2026-09-26T21:32:54",
         "permalink": "https://reddit.com/r/debian/comments/1wqzi4q/did_you_run_bitcoin_using_debian_in_2009_to_2011/pc8zj7a/",
         "parent_id": "t1_pc8v354",
-        "is_submitter": true
+        "is_submitter": true,
+        "sentiment_score": 0.825,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.824,
+          "pos": 0.176,
+          "compound": 0.8248
+        }
       },
       {
         "id": "pc97m5g",
@@ -2765,7 +2928,15 @@
         "created_utc": "2026-09-26T22:12:35",
         "permalink": "https://reddit.com/r/debian/comments/1wqzi4q/did_you_run_bitcoin_using_debian_in_2009_to_2011/pc97m5g/",
         "parent_id": "t3_1wqzi4q",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.421,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.931,
+          "pos": 0.069,
+          "compound": 0.4215
+        }
       },
       {
         "id": "pc9bca0",
@@ -2776,7 +2947,15 @@
         "created_utc": "2026-09-26T22:31:30",
         "permalink": "https://reddit.com/r/debian/comments/1wqzi4q/did_you_run_bitcoin_using_debian_in_2009_to_2011/pc9bca0/",
         "parent_id": "t1_pc97m5g",
-        "is_submitter": true
+        "is_submitter": true,
+        "sentiment_score": 0.318,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.892,
+          "pos": 0.108,
+          "compound": 0.3182
+        }
       }
     ],
     "created_utc": "2026-09-26T19:37:39",
@@ -2788,7 +2967,7 @@
     "tag": null,
     "tags": [],
     "title": "Did you run Bitcoin using Debian in 2009 to 2011?",
-    "updatedAt": "2026-10-01T18:31:43.322Z",
+    "updatedAt": "2026-10-03T05:03:17.180Z",
     "upvote_ratio": 0.66,
     "url": "https://reddit.com/r/debian/comments/1wqzi4q/did_you_run_bitcoin_using_debian_in_2009_to_2011/",
     "versionList": [
@@ -5910,7 +6089,7 @@
     "tag": null,
     "tags": [],
     "title": "Netscaler leak?",
-    "updatedAt": "2026-10-01T06:56:05.491Z",
+    "updatedAt": "2026-10-02T10:00:09.601Z",
     "upvote_ratio": 0.98,
     "url": "https://reddit.com/r/Citrix/comments/1wqjk9a/netscaler_leak/",
     "versionList": [],
@@ -5940,14 +6119,14 @@
     "created_utc": "2026-09-26T04:49:37",
     "first_author_comment": "we have go it, but it was definietly encrypted, unless there ways of decrypting it that have better chance of success that i havent tried.  \ni did get very far with that method",
     "num_comments": 7,
-    "score": 4,
+    "score": 6,
     "source": "reddit",
     "subreddit": "hardwarehacking",
     "tag": null,
     "tags": [],
     "title": "i.MX28 + NAND Firmware Extraction/Decryption - Cobb Tuner Unmarry Project",
-    "updatedAt": "2026-10-02T07:23:36.261Z",
-    "upvote_ratio": 0.7,
+    "updatedAt": "2026-10-03T07:23:22.128Z",
+    "upvote_ratio": 0.8,
     "url": "https://reddit.com/r/hardwarehacking/comments/1wqhkc2/imx28_nand_firmware_extractiondecryption_cobb/",
     "versionList": [],
     "isAboutCve": true,
@@ -6242,13 +6421,13 @@
     "created_utc": "2026-09-25T14:54:02",
     "first_author_comment": null,
     "num_comments": 0,
-    "score": 24,
+    "score": 25,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2025-13032: Entering and Breaking the Avast Antivirus Sandbox Part 2",
-    "updatedAt": "2026-10-02T07:22:51.310Z",
+    "updatedAt": "2026-10-03T07:22:35.302Z",
     "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/netsec/comments/1wpyg75/cve202513032_entering_and_breaking_the_avast/",
     "versionList": [
@@ -6539,7 +6718,7 @@
     "tag": null,
     "tags": [],
     "title": "Argus Monitor Local Denial-of-Service Vulnerability (CVE-2026-79417)",
-    "updatedAt": "2026-10-02T07:22:52.179Z",
+    "updatedAt": "2026-10-03T07:22:36.069Z",
     "upvote_ratio": 0.81,
     "url": "https://reddit.com/r/netsec/comments/1wpkc7q/argus_monitor_local_denialofservice_vulnerability/",
     "versionList": [
@@ -6579,7 +6758,7 @@
     "tag": null,
     "tags": [],
     "title": "CVE-2026-91766: PHP had the redirect credential leak curl fixed in 2018",
-    "updatedAt": "2026-10-01T20:58:48.554Z",
+    "updatedAt": "2026-10-02T22:06:14.534Z",
     "upvote_ratio": 0.97,
     "url": "https://reddit.com/r/PHP/comments/1wpcmds/cve202691766_php_had_the_redirect_credential_leak/",
     "versionList": [
@@ -6655,7 +6834,7 @@
         "id": "pbu6iz1",
         "author": "AlexandreDaubois",
         "body": "I co-wrote the fix we shipped in today's PHP security releases. We could argue with the origin check, because we compare scheme, host and port the way curl has since 2022 instead of following Go's \"same domain or subdomain\" rule. Once we strip the header, it stays stripped even if a later hop redirects back to the original host. I'll take questions if you have some!",
-        "score": 20,
+        "score": 22,
         "created_utc_ts": 1790281213,
         "created_utc": "2026-09-24T20:20:13",
         "permalink": "https://reddit.com/r/netsec/comments/1wpcgf9/cve202691766_php_had_the_redirect_credential_leak/pbu6iz1/",
@@ -6666,7 +6845,7 @@
         "id": "pbxw7wo",
         "author": "No-View3333",
         "body": "Worth checking HTTP calls that set auth headers through stream\\_context\\_create(). If they don’t need redirects, follow\\_location =&gt; 0 is a useful temporary mitigation until you upgrade.",
-        "score": 4,
+        "score": 5,
         "created_utc_ts": 1790330282,
         "created_utc": "2026-09-25T09:58:02",
         "permalink": "https://reddit.com/r/netsec/comments/1wpcgf9/cve202691766_php_had_the_redirect_credential_leak/pbxw7wo/",
@@ -6699,13 +6878,13 @@
     "created_utc": "2026-09-24T20:19:24",
     "first_author_comment": "I co-wrote the fix we shipped in today's PHP security releases. We could argue with the origin check, because we compare scheme, host and port the way curl has since 2022 instead of following Go's \"same domain or subdomain\" rule. Once we strip the header, it stays stripped even if a later hop redirects back to the original host. I'll take questions if you have some!",
     "num_comments": 5,
-    "score": 87,
+    "score": 88,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-91766: PHP had the redirect credential leak curl fixed in 2018",
-    "updatedAt": "2026-10-02T07:22:53.430Z",
+    "updatedAt": "2026-10-03T07:22:37.387Z",
     "upvote_ratio": 0.98,
     "url": "https://reddit.com/r/netsec/comments/1wpcgf9/cve202691766_php_had_the_redirect_credential_leak/",
     "versionList": [
@@ -7051,7 +7230,7 @@
     "tag": null,
     "tags": [],
     "title": "PSA: Cisco ISE CVSS 10.0 (CVE-2026-76460) — actively exploited, no workarounds",
-    "updatedAt": "2026-10-01T20:59:01.662Z",
+    "updatedAt": "2026-10-02T22:06:27.353Z",
     "upvote_ratio": 0.72,
     "url": "https://reddit.com/r/sysadmin/comments/1wp9n8z/psa_cisco_ise_cvss_100_cve202676460_actively/",
     "versionList": [
@@ -7087,7 +7266,7 @@
         "id": "pbtlh6j",
         "author": "KingDaveRa",
         "body": "A perfect 10, nice!",
-        "score": 79,
+        "score": 86,
         "created_utc_ts": 1790275763,
         "created_utc": "2026-09-24T18:49:23",
         "permalink": "https://reddit.com/r/networking/comments/1wp9mgk/emergency_patch_advisory_cisco_ise_cve202676460/pbtlh6j/",
@@ -7098,7 +7277,7 @@
         "id": "pbtlj29",
         "author": "gotfcgo",
         "body": "They list fixed releases?",
-        "score": 8,
+        "score": 9,
         "created_utc_ts": 1790275776,
         "created_utc": "2026-09-24T18:49:36",
         "permalink": "https://reddit.com/r/networking/comments/1wp9mgk/emergency_patch_advisory_cisco_ise_cve202676460/pbtlj29/",
@@ -7109,7 +7288,7 @@
         "id": "pbtmidn",
         "author": "fataldata",
         "body": "|Cisco ISE or ISE-PIC Release|First Fixed Release|\n|:-|:-|\n|3.1|3.1 Patch 12|\n|3.2|3.2 Patch 11|\n|3.3|3.3 Patch 12|\n|3.4|3.4 Patch 7|\n|3.5^(1)|3.5 Patch 4Cisco ISE or ISE-PIC Release\tFirst Fixed Release3.1\t3.1 Patch 123.2\t3.2 Patch 113.3\t3.3 Patch 123.4\t3.4 Patch 73.51\t3.5 Patch 4|\n\n[https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ISE-ABP-VNSW7Tn5](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ISE-ABP-VNSW7Tn5)",
-        "score": 14,
+        "score": 13,
         "created_utc_ts": 1790276025,
         "created_utc": "2026-09-24T18:53:45",
         "permalink": "https://reddit.com/r/networking/comments/1wp9mgk/emergency_patch_advisory_cisco_ise_cve202676460/pbtmidn/",
@@ -7120,7 +7299,7 @@
         "id": "pbto9bu",
         "author": "sideblinded",
         "body": "We did the patch 7 install for 3.4 and it went smoothly.",
-        "score": 8,
+        "score": 10,
         "created_utc_ts": 1790276469,
         "created_utc": "2026-09-24T19:01:09",
         "permalink": "https://reddit.com/r/networking/comments/1wp9mgk/emergency_patch_advisory_cisco_ise_cve202676460/pbto9bu/",
@@ -7142,7 +7321,7 @@
         "id": "pbts8qd",
         "author": "ondjultomte",
         "body": "Hm this is old? Was the large fix published 16 ?? Or ia this a new one??",
-        "score": 27,
+        "score": 25,
         "created_utc_ts": 1790277496,
         "created_utc": "2026-09-24T19:18:16",
         "permalink": "https://reddit.com/r/networking/comments/1wp9mgk/emergency_patch_advisory_cisco_ise_cve202676460/pbts8qd/",
@@ -7153,7 +7332,7 @@
         "id": "pbtup32",
         "author": "farfarfinn",
         "body": "Be advised that those that use pxgrid with almost 100% chance will run into a change in regards to certificate validation so that fx a fw and pxgrid will stop working because of a cert error. \nNot a bug but a change in the way certificates are trusted. \nIf you use it already now make a TAC case and have them on standby during the upgrade. \n\nThe above information is from a friend in another company that patched just as the patch came out. \nAnd they where screwed. Fw did not allow any traffic because they didn't get any SGT updates from ISE to the fw.",
-        "score": 11,
+        "score": 14,
         "created_utc_ts": 1790278134,
         "created_utc": "2026-09-24T19:28:54",
         "permalink": "https://reddit.com/r/networking/comments/1wp9mgk/emergency_patch_advisory_cisco_ise_cve202676460/pbtup32/",
@@ -7164,7 +7343,7 @@
         "id": "pbtz183",
         "author": "SteveAngelis",
         "body": "Was just going to say, this came out a week ago and a lot of people are already patched up.",
-        "score": 21,
+        "score": 19,
         "created_utc_ts": 1790279264,
         "created_utc": "2026-09-24T19:47:44",
         "permalink": "https://reddit.com/r/networking/comments/1wp9mgk/emergency_patch_advisory_cisco_ise_cve202676460/pbtz183/",
@@ -7175,7 +7354,7 @@
         "id": "pbu1dra",
         "author": "pants6000",
         "body": "Water is wet, death and taxes, unprotected management ports will be 'sploited.",
-        "score": 35,
+        "score": 38,
         "created_utc_ts": 1790279873,
         "created_utc": "2026-09-24T19:57:53",
         "permalink": "https://reddit.com/r/networking/comments/1wp9mgk/emergency_patch_advisory_cisco_ise_cve202676460/pbu1dra/",
@@ -7186,7 +7365,7 @@
         "id": "pbu2cvk",
         "author": "Geekenstein",
         "body": "Cisco released a massive amount of patches recently, all in the 9+ range. \n\nGood to see they finally heard about this “AI” thing.",
-        "score": 5,
+        "score": 2,
         "created_utc_ts": 1790280126,
         "created_utc": "2026-09-24T20:02:06",
         "permalink": "https://reddit.com/r/networking/comments/1wp9mgk/emergency_patch_advisory_cisco_ise_cve202676460/pbu2cvk/",
@@ -7197,7 +7376,7 @@
         "id": "pbu4g51",
         "author": "morph9494",
         "body": "currently doing the ftd's......\n\n",
-        "score": 5,
+        "score": 6,
         "created_utc_ts": 1790280675,
         "created_utc": "2026-09-24T20:11:15",
         "permalink": "https://reddit.com/r/networking/comments/1wp9mgk/emergency_patch_advisory_cisco_ise_cve202676460/pbu4g51/",
@@ -7252,7 +7431,7 @@
         "id": "pbvyam3",
         "author": "dc88228",
         "body": "You’re a whole week behind. You need to get on your Cisco AM and see why they didn’t contact you directly",
-        "score": 11,
+        "score": 12,
         "created_utc_ts": 1790300469,
         "created_utc": "2026-09-25T01:41:09",
         "permalink": "https://reddit.com/r/networking/comments/1wp9mgk/emergency_patch_advisory_cisco_ise_cve202676460/pbvyam3/",
@@ -7346,18 +7525,29 @@
         "permalink": "https://reddit.com/r/networking/comments/1wp9mgk/emergency_patch_advisory_cisco_ise_cve202676460/pcs4jtz/",
         "parent_id": "t3_1wp9mgk",
         "is_submitter": false
+      },
+      {
+        "id": "pdei3zp",
+        "author": "BluebirdExpress6279",
+        "body": "Deployed 3.4 patch 7 (from patch 6) a few days ago… no issues ",
+        "score": 1,
+        "created_utc_ts": 1790945178,
+        "created_utc": "2026-10-02T12:46:18",
+        "permalink": "https://reddit.com/r/networking/comments/1wp9mgk/emergency_patch_advisory_cisco_ise_cve202676460/pdei3zp/",
+        "parent_id": "t3_1wp9mgk",
+        "is_submitter": false
       }
     ],
     "created_utc": "2026-09-24T18:30:42",
     "first_author_comment": null,
-    "num_comments": 29,
-    "score": 159,
+    "num_comments": 30,
+    "score": 163,
     "source": "reddit",
     "subreddit": "networking",
     "tag": "Security",
     "tags": [],
     "title": "Emergency patch advisory: Cisco ISE CVE-2026-76460 (CVSS 10.0) — no workarounds, active exploitation",
-    "updatedAt": "2026-10-02T07:15:49.352Z",
+    "updatedAt": "2026-10-03T07:15:46.206Z",
     "upvote_ratio": 0.97,
     "url": "https://reddit.com/r/networking/comments/1wp9mgk/emergency_patch_advisory_cisco_ise_cve202676460/",
     "versionList": [
@@ -7379,8 +7569,8 @@
       }
     },
     "category": "Negative",
-    "comments_avg_sentiment_score": -0.037,
-    "sentiment_score": -0.312
+    "comments_avg_sentiment_score": -0.048,
+    "sentiment_score": -0.317
   },
   {
     "_id": "6ab54128648fea68716ece16",
@@ -7477,7 +7667,7 @@
       "Question"
     ],
     "title": "Azure AKS Node Update Channel \"SecurityPatch\" and Kured",
-    "updatedAt": "2026-10-01T20:00:14.370Z",
+    "updatedAt": "2026-10-02T18:04:05.347Z",
     "upvote_ratio": 0.84,
     "url": "https://reddit.com/r/AZURE/comments/1wp3uw3/azure_aks_node_update_channel_securitypatch_and/",
     "versionList": [],
@@ -7513,7 +7703,7 @@
     "tag": null,
     "tags": [],
     "title": "Someone got into my WhatsApp",
-    "updatedAt": "2026-10-01T18:59:15.810Z",
+    "updatedAt": "2026-10-02T10:10:19.992Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/whatsapp/comments/1wowlgz/someone_got_into_my_whatsapp/",
     "versionList": [],
@@ -7667,8 +7857,40 @@
           "New CVE Received",
           "CVE Modified"
         ]
+      },
+      {
+        "cveId": "CVE-2023-42916",
+        "cveIds": [
+          "CVE-2023-42916",
+          "CVE-2023-42917"
+        ],
+        "source": "Comment",
+        "commentText": "CVE-2023-42916 & CVE-2023-42917: Two WebKit zero-days allowing sensitive data access and code execution, patched in iOS 17.1.2.",
+        "linkToComment": "https://reddit.com/r/whatsapp/comments/1wowlgz/someone_got_into_my_whatsapp/pbrdjnn/",
+        "commentDate": "2026-09-24T13:04:18+00:00",
+        "cvePublishedDate": "2023-11-30T23:15:07.223000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 1028,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "No change history returned.\n",
+        "eventNamesBeforeAnalysis": []
       }
     ],
+    "sourceBot": "reddit.py",
+    "sourceUrl": "https://reddit.com/r/whatsapp/comments/1wowlgz/someone_got_into_my_whatsapp/",
+    "author_description_sentiment": {
+      "score": -0.202,
+      "detail": {
+        "neg": 0.081,
+        "neu": 0.87,
+        "pos": 0.048,
+        "compound": -0.2023
+      }
+    },
+    "category": "Neutral",
+    "comments_avg_sentiment_score": 0.028,
+    "sentiment_score": -0.087,
     "comments": [
       {
         "id": "pbqjdgc",
@@ -7727,21 +7949,7 @@
           "compound": 0.4019
         }
       }
-    ],
-    "sourceBot": "reddit.py",
-    "sourceUrl": "https://reddit.com/r/whatsapp/comments/1wowlgz/someone_got_into_my_whatsapp/",
-    "author_description_sentiment": {
-      "score": -0.202,
-      "detail": {
-        "neg": 0.081,
-        "neu": 0.87,
-        "pos": 0.048,
-        "compound": -0.2023
-      }
-    },
-    "category": "Neutral",
-    "comments_avg_sentiment_score": 0.028,
-    "sentiment_score": -0.087
+    ]
   },
   {
     "_id": "6ab4a403648fea68716e7c42",
@@ -8037,13 +8245,13 @@
     "created_utc": "2026-09-23T23:20:45",
     "first_author_comment": null,
     "num_comments": 3,
-    "score": 56,
+    "score": 57,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Is This A Joke? In The Auth Header? (F5 BIG-IP UnAuth Heap-Overflow to RCE CVE-2026-94127) - watchTowr Labs",
-    "updatedAt": "2026-10-02T07:22:59.952Z",
+    "updatedAt": "2026-10-03T07:22:43.272Z",
     "upvote_ratio": 0.83,
     "url": "https://reddit.com/r/netsec/comments/1woli59/is_this_a_joke_in_the_auth_header_f5_bigip_unauth/",
     "versionList": [
@@ -8068,7 +8276,7 @@
         "id": "pbpu1jw",
         "author": "BrainPitiful5347",
         "body": "stashing payload data in the auth header is such a nasty vector, def check ur edge device logs for weird high entropy strings",
-        "score": 10,
+        "score": 11,
         "created_utc_ts": 1790230699,
         "created_utc": "2026-09-24T06:18:19",
         "permalink": "https://reddit.com/r/netsec/comments/1woli59/is_this_a_joke_in_the_auth_header_f5_bigip_unauth/pbpu1jw/",
@@ -8117,7 +8325,7 @@
     "tag": null,
     "tags": [],
     "title": "September 23 | 24h Recap: Ubuntu container escape, F5 OAuth RCE and Windows process injection",
-    "updatedAt": "2026-09-24T08:22:39.504Z",
+    "updatedAt": "2026-10-02T14:04:10.375Z",
     "upvote_ratio": 0.86,
     "url": "https://reddit.com/r/netsec/comments/1woiusv/september_23_24h_recap_ubuntu_container_escape_f5/",
     "versionList": [
@@ -8127,7 +8335,19 @@
     "isAboutLatestUpdate": true,
     "comments": [],
     "sourceBot": "reddit.py",
-    "sourceUrl": "https://reddit.com/r/netsec/comments/1woiusv/september_23_24h_recap_ubuntu_container_escape_f5/"
+    "sourceUrl": "https://reddit.com/r/netsec/comments/1woiusv/september_23_24h_recap_ubuntu_container_escape_f5/",
+    "author_description_sentiment": {
+      "score": -0.468,
+      "detail": {
+        "neg": 0.126,
+        "neu": 0.789,
+        "pos": 0.085,
+        "compound": -0.4678
+      }
+    },
+    "category": "Negative",
+    "comments_avg_sentiment_score": 0,
+    "sentiment_score": -0.234
   },
   {
     "_id": "6ab3d8f3648fea68716e1e11",
@@ -8146,7 +8366,7 @@
       "Discussion"
     ],
     "title": "Should dependency scanners flag unmaintained packages, or stick to CVEs?",
-    "updatedAt": "2026-10-01T12:57:11.247Z",
+    "updatedAt": "2026-10-02T12:03:18.313Z",
     "upvote_ratio": 0.5,
     "url": "https://reddit.com/r/Python/comments/1wo6ak8/should_dependency_scanners_flag_unmaintained/",
     "versionList": [],
@@ -8183,7 +8403,7 @@
     "tag": null,
     "tags": [],
     "title": "Hardened Firefox in Docker: resistFingerprinting plus a fail-closed VPN kill switch",
-    "updatedAt": "2026-10-01T11:57:30.296Z",
+    "updatedAt": "2026-10-02T12:03:26.529Z",
     "upvote_ratio": 0.67,
     "url": "https://reddit.com/r/firefox/comments/1wo4zu6/hardened_firefox_in_docker_resistfingerprinting/",
     "versionList": [],
@@ -8260,7 +8480,7 @@
     "tag": null,
     "tags": [],
     "title": "CVE-2026-87902: Unauthenticated path traversal in page-template resolution leading to conditional RCE",
-    "updatedAt": "2026-10-01T05:01:54.095Z",
+    "updatedAt": "2026-10-03T05:04:17.919Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/Wordpress/comments/1wnj2aj/cve202687902_unauthenticated_path_traversal_in/",
     "versionList": [
@@ -8605,7 +8825,7 @@
     "tag": null,
     "tags": [],
     "title": "Self-healing WordPress malware survived a manual cleanup (ClickFix + MU-plugins + DB transients). Here’s how to find and remove it.",
-    "updatedAt": "2026-10-01T17:57:11.023Z",
+    "updatedAt": "2026-10-03T01:53:23.331Z",
     "upvote_ratio": 0.88,
     "url": "https://reddit.com/r/Wordpress/comments/1wnaydr/selfhealing_wordpress_malware_survived_a_manual/",
     "versionList": [],
@@ -8775,7 +8995,7 @@
         "id": "pbceaac",
         "author": "AlexandreDaubois",
         "body": "Author of the component and the fix here. Happy to take any question you may have about this CVE, the process to handle security reports or anything related!",
-        "score": 5,
+        "score": 6,
         "created_utc_ts": 1790075773,
         "created_utc": "2026-09-22T11:16:13",
         "permalink": "https://reddit.com/r/netsec/comments/1wn6m39/cve202645756_attackercontrolled_regex_in_symfony/pbceaac/",
@@ -8830,14 +9050,14 @@
     "created_utc": "2026-09-22T11:15:05",
     "first_author_comment": "Author of the component and the fix here. Happy to take any question you may have about this CVE, the process to handle security reports or anything related!",
     "num_comments": 8,
-    "score": 20,
+    "score": 21,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-45756: attacker-controlled regex in Symfony JsonPath filters (ReDoS)",
-    "updatedAt": "2026-10-02T07:23:05.833Z",
-    "upvote_ratio": 0.8,
+    "updatedAt": "2026-10-03T07:22:48.950Z",
+    "upvote_ratio": 0.84,
     "url": "https://reddit.com/r/netsec/comments/1wn6m39/cve202645756_attackercontrolled_regex_in_symfony/",
     "versionList": [
       "2026.0.0",
@@ -8869,14 +9089,14 @@
     "created_utc": "2026-09-22T07:58:09",
     "first_author_comment": null,
     "num_comments": 5,
-    "score": 39,
+    "score": 40,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "vCenter pre-auth RCE: CVE-2026-59309/59310",
-    "updatedAt": "2026-10-02T07:23:07.542Z",
-    "upvote_ratio": 0.87,
+    "updatedAt": "2026-10-03T06:22:43.393Z",
+    "upvote_ratio": 0.88,
     "url": "https://reddit.com/r/netsec/comments/1wn37be/vcenter_preauth_rce_cve20265930959310/",
     "versionList": [
       "2026.0.0",
@@ -8890,7 +9110,7 @@
         "id": "pbcw6ku",
         "author": "Real_Pepe_Silvia",
         "body": "I’m so sick of reading AI writeups. ",
-        "score": 14,
+        "score": 13,
         "created_utc_ts": 1790081990,
         "created_utc": "2026-09-22T12:59:50",
         "permalink": "https://reddit.com/r/netsec/comments/1wn37be/vcenter_preauth_rce_cve20265930959310/pbcw6ku/",
@@ -8972,8 +9192,8 @@
     "tag": "Contains AI",
     "tags": [],
     "title": "ZTE SmartHome Account Takeover: Password Reset Without Verification Code. 4 CVEs, 100K+ Android Downloads - CVE-2026-86553",
-    "updatedAt": "2026-10-02T07:23:10.936Z",
-    "upvote_ratio": 0.87,
+    "updatedAt": "2026-10-02T15:23:22.312Z",
+    "upvote_ratio": 0.9,
     "url": "https://reddit.com/r/netsec/comments/1wmhror/zte_smarthome_account_takeover_password_reset/",
     "versionList": [
       "4.0.0",
@@ -9882,7 +10102,7 @@
         "id": "pb9cy16",
         "author": "demunted",
         "body": "Wow this is bad.",
-        "score": 5,
+        "score": 6,
         "created_utc_ts": 1790031321,
         "created_utc": "2026-09-21T22:55:21",
         "permalink": "https://reddit.com/r/netsec/comments/1wmhror/zte_smarthome_account_takeover_password_reset/pb9cy16/",
@@ -9893,7 +10113,7 @@
         "id": "pb9dbp6",
         "author": "TheReedemer69",
         "body": "And it took them almost 4 months to solve. they made me fill a ducking docx file template to even consider looking at it : (",
-        "score": 5,
+        "score": 3,
         "created_utc_ts": 1790031441,
         "created_utc": "2026-09-21T22:57:21",
         "permalink": "https://reddit.com/r/netsec/comments/1wmhror/zte_smarthome_account_takeover_password_reset/pb9dbp6/",
@@ -10197,7 +10417,7 @@
     "tag": null,
     "tags": [],
     "title": "Major vulnerability (9.8 CVSS) in Gravity Forms plugin",
-    "updatedAt": "2026-10-01T08:58:11.677Z",
+    "updatedAt": "2026-10-02T16:05:09.204Z",
     "upvote_ratio": 0.97,
     "url": "https://reddit.com/r/Wordpress/comments/1wln8p5/major_vulnerability_98_cvss_in_gravity_forms/",
     "versionList": [
@@ -10313,7 +10533,7 @@
     "tag": "Question",
     "tags": [],
     "title": "Weird error message from Quad9 to PiHole in IPS",
-    "updatedAt": "2026-10-02T01:53:20.986Z",
+    "updatedAt": "2026-10-03T02:52:56.585Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/Ubiquiti/comments/1wkyomd/weird_error_message_from_quad9_to_pihole_in_ips/",
     "versionList": [],
@@ -10465,7 +10685,7 @@
     "tag": "Question",
     "tags": [],
     "title": "Repeated CVE-2015-7547 warnings from one machine",
-    "updatedAt": "2026-10-01T20:59:57.546Z",
+    "updatedAt": "2026-10-03T02:53:09.299Z",
     "upvote_ratio": 0.84,
     "url": "https://reddit.com/r/Ubiquiti/comments/1wkr5c7/repeated_cve20157547_warnings_from_one_machine/",
     "versionList": [
@@ -10525,7 +10745,7 @@
     "tag": "📰 News",
     "tags": [],
     "title": "OpenAI hacked by Hacktron AI using discourse via libheif",
-    "updatedAt": "2026-10-01T13:57:28.383Z",
+    "updatedAt": "2026-10-02T08:47:55.327Z",
     "upvote_ratio": 0.36,
     "url": "https://reddit.com/r/homeassistant/comments/1wkj5mf/openai_hacked_by_hacktron_ai_using_discourse_via/",
     "versionList": [],
@@ -10562,7 +10782,15 @@
         "created_utc": "2026-09-19T06:57:28",
         "permalink": "https://reddit.com/r/netsec/comments/1wkeh8n/cve202677179_dockers_hypervisor_for_mac/paq1plu/",
         "parent_id": "t3_1wkeh8n",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.153,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0.065,
+          "neu": 0.935,
+          "pos": 0,
+          "compound": -0.1531
+        }
       },
       {
         "id": "paq4e0r",
@@ -10573,7 +10801,15 @@
         "created_utc": "2026-09-19T07:19:33",
         "permalink": "https://reddit.com/r/netsec/comments/1wkeh8n/cve202677179_dockers_hypervisor_for_mac/paq4e0r/",
         "parent_id": "t3_1wkeh8n",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.598,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.014,
+          "neu": 0.933,
+          "pos": 0.052,
+          "compound": 0.598
+        }
       },
       {
         "id": "paqmsa1",
@@ -10584,7 +10820,15 @@
         "created_utc": "2026-09-19T09:59:22",
         "permalink": "https://reddit.com/r/netsec/comments/1wkeh8n/cve202677179_dockers_hypervisor_for_mac/paqmsa1/",
         "parent_id": "t1_paq1plu",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "paratbn",
@@ -10595,7 +10839,15 @@
         "created_utc": "2026-09-19T12:46:32",
         "permalink": "https://reddit.com/r/netsec/comments/1wkeh8n/cve202677179_dockers_hypervisor_for_mac/paratbn/",
         "parent_id": "t3_1wkeh8n",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "pasynky",
@@ -10606,7 +10858,15 @@
         "created_utc": "2026-09-19T17:30:42",
         "permalink": "https://reddit.com/r/netsec/comments/1wkeh8n/cve202677179_dockers_hypervisor_for_mac/pasynky/",
         "parent_id": "t1_paratbn",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.71,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.786,
+          "pos": 0.214,
+          "compound": 0.7096
+        }
       },
       {
         "id": "patw1x8",
@@ -10617,7 +10877,15 @@
         "created_utc": "2026-09-19T20:05:10",
         "permalink": "https://reddit.com/r/netsec/comments/1wkeh8n/cve202677179_dockers_hypervisor_for_mac/patw1x8/",
         "parent_id": "t1_paq1plu",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.153,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0.172,
+          "neu": 0.743,
+          "pos": 0.084,
+          "compound": -0.1531
+        }
       },
       {
         "id": "pb3hhau",
@@ -10628,7 +10896,15 @@
         "created_utc": "2026-09-21T03:41:32",
         "permalink": "https://reddit.com/r/netsec/comments/1wkeh8n/cve202677179_dockers_hypervisor_for_mac/pb3hhau/",
         "parent_id": "t3_1wkeh8n",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.34,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.924,
+          "pos": 0.076,
+          "compound": 0.34
+        }
       }
     ],
     "created_utc": "2026-09-19T06:25:58",
@@ -10640,7 +10916,7 @@
     "tag": "Contains AI",
     "tags": [],
     "title": "CVE-2026-77179: Docker's hypervisor for Mac compromised (Docker Desktop, Docker Sandboxes)",
-    "updatedAt": "2026-10-01T13:23:31.829Z",
+    "updatedAt": "2026-10-02T08:48:01.256Z",
     "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/netsec/comments/1wkeh8n/cve202677179_dockers_hypervisor_for_mac/",
     "versionList": [
@@ -10680,7 +10956,15 @@
         "created_utc": "2026-09-19T00:19:26",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wk70vm/screenconnect_malware_detections_by_microsoft/paof4yr/",
         "parent_id": "t3_1wk70vm",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "paofl3l",
@@ -10691,7 +10975,15 @@
         "created_utc": "2026-09-19T00:22:01",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wk70vm/screenconnect_malware_detections_by_microsoft/paofl3l/",
         "parent_id": "t3_1wk70vm",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "paofsa4",
@@ -10702,7 +10994,15 @@
         "created_utc": "2026-09-19T00:23:10",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wk70vm/screenconnect_malware_detections_by_microsoft/paofsa4/",
         "parent_id": "t3_1wk70vm",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.72,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.39,
+          "neu": 0.486,
+          "pos": 0.124,
+          "compound": -0.7204
+        }
       },
       {
         "id": "paofvdq",
@@ -10713,7 +11013,15 @@
         "created_utc": "2026-09-19T00:23:41",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wk70vm/screenconnect_malware_detections_by_microsoft/paofvdq/",
         "parent_id": "t3_1wk70vm",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.625,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.779,
+          "pos": 0.221,
+          "compound": 0.6249
+        }
       },
       {
         "id": "paoj341",
@@ -10724,7 +11032,15 @@
         "created_utc": "2026-09-19T00:42:25",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wk70vm/screenconnect_malware_detections_by_microsoft/paoj341/",
         "parent_id": "t3_1wk70vm",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.262,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.106,
+          "neu": 0.788,
+          "pos": 0.106,
+          "compound": -0.2617
+        }
       },
       {
         "id": "paojr0s",
@@ -10735,7 +11051,15 @@
         "created_utc": "2026-09-19T00:46:18",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wk70vm/screenconnect_malware_detections_by_microsoft/paojr0s/",
         "parent_id": "t3_1wk70vm",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "paojyjt",
@@ -10746,7 +11070,15 @@
         "created_utc": "2026-09-19T00:47:31",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wk70vm/screenconnect_malware_detections_by_microsoft/paojyjt/",
         "parent_id": "t3_1wk70vm",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "paolvon",
@@ -10757,7 +11089,15 @@
         "created_utc": "2026-09-19T00:58:52",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wk70vm/screenconnect_malware_detections_by_microsoft/paolvon/",
         "parent_id": "t3_1wk70vm",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.273,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.08,
+          "neu": 0.764,
+          "pos": 0.156,
+          "compound": 0.2732
+        }
       },
       {
         "id": "paoov66",
@@ -10768,7 +11108,15 @@
         "created_utc": "2026-09-19T01:16:32",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wk70vm/screenconnect_malware_detections_by_microsoft/paoov66/",
         "parent_id": "t3_1wk70vm",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "paoq5lc",
@@ -10779,7 +11127,15 @@
         "created_utc": "2026-09-19T01:24:15",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wk70vm/screenconnect_malware_detections_by_microsoft/paoq5lc/",
         "parent_id": "t3_1wk70vm",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.7,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.833,
+          "pos": 0.167,
+          "compound": 0.7003
+        }
       },
       {
         "id": "paoril7",
@@ -10790,7 +11146,15 @@
         "created_utc": "2026-09-19T01:32:28",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wk70vm/screenconnect_malware_detections_by_microsoft/paoril7/",
         "parent_id": "t3_1wk70vm",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.665,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.173,
+          "neu": 0.827,
+          "pos": 0,
+          "compound": -0.6649
+        }
       },
       {
         "id": "paosvxy",
@@ -10801,7 +11165,15 @@
         "created_utc": "2026-09-19T01:40:42",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wk70vm/screenconnect_malware_detections_by_microsoft/paosvxy/",
         "parent_id": "t3_1wk70vm",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.459,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.107,
+          "neu": 0.849,
+          "pos": 0.044,
+          "compound": -0.4588
+        }
       },
       {
         "id": "paotpat",
@@ -10812,7 +11184,15 @@
         "created_utc": "2026-09-19T01:45:38",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wk70vm/screenconnect_malware_detections_by_microsoft/paotpat/",
         "parent_id": "t1_paoov66",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       },
       {
         "id": "paoxoj4",
@@ -10823,7 +11203,15 @@
         "created_utc": "2026-09-19T02:09:52",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wk70vm/screenconnect_malware_detections_by_microsoft/paoxoj4/",
         "parent_id": "t3_1wk70vm",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.226,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.041,
+          "neu": 0.891,
+          "pos": 0.068,
+          "compound": 0.2263
+        }
       },
       {
         "id": "paozq21",
@@ -10834,7 +11222,15 @@
         "created_utc": "2026-09-19T02:22:36",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wk70vm/screenconnect_malware_detections_by_microsoft/paozq21/",
         "parent_id": "t1_paosvxy",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": -0.202,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.183,
+          "neu": 0.625,
+          "pos": 0.192,
+          "compound": -0.2023
+        }
       },
       {
         "id": "pap2otv",
@@ -10845,7 +11241,15 @@
         "created_utc": "2026-09-19T02:41:06",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wk70vm/screenconnect_malware_detections_by_microsoft/pap2otv/",
         "parent_id": "t3_1wk70vm",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.362,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.05,
+          "neu": 0.826,
+          "pos": 0.124,
+          "compound": 0.3624
+        }
       },
       {
         "id": "papud2z",
@@ -10856,7 +11260,15 @@
         "created_utc": "2026-09-19T05:57:06",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wk70vm/screenconnect_malware_detections_by_microsoft/papud2z/",
         "parent_id": "t3_1wk70vm",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.431,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.026,
+          "neu": 0.887,
+          "pos": 0.087,
+          "compound": 0.431
+        }
       },
       {
         "id": "pazbsq6",
@@ -10867,7 +11279,15 @@
         "created_utc": "2026-09-20T15:54:04",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wk70vm/screenconnect_malware_detections_by_microsoft/pazbsq6/",
         "parent_id": "t3_1wk70vm",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.296,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.044,
+          "neu": 0.89,
+          "pos": 0.066,
+          "compound": 0.296
+        }
       }
     ],
     "created_utc": "2026-09-19T00:15:52",
@@ -10881,14 +11301,26 @@
       "Question"
     ],
     "title": "ScreenConnect Malware Detections by Microsoft Defender in the Past Day",
-    "updatedAt": "2026-09-21T17:01:01.830Z",
+    "updatedAt": "2026-10-02T08:48:12.108Z",
     "upvote_ratio": 0.9,
     "url": "https://reddit.com/r/sysadmin/comments/1wk70vm/screenconnect_malware_detections_by_microsoft/",
     "versionList": [],
     "isAboutCve": true,
     "isAboutLatestUpdate": false,
     "sourceBot": "reddit.py",
-    "sourceUrl": "https://reddit.com/r/sysadmin/comments/1wk70vm/screenconnect_malware_detections_by_microsoft/"
+    "sourceUrl": "https://reddit.com/r/sysadmin/comments/1wk70vm/screenconnect_malware_detections_by_microsoft/",
+    "author_description_sentiment": {
+      "score": 0.915,
+      "detail": {
+        "neg": 0,
+        "neu": 0.792,
+        "pos": 0.208,
+        "compound": 0.9146
+      }
+    },
+    "category": "Positive",
+    "comments_avg_sentiment_score": 0.034,
+    "sentiment_score": 0.474
   },
   {
     "_id": "6ab970f6648fea6871aa4a7b",
@@ -10945,7 +11377,7 @@
     "tag": null,
     "tags": [],
     "title": "A quartet of Linux local root vulns: DirtyAH6, PPPoEject, TUNderflow, and DiagSpill",
-    "updatedAt": "2026-10-01T19:00:22.078Z",
+    "updatedAt": "2026-10-02T14:05:17.958Z",
     "upvote_ratio": 0.5,
     "url": "https://reddit.com/r/netsec/comments/1wjjxd0/a_quartet_of_linux_local_root_vulns_dirtyah6/",
     "versionList": [],
@@ -10976,14 +11408,14 @@
     "created_utc": "2026-09-18T06:01:27",
     "first_author_comment": "I couldn't find any setting explicitly named \"DNSSEC validation\" so I just checked that in \"Services\" -&gt; \"DNS Resolver\" -&gt; \"General Settings\" -&gt; scroll down to \"DNSSEC\" -&gt; \"Enable DNSSEC Support\" is unchecked. This should be enough for the time being, shouldn't it?  \nI assume the \"Harden DNSSEC Data\" in the \"Advanced Settings\" then can be ignored if DNSSEC is disabled.",
     "num_comments": 31,
-    "score": 48,
+    "score": 45,
     "source": "reddit",
     "subreddit": "PFSENSE",
     "tag": null,
     "tags": [],
     "title": "Unbound CVE-2026-81642",
-    "updatedAt": "2026-10-02T07:17:37.281Z",
-    "upvote_ratio": 0.98,
+    "updatedAt": "2026-10-03T07:17:22.481Z",
+    "upvote_ratio": 0.96,
     "url": "https://reddit.com/r/PFSENSE/comments/1wjhz3e/unbound_cve202681642/",
     "versionList": [
       "2026.0.0",
@@ -10996,7 +11428,7 @@
         "id": "paiuef8",
         "author": "syncerx",
         "body": "Make sure that the DNSSEC validation is disabled.",
-        "score": 7,
+        "score": 6,
         "created_utc_ts": 1789713052,
         "created_utc": "2026-09-18T06:30:52",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1wjhz3e/unbound_cve202681642/paiuef8/",
@@ -11007,7 +11439,7 @@
         "id": "paiurw4",
         "author": "NewRedditor23",
         "body": "Should we temporarily disable dnssec?",
-        "score": 5,
+        "score": 6,
         "created_utc_ts": 1789713269,
         "created_utc": "2026-09-18T06:34:29",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1wjhz3e/unbound_cve202681642/paiurw4/",
@@ -11018,7 +11450,7 @@
         "id": "paiyl15",
         "author": "gromhelmu",
         "body": "Yep. To add: Do this, even if your firewall is locked down from the outside:\n\n- An internal device (phone, laptop, IoT device, or guest) browsing the web or running an app can request a domain controlled by an attacker.\n- Unbound performs recursive resolution, querying the attacker’s nameserver.\n- The nameserver responds with a specially crafted DNSKEY record containing pointers to exploit the CVE (an overflow).",
-        "score": 8,
+        "score": 9,
         "created_utc_ts": 1789715310,
         "created_utc": "2026-09-18T07:08:30",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1wjhz3e/unbound_cve202681642/paiyl15/",
@@ -11029,7 +11461,7 @@
         "id": "paj851l",
         "author": "Worried_Tangelo_2689",
         "body": "I couldn't find any setting explicitly named \"DNSSEC validation\" so I just checked that in \"Services\" -&gt; \"DNS Resolver\" -&gt; \"General Settings\" -&gt; scroll down to \"DNSSEC\" -&gt; \"Enable DNSSEC Support\" is unchecked. This should be enough for the time being, shouldn't it?  \nI assume the \"Harden DNSSEC Data\" in the \"Advanced Settings\" then can be ignored if DNSSEC is disabled.",
-        "score": 5,
+        "score": 6,
         "created_utc_ts": 1789720213,
         "created_utc": "2026-09-18T08:30:13",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1wjhz3e/unbound_cve202681642/paj851l/",
@@ -11040,7 +11472,7 @@
         "id": "pajhmfr",
         "author": "d007us",
         "body": "\\+1, I do not want do disable DNSEC. I expect Netgate will release an update shortly for unbound.",
-        "score": 5,
+        "score": 6,
         "created_utc_ts": 1789725056,
         "created_utc": "2026-09-18T09:50:56",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1wjhz3e/unbound_cve202681642/pajhmfr/",
@@ -11540,7 +11972,7 @@
     "tag": null,
     "tags": [],
     "title": "Chromium behind on security updates (again)",
-    "updatedAt": "2026-09-30T16:07:08.895Z",
+    "updatedAt": "2026-10-02T20:08:10.256Z",
     "upvote_ratio": 0.61,
     "url": "https://reddit.com/r/debian/comments/1wi4wwy/chromium_behind_on_security_updates_again/",
     "versionList": [],
@@ -13073,7 +13505,7 @@
     "tag": null,
     "tags": [],
     "title": "Security.txt Files",
-    "updatedAt": "2026-09-30T16:07:20.585Z",
+    "updatedAt": "2026-10-02T20:08:20.346Z",
     "upvote_ratio": 0.27,
     "url": "https://reddit.com/r/Wordpress/comments/1whzh8r/securitytxt_files/",
     "versionList": [],
@@ -13264,7 +13696,15 @@
         "created_utc": "2026-09-16T09:17:22",
         "permalink": "https://reddit.com/r/joomla/comments/1whroe5/joomlacms_forensic_analysis_tool/pa4mn0g/",
         "parent_id": "t3_1whroe5",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.724,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.791,
+          "pos": 0.209,
+          "compound": 0.7236
+        }
       },
       {
         "id": "pa4ok1v",
@@ -13275,7 +13715,15 @@
         "created_utc": "2026-09-16T09:33:29",
         "permalink": "https://reddit.com/r/joomla/comments/1whroe5/joomlacms_forensic_analysis_tool/pa4ok1v/",
         "parent_id": "t1_pa4mn0g",
-        "is_submitter": true
+        "is_submitter": true,
+        "sentiment_score": -0.516,
+        "sentiment_bucket": "Negative",
+        "sentiment_detail": {
+          "neg": 0.044,
+          "neu": 0.938,
+          "pos": 0.018,
+          "compound": -0.5165
+        }
       },
       {
         "id": "pabu8ax",
@@ -13286,7 +13734,15 @@
         "created_utc": "2026-09-17T08:14:07",
         "permalink": "https://reddit.com/r/joomla/comments/1whroe5/joomlacms_forensic_analysis_tool/pabu8ax/",
         "parent_id": "t3_1whroe5",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.765,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0.044,
+          "neu": 0.785,
+          "pos": 0.17,
+          "compound": 0.765
+        }
       },
       {
         "id": "pbszin3",
@@ -13297,7 +13753,15 @@
         "created_utc": "2026-09-24T17:17:18",
         "permalink": "https://reddit.com/r/joomla/comments/1whroe5/joomlacms_forensic_analysis_tool/pbszin3/",
         "parent_id": "t3_1whroe5",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.883,
+        "sentiment_bucket": "Positive",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.415,
+          "pos": 0.585,
+          "compound": 0.8834
+        }
       }
     ],
     "created_utc": "2026-09-16T08:49:26",
@@ -13309,7 +13773,7 @@
     "tag": "Administration/Technical",
     "tags": [],
     "title": "Joomla/CMS Forensic Analysis Tool",
-    "updatedAt": "2026-09-30T22:48:35.135Z",
+    "updatedAt": "2026-10-02T08:04:20.166Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/joomla/comments/1whroe5/joomlacms_forensic_analysis_tool/",
     "versionList": [],
@@ -13402,7 +13866,7 @@
     "tag": null,
     "tags": [],
     "title": "Red Heron exploits Gitea n-day flaw in multinational campaign, exposing new Linux rootkit",
-    "updatedAt": "2026-09-30T17:06:12.852Z",
+    "updatedAt": "2026-10-03T05:05:09.989Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/netsec/comments/1wh7wol/red_heron_exploits_gitea_nday_flaw_in/",
     "versionList": [],
@@ -13439,7 +13903,7 @@
     "tag": "Tutorial",
     "tags": [],
     "title": "I replaced my Cisco C240 M5's inlet-based fan curve with a real CPU-temp-reactive one. 11k RPM pinned -&gt; 3k idle, ramps on actual CPU temp, survives reboots.",
-    "updatedAt": "2026-10-01T23:01:09.754Z",
+    "updatedAt": "2026-10-03T01:54:24.886Z",
     "upvote_ratio": 0.89,
     "url": "https://reddit.com/r/homelab/comments/1wflmwb/i_replaced_my_cisco_c240_m5s_inletbased_fan_curve/",
     "versionList": [],
@@ -13535,7 +13999,7 @@
     "tag": null,
     "tags": [],
     "title": "Critical RCE in ConfigServer Firewall — Update CSF Now",
-    "updatedAt": "2026-10-01T10:58:29.650Z",
+    "updatedAt": "2026-10-03T00:08:00.204Z",
     "upvote_ratio": 0.29,
     "url": "https://reddit.com/r/cpanel/comments/1wf8ra1/critical_rce_in_configserver_firewall_update_csf/",
     "versionList": [],
@@ -13571,7 +14035,7 @@
     "tag": null,
     "tags": [],
     "title": "Why you need the September Android update: A look at the zero-click exploits patched this month",
-    "updatedAt": "2026-09-30T06:04:12.383Z",
+    "updatedAt": "2026-10-03T00:08:10.473Z",
     "upvote_ratio": 0.78,
     "url": "https://reddit.com/r/google/comments/1wf2oas/why_you_need_the_september_android_update_a_look/",
     "versionList": [],
@@ -13666,7 +14130,7 @@
     "tag": null,
     "tags": [],
     "title": "Security updates in Google Play system updates in September 2026 as per gemini",
-    "updatedAt": "2026-10-02T01:54:08.955Z",
+    "updatedAt": "2026-10-02T14:06:05.299Z",
     "upvote_ratio": 0.15,
     "url": "https://reddit.com/r/Android/comments/1we3ubl/security_updates_in_google_play_system_updates_in/",
     "versionList": [
@@ -15808,7 +16272,7 @@
     "tag": null,
     "tags": [],
     "title": "CVE-2026-85706 (CVSS 10.0) - Update your GitLab CE/EE instance",
-    "updatedAt": "2026-09-30T13:03:25.163Z",
+    "updatedAt": "2026-10-02T08:48:52.814Z",
     "upvote_ratio": 0.98,
     "url": "https://reddit.com/r/gitlab/comments/1wd86c3/cve202685706_cvss_100_update_your_gitlab_ceee/",
     "versionList": [
@@ -15847,7 +16311,7 @@
     "tag": null,
     "tags": [],
     "title": "🕵️‍♂️ SonicWall SMA1000 (CVE-2026-15409): SSRF to Erlang RCE chained into automated DCSync from the appliance",
-    "updatedAt": "2026-10-02T02:55:14.526Z",
+    "updatedAt": "2026-10-03T02:54:04.673Z",
     "upvote_ratio": 0.65,
     "url": "https://reddit.com/r/netsec/comments/1wcqbvq/sonicwall_sma1000_cve202615409_ssrf_to_erlang_rce/",
     "versionList": [
@@ -16137,7 +16601,7 @@
       "Discussion"
     ],
     "title": "I built a Composer tool to answer “composer audit found a vulnerability — what do I actually update?”",
-    "updatedAt": "2026-10-02T02:55:23.904Z",
+    "updatedAt": "2026-10-03T02:54:13.657Z",
     "upvote_ratio": 0.81,
     "url": "https://reddit.com/r/PHP/comments/1wclfrt/i_built_a_composer_tool_to_answer_composer_audit/",
     "versionList": [],
@@ -17049,7 +17513,7 @@
     "tag": "Contains AI",
     "tags": [],
     "title": "Fortinet Privileged Access Agent: Any Site Could Control Your Proxy and Watch Your Tab",
-    "updatedAt": "2026-10-01T12:59:01.776Z",
+    "updatedAt": "2026-10-03T05:06:05.426Z",
     "upvote_ratio": 0.89,
     "url": "https://reddit.com/r/netsec/comments/1wbi40d/fortinet_privileged_access_agent_any_site_could/",
     "versionList": [],
@@ -17488,7 +17952,7 @@
     "tag": null,
     "tags": [],
     "title": "MS vulnerabilities email today",
-    "updatedAt": "2026-10-02T05:06:13.480Z",
+    "updatedAt": "2026-10-02T12:49:56.572Z",
     "upvote_ratio": 0.83,
     "url": "https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/",
     "versionList": [],
@@ -17653,7 +18117,7 @@
     "tag": null,
     "tags": [],
     "title": "UpdraftPlus: PHP backdoor delivery attempts via CVE-2026-10795",
-    "updatedAt": "2026-10-01T23:02:06.277Z",
+    "updatedAt": "2026-10-02T22:09:09.079Z",
     "upvote_ratio": 0.67,
     "url": "https://reddit.com/r/Wordpress/comments/1w9lisq/updraftplus_php_backdoor_delivery_attempts_via/",
     "versionList": [
@@ -18965,7 +19429,7 @@
     "tag": null,
     "tags": [],
     "title": "N-Able N-Central patching again for CVE-2026-86206 and CVE-2026-86207",
-    "updatedAt": "2026-09-30T06:05:12.383Z",
+    "updatedAt": "2026-10-02T14:06:57.076Z",
     "upvote_ratio": 0.77,
     "url": "https://reddit.com/r/sysadmin/comments/1w8ckla/nable_ncentral_patching_again_for_cve202686206/",
     "versionList": [
@@ -19026,7 +19490,7 @@
     "tag": null,
     "tags": [],
     "title": "Any cPanel User with Parked Domains Can Get Root — Patch Now",
-    "updatedAt": "2026-09-30T13:04:08.489Z",
+    "updatedAt": "2026-10-03T01:55:26.398Z",
     "upvote_ratio": 0.85,
     "url": "https://reddit.com/r/cpanel/comments/1w6jnij/any_cpanel_user_with_parked_domains_can_get_root/",
     "versionList": [],
@@ -19142,7 +19606,7 @@
     "tag": null,
     "tags": [],
     "title": "I built an automated tool to compile &amp; deploy the latest upstream open-vm-tools via Docker &amp; Ansible (multi-distro, CVE-clean)",
-    "updatedAt": "2026-10-02T01:55:15.527Z",
+    "updatedAt": "2026-10-02T08:06:12.145Z",
     "upvote_ratio": 0.75,
     "url": "https://reddit.com/r/openstack/comments/1w2dpsl/i_built_an_automated_tool_to_compile_deploy_the/",
     "versionList": [],
@@ -19214,7 +19678,7 @@
     "tag": null,
     "tags": [],
     "title": "One Resident Login, an Entire Apartment Complex: The Master PIN in Rently's API (CVE-2026-75960)",
-    "updatedAt": "2026-10-02T02:56:08.022Z",
+    "updatedAt": "2026-10-02T20:10:16.666Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/netsec/comments/1w0lg9k/one_resident_login_an_entire_apartment_complex/",
     "versionList": [
@@ -19425,7 +19889,7 @@
     "tag": null,
     "tags": [],
     "title": "CVE-2026-65643 affected versions",
-    "updatedAt": "2026-10-02T02:56:17.100Z",
+    "updatedAt": "2026-10-02T20:10:27.631Z",
     "upvote_ratio": 0.82,
     "url": "https://reddit.com/r/cpanel/comments/1w0dkzz/cve202665643_affected_versions/",
     "versionList": [
@@ -19539,7 +20003,7 @@
     "tag": null,
     "tags": [],
     "title": "Emac cve guys, you should update your Emac package",
-    "updatedAt": "2026-10-02T00:03:19.463Z",
+    "updatedAt": "2026-10-03T02:54:57.407Z",
     "upvote_ratio": 0.84,
     "url": "https://reddit.com/r/debian/comments/1vz6or9/emac_cve_guys_you_should_update_your_emac_package/",
     "versionList": [],
@@ -21755,7 +22219,7 @@
     "tag": null,
     "tags": [],
     "title": "How serious is this CVE for Elementor? ",
-    "updatedAt": "2026-10-02T05:07:16.656Z",
+    "updatedAt": "2026-10-03T05:07:11.167Z",
     "upvote_ratio": 0.5,
     "url": "https://reddit.com/r/Wordpress/comments/1vz0z3z/how_serious_is_this_cve_for_elementor/",
     "versionList": [],
@@ -21806,7 +22270,7 @@
     "tag": null,
     "tags": [],
     "title": "☢️ Philippine Nuclear Agency and Naval Contractor Targeted by Suspected Chinese-Speaking Operator",
-    "updatedAt": "2026-10-02T05:07:22.521Z",
+    "updatedAt": "2026-10-03T05:07:17.068Z",
     "upvote_ratio": 0.83,
     "url": "https://reddit.com/r/netsec/comments/1vyxx41/philippine_nuclear_agency_and_naval_contractor/",
     "versionList": [],
@@ -21859,7 +22323,7 @@
     "tag": null,
     "tags": [],
     "title": "PSA: Critical (9.8) account takeover in TranslatePress, update to 3.3.2 now",
-    "updatedAt": "2026-10-01T21:03:08.656Z",
+    "updatedAt": "2026-10-02T15:08:17.134Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/Wordpress/comments/1vy4y2i/psa_critical_98_account_takeover_in/",
     "versionList": [
@@ -21914,7 +22378,7 @@
     "tag": null,
     "tags": [],
     "title": "CVE-2026-8508: Trust-Boundary Bypass in Zyxel social_login.cgi Facebook Identity Handling",
-    "updatedAt": "2026-10-01T00:54:17.845Z",
+    "updatedAt": "2026-10-02T12:51:08.304Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/netsec/comments/1vy03c7/cve20268508_trustboundary_bypass_in_zyxel_social/",
     "versionList": [
@@ -22023,7 +22487,7 @@
       "Security"
     ],
     "title": "CVE-2026-73570: Zimbra SNMP/logwatch RCE exploited in the wild, malware persists via /dev/shm and zimbra cron",
-    "updatedAt": "2026-10-01T00:54:23.538Z",
+    "updatedAt": "2026-10-02T12:07:07.959Z",
     "upvote_ratio": 0.83,
     "url": "https://reddit.com/r/linux/comments/1vxxfiu/cve202673570_zimbra_snmplogwatch_rce_exploited_in/",
     "versionList": [
@@ -22382,7 +22846,7 @@
     "tag": null,
     "tags": [],
     "title": "I need a sanity check: wpmudev",
-    "updatedAt": "2026-10-01T23:03:16.687Z",
+    "updatedAt": "2026-10-03T00:10:01.711Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/Wordpress/comments/1vxcktc/i_need_a_sanity_check_wpmudev/",
     "versionList": [],
@@ -22433,7 +22897,7 @@
     "tag": "Administration/Technical",
     "tags": [],
     "title": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-    "updatedAt": "2026-09-30T22:48:41.593Z",
+    "updatedAt": "2026-10-02T22:10:24.455Z",
     "upvote_ratio": 0.75,
     "url": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
     "versionList": [
@@ -24529,7 +24993,15 @@
         "created_utc": "2026-08-24T23:45:04",
         "permalink": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/p5pbsy9/",
         "parent_id": "t3_1vx4lbi",
-        "is_submitter": false
+        "is_submitter": false,
+        "sentiment_score": 0.128,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 0.87,
+          "pos": 0.13,
+          "compound": 0.128
+        }
       },
       {
         "id": "p60nibq",
@@ -24540,7 +25012,15 @@
         "created_utc": "2026-08-26T14:43:05",
         "permalink": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/p60nibq/",
         "parent_id": "t3_1vx4lbi",
-        "is_submitter": true
+        "is_submitter": true,
+        "sentiment_score": 0,
+        "sentiment_bucket": "Neutral",
+        "sentiment_detail": {
+          "neg": 0,
+          "neu": 1,
+          "pos": 0,
+          "compound": 0
+        }
       }
     ]
   },
@@ -25267,7 +25747,7 @@
     "tag": null,
     "tags": [],
     "title": "Microsoft dropped a CVSS 10.0 Entra ID RCE, said it was exploited, then walked that back a day later. No customer patch.",
-    "updatedAt": "2026-10-01T15:50:20.555Z",
+    "updatedAt": "2026-10-02T14:08:13.087Z",
     "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/sysadmin/comments/1vwibli/microsoft_dropped_a_cvss_100_entra_id_rce_said_it/",
     "versionList": [
@@ -29115,296 +29595,5 @@
     "sourceBot": "reddit.py",
     "sourceUrl": "https://reddit.com/r/netsec/comments/1vskftw/how_to_break_secure_boot_without_touching_any/",
     "source": "reddit"
-  },
-  {
-    "_id": "6a84f7f149715ba391888a58",
-    "redditId": "1vs6uu4",
-    "author": "ServerPatchingNovice",
-    "author_description": "Anyone use Tenable and attempted looking into the CVE - Windows Package Manager (WinGet) &lt; 1.30.80 Elevation of Privilege (CVE-2026-68821)? We have attempted installing the package, but its also installing SDKs and files we think are not necessary for a fresh install of Window Server.\n\nShould we just wait for more info from MS in their MSRC articles?\n\n[https://www.tenable.com/plugins/nessus/334617](https://www.tenable.com/plugins/nessus/334617)",
-    "awards": [],
-    "created_utc": "2026-08-19T00:22:53",
-    "first_author_comment": "yea we have already looked at it. The installer we used still actually has 1.29 instead of the 1.30 required.",
-    "num_comments": 8,
-    "score": 3,
-    "subreddit": "sysadmin",
-    "tag": "Question",
-    "tags": [
-      "Question"
-    ],
-    "title": "Tenable - Windows Package Manager (WinGet) &lt; 1.30.80 Elevation of Privilege (CVE-2026-68821)",
-    "updatedAt": "2026-10-02T05:08:07.502Z",
-    "upvote_ratio": 1,
-    "url": "https://reddit.com/r/sysadmin/comments/1vs6uu4/tenable_windows_package_manager_winget_13080/",
-    "versionList": [
-      "1.30.80",
-      "2026.0.0",
-      "68821.0.0"
-    ],
-    "classification": {
-      "securityType": [
-        "SECURITY"
-      ],
-      "componentType": [
-        "REPOSITORY",
-        "OS"
-      ]
-    },
-    "comments": [
-      {
-        "id": "p4j4s0q",
-        "author": "slackjack2014",
-        "body": "If you don’t use WinGet, just remove it from the systems. \n\nI haven’t updated yet, but that’s on my to do list. I usually download the app package from the store and deploy it manually, but I always remove it from my servers for least functionality reasons.",
-        "score": 1,
-        "created_utc_ts": 1787101228,
-        "created_utc": "2026-08-19T01:00:28",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1vs6uu4/tenable_windows_package_manager_winget_13080/p4j4s0q/",
-        "parent_id": "t3_1vs6uu4",
-        "is_submitter": false,
-        "sentiment_score": 0,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 1,
-          "pos": 0,
-          "compound": 0
-        }
-      },
-      {
-        "id": "p4jrz8n",
-        "author": "headcrap",
-        "body": "WinGet isn't installed on server natively.. there should be nothing to remove.",
-        "score": 1,
-        "created_utc_ts": 1787109106,
-        "created_utc": "2026-08-19T03:11:46",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1vs6uu4/tenable_windows_package_manager_winget_13080/p4jrz8n/",
-        "parent_id": "t1_p4j4s0q",
-        "is_submitter": false,
-        "sentiment_score": 0,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 1,
-          "pos": 0,
-          "compound": 0
-        }
-      },
-      {
-        "id": "p4kfz12",
-        "author": "przemekkuczynski",
-        "body": "Here is it [https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68821](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68821)",
-        "score": 1,
-        "created_utc_ts": 1787119288,
-        "created_utc": "2026-08-19T06:01:28",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1vs6uu4/tenable_windows_package_manager_winget_13080/p4kfz12/",
-        "parent_id": "t3_1vs6uu4",
-        "is_submitter": false,
-        "sentiment_score": 0,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 1,
-          "pos": 0,
-          "compound": 0
-        }
-      },
-      {
-        "id": "p4kmpx0",
-        "author": "ServerPatchingNovice",
-        "body": "yea we have already looked at it. The installer we used still actually has 1.29 instead of the 1.30 required.",
-        "score": 1,
-        "created_utc_ts": 1787122551,
-        "created_utc": "2026-08-19T06:55:51",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1vs6uu4/tenable_windows_package_manager_winget_13080/p4kmpx0/",
-        "parent_id": "t1_p4kfz12",
-        "is_submitter": true,
-        "sentiment_score": 0,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 1,
-          "pos": 0,
-          "compound": 0
-        }
-      },
-      {
-        "id": "p4l9qp4",
-        "author": "brian_cloudeu",
-        "body": "Removing WinGet is less final than it sounds, App Installer comes back with Store servicing, so verify it stays gone rather than assuming. Local EoP is only boring until it is the first hop.",
-        "score": 1,
-        "created_utc_ts": 1787134075,
-        "created_utc": "2026-08-19T10:07:55",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1vs6uu4/tenable_windows_package_manager_winget_13080/p4l9qp4/",
-        "parent_id": "t3_1vs6uu4",
-        "is_submitter": false,
-        "sentiment_score": -0.318,
-        "sentiment_bucket": "Negative",
-        "sentiment_detail": {
-          "neg": 0.065,
-          "neu": 0.935,
-          "pos": 0,
-          "compound": -0.3182
-        }
-      },
-      {
-        "id": "p4ngtke",
-        "author": "brian_cloudeu",
-        "body": "Removing WinGet is less final than it sounds, App Installer comes back with Store servicing, so verify it stays gone rather than assuming. Local EoP is only boring until it is the first hop.",
-        "score": 1,
-        "created_utc_ts": 1787158025,
-        "created_utc": "2026-08-19T16:47:05",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1vs6uu4/tenable_windows_package_manager_winget_13080/p4ngtke/",
-        "parent_id": "t3_1vs6uu4",
-        "is_submitter": false,
-        "sentiment_score": -0.318,
-        "sentiment_bucket": "Negative",
-        "sentiment_detail": {
-          "neg": 0.065,
-          "neu": 0.935,
-          "pos": 0,
-          "compound": -0.3182
-        }
-      }
-    ],
-    "metadata": {
-      "predicted": {
-        "isUpdateRelated": false,
-        "positiveScore": 7.046053187068785e-05,
-        "timestampPredicted": "2026-08-19T12:01:10.960619+00:00"
-      },
-      "labeled": {
-        "isUpdateRelated": null
-      }
-    },
-    "isAboutCve": true,
-    "isAboutLatestUpdate": false,
-    "author_description_sentiment": {
-      "score": -0.262,
-      "detail": {
-        "neg": 0.047,
-        "neu": 0.924,
-        "pos": 0.029,
-        "compound": -0.2624
-      }
-    },
-    "category": "Neutral",
-    "comments_avg_sentiment_score": -0.106,
-    "sentiment_score": -0.184,
-    "sourceBot": "reddit.py",
-    "sourceUrl": "https://reddit.com/r/sysadmin/comments/1vs6uu4/tenable_windows_package_manager_winget_13080/"
-  },
-  {
-    "_id": "6a84e0c749715ba391888688",
-    "redditId": "1vs4dtb",
-    "author": "stondd_cold",
-    "author_description": "Device: Blurams Lumi/A31C-family camera (exact retail model TBD — will confirm from device label)\n\n SoC / Flash: Unconfirmed  a related model in this same product family (A31C \"Lumi\") has been documented elsewhere using an ANYKA AK3918 SoC + PUYA PY25Q128HA SPI NOR flash; haven't opened this specific unit yet to confirm it matches.\n\nFirmware: reports as 2.3.38.12663 via the app API (masked as 22.0208.428.2703 on another endpoint — exact on-device /etc/version not yet confirmed)\n\nWhat I've checked so far:\n\nApp-side traffic analysis (via mitmproxy) confirms productKey: 1cad3c83-d87, matching the A31C/Lumi family's known API footprint.Tried two publicly disclosed SD-card auth.ini bootstrap exploits for this device family (CVE-2023-50488 version-derived key, CVE-2023-51820 static HMAC key)  both failed cleanly, suggesting this firmware generation has moved past both- Have not yet done a port scan or opened the device for UART access \n\nObjective: Looking for documentation, existing reverse engineering write-ups, or open-source projects (Thingino, OpenIPC, Dafang-Hacks, etc.) supporting this SoC/board family. Any guidance on obtaining serial access or extracting the squashfs rootfs would be appreciated.",
-    "awards": [],
-    "created_utc": "2026-08-18T22:38:47",
-    "first_author_comment": "Yeah but only because I tried so much I spent so much time trying to get in and nothing worked that it was easier that way, here’s the only picture of the board I got as of right now",
-    "num_comments": 4,
-    "score": 0,
-    "subreddit": "hardwarehacking",
-    "tag": null,
-    "tags": [],
-    "title": "[Hardware/Firmware] Investigating local shell/RTSP access on Blurams A31C-family camera (SoC unconfirmed — possibly ANYKA)",
-    "updatedAt": "2026-10-02T05:08:10.623Z",
-    "upvote_ratio": 0.5,
-    "url": "https://reddit.com/r/hardwarehacking/comments/1vs4dtb/hardwarefirmware_investigating_local_shellrtsp/",
-    "versionList": [],
-    "metadata": {
-      "predicted": {
-        "isUpdateRelated": false,
-        "positiveScore": 0.00034716847106182135,
-        "timestampPredicted": "2026-08-19T12:01:26.270177+00:00"
-      },
-      "labeled": {
-        "isUpdateRelated": null
-      }
-    },
-    "isAboutCve": true,
-    "isAboutLatestUpdate": true,
-    "author_description_sentiment": {
-      "score": 0,
-      "detail": {
-        "neg": 0.042,
-        "neu": 0.922,
-        "pos": 0.036,
-        "compound": 0
-      }
-    },
-    "category": "Neutral",
-    "comments": [
-      {
-        "id": "p5raqqq",
-        "author": "Glittering-Can-9397",
-        "body": "Be honest, did you use ai to write this?\n\nNo, this camera is not supported by thINGino, thINGino is for ingenic based cameras not anyka cameras, the oldest working things for anyka dont work well these days, the image sensors are finicky, openipc doesnt work with it either",
-        "score": 1,
-        "created_utc_ts": 1787642709,
-        "created_utc": "2026-08-25T07:25:09",
-        "permalink": "https://reddit.com/r/hardwarehacking/comments/1vs4dtb/hardwarefirmware_investigating_local_shellrtsp/p5raqqq/",
-        "parent_id": "t3_1vs4dtb",
-        "is_submitter": false,
-        "sentiment_score": -0.244,
-        "sentiment_bucket": "Negative",
-        "sentiment_detail": {
-          "neg": 0.117,
-          "neu": 0.821,
-          "pos": 0.062,
-          "compound": -0.2444
-        }
-      },
-      {
-        "id": "p5ravhj",
-        "author": "Glittering-Can-9397",
-        "body": "if you’re a real person and you post boardpics and or a firmware dump I can help you look at it if not then dont bother",
-        "score": 1,
-        "created_utc_ts": 1787642776,
-        "created_utc": "2026-08-25T07:26:16",
-        "permalink": "https://reddit.com/r/hardwarehacking/comments/1vs4dtb/hardwarefirmware_investigating_local_shellrtsp/p5ravhj/",
-        "parent_id": "t1_p5raqqq",
-        "is_submitter": false,
-        "sentiment_score": -0.17,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0.161,
-          "neu": 0.739,
-          "pos": 0.1,
-          "compound": -0.1696
-        }
-      },
-      {
-        "id": "p5tel2q",
-        "author": "stondd_cold",
-        "body": "Yeah but only because I tried so much I spent so much time trying to get in and nothing worked that it was easier that way, here’s the only picture of the board I got as of right now",
-        "score": 1,
-        "created_utc_ts": 1787670478,
-        "created_utc": "2026-08-25T15:07:58",
-        "permalink": "https://reddit.com/r/hardwarehacking/comments/1vs4dtb/hardwarefirmware_investigating_local_shellrtsp/p5tel2q/",
-        "parent_id": "t3_1vs4dtb",
-        "is_submitter": true,
-        "sentiment_score": 0.649,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 0.865,
-          "pos": 0.135,
-          "compound": 0.6486
-        }
-      }
-    ],
-    "comments_avg_sentiment_score": 0.078,
-    "sentiment_score": 0.039,
-    "classification": {
-      "securityType": [
-        "SECURITY"
-      ],
-      "componentType": [
-        "CLI",
-        "FIRMWARE",
-        "LANGUAGE",
-        "IDE"
-      ]
-    },
-    "sourceBot": "reddit.py",
-    "sourceUrl": "https://reddit.com/r/hardwarehacking/comments/1vs4dtb/hardwarefirmware_investigating_local_shellrtsp/"
   }
 ]

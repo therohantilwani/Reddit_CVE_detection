@@ -29,8 +29,6 @@ CVE-2023-42824,1,2026-09-24T09:01:30+00:00,1790240490,whatsapp,https://reddit.co
 CVE-2023-42916,1,2026-09-24T09:01:30+00:00,1790240490,whatsapp,https://reddit.com/r/whatsapp/comments/1wowlgz/someone_got_into_my_whatsapp/
 CVE-2023-42917,1,2026-09-24T09:01:30+00:00,1790240490,whatsapp,https://reddit.com/r/whatsapp/comments/1wowlgz/someone_got_into_my_whatsapp/
 CVE-2023-49105,1,2026-08-26T13:59:47+00:00,1787752787,netsec,https://reddit.com/r/netsec/comments/1vyxx41/philippine_nuclear_agency_and_naval_contractor/
-CVE-2023-50488,1,2026-08-18T22:38:47+00:00,1787092727,hardwarehacking,https://reddit.com/r/hardwarehacking/comments/1vs4dtb/hardwarefirmware_investigating_local_shellrtsp/
-CVE-2023-51820,1,2026-08-18T22:38:47+00:00,1787092727,hardwarehacking,https://reddit.com/r/hardwarehacking/comments/1vs4dtb/hardwarefirmware_investigating_local_shellrtsp/
 CVE-2023-5217,1,2026-09-24T09:01:30+00:00,1790240490,whatsapp,https://reddit.com/r/whatsapp/comments/1wowlgz/someone_got_into_my_whatsapp/
 CVE-2023-5879,1,2026-09-06T04:29:02+00:00,1788668942,homeassistant,https://reddit.com/r/homeassistant/comments/1w8m4e0/genie_aladdin_connect_api_leaking_other_users/
 CVE-2023-5881,1,2026-09-06T04:29:02+00:00,1788668942,homeassistant,https://reddit.com/r/homeassistant/comments/1w8m4e0/genie_aladdin_connect_api_leaking_other_users/
@@ -43,6 +41,7 @@ CVE-2026-0310,1,2026-09-11T15:41:01+00:00,1789141261,sysadmin,https://reddit.com
 CVE-2026-10795,1,2026-09-07T07:39:40+00:00,1788766780,Wordpress,https://reddit.com/r/Wordpress/comments/1w9lisq/updraftplus_php_backdoor_delivery_attempts_via/
 CVE-2026-15409,1,2026-09-10T17:48:31+00:00,1789062511,netsec,https://reddit.com/r/netsec/comments/1wcqbvq/sonicwall_sma1000_cve202615409_ssrf_to_erlang_rce/
 CVE-2026-15459,1,2026-08-24T19:19:09+00:00,1787599149,Wordpress,https://reddit.com/r/Wordpress/comments/1vxcktc/i_need_a_sanity_check_wpmudev/
+CVE-2026-18397,1,2026-10-02T16:05:04+00:00,1790957104,netsec,https://reddit.com/r/netsec/comments/1wvxp1p/8_out_of_10_banks_hate_this_one_weird_3skey_rce/
 CVE-2026-19478,1,2026-08-24T09:38:50+00:00,1787564330,gitlab,https://reddit.com/r/gitlab/comments/1vwy1ps/actively_exploited_gitlab_vulnerability/
 CVE-2026-19489,1,2026-09-26T06:43:22+00:00,1790405002,Citrix,https://reddit.com/r/Citrix/comments/1wqjk9a/netscaler_leak/
 CVE-2026-19632,1,2026-08-25T16:37:23+00:00,1787675843,Wordpress,https://reddit.com/r/Wordpress/comments/1vy4y2i/psa_critical_98_account_takeover_in/
@@ -68,7 +67,6 @@ CVE-2026-67401,1,2026-09-08T16:06:37+00:00,1788883597,cpanel,https://reddit.com/
 CVE-2026-67402,1,2026-09-13T14:12:39+00:00,1789308759,cpanel,https://reddit.com/r/cpanel/comments/1wf8ra1/critical_rce_in_configserver_firewall_update_csf/
 CVE-2026-68121,1,2026-09-18T07:57:53+00:00,1789718273,netsec,https://reddit.com/r/netsec/comments/1wjjxd0/a_quartet_of_linux_local_root_vulns_dirtyah6/
 CVE-2026-6861,1,2026-08-26T19:13:55+00:00,1787771635,debian,https://reddit.com/r/debian/comments/1vz6or9/emac_cve_guys_you_should_update_your_emac_package/
-CVE-2026-68821,1,2026-08-19T00:22:53+00:00,1787098973,sysadmin,https://reddit.com/r/sysadmin/comments/1vs6uu4/tenable_windows_package_manager_winget_13080/
 CVE-2026-68839,1,2026-09-08T21:14:13+00:00,1788902053,sysadmin,https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/
 CVE-2026-69276,1,2026-09-08T21:14:13+00:00,1788902053,sysadmin,https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/
 CVE-2026-69408,1,2026-09-08T21:14:13+00:00,1788902053,sysadmin,https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/
@@ -95,6 +93,7 @@ CVE-2026-69836,1,2026-08-23T20:39:15+00:00,1787517555,sysadmin,https://reddit.co
 CVE-2026-69845,1,2026-09-08T21:14:13+00:00,1788902053,sysadmin,https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/
 CVE-2026-69910,1,2026-09-08T21:14:13+00:00,1788902053,sysadmin,https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/
 CVE-2026-70296,1,2026-09-08T21:14:13+00:00,1788902053,sysadmin,https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/
+CVE-2026-71972,1,2026-10-02T16:50:08+00:00,1790959808,netsec,https://reddit.com/r/netsec/comments/1wvyt5b/bypassing_secure_boot_via_unbounded_rle8_splash/
 CVE-2026-72979,1,2026-09-08T21:14:13+00:00,1788902053,sysadmin,https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/
 CVE-2026-72982,1,2026-09-08T21:14:13+00:00,1788902053,sysadmin,https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/
 CVE-2026-72983,1,2026-09-08T21:14:13+00:00,1788902053,sysadmin,https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/
