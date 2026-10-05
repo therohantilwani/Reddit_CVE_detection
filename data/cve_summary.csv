@@ -61,6 +61,8 @@ CVE-2026-62062,1,2026-09-25T08:36:07+00:00,1790325367,Wordpress,https://reddit.c
 CVE-2026-63030,1,2026-09-25T23:58:21+00:00,1790380701,Wordpress,https://reddit.com/r/Wordpress/comments/1wqbumm/your_website_may_be_used_by_hackers_to_link/
 CVE-2026-65669,1,2026-09-08T21:14:13+00:00,1788902053,sysadmin,https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/
 CVE-2026-66694,1,2026-09-22T14:25:06+00:00,1790087106,Wordpress,https://reddit.com/r/Wordpress/comments/1wnaydr/selfhealing_wordpress_malware_survived_a_manual/
+CVE-2026-6726,1,2026-10-05T02:05:43+00:00,1791165943,sysadmin,https://reddit.com/r/sysadmin/comments/1wxwtzq/tpm_firmware_cve20266726_and_cve20266727/
+CVE-2026-6727,1,2026-10-05T02:05:43+00:00,1791165943,sysadmin,https://reddit.com/r/sysadmin/comments/1wxwtzq/tpm_firmware_cve20266726_and_cve20266727/
 CVE-2026-67401,1,2026-09-08T16:06:37+00:00,1788883597,cpanel,https://reddit.com/r/cpanel/comments/1wasnck/security_cve202667401_sql_injection_vulnerability/
 CVE-2026-67402,1,2026-09-13T14:12:39+00:00,1789308759,cpanel,https://reddit.com/r/cpanel/comments/1wf8ra1/critical_rce_in_configserver_firewall_update_csf/
 CVE-2026-68121,1,2026-09-18T07:57:53+00:00,1789718273,netsec,https://reddit.com/r/netsec/comments/1wjjxd0/a_quartet_of_linux_local_root_vulns_dirtyah6/
