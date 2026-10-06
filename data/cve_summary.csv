@@ -37,6 +37,7 @@ CVE-2025-13032,1,2026-09-25T14:54:02+00:00,1790348042,netsec,https://reddit.com/
 CVE-2025-68402,1,2026-10-02T00:22:01+00:00,1790900521,PHP,https://reddit.com/r/PHP/comments/1wvfp66/this_week_in_php_internals_oct_1_2026/
 CVE-2026-0310,1,2026-09-11T15:41:01+00:00,1789141261,sysadmin,https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/
 CVE-2026-10795,1,2026-09-07T07:39:40+00:00,1788766780,Wordpress,https://reddit.com/r/Wordpress/comments/1w9lisq/updraftplus_php_backdoor_delivery_attempts_via/
+CVE-2026-13480,1,2026-10-05T13:23:29+00:00,1791206609,LoRaWAN,https://reddit.com/r/LoRaWAN/comments/1wy8glt/question_fuota_on_esp32_sx1276_ts004/
 CVE-2026-15409,1,2026-09-10T17:48:31+00:00,1789062511,netsec,https://reddit.com/r/netsec/comments/1wcqbvq/sonicwall_sma1000_cve202615409_ssrf_to_erlang_rce/
 CVE-2026-15459,1,2026-08-24T19:19:09+00:00,1787599149,Wordpress,https://reddit.com/r/Wordpress/comments/1vxcktc/i_need_a_sanity_check_wpmudev/
 CVE-2026-18397,1,2026-10-02T16:05:04+00:00,1790957104,netsec,https://reddit.com/r/netsec/comments/1wvxp1p/8_out_of_10_banks_hate_this_one_weird_3skey_rce/
@@ -89,7 +90,6 @@ CVE-2026-69813,1,2026-09-10T09:16:06+00:00,1789031766,sysadmin,https://reddit.co
 CVE-2026-69819,1,2026-09-08T21:14:13+00:00,1788902053,sysadmin,https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/
 CVE-2026-69824,1,2026-09-08T21:14:13+00:00,1788902053,sysadmin,https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/
 CVE-2026-69829,1,2026-09-08T21:14:13+00:00,1788902053,sysadmin,https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/
-CVE-2026-69836,1,2026-08-23T20:39:15+00:00,1787517555,sysadmin,https://reddit.com/r/sysadmin/comments/1vwibli/microsoft_dropped_a_cvss_100_entra_id_rce_said_it/
 CVE-2026-69845,1,2026-09-08T21:14:13+00:00,1788902053,sysadmin,https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/
 CVE-2026-69910,1,2026-09-08T21:14:13+00:00,1788902053,sysadmin,https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/
 CVE-2026-70296,1,2026-09-08T21:14:13+00:00,1788902053,sysadmin,https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/
