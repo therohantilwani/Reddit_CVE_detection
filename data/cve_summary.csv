@@ -4,6 +4,7 @@ CVE-2008-0166,3,2026-09-26T19:37:39+00:00,1790451459,debian;homelab,https://redd
 CVE-2026-88778,3,2026-09-26T06:43:22+00:00,1790405002,Citrix,https://reddit.com/r/Citrix/comments/1wro1yf/critical_update_citrix_netscaler_adc_and_citrix/;https://reddit.com/r/Citrix/comments/1wrnfya/citrix_advisory_out/;https://reddit.com/r/Citrix/comments/1wqjk9a/netscaler_leak/
 CVE-2026-88779,3,2026-10-02T15:32:23+00:00,1790955143,Citrix,https://reddit.com/r/Citrix/comments/1wx549p/update_citrix_netscaler_adc_and_citrix_netscaler/;https://reddit.com/r/Citrix/comments/1wx3my7/netscaler_release_maintenance_phase_141_build_7341/;https://reddit.com/r/Citrix/comments/1wvwva9/netscaler_active_exploit_after_patch/
 CVE-2015-7547,2,2026-09-19T16:49:28+00:00,1789836568,Ubiquiti,https://reddit.com/r/Ubiquiti/comments/1wkyomd/weird_error_message_from_quad9_to_pihole_in_ips/;https://reddit.com/r/Ubiquiti/comments/1wkr5c7/repeated_cve20157547_warnings_from_one_machine/
+CVE-2026-13480,2,2026-10-05T13:23:29+00:00,1791206609,LoRaWAN;esp32,https://reddit.com/r/esp32/comments/1wz9y18/question_fuota_on_esp32_sx1276_ts004/;https://reddit.com/r/LoRaWAN/comments/1wy8glt/question_fuota_on_esp32_sx1276_ts004/
 CVE-2026-19490,2,2026-09-18T20:32:56+00:00,1789763576,Citrix,https://reddit.com/r/Citrix/comments/1wqjk9a/netscaler_leak/;https://reddit.com/r/Citrix/comments/1wk1l87/new_research_safe_detection_tool_for_cve202619490/
 CVE-2026-28581,2,2026-09-12T05:33:00+00:00,1789191180,Android;google,https://reddit.com/r/google/comments/1wf2oas/why_you_need_the_september_android_update_a_look/;https://reddit.com/r/Android/comments/1we3ubl/security_updates_in_google_play_system_updates_in/
 CVE-2026-28609,2,2026-09-12T05:33:00+00:00,1789191180,Android;google,https://reddit.com/r/google/comments/1wf2oas/why_you_need_the_september_android_update_a_look/;https://reddit.com/r/Android/comments/1we3ubl/security_updates_in_google_play_system_updates_in/
@@ -34,18 +35,17 @@ CVE-2024-28000,1,2026-08-26T13:59:47+00:00,1787752787,netsec,https://reddit.com/
 CVE-2024-45411,1,2026-09-10T14:52:23+00:00,1789051943,PHP,https://reddit.com/r/PHP/comments/1wclfrt/i_built_a_composer_tool_to_answer_composer_audit/
 CVE-2024-6387,1,2026-09-24T03:21:03+00:00,1790220063,homelab,https://reddit.com/r/homelab/comments/1woqpab/r740xd_completely_locked_down_or_broken/
 CVE-2025-13032,1,2026-09-25T14:54:02+00:00,1790348042,netsec,https://reddit.com/r/netsec/comments/1wpyg75/cve202513032_entering_and_breaking_the_avast/
+CVE-2025-6031,1,2026-10-06T14:25:44+00:00,1791296744,hardwarehacking,https://reddit.com/r/hardwarehacking/comments/1wz3z14/failed_attempt_at_rescuing_amazon_cloudcams_with/
 CVE-2025-68402,1,2026-10-02T00:22:01+00:00,1790900521,PHP,https://reddit.com/r/PHP/comments/1wvfp66/this_week_in_php_internals_oct_1_2026/
 CVE-2026-0310,1,2026-09-11T15:41:01+00:00,1789141261,sysadmin,https://reddit.com/r/sysadmin/comments/1wdjt3p/palo_alto_cve_panos_vulnerability_enables/
 CVE-2026-10795,1,2026-09-07T07:39:40+00:00,1788766780,Wordpress,https://reddit.com/r/Wordpress/comments/1w9lisq/updraftplus_php_backdoor_delivery_attempts_via/
-CVE-2026-13480,1,2026-10-05T13:23:29+00:00,1791206609,LoRaWAN,https://reddit.com/r/LoRaWAN/comments/1wy8glt/question_fuota_on_esp32_sx1276_ts004/
 CVE-2026-15409,1,2026-09-10T17:48:31+00:00,1789062511,netsec,https://reddit.com/r/netsec/comments/1wcqbvq/sonicwall_sma1000_cve202615409_ssrf_to_erlang_rce/
-CVE-2026-15459,1,2026-08-24T19:19:09+00:00,1787599149,Wordpress,https://reddit.com/r/Wordpress/comments/1vxcktc/i_need_a_sanity_check_wpmudev/
 CVE-2026-18397,1,2026-10-02T16:05:04+00:00,1790957104,netsec,https://reddit.com/r/netsec/comments/1wvxp1p/8_out_of_10_banks_hate_this_one_weird_3skey_rce/
-CVE-2026-19478,1,2026-08-24T09:38:50+00:00,1787564330,gitlab,https://reddit.com/r/gitlab/comments/1vwy1ps/actively_exploited_gitlab_vulnerability/
 CVE-2026-19489,1,2026-09-26T06:43:22+00:00,1790405002,Citrix,https://reddit.com/r/Citrix/comments/1wqjk9a/netscaler_leak/
 CVE-2026-19632,1,2026-08-25T16:37:23+00:00,1787675843,Wordpress,https://reddit.com/r/Wordpress/comments/1vy4y2i/psa_critical_98_account_takeover_in/
 CVE-2026-20288,1,2026-09-13T22:23:46+00:00,1789338226,homelab,https://reddit.com/r/homelab/comments/1wflmwb/i_replaced_my_cisco_c240_m5s_inletbased_fan_curve/
 CVE-2026-20353,1,2026-10-03T11:58:46+00:00,1791028726,sysadmin,https://reddit.com/r/sysadmin/comments/1wwlgqq/todays_reminder_that_every_security_appliance_is/
+CVE-2026-21589,1,2026-10-06T17:06:35+00:00,1791306395,netsec,https://reddit.com/r/netsec/comments/1wz82op/you_wont_hear_about_these_even_in_myths_atlassian/
 CVE-2026-32475,1,2026-08-26T15:53:17+00:00,1787759597,Wordpress,https://reddit.com/r/Wordpress/comments/1vz0z3z/how_serious_is_this_cve_for_elementor/
 CVE-2026-32740,1,2026-09-28T10:03:49+00:00,1790589829,netsec,https://reddit.com/r/netsec/comments/1wsajyx/cve202632740_rce_in_a_pie_nextjs_sharplibheif/
 CVE-2026-32882,1,2026-09-19T10:56:26+00:00,1789815386,homeassistant,https://reddit.com/r/homeassistant/comments/1wkj5mf/openai_hacked_by_hacktron_ai_using_discourse_via/
@@ -109,7 +109,6 @@ CVE-2026-76461,1,2026-10-03T11:58:46+00:00,1791028726,sysadmin,https://reddit.co
 CVE-2026-77179,1,2026-09-19T06:25:58+00:00,1789799158,netsec,https://reddit.com/r/netsec/comments/1wkeh8n/cve202677179_dockers_hypervisor_for_mac/
 CVE-2026-77219,1,2026-08-26T19:13:55+00:00,1787771635,debian,https://reddit.com/r/debian/comments/1vz6or9/emac_cve_guys_you_should_update_your_emac_package/
 CVE-2026-77493,1,2026-09-08T21:14:13+00:00,1788902053,sysadmin,https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/
-CVE-2026-77995,1,2026-08-24T14:35:47+00:00,1787582147,joomla,https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/
 CVE-2026-78445,1,2026-09-08T21:14:13+00:00,1788902053,sysadmin,https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/
 CVE-2026-79417,1,2026-09-25T02:13:27+00:00,1790302407,netsec,https://reddit.com/r/netsec/comments/1wpkc7q/argus_monitor_local_denialofservice_vulnerability/
 CVE-2026-80521,1,2026-09-23T21:29:42+00:00,1790198982,netsec,https://reddit.com/r/netsec/comments/1woiusv/september_23_24h_recap_ubuntu_container_escape_f5/

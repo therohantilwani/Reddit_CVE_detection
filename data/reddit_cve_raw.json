@@ -1,5 +1,235 @@
 [
   {
+    "_id": "6ac546cfed94ec00e07be9ed",
+    "redditId": "1wz9y18",
+    "author": "Alarming_Western9500",
+    "author_description": "&amp;#x200B;\n\nI wrote this for a free, open series on the EU Cyber Resilience Act (CC BY-SA).\n\nSetup: two Heltec WiFi LoRa 32 V2, Zephyr 4.4.2, MCUboot, the TS003/TS004/TS005 services from Zephyr's LoRaWAN stack.\n\nWhat works:\n\n\\* 200 kB signed image, 200-byte fragments, 8% redundancy\n\n\\* sent point to point at 869.525 MHz, keeping to the 10% duty cycle\n\n\\* 33 min, 7 lost fragments rebuilt from redundancy\n\n\\* MCUboot verified the signature and booted the new version, with automatic rollback if the new image fails its health check\n\nIt's point-to-point LoRa, not LoRaWAN: I have no gateway yet.\n\nRadio notes:\n\n\\* Downlink SF7 / 250 kHz for the fragments, uplink SF10 / 125 kHz for the short acks: one board was heard about 35-40 dB weaker than it heard the other, the same with two different partner boards.\n\n\\* Zephyr's TS004 decoder had an out-of-bounds read fixed in 4.4.2 (CVE-2026-13480). Worth checking your version.\n\nWhere I'd really appreciate help: has anyone run a real FUOTA session with ChirpStack v4 (or TTS) against Zephyr devices?\n\n\\* Did class C multicast work out of the box?\n\n\\* What fragment size and redundancy did you settle on?\n\n\\* For LoRaWAN 1.0.x, my reading of LoRaMac-node is that the Gen App Key should equal the AppKey when the device passes the same key as AppKey and NwkKey. Can anyone confirm?\n\n  \\[Article\\](https://adntio.github.io/cra-dev-wiki/en/CRA-Dev-06-FUOTA-LoRaWAN/)\n \\[Code\\](https://github.com/ADNTIO/cra-dev-wiki/tree/main/examples/06-fuota-lorawan)",
+    "awards": [],
+    "created_utc": "2026-10-06T18:17:52",
+    "first_author_comment": null,
+    "num_comments": 0,
+    "score": 1,
+    "source": "reddit",
+    "subreddit": "esp32",
+    "tag": null,
+    "tags": [],
+    "title": "Question: FUOTA on ESP32 + SX1276: TS004 fragmentation and MCUboot work over point-to-point LoRa, but I haven't tested a real LoRaWAN server yet. Experiences?",
+    "updatedAt": "2026-10-07T07:14:22.680Z",
+    "upvote_ratio": 1,
+    "url": "https://reddit.com/r/esp32/comments/1wz9y18/question_fuota_on_esp32_sx1276_ts004/",
+    "versionList": [],
+    "sentiment": {
+      "author": 0.82,
+      "community": null,
+      "authorHasReplies": false,
+      "forCommentCount": 0,
+      "authorTrajectory": [],
+      "communityTrajectory": [],
+      "schemaVersion": 2
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.004697707296680411,
+        "timestampPredicted": "2026-10-07T07:14:21.335047+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true,
+    "comments": [],
+    "sourceBot": "reddit.py",
+    "sourceUrl": "https://reddit.com/r/esp32/comments/1wz9y18/question_fuota_on_esp32_sx1276_ts004/"
+  },
+  {
+    "_id": "6ac52e68ed94ec00e07bc5ca",
+    "redditId": "1wz82op",
+    "author": "dx7r__",
+    "author_description": null,
+    "awards": [],
+    "created_utc": "2026-10-06T17:06:35",
+    "first_author_comment": null,
+    "num_comments": 1,
+    "score": 46,
+    "source": "reddit",
+    "subreddit": "netsec",
+    "tag": null,
+    "tags": [],
+    "title": "You Won’t Hear About These, Even In Myths (Atlassian Jira, Confluence (and more) Pre-Auth Arbitrary File Read CVE-2026-21589) - watchTowr Labs",
+    "updatedAt": "2026-10-07T07:23:07.492Z",
+    "upvote_ratio": 0.95,
+    "url": "https://reddit.com/r/netsec/comments/1wz82op/you_wont_hear_about_these_even_in_myths_atlassian/",
+    "versionList": [
+      "2026.0.0",
+      "21589.0.0"
+    ],
+    "isAboutCve": true,
+    "isAboutLatestUpdate": false,
+    "sentiment": {
+      "author": 0,
+      "community": 0.491,
+      "authorHasReplies": false,
+      "forCommentCount": 1,
+      "authorTrajectory": [],
+      "communityTrajectory": [
+        {
+          "i": 0,
+          "v": 0.491
+        }
+      ],
+      "schemaVersion": 2
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 0.0005245630030706695,
+        "timestampPredicted": "2026-10-07T05:14:20.465957+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "comments": [
+      {
+        "id": "peaghlm",
+        "author": "Emergency_Stable_923",
+        "body": "Good job! then where we can hear these type of bugs? Of course we’re not looking mythos for something that serious!",
+        "score": 1,
+        "created_utc_ts": 1791317022,
+        "created_utc": "2026-10-06T20:03:42",
+        "permalink": "https://reddit.com/r/netsec/comments/1wz82op/you_wont_hear_about_these_even_in_myths_atlassian/peaghlm/",
+        "parent_id": "t3_1wz82op",
+        "is_submitter": false
+      }
+    ],
+    "sourceBot": "reddit.py",
+    "sourceUrl": "https://reddit.com/r/netsec/comments/1wz82op/you_wont_hear_about_these_even_in_myths_atlassian/"
+  },
+  {
+    "_id": "6ac5128aed94ec00e07b9d0d",
+    "redditId": "1wz3z14",
+    "author": "dvdcastro",
+    "author_description": "Amazon shut down the Cloud Cam service in Dec 2022. I own six units, so I tried to take local control. Short version:\n\n\\- Works: I reverse-engineered the BLE setup protocol (WhisperJoin) from the Android app and can put a camera on my own WiFi with no Amazon account.\n\n\\- Walled: I built a fake AWS backend (MQTT broker + KVS shim to RTSP). The camera rejected my certs in 1,250+ handshakes, always with alert 46 (never the 48 a stock client sends), so it looks like custom pinning. I couldn't reproduce the CVE-2025-6031 bypass.\n\n\\- Dead end: UART works in both directions, but the signed U-Boot never gives a shell — autoboot-abort is compiled out and the only divert path (eth-fastboot) is unreachable on hardware with no ethernet port. That track is closed; a direct SPI flash read with a CH341A clip was never attempted.\n\nFull writeup (Medium): [https://medium.com/@dvdcastro/i-tried-to-rescue-six-dead-amazon-cloud-cams-heres-what-worked-and-the-wall-i-hit-9d878448abe6](https://medium.com/@dvdcastro/i-tried-to-rescue-six-dead-amazon-cloud-cams-heres-what-worked-and-the-wall-i-hit-9d878448abe6)\n\nCode and captures: [https://github.com/dvdcastro/cloudcam-rescue](https://github.com/dvdcastro/cloudcam-rescue)\n\n\n\nHappy to answer questions.",
+    "awards": [],
+    "created_utc": "2026-10-06T14:25:44",
+    "first_author_comment": "I am stopping now for a while, I guess in a few months or years when I have the energy again, I'll give it a go.\n\nThey are 100% **non-functional**, sadly. I can't bypass the certificate when they access the Wi-Fi.",
+    "num_comments": 5,
+    "score": 7,
+    "source": "reddit",
+    "subreddit": "hardwarehacking",
+    "tag": null,
+    "tags": [],
+    "title": "Failed attempt at rescuing Amazon Cloudcams with Claude's assist",
+    "updatedAt": "2026-10-07T07:24:00.023Z",
+    "upvote_ratio": 0.82,
+    "url": "https://reddit.com/r/hardwarehacking/comments/1wz3z14/failed_attempt_at_rescuing_amazon_cloudcams_with/",
+    "versionList": [],
+    "isAboutCve": true,
+    "isAboutLatestUpdate": true,
+    "sentiment": {
+      "author": -0.207,
+      "community": 0,
+      "authorHasReplies": true,
+      "forCommentCount": 5,
+      "authorTrajectory": [
+        {
+          "i": 1,
+          "v": -0.318
+        },
+        {
+          "i": 4,
+          "v": 0.853
+        }
+      ],
+      "communityTrajectory": [
+        {
+          "i": 0,
+          "v": 0
+        },
+        {
+          "i": 2,
+          "v": 0
+        },
+        {
+          "i": 3,
+          "v": 0
+        }
+      ],
+      "schemaVersion": 2
+    },
+    "metadata": {
+      "predicted": {
+        "isUpdateRelated": false,
+        "positiveScore": 7.339987513189025e-05,
+        "timestampPredicted": "2026-10-07T04:12:01.177339+00:00"
+      },
+      "labeled": {
+        "isUpdateRelated": null
+      }
+    },
+    "comments": [
+      {
+        "id": "pe8sjut",
+        "author": "graph_worlok",
+        "body": "How long until the chip clip arrives then? 😁\n\nEdit:  How functional are they in your wifi?",
+        "score": 2,
+        "created_utc_ts": 1791302319,
+        "created_utc": "2026-10-06T15:58:39",
+        "permalink": "https://reddit.com/r/hardwarehacking/comments/1wz3z14/failed_attempt_at_rescuing_amazon_cloudcams_with/pe8sjut/",
+        "parent_id": "t3_1wz3z14",
+        "is_submitter": false
+      },
+      {
+        "id": "pe94ccy",
+        "author": "dvdcastro",
+        "body": "I am stopping now for a while, I guess in a few months or years when I have the energy again, I'll give it a go.\n\nThey are 100% **non-functional**, sadly. I can't bypass the certificate when they access the Wi-Fi.",
+        "score": 2,
+        "created_utc_ts": 1791305209,
+        "created_utc": "2026-10-06T16:46:49",
+        "permalink": "https://reddit.com/r/hardwarehacking/comments/1wz3z14/failed_attempt_at_rescuing_amazon_cloudcams_with/pe94ccy/",
+        "parent_id": "t1_pe8sjut",
+        "is_submitter": true
+      },
+      {
+        "id": "pebyg73",
+        "author": "glassmanjones",
+        "body": "Do you have the GPL u-boot source? Sometimes manufacturers put in a hard-coded password directly into the source code.\n\n",
+        "score": 3,
+        "created_utc_ts": 1791332259,
+        "created_utc": "2026-10-07T00:17:39",
+        "permalink": "https://reddit.com/r/hardwarehacking/comments/1wz3z14/failed_attempt_at_rescuing_amazon_cloudcams_with/pebyg73/",
+        "parent_id": "t3_1wz3z14",
+        "is_submitter": false
+      },
+      {
+        "id": "pebz1dq",
+        "author": "glassmanjones",
+        "body": "What CPU is it?",
+        "score": 1,
+        "created_utc_ts": 1791332439,
+        "created_utc": "2026-10-07T00:20:39",
+        "permalink": "https://reddit.com/r/hardwarehacking/comments/1wz3z14/failed_attempt_at_rescuing_amazon_cloudcams_with/pebz1dq/",
+        "parent_id": "t3_1wz3z14",
+        "is_submitter": false
+      },
+      {
+        "id": "pecrqnc",
+        "author": "dvdcastro",
+        "body": "It's a \\*\\*MediaTek MT7628\\*\\* — MIPS 24KEc core, \\~580 MHz. Not Ambarella.\n\nThat surprised us too. We'd assumed Ambarella S2L (Cortex-A9) for weeks based on the Dropcam lineage, and it turned out to be flat wrong. Here's what the UART boot log actually shows:\n\n\\- \\*\\*SoC:\\*\\* MediaTek MT7628, MIPS 24KEc, \\`proc\\_id=0x19655\\`, board string \\`MT76x8 -M\\`\n\n\\- Independently confirmed by Amazon's own kernel cmdline: \\`androidboot.hardware=mt7628\\`\n\n\\- \\*\\*DRAM:\\*\\* 256 MiB\n\n\\- \\*\\*SPI NOR:\\*\\* Macronix MX25V8035F, 1 MiB — bootloader + environment only. Kernel/rootfs live on eMMC.\n\n\\- \\*\\*Bootloader:\\*\\* stock two-stage U-Boot 2016.09-rc1 (SPL + full), not Ambarella's Amboot\n\n\\- \\*\\*Build string:\\*\\* \\`jenkins-fireos-pie-build-low-level-images-117\\` — built by Amazon's internal FireOS pipeline\n\n\\- \\*\\*Kernel cmdline:\\*\\* \\`rootfstype=squashfs,jffs2 androidboot.selinux=enforcing\\`\n\n\\- \\*\\*Verified boot is active at two layers:\\*\\* stock FIT \\`sha256,rsa2048\\`, plus an Amazon-specific layer on top (\\`Image AUTHENTICATED with PRODUCTION certificate\\`, \\`signer:CodeSigner\\`)\n\n\n\nThe genuinely interesting part: the MT7628 is a WiFi/router/IoT SoC, \\*\\*not a video ISP\\*\\*. So the camera's video pipeline can't be running on it — there's almost certainly a separate ISP under the RF shield we haven't pulled yet. I don't know what it is, so I'm not going to guess.\n\n\n\nSource: direct UART capture off our own hardware, with the kernel cmdline as independent confirmation. Not inferred from teardown photos.",
+        "score": 1,
+        "created_utc_ts": 1791341484,
+        "created_utc": "2026-10-07T02:51:24",
+        "permalink": "https://reddit.com/r/hardwarehacking/comments/1wz3z14/failed_attempt_at_rescuing_amazon_cloudcams_with/pecrqnc/",
+        "parent_id": "t1_pebz1dq",
+        "is_submitter": true
+      }
+    ],
+    "sourceBot": "reddit.py",
+    "sourceUrl": "https://reddit.com/r/hardwarehacking/comments/1wz3z14/failed_attempt_at_rescuing_amazon_cloudcams_with/"
+  },
+  {
     "_id": "6ac3afafed94ec00e07a0366",
     "redditId": "1wy8glt",
     "author": "Alarming_Western9500",
@@ -14,7 +244,7 @@
     "tag": null,
     "tags": [],
     "title": "Question: FUOTA on ESP32 + SX1276: TS004 fragmentation and MCUboot work over point-to-point LoRa, but I haven't tested a real LoRaWAN server yet. Experiences?",
-    "updatedAt": "2026-10-06T08:09:29.991Z",
+    "updatedAt": "2026-10-07T07:08:14.726Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/LoRaWAN/comments/1wy8glt/question_fuota_on_esp32_sx1276_ts004/",
     "versionList": [],
@@ -54,7 +284,7 @@
         "id": "pdxsh6x",
         "author": "jetlagged-bee",
         "body": "Dell command update handles that in our environment, via BIOS updates. It also takes care of disabling Bitlocker. ",
-        "score": 7,
+        "score": 8,
         "created_utc_ts": 1791167940,
         "created_utc": "2026-10-05T02:39:00",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wxwtzq/tpm_firmware_cve20266726_and_cve20266727/pdxsh6x/",
@@ -65,7 +295,7 @@
         "id": "pdy80bl",
         "author": "BlockBannington",
         "body": "It doesn't take good care of enabling it again though ",
-        "score": 4,
+        "score": 3,
         "created_utc_ts": 1791173475,
         "created_utc": "2026-10-05T04:11:15",
         "permalink": "https://reddit.com/r/sysadmin/comments/1wxwtzq/tpm_firmware_cve20266726_and_cve20266727/pdy80bl/",
@@ -87,14 +317,14 @@
     "created_utc": "2026-10-05T02:05:43",
     "first_author_comment": "Thanks. How long does it take for the entire process?\n\nNewer TPM chips only requires suspend bitlocker to update firmware.\n\nOld TPM chips need to disable bitlocker ( full decryption) to update tpm firmware and re-encrypt. Leaving a device in insecure state for a long time would need to keep the device in a secure premise from start to finish.\n\n\n",
     "num_comments": 10,
-    "score": 9,
+    "score": 10,
     "source": "reddit",
     "subreddit": "sysadmin",
     "tag": null,
     "tags": [],
     "title": "TPM firmware CVE-2026-6726 and CVE-2026-6727",
-    "updatedAt": "2026-10-06T08:01:02.616Z",
-    "upvote_ratio": 0.81,
+    "updatedAt": "2026-10-06T14:01:08.927Z",
+    "upvote_ratio": 0.86,
     "url": "https://reddit.com/r/sysadmin/comments/1wxwtzq/tpm_firmware_cve20266726_and_cve20266727/",
     "versionList": [
       "2026.0.0",
@@ -1629,14 +1859,14 @@
     "created_utc": "2026-10-02T16:50:08",
     "first_author_comment": null,
     "num_comments": 2,
-    "score": 44,
+    "score": 42,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Bypassing Secure Boot via Unbounded RLE8 Splash Images in U-Boot (CVE-2026-71972)",
-    "updatedAt": "2026-10-06T08:22:21.210Z",
-    "upvote_ratio": 0.97,
+    "updatedAt": "2026-10-07T07:23:16.123Z",
+    "upvote_ratio": 0.96,
     "url": "https://reddit.com/r/netsec/comments/1wvyt5b/bypassing_secure_boot_via_unbounded_rle8_splash/",
     "versionList": [
       "2026.0.0",
@@ -1670,7 +1900,7 @@
         "id": "pdjojh4",
         "author": "Toiling-Donkey",
         "body": "UEFI had LogoFail…\n\nNice to see uboot is maintaining vulnerability parity …",
-        "score": 7,
+        "score": 9,
         "created_utc_ts": 1790999268,
         "created_utc": "2026-10-03T03:47:48",
         "permalink": "https://reddit.com/r/netsec/comments/1wvyt5b/bypassing_secure_boot_via_unbounded_rle8_splash/pdjojh4/",
@@ -1726,7 +1956,7 @@
     "tag": null,
     "tags": [],
     "title": "8 out of 10 Banks HATE This One Weird 3SKey RCE",
-    "updatedAt": "2026-10-06T08:22:22.075Z",
+    "updatedAt": "2026-10-07T07:23:16.862Z",
     "upvote_ratio": 0.44,
     "url": "https://reddit.com/r/netsec/comments/1wvxp1p/8_out_of_10_banks_hate_this_one_weird_3skey_rce/",
     "versionList": [
@@ -3180,14 +3410,14 @@
     "created_utc": "2026-09-29T13:57:34",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 27,
+    "score": 29,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Here We Go Again (Citrix NetScaler DTLS Preauth Memory Overflow CVE-2026-88772) - watchTowr Labs",
-    "updatedAt": "2026-10-06T08:22:37.709Z",
-    "upvote_ratio": 0.91,
+    "updatedAt": "2026-10-07T07:23:32.041Z",
+    "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/netsec/comments/1wtattu/here_we_go_again_citrix_netscaler_dtls_preauth/",
     "versionList": [
       "2026.0.0",
@@ -3279,13 +3509,13 @@
     "created_utc": "2026-09-28T10:58:09",
     "first_author_comment": null,
     "num_comments": 25,
-    "score": 78,
+    "score": 79,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Oh Look, The Foot Gun Went Off Again (Citrix NetScaler PreAuth Command Injection CVE-2026-88771) - watchTowr Labs",
-    "updatedAt": "2026-10-06T08:22:42.348Z",
+    "updatedAt": "2026-10-07T07:23:36.685Z",
     "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/netsec/comments/1wsbh8j/oh_look_the_foot_gun_went_off_again_citrix/",
     "versionList": [
@@ -3309,7 +3539,7 @@
         "id": "pclvxgn",
         "author": "AmITheAsshole_2020",
         "body": "That was one of the least professional company posts I've read in a long time. Is this normal for watchTowr? If I were a prospective customer, I would, frankly, keep looking.",
-        "score": 27,
+        "score": 28,
         "created_utc_ts": 1790613406,
         "created_utc": "2026-09-28T16:36:46",
         "permalink": "https://reddit.com/r/netsec/comments/1wsbh8j/oh_look_the_foot_gun_went_off_again_citrix/pclvxgn/",
@@ -3320,7 +3550,7 @@
         "id": "pcmbbjc",
         "author": "abluedinosaur",
         "body": "How is this not professional? It's written by an expert and is not AI slop. It explains the technical details well. \n\nFrankly, it's insane this kind of garbage code is on this type of product, as it's similar to what you would expect on a 10 year old Chinese SOHO router.\n\nIt seems like the vendor has not even bothered to run AI scanners on their own source for a very high risk area. ",
-        "score": 0,
+        "score": 2,
         "created_utc_ts": 1790617054,
         "created_utc": "2026-09-28T17:37:34",
         "permalink": "https://reddit.com/r/netsec/comments/1wsbh8j/oh_look_the_foot_gun_went_off_again_citrix/pcmbbjc/",
@@ -3331,7 +3561,7 @@
         "id": "pcmio3t",
         "author": "thehalfmetaljacket",
         "body": "Sadly, yes it normal for them. ",
-        "score": 25,
+        "score": 24,
         "created_utc_ts": 1790618781,
         "created_utc": "2026-09-28T18:06:21",
         "permalink": "https://reddit.com/r/netsec/comments/1wsbh8j/oh_look_the_foot_gun_went_off_again_citrix/pcmio3t/",
@@ -3342,7 +3572,7 @@
         "id": "pcoiimr",
         "author": "eck-",
         "body": "Found the Citrix employee.",
-        "score": 2,
+        "score": 1,
         "created_utc_ts": 1790637142,
         "created_utc": "2026-09-28T23:12:22",
         "permalink": "https://reddit.com/r/netsec/comments/1wsbh8j/oh_look_the_foot_gun_went_off_again_citrix/pcoiimr/",
@@ -3353,7 +3583,7 @@
         "id": "pcp9rt6",
         "author": "DingleDangleTangle",
         "body": "I literally can’t finish reading it the secondhand cringe was too difficult. Jesus Christ that is embarrassing writing to represent your company. It’s like a high schooler found a CVE and wrote a blog post about how they totally owned some noobs",
-        "score": 12,
+        "score": 14,
         "created_utc_ts": 1790645543,
         "created_utc": "2026-09-29T01:32:23",
         "permalink": "https://reddit.com/r/netsec/comments/1wsbh8j/oh_look_the_foot_gun_went_off_again_citrix/pcp9rt6/",
@@ -3364,7 +3594,7 @@
         "id": "pcpgldm",
         "author": "peva3",
         "body": "Yeah seriously that writeup sucked.",
-        "score": 3,
+        "score": 7,
         "created_utc_ts": 1790647680,
         "created_utc": "2026-09-29T02:08:00",
         "permalink": "https://reddit.com/r/netsec/comments/1wsbh8j/oh_look_the_foot_gun_went_off_again_citrix/pcpgldm/",
@@ -3375,7 +3605,7 @@
         "id": "pcpzkuo",
         "author": "beefknuckle",
         "body": "You don't read these for literary inspiration, it's for the technical details. and Watchtowr are in the top tier because of that.\n\nWrong audience I guess.",
-        "score": 0,
+        "score": -1,
         "created_utc_ts": 1790654071,
         "created_utc": "2026-09-29T03:54:31",
         "permalink": "https://reddit.com/r/netsec/comments/1wsbh8j/oh_look_the_foot_gun_went_off_again_citrix/pcpzkuo/",
@@ -3462,14 +3692,14 @@
     "created_utc": "2026-09-28T10:03:49",
     "first_author_comment": null,
     "num_comments": 3,
-    "score": 12,
+    "score": 11,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-32740: RCE in a PIE Next.js sharp/libheif Stack",
-    "updatedAt": "2026-10-06T08:22:43.292Z",
-    "upvote_ratio": 0.82,
+    "updatedAt": "2026-10-07T07:23:37.510Z",
+    "upvote_ratio": 0.76,
     "url": "https://reddit.com/r/netsec/comments/1wsajyx/cve202632740_rce_in_a_pie_nextjs_sharplibheif/",
     "versionList": [
       "2026.0.0",
@@ -9144,14 +9374,14 @@
     "created_utc": "2026-09-25T14:54:02",
     "first_author_comment": null,
     "num_comments": 0,
-    "score": 25,
+    "score": 23,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2025-13032: Entering and Breaking the Avast Antivirus Sandbox Part 2",
-    "updatedAt": "2026-10-06T08:22:48.864Z",
-    "upvote_ratio": 0.9,
+    "updatedAt": "2026-10-07T07:23:43.256Z",
+    "upvote_ratio": 0.89,
     "url": "https://reddit.com/r/netsec/comments/1wpyg75/cve202513032_entering_and_breaking_the_avast/",
     "versionList": [
       "2025.0.0",
@@ -9435,13 +9665,13 @@
     "created_utc": "2026-09-25T02:13:27",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 6,
+    "score": 5,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Argus Monitor Local Denial-of-Service Vulnerability (CVE-2026-79417)",
-    "updatedAt": "2026-10-06T08:22:49.595Z",
+    "updatedAt": "2026-10-07T07:23:43.969Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/netsec/comments/1wpkc7q/argus_monitor_local_denialofservice_vulnerability/",
     "versionList": [
@@ -9568,7 +9798,7 @@
         "id": "pbxw7wo",
         "author": "No-View3333",
         "body": "Worth checking HTTP calls that set auth headers through stream\\_context\\_create(). If they don’t need redirects, follow\\_location =&gt; 0 is a useful temporary mitigation until you upgrade.",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1790330282,
         "created_utc": "2026-09-25T09:58:02",
         "permalink": "https://reddit.com/r/netsec/comments/1wpcgf9/cve202691766_php_had_the_redirect_credential_leak/pbxw7wo/",
@@ -9601,13 +9831,13 @@
     "created_utc": "2026-09-24T20:19:24",
     "first_author_comment": "I co-wrote the fix we shipped in today's PHP security releases. We could argue with the origin check, because we compare scheme, host and port the way curl has since 2022 instead of following Go's \"same domain or subdomain\" rule. Once we strip the header, it stays stripped even if a later hop redirects back to the original host. I'll take questions if you have some!",
     "num_comments": 5,
-    "score": 87,
+    "score": 89,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-91766: PHP had the redirect credential leak curl fixed in 2018",
-    "updatedAt": "2026-10-06T08:22:50.910Z",
+    "updatedAt": "2026-10-07T07:23:45.220Z",
     "upvote_ratio": 0.98,
     "url": "https://reddit.com/r/netsec/comments/1wpcgf9/cve202691766_php_had_the_redirect_credential_leak/",
     "versionList": [
@@ -10979,14 +11209,14 @@
     "created_utc": "2026-09-23T23:20:45",
     "first_author_comment": null,
     "num_comments": 4,
-    "score": 54,
+    "score": 58,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Is This A Joke? In The Auth Header? (F5 BIG-IP UnAuth Heap-Overflow to RCE CVE-2026-94127) - watchTowr Labs",
-    "updatedAt": "2026-10-06T08:22:57.060Z",
-    "upvote_ratio": 0.82,
+    "updatedAt": "2026-10-06T21:23:32.210Z",
+    "upvote_ratio": 0.83,
     "url": "https://reddit.com/r/netsec/comments/1woli59/is_this_a_joke_in_the_auth_header_f5_bigip_unauth/",
     "versionList": [
       "2026.0.0",
@@ -10999,7 +11229,7 @@
         "id": "pbo5voy",
         "author": "synept",
         "body": "AGI isn't here. What a crappy way to end a write-up.",
-        "score": 18,
+        "score": 17,
         "created_utc_ts": 1790207928,
         "created_utc": "2026-09-23T23:58:48",
         "permalink": "https://reddit.com/r/netsec/comments/1woli59/is_this_a_joke_in_the_auth_header_f5_bigip_unauth/pbo5voy/",
@@ -11010,7 +11240,7 @@
         "id": "pbpu1jw",
         "author": "BrainPitiful5347",
         "body": "stashing payload data in the auth header is such a nasty vector, def check ur edge device logs for weird high entropy strings",
-        "score": 9,
+        "score": 10,
         "created_utc_ts": 1790230699,
         "created_utc": "2026-09-24T06:18:19",
         "permalink": "https://reddit.com/r/netsec/comments/1woli59/is_this_a_joke_in_the_auth_header_f5_bigip_unauth/pbpu1jw/",
@@ -14153,14 +14383,14 @@
     "created_utc": "2026-09-18T06:01:27",
     "first_author_comment": "I couldn't find any setting explicitly named \"DNSSEC validation\" so I just checked that in \"Services\" -&gt; \"DNS Resolver\" -&gt; \"General Settings\" -&gt; scroll down to \"DNSSEC\" -&gt; \"Enable DNSSEC Support\" is unchecked. This should be enough for the time being, shouldn't it?  \nI assume the \"Harden DNSSEC Data\" in the \"Advanced Settings\" then can be ignored if DNSSEC is disabled.",
     "num_comments": 31,
-    "score": 49,
+    "score": 45,
     "source": "reddit",
     "subreddit": "PFSENSE",
     "tag": null,
     "tags": [],
     "title": "Unbound CVE-2026-81642",
-    "updatedAt": "2026-10-06T08:18:07.756Z",
-    "upvote_ratio": 0.98,
+    "updatedAt": "2026-10-07T07:18:15.119Z",
+    "upvote_ratio": 0.96,
     "url": "https://reddit.com/r/PFSENSE/comments/1wjhz3e/unbound_cve202681642/",
     "versionList": [
       "2026.0.0",
@@ -14173,7 +14403,7 @@
         "id": "paiuef8",
         "author": "syncerx",
         "body": "Make sure that the DNSSEC validation is disabled.",
-        "score": 7,
+        "score": 6,
         "created_utc_ts": 1789713052,
         "created_utc": "2026-09-18T06:30:52",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1wjhz3e/unbound_cve202681642/paiuef8/",
@@ -14184,7 +14414,7 @@
         "id": "paiurw4",
         "author": "NewRedditor23",
         "body": "Should we temporarily disable dnssec?",
-        "score": 4,
+        "score": 5,
         "created_utc_ts": 1789713269,
         "created_utc": "2026-09-18T06:34:29",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1wjhz3e/unbound_cve202681642/paiurw4/",
@@ -14195,7 +14425,7 @@
         "id": "paiyl15",
         "author": "gromhelmu",
         "body": "Yep. To add: Do this, even if your firewall is locked down from the outside:\n\n- An internal device (phone, laptop, IoT device, or guest) browsing the web or running an app can request a domain controlled by an attacker.\n- Unbound performs recursive resolution, querying the attacker’s nameserver.\n- The nameserver responds with a specially crafted DNSKEY record containing pointers to exploit the CVE (an overflow).",
-        "score": 7,
+        "score": 8,
         "created_utc_ts": 1789715310,
         "created_utc": "2026-09-18T07:08:30",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1wjhz3e/unbound_cve202681642/paiyl15/",
@@ -14206,7 +14436,7 @@
         "id": "paj851l",
         "author": "Worried_Tangelo_2689",
         "body": "I couldn't find any setting explicitly named \"DNSSEC validation\" so I just checked that in \"Services\" -&gt; \"DNS Resolver\" -&gt; \"General Settings\" -&gt; scroll down to \"DNSSEC\" -&gt; \"Enable DNSSEC Support\" is unchecked. This should be enough for the time being, shouldn't it?  \nI assume the \"Harden DNSSEC Data\" in the \"Advanced Settings\" then can be ignored if DNSSEC is disabled.",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1789720213,
         "created_utc": "2026-09-18T08:30:13",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1wjhz3e/unbound_cve202681642/paj851l/",
@@ -25314,2488 +25544,5 @@
     "sentiment_score": -0.574,
     "sourceBot": "reddit.py",
     "sourceUrl": "https://reddit.com/r/linux/comments/1vxxfiu/cve202673570_zimbra_snmplogwatch_rce_exploited_in/"
-  },
-  {
-    "_id": "6a8cb36356679d0d29236a07",
-    "redditId": "1vxcktc",
-    "author": "abqcheeks",
-    "author_description": "I spent some time this weekend finding the entrance vector for a site that was getting re-hacked after cleanup. I mean I knew it would get re-hacked since I wasn't finding the the vector in the usual \"easy\" ways. Turns out it was this: [nvd.nist.gov/vuln/detail/CVE-2026-15459](http://nvd.nist.gov/vuln/detail/CVE-2026-15459)\n\n&gt;The WPMU DEV Dashboard plugin for WordPress is vulnerable to Authentication Bypass in all versions up to, and including, 5.0.0. On sites not yet connected to the WPMU DEV Hub — the default state after installation — the site API key that keys the WDP-AUTH request signature is empty, making the signature verified by validate\\_hash() trivially forgeable\n\nIt's bad enough this plugin adds an alternate auth path to your web site, with full admin control given to some 3rd party you don't know. But I also learned this plugin, `wpmudev-updates`, is usually stealth-installed with other plugins from WPMU DEV, so users don't know it's being installed.  To top it off, it doesn't show up in the plugin dashboard so they don't even know it's there.\n\nIn the case of the site mentioned above, I think it was installed with another plugin a couple of years ago, and that plugin was since removed, but `wpmudev-updates` did not get removed.\n\nIs it just me or is it a little crazy to allow plugins to provide auth bypass for complete admin control of your site by third parties? Is this a common pattern? What other plugins do this aside from the WPMU DEV ones? (I'm talking about the situation where there ISN'T an active exploit in the code ... the intended use scenario is what seems insane to me).",
-    "awards": [],
-    "comments": [
-      {
-        "id": "p5nv1nr",
-        "author": "Thats_a_lot_of_nuts",
-        "body": "Pretty sure WPMU DEV Dashboard was the attack vector for site I just cleaned up.  The attacker started working to gain access over the weekend, managed to disabled Wordfence, install another compromised plug-in, then gained persistence and installed a web shell.  Good news is I didn't find anything in the mu-plugins directory, and once Wordfence was turned back on the scan helped me find all the php files that the attacker had implanted to run their web shell.  Superfuntimes.\n\nNeedless to say, WPMU is on my shit list now, especially given that they have this unpatched vulnerability just chilling out there and the developers don't seem to be doing anything to fix it.  Currently uninstalling all WPMU plug-ins, and taking a hard look at all the others.",
-        "score": 9,
-        "created_utc_ts": 1787600199,
-        "created_utc": "2026-08-24T19:36:39",
-        "permalink": "https://reddit.com/r/Wordpress/comments/1vxcktc/i_need_a_sanity_check_wpmudev/p5nv1nr/",
-        "parent_id": "t3_1vxcktc",
-        "is_submitter": false,
-        "sentiment_score": -0.477,
-        "sentiment_bucket": "Negative",
-        "sentiment_detail": {
-          "neg": 0.129,
-          "neu": 0.771,
-          "pos": 0.1,
-          "compound": -0.4767
-        }
-      },
-      {
-        "id": "p5nx5v7",
-        "author": "codename_john",
-        "body": "\" is usually stealth-installed with other plugins\" - It is setup to only be visible to the user that installed the plugin. Which means if the person who installed it is gone, welp... i guess no one knows it's there or needs updated. It's an incredibly stupid plugin.",
-        "score": 3,
-        "created_utc_ts": 1787600748,
-        "created_utc": "2026-08-24T19:45:48",
-        "permalink": "https://reddit.com/r/Wordpress/comments/1vxcktc/i_need_a_sanity_check_wpmudev/p5nx5v7/",
-        "parent_id": "t3_1vxcktc",
-        "is_submitter": false,
-        "sentiment_score": -0.709,
-        "sentiment_bucket": "Negative",
-        "sentiment_detail": {
-          "neg": 0.121,
-          "neu": 0.879,
-          "pos": 0,
-          "compound": -0.7089
-        }
-      },
-      {
-        "id": "p5nxipk",
-        "author": "abqcheeks",
-        "body": "I missed that detail. Even worse. I don’t get the logic behind that. ",
-        "score": 2,
-        "created_utc_ts": 1787600841,
-        "created_utc": "2026-08-24T19:47:21",
-        "permalink": "https://reddit.com/r/Wordpress/comments/1vxcktc/i_need_a_sanity_check_wpmudev/p5nxipk/",
-        "parent_id": "t1_p5nx5v7",
-        "is_submitter": true,
-        "sentiment_score": -0.649,
-        "sentiment_bucket": "Negative",
-        "sentiment_detail": {
-          "neg": 0.371,
-          "neu": 0.629,
-          "pos": 0,
-          "compound": -0.6486
-        }
-      },
-      {
-        "id": "p5ny7y1",
-        "author": "abqcheeks",
-        "body": "What I found was a 2-post sequence. The first deactivated a list of about 10 security plugins (wordfence, patchstack, etc). The 2nd installed the fake plugin (background-image-cropper in my case). Sounds like just what happened to you too ",
-        "score": 3,
-        "created_utc_ts": 1787601023,
-        "created_utc": "2026-08-24T19:50:23",
-        "permalink": "https://reddit.com/r/Wordpress/comments/1vxcktc/i_need_a_sanity_check_wpmudev/p5ny7y1/",
-        "parent_id": "t1_p5nv1nr",
-        "is_submitter": true,
-        "sentiment_score": 0.202,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0.077,
-          "neu": 0.8,
-          "pos": 0.123,
-          "compound": 0.2023
-        }
-      },
-      {
-        "id": "p5nydtz",
-        "author": "EvilAkuma",
-        "body": "same thing here\n\n",
-        "score": 3,
-        "created_utc_ts": 1787601066,
-        "created_utc": "2026-08-24T19:51:06",
-        "permalink": "https://reddit.com/r/Wordpress/comments/1vxcktc/i_need_a_sanity_check_wpmudev/p5nydtz/",
-        "parent_id": "t3_1vxcktc",
-        "is_submitter": false,
-        "sentiment_score": 0,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 1,
-          "pos": 0,
-          "compound": 0
-        }
-      },
-      {
-        "id": "p5prnjf",
-        "author": "CGS_Web_Designs",
-        "body": "They used to be a solid developer - their recent clumsy update to their Broken Link Checker plugin bricked a large number of websites with many admins unable to recover without doing a full backup restore.",
-        "score": 3,
-        "created_utc_ts": 1787620259,
-        "created_utc": "2026-08-25T01:10:59",
-        "permalink": "https://reddit.com/r/Wordpress/comments/1vxcktc/i_need_a_sanity_check_wpmudev/p5prnjf/",
-        "parent_id": "t3_1vxcktc",
-        "is_submitter": false,
-        "sentiment_score": 0,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0.086,
-          "neu": 0.773,
-          "pos": 0.141,
-          "compound": 0
-        }
-      },
-      {
-        "id": "p5rs24p",
-        "author": "WPMU_DEV_Support_5",
-        "body": "Hello u/abqcheeks, apologies for the issue you had to face with the Dashboard plugin. I can understand the trouble it caused you and the criticality of the Vulnerability. We give the utmost priority to the security of our plugins and therefore act on a top priority to release a fix. We also monitor PatchStack for critical incidents to stay on top of those in case they affect our plugins.   \n  \nIn this case, we have already released a fix in the Dashboard Plugin version 5.0.1 after the Vulnerability was reported. Ref: [https://wpmudev.com/project/wpmu-dev-dashboard/#changelog\\_all](https://wpmudev.com/project/wpmu-dev-dashboard/#changelog_all)\n\nHowever, please allow me to clarify a few points -\n\n&gt;But I also learned this plugin, `wpmudev-updates`, is usually stealth-installed with other plugins from WPMU DEV, so users don't know it's being installed.\n\nThe Dashboard plugin is installed on the website when the site needs to be connected to our Hub and use our Pro plugins and services. While the site connects to our Hub in \"Automatic\" mode, as described in our documentation [https://wpmudev.com/docs/hub-2-0/add-a-site-to-hub-2-0/#connect-from-the-hub](https://wpmudev.com/docs/hub-2-0/add-a-site-to-hub-2-0/#connect-from-the-hub) the process will install the WPMU DEV Dashboard plugin automatically. \n\nFurther, it can also be installed manually [https://wpmudev.com/docs/hub-2-0/add-a-site-to-hub-2-0/#connect-from-wpmu-dev-dashboard-plugin](https://wpmudev.com/docs/hub-2-0/add-a-site-to-hub-2-0/#connect-from-wpmu-dev-dashboard-plugin) So it is not installed in a \"Stealth\" manner when other WPMU DEV Plugins are installed. \n\nFurther, regarding \n\n&gt;To top it off, it doesn't show up in the plugin dashboard so they don't even know it's there.\n\nSince the Dashboard plugin is critical to the connectivity between the site and the Hub, along with all the Pro features, it is, as a security feature, only visible by default to the WordPress Administrator who installed and activated the plugin (or the WP admin access used to connect the site via Automatic Mode as mentioned above). So not all administrator roles will be able to see the plugin installed on the website backend, unless they're specifically granted permission by the Admin User who installed the plugin initially. \n\n&gt;In the case of the site mentioned above, I think it was installed with another plugin a couple of years ago, and that plugin was since removed, but `wpmudev-updates` did not get removed.\n\nAs I mentioned in the above clarification, the wpmudev-updates (Dashboard Plugin) doesn't get installed with other WPMU DEV plugins automatically. Also, similar to any regular plugin, it can be deactivated and removed by the WP Admin user, considering they installed and activated it on the website. \n\nHope this clarifies the points that you've mentioned. I once again apologise for the trouble that was caused as a result of the Vulnerability. \n\n\\- Saurabh from WPMU DEV Support Team. ",
-        "score": 2,
-        "created_utc_ts": 1787651494,
-        "created_utc": "2026-08-25T09:51:34",
-        "permalink": "https://reddit.com/r/Wordpress/comments/1vxcktc/i_need_a_sanity_check_wpmudev/p5rs24p/",
-        "parent_id": "t3_1vxcktc",
-        "is_submitter": false,
-        "sentiment_score": 0.935,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0.033,
-          "neu": 0.895,
-          "pos": 0.073,
-          "compound": 0.9349
-        }
-      },
-      {
-        "id": "p5rstpn",
-        "author": "WPMU_DEV_Support_5",
-        "body": "Hello u/Thats_a_lot_of_nuts, sorry to hear about the issue. I can understand the trouble and frustration it must have caused you.   \n  \nWe have already released a fix in Version 5.0.1 for the reported Vulnerability soon after it was reported. You can refer to our changelog here: [https://wpmudev.com/project/wpmu-dev-dashboard/#changelog\\_all](https://wpmudev.com/project/wpmu-dev-dashboard/#changelog_all)\n\n\\- Saurabh from WPMU DEV Support Team. ",
-        "score": 1,
-        "created_utc_ts": 1787651854,
-        "created_utc": "2026-08-25T09:57:34",
-        "permalink": "https://reddit.com/r/Wordpress/comments/1vxcktc/i_need_a_sanity_check_wpmudev/p5rstpn/",
-        "parent_id": "t1_p5nv1nr",
-        "is_submitter": false,
-        "sentiment_score": -0.649,
-        "sentiment_bucket": "Negative",
-        "sentiment_detail": {
-          "neg": 0.156,
-          "neu": 0.797,
-          "pos": 0.047,
-          "compound": -0.6486
-        }
-      },
-      {
-        "id": "p5ruw47",
-        "author": "WPMU_DEV_Support_5",
-        "body": "Hello u/CGS_Web_Designs, sorry to hear you feel that way. Our plugins go through rigorous development and quality assurance steps. However, unfortunately, this bug was found after the release. Our Development team started working on the fix as soon as it was reported and released the patched v2.4.10 as soon as possible. \n\nI completely understand that some sites need to be recovered from backups, we noticed some reports around that which were mostly due to the use of older PHP versions (for example PHP.7.4) where the stuck mysql connections didn't manage to clean up and caused the site to be in a broken state.\n\n\\- Saurabh from WPMU DEV Support Team.  ",
-        "score": 2,
-        "created_utc_ts": 1787652811,
-        "created_utc": "2026-08-25T10:13:31",
-        "permalink": "https://reddit.com/r/Wordpress/comments/1vxcktc/i_need_a_sanity_check_wpmudev/p5ruw47/",
-        "parent_id": "t1_p5prnjf",
-        "is_submitter": false,
-        "sentiment_score": -0.723,
-        "sentiment_bucket": "Negative",
-        "sentiment_detail": {
-          "neg": 0.111,
-          "neu": 0.846,
-          "pos": 0.043,
-          "compound": -0.7234
-        }
-      },
-      {
-        "id": "p5rvyh3",
-        "author": "WPMU_DEV_Support_5",
-        "body": "Hi u/codename_john \n\n&gt;It is setup to only be visible to the user that installed the plugin. Which means if the person who installed it is gone, welp...\n\nIndeed the Dashboard plugin is visible to the Admin user who installed and activiated it initially, however, in case that admin user loses the \"admin\" role or is deleted/removed, the WPMU DEV Dashboard plugin permissions automatically gets transferred to the next admin or super admin. \n\nYou can refer to our guide about it here [https://wpmudev.com/docs/wpmu-dev-plugins/wpmu-dev-dashboard-plugin-instructions/#transfer-of-permissions](https://wpmudev.com/docs/wpmu-dev-plugins/wpmu-dev-dashboard-plugin-instructions/#transfer-of-permissions)\n\n\\- Saurabh from WPMU DEV Support Team. ",
-        "score": 1,
-        "created_utc_ts": 1787653284,
-        "created_utc": "2026-08-25T10:21:24",
-        "permalink": "https://reddit.com/r/Wordpress/comments/1vxcktc/i_need_a_sanity_check_wpmudev/p5rvyh3/",
-        "parent_id": "t1_p5nx5v7",
-        "is_submitter": false,
-        "sentiment_score": 0.649,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0.024,
-          "neu": 0.906,
-          "pos": 0.07,
-          "compound": 0.6486
-        }
-      },
-      {
-        "id": "p5tq67j",
-        "author": "stevenson_mark",
-        "body": "Yeah, I think your concern is justified. Giving a plugin a legitimate mechanism to authenticate as an administrator is a **huge trust boundary**. If that mechanism exists, a vulnerability in it can effectively become a full-site compromise.\n\nThe especially nasty part here is the stale `wpmudev-updates` installation. If another plugin installed it and removing the parent plugin didn't clean it up, you can end up with an old privileged component sitting around that nobody realizes is still active.\n\nI wouldn't say this pattern is automatically malicious or unique to WPMU DEV. Update managers, hosting integrations, remote management tools and security products sometimes need privileged communication with a site. But I'd definitely want that access to be extremely narrow, visible and easy to revoke.\n\nThis is also a good example of why I prefer keeping dependencies in Abnflow as explicit as possible. If something has privileged access, I want to know exactly why it's there and what happens when the original feature gets removed.",
-        "score": 2,
-        "created_utc_ts": 1787673449,
-        "created_utc": "2026-08-25T15:57:29",
-        "permalink": "https://reddit.com/r/Wordpress/comments/1vxcktc/i_need_a_sanity_check_wpmudev/p5tq67j/",
-        "parent_id": "t3_1vxcktc",
-        "is_submitter": false,
-        "sentiment_score": 0.98,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0.031,
-          "neu": 0.755,
-          "pos": 0.214,
-          "compound": 0.9801
-        }
-      },
-      {
-        "id": "p5ufwgo",
-        "author": "WPMU_DEV_Support_7",
-        "body": "Hello u/stevenson_mark \n\nI just want to let you know that we are taking all of this feedback into account in order to improve our products and services. The affected plugin is only automatically installed when the administrator registers their site on The Hub portal webpage. At that point, the site stores a key in the database, which prevents the vulnerability’s requirements from being exploited. Still, we understand that these vulnerabilities should not happen. We have already updated the plugin and patched it. Our sincere apologies for the trouble this has caused.\n\nJair - WPMU DEV Support team.",
-        "score": 1,
-        "created_utc_ts": 1787679828,
-        "created_utc": "2026-08-25T17:43:48",
-        "permalink": "https://reddit.com/r/Wordpress/comments/1vxcktc/i_need_a_sanity_check_wpmudev/p5ufwgo/",
-        "parent_id": "t1_p5tq67j",
-        "is_submitter": false,
-        "sentiment_score": 0.25,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0.085,
-          "neu": 0.811,
-          "pos": 0.104,
-          "compound": 0.25
-        }
-      }
-    ],
-    "created_utc": "2026-08-24T19:19:09",
-    "first_author_comment": "I missed that detail. Even worse. I don’t get the logic behind that. ",
-    "num_comments": 21,
-    "score": 23,
-    "subreddit": "Wordpress",
-    "tag": null,
-    "tags": [],
-    "title": "I need a sanity check: wpmudev",
-    "updatedAt": "2026-10-03T12:03:21.074Z",
-    "upvote_ratio": 1,
-    "url": "https://reddit.com/r/Wordpress/comments/1vxcktc/i_need_a_sanity_check_wpmudev/",
-    "versionList": [],
-    "author_description_sentiment": {
-      "score": -0.548,
-      "detail": {
-        "neg": 0.054,
-        "neu": 0.902,
-        "pos": 0.045,
-        "compound": -0.5483
-      }
-    },
-    "category": "Negative",
-    "comments_avg_sentiment_score": -0.016,
-    "sentiment_score": -0.282,
-    "classification": {
-      "securityType": [
-        "UNKNOWN"
-      ],
-      "componentType": []
-    },
-    "metadata": {
-      "predicted": {
-        "isUpdateRelated": false,
-        "positiveScore": 0.0009642768620581841,
-        "timestampPredicted": "2026-08-25T08:01:32.276669+00:00"
-      },
-      "labeled": {
-        "isUpdateRelated": null
-      }
-    },
-    "isAboutCve": true,
-    "isAboutLatestUpdate": true,
-    "sourceBot": "reddit.py",
-    "sourceUrl": "https://reddit.com/r/Wordpress/comments/1vxcktc/i_need_a_sanity_check_wpmudev/"
-  },
-  {
-    "_id": "6aa2b40b648fea68715283c3",
-    "redditId": "1vx4lbi",
-    "author": "mySitesGuru",
-    "author_description": "The [miniOrange](https://www.miniorange.com/) OAuth Client extension lets a Joomla site use an external OAuth provider to log its users in. Every version below 3.2.0 carries a flaw that needs no login, no account and no help from anyone on the site. It is scored **CVSS 10.0**, the maximum, and it ends with an attacker sitting in your Joomla administrator account.",
-    "awards": [],
-    "created_utc": "2026-08-24T14:35:47",
-    "first_author_comment": "The blogpost has been updated today (26 Aug) with more information [https://mysites.guru/blog/miniorange-oauth-joomla-account-takeover/?refresh=1](https://mysites.guru/blog/miniorange-oauth-joomla-account-takeover/?refresh=1)",
-    "num_comments": 2,
-    "score": 4,
-    "subreddit": "joomla",
-    "tag": "Administration/Technical",
-    "tags": [],
-    "title": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-    "updatedAt": "2026-10-02T22:10:24.455Z",
-    "upvote_ratio": 0.75,
-    "url": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-    "versionList": [
-      "2026.0.0",
-      "77995.0.0"
-    ],
-    "commentCount": 2,
-    "detectedCVEs": [
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-09-08T11:17:44.423 | CVE Modified | source=security@joomla.org | changeId=5F315DCE-FA5D-4E77-AA1E-D89852E1A548\n   - Changed Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins. -> Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0, OAuth Single Sign-On – OIDC SSO < 1.2.2, Login with Keycloak OAuth Single Sign-On (SSO) < 1.2.2, Single Sign-On for Educational Institutes < 1.2.2 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n2. 2026-09-04T12:17:18.583 | CVE Modified | source=security@joomla.org | changeId=FC68505B-44E4-41D8-B183-D18E256B5E27\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n   - Removed Reference: https://www.miniorange.com/ -> None\n3. 2026-08-24T18:17:23.417 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=FE7A8CC9-72E0-486A-BC17-9E7D7BFD79EC\n   - Added SSVC: {'timestamp': '2026-08-24T17:25:41.162522Z', 'id': 'CVE-2026-77995', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n4. 2026-08-24T14:17:03.403 | New CVE Received | source=security@joomla.org | changeId=CC7AC736-1F37-48AB-89DE-ADE1AF656445\n   - Added Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CWE: CWE-639\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified",
-          "CVE Modified",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-09-08T11:17:44.423 | CVE Modified | source=security@joomla.org | changeId=5F315DCE-FA5D-4E77-AA1E-D89852E1A548\n   - Changed Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins. -> Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0, OAuth Single Sign-On – OIDC SSO < 1.2.2, Login with Keycloak OAuth Single Sign-On (SSO) < 1.2.2, Single Sign-On for Educational Institutes < 1.2.2 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n2. 2026-09-04T12:17:18.583 | CVE Modified | source=security@joomla.org | changeId=FC68505B-44E4-41D8-B183-D18E256B5E27\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n   - Removed Reference: https://www.miniorange.com/ -> None\n3. 2026-08-24T18:17:23.417 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=FE7A8CC9-72E0-486A-BC17-9E7D7BFD79EC\n   - Added SSVC: {'timestamp': '2026-08-24T17:25:41.162522Z', 'id': 'CVE-2026-77995', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n4. 2026-08-24T14:17:03.403 | New CVE Received | source=security@joomla.org | changeId=CC7AC736-1F37-48AB-89DE-ADE1AF656445\n   - Added Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CWE: CWE-639\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified",
-          "CVE Modified",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-09-08T11:17:44.423 | CVE Modified | source=security@joomla.org | changeId=5F315DCE-FA5D-4E77-AA1E-D89852E1A548\n   - Changed Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins. -> Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0, OAuth Single Sign-On – OIDC SSO < 1.2.2, Login with Keycloak OAuth Single Sign-On (SSO) < 1.2.2, Single Sign-On for Educational Institutes < 1.2.2 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n2. 2026-09-04T12:17:18.583 | CVE Modified | source=security@joomla.org | changeId=FC68505B-44E4-41D8-B183-D18E256B5E27\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n   - Removed Reference: https://www.miniorange.com/ -> None\n3. 2026-08-24T18:17:23.417 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=FE7A8CC9-72E0-486A-BC17-9E7D7BFD79EC\n   - Added SSVC: {'timestamp': '2026-08-24T17:25:41.162522Z', 'id': 'CVE-2026-77995', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n4. 2026-08-24T14:17:03.403 | New CVE Received | source=security@joomla.org | changeId=CC7AC736-1F37-48AB-89DE-ADE1AF656445\n   - Added Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CWE: CWE-639\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified",
-          "CVE Modified",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-09-08T11:17:44.423 | CVE Modified | source=security@joomla.org | changeId=5F315DCE-FA5D-4E77-AA1E-D89852E1A548\n   - Changed Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins. -> Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0, OAuth Single Sign-On – OIDC SSO < 1.2.2, Login with Keycloak OAuth Single Sign-On (SSO) < 1.2.2, Single Sign-On for Educational Institutes < 1.2.2 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n2. 2026-09-04T12:17:18.583 | CVE Modified | source=security@joomla.org | changeId=FC68505B-44E4-41D8-B183-D18E256B5E27\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n   - Removed Reference: https://www.miniorange.com/ -> None\n3. 2026-08-24T18:17:23.417 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=FE7A8CC9-72E0-486A-BC17-9E7D7BFD79EC\n   - Added SSVC: {'timestamp': '2026-08-24T17:25:41.162522Z', 'id': 'CVE-2026-77995', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n4. 2026-08-24T14:17:03.403 | New CVE Received | source=security@joomla.org | changeId=CC7AC736-1F37-48AB-89DE-ADE1AF656445\n   - Added Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CWE: CWE-639\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified",
-          "CVE Modified",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-09-08T11:17:44.423 | CVE Modified | source=security@joomla.org | changeId=5F315DCE-FA5D-4E77-AA1E-D89852E1A548\n   - Changed Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins. -> Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0, OAuth Single Sign-On – OIDC SSO < 1.2.2, Login with Keycloak OAuth Single Sign-On (SSO) < 1.2.2, Single Sign-On for Educational Institutes < 1.2.2 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n2. 2026-09-04T12:17:18.583 | CVE Modified | source=security@joomla.org | changeId=FC68505B-44E4-41D8-B183-D18E256B5E27\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n   - Removed Reference: https://www.miniorange.com/ -> None\n3. 2026-08-24T18:17:23.417 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=FE7A8CC9-72E0-486A-BC17-9E7D7BFD79EC\n   - Added SSVC: {'timestamp': '2026-08-24T17:25:41.162522Z', 'id': 'CVE-2026-77995', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n4. 2026-08-24T14:17:03.403 | New CVE Received | source=security@joomla.org | changeId=CC7AC736-1F37-48AB-89DE-ADE1AF656445\n   - Added Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CWE: CWE-639\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified",
-          "CVE Modified",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-09-08T11:17:44.423 | CVE Modified | source=security@joomla.org | changeId=5F315DCE-FA5D-4E77-AA1E-D89852E1A548\n   - Changed Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins. -> Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0, OAuth Single Sign-On – OIDC SSO < 1.2.2, Login with Keycloak OAuth Single Sign-On (SSO) < 1.2.2, Single Sign-On for Educational Institutes < 1.2.2 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n2. 2026-09-04T12:17:18.583 | CVE Modified | source=security@joomla.org | changeId=FC68505B-44E4-41D8-B183-D18E256B5E27\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n   - Removed Reference: https://www.miniorange.com/ -> None\n3. 2026-08-24T18:17:23.417 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=FE7A8CC9-72E0-486A-BC17-9E7D7BFD79EC\n   - Added SSVC: {'timestamp': '2026-08-24T17:25:41.162522Z', 'id': 'CVE-2026-77995', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n4. 2026-08-24T14:17:03.403 | New CVE Received | source=security@joomla.org | changeId=CC7AC736-1F37-48AB-89DE-ADE1AF656445\n   - Added Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CWE: CWE-639\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified",
-          "CVE Modified",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-09-08T11:17:44.423 | CVE Modified | source=security@joomla.org | changeId=5F315DCE-FA5D-4E77-AA1E-D89852E1A548\n   - Changed Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins. -> Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0, OAuth Single Sign-On – OIDC SSO < 1.2.2, Login with Keycloak OAuth Single Sign-On (SSO) < 1.2.2, Single Sign-On for Educational Institutes < 1.2.2 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n2. 2026-09-04T12:17:18.583 | CVE Modified | source=security@joomla.org | changeId=FC68505B-44E4-41D8-B183-D18E256B5E27\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n   - Removed Reference: https://www.miniorange.com/ -> None\n3. 2026-08-24T18:17:23.417 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=FE7A8CC9-72E0-486A-BC17-9E7D7BFD79EC\n   - Added SSVC: {'timestamp': '2026-08-24T17:25:41.162522Z', 'id': 'CVE-2026-77995', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n4. 2026-08-24T14:17:03.403 | New CVE Received | source=security@joomla.org | changeId=CC7AC736-1F37-48AB-89DE-ADE1AF656445\n   - Added Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CWE: CWE-639\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified",
-          "CVE Modified",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-09-08T11:17:44.423 | CVE Modified | source=security@joomla.org | changeId=5F315DCE-FA5D-4E77-AA1E-D89852E1A548\n   - Changed Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins. -> Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0, OAuth Single Sign-On – OIDC SSO < 1.2.2, Login with Keycloak OAuth Single Sign-On (SSO) < 1.2.2, Single Sign-On for Educational Institutes < 1.2.2 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n2. 2026-09-04T12:17:18.583 | CVE Modified | source=security@joomla.org | changeId=FC68505B-44E4-41D8-B183-D18E256B5E27\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n   - Removed Reference: https://www.miniorange.com/ -> None\n3. 2026-08-24T18:17:23.417 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=FE7A8CC9-72E0-486A-BC17-9E7D7BFD79EC\n   - Added SSVC: {'timestamp': '2026-08-24T17:25:41.162522Z', 'id': 'CVE-2026-77995', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n4. 2026-08-24T14:17:03.403 | New CVE Received | source=security@joomla.org | changeId=CC7AC736-1F37-48AB-89DE-ADE1AF656445\n   - Added Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CWE: CWE-639\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified",
-          "CVE Modified",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-09-08T11:17:44.423 | CVE Modified | source=security@joomla.org | changeId=5F315DCE-FA5D-4E77-AA1E-D89852E1A548\n   - Changed Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins. -> Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0, OAuth Single Sign-On – OIDC SSO < 1.2.2, Login with Keycloak OAuth Single Sign-On (SSO) < 1.2.2, Single Sign-On for Educational Institutes < 1.2.2 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n2. 2026-09-04T12:17:18.583 | CVE Modified | source=security@joomla.org | changeId=FC68505B-44E4-41D8-B183-D18E256B5E27\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n   - Removed Reference: https://www.miniorange.com/ -> None\n3. 2026-08-24T18:17:23.417 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=FE7A8CC9-72E0-486A-BC17-9E7D7BFD79EC\n   - Added SSVC: {'timestamp': '2026-08-24T17:25:41.162522Z', 'id': 'CVE-2026-77995', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n4. 2026-08-24T14:17:03.403 | New CVE Received | source=security@joomla.org | changeId=CC7AC736-1F37-48AB-89DE-ADE1AF656445\n   - Added Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CWE: CWE-639\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified",
-          "CVE Modified",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-09-08T11:17:44.423 | CVE Modified | source=security@joomla.org | changeId=5F315DCE-FA5D-4E77-AA1E-D89852E1A548\n   - Changed Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins. -> Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0, OAuth Single Sign-On – OIDC SSO < 1.2.2, Login with Keycloak OAuth Single Sign-On (SSO) < 1.2.2, Single Sign-On for Educational Institutes < 1.2.2 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n2. 2026-09-04T12:17:18.583 | CVE Modified | source=security@joomla.org | changeId=FC68505B-44E4-41D8-B183-D18E256B5E27\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n   - Removed Reference: https://www.miniorange.com/ -> None\n3. 2026-08-24T18:17:23.417 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=FE7A8CC9-72E0-486A-BC17-9E7D7BFD79EC\n   - Added SSVC: {'timestamp': '2026-08-24T17:25:41.162522Z', 'id': 'CVE-2026-77995', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n4. 2026-08-24T14:17:03.403 | New CVE Received | source=security@joomla.org | changeId=CC7AC736-1F37-48AB-89DE-ADE1AF656445\n   - Added Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CWE: CWE-639\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified",
-          "CVE Modified",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-09-08T11:17:44.423 | CVE Modified | source=security@joomla.org | changeId=5F315DCE-FA5D-4E77-AA1E-D89852E1A548\n   - Changed Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins. -> Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0, OAuth Single Sign-On – OIDC SSO < 1.2.2, Login with Keycloak OAuth Single Sign-On (SSO) < 1.2.2, Single Sign-On for Educational Institutes < 1.2.2 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n2. 2026-09-04T12:17:18.583 | CVE Modified | source=security@joomla.org | changeId=FC68505B-44E4-41D8-B183-D18E256B5E27\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n   - Removed Reference: https://www.miniorange.com/ -> None\n3. 2026-08-24T18:17:23.417 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=FE7A8CC9-72E0-486A-BC17-9E7D7BFD79EC\n   - Added SSVC: {'timestamp': '2026-08-24T17:25:41.162522Z', 'id': 'CVE-2026-77995', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n4. 2026-08-24T14:17:03.403 | New CVE Received | source=security@joomla.org | changeId=CC7AC736-1F37-48AB-89DE-ADE1AF656445\n   - Added Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CWE: CWE-639\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified",
-          "CVE Modified",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-09-08T11:17:44.423 | CVE Modified | source=security@joomla.org | changeId=5F315DCE-FA5D-4E77-AA1E-D89852E1A548\n   - Changed Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins. -> Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0, OAuth Single Sign-On – OIDC SSO < 1.2.2, Login with Keycloak OAuth Single Sign-On (SSO) < 1.2.2, Single Sign-On for Educational Institutes < 1.2.2 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n2. 2026-09-04T12:17:18.583 | CVE Modified | source=security@joomla.org | changeId=FC68505B-44E4-41D8-B183-D18E256B5E27\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n   - Removed Reference: https://www.miniorange.com/ -> None\n3. 2026-08-24T18:17:23.417 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=FE7A8CC9-72E0-486A-BC17-9E7D7BFD79EC\n   - Added SSVC: {'timestamp': '2026-08-24T17:25:41.162522Z', 'id': 'CVE-2026-77995', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n4. 2026-08-24T14:17:03.403 | New CVE Received | source=security@joomla.org | changeId=CC7AC736-1F37-48AB-89DE-ADE1AF656445\n   - Added Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CWE: CWE-639\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified",
-          "CVE Modified",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-09-08T11:17:44.423 | CVE Modified | source=security@joomla.org | changeId=5F315DCE-FA5D-4E77-AA1E-D89852E1A548\n   - Changed Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins. -> Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0, OAuth Single Sign-On – OIDC SSO < 1.2.2, Login with Keycloak OAuth Single Sign-On (SSO) < 1.2.2, Single Sign-On for Educational Institutes < 1.2.2 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n2. 2026-09-04T12:17:18.583 | CVE Modified | source=security@joomla.org | changeId=FC68505B-44E4-41D8-B183-D18E256B5E27\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n   - Removed Reference: https://www.miniorange.com/ -> None\n3. 2026-08-24T18:17:23.417 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=FE7A8CC9-72E0-486A-BC17-9E7D7BFD79EC\n   - Added SSVC: {'timestamp': '2026-08-24T17:25:41.162522Z', 'id': 'CVE-2026-77995', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n4. 2026-08-24T14:17:03.403 | New CVE Received | source=security@joomla.org | changeId=CC7AC736-1F37-48AB-89DE-ADE1AF656445\n   - Added Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CWE: CWE-639\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified",
-          "CVE Modified",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "1. 2026-09-08T11:17:44.423 | CVE Modified | source=security@joomla.org | changeId=5F315DCE-FA5D-4E77-AA1E-D89852E1A548\n   - Changed Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins. -> Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0, OAuth Single Sign-On – OIDC SSO < 1.2.2, Login with Keycloak OAuth Single Sign-On (SSO) < 1.2.2, Single Sign-On for Educational Institutes < 1.2.2 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n2. 2026-09-04T12:17:18.583 | CVE Modified | source=security@joomla.org | changeId=FC68505B-44E4-41D8-B183-D18E256B5E27\n   - Added Affected: Affected value modified.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n   - Removed Reference: https://www.miniorange.com/ -> None\n3. 2026-08-24T18:17:23.417 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=FE7A8CC9-72E0-486A-BC17-9E7D7BFD79EC\n   - Added SSVC: {'timestamp': '2026-08-24T17:25:41.162522Z', 'id': 'CVE-2026-77995', 'options': [{'exploitation': 'none'}, {'automatable': 'yes'}, {'technicalImpact': 'total'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n4. 2026-08-24T14:17:03.403 | New CVE Received | source=security@joomla.org | changeId=CC7AC736-1F37-48AB-89DE-ADE1AF656445\n   - Added Description: Joomla Extension - miniorange.com - Arbitrary account takeover in miniOrange OAuth Client < 3.2.0 - The manipulation of a cookie value allows actors to login as arbitrary accounts, including admins.\n   - Added CVSS V4.0: AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X\n   - Added CWE: CWE-639\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/77xxx/CVE-2026-77995.json\">CVE-2026-77995</a>\n   - Added Reference: https://www.miniorange.com/\n",
-        "eventNamesBeforeAnalysis": [
-          "New CVE Received",
-          "CVE Modified",
-          "CVE Modified",
-          "CVE Modified"
-        ]
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      },
-      {
-        "cveId": "CVE-2026-77995",
-        "cveIds": [
-          "CVE-2026-77995"
-        ],
-        "source": "Title",
-        "commentText": "miniOrange OAuth Client Joomla Account Takeover - CVE-2026-77995",
-        "linkToComment": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-        "commentDate": "2026-08-24T14:35:47+00:00",
-        "cvePublishedDate": "2026-08-24T14:17:03.403000+00:00",
-        "initialAnalysisDate": null,
-        "daysAfterPublication": 0,
-        "isPreAnalysis": true,
-        "isAnalyzed": false,
-        "cveChangeHistory": "No change history returned.\n",
-        "eventNamesBeforeAnalysis": []
-      }
-    ],
-    "isAboutCve": true,
-    "isAboutLatestUpdate": true,
-    "author_description_sentiment": {
-      "score": -0.765,
-      "detail": {
-        "neg": 0.158,
-        "neu": 0.8,
-        "pos": 0.042,
-        "compound": -0.765
-      }
-    },
-    "category": "Negative",
-    "comments_avg_sentiment_score": 0.064,
-    "sentiment_score": -0.351,
-    "sourceBot": "reddit.py",
-    "sourceUrl": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/",
-    "source": "reddit",
-    "comments": [
-      {
-        "id": "p5pbsy9",
-        "author": "biztechmsp",
-        "body": "I always had a feeling this was going to happen to this extension. ",
-        "score": 1,
-        "created_utc_ts": 1787615104,
-        "created_utc": "2026-08-24T23:45:04",
-        "permalink": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/p5pbsy9/",
-        "parent_id": "t3_1vx4lbi",
-        "is_submitter": false,
-        "sentiment_score": 0.128,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 0.87,
-          "pos": 0.13,
-          "compound": 0.128
-        }
-      },
-      {
-        "id": "p60nibq",
-        "author": "mySitesGuru",
-        "body": "The blogpost has been updated today (26 Aug) with more information [https://mysites.guru/blog/miniorange-oauth-joomla-account-takeover/?refresh=1](https://mysites.guru/blog/miniorange-oauth-joomla-account-takeover/?refresh=1)",
-        "score": 1,
-        "created_utc_ts": 1787755385,
-        "created_utc": "2026-08-26T14:43:05",
-        "permalink": "https://reddit.com/r/joomla/comments/1vx4lbi/miniorange_oauth_client_joomla_account_takeover/p60nibq/",
-        "parent_id": "t3_1vx4lbi",
-        "is_submitter": true,
-        "sentiment_score": 0,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 1,
-          "pos": 0,
-          "compound": 0
-        }
-      }
-    ]
-  },
-  {
-    "_id": "6aa10d48648fea687151f0b3",
-    "redditId": "1vwy1ps",
-    "author": "socradario",
-    "author_description": "Heads up for anyone running self-managed GitLab CE/EE a critical GraphQL code injection vulnerability (CVE-2026-19478, CVSS 9.4) is currently being exploited in the wild.\nUnder certain conditions, unauthenticated attackers can modify or delete public projects and user data without needing valid credentials first.\nIf you're running an affected instance:\n→ Upgrade to the latest fixed release ASAP\n→ Check your logs for suspicious @gl_introduced GraphQL requests — this seems to be a marker tied to exploitation attempts\n→ Don't wait for a scheduled maintenance window given active exploitation is confirmed\nMore technical details here if useful: https://hubs.la/Q04tYL5c0",
-    "awards": [],
-    "comments": [
-      {
-        "id": "p5s3z5x",
-        "author": "Double_Ebb4130",
-        "body": "Worth noting for anyone checking their instance right now: the Gitlab website and API have been returning 502s and running slow since roughly 11am UK time today, so patch checks and API calls may fail for reasons unrelated to this CVE. CI pipelines still appear to be running fine.",
-        "score": 2,
-        "created_utc_ts": 1787656572,
-        "created_utc": "2026-08-25T11:16:12",
-        "permalink": "https://reddit.com/r/gitlab/comments/1vwy1ps/actively_exploited_gitlab_vulnerability/p5s3z5x/",
-        "parent_id": "t3_1vwy1ps",
-        "is_submitter": false,
-        "sentiment_score": -0.202,
-        "sentiment_bucket": "Negative",
-        "sentiment_detail": {
-          "neg": 0.066,
-          "neu": 0.865,
-          "pos": 0.07,
-          "compound": -0.2023
-        }
-      }
-    ],
-    "created_utc": "2026-08-24T09:38:50",
-    "first_author_comment": null,
-    "num_comments": 1,
-    "score": 1,
-    "subreddit": "gitlab",
-    "tag": null,
-    "tags": [],
-    "title": "Actively exploited GitLab vulnerability (CVE-2026-19478, CVSS 9.4) - GraphQL code injection",
-    "updatedAt": "2026-10-03T11:03:47.137Z",
-    "upvote_ratio": 0.67,
-    "url": "https://reddit.com/r/gitlab/comments/1vwy1ps/actively_exploited_gitlab_vulnerability/",
-    "versionList": [
-      "2026.0.0",
-      "19478.0.0",
-      "9.4.0"
-    ],
-    "isAboutCve": true,
-    "isAboutLatestUpdate": true,
-    "author_description_sentiment": {
-      "score": -0.743,
-      "detail": {
-        "neg": 0.145,
-        "neu": 0.781,
-        "pos": 0.074,
-        "compound": -0.743
-      }
-    },
-    "category": "Negative",
-    "comments_avg_sentiment_score": -0.202,
-    "sentiment_score": -0.473,
-    "sourceBot": "reddit.py",
-    "sourceUrl": "https://reddit.com/r/gitlab/comments/1vwy1ps/actively_exploited_gitlab_vulnerability/",
-    "source": "reddit"
   }
 ]
