@@ -46,7 +46,6 @@ CVE-2026-20288,1,2026-09-13T22:23:46+00:00,1789338226,homelab,https://reddit.com
 CVE-2026-20353,1,2026-10-03T11:58:46+00:00,1791028726,sysadmin,https://reddit.com/r/sysadmin/comments/1wwlgqq/todays_reminder_that_every_security_appliance_is/
 CVE-2026-21589,1,2026-10-06T17:06:35+00:00,1791306395,netsec,https://reddit.com/r/netsec/comments/1wz82op/you_wont_hear_about_these_even_in_myths_atlassian/
 CVE-2026-23870,1,2026-10-08T16:17:23+00:00,1791476243,netsec,https://reddit.com/r/netsec/comments/1x0v7sw/a_single_post_freezes_any_nextjs_server/
-CVE-2026-32475,1,2026-08-26T15:53:17+00:00,1787759597,Wordpress,https://reddit.com/r/Wordpress/comments/1vz0z3z/how_serious_is_this_cve_for_elementor/
 CVE-2026-32740,1,2026-09-28T10:03:49+00:00,1790589829,netsec,https://reddit.com/r/netsec/comments/1wsajyx/cve202632740_rce_in_a_pie_nextjs_sharplibheif/
 CVE-2026-34743,1,2026-09-26T16:44:46+00:00,1790441086,Fedora,https://reddit.com/r/Fedora/comments/1wqv73r/fedora_44_missing_xz_cve_patches/
 CVE-2026-43456,1,2026-09-24T14:55:24+00:00,1790261724,AZURE,https://reddit.com/r/AZURE/comments/1wp3uw3/azure_aks_node_update_channel_securitypatch_and/
@@ -54,6 +53,7 @@ CVE-2026-43499,1,2026-09-29T16:41:26+00:00,1790700086,homelab,https://reddit.com
 CVE-2026-44112,1,2026-10-01T14:12:31+00:00,1790863951,openclaw,https://reddit.com/r/openclaw/comments/1wv0i8d/openclaw_enterprise_launched_with_543_tracked/
 CVE-2026-47483,1,2026-10-08T21:49:51+00:00,1791496191,netsec,https://reddit.com/r/netsec/comments/1x13vqz/how_we_found_thousands_of_exposed_nvidia_gpus_and/
 CVE-2026-48746,1,2026-09-29T09:30:31+00:00,1790674231,kubernetes,https://reddit.com/r/kubernetes/comments/1wt5kgq/we_tested_ray_vllm_distributed_inference_on_eks_a/
+CVE-2026-50163,1,2026-10-07T10:00:51+00:00,1791367251,kubernetes,https://reddit.com/r/kubernetes/comments/1wzsl41/weekly_show_off_your_new_tools_and_projects_thread/
 CVE-2026-59309,1,2026-09-22T07:58:09+00:00,1790063889,netsec,https://reddit.com/r/netsec/comments/1wn37be/vcenter_preauth_rce_cve20265930959310/
 CVE-2026-59310,1,2026-09-22T07:58:09+00:00,1790063889,netsec,https://reddit.com/r/netsec/comments/1wn37be/vcenter_preauth_rce_cve20265930959310/
 CVE-2026-60004,1,2026-09-15T18:05:21+00:00,1789495521,netsec,https://reddit.com/r/netsec/comments/1wh7wol/red_heron_exploits_gitea_nday_flaw_in/
@@ -67,7 +67,6 @@ CVE-2026-6727,1,2026-10-05T02:05:43+00:00,1791165943,sysadmin,https://reddit.com
 CVE-2026-67401,1,2026-09-08T16:06:37+00:00,1788883597,cpanel,https://reddit.com/r/cpanel/comments/1wasnck/security_cve202667401_sql_injection_vulnerability/
 CVE-2026-67402,1,2026-09-13T14:12:39+00:00,1789308759,cpanel,https://reddit.com/r/cpanel/comments/1wf8ra1/critical_rce_in_configserver_firewall_update_csf/
 CVE-2026-68121,1,2026-09-18T07:57:53+00:00,1789718273,netsec,https://reddit.com/r/netsec/comments/1wjjxd0/a_quartet_of_linux_local_root_vulns_dirtyah6/
-CVE-2026-6861,1,2026-08-26T19:13:55+00:00,1787771635,debian,https://reddit.com/r/debian/comments/1vz6or9/emac_cve_guys_you_should_update_your_emac_package/
 CVE-2026-68839,1,2026-09-08T21:14:13+00:00,1788902053,sysadmin,https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/
 CVE-2026-69276,1,2026-09-08T21:14:13+00:00,1788902053,sysadmin,https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/
 CVE-2026-69408,1,2026-09-08T21:14:13+00:00,1788902053,sysadmin,https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/
@@ -108,16 +107,18 @@ CVE-2026-76441,1,2026-10-03T11:58:46+00:00,1791028726,sysadmin,https://reddit.co
 CVE-2026-76443,1,2026-10-03T11:58:46+00:00,1791028726,sysadmin,https://reddit.com/r/sysadmin/comments/1wwlgqq/todays_reminder_that_every_security_appliance_is/
 CVE-2026-76461,1,2026-10-03T11:58:46+00:00,1791028726,sysadmin,https://reddit.com/r/sysadmin/comments/1wwlgqq/todays_reminder_that_every_security_appliance_is/
 CVE-2026-77179,1,2026-09-19T06:25:58+00:00,1789799158,netsec,https://reddit.com/r/netsec/comments/1wkeh8n/cve202677179_dockers_hypervisor_for_mac/
-CVE-2026-77219,1,2026-08-26T19:13:55+00:00,1787771635,debian,https://reddit.com/r/debian/comments/1vz6or9/emac_cve_guys_you_should_update_your_emac_package/
 CVE-2026-77493,1,2026-09-08T21:14:13+00:00,1788902053,sysadmin,https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/
 CVE-2026-78445,1,2026-09-08T21:14:13+00:00,1788902053,sysadmin,https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/
 CVE-2026-79417,1,2026-09-25T02:13:27+00:00,1790302407,netsec,https://reddit.com/r/netsec/comments/1wpkc7q/argus_monitor_local_denialofservice_vulnerability/
 CVE-2026-80521,1,2026-09-23T21:29:42+00:00,1790198982,netsec,https://reddit.com/r/netsec/comments/1woiusv/september_23_24h_recap_ubuntu_container_escape_f5/
 CVE-2026-80844,1,2026-09-18T07:57:53+00:00,1789718273,netsec,https://reddit.com/r/netsec/comments/1wjjxd0/a_quartet_of_linux_local_root_vulns_dirtyah6/
 CVE-2026-81000,1,2026-09-18T07:57:53+00:00,1789718273,netsec,https://reddit.com/r/netsec/comments/1wjjxd0/a_quartet_of_linux_local_root_vulns_dirtyah6/
+CVE-2026-81578,1,2026-10-09T18:17:56+00:00,1791569876,netsec,https://reddit.com/r/netsec/comments/1x1squu/death_by_a_thousand_papercuts_papercut_preauth/
 CVE-2026-81642,1,2026-09-18T06:01:27+00:00,1789711287,PFSENSE,https://reddit.com/r/PFSENSE/comments/1wjhz3e/unbound_cve202681642/
 CVE-2026-81963,1,2026-09-10T10:09:03+00:00,1789034943,sysadmin,https://reddit.com/r/sysadmin/comments/1wcextt/solved_kb5124008_windows_11_logon_error_on_screen/
 CVE-2026-82067,1,2026-09-08T21:14:13+00:00,1788902053,sysadmin,https://reddit.com/r/sysadmin/comments/1wb1daf/ms_vulnerabilities_email_today/
+CVE-2026-82077,1,2026-10-09T18:17:56+00:00,1791569876,netsec,https://reddit.com/r/netsec/comments/1x1squu/death_by_a_thousand_papercuts_papercut_preauth/
+CVE-2026-82078,1,2026-10-09T18:17:56+00:00,1791569876,netsec,https://reddit.com/r/netsec/comments/1x1squu/death_by_a_thousand_papercuts_papercut_preauth/
 CVE-2026-84388,1,2026-09-09T10:47:25+00:00,1788950845,netsec,https://reddit.com/r/netsec/comments/1wbi40d/fortinet_privileged_access_agent_any_site_could/
 CVE-2026-84434,1,2026-09-20T17:31:51+00:00,1789925511,Wordpress,https://reddit.com/r/Wordpress/comments/1wln8p5/major_vulnerability_98_cvss_in_gravity_forms/
 CVE-2026-84869,1,2026-09-19T00:15:52+00:00,1789776952,sysadmin,https://reddit.com/r/sysadmin/comments/1wk70vm/screenconnect_malware_detections_by_microsoft/
