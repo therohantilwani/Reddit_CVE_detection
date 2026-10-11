@@ -8,14 +8,14 @@
     "created_utc": "2026-10-09T18:17:56",
     "first_author_comment": null,
     "num_comments": 0,
-    "score": 41,
+    "score": 48,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Death By A Thousand PaperCuts (PaperCut Pre-Auth RCE Chain and Patch Bypasses WT-2026-0141-0144/CVE-2026-82077/CVE-2026-82078/CVE-2026-81578) - watchTowr Labs",
-    "updatedAt": "2026-10-10T07:22:41.099Z",
-    "upvote_ratio": 0.96,
+    "updatedAt": "2026-10-11T00:22:49.256Z",
+    "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/netsec/comments/1x1squu/death_by_a_thousand_papercuts_papercut_preauth/",
     "versionList": [
       "2026.0.0",
@@ -43,7 +43,7 @@
       "predicted": {
         "isUpdateRelated": false,
         "positiveScore": 0.0004686548289965462,
-        "timestampPredicted": "2026-10-10T07:13:48.443969+00:00"
+        "timestampPredicted": "2026-10-10T09:13:32.779637+00:00"
       },
       "labeled": {
         "isUpdateRelated": null
@@ -62,14 +62,14 @@
     "created_utc": "2026-10-09T00:00:56",
     "first_author_comment": "Looks like Ubuntu has patched the pro versions only https://ubuntu.com/security/notices/USN-8683-1\n\nAlpine is likely still vulnerable https://security.alpinelinux.org/srcpkg/libheif as it's not listing CVE-2026-32882\n\nEPEL for Alma and Rocky are still vulnerable.\n\nArch is obviously not vulnerable with extra/libheif 1.23.6-1",
     "num_comments": 3,
-    "score": 10,
+    "score": 9,
     "source": "reddit",
     "subreddit": "debian",
     "tag": "News",
     "tags": [],
     "title": "vulnerable libheif",
-    "updatedAt": "2026-10-10T07:31:21.544Z",
-    "upvote_ratio": 0.79,
+    "updatedAt": "2026-10-11T00:30:45.024Z",
+    "upvote_ratio": 0.73,
     "url": "https://reddit.com/r/debian/comments/1x16s1z/vulnerable_libheif/",
     "versionList": [],
     "isAboutCve": true,
@@ -632,13 +632,13 @@
     "created_utc": "2026-10-08T21:49:51",
     "first_author_comment": null,
     "num_comments": 3,
-    "score": 86,
+    "score": 94,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "How We Found Thousands of Exposed NVIDIA GPUs and a Way to Disrupt Them (CVE-2026-47483)",
-    "updatedAt": "2026-10-10T07:22:42.853Z",
+    "updatedAt": "2026-10-11T00:22:51.021Z",
     "upvote_ratio": 0.96,
     "url": "https://reddit.com/r/netsec/comments/1x13vqz/how_we_found_thousands_of_exposed_nvidia_gpus_and/",
     "versionList": [
@@ -649,14 +649,22 @@
     "isAboutLatestUpdate": true,
     "sentiment": {
       "author": -0.822,
-      "community": -0.541,
+      "community": -0.275,
       "authorHasReplies": false,
-      "forCommentCount": 1,
+      "forCommentCount": 3,
       "authorTrajectory": [],
       "communityTrajectory": [
         {
           "i": 0,
-          "v": -0.541
+          "v": 0
+        },
+        {
+          "i": 1,
+          "v": -0.625
+        },
+        {
+          "i": 2,
+          "v": -0.2
         }
       ],
       "schemaVersion": 2
@@ -676,7 +684,7 @@
         "id": "pesznrw",
         "author": "[deleted]",
         "body": "[removed]",
-        "score": -3,
+        "score": -4,
         "created_utc_ts": 1791532246,
         "created_utc": "2026-10-09T07:50:46",
         "permalink": "https://reddit.com/r/netsec/comments/1x13vqz/how_we_found_thousands_of_exposed_nvidia_gpus_and/pesznrw/",
@@ -687,7 +695,7 @@
         "id": "peuumcs",
         "author": "StrayStep",
         "body": "Because large corporations and data centers are the priority. Not the average consumer.  if a data center pre-buys all available stock. They basically drive up costs even if they are not used. They then could turn around and resell after the data center directly inflated pricing along with Nvidia's help(Even Nvidia is building data centers hubs).  \n\nI work with Blackwell GPUs. These inflated costs are unsustainable on top of an industry being artificially inflated. That is subsidized by US gov wrecklessness stupidity.  Its going to crash hard when it comes. \n\nDoesnt even matter if data center is built as long as people pushing them get returned investment.  This is f**ked",
-        "score": -5,
+        "score": -2,
         "created_utc_ts": 1791556569,
         "created_utc": "2026-10-09T14:36:09",
         "permalink": "https://reddit.com/r/netsec/comments/1x13vqz/how_we_found_thousands_of_exposed_nvidia_gpus_and/peuumcs/",
@@ -720,7 +728,7 @@
         "id": "peo03qn",
         "author": "TradeGold6317",
         "body": "Reported to Meta, fixed as CVE-2026-23870, no credit and no reply. So here's the writeup :)",
-        "score": 86,
+        "score": 92,
         "created_utc_ts": 1791476510,
         "created_utc": "2026-10-08T16:21:50",
         "permalink": "https://reddit.com/r/netsec/comments/1x0v7sw/a_single_post_freezes_any_nextjs_server/peo03qn/",
@@ -731,7 +739,7 @@
         "id": "peorivx",
         "author": "0xcrypto",
         "body": "Meta sucks. I have a full RCE chain on react native, works remotely on some condtions on many apps and can work on both iOS and android, yet meta just said it is not covered by their bug bounty program after months of wait. I think they have fixed it by now. I still have one of the report open, they never took time to close it I guess. ",
-        "score": 38,
+        "score": 43,
         "created_utc_ts": 1791483164,
         "created_utc": "2026-10-08T18:12:44",
         "permalink": "https://reddit.com/r/netsec/comments/1x0v7sw/a_single_post_freezes_any_nextjs_server/peorivx/",
@@ -742,7 +750,7 @@
         "id": "peps8sn",
         "author": "Consus26",
         "body": "Great writeup! Not so great from metas site. ",
-        "score": 12,
+        "score": 15,
         "created_utc_ts": 1791492214,
         "created_utc": "2026-10-08T20:43:34",
         "permalink": "https://reddit.com/r/netsec/comments/1x0v7sw/a_single_post_freezes_any_nextjs_server/peps8sn/",
@@ -753,29 +761,71 @@
         "id": "pepx7bd",
         "author": "elburrotelamete",
         "body": "Por fin un post de calidad",
-        "score": 7,
+        "score": 6,
         "created_utc_ts": 1791493508,
         "created_utc": "2026-10-08T21:05:08",
         "permalink": "https://reddit.com/r/netsec/comments/1x0v7sw/a_single_post_freezes_any_nextjs_server/pepx7bd/",
+        "parent_id": "t3_1x0v7sw",
+        "is_submitter": false
+      },
+      {
+        "id": "pf2jarj",
+        "author": "Azer_pubes33",
+        "body": "No credit and no reply on a CVE is rough, thanks for putting the writeup out anyway",
+        "score": 1,
+        "created_utc_ts": 1791648658,
+        "created_utc": "2026-10-10T16:10:58",
+        "permalink": "https://reddit.com/r/netsec/comments/1x0v7sw/a_single_post_freezes_any_nextjs_server/pf2jarj/",
         "parent_id": "t3_1x0v7sw",
         "is_submitter": false
       }
     ],
     "created_utc": "2026-10-08T16:17:23",
     "first_author_comment": "Reported to Meta, fixed as CVE-2026-23870, no credit and no reply. So here's the writeup :)",
-    "num_comments": 5,
-    "score": 103,
+    "num_comments": 6,
+    "score": 111,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "A Single POST Freezes Any Next.js Server",
-    "updatedAt": "2026-10-10T07:22:44.119Z",
+    "updatedAt": "2026-10-11T00:22:52.341Z",
     "upvote_ratio": 0.99,
     "url": "https://reddit.com/r/netsec/comments/1x0v7sw/a_single_post_freezes_any_nextjs_server/",
     "versionList": [],
     "isAboutCve": false,
-    "isAboutLatestUpdate": false
+    "isAboutLatestUpdate": false,
+    "sentiment": {
+      "author": -0.026,
+      "community": 0.201,
+      "authorHasReplies": true,
+      "forCommentCount": 5,
+      "authorTrajectory": [
+        {
+          "i": 0,
+          "v": 0.296
+        }
+      ],
+      "communityTrajectory": [
+        {
+          "i": 1,
+          "v": -0.361
+        },
+        {
+          "i": 2,
+          "v": 0.892
+        },
+        {
+          "i": 3,
+          "v": 0
+        },
+        {
+          "i": 4,
+          "v": 0.273
+        }
+      ],
+      "schemaVersion": 2
+    }
   },
   {
     "_id": "6ac6489bed94ec00e07d1c8a",
@@ -786,14 +836,14 @@
     "created_utc": "2026-10-07T13:11:06",
     "first_author_comment": null,
     "num_comments": 0,
-    "score": 23,
+    "score": 22,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-102489 Deep-Dive: Zammad Session Leak to RCE",
-    "updatedAt": "2026-10-10T07:22:45.446Z",
-    "upvote_ratio": 0.96,
+    "updatedAt": "2026-10-11T00:22:53.664Z",
+    "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/netsec/comments/1wzw573/cve2026102489_deepdive_zammad_session_leak_to_rce/",
     "versionList": [
       "2026.0.0",
@@ -1175,8 +1225,8 @@
     "awards": [],
     "created_utc": "2026-10-07T10:00:51",
     "first_author_comment": null,
-    "num_comments": 14,
-    "score": 9,
+    "num_comments": 16,
+    "score": 10,
     "source": "reddit",
     "subreddit": "kubernetes",
     "tag": "Periodic",
@@ -1184,14 +1234,371 @@
       "Periodic"
     ],
     "title": "Weekly: Show off your new tools and projects thread",
-    "updatedAt": "2026-10-10T07:43:56.840Z",
+    "updatedAt": "2026-10-11T00:15:15.647Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/kubernetes/comments/1wzsl41/weekly_show_off_your_new_tools_and_projects_thread/",
     "versionList": [],
     "isAboutCve": false,
     "isAboutLatestUpdate": false,
-    "commentCount": 12,
+    "commentCount": 13,
     "detectedCVEs": [
+      {
+        "cveId": "CVE-2026-50163",
+        "cveIds": [
+          "CVE-2026-50163",
+          "CVE-2026-50163"
+        ],
+        "source": "Comment",
+        "commentText": "Here's a real-world example: we found that our project was vulnerable to **CVE-2026-50163** (https://access.redhat.com/security/cve/cve-2026-50163).",
+        "linkToComment": "https://reddit.com/r/kubernetes/comments/1wzsl41/weekly_show_off_your_new_tools_and_projects_thread/peem1fc/",
+        "commentDate": "2026-10-07T10:58:19+00:00",
+        "cvePublishedDate": "2026-07-17T20:17:23.943000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 81,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-07-20T16:17:04.433 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=194D7688-502B-48D4-87E5-0A4CE2EA3DB5\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n   - Added SSVC: {'timestamp': '2026-07-20T15:00:48.168210Z', 'id': 'CVE-2026-50163', 'options': [{'exploitation': 'poc'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-07-17T20:17:23.943 | New CVE Received | source=security-advisories@github.com | changeId=2F20D64B-CDF3-4710-A717-395529FA4CA4\n   - Added Description: oras-go is a Go library for managing OCI artifacts. Prior to 2.6.2, ensureLinkPath in content/file/utils.go:262-275 validates a hardlink target relative to the extract base but returns the unresolved target, causing os.Link(\"victim.secret\", \"<extract_base>/payload.tar.gz/evil_cwd_link\") to resolve header.Linkname against the process current working directory for a Typeflag=TypeLink entry such as Name=payload.tar.gz/evil_cwd_link and Linkname=\"victim.secret\" with io.deis.oras.content.unpack: \"true\", which can expose or tamper with files such as .env, .git/config, .aws/credentials, and ~/.ssh/config. This issue is fixed in version 2.6.2.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:L/A:N\n   - Added CWE: CWE-22\n   - Added CWE: CWE-59\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/50xxx/CVE-2026-50163.json\">CVE-2026-50163</a>\n   - Added Reference: https://github.com/oras-project/oras-go/commit/c463c654ab3ef34422c1764cd619806cebf20451\n   - Added Reference: https://github.com/oras-project/oras-go/pull/1232\n   - Added Reference: https://github.com/oras-project/oras-go/releases/tag/v2.6.2\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-50163",
+        "cveIds": [
+          "CVE-2026-50163",
+          "CVE-2026-50163"
+        ],
+        "source": "Comment",
+        "commentText": "Here's a real-world example: we found that our project was vulnerable to **CVE-2026-50163** (https://access.redhat.com/security/cve/cve-2026-50163).",
+        "linkToComment": "https://reddit.com/r/kubernetes/comments/1wzsl41/weekly_show_off_your_new_tools_and_projects_thread/peem1fc/",
+        "commentDate": "2026-10-07T10:58:19+00:00",
+        "cvePublishedDate": "2026-07-17T20:17:23.943000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 81,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-07-20T16:17:04.433 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=194D7688-502B-48D4-87E5-0A4CE2EA3DB5\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n   - Added SSVC: {'timestamp': '2026-07-20T15:00:48.168210Z', 'id': 'CVE-2026-50163', 'options': [{'exploitation': 'poc'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-07-17T20:17:23.943 | New CVE Received | source=security-advisories@github.com | changeId=2F20D64B-CDF3-4710-A717-395529FA4CA4\n   - Added Description: oras-go is a Go library for managing OCI artifacts. Prior to 2.6.2, ensureLinkPath in content/file/utils.go:262-275 validates a hardlink target relative to the extract base but returns the unresolved target, causing os.Link(\"victim.secret\", \"<extract_base>/payload.tar.gz/evil_cwd_link\") to resolve header.Linkname against the process current working directory for a Typeflag=TypeLink entry such as Name=payload.tar.gz/evil_cwd_link and Linkname=\"victim.secret\" with io.deis.oras.content.unpack: \"true\", which can expose or tamper with files such as .env, .git/config, .aws/credentials, and ~/.ssh/config. This issue is fixed in version 2.6.2.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:L/A:N\n   - Added CWE: CWE-22\n   - Added CWE: CWE-59\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/50xxx/CVE-2026-50163.json\">CVE-2026-50163</a>\n   - Added Reference: https://github.com/oras-project/oras-go/commit/c463c654ab3ef34422c1764cd619806cebf20451\n   - Added Reference: https://github.com/oras-project/oras-go/pull/1232\n   - Added Reference: https://github.com/oras-project/oras-go/releases/tag/v2.6.2\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-50163",
+        "cveIds": [
+          "CVE-2026-50163",
+          "CVE-2026-50163"
+        ],
+        "source": "Comment",
+        "commentText": "Here's a real-world example: we found that our project was vulnerable to **CVE-2026-50163** (https://access.redhat.com/security/cve/cve-2026-50163).",
+        "linkToComment": "https://reddit.com/r/kubernetes/comments/1wzsl41/weekly_show_off_your_new_tools_and_projects_thread/peem1fc/",
+        "commentDate": "2026-10-07T10:58:19+00:00",
+        "cvePublishedDate": "2026-07-17T20:17:23.943000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 81,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-07-20T16:17:04.433 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=194D7688-502B-48D4-87E5-0A4CE2EA3DB5\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n   - Added SSVC: {'timestamp': '2026-07-20T15:00:48.168210Z', 'id': 'CVE-2026-50163', 'options': [{'exploitation': 'poc'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-07-17T20:17:23.943 | New CVE Received | source=security-advisories@github.com | changeId=2F20D64B-CDF3-4710-A717-395529FA4CA4\n   - Added Description: oras-go is a Go library for managing OCI artifacts. Prior to 2.6.2, ensureLinkPath in content/file/utils.go:262-275 validates a hardlink target relative to the extract base but returns the unresolved target, causing os.Link(\"victim.secret\", \"<extract_base>/payload.tar.gz/evil_cwd_link\") to resolve header.Linkname against the process current working directory for a Typeflag=TypeLink entry such as Name=payload.tar.gz/evil_cwd_link and Linkname=\"victim.secret\" with io.deis.oras.content.unpack: \"true\", which can expose or tamper with files such as .env, .git/config, .aws/credentials, and ~/.ssh/config. This issue is fixed in version 2.6.2.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:L/A:N\n   - Added CWE: CWE-22\n   - Added CWE: CWE-59\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/50xxx/CVE-2026-50163.json\">CVE-2026-50163</a>\n   - Added Reference: https://github.com/oras-project/oras-go/commit/c463c654ab3ef34422c1764cd619806cebf20451\n   - Added Reference: https://github.com/oras-project/oras-go/pull/1232\n   - Added Reference: https://github.com/oras-project/oras-go/releases/tag/v2.6.2\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-50163",
+        "cveIds": [
+          "CVE-2026-50163",
+          "CVE-2026-50163"
+        ],
+        "source": "Comment",
+        "commentText": "Here's a real-world example: we found that our project was vulnerable to **CVE-2026-50163** (https://access.redhat.com/security/cve/cve-2026-50163).",
+        "linkToComment": "https://reddit.com/r/kubernetes/comments/1wzsl41/weekly_show_off_your_new_tools_and_projects_thread/peem1fc/",
+        "commentDate": "2026-10-07T10:58:19+00:00",
+        "cvePublishedDate": "2026-07-17T20:17:23.943000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 81,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-07-20T16:17:04.433 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=194D7688-502B-48D4-87E5-0A4CE2EA3DB5\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n   - Added SSVC: {'timestamp': '2026-07-20T15:00:48.168210Z', 'id': 'CVE-2026-50163', 'options': [{'exploitation': 'poc'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-07-17T20:17:23.943 | New CVE Received | source=security-advisories@github.com | changeId=2F20D64B-CDF3-4710-A717-395529FA4CA4\n   - Added Description: oras-go is a Go library for managing OCI artifacts. Prior to 2.6.2, ensureLinkPath in content/file/utils.go:262-275 validates a hardlink target relative to the extract base but returns the unresolved target, causing os.Link(\"victim.secret\", \"<extract_base>/payload.tar.gz/evil_cwd_link\") to resolve header.Linkname against the process current working directory for a Typeflag=TypeLink entry such as Name=payload.tar.gz/evil_cwd_link and Linkname=\"victim.secret\" with io.deis.oras.content.unpack: \"true\", which can expose or tamper with files such as .env, .git/config, .aws/credentials, and ~/.ssh/config. This issue is fixed in version 2.6.2.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:L/A:N\n   - Added CWE: CWE-22\n   - Added CWE: CWE-59\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/50xxx/CVE-2026-50163.json\">CVE-2026-50163</a>\n   - Added Reference: https://github.com/oras-project/oras-go/commit/c463c654ab3ef34422c1764cd619806cebf20451\n   - Added Reference: https://github.com/oras-project/oras-go/pull/1232\n   - Added Reference: https://github.com/oras-project/oras-go/releases/tag/v2.6.2\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-50163",
+        "cveIds": [
+          "CVE-2026-50163",
+          "CVE-2026-50163"
+        ],
+        "source": "Comment",
+        "commentText": "Here's a real-world example: we found that our project was vulnerable to **CVE-2026-50163** (https://access.redhat.com/security/cve/cve-2026-50163).",
+        "linkToComment": "https://reddit.com/r/kubernetes/comments/1wzsl41/weekly_show_off_your_new_tools_and_projects_thread/peem1fc/",
+        "commentDate": "2026-10-07T10:58:19+00:00",
+        "cvePublishedDate": "2026-07-17T20:17:23.943000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 81,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-07-20T16:17:04.433 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=194D7688-502B-48D4-87E5-0A4CE2EA3DB5\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n   - Added SSVC: {'timestamp': '2026-07-20T15:00:48.168210Z', 'id': 'CVE-2026-50163', 'options': [{'exploitation': 'poc'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-07-17T20:17:23.943 | New CVE Received | source=security-advisories@github.com | changeId=2F20D64B-CDF3-4710-A717-395529FA4CA4\n   - Added Description: oras-go is a Go library for managing OCI artifacts. Prior to 2.6.2, ensureLinkPath in content/file/utils.go:262-275 validates a hardlink target relative to the extract base but returns the unresolved target, causing os.Link(\"victim.secret\", \"<extract_base>/payload.tar.gz/evil_cwd_link\") to resolve header.Linkname against the process current working directory for a Typeflag=TypeLink entry such as Name=payload.tar.gz/evil_cwd_link and Linkname=\"victim.secret\" with io.deis.oras.content.unpack: \"true\", which can expose or tamper with files such as .env, .git/config, .aws/credentials, and ~/.ssh/config. This issue is fixed in version 2.6.2.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:L/A:N\n   - Added CWE: CWE-22\n   - Added CWE: CWE-59\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/50xxx/CVE-2026-50163.json\">CVE-2026-50163</a>\n   - Added Reference: https://github.com/oras-project/oras-go/commit/c463c654ab3ef34422c1764cd619806cebf20451\n   - Added Reference: https://github.com/oras-project/oras-go/pull/1232\n   - Added Reference: https://github.com/oras-project/oras-go/releases/tag/v2.6.2\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-50163",
+        "cveIds": [
+          "CVE-2026-50163",
+          "CVE-2026-50163"
+        ],
+        "source": "Comment",
+        "commentText": "Here's a real-world example: we found that our project was vulnerable to **CVE-2026-50163** (https://access.redhat.com/security/cve/cve-2026-50163).",
+        "linkToComment": "https://reddit.com/r/kubernetes/comments/1wzsl41/weekly_show_off_your_new_tools_and_projects_thread/peem1fc/",
+        "commentDate": "2026-10-07T10:58:19+00:00",
+        "cvePublishedDate": "2026-07-17T20:17:23.943000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 81,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-07-20T16:17:04.433 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=194D7688-502B-48D4-87E5-0A4CE2EA3DB5\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n   - Added SSVC: {'timestamp': '2026-07-20T15:00:48.168210Z', 'id': 'CVE-2026-50163', 'options': [{'exploitation': 'poc'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-07-17T20:17:23.943 | New CVE Received | source=security-advisories@github.com | changeId=2F20D64B-CDF3-4710-A717-395529FA4CA4\n   - Added Description: oras-go is a Go library for managing OCI artifacts. Prior to 2.6.2, ensureLinkPath in content/file/utils.go:262-275 validates a hardlink target relative to the extract base but returns the unresolved target, causing os.Link(\"victim.secret\", \"<extract_base>/payload.tar.gz/evil_cwd_link\") to resolve header.Linkname against the process current working directory for a Typeflag=TypeLink entry such as Name=payload.tar.gz/evil_cwd_link and Linkname=\"victim.secret\" with io.deis.oras.content.unpack: \"true\", which can expose or tamper with files such as .env, .git/config, .aws/credentials, and ~/.ssh/config. This issue is fixed in version 2.6.2.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:L/A:N\n   - Added CWE: CWE-22\n   - Added CWE: CWE-59\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/50xxx/CVE-2026-50163.json\">CVE-2026-50163</a>\n   - Added Reference: https://github.com/oras-project/oras-go/commit/c463c654ab3ef34422c1764cd619806cebf20451\n   - Added Reference: https://github.com/oras-project/oras-go/pull/1232\n   - Added Reference: https://github.com/oras-project/oras-go/releases/tag/v2.6.2\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-50163",
+        "cveIds": [
+          "CVE-2026-50163",
+          "CVE-2026-50163"
+        ],
+        "source": "Comment",
+        "commentText": "Here's a real-world example: we found that our project was vulnerable to **CVE-2026-50163** (https://access.redhat.com/security/cve/cve-2026-50163).",
+        "linkToComment": "https://reddit.com/r/kubernetes/comments/1wzsl41/weekly_show_off_your_new_tools_and_projects_thread/peem1fc/",
+        "commentDate": "2026-10-07T10:58:19+00:00",
+        "cvePublishedDate": "2026-07-17T20:17:23.943000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 81,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-07-20T16:17:04.433 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=194D7688-502B-48D4-87E5-0A4CE2EA3DB5\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n   - Added SSVC: {'timestamp': '2026-07-20T15:00:48.168210Z', 'id': 'CVE-2026-50163', 'options': [{'exploitation': 'poc'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-07-17T20:17:23.943 | New CVE Received | source=security-advisories@github.com | changeId=2F20D64B-CDF3-4710-A717-395529FA4CA4\n   - Added Description: oras-go is a Go library for managing OCI artifacts. Prior to 2.6.2, ensureLinkPath in content/file/utils.go:262-275 validates a hardlink target relative to the extract base but returns the unresolved target, causing os.Link(\"victim.secret\", \"<extract_base>/payload.tar.gz/evil_cwd_link\") to resolve header.Linkname against the process current working directory for a Typeflag=TypeLink entry such as Name=payload.tar.gz/evil_cwd_link and Linkname=\"victim.secret\" with io.deis.oras.content.unpack: \"true\", which can expose or tamper with files such as .env, .git/config, .aws/credentials, and ~/.ssh/config. This issue is fixed in version 2.6.2.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:L/A:N\n   - Added CWE: CWE-22\n   - Added CWE: CWE-59\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/50xxx/CVE-2026-50163.json\">CVE-2026-50163</a>\n   - Added Reference: https://github.com/oras-project/oras-go/commit/c463c654ab3ef34422c1764cd619806cebf20451\n   - Added Reference: https://github.com/oras-project/oras-go/pull/1232\n   - Added Reference: https://github.com/oras-project/oras-go/releases/tag/v2.6.2\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-50163",
+        "cveIds": [
+          "CVE-2026-50163",
+          "CVE-2026-50163"
+        ],
+        "source": "Comment",
+        "commentText": "Here's a real-world example: we found that our project was vulnerable to **CVE-2026-50163** (https://access.redhat.com/security/cve/cve-2026-50163).",
+        "linkToComment": "https://reddit.com/r/kubernetes/comments/1wzsl41/weekly_show_off_your_new_tools_and_projects_thread/peem1fc/",
+        "commentDate": "2026-10-07T10:58:19+00:00",
+        "cvePublishedDate": "2026-07-17T20:17:23.943000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 81,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-07-20T16:17:04.433 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=194D7688-502B-48D4-87E5-0A4CE2EA3DB5\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n   - Added SSVC: {'timestamp': '2026-07-20T15:00:48.168210Z', 'id': 'CVE-2026-50163', 'options': [{'exploitation': 'poc'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-07-17T20:17:23.943 | New CVE Received | source=security-advisories@github.com | changeId=2F20D64B-CDF3-4710-A717-395529FA4CA4\n   - Added Description: oras-go is a Go library for managing OCI artifacts. Prior to 2.6.2, ensureLinkPath in content/file/utils.go:262-275 validates a hardlink target relative to the extract base but returns the unresolved target, causing os.Link(\"victim.secret\", \"<extract_base>/payload.tar.gz/evil_cwd_link\") to resolve header.Linkname against the process current working directory for a Typeflag=TypeLink entry such as Name=payload.tar.gz/evil_cwd_link and Linkname=\"victim.secret\" with io.deis.oras.content.unpack: \"true\", which can expose or tamper with files such as .env, .git/config, .aws/credentials, and ~/.ssh/config. This issue is fixed in version 2.6.2.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:L/A:N\n   - Added CWE: CWE-22\n   - Added CWE: CWE-59\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/50xxx/CVE-2026-50163.json\">CVE-2026-50163</a>\n   - Added Reference: https://github.com/oras-project/oras-go/commit/c463c654ab3ef34422c1764cd619806cebf20451\n   - Added Reference: https://github.com/oras-project/oras-go/pull/1232\n   - Added Reference: https://github.com/oras-project/oras-go/releases/tag/v2.6.2\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-50163",
+        "cveIds": [
+          "CVE-2026-50163",
+          "CVE-2026-50163"
+        ],
+        "source": "Comment",
+        "commentText": "Here's a real-world example: we found that our project was vulnerable to **CVE-2026-50163** (https://access.redhat.com/security/cve/cve-2026-50163).",
+        "linkToComment": "https://reddit.com/r/kubernetes/comments/1wzsl41/weekly_show_off_your_new_tools_and_projects_thread/peem1fc/",
+        "commentDate": "2026-10-07T10:58:19+00:00",
+        "cvePublishedDate": "2026-07-17T20:17:23.943000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 81,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-07-20T16:17:04.433 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=194D7688-502B-48D4-87E5-0A4CE2EA3DB5\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n   - Added SSVC: {'timestamp': '2026-07-20T15:00:48.168210Z', 'id': 'CVE-2026-50163', 'options': [{'exploitation': 'poc'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-07-17T20:17:23.943 | New CVE Received | source=security-advisories@github.com | changeId=2F20D64B-CDF3-4710-A717-395529FA4CA4\n   - Added Description: oras-go is a Go library for managing OCI artifacts. Prior to 2.6.2, ensureLinkPath in content/file/utils.go:262-275 validates a hardlink target relative to the extract base but returns the unresolved target, causing os.Link(\"victim.secret\", \"<extract_base>/payload.tar.gz/evil_cwd_link\") to resolve header.Linkname against the process current working directory for a Typeflag=TypeLink entry such as Name=payload.tar.gz/evil_cwd_link and Linkname=\"victim.secret\" with io.deis.oras.content.unpack: \"true\", which can expose or tamper with files such as .env, .git/config, .aws/credentials, and ~/.ssh/config. This issue is fixed in version 2.6.2.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:L/A:N\n   - Added CWE: CWE-22\n   - Added CWE: CWE-59\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/50xxx/CVE-2026-50163.json\">CVE-2026-50163</a>\n   - Added Reference: https://github.com/oras-project/oras-go/commit/c463c654ab3ef34422c1764cd619806cebf20451\n   - Added Reference: https://github.com/oras-project/oras-go/pull/1232\n   - Added Reference: https://github.com/oras-project/oras-go/releases/tag/v2.6.2\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-50163",
+        "cveIds": [
+          "CVE-2026-50163",
+          "CVE-2026-50163"
+        ],
+        "source": "Comment",
+        "commentText": "Here's a real-world example: we found that our project was vulnerable to **CVE-2026-50163** (https://access.redhat.com/security/cve/cve-2026-50163).",
+        "linkToComment": "https://reddit.com/r/kubernetes/comments/1wzsl41/weekly_show_off_your_new_tools_and_projects_thread/peem1fc/",
+        "commentDate": "2026-10-07T10:58:19+00:00",
+        "cvePublishedDate": "2026-07-17T20:17:23.943000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 81,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-07-20T16:17:04.433 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=194D7688-502B-48D4-87E5-0A4CE2EA3DB5\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n   - Added SSVC: {'timestamp': '2026-07-20T15:00:48.168210Z', 'id': 'CVE-2026-50163', 'options': [{'exploitation': 'poc'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-07-17T20:17:23.943 | New CVE Received | source=security-advisories@github.com | changeId=2F20D64B-CDF3-4710-A717-395529FA4CA4\n   - Added Description: oras-go is a Go library for managing OCI artifacts. Prior to 2.6.2, ensureLinkPath in content/file/utils.go:262-275 validates a hardlink target relative to the extract base but returns the unresolved target, causing os.Link(\"victim.secret\", \"<extract_base>/payload.tar.gz/evil_cwd_link\") to resolve header.Linkname against the process current working directory for a Typeflag=TypeLink entry such as Name=payload.tar.gz/evil_cwd_link and Linkname=\"victim.secret\" with io.deis.oras.content.unpack: \"true\", which can expose or tamper with files such as .env, .git/config, .aws/credentials, and ~/.ssh/config. This issue is fixed in version 2.6.2.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:L/A:N\n   - Added CWE: CWE-22\n   - Added CWE: CWE-59\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/50xxx/CVE-2026-50163.json\">CVE-2026-50163</a>\n   - Added Reference: https://github.com/oras-project/oras-go/commit/c463c654ab3ef34422c1764cd619806cebf20451\n   - Added Reference: https://github.com/oras-project/oras-go/pull/1232\n   - Added Reference: https://github.com/oras-project/oras-go/releases/tag/v2.6.2\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-50163",
+        "cveIds": [
+          "CVE-2026-50163",
+          "CVE-2026-50163"
+        ],
+        "source": "Comment",
+        "commentText": "Here's a real-world example: we found that our project was vulnerable to **CVE-2026-50163** (https://access.redhat.com/security/cve/cve-2026-50163).",
+        "linkToComment": "https://reddit.com/r/kubernetes/comments/1wzsl41/weekly_show_off_your_new_tools_and_projects_thread/peem1fc/",
+        "commentDate": "2026-10-07T10:58:19+00:00",
+        "cvePublishedDate": "2026-07-17T20:17:23.943000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 81,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-07-20T16:17:04.433 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=194D7688-502B-48D4-87E5-0A4CE2EA3DB5\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n   - Added SSVC: {'timestamp': '2026-07-20T15:00:48.168210Z', 'id': 'CVE-2026-50163', 'options': [{'exploitation': 'poc'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-07-17T20:17:23.943 | New CVE Received | source=security-advisories@github.com | changeId=2F20D64B-CDF3-4710-A717-395529FA4CA4\n   - Added Description: oras-go is a Go library for managing OCI artifacts. Prior to 2.6.2, ensureLinkPath in content/file/utils.go:262-275 validates a hardlink target relative to the extract base but returns the unresolved target, causing os.Link(\"victim.secret\", \"<extract_base>/payload.tar.gz/evil_cwd_link\") to resolve header.Linkname against the process current working directory for a Typeflag=TypeLink entry such as Name=payload.tar.gz/evil_cwd_link and Linkname=\"victim.secret\" with io.deis.oras.content.unpack: \"true\", which can expose or tamper with files such as .env, .git/config, .aws/credentials, and ~/.ssh/config. This issue is fixed in version 2.6.2.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:L/A:N\n   - Added CWE: CWE-22\n   - Added CWE: CWE-59\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/50xxx/CVE-2026-50163.json\">CVE-2026-50163</a>\n   - Added Reference: https://github.com/oras-project/oras-go/commit/c463c654ab3ef34422c1764cd619806cebf20451\n   - Added Reference: https://github.com/oras-project/oras-go/pull/1232\n   - Added Reference: https://github.com/oras-project/oras-go/releases/tag/v2.6.2\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-50163",
+        "cveIds": [
+          "CVE-2026-50163",
+          "CVE-2026-50163"
+        ],
+        "source": "Comment",
+        "commentText": "Here's a real-world example: we found that our project was vulnerable to **CVE-2026-50163** (https://access.redhat.com/security/cve/cve-2026-50163).",
+        "linkToComment": "https://reddit.com/r/kubernetes/comments/1wzsl41/weekly_show_off_your_new_tools_and_projects_thread/peem1fc/",
+        "commentDate": "2026-10-07T10:58:19+00:00",
+        "cvePublishedDate": "2026-07-17T20:17:23.943000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 81,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-07-20T16:17:04.433 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=194D7688-502B-48D4-87E5-0A4CE2EA3DB5\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n   - Added SSVC: {'timestamp': '2026-07-20T15:00:48.168210Z', 'id': 'CVE-2026-50163', 'options': [{'exploitation': 'poc'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-07-17T20:17:23.943 | New CVE Received | source=security-advisories@github.com | changeId=2F20D64B-CDF3-4710-A717-395529FA4CA4\n   - Added Description: oras-go is a Go library for managing OCI artifacts. Prior to 2.6.2, ensureLinkPath in content/file/utils.go:262-275 validates a hardlink target relative to the extract base but returns the unresolved target, causing os.Link(\"victim.secret\", \"<extract_base>/payload.tar.gz/evil_cwd_link\") to resolve header.Linkname against the process current working directory for a Typeflag=TypeLink entry such as Name=payload.tar.gz/evil_cwd_link and Linkname=\"victim.secret\" with io.deis.oras.content.unpack: \"true\", which can expose or tamper with files such as .env, .git/config, .aws/credentials, and ~/.ssh/config. This issue is fixed in version 2.6.2.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:L/A:N\n   - Added CWE: CWE-22\n   - Added CWE: CWE-59\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/50xxx/CVE-2026-50163.json\">CVE-2026-50163</a>\n   - Added Reference: https://github.com/oras-project/oras-go/commit/c463c654ab3ef34422c1764cd619806cebf20451\n   - Added Reference: https://github.com/oras-project/oras-go/pull/1232\n   - Added Reference: https://github.com/oras-project/oras-go/releases/tag/v2.6.2\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-50163",
+        "cveIds": [
+          "CVE-2026-50163",
+          "CVE-2026-50163"
+        ],
+        "source": "Comment",
+        "commentText": "Here's a real-world example: we found that our project was vulnerable to **CVE-2026-50163** (https://access.redhat.com/security/cve/cve-2026-50163).",
+        "linkToComment": "https://reddit.com/r/kubernetes/comments/1wzsl41/weekly_show_off_your_new_tools_and_projects_thread/peem1fc/",
+        "commentDate": "2026-10-07T10:58:19+00:00",
+        "cvePublishedDate": "2026-07-17T20:17:23.943000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 81,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-07-20T16:17:04.433 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=194D7688-502B-48D4-87E5-0A4CE2EA3DB5\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n   - Added SSVC: {'timestamp': '2026-07-20T15:00:48.168210Z', 'id': 'CVE-2026-50163', 'options': [{'exploitation': 'poc'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-07-17T20:17:23.943 | New CVE Received | source=security-advisories@github.com | changeId=2F20D64B-CDF3-4710-A717-395529FA4CA4\n   - Added Description: oras-go is a Go library for managing OCI artifacts. Prior to 2.6.2, ensureLinkPath in content/file/utils.go:262-275 validates a hardlink target relative to the extract base but returns the unresolved target, causing os.Link(\"victim.secret\", \"<extract_base>/payload.tar.gz/evil_cwd_link\") to resolve header.Linkname against the process current working directory for a Typeflag=TypeLink entry such as Name=payload.tar.gz/evil_cwd_link and Linkname=\"victim.secret\" with io.deis.oras.content.unpack: \"true\", which can expose or tamper with files such as .env, .git/config, .aws/credentials, and ~/.ssh/config. This issue is fixed in version 2.6.2.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:L/A:N\n   - Added CWE: CWE-22\n   - Added CWE: CWE-59\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/50xxx/CVE-2026-50163.json\">CVE-2026-50163</a>\n   - Added Reference: https://github.com/oras-project/oras-go/commit/c463c654ab3ef34422c1764cd619806cebf20451\n   - Added Reference: https://github.com/oras-project/oras-go/pull/1232\n   - Added Reference: https://github.com/oras-project/oras-go/releases/tag/v2.6.2\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-50163",
+        "cveIds": [
+          "CVE-2026-50163",
+          "CVE-2026-50163"
+        ],
+        "source": "Comment",
+        "commentText": "Here's a real-world example: we found that our project was vulnerable to **CVE-2026-50163** (https://access.redhat.com/security/cve/cve-2026-50163).",
+        "linkToComment": "https://reddit.com/r/kubernetes/comments/1wzsl41/weekly_show_off_your_new_tools_and_projects_thread/peem1fc/",
+        "commentDate": "2026-10-07T10:58:19+00:00",
+        "cvePublishedDate": "2026-07-17T20:17:23.943000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 81,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-07-20T16:17:04.433 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=194D7688-502B-48D4-87E5-0A4CE2EA3DB5\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n   - Added SSVC: {'timestamp': '2026-07-20T15:00:48.168210Z', 'id': 'CVE-2026-50163', 'options': [{'exploitation': 'poc'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-07-17T20:17:23.943 | New CVE Received | source=security-advisories@github.com | changeId=2F20D64B-CDF3-4710-A717-395529FA4CA4\n   - Added Description: oras-go is a Go library for managing OCI artifacts. Prior to 2.6.2, ensureLinkPath in content/file/utils.go:262-275 validates a hardlink target relative to the extract base but returns the unresolved target, causing os.Link(\"victim.secret\", \"<extract_base>/payload.tar.gz/evil_cwd_link\") to resolve header.Linkname against the process current working directory for a Typeflag=TypeLink entry such as Name=payload.tar.gz/evil_cwd_link and Linkname=\"victim.secret\" with io.deis.oras.content.unpack: \"true\", which can expose or tamper with files such as .env, .git/config, .aws/credentials, and ~/.ssh/config. This issue is fixed in version 2.6.2.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:L/A:N\n   - Added CWE: CWE-22\n   - Added CWE: CWE-59\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/50xxx/CVE-2026-50163.json\">CVE-2026-50163</a>\n   - Added Reference: https://github.com/oras-project/oras-go/commit/c463c654ab3ef34422c1764cd619806cebf20451\n   - Added Reference: https://github.com/oras-project/oras-go/pull/1232\n   - Added Reference: https://github.com/oras-project/oras-go/releases/tag/v2.6.2\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-50163",
+        "cveIds": [
+          "CVE-2026-50163",
+          "CVE-2026-50163"
+        ],
+        "source": "Comment",
+        "commentText": "Here's a real-world example: we found that our project was vulnerable to **CVE-2026-50163** (https://access.redhat.com/security/cve/cve-2026-50163).",
+        "linkToComment": "https://reddit.com/r/kubernetes/comments/1wzsl41/weekly_show_off_your_new_tools_and_projects_thread/peem1fc/",
+        "commentDate": "2026-10-07T10:58:19+00:00",
+        "cvePublishedDate": "2026-07-17T20:17:23.943000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 81,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-07-20T16:17:04.433 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=194D7688-502B-48D4-87E5-0A4CE2EA3DB5\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n   - Added SSVC: {'timestamp': '2026-07-20T15:00:48.168210Z', 'id': 'CVE-2026-50163', 'options': [{'exploitation': 'poc'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-07-17T20:17:23.943 | New CVE Received | source=security-advisories@github.com | changeId=2F20D64B-CDF3-4710-A717-395529FA4CA4\n   - Added Description: oras-go is a Go library for managing OCI artifacts. Prior to 2.6.2, ensureLinkPath in content/file/utils.go:262-275 validates a hardlink target relative to the extract base but returns the unresolved target, causing os.Link(\"victim.secret\", \"<extract_base>/payload.tar.gz/evil_cwd_link\") to resolve header.Linkname against the process current working directory for a Typeflag=TypeLink entry such as Name=payload.tar.gz/evil_cwd_link and Linkname=\"victim.secret\" with io.deis.oras.content.unpack: \"true\", which can expose or tamper with files such as .env, .git/config, .aws/credentials, and ~/.ssh/config. This issue is fixed in version 2.6.2.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:L/A:N\n   - Added CWE: CWE-22\n   - Added CWE: CWE-59\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/50xxx/CVE-2026-50163.json\">CVE-2026-50163</a>\n   - Added Reference: https://github.com/oras-project/oras-go/commit/c463c654ab3ef34422c1764cd619806cebf20451\n   - Added Reference: https://github.com/oras-project/oras-go/pull/1232\n   - Added Reference: https://github.com/oras-project/oras-go/releases/tag/v2.6.2\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-50163",
+        "cveIds": [
+          "CVE-2026-50163",
+          "CVE-2026-50163"
+        ],
+        "source": "Comment",
+        "commentText": "Here's a real-world example: we found that our project was vulnerable to **CVE-2026-50163** (https://access.redhat.com/security/cve/cve-2026-50163).",
+        "linkToComment": "https://reddit.com/r/kubernetes/comments/1wzsl41/weekly_show_off_your_new_tools_and_projects_thread/peem1fc/",
+        "commentDate": "2026-10-07T10:58:19+00:00",
+        "cvePublishedDate": "2026-07-17T20:17:23.943000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 81,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-07-20T16:17:04.433 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=194D7688-502B-48D4-87E5-0A4CE2EA3DB5\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n   - Added SSVC: {'timestamp': '2026-07-20T15:00:48.168210Z', 'id': 'CVE-2026-50163', 'options': [{'exploitation': 'poc'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-07-17T20:17:23.943 | New CVE Received | source=security-advisories@github.com | changeId=2F20D64B-CDF3-4710-A717-395529FA4CA4\n   - Added Description: oras-go is a Go library for managing OCI artifacts. Prior to 2.6.2, ensureLinkPath in content/file/utils.go:262-275 validates a hardlink target relative to the extract base but returns the unresolved target, causing os.Link(\"victim.secret\", \"<extract_base>/payload.tar.gz/evil_cwd_link\") to resolve header.Linkname against the process current working directory for a Typeflag=TypeLink entry such as Name=payload.tar.gz/evil_cwd_link and Linkname=\"victim.secret\" with io.deis.oras.content.unpack: \"true\", which can expose or tamper with files such as .env, .git/config, .aws/credentials, and ~/.ssh/config. This issue is fixed in version 2.6.2.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:L/A:N\n   - Added CWE: CWE-22\n   - Added CWE: CWE-59\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/50xxx/CVE-2026-50163.json\">CVE-2026-50163</a>\n   - Added Reference: https://github.com/oras-project/oras-go/commit/c463c654ab3ef34422c1764cd619806cebf20451\n   - Added Reference: https://github.com/oras-project/oras-go/pull/1232\n   - Added Reference: https://github.com/oras-project/oras-go/releases/tag/v2.6.2\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-50163",
+        "cveIds": [
+          "CVE-2026-50163",
+          "CVE-2026-50163"
+        ],
+        "source": "Comment",
+        "commentText": "Here's a real-world example: we found that our project was vulnerable to **CVE-2026-50163** (https://access.redhat.com/security/cve/cve-2026-50163).",
+        "linkToComment": "https://reddit.com/r/kubernetes/comments/1wzsl41/weekly_show_off_your_new_tools_and_projects_thread/peem1fc/",
+        "commentDate": "2026-10-07T10:58:19+00:00",
+        "cvePublishedDate": "2026-07-17T20:17:23.943000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 81,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-07-20T16:17:04.433 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=194D7688-502B-48D4-87E5-0A4CE2EA3DB5\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n   - Added SSVC: {'timestamp': '2026-07-20T15:00:48.168210Z', 'id': 'CVE-2026-50163', 'options': [{'exploitation': 'poc'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-07-17T20:17:23.943 | New CVE Received | source=security-advisories@github.com | changeId=2F20D64B-CDF3-4710-A717-395529FA4CA4\n   - Added Description: oras-go is a Go library for managing OCI artifacts. Prior to 2.6.2, ensureLinkPath in content/file/utils.go:262-275 validates a hardlink target relative to the extract base but returns the unresolved target, causing os.Link(\"victim.secret\", \"<extract_base>/payload.tar.gz/evil_cwd_link\") to resolve header.Linkname against the process current working directory for a Typeflag=TypeLink entry such as Name=payload.tar.gz/evil_cwd_link and Linkname=\"victim.secret\" with io.deis.oras.content.unpack: \"true\", which can expose or tamper with files such as .env, .git/config, .aws/credentials, and ~/.ssh/config. This issue is fixed in version 2.6.2.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:L/A:N\n   - Added CWE: CWE-22\n   - Added CWE: CWE-59\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/50xxx/CVE-2026-50163.json\">CVE-2026-50163</a>\n   - Added Reference: https://github.com/oras-project/oras-go/commit/c463c654ab3ef34422c1764cd619806cebf20451\n   - Added Reference: https://github.com/oras-project/oras-go/pull/1232\n   - Added Reference: https://github.com/oras-project/oras-go/releases/tag/v2.6.2\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
       {
         "cveId": "CVE-2026-50163",
         "cveIds": [
@@ -1261,7 +1668,7 @@
         "id": "peem1fc",
         "author": "ale_grey_91",
         "body": "I'm developing this experimental tool to identify vulnerabilities that may not actually affect a cluster because of the Kubernetes security settings used to deploy an application.  \nThe project is [vex8s](https://github.com/alegrey91/vex8s). It combines workload configuration with vulnerabilities found in container images, then identifies vulnerabilities that may not be exploitable in the cluster.  \nHere's a real-world example: we found that our project was vulnerable to **CVE-2026-50163** (https://access.redhat.com/security/cve/cve-2026-50163). However, because we deploy it with a read-only root filesystem, vex8s concluded that the CVE was not exploitable in our environment.  \nThe CVE description says:\n\n&gt;\"An attacker can exploit this vulnerability by providing a specially crafted tarball containing a malicious hardlink. When this tarball is extracted, the hardlink can be manipulated to point to files outside the intended extraction location, specifically within the victim's current working directory.\"\n\nSince the container's filesystem is read-only, this exploitation path would not work in our case.\n\n**How does vex8s determine whether a CVE is exploitable?**  \nI currently provide two experimental approaches:  \nThe first uses an embedded machine-learning model of around 300 KB, trained specifically for this purpose.  \nThe second uses a local LLM. I've been testing it with the relatively small `qwen2.5-3b-instruct` model.  \nBoth approaches analyze the CVE description and classify it using an exploitation category that I defined. These categories can then be mapped to Kubernetes security settings that may mitigate or prevent the exploitation path.  \nThe project is still experimental, but the results have been interesting so far: [https://github.com/alegrey91/vex8s](https://github.com/alegrey91/vex8s)",
-        "score": 6,
+        "score": 5,
         "created_utc_ts": 1791370699,
         "created_utc": "2026-10-07T10:58:19",
         "permalink": "https://reddit.com/r/kubernetes/comments/1wzsl41/weekly_show_off_your_new_tools_and_projects_thread/peem1fc/",
@@ -1294,7 +1701,7 @@
         "id": "pegbph7",
         "author": "Fair-Lengthiness-564",
         "body": "[https://github.com/growlyx/tailmux](https://github.com/growlyx/tailmux)\n\nhave your homelab and production clusters on different tailnets? use tailmux to stay connected to all of your tailnets at once!",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1791388434,
         "created_utc": "2026-10-07T15:53:54",
         "permalink": "https://reddit.com/r/kubernetes/comments/1wzsl41/weekly_show_off_your_new_tools_and_projects_thread/pegbph7/",
@@ -1388,8 +1795,81 @@
         "permalink": "https://reddit.com/r/kubernetes/comments/1wzsl41/weekly_show_off_your_new_tools_and_projects_thread/pey4tn1/",
         "parent_id": "t3_1wzsl41",
         "is_submitter": false
+      },
+      {
+        "id": "pf0j0n6",
+        "author": "No_Paint_2509",
+        "body": "I'm developing an open-source tool for rightsizing Kubernetes clusters.\n\nThe project is r8r: [https://github.com/HetSolanki/r8r](https://github.com/HetSolanki/r8r)\n\nIt reads your cluster's usage history from Prometheus and recommends changes for each node group: right-sizing container requests, switching to a different instance type, lowering HPA floors, or a combination of these. Each option comes with its monthly cost impact, the steps involved, and anything that could block it, like PDBs or local storage. You can untick individual changes or enter your own values, and the node packing updates live in the browser.\n\nIt also looks at stability, flagging containers using more memory than they request and HPAs stuck at their max, so cost cuts don't come at the expense of reliability.\n\nIt supports EKS and OKE, auto-detects whether the cluster runs Cluster Autoscaler or Karpenter, and is read-only, so it never changes anything in your cluster.\n\nSuggestions and contributions are very welcome!\n\nhttps://reddit.com/link/pf0j0n6/video/t0u0oiy2wluh1/player\n\n",
+        "score": 1,
+        "created_utc_ts": 1791623419,
+        "created_utc": "2026-10-10T09:10:19",
+        "permalink": "https://reddit.com/r/kubernetes/comments/1wzsl41/weekly_show_off_your_new_tools_and_projects_thread/pf0j0n6/",
+        "parent_id": "t3_1wzsl41",
+        "is_submitter": false
       }
-    ]
+    ],
+    "sentiment": {
+      "author": 0.36,
+      "community": 0.391,
+      "authorHasReplies": false,
+      "forCommentCount": 13,
+      "authorTrajectory": [],
+      "communityTrajectory": [
+        {
+          "i": 0,
+          "v": -0.068
+        },
+        {
+          "i": 1,
+          "v": 0.976
+        },
+        {
+          "i": 2,
+          "v": 0.81
+        },
+        {
+          "i": 3,
+          "v": 0
+        },
+        {
+          "i": 4,
+          "v": 0.796
+        },
+        {
+          "i": 5,
+          "v": 0
+        },
+        {
+          "i": 6,
+          "v": 0.915
+        },
+        {
+          "i": 7,
+          "v": 0.497
+        },
+        {
+          "i": 8,
+          "v": 0
+        },
+        {
+          "i": 9,
+          "v": 0.898
+        },
+        {
+          "i": 10,
+          "v": -0.077
+        },
+        {
+          "i": 11,
+          "v": -0.25
+        },
+        {
+          "i": 12,
+          "v": 0.587
+        }
+      ],
+      "schemaVersion": 2
+    }
   },
   {
     "_id": "6ac546cfed94ec00e07be9ed",
@@ -1406,7 +1886,7 @@
     "tag": null,
     "tags": [],
     "title": "Question: FUOTA on ESP32 + SX1276: TS004 fragmentation and MCUboot work over point-to-point LoRa, but I haven't tested a real LoRaWAN server yet. Experiences?",
-    "updatedAt": "2026-10-10T07:06:37.062Z",
+    "updatedAt": "2026-10-11T00:07:09.873Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/esp32/comments/1wz9y18/question_fuota_on_esp32_sx1276_ts004/",
     "versionList": [],
@@ -1444,14 +1924,14 @@
     "created_utc": "2026-10-06T17:06:35",
     "first_author_comment": null,
     "num_comments": 7,
-    "score": 62,
+    "score": 66,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "You Won’t Hear About These, Even In Myths (Atlassian Jira, Confluence (and more) Pre-Auth Arbitrary File Read CVE-2026-21589) - watchTowr Labs",
-    "updatedAt": "2026-10-10T07:22:46.296Z",
-    "upvote_ratio": 0.92,
+    "updatedAt": "2026-10-11T00:22:54.483Z",
+    "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/netsec/comments/1wz82op/you_wont_hear_about_these_even_in_myths_atlassian/",
     "versionList": [
       "2026.0.0",
@@ -1461,14 +1941,38 @@
     "isAboutLatestUpdate": false,
     "sentiment": {
       "author": 0,
-      "community": 0.491,
+      "community": 0.151,
       "authorHasReplies": false,
-      "forCommentCount": 1,
+      "forCommentCount": 7,
       "authorTrajectory": [],
       "communityTrajectory": [
         {
           "i": 0,
           "v": 0.491
+        },
+        {
+          "i": 1,
+          "v": -0.557
+        },
+        {
+          "i": 2,
+          "v": 0.858
+        },
+        {
+          "i": 3,
+          "v": 0.361
+        },
+        {
+          "i": 4,
+          "v": 0
+        },
+        {
+          "i": 5,
+          "v": -0.612
+        },
+        {
+          "i": 6,
+          "v": 0.516
         }
       ],
       "schemaVersion": 2
@@ -1488,7 +1992,7 @@
         "id": "peaghlm",
         "author": "Emergency_Stable_923",
         "body": "Good job! then where we can hear these type of bugs? Of course we’re not looking mythos for something that serious!",
-        "score": -4,
+        "score": -3,
         "created_utc_ts": 1791317022,
         "created_utc": "2026-10-06T20:03:42",
         "permalink": "https://reddit.com/r/netsec/comments/1wz82op/you_wont_hear_about_these_even_in_myths_atlassian/peaghlm/",
@@ -1499,7 +2003,7 @@
         "id": "pegytot",
         "author": "Azer_pubes33",
         "body": "Pre-auth file read in Jira and Confluence is nasty, has anyone seen a patch rollout yet?",
-        "score": 4,
+        "score": 5,
         "created_utc_ts": 1791394095,
         "created_utc": "2026-10-07T17:28:15",
         "permalink": "https://reddit.com/r/netsec/comments/1wz82op/you_wont_hear_about_these_even_in_myths_atlassian/pegytot/",
@@ -1521,7 +2025,7 @@
         "id": "pei60vu",
         "author": "LBarto88",
         "body": "Can anyone run this through AI to make it sound like it wasn't written by Michael Scott?",
-        "score": -3,
+        "score": -2,
         "created_utc_ts": 1791405034,
         "created_utc": "2026-10-07T20:30:34",
         "permalink": "https://reddit.com/r/netsec/comments/1wz82op/you_wont_hear_about_these_even_in_myths_atlassian/pei60vu/",
@@ -1543,7 +2047,7 @@
         "id": "pek9eon",
         "author": "SuicidalTree",
         "body": "Self-promotion spam account for watchtowr[.]com. Report as spam.",
-        "score": -5,
+        "score": -6,
         "created_utc_ts": 1791427751,
         "created_utc": "2026-10-08T02:49:11",
         "permalink": "https://reddit.com/r/netsec/comments/1wz82op/you_wont_hear_about_these_even_in_myths_atlassian/pek9eon/",
@@ -1574,13 +2078,13 @@
     "created_utc": "2026-10-06T14:25:44",
     "first_author_comment": "I am stopping now for a while, I guess in a few months or years when I have the energy again, I'll give it a go.\n\nThey are 100% **non-functional**, sadly. I can't bypass the certificate when they access the Wi-Fi.",
     "num_comments": 6,
-    "score": 13,
+    "score": 12,
     "source": "reddit",
     "subreddit": "hardwarehacking",
     "tag": null,
     "tags": [],
     "title": "Failed attempt at rescuing Amazon Cloudcams with Claude's assist",
-    "updatedAt": "2026-10-10T07:23:50.722Z",
+    "updatedAt": "2026-10-11T00:24:01.191Z",
     "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/hardwarehacking/comments/1wz3z14/failed_attempt_at_rescuing_amazon_cloudcams_with/",
     "versionList": [],
@@ -1588,9 +2092,9 @@
     "isAboutLatestUpdate": true,
     "sentiment": {
       "author": -0.207,
-      "community": 0,
+      "community": -0.1,
       "authorHasReplies": true,
-      "forCommentCount": 5,
+      "forCommentCount": 6,
       "authorTrajectory": [
         {
           "i": 1,
@@ -1613,6 +2117,10 @@
         {
           "i": 3,
           "v": 0
+        },
+        {
+          "i": 5,
+          "v": -0.402
         }
       ],
       "schemaVersion": 2
@@ -1713,7 +2221,7 @@
     "tag": null,
     "tags": [],
     "title": "Question: FUOTA on ESP32 + SX1276: TS004 fragmentation and MCUboot work over point-to-point LoRa, but I haven't tested a real LoRaWAN server yet. Experiences?",
-    "updatedAt": "2026-10-10T07:09:16.111Z",
+    "updatedAt": "2026-10-11T00:09:45.910Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/LoRaWAN/comments/1wy8glt/question_fuota_on_esp32_sx1276_ts004/",
     "versionList": [],
@@ -1933,7 +2441,41 @@
     "isAboutCve": true,
     "isAboutLatestUpdate": true,
     "sourceBot": "reddit.py",
-    "sourceUrl": "https://reddit.com/r/gitlab/comments/1wxb86d/gitlab_patched_a_cvss_99_sandbox_escape_in_the/"
+    "sourceUrl": "https://reddit.com/r/gitlab/comments/1wxb86d/gitlab_patched_a_cvss_99_sandbox_escape_in_the/",
+    "sentiment": {
+      "author": -0.58,
+      "community": 0.038,
+      "authorHasReplies": false,
+      "forCommentCount": 6,
+      "authorTrajectory": [],
+      "communityTrajectory": [
+        {
+          "i": 0,
+          "v": -0.123
+        },
+        {
+          "i": 1,
+          "v": -0.128
+        },
+        {
+          "i": 2,
+          "v": -0.235
+        },
+        {
+          "i": 3,
+          "v": -0.461
+        },
+        {
+          "i": 4,
+          "v": 0.318
+        },
+        {
+          "i": 5,
+          "v": 0.859
+        }
+      ],
+      "schemaVersion": 2
+    }
   },
   {
     "_id": "6ac20213ed94ec00e07880f6",
@@ -3424,13 +3966,13 @@
     "created_utc": "2026-10-02T16:50:08",
     "first_author_comment": "Fair challenge. The main evidence is Binarly's LogoFail research, where the logo was replaceable from the unsigned ESP on hundreds of devices, and in U-Boot the splashsource mechanism loads the image from mmc\\_fs/usb\\_fs/sf before bootm verifies the next stage. Devices that embed the logo in the signed image avoid this, and it sounds like yours do; \"commonly\" refers to default configs and reference BSPs rather than hardened products.",
     "num_comments": 12,
-    "score": 47,
+    "score": 48,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Bypassing Secure Boot via Unbounded RLE8 Splash Images in U-Boot (CVE-2026-71972)",
-    "updatedAt": "2026-10-10T07:22:53.295Z",
+    "updatedAt": "2026-10-11T00:23:01.508Z",
     "upvote_ratio": 0.97,
     "url": "https://reddit.com/r/netsec/comments/1wvyt5b/bypassing_secure_boot_via_unbounded_rle8_splash/",
     "versionList": [
@@ -3454,7 +3996,7 @@
         "id": "pdhbz6u",
         "author": "upalse",
         "body": "I guess that explains why most devices had the splash image partition signed in the sboot chain.\n\n&gt; This hijacks the execution flow before signature checking completes.\n\nThe chain above AVB is vendor one, but it's there. At least as far qualcomm and mediatek goes.",
-        "score": 5,
+        "score": 6,
         "created_utc_ts": 1790971878,
         "created_utc": "2026-10-02T20:11:18",
         "permalink": "https://reddit.com/r/netsec/comments/1wvyt5b/bypassing_secure_boot_via_unbounded_rle8_splash/pdhbz6u/",
@@ -3465,7 +4007,7 @@
         "id": "pdjojh4",
         "author": "Toiling-Donkey",
         "body": "UEFI had LogoFail…\n\nNice to see uboot is maintaining vulnerability parity …",
-        "score": 9,
+        "score": 8,
         "created_utc_ts": 1790999268,
         "created_utc": "2026-10-03T03:47:48",
         "permalink": "https://reddit.com/r/netsec/comments/1wvyt5b/bypassing_secure_boot_via_unbounded_rle8_splash/pdjojh4/",
@@ -3498,7 +4040,7 @@
         "id": "pezuu6p",
         "author": "mlgbcnmsl",
         "body": "hope to know how LLM can engage into such bug finding tasks",
-        "score": 1,
+        "score": 0,
         "created_utc_ts": 1791611547,
         "created_utc": "2026-10-10T05:52:27",
         "permalink": "https://reddit.com/r/netsec/comments/1wvyt5b/bypassing_secure_boot_via_unbounded_rle8_splash/pezuu6p/",
@@ -3554,8 +4096,8 @@
     "tag": null,
     "tags": [],
     "title": "8 out of 10 Banks HATE This One Weird 3SKey RCE",
-    "updatedAt": "2026-10-10T07:22:54.103Z",
-    "upvote_ratio": 0.5,
+    "updatedAt": "2026-10-11T00:23:02.429Z",
+    "upvote_ratio": 0.47,
     "url": "https://reddit.com/r/netsec/comments/1wvxp1p/8_out_of_10_banks_hate_this_one_weird_3skey_rce/",
     "versionList": [
       "8.0.0",
@@ -5008,14 +5550,14 @@
     "created_utc": "2026-09-29T13:57:34",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 31,
+    "score": 29,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Here We Go Again (Citrix NetScaler DTLS Preauth Memory Overflow CVE-2026-88772) - watchTowr Labs",
-    "updatedAt": "2026-10-10T07:23:10.149Z",
-    "upvote_ratio": 0.93,
+    "updatedAt": "2026-10-11T00:23:17.498Z",
+    "upvote_ratio": 0.9,
     "url": "https://reddit.com/r/netsec/comments/1wtattu/here_we_go_again_citrix_netscaler_dtls_preauth/",
     "versionList": [
       "2026.0.0",
@@ -5107,13 +5649,13 @@
     "created_utc": "2026-09-28T10:58:09",
     "first_author_comment": null,
     "num_comments": 25,
-    "score": 80,
+    "score": 79,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Oh Look, The Foot Gun Went Off Again (Citrix NetScaler PreAuth Command Injection CVE-2026-88771) - watchTowr Labs",
-    "updatedAt": "2026-10-10T07:23:15.038Z",
+    "updatedAt": "2026-10-11T00:23:21.861Z",
     "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/netsec/comments/1wsbh8j/oh_look_the_foot_gun_went_off_again_citrix/",
     "versionList": [
@@ -5137,7 +5679,7 @@
         "id": "pclvxgn",
         "author": "AmITheAsshole_2020",
         "body": "That was one of the least professional company posts I've read in a long time. Is this normal for watchTowr? If I were a prospective customer, I would, frankly, keep looking.",
-        "score": 26,
+        "score": 25,
         "created_utc_ts": 1790613406,
         "created_utc": "2026-09-28T16:36:46",
         "permalink": "https://reddit.com/r/netsec/comments/1wsbh8j/oh_look_the_foot_gun_went_off_again_citrix/pclvxgn/",
@@ -5148,7 +5690,7 @@
         "id": "pcmbbjc",
         "author": "abluedinosaur",
         "body": "How is this not professional? It's written by an expert and is not AI slop. It explains the technical details well. \n\nFrankly, it's insane this kind of garbage code is on this type of product, as it's similar to what you would expect on a 10 year old Chinese SOHO router.\n\nIt seems like the vendor has not even bothered to run AI scanners on their own source for a very high risk area. ",
-        "score": 2,
+        "score": 1,
         "created_utc_ts": 1790617054,
         "created_utc": "2026-09-28T17:37:34",
         "permalink": "https://reddit.com/r/netsec/comments/1wsbh8j/oh_look_the_foot_gun_went_off_again_citrix/pcmbbjc/",
@@ -5159,7 +5701,7 @@
         "id": "pcmio3t",
         "author": "thehalfmetaljacket",
         "body": "Sadly, yes it normal for them. ",
-        "score": 25,
+        "score": 23,
         "created_utc_ts": 1790618781,
         "created_utc": "2026-09-28T18:06:21",
         "permalink": "https://reddit.com/r/netsec/comments/1wsbh8j/oh_look_the_foot_gun_went_off_again_citrix/pcmio3t/",
@@ -5170,7 +5712,7 @@
         "id": "pcoiimr",
         "author": "eck-",
         "body": "Found the Citrix employee.",
-        "score": 4,
+        "score": 1,
         "created_utc_ts": 1790637142,
         "created_utc": "2026-09-28T23:12:22",
         "permalink": "https://reddit.com/r/netsec/comments/1wsbh8j/oh_look_the_foot_gun_went_off_again_citrix/pcoiimr/",
@@ -5181,7 +5723,7 @@
         "id": "pcp9rt6",
         "author": "DingleDangleTangle",
         "body": "I literally can’t finish reading it the secondhand cringe was too difficult. Jesus Christ that is embarrassing writing to represent your company. It’s like a high schooler found a CVE and wrote a blog post about how they totally owned some noobs",
-        "score": 14,
+        "score": 13,
         "created_utc_ts": 1790645543,
         "created_utc": "2026-09-29T01:32:23",
         "permalink": "https://reddit.com/r/netsec/comments/1wsbh8j/oh_look_the_foot_gun_went_off_again_citrix/pcp9rt6/",
@@ -5203,7 +5745,7 @@
         "id": "pcpzkuo",
         "author": "beefknuckle",
         "body": "You don't read these for literary inspiration, it's for the technical details. and Watchtowr are in the top tier because of that.\n\nWrong audience I guess.",
-        "score": -1,
+        "score": 1,
         "created_utc_ts": 1790654071,
         "created_utc": "2026-09-29T03:54:31",
         "permalink": "https://reddit.com/r/netsec/comments/1wsbh8j/oh_look_the_foot_gun_went_off_again_citrix/pcpzkuo/",
@@ -5290,14 +5832,14 @@
     "created_utc": "2026-09-28T10:03:49",
     "first_author_comment": null,
     "num_comments": 3,
-    "score": 11,
+    "score": 12,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-32740: RCE in a PIE Next.js sharp/libheif Stack",
-    "updatedAt": "2026-10-10T07:23:16.012Z",
-    "upvote_ratio": 0.81,
+    "updatedAt": "2026-10-11T00:23:22.777Z",
+    "upvote_ratio": 0.82,
     "url": "https://reddit.com/r/netsec/comments/1wsajyx/cve202632740_rce_in_a_pie_nextjs_sharplibheif/",
     "versionList": [
       "2026.0.0",
@@ -10972,14 +11514,14 @@
     "created_utc": "2026-09-25T14:54:02",
     "first_author_comment": null,
     "num_comments": 0,
-    "score": 25,
+    "score": 22,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2025-13032: Entering and Breaking the Avast Antivirus Sandbox Part 2",
-    "updatedAt": "2026-10-10T07:23:21.609Z",
-    "upvote_ratio": 0.9,
+    "updatedAt": "2026-10-11T00:23:28.503Z",
+    "upvote_ratio": 0.87,
     "url": "https://reddit.com/r/netsec/comments/1wpyg75/cve202513032_entering_and_breaking_the_avast/",
     "versionList": [
       "2025.0.0",
@@ -11269,8 +11811,8 @@
     "tag": null,
     "tags": [],
     "title": "Argus Monitor Local Denial-of-Service Vulnerability (CVE-2026-79417)",
-    "updatedAt": "2026-10-10T07:23:22.359Z",
-    "upvote_ratio": 0.81,
+    "updatedAt": "2026-10-11T00:23:29.242Z",
+    "upvote_ratio": 0.72,
     "url": "https://reddit.com/r/netsec/comments/1wpkc7q/argus_monitor_local_denialofservice_vulnerability/",
     "versionList": [
       "2026.0.0",
@@ -11385,7 +11927,7 @@
         "id": "pbu6iz1",
         "author": "AlexandreDaubois",
         "body": "I co-wrote the fix we shipped in today's PHP security releases. We could argue with the origin check, because we compare scheme, host and port the way curl has since 2022 instead of following Go's \"same domain or subdomain\" rule. Once we strip the header, it stays stripped even if a later hop redirects back to the original host. I'll take questions if you have some!",
-        "score": 20,
+        "score": 22,
         "created_utc_ts": 1790281213,
         "created_utc": "2026-09-24T20:20:13",
         "permalink": "https://reddit.com/r/netsec/comments/1wpcgf9/cve202691766_php_had_the_redirect_credential_leak/pbu6iz1/",
@@ -11396,7 +11938,7 @@
         "id": "pbxw7wo",
         "author": "No-View3333",
         "body": "Worth checking HTTP calls that set auth headers through stream\\_context\\_create(). If they don’t need redirects, follow\\_location =&gt; 0 is a useful temporary mitigation until you upgrade.",
-        "score": 4,
+        "score": 5,
         "created_utc_ts": 1790330282,
         "created_utc": "2026-09-25T09:58:02",
         "permalink": "https://reddit.com/r/netsec/comments/1wpcgf9/cve202691766_php_had_the_redirect_credential_leak/pbxw7wo/",
@@ -11407,7 +11949,7 @@
         "id": "pc0e0x5",
         "author": "AlexandreDaubois",
         "body": "Indeed! But I would always advise just bumping your container/binary, there’s no risk of BC break. If you’re running a maintained version of course",
-        "score": 3,
+        "score": 4,
         "created_utc_ts": 1790356876,
         "created_utc": "2026-09-25T17:21:16",
         "permalink": "https://reddit.com/r/netsec/comments/1wpcgf9/cve202691766_php_had_the_redirect_credential_leak/pc0e0x5/",
@@ -11429,13 +11971,13 @@
     "created_utc": "2026-09-24T20:19:24",
     "first_author_comment": "I co-wrote the fix we shipped in today's PHP security releases. We could argue with the origin check, because we compare scheme, host and port the way curl has since 2022 instead of following Go's \"same domain or subdomain\" rule. Once we strip the header, it stays stripped even if a later hop redirects back to the original host. I'll take questions if you have some!",
     "num_comments": 5,
-    "score": 88,
+    "score": 87,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-91766: PHP had the redirect credential leak curl fixed in 2018",
-    "updatedAt": "2026-10-10T07:23:23.668Z",
+    "updatedAt": "2026-10-10T13:22:55.300Z",
     "upvote_ratio": 0.98,
     "url": "https://reddit.com/r/netsec/comments/1wpcgf9/cve202691766_php_had_the_redirect_credential_leak/",
     "versionList": [
@@ -15981,14 +16523,14 @@
     "created_utc": "2026-09-18T06:01:27",
     "first_author_comment": "I couldn't find any setting explicitly named \"DNSSEC validation\" so I just checked that in \"Services\" -&gt; \"DNS Resolver\" -&gt; \"General Settings\" -&gt; scroll down to \"DNSSEC\" -&gt; \"Enable DNSSEC Support\" is unchecked. This should be enough for the time being, shouldn't it?  \nI assume the \"Harden DNSSEC Data\" in the \"Advanced Settings\" then can be ignored if DNSSEC is disabled.",
     "num_comments": 31,
-    "score": 47,
+    "score": 45,
     "source": "reddit",
     "subreddit": "PFSENSE",
     "tag": null,
     "tags": [],
     "title": "Unbound CVE-2026-81642",
-    "updatedAt": "2026-10-10T07:17:45.582Z",
-    "upvote_ratio": 0.98,
+    "updatedAt": "2026-10-10T23:17:36.017Z",
+    "upvote_ratio": 0.96,
     "url": "https://reddit.com/r/PFSENSE/comments/1wjhz3e/unbound_cve202681642/",
     "versionList": [
       "2026.0.0",
@@ -16001,7 +16543,7 @@
         "id": "paiuef8",
         "author": "syncerx",
         "body": "Make sure that the DNSSEC validation is disabled.",
-        "score": 5,
+        "score": 6,
         "created_utc_ts": 1789713052,
         "created_utc": "2026-09-18T06:30:52",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1wjhz3e/unbound_cve202681642/paiuef8/",
@@ -16012,7 +16554,7 @@
         "id": "paiurw4",
         "author": "NewRedditor23",
         "body": "Should we temporarily disable dnssec?",
-        "score": 6,
+        "score": 5,
         "created_utc_ts": 1789713269,
         "created_utc": "2026-09-18T06:34:29",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1wjhz3e/unbound_cve202681642/paiurw4/",
@@ -16023,7 +16565,7 @@
         "id": "paiyl15",
         "author": "gromhelmu",
         "body": "Yep. To add: Do this, even if your firewall is locked down from the outside:\n\n- An internal device (phone, laptop, IoT device, or guest) browsing the web or running an app can request a domain controlled by an attacker.\n- Unbound performs recursive resolution, querying the attacker’s nameserver.\n- The nameserver responds with a specially crafted DNSKEY record containing pointers to exploit the CVE (an overflow).",
-        "score": 8,
+        "score": 7,
         "created_utc_ts": 1789715310,
         "created_utc": "2026-09-18T07:08:30",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1wjhz3e/unbound_cve202681642/paiyl15/",
