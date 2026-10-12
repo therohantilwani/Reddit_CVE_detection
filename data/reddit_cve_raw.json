@@ -1,5 +1,223 @@
 [
   {
+    "_id": "6acc3f2f4f22225d910132f0",
+    "redditId": "1x3i22s",
+    "author": "LarryOrton",
+    "author_description": "Huntress and BleepingComputer reported on Oct 8-9 that these two flaws are being used to drop webshells and the XMRig cryptominer. Huntress recommends updating to 10.3.4 and restricting access to the management interface.\n\nBackup platforms hold credentials to production, so a compromised one is a pivot point. Checklist:\n\n- Patch to 10.3.4 now.\n- Take the management UI off the internet (VPN or allowlist only).\n- Rotate the service account passwords the backup server stores.\n- Check the web folders for new or unexpected files (possible webshells).\n- Watch for CPU spikes (a sign of mining).\n- Keep at least one offline, immutable copy.\n\nWhat's everyone doing to keep their backup infrastructure separated from everything else?",
+    "awards": [],
+    "comments": [
+      {
+        "id": "pfbf0o1",
+        "author": "Hungry_Baseball_5092",
+        "body": "That management UI being internet-facing at all was always wild to me, backup servers are just credential vaults with extra steps\n\n  \nthe offline immutable copy is the one thing on this list most places skip until it's too late, and then they find out their backups got encrypted right along with prod\n\n  \nwe've had ours on a separate vlan with no default route out for a while now, only jump host access and the storage target is on its own box with different creds. pain to set up but you sleep better",
+        "score": 1,
+        "created_utc_ts": 1791750742,
+        "created_utc": "2026-10-11T20:32:22",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1x3i22s/psa_ahsaycbs_backup_flaws_are_being_actively/pfbf0o1/",
+        "parent_id": "t3_1x3i22s",
+        "is_submitter": false
+      },
+      {
+        "id": "pfbfptl",
+        "author": "interweb_persona",
+        "body": "Can't believe Ahsay is still around. Have heard or thought about that in almost 15 years ",
+        "score": 1,
+        "created_utc_ts": 1791750922,
+        "created_utc": "2026-10-11T20:35:22",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1x3i22s/psa_ahsaycbs_backup_flaws_are_being_actively/pfbfptl/",
+        "parent_id": "t3_1x3i22s",
+        "is_submitter": false
+      },
+      {
+        "id": "pfc0ulc",
+        "author": "Liquidfoxx22",
+        "body": "Was just about to say the same thing, we retired our last Server 2008 box that was hanging on for dear life because it ran Ahsay. ",
+        "score": 1,
+        "created_utc_ts": 1791756687,
+        "created_utc": "2026-10-11T22:11:27",
+        "permalink": "https://reddit.com/r/sysadmin/comments/1x3i22s/psa_ahsaycbs_backup_flaws_are_being_actively/pfc0ulc/",
+        "parent_id": "t1_pfbfptl",
+        "is_submitter": false
+      }
+    ],
+    "created_utc": "2026-10-11T20:05:58",
+    "first_author_comment": null,
+    "num_comments": 3,
+    "score": 0,
+    "source": "reddit",
+    "subreddit": "sysadmin",
+    "tag": null,
+    "tags": [],
+    "title": "PSA: AhsayCBS backup flaws are being actively exploited (CVE-2026-105133 / 105134). A hardening checklist for backup servers",
+    "updatedAt": "2026-10-12T08:00:23.773Z",
+    "upvote_ratio": 0.5,
+    "url": "https://reddit.com/r/sysadmin/comments/1x3i22s/psa_ahsaycbs_backup_flaws_are_being_actively/",
+    "versionList": [
+      "2026.0.0",
+      "105133.0.0",
+      "105134.0.0"
+    ],
+    "sentiment": {
+      "author": -0.612,
+      "community": 0.199,
+      "authorHasReplies": false,
+      "forCommentCount": 3,
+      "authorTrajectory": [],
+      "communityTrajectory": [
+        {
+          "i": 0,
+          "v": 0.214
+        },
+        {
+          "i": 1,
+          "v": 0
+        },
+        {
+          "i": 2,
+          "v": 0.382
+        }
+      ],
+      "schemaVersion": 2
+    }
+  },
+  {
+    "_id": "6acc44d04f22225d91013f85",
+    "redditId": "1x3525x",
+    "author": "Deevofiba",
+    "author_description": "I was hoping someone can help me. I’m thinking of purchasing three, G5 Turrent Ultra 2K outdoor cameras and a Ubiquiti Network Video Recorder POE (UNVR-INSTANT) for my home. Is this all the hardware i need to record the 3 cameras, and also see the video output on my PC monitor ?\n\nDoes this also include the software I need ? Is the software i need in the cameras and also in the NVR. I have Internet but I’m not really concerned in viewing the cameras on my phone when im away. I read copper cat 6 LAN cable is preferred so i will also purchase that.\n\nI already have a standard 2 TB HDD, is that suitable to be used in the NVR for recording\n\nI tried posting in Ubiquiti forum on reddit but it wouldnt let me\n\nAny advice will be helpful\n\nThank you",
+    "awards": [],
+    "comments": [
+      {
+        "id": "pf7vqda",
+        "author": "WhollyHungry",
+        "body": "i run a similar setup but with the g4 bullets so you're on the right track, the UNVR instant does come with the protect software preloaded so no extra license fees or anything\n\n  \nthe cameras themselves don't really have software you mess with, they just get adopted into protect and you manage everything from the nvr's web interface, you can pull that up on your pc no problem\n\n  \nfor the hard drive that 2tb will work but you might want to check if it's surveillance rated, regular desktop drives can die pretty quick with 24/7 writes, i learned that the hard way with a seagate barracuda that gave up after 8 months\n\n  \ncat6 is the move and you'll need a poe switch unless your router has poe ports, the UNVR instant doesn't supply power to cameras just fyi",
+        "score": 3,
+        "created_utc_ts": 1791715632,
+        "created_utc": "2026-10-11T10:47:12",
+        "permalink": "https://reddit.com/r/SecurityCamera/comments/1x3525x/need_advice_on_camera_setup/pf7vqda/",
+        "parent_id": "t3_1x3525x",
+        "is_submitter": false
+      },
+      {
+        "id": "pf832fz",
+        "author": "Ambitious-Pin6335",
+        "body": "Stay away from anything Ubiquiti. It’s a closed boxed in product. Lots of issues.   \nEspecially no live tech support unless you pay. They also just had a huge 25 point security breach. For hard drives you want security grade. Purple drives are the best choice.\n\nUbiquiti has disclosed 25 security vulnerabilities affecting its UniFi ecosystem in Security Advisory Bulletin 066, including several critical flaws rated 9.9 and 10.0 on the CVSS v3.1 scale that could allow network-based attackers to fully compromise devices.  \nThe advisory spans UniFi Connect, Talk, Access, Protect, Network Application, and the core UniFi OS platform running on UDM, UNVR, and UNAS device families.  \nLast month, Ubiquiti patched a series of Critical vulnerabilities that allowed remote privilege escalation on its UniFi OS platform.  \nThe most severe issue, CVE-2026-50746, carries a perfect 10.0 score and stems from an Improper Access Control flaw in UniFi Connect Application (version 3.4.16 and earlier), letting any network-adjacent attacker execute command injection without authentication.\n\nClose behind, CVE-2026-50747 and CVE-2026-50748 each scored 9.9: CVE-2026-50747 involved authenticated SQL injection in UniFi Talk, and CVE-2026-50748 involved command injection in UniFi Access; both were exploitable by low-privileged network users to escalate to full control.  \nAdditional 9.9-rated bugs include CVE-2026-54402 (command injection in UniFi OS) and CVE-2026-55115 (SSRF-driven privilege escalation in UniFi Protect), while CVE-2026-54400 rounds out the critical tier at 9.1 with a privilege-escalation flaw in UniFi Access that requires high privileges.  \nA notably dangerous entry is CVE-2026-55116, a 9.0-rated Improper Access Control vulnerability affecting UDM, UDM-Pro, UDM-SE, and related gateway hardware, which permits unauthorized configuration changes under certain network conditions.  \nSeveral high-severity issues involve chainable attack paths. CVE-2026-54403, an 8.6-rated path traversal bug in UniFi OS, is explicitly flagged by Ubiquiti as capable of being combined with other vulnerabilities to bypass the low-privilege access requirement entirely.  \nSimilarly, CVE-2026-54401 (7.7) is an SSRF flaw across the UniFi OS Server and UDM family enabling privilege escalation, while CVE-2026-54404 (8.8) exploits authenticated SQL injection to the same effect .  \nThe UniFi Protect Application accounts for a cluster of high-impact findings, including two authentication bypass issues (CVE-2026-54407 and CVE-2026-54408, both 8.6) affecting API endpoints and data streaming, plus a SQL injection flaw (CVE-2026-56841, 8.8) that enables privilege escalation on the host device.\n\nGiven the presence of multiple unauthenticated, network-exploitable, critical-severity flaws, particularly the chainable path traversal issue in UniFi OS organizations running UDM, UNVR, or UNAS hardware, should prioritize firmware updates immediately rather than waiting for scheduled maintenance windows.",
+        "score": 2,
+        "created_utc_ts": 1791718806,
+        "created_utc": "2026-10-11T11:40:06",
+        "permalink": "https://reddit.com/r/SecurityCamera/comments/1x3525x/need_advice_on_camera_setup/pf832fz/",
+        "parent_id": "t3_1x3525x",
+        "is_submitter": false
+      },
+      {
+        "id": "pf8vf0b",
+        "author": "anwoke8204",
+        "body": "Yes that’s all you need. The NVR instant is a standalone device and doesn’t end a unifi network to function. It does need some kind of network though to pull ip addresses for the NVR and the cameras. ",
+        "score": 2,
+        "created_utc_ts": 1791728039,
+        "created_utc": "2026-10-11T14:13:59",
+        "permalink": "https://reddit.com/r/SecurityCamera/comments/1x3525x/need_advice_on_camera_setup/pf8vf0b/",
+        "parent_id": "t3_1x3525x",
+        "is_submitter": false
+      },
+      {
+        "id": "pf8vwhv",
+        "author": "Big-Sweet-2179",
+        "body": "Buy G6 instead. G5 are the older line, it is not worth buying IMO. G6 are the best cameras Ubiquiti has atm.\n\nBuy cat6 100% copper and outdoor proof if you are going to be running outdoors. Cat5 or Cat5e for cameras can also work if you are doing short runs.\n\nYour HDD must be surveillance rated, not a standard HDD.\n\nThe brand being a locked ecosystem is something to consider if you want to mix brands. If you will stay in the Ubiquiti ecosystem and are not tech savvy then it is not a big deal. \n\nAs with any security system, maintain firmware always updated, and use best security practices.",
+        "score": 2,
+        "created_utc_ts": 1791728173,
+        "created_utc": "2026-10-11T14:16:13",
+        "permalink": "https://reddit.com/r/SecurityCamera/comments/1x3525x/need_advice_on_camera_setup/pf8vwhv/",
+        "parent_id": "t3_1x3525x",
+        "is_submitter": false
+      },
+      {
+        "id": "pfak8mo",
+        "author": "One-Intention-7606",
+        "body": "I would get the NVR Instant Kit, comes with 4 cameras, NVR instant and 1TB HDD for like 700USD. You can view the NVR from a smartphone or from a PC. Everything is plug and play, just have a Unifi account and the app or PC controller pulled up when plugging in the cameras. One-click to adopt new cameras once plugged in.\n\nIf it’s a surveillance grade HDD then sure but the constant writing and reading will burn through a standard HDD.",
+        "score": 2,
+        "created_utc_ts": 1791743197,
+        "created_utc": "2026-10-11T18:26:37",
+        "permalink": "https://reddit.com/r/SecurityCamera/comments/1x3525x/need_advice_on_camera_setup/pfak8mo/",
+        "parent_id": "t3_1x3525x",
+        "is_submitter": false
+      },
+      {
+        "id": "pfd92ca",
+        "author": "happyandhealthy2023",
+        "body": "But G6 turrets not older G5  \nUNVR instant is great up to 6 cameras, and does not need other UI components to run.\n\nYour 2TB standard drive will work until you can buy a surveillance drive like WD red.  I put 4tb in my UNVR instant with (3) G6 turrets and G6 Entry",
+        "score": 1,
+        "created_utc_ts": 1791770991,
+        "created_utc": "2026-10-12T02:09:51",
+        "permalink": "https://reddit.com/r/SecurityCamera/comments/1x3525x/need_advice_on_camera_setup/pfd92ca/",
+        "parent_id": "t3_1x3525x",
+        "is_submitter": false
+      },
+      {
+        "id": "pfdbzjf",
+        "author": "Pretty-Surround-2909",
+        "body": "Why used/old stuff?  ",
+        "score": 1,
+        "created_utc_ts": 1791771991,
+        "created_utc": "2026-10-12T02:26:31",
+        "permalink": "https://reddit.com/r/SecurityCamera/comments/1x3525x/need_advice_on_camera_setup/pfdbzjf/",
+        "parent_id": "t3_1x3525x",
+        "is_submitter": false
+      }
+    ],
+    "created_utc": "2026-10-11T10:42:38",
+    "first_author_comment": null,
+    "num_comments": 8,
+    "score": 1,
+    "source": "reddit",
+    "subreddit": "SecurityCamera",
+    "tag": null,
+    "tags": [],
+    "title": "Need Advice on Camera Setup",
+    "updatedAt": "2026-10-12T07:25:13.730Z",
+    "upvote_ratio": 1,
+    "url": "https://reddit.com/r/SecurityCamera/comments/1x3525x/need_advice_on_camera_setup/",
+    "versionList": [],
+    "sentiment": {
+      "author": 0.877,
+      "community": 0.405,
+      "authorHasReplies": false,
+      "forCommentCount": 7,
+      "authorTrajectory": [],
+      "communityTrajectory": [
+        {
+          "i": 0,
+          "v": -0.802
+        },
+        {
+          "i": 1,
+          "v": 0.886
+        },
+        {
+          "i": 2,
+          "v": 0.402
+        },
+        {
+          "i": 3,
+          "v": 0.916
+        },
+        {
+          "i": 4,
+          "v": 0.535
+        },
+        {
+          "i": 5,
+          "v": 0.901
+        },
+        {
+          "i": 6,
+          "v": 0
+        }
+      ],
+      "schemaVersion": 2
+    }
+  },
+  {
     "_id": "6ac930fc4f22225d91fc9a6a",
     "redditId": "1x1squu",
     "author": "dx7r__",
@@ -8,13 +226,13 @@
     "created_utc": "2026-10-09T18:17:56",
     "first_author_comment": null,
     "num_comments": 0,
-    "score": 48,
+    "score": 47,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Death By A Thousand PaperCuts (PaperCut Pre-Auth RCE Chain and Patch Bypasses WT-2026-0141-0144/CVE-2026-82077/CVE-2026-82078/CVE-2026-81578) - watchTowr Labs",
-    "updatedAt": "2026-10-11T00:22:49.256Z",
+    "updatedAt": "2026-10-12T08:22:05.932Z",
     "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/netsec/comments/1x1squu/death_by_a_thousand_papercuts_papercut_preauth/",
     "versionList": [
@@ -62,14 +280,14 @@
     "created_utc": "2026-10-09T00:00:56",
     "first_author_comment": "Looks like Ubuntu has patched the pro versions only https://ubuntu.com/security/notices/USN-8683-1\n\nAlpine is likely still vulnerable https://security.alpinelinux.org/srcpkg/libheif as it's not listing CVE-2026-32882\n\nEPEL for Alma and Rocky are still vulnerable.\n\nArch is obviously not vulnerable with extra/libheif 1.23.6-1",
     "num_comments": 3,
-    "score": 9,
+    "score": 11,
     "source": "reddit",
     "subreddit": "debian",
     "tag": "News",
     "tags": [],
     "title": "vulnerable libheif",
-    "updatedAt": "2026-10-11T00:30:45.024Z",
-    "upvote_ratio": 0.73,
+    "updatedAt": "2026-10-12T07:30:54.778Z",
+    "upvote_ratio": 0.78,
     "url": "https://reddit.com/r/debian/comments/1x16s1z/vulnerable_libheif/",
     "versionList": [],
     "isAboutCve": true,
@@ -632,13 +850,13 @@
     "created_utc": "2026-10-08T21:49:51",
     "first_author_comment": null,
     "num_comments": 3,
-    "score": 94,
+    "score": 109,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "How We Found Thousands of Exposed NVIDIA GPUs and a Way to Disrupt Them (CVE-2026-47483)",
-    "updatedAt": "2026-10-11T00:22:51.021Z",
+    "updatedAt": "2026-10-12T08:22:07.913Z",
     "upvote_ratio": 0.96,
     "url": "https://reddit.com/r/netsec/comments/1x13vqz/how_we_found_thousands_of_exposed_nvidia_gpus_and/",
     "versionList": [
@@ -684,7 +902,7 @@
         "id": "pesznrw",
         "author": "[deleted]",
         "body": "[removed]",
-        "score": -4,
+        "score": -3,
         "created_utc_ts": 1791532246,
         "created_utc": "2026-10-09T07:50:46",
         "permalink": "https://reddit.com/r/netsec/comments/1x13vqz/how_we_found_thousands_of_exposed_nvidia_gpus_and/pesznrw/",
@@ -695,7 +913,7 @@
         "id": "peuumcs",
         "author": "StrayStep",
         "body": "Because large corporations and data centers are the priority. Not the average consumer.  if a data center pre-buys all available stock. They basically drive up costs even if they are not used. They then could turn around and resell after the data center directly inflated pricing along with Nvidia's help(Even Nvidia is building data centers hubs).  \n\nI work with Blackwell GPUs. These inflated costs are unsustainable on top of an industry being artificially inflated. That is subsidized by US gov wrecklessness stupidity.  Its going to crash hard when it comes. \n\nDoesnt even matter if data center is built as long as people pushing them get returned investment.  This is f**ked",
-        "score": -2,
+        "score": -3,
         "created_utc_ts": 1791556569,
         "created_utc": "2026-10-09T14:36:09",
         "permalink": "https://reddit.com/r/netsec/comments/1x13vqz/how_we_found_thousands_of_exposed_nvidia_gpus_and/peuumcs/",
@@ -706,7 +924,7 @@
         "id": "peuuwmf",
         "author": "StrayStep",
         "body": "demand is artifically inflated!  While data centers hoard prepurchased GPUs hardware. ",
-        "score": 3,
+        "score": 2,
         "created_utc_ts": 1791556642,
         "created_utc": "2026-10-09T14:37:22",
         "permalink": "https://reddit.com/r/netsec/comments/1x13vqz/how_we_found_thousands_of_exposed_nvidia_gpus_and/peuuwmf/",
@@ -728,7 +946,7 @@
         "id": "peo03qn",
         "author": "TradeGold6317",
         "body": "Reported to Meta, fixed as CVE-2026-23870, no credit and no reply. So here's the writeup :)",
-        "score": 92,
+        "score": 103,
         "created_utc_ts": 1791476510,
         "created_utc": "2026-10-08T16:21:50",
         "permalink": "https://reddit.com/r/netsec/comments/1x0v7sw/a_single_post_freezes_any_nextjs_server/peo03qn/",
@@ -739,7 +957,7 @@
         "id": "peorivx",
         "author": "0xcrypto",
         "body": "Meta sucks. I have a full RCE chain on react native, works remotely on some condtions on many apps and can work on both iOS and android, yet meta just said it is not covered by their bug bounty program after months of wait. I think they have fixed it by now. I still have one of the report open, they never took time to close it I guess. ",
-        "score": 43,
+        "score": 46,
         "created_utc_ts": 1791483164,
         "created_utc": "2026-10-08T18:12:44",
         "permalink": "https://reddit.com/r/netsec/comments/1x0v7sw/a_single_post_freezes_any_nextjs_server/peorivx/",
@@ -761,7 +979,7 @@
         "id": "pepx7bd",
         "author": "elburrotelamete",
         "body": "Por fin un post de calidad",
-        "score": 6,
+        "score": 7,
         "created_utc_ts": 1791493508,
         "created_utc": "2026-10-08T21:05:08",
         "permalink": "https://reddit.com/r/netsec/comments/1x0v7sw/a_single_post_freezes_any_nextjs_server/pepx7bd/",
@@ -772,24 +990,35 @@
         "id": "pf2jarj",
         "author": "Azer_pubes33",
         "body": "No credit and no reply on a CVE is rough, thanks for putting the writeup out anyway",
-        "score": 1,
+        "score": 4,
         "created_utc_ts": 1791648658,
         "created_utc": "2026-10-10T16:10:58",
         "permalink": "https://reddit.com/r/netsec/comments/1x0v7sw/a_single_post_freezes_any_nextjs_server/pf2jarj/",
+        "parent_id": "t3_1x0v7sw",
+        "is_submitter": false
+      },
+      {
+        "id": "pfcpvtn",
+        "author": "DMmeYourMCbuilds",
+        "body": "Fuck meta. Full disclosure. ",
+        "score": 1,
+        "created_utc_ts": 1791764610,
+        "created_utc": "2026-10-12T00:23:30",
+        "permalink": "https://reddit.com/r/netsec/comments/1x0v7sw/a_single_post_freezes_any_nextjs_server/pfcpvtn/",
         "parent_id": "t3_1x0v7sw",
         "is_submitter": false
       }
     ],
     "created_utc": "2026-10-08T16:17:23",
     "first_author_comment": "Reported to Meta, fixed as CVE-2026-23870, no credit and no reply. So here's the writeup :)",
-    "num_comments": 6,
-    "score": 111,
+    "num_comments": 7,
+    "score": 125,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "A Single POST Freezes Any Next.js Server",
-    "updatedAt": "2026-10-11T00:22:52.341Z",
+    "updatedAt": "2026-10-12T08:22:09.389Z",
     "upvote_ratio": 0.99,
     "url": "https://reddit.com/r/netsec/comments/1x0v7sw/a_single_post_freezes_any_nextjs_server/",
     "versionList": [],
@@ -797,9 +1026,9 @@
     "isAboutLatestUpdate": false,
     "sentiment": {
       "author": -0.026,
-      "community": 0.201,
+      "community": 0.052,
       "authorHasReplies": true,
-      "forCommentCount": 5,
+      "forCommentCount": 6,
       "authorTrajectory": [
         {
           "i": 0,
@@ -822,6 +1051,10 @@
         {
           "i": 4,
           "v": 0.273
+        },
+        {
+          "i": 5,
+          "v": -0.542
         }
       ],
       "schemaVersion": 2
@@ -836,14 +1069,14 @@
     "created_utc": "2026-10-07T13:11:06",
     "first_author_comment": null,
     "num_comments": 0,
-    "score": 22,
+    "score": 24,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-102489 Deep-Dive: Zammad Session Leak to RCE",
-    "updatedAt": "2026-10-11T00:22:53.664Z",
-    "upvote_ratio": 0.93,
+    "updatedAt": "2026-10-12T08:22:10.826Z",
+    "upvote_ratio": 0.94,
     "url": "https://reddit.com/r/netsec/comments/1wzw573/cve2026102489_deepdive_zammad_session_leak_to_rce/",
     "versionList": [
       "2026.0.0",
@@ -1234,7 +1467,7 @@
       "Periodic"
     ],
     "title": "Weekly: Show off your new tools and projects thread",
-    "updatedAt": "2026-10-11T00:15:15.647Z",
+    "updatedAt": "2026-10-12T07:56:34.906Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/kubernetes/comments/1wzsl41/weekly_show_off_your_new_tools_and_projects_thread/",
     "versionList": [],
@@ -1661,8 +1894,196 @@
           "New CVE Received",
           "CVE Modified"
         ]
+      },
+      {
+        "cveId": "CVE-2026-50163",
+        "cveIds": [
+          "CVE-2026-50163",
+          "CVE-2026-50163"
+        ],
+        "source": "Comment",
+        "commentText": "Here's a real-world example: we found that our project was vulnerable to **CVE-2026-50163** (https://access.redhat.com/security/cve/cve-2026-50163).",
+        "linkToComment": "https://reddit.com/r/kubernetes/comments/1wzsl41/weekly_show_off_your_new_tools_and_projects_thread/peem1fc/",
+        "commentDate": "2026-10-07T10:58:19+00:00",
+        "cvePublishedDate": "2026-07-17T20:17:23.943000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 81,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-07-20T16:17:04.433 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=194D7688-502B-48D4-87E5-0A4CE2EA3DB5\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n   - Added SSVC: {'timestamp': '2026-07-20T15:00:48.168210Z', 'id': 'CVE-2026-50163', 'options': [{'exploitation': 'poc'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-07-17T20:17:23.943 | New CVE Received | source=security-advisories@github.com | changeId=2F20D64B-CDF3-4710-A717-395529FA4CA4\n   - Added Description: oras-go is a Go library for managing OCI artifacts. Prior to 2.6.2, ensureLinkPath in content/file/utils.go:262-275 validates a hardlink target relative to the extract base but returns the unresolved target, causing os.Link(\"victim.secret\", \"<extract_base>/payload.tar.gz/evil_cwd_link\") to resolve header.Linkname against the process current working directory for a Typeflag=TypeLink entry such as Name=payload.tar.gz/evil_cwd_link and Linkname=\"victim.secret\" with io.deis.oras.content.unpack: \"true\", which can expose or tamper with files such as .env, .git/config, .aws/credentials, and ~/.ssh/config. This issue is fixed in version 2.6.2.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:L/A:N\n   - Added CWE: CWE-22\n   - Added CWE: CWE-59\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/50xxx/CVE-2026-50163.json\">CVE-2026-50163</a>\n   - Added Reference: https://github.com/oras-project/oras-go/commit/c463c654ab3ef34422c1764cd619806cebf20451\n   - Added Reference: https://github.com/oras-project/oras-go/pull/1232\n   - Added Reference: https://github.com/oras-project/oras-go/releases/tag/v2.6.2\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-50163",
+        "cveIds": [
+          "CVE-2026-50163",
+          "CVE-2026-50163"
+        ],
+        "source": "Comment",
+        "commentText": "Here's a real-world example: we found that our project was vulnerable to **CVE-2026-50163** (https://access.redhat.com/security/cve/cve-2026-50163).",
+        "linkToComment": "https://reddit.com/r/kubernetes/comments/1wzsl41/weekly_show_off_your_new_tools_and_projects_thread/peem1fc/",
+        "commentDate": "2026-10-07T10:58:19+00:00",
+        "cvePublishedDate": "2026-07-17T20:17:23.943000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 81,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-07-20T16:17:04.433 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=194D7688-502B-48D4-87E5-0A4CE2EA3DB5\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n   - Added SSVC: {'timestamp': '2026-07-20T15:00:48.168210Z', 'id': 'CVE-2026-50163', 'options': [{'exploitation': 'poc'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-07-17T20:17:23.943 | New CVE Received | source=security-advisories@github.com | changeId=2F20D64B-CDF3-4710-A717-395529FA4CA4\n   - Added Description: oras-go is a Go library for managing OCI artifacts. Prior to 2.6.2, ensureLinkPath in content/file/utils.go:262-275 validates a hardlink target relative to the extract base but returns the unresolved target, causing os.Link(\"victim.secret\", \"<extract_base>/payload.tar.gz/evil_cwd_link\") to resolve header.Linkname against the process current working directory for a Typeflag=TypeLink entry such as Name=payload.tar.gz/evil_cwd_link and Linkname=\"victim.secret\" with io.deis.oras.content.unpack: \"true\", which can expose or tamper with files such as .env, .git/config, .aws/credentials, and ~/.ssh/config. This issue is fixed in version 2.6.2.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:L/A:N\n   - Added CWE: CWE-22\n   - Added CWE: CWE-59\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/50xxx/CVE-2026-50163.json\">CVE-2026-50163</a>\n   - Added Reference: https://github.com/oras-project/oras-go/commit/c463c654ab3ef34422c1764cd619806cebf20451\n   - Added Reference: https://github.com/oras-project/oras-go/pull/1232\n   - Added Reference: https://github.com/oras-project/oras-go/releases/tag/v2.6.2\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-50163",
+        "cveIds": [
+          "CVE-2026-50163",
+          "CVE-2026-50163"
+        ],
+        "source": "Comment",
+        "commentText": "Here's a real-world example: we found that our project was vulnerable to **CVE-2026-50163** (https://access.redhat.com/security/cve/cve-2026-50163).",
+        "linkToComment": "https://reddit.com/r/kubernetes/comments/1wzsl41/weekly_show_off_your_new_tools_and_projects_thread/peem1fc/",
+        "commentDate": "2026-10-07T10:58:19+00:00",
+        "cvePublishedDate": "2026-07-17T20:17:23.943000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 81,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-07-20T16:17:04.433 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=194D7688-502B-48D4-87E5-0A4CE2EA3DB5\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n   - Added SSVC: {'timestamp': '2026-07-20T15:00:48.168210Z', 'id': 'CVE-2026-50163', 'options': [{'exploitation': 'poc'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-07-17T20:17:23.943 | New CVE Received | source=security-advisories@github.com | changeId=2F20D64B-CDF3-4710-A717-395529FA4CA4\n   - Added Description: oras-go is a Go library for managing OCI artifacts. Prior to 2.6.2, ensureLinkPath in content/file/utils.go:262-275 validates a hardlink target relative to the extract base but returns the unresolved target, causing os.Link(\"victim.secret\", \"<extract_base>/payload.tar.gz/evil_cwd_link\") to resolve header.Linkname against the process current working directory for a Typeflag=TypeLink entry such as Name=payload.tar.gz/evil_cwd_link and Linkname=\"victim.secret\" with io.deis.oras.content.unpack: \"true\", which can expose or tamper with files such as .env, .git/config, .aws/credentials, and ~/.ssh/config. This issue is fixed in version 2.6.2.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:L/A:N\n   - Added CWE: CWE-22\n   - Added CWE: CWE-59\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/50xxx/CVE-2026-50163.json\">CVE-2026-50163</a>\n   - Added Reference: https://github.com/oras-project/oras-go/commit/c463c654ab3ef34422c1764cd619806cebf20451\n   - Added Reference: https://github.com/oras-project/oras-go/pull/1232\n   - Added Reference: https://github.com/oras-project/oras-go/releases/tag/v2.6.2\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-50163",
+        "cveIds": [
+          "CVE-2026-50163",
+          "CVE-2026-50163"
+        ],
+        "source": "Comment",
+        "commentText": "Here's a real-world example: we found that our project was vulnerable to **CVE-2026-50163** (https://access.redhat.com/security/cve/cve-2026-50163).",
+        "linkToComment": "https://reddit.com/r/kubernetes/comments/1wzsl41/weekly_show_off_your_new_tools_and_projects_thread/peem1fc/",
+        "commentDate": "2026-10-07T10:58:19+00:00",
+        "cvePublishedDate": "2026-07-17T20:17:23.943000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 81,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-07-20T16:17:04.433 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=194D7688-502B-48D4-87E5-0A4CE2EA3DB5\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n   - Added SSVC: {'timestamp': '2026-07-20T15:00:48.168210Z', 'id': 'CVE-2026-50163', 'options': [{'exploitation': 'poc'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-07-17T20:17:23.943 | New CVE Received | source=security-advisories@github.com | changeId=2F20D64B-CDF3-4710-A717-395529FA4CA4\n   - Added Description: oras-go is a Go library for managing OCI artifacts. Prior to 2.6.2, ensureLinkPath in content/file/utils.go:262-275 validates a hardlink target relative to the extract base but returns the unresolved target, causing os.Link(\"victim.secret\", \"<extract_base>/payload.tar.gz/evil_cwd_link\") to resolve header.Linkname against the process current working directory for a Typeflag=TypeLink entry such as Name=payload.tar.gz/evil_cwd_link and Linkname=\"victim.secret\" with io.deis.oras.content.unpack: \"true\", which can expose or tamper with files such as .env, .git/config, .aws/credentials, and ~/.ssh/config. This issue is fixed in version 2.6.2.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:L/A:N\n   - Added CWE: CWE-22\n   - Added CWE: CWE-59\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/50xxx/CVE-2026-50163.json\">CVE-2026-50163</a>\n   - Added Reference: https://github.com/oras-project/oras-go/commit/c463c654ab3ef34422c1764cd619806cebf20451\n   - Added Reference: https://github.com/oras-project/oras-go/pull/1232\n   - Added Reference: https://github.com/oras-project/oras-go/releases/tag/v2.6.2\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-50163",
+        "cveIds": [
+          "CVE-2026-50163",
+          "CVE-2026-50163"
+        ],
+        "source": "Comment",
+        "commentText": "Here's a real-world example: we found that our project was vulnerable to **CVE-2026-50163** (https://access.redhat.com/security/cve/cve-2026-50163).",
+        "linkToComment": "https://reddit.com/r/kubernetes/comments/1wzsl41/weekly_show_off_your_new_tools_and_projects_thread/peem1fc/",
+        "commentDate": "2026-10-07T10:58:19+00:00",
+        "cvePublishedDate": "2026-07-17T20:17:23.943000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 81,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-07-20T16:17:04.433 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=194D7688-502B-48D4-87E5-0A4CE2EA3DB5\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n   - Added SSVC: {'timestamp': '2026-07-20T15:00:48.168210Z', 'id': 'CVE-2026-50163', 'options': [{'exploitation': 'poc'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-07-17T20:17:23.943 | New CVE Received | source=security-advisories@github.com | changeId=2F20D64B-CDF3-4710-A717-395529FA4CA4\n   - Added Description: oras-go is a Go library for managing OCI artifacts. Prior to 2.6.2, ensureLinkPath in content/file/utils.go:262-275 validates a hardlink target relative to the extract base but returns the unresolved target, causing os.Link(\"victim.secret\", \"<extract_base>/payload.tar.gz/evil_cwd_link\") to resolve header.Linkname against the process current working directory for a Typeflag=TypeLink entry such as Name=payload.tar.gz/evil_cwd_link and Linkname=\"victim.secret\" with io.deis.oras.content.unpack: \"true\", which can expose or tamper with files such as .env, .git/config, .aws/credentials, and ~/.ssh/config. This issue is fixed in version 2.6.2.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:L/A:N\n   - Added CWE: CWE-22\n   - Added CWE: CWE-59\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/50xxx/CVE-2026-50163.json\">CVE-2026-50163</a>\n   - Added Reference: https://github.com/oras-project/oras-go/commit/c463c654ab3ef34422c1764cd619806cebf20451\n   - Added Reference: https://github.com/oras-project/oras-go/pull/1232\n   - Added Reference: https://github.com/oras-project/oras-go/releases/tag/v2.6.2\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
+      },
+      {
+        "cveId": "CVE-2026-50163",
+        "cveIds": [
+          "CVE-2026-50163",
+          "CVE-2026-50163"
+        ],
+        "source": "Comment",
+        "commentText": "Here's a real-world example: we found that our project was vulnerable to **CVE-2026-50163** (https://access.redhat.com/security/cve/cve-2026-50163).",
+        "linkToComment": "https://reddit.com/r/kubernetes/comments/1wzsl41/weekly_show_off_your_new_tools_and_projects_thread/peem1fc/",
+        "commentDate": "2026-10-07T10:58:19+00:00",
+        "cvePublishedDate": "2026-07-17T20:17:23.943000+00:00",
+        "initialAnalysisDate": null,
+        "daysAfterPublication": 81,
+        "isPreAnalysis": true,
+        "isAnalyzed": false,
+        "cveChangeHistory": "1. 2026-07-20T16:17:04.433 | CVE Modified | source=134c704f-9b21-4f2e-91b3-4a467353bcc0 | changeId=194D7688-502B-48D4-87E5-0A4CE2EA3DB5\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n   - Added SSVC: {'timestamp': '2026-07-20T15:00:48.168210Z', 'id': 'CVE-2026-50163', 'options': [{'exploitation': 'poc'}, {'automatable': 'no'}, {'technicalImpact': 'partial'}], 'role': 'CISA Coordinator', 'version': '2.0.3'}\n2. 2026-07-17T20:17:23.943 | New CVE Received | source=security-advisories@github.com | changeId=2F20D64B-CDF3-4710-A717-395529FA4CA4\n   - Added Description: oras-go is a Go library for managing OCI artifacts. Prior to 2.6.2, ensureLinkPath in content/file/utils.go:262-275 validates a hardlink target relative to the extract base but returns the unresolved target, causing os.Link(\"victim.secret\", \"<extract_base>/payload.tar.gz/evil_cwd_link\") to resolve header.Linkname against the process current working directory for a Typeflag=TypeLink entry such as Name=payload.tar.gz/evil_cwd_link and Linkname=\"victim.secret\" with io.deis.oras.content.unpack: \"true\", which can expose or tamper with files such as .env, .git/config, .aws/credentials, and ~/.ssh/config. This issue is fixed in version 2.6.2.\n   - Added CVSS V3.1: AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:L/A:N\n   - Added CWE: CWE-22\n   - Added CWE: CWE-59\n   - Added Affected: New affected value received.  <a href=\"https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/50xxx/CVE-2026-50163.json\">CVE-2026-50163</a>\n   - Added Reference: https://github.com/oras-project/oras-go/commit/c463c654ab3ef34422c1764cd619806cebf20451\n   - Added Reference: https://github.com/oras-project/oras-go/pull/1232\n   - Added Reference: https://github.com/oras-project/oras-go/releases/tag/v2.6.2\n   - Added Reference: https://github.com/oras-project/oras-go/security/advisories/GHSA-fxhp-mv3v-67qp\n",
+        "eventNamesBeforeAnalysis": [
+          "New CVE Received",
+          "CVE Modified"
+        ]
       }
     ],
+    "sentiment": {
+      "author": 0.36,
+      "community": 0.391,
+      "authorHasReplies": false,
+      "forCommentCount": 13,
+      "authorTrajectory": [],
+      "communityTrajectory": [
+        {
+          "i": 0,
+          "v": -0.068
+        },
+        {
+          "i": 1,
+          "v": 0.976
+        },
+        {
+          "i": 2,
+          "v": 0.81
+        },
+        {
+          "i": 3,
+          "v": 0
+        },
+        {
+          "i": 4,
+          "v": 0.796
+        },
+        {
+          "i": 5,
+          "v": 0
+        },
+        {
+          "i": 6,
+          "v": 0.915
+        },
+        {
+          "i": 7,
+          "v": 0.497
+        },
+        {
+          "i": 8,
+          "v": 0
+        },
+        {
+          "i": 9,
+          "v": 0.898
+        },
+        {
+          "i": 10,
+          "v": -0.077
+        },
+        {
+          "i": 11,
+          "v": -0.25
+        },
+        {
+          "i": 12,
+          "v": 0.587
+        }
+      ],
+      "schemaVersion": 2
+    },
     "comments": [
       {
         "id": "peem1fc",
@@ -1807,69 +2228,7 @@
         "parent_id": "t3_1wzsl41",
         "is_submitter": false
       }
-    ],
-    "sentiment": {
-      "author": 0.36,
-      "community": 0.391,
-      "authorHasReplies": false,
-      "forCommentCount": 13,
-      "authorTrajectory": [],
-      "communityTrajectory": [
-        {
-          "i": 0,
-          "v": -0.068
-        },
-        {
-          "i": 1,
-          "v": 0.976
-        },
-        {
-          "i": 2,
-          "v": 0.81
-        },
-        {
-          "i": 3,
-          "v": 0
-        },
-        {
-          "i": 4,
-          "v": 0.796
-        },
-        {
-          "i": 5,
-          "v": 0
-        },
-        {
-          "i": 6,
-          "v": 0.915
-        },
-        {
-          "i": 7,
-          "v": 0.497
-        },
-        {
-          "i": 8,
-          "v": 0
-        },
-        {
-          "i": 9,
-          "v": 0.898
-        },
-        {
-          "i": 10,
-          "v": -0.077
-        },
-        {
-          "i": 11,
-          "v": -0.25
-        },
-        {
-          "i": 12,
-          "v": 0.587
-        }
-      ],
-      "schemaVersion": 2
-    }
+    ]
   },
   {
     "_id": "6ac546cfed94ec00e07be9ed",
@@ -1924,13 +2283,13 @@
     "created_utc": "2026-10-06T17:06:35",
     "first_author_comment": null,
     "num_comments": 7,
-    "score": 66,
+    "score": 65,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "You Won’t Hear About These, Even In Myths (Atlassian Jira, Confluence (and more) Pre-Auth Arbitrary File Read CVE-2026-21589) - watchTowr Labs",
-    "updatedAt": "2026-10-11T00:22:54.483Z",
+    "updatedAt": "2026-10-12T08:22:11.741Z",
     "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/netsec/comments/1wz82op/you_wont_hear_about_these_even_in_myths_atlassian/",
     "versionList": [
@@ -1992,7 +2351,7 @@
         "id": "peaghlm",
         "author": "Emergency_Stable_923",
         "body": "Good job! then where we can hear these type of bugs? Of course we’re not looking mythos for something that serious!",
-        "score": -3,
+        "score": -4,
         "created_utc_ts": 1791317022,
         "created_utc": "2026-10-06T20:03:42",
         "permalink": "https://reddit.com/r/netsec/comments/1wz82op/you_wont_hear_about_these_even_in_myths_atlassian/peaghlm/",
@@ -2003,7 +2362,7 @@
         "id": "pegytot",
         "author": "Azer_pubes33",
         "body": "Pre-auth file read in Jira and Confluence is nasty, has anyone seen a patch rollout yet?",
-        "score": 5,
+        "score": 6,
         "created_utc_ts": 1791394095,
         "created_utc": "2026-10-07T17:28:15",
         "permalink": "https://reddit.com/r/netsec/comments/1wz82op/you_wont_hear_about_these_even_in_myths_atlassian/pegytot/",
@@ -2047,7 +2406,7 @@
         "id": "pek9eon",
         "author": "SuicidalTree",
         "body": "Self-promotion spam account for watchtowr[.]com. Report as spam.",
-        "score": -6,
+        "score": -5,
         "created_utc_ts": 1791427751,
         "created_utc": "2026-10-08T02:49:11",
         "permalink": "https://reddit.com/r/netsec/comments/1wz82op/you_wont_hear_about_these_even_in_myths_atlassian/pek9eon/",
@@ -2084,7 +2443,7 @@
     "tag": null,
     "tags": [],
     "title": "Failed attempt at rescuing Amazon Cloudcams with Claude's assist",
-    "updatedAt": "2026-10-11T00:24:01.191Z",
+    "updatedAt": "2026-10-12T06:23:39.642Z",
     "upvote_ratio": 0.93,
     "url": "https://reddit.com/r/hardwarehacking/comments/1wz3z14/failed_attempt_at_rescuing_amazon_cloudcams_with/",
     "versionList": [],
@@ -2162,7 +2521,7 @@
         "id": "pebyg73",
         "author": "glassmanjones",
         "body": "Do you have the GPL u-boot source? Sometimes manufacturers put in a hard-coded password directly into the source code.\n\n",
-        "score": 4,
+        "score": 6,
         "created_utc_ts": 1791332259,
         "created_utc": "2026-10-07T00:17:39",
         "permalink": "https://reddit.com/r/hardwarehacking/comments/1wz3z14/failed_attempt_at_rescuing_amazon_cloudcams_with/pebyg73/",
@@ -2221,7 +2580,7 @@
     "tag": null,
     "tags": [],
     "title": "Question: FUOTA on ESP32 + SX1276: TS004 fragmentation and MCUboot work over point-to-point LoRa, but I haven't tested a real LoRaWAN server yet. Experiences?",
-    "updatedAt": "2026-10-11T00:09:45.910Z",
+    "updatedAt": "2026-10-12T08:09:24.909Z",
     "upvote_ratio": 1,
     "url": "https://reddit.com/r/LoRaWAN/comments/1wy8glt/question_fuota_on_esp32_sx1276_ts004/",
     "versionList": [],
@@ -3966,13 +4325,13 @@
     "created_utc": "2026-10-02T16:50:08",
     "first_author_comment": "Fair challenge. The main evidence is Binarly's LogoFail research, where the logo was replaceable from the unsigned ESP on hundreds of devices, and in U-Boot the splashsource mechanism loads the image from mmc\\_fs/usb\\_fs/sf before bootm verifies the next stage. Devices that embed the logo in the signed image avoid this, and it sounds like yours do; \"commonly\" refers to default configs and reference BSPs rather than hardened products.",
     "num_comments": 12,
-    "score": 48,
+    "score": 47,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Bypassing Secure Boot via Unbounded RLE8 Splash Images in U-Boot (CVE-2026-71972)",
-    "updatedAt": "2026-10-11T00:23:01.508Z",
+    "updatedAt": "2026-10-12T08:22:19.516Z",
     "upvote_ratio": 0.97,
     "url": "https://reddit.com/r/netsec/comments/1wvyt5b/bypassing_secure_boot_via_unbounded_rle8_splash/",
     "versionList": [
@@ -4007,7 +4366,7 @@
         "id": "pdjojh4",
         "author": "Toiling-Donkey",
         "body": "UEFI had LogoFail…\n\nNice to see uboot is maintaining vulnerability parity …",
-        "score": 8,
+        "score": 5,
         "created_utc_ts": 1790999268,
         "created_utc": "2026-10-03T03:47:48",
         "permalink": "https://reddit.com/r/netsec/comments/1wvyt5b/bypassing_secure_boot_via_unbounded_rle8_splash/pdjojh4/",
@@ -4096,7 +4455,7 @@
     "tag": null,
     "tags": [],
     "title": "8 out of 10 Banks HATE This One Weird 3SKey RCE",
-    "updatedAt": "2026-10-11T00:23:02.429Z",
+    "updatedAt": "2026-10-12T08:22:20.344Z",
     "upvote_ratio": 0.47,
     "url": "https://reddit.com/r/netsec/comments/1wvxp1p/8_out_of_10_banks_hate_this_one_weird_3skey_rce/",
     "versionList": [
@@ -5550,14 +5909,14 @@
     "created_utc": "2026-09-29T13:57:34",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 29,
+    "score": 28,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Here We Go Again (Citrix NetScaler DTLS Preauth Memory Overflow CVE-2026-88772) - watchTowr Labs",
-    "updatedAt": "2026-10-11T00:23:17.498Z",
-    "upvote_ratio": 0.9,
+    "updatedAt": "2026-10-12T08:22:35.851Z",
+    "upvote_ratio": 0.91,
     "url": "https://reddit.com/r/netsec/comments/1wtattu/here_we_go_again_citrix_netscaler_dtls_preauth/",
     "versionList": [
       "2026.0.0",
@@ -5649,14 +6008,14 @@
     "created_utc": "2026-09-28T10:58:09",
     "first_author_comment": null,
     "num_comments": 25,
-    "score": 79,
+    "score": 76,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Oh Look, The Foot Gun Went Off Again (Citrix NetScaler PreAuth Command Injection CVE-2026-88771) - watchTowr Labs",
-    "updatedAt": "2026-10-11T00:23:21.861Z",
-    "upvote_ratio": 0.93,
+    "updatedAt": "2026-10-12T08:22:40.599Z",
+    "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/netsec/comments/1wsbh8j/oh_look_the_foot_gun_went_off_again_citrix/",
     "versionList": [
       "2026.0.0",
@@ -5679,7 +6038,7 @@
         "id": "pclvxgn",
         "author": "AmITheAsshole_2020",
         "body": "That was one of the least professional company posts I've read in a long time. Is this normal for watchTowr? If I were a prospective customer, I would, frankly, keep looking.",
-        "score": 25,
+        "score": 26,
         "created_utc_ts": 1790613406,
         "created_utc": "2026-09-28T16:36:46",
         "permalink": "https://reddit.com/r/netsec/comments/1wsbh8j/oh_look_the_foot_gun_went_off_again_citrix/pclvxgn/",
@@ -5712,7 +6071,7 @@
         "id": "pcoiimr",
         "author": "eck-",
         "body": "Found the Citrix employee.",
-        "score": 1,
+        "score": 2,
         "created_utc_ts": 1790637142,
         "created_utc": "2026-09-28T23:12:22",
         "permalink": "https://reddit.com/r/netsec/comments/1wsbh8j/oh_look_the_foot_gun_went_off_again_citrix/pcoiimr/",
@@ -5723,7 +6082,7 @@
         "id": "pcp9rt6",
         "author": "DingleDangleTangle",
         "body": "I literally can’t finish reading it the secondhand cringe was too difficult. Jesus Christ that is embarrassing writing to represent your company. It’s like a high schooler found a CVE and wrote a blog post about how they totally owned some noobs",
-        "score": 13,
+        "score": 15,
         "created_utc_ts": 1790645543,
         "created_utc": "2026-09-29T01:32:23",
         "permalink": "https://reddit.com/r/netsec/comments/1wsbh8j/oh_look_the_foot_gun_went_off_again_citrix/pcp9rt6/",
@@ -5734,7 +6093,7 @@
         "id": "pcpgldm",
         "author": "peva3",
         "body": "Yeah seriously that writeup sucked.",
-        "score": 5,
+        "score": 3,
         "created_utc_ts": 1790647680,
         "created_utc": "2026-09-29T02:08:00",
         "permalink": "https://reddit.com/r/netsec/comments/1wsbh8j/oh_look_the_foot_gun_went_off_again_citrix/pcpgldm/",
@@ -5800,7 +6159,7 @@
         "id": "pcytyve",
         "author": "RoganDawes",
         "body": "Vendors who sell security products have a higher duty of care than others. When your product is positioned to be exposed to the unfiltered Internet (i.e. VPN gateways \\*are\\* the filter!), then you have to do better.\n\nAt a very basic level, security architecture involves minimizing unauthenticated attack surfaces in particular, but also attack surfaces in general. Take an example of OpenSSH, which is probably THE most exposed service out there. How many RCE vulns have they had in their entire existence (25+ years), compared to other \"security\" products (Fortinet, Palo Alto, Ivanti, and yes, Citrix)?\n\nWant to tell me OpenSSH coders are just better? I don't think so. They started with a secure architecture, including things like privilege separation (added in 2002), along with setting coding practices avoiding known bad constructs in the (horror!) memory-unsafe C language.\n\nAll of which to say, I can't fault the snark that comes from WatchTowr. Looking at a vuln in 2025 that had been patched in a different parameter of the same script in 2018 (Fortinet, IIRC) is just faceslapping. You do what you have to to remain sane and motivated.",
-        "score": 4,
+        "score": 5,
         "created_utc_ts": 1790759757,
         "created_utc": "2026-09-30T09:15:57",
         "permalink": "https://reddit.com/r/netsec/comments/1wsbh8j/oh_look_the_foot_gun_went_off_again_citrix/pcytyve/",
@@ -5832,14 +6191,14 @@
     "created_utc": "2026-09-28T10:03:49",
     "first_author_comment": null,
     "num_comments": 3,
-    "score": 12,
+    "score": 9,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2026-32740: RCE in a PIE Next.js sharp/libheif Stack",
-    "updatedAt": "2026-10-11T00:23:22.777Z",
-    "upvote_ratio": 0.82,
+    "updatedAt": "2026-10-12T08:22:41.545Z",
+    "upvote_ratio": 0.73,
     "url": "https://reddit.com/r/netsec/comments/1wsajyx/cve202632740_rce_in_a_pie_nextjs_sharplibheif/",
     "versionList": [
       "2026.0.0",
@@ -11514,14 +11873,14 @@
     "created_utc": "2026-09-25T14:54:02",
     "first_author_comment": null,
     "num_comments": 0,
-    "score": 22,
+    "score": 25,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "CVE-2025-13032: Entering and Breaking the Avast Antivirus Sandbox Part 2",
-    "updatedAt": "2026-10-11T00:23:28.503Z",
-    "upvote_ratio": 0.87,
+    "updatedAt": "2026-10-12T08:22:47.267Z",
+    "upvote_ratio": 0.92,
     "url": "https://reddit.com/r/netsec/comments/1wpyg75/cve202513032_entering_and_breaking_the_avast/",
     "versionList": [
       "2025.0.0",
@@ -11805,14 +12164,14 @@
     "created_utc": "2026-09-25T02:13:27",
     "first_author_comment": null,
     "num_comments": 1,
-    "score": 3,
+    "score": 4,
     "source": "reddit",
     "subreddit": "netsec",
     "tag": null,
     "tags": [],
     "title": "Argus Monitor Local Denial-of-Service Vulnerability (CVE-2026-79417)",
-    "updatedAt": "2026-10-11T00:23:29.242Z",
-    "upvote_ratio": 0.72,
+    "updatedAt": "2026-10-12T06:22:53.390Z",
+    "upvote_ratio": 1,
     "url": "https://reddit.com/r/netsec/comments/1wpkc7q/argus_monitor_local_denialofservice_vulnerability/",
     "versionList": [
       "2026.0.0",
@@ -16523,14 +16882,14 @@
     "created_utc": "2026-09-18T06:01:27",
     "first_author_comment": "I couldn't find any setting explicitly named \"DNSSEC validation\" so I just checked that in \"Services\" -&gt; \"DNS Resolver\" -&gt; \"General Settings\" -&gt; scroll down to \"DNSSEC\" -&gt; \"Enable DNSSEC Support\" is unchecked. This should be enough for the time being, shouldn't it?  \nI assume the \"Harden DNSSEC Data\" in the \"Advanced Settings\" then can be ignored if DNSSEC is disabled.",
     "num_comments": 31,
-    "score": 45,
+    "score": 47,
     "source": "reddit",
     "subreddit": "PFSENSE",
     "tag": null,
     "tags": [],
     "title": "Unbound CVE-2026-81642",
-    "updatedAt": "2026-10-10T23:17:36.017Z",
-    "upvote_ratio": 0.96,
+    "updatedAt": "2026-10-12T08:18:00.333Z",
+    "upvote_ratio": 0.98,
     "url": "https://reddit.com/r/PFSENSE/comments/1wjhz3e/unbound_cve202681642/",
     "versionList": [
       "2026.0.0",
@@ -16543,7 +16902,7 @@
         "id": "paiuef8",
         "author": "syncerx",
         "body": "Make sure that the DNSSEC validation is disabled.",
-        "score": 6,
+        "score": 7,
         "created_utc_ts": 1789713052,
         "created_utc": "2026-09-18T06:30:52",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1wjhz3e/unbound_cve202681642/paiuef8/",
@@ -16554,7 +16913,7 @@
         "id": "paiurw4",
         "author": "NewRedditor23",
         "body": "Should we temporarily disable dnssec?",
-        "score": 5,
+        "score": 4,
         "created_utc_ts": 1789713269,
         "created_utc": "2026-09-18T06:34:29",
         "permalink": "https://reddit.com/r/PFSENSE/comments/1wjhz3e/unbound_cve202681642/paiurw4/",
@@ -24803,273 +25162,5 @@
     "sentiment_score": 0,
     "sourceBot": "reddit.py",
     "sourceUrl": "https://reddit.com/r/netsec/comments/1w0lg9k/one_resident_login_an_entire_apartment_complex/"
-  },
-  {
-    "_id": "6aa307c6648fea687152a7d9",
-    "redditId": "1w0dkzz",
-    "author": "muttick",
-    "author_description": "So I'm a little confused with CVE-2026-65643.  Why was cPanel 11.110 patched against this when it went end of life in July 2024.  But cPanel 11.126, which reached end of life in July 2026, did not get this update.\n\nIs cPanel 11.126 not affected by this?\n\nI get the cPanel 11.126 isn't receiving updates because it is end-of-life.  But why is cPanel patching cPanel 11.110 which reached end of life a lot longer ago than cPanel 11.126.\n\nAnd presumably cPanel 11.118 which was also an LTS release.",
-    "awards": [],
-    "comments": [
-      {
-        "id": "p6cgjv0",
-        "author": "joelby37",
-        "body": "I'm guessing it is because 11.110 is the latest version supported on CentOS 7.9, so it's LTS.\n\nThe product page lists 110 and 134 as the LTS versions: [https://docs.cpanel.net/knowledge-base/cpanel-product/product-versions-and-the-release-process/](https://docs.cpanel.net/knowledge-base/cpanel-product/product-versions-and-the-release-process/)",
-        "score": 1,
-        "created_utc_ts": 1787886220,
-        "created_utc": "2026-08-28T03:03:40",
-        "permalink": "https://reddit.com/r/cpanel/comments/1w0dkzz/cve202665643_affected_versions/p6cgjv0/",
-        "parent_id": "t3_1w0dkzz",
-        "is_submitter": false,
-        "sentiment_score": 0.86,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 0.732,
-          "pos": 0.268,
-          "compound": 0.8598
-        }
-      },
-      {
-        "id": "p6crpy6",
-        "author": "muttick",
-        "body": "I guess.\n\nJust hard to take anything cPanel says at face value, since CentOS 7 went end-of-life a long time ago.  So they are OK supporting an end-of-life version of cPanel on an end-of-life operating system.  But an end-of-life version of cPanel that ended last month is too tall of a task.\n\nSo when they announce that cPanel 11.134 is end-of-life, does that mean that it's really end-of-life or just kind of end-of-life?",
-        "score": 0,
-        "created_utc_ts": 1787890652,
-        "created_utc": "2026-08-28T04:17:32",
-        "permalink": "https://reddit.com/r/cpanel/comments/1w0dkzz/cve202665643_affected_versions/p6crpy6/",
-        "parent_id": "t1_p6cgjv0",
-        "is_submitter": true,
-        "sentiment_score": 0.55,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0.017,
-          "neu": 0.903,
-          "pos": 0.08,
-          "compound": 0.5497
-        }
-      },
-      {
-        "id": "p6f8n1l",
-        "author": "LowIncident694",
-        "body": "They are still doing 11.110 because I think there's an LTS version of like CloudLinux 7 that is still getting updates for paying people.",
-        "score": 1,
-        "created_utc_ts": 1787926895,
-        "created_utc": "2026-08-28T14:21:35",
-        "permalink": "https://reddit.com/r/cpanel/comments/1w0dkzz/cve202665643_affected_versions/p6f8n1l/",
-        "parent_id": "t3_1w0dkzz",
-        "is_submitter": false,
-        "sentiment_score": 0.703,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 0.774,
-          "pos": 0.226,
-          "compound": 0.7034
-        }
-      },
-      {
-        "id": "p6fx3zc",
-        "author": "cPanelRex",
-        "body": "Version 110 is part of the ELS plan:\n\n[https://www.cpanel.net/blog/announcements/extended-lifecycle-support-oses-update/](https://www.cpanel.net/blog/announcements/extended-lifecycle-support-oses-update/)\n\nFor people that are \\*not\\* migrating yet, they pay extra to receive those updates, but it's really best to get moved to a modern operating system.",
-        "score": 1,
-        "created_utc_ts": 1787933374,
-        "created_utc": "2026-08-28T16:09:34",
-        "permalink": "https://reddit.com/r/cpanel/comments/1w0dkzz/cve202665643_affected_versions/p6fx3zc/",
-        "parent_id": "t3_1w0dkzz",
-        "is_submitter": false,
-        "sentiment_score": 0.793,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0.03,
-          "neu": 0.811,
-          "pos": 0.158,
-          "compound": 0.7929
-        }
-      },
-      {
-        "id": "p6g251m",
-        "author": "muttick",
-        "body": "I guess my confusion is exacerbated by the fact that cPanel released updates for end-of-life versions earlier this summer for security threats.  Just wondering where the line is.\n\nI guess it's safe to assume that the only sub 11.134 version that will be seeing updates from here on out will be 11.110.  Just as long as that stays consistent.",
-        "score": 1,
-        "created_utc_ts": 1787934679,
-        "created_utc": "2026-08-28T16:31:19",
-        "permalink": "https://reddit.com/r/cpanel/comments/1w0dkzz/cve202665643_affected_versions/p6g251m/",
-        "parent_id": "t3_1w0dkzz",
-        "is_submitter": true,
-        "sentiment_score": 0.077,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0.079,
-          "neu": 0.837,
-          "pos": 0.084,
-          "compound": 0.0772
-        }
-      },
-      {
-        "id": "p6ib1ek",
-        "author": "cPanelRex",
-        "body": "This is my current understanding.  Just assume that 110 is eternal until told otherwise.",
-        "score": 1,
-        "created_utc_ts": 1787956873,
-        "created_utc": "2026-08-28T22:41:13",
-        "permalink": "https://reddit.com/r/cpanel/comments/1w0dkzz/cve202665643_affected_versions/p6ib1ek/",
-        "parent_id": "t1_p6g251m",
-        "is_submitter": false,
-        "sentiment_score": 0,
-        "sentiment_bucket": "Neutral",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 1,
-          "pos": 0,
-          "compound": 0
-        }
-      },
-      {
-        "id": "p6yuzqs",
-        "author": "acacia318",
-        "body": "It could be for an operational reason instead of an administrative reason.  To wit, whatever the fix was, it happened to apply to 11.110 without any modification.  It stands to reason, if something that you weren't suppose fix got fixed because of serendipity, announce it and declare it a win.",
-        "score": 1,
-        "created_utc_ts": 1788178996,
-        "created_utc": "2026-08-31T12:23:16",
-        "permalink": "https://reddit.com/r/cpanel/comments/1w0dkzz/cve202665643_affected_versions/p6yuzqs/",
-        "parent_id": "t3_1w0dkzz",
-        "is_submitter": false,
-        "sentiment_score": 0.586,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 0.927,
-          "pos": 0.073,
-          "compound": 0.5859
-        }
-      },
-      {
-        "id": "p76oh45",
-        "author": "NotGonnaUseRedditApp",
-        "body": "These systems are part of \"extended security servicing\" program which includes (at least) \"EnterpriseLinux\" version 7, such as CentOS 7, AlmaLinux 7. This is a subscription based program that is enrolled in automatically for eligible systems. The last supported version of cPanel on this systems is also part of the security servicing. The servicing is provided by both cPanel and TuxCare, even though these systems are EOLed by their official vendors.\n\nSo 11.110 is the last supported for this systems and is basically feature freeze release, with security maintenance only:  \n[https://docs.cpanel.net/changelogs/110-change-log/](https://docs.cpanel.net/changelogs/110-change-log/)",
-        "score": 1,
-        "created_utc_ts": 1788272954,
-        "created_utc": "2026-09-01T14:29:14",
-        "permalink": "https://reddit.com/r/cpanel/comments/1w0dkzz/cve202665643_affected_versions/p76oh45/",
-        "parent_id": "t1_p6g251m",
-        "is_submitter": false,
-        "sentiment_score": 0.875,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0,
-          "neu": 0.866,
-          "pos": 0.134,
-          "compound": 0.875
-        }
-      }
-    ],
-    "created_utc": "2026-08-28T02:03:59",
-    "first_author_comment": "I guess my confusion is exacerbated by the fact that cPanel released updates for end-of-life versions earlier this summer for security threats.  Just wondering where the line is.\n\nI guess it's safe to assume that the only sub 11.134 version that will be seeing updates from here on out will be 11.110.  Just as long as that stays consistent.",
-    "num_comments": 11,
-    "score": 7,
-    "subreddit": "cpanel",
-    "tag": null,
-    "tags": [],
-    "title": "CVE-2026-65643 affected versions",
-    "updatedAt": "2026-10-02T20:10:27.631Z",
-    "upvote_ratio": 0.82,
-    "url": "https://reddit.com/r/cpanel/comments/1w0dkzz/cve202665643_affected_versions/",
-    "versionList": [
-      "2026.0.0",
-      "65643.0.0"
-    ],
-    "isAboutCve": true,
-    "isAboutLatestUpdate": true,
-    "sourceBot": "reddit.py",
-    "sourceUrl": "https://reddit.com/r/cpanel/comments/1w0dkzz/cve202665643_affected_versions/",
-    "source": "reddit",
-    "author_description_sentiment": {
-      "score": 0.774,
-      "detail": {
-        "neg": 0.018,
-        "neu": 0.878,
-        "pos": 0.104,
-        "compound": 0.7737
-      }
-    },
-    "category": "Positive",
-    "comments_avg_sentiment_score": 0.555,
-    "sentiment_score": 0.665
-  },
-  {
-    "_id": "6a8ff46956679d0d292406e4",
-    "redditId": "1vzmdo0",
-    "author": "dotrungquan_info",
-    "author_description": "# CVE-2026-73570: Zimbra SNMP RCE abused to deploy coin-miner malware\n\nCVE-2026-73570 is a Remote Code Execution issue in Zimbra Collaboration Suite (ZCS), related to SNMP notification/logwatch handling.\n\nIn short, an unauthenticated attacker can send a crafted SMTP request and get OS command execution as the `zimbra` user when the vulnerable SNMP/logwatch components are installed and enabled.\n\nAccording to NVD, the issue affects Zimbra versions before 10.1.20 when SNMP is installed and SNMP notification is enabled. The Hacker News also reported active exploitation against Zimbra servers.\n\nThe observed attack chain is usually:\n\n    malicious SMTP request\n    -&gt; unsafe SNMP/logwatch handling\n    -&gt; command execution as zimbra\n    -&gt; malware dropped into /dev/shm\n    -&gt; cron persistence added\n    -&gt; miner or backdoor keeps respawning\n\n# What is CVE-2026-73570?\n\nCVE-2026-73570 is an OS Command Injection vulnerability in Zimbra Collaboration Suite.\n\nThe issue is in the SNMP notification/logwatch flow, where attacker-controlled input is not handled safely before being passed into system-level processing.\n\nThe command runs as the `zimbra` user, not `root`. That is still serious because the `zimbra` user controls important Zimbra services, mailbox components, logs, cron jobs and runtime paths.\n\n# When is a Zimbra server at risk?\n\nA server should be checked immediately if:\n\n* It is running Zimbra Collaboration Suite.\n* It is not patched to a fixed version.\n* `zimbra-snmp` or `zimbra-net-snmp` is installed.\n* SNMP is enabled in Zimbra.\n* `zmlogswatch` or `zmswatch` is running.\n\nQuick checks:\n\n    su - zimbra -c 'zmcontrol -v'\n    dpkg -l | grep -E 'zimbra-snmp|zimbra-net-snmp'\n    su - zimbra -c 'zmprov gs $(zmhostname) zimbraServiceEnabled | grep snmp'\n    su - zimbra -c 'zmlogswatchctl status'\n    su - zimbra -c 'zmswatchctl status'\n\nIf you see `zimbraServiceEnabled: snmp` and `zmlogswatch is running`, treat the server as high priority for compromise checks.\n\n# Signs of compromise\n\nIn the cases observed, malware was often dropped into `/dev/shm`. This directory is a tmpfs location, writable and easy to miss during a quick investigation.\n\nCheck:\n\n    ls -la /dev/shm\n    crontab -l -u zimbra\n    ps aux | grep -E 'khp|rguard|javab|idle|ksmd' | grep -v grep\n\nCommon suspicious files:\n\n    /dev/shm/.khp\n    /dev/shm/.khp_ts\n    /dev/shm/.rguard\n    /dev/shm/idle\n    /dev/shm/javab\n    /dev/shm/ksmd\n\nA cron entry like this is a strong persistence indicator:\n\n    * * * * * /dev/shm/.khp\n\n# Why does the malware keep coming back?\n\nDeleting files from `/dev/shm` is usually not enough.\n\nThe malware can return because:\n\n* The malicious process is still running in memory.\n* The `zimbra` crontab runs `/dev/shm/.khp` every minute.\n* `.rguard` or `idle` may protect or redeploy the payload.\n* SNMP/logwatch is still enabled, so the CVE can be exploited again.\n\nThe correct order is:\n\n    stop reinfection source\n    -&gt; preserve evidence\n    -&gt; kill malware processes\n    -&gt; remove malicious cron\n    -&gt; quarantine malware files\n    -&gt; verify clean state\n    -&gt; recover Zimbra services if needed\n    -&gt; patch/upgrade Zimbra\n\n# Cleanup procedure\n\nRun the following commands as `root`. Review each command before running it on production.\n\n# Step 1: Stop the reinfection source\n\n    systemctl stop cron\n    su - zimbra -c 'zmlogswatchctl stop'\n    su - zimbra -c 'zmswatchctl stop'\n    su - zimbra -c 'zmprov ms $(zmhostname) -zimbraServiceEnabled snmp'\n\nDisabling SNMP/logwatch is the most important containment step. Do not re-enable these components before Zimbra is patched.\n\n# Step 2: Preserve malware evidence\n\n    mkdir -p /root/incident-zimbra\n    \n    cp -a /dev/shm/.khp \\\n          /dev/shm/.khp_ts \\\n          /dev/shm/.rguard \\\n          /dev/shm/idle \\\n          /dev/shm/javab \\\n          /dev/shm/ksmd \\\n          /root/incident-zimbra/ 2&gt;/dev/null\n    \n    crontab -l -u zimbra &gt; /root/incident-zimbra/zimbra-cron-before.txt 2&gt;&amp;1\n    ps auxf &gt; /root/incident-zimbra/ps-before.txt\n    ss -tunap &gt; /root/incident-zimbra/ss-before.txt\n    sha256sum /root/incident-zimbra/* &gt; /root/incident-zimbra/sha256.txt 2&gt;/dev/null\n\n# Step 3: Kill malware processes\n\n    pkill -9 -u zimbra -f 'khp|rguard|javab|idle|ksmd'\n\n# Step 4: Remove malicious cron\n\n    crontab -l -u zimbra | grep -v '/dev/shm/.khp' | crontab -u zimbra -\n\n# Step 5: Quarantine malware files\n\n    mkdir -p /root/quarantine-zimbra\n    \n    mv /dev/shm/.khp \\\n       /dev/shm/.khp_ts \\\n       /dev/shm/.rguard \\\n       /dev/shm/idle \\\n       /dev/shm/javab \\\n       /dev/shm/ksmd \\\n       /root/quarantine-zimbra/ 2&gt;/dev/null\n\n# Step 6: Start cron again\n\n    systemctl start cron\n    systemctl is-active cron\n\nOnly start cron. Do not start `zmlogswatch`, `zmswatch` or SNMP before patching Zimbra.\n\n# Verify after cleanup\n\n    ls -la /dev/shm\n    crontab -l -u zimbra | grep /dev/shm\n    ps aux | grep -E 'khp|rguard|javab|idle|ksmd' | grep -v grep\n    su - zimbra -c 'zmprov gs $(zmhostname) zimbraServiceEnabled | grep snmp || echo SNMP_DISABLED'\n\nExpected result:\n\n    /dev/shm is clean\n    no cron entry calling /dev/shm/.khp\n    no suspicious javab/rguard/idle/khp/ksmd process\n    SNMP is disabled\n\n# If Zimbra MySQL or mailbox fails\n\nAfter malware activity or an unexpected reboot, Zimbra may show:\n\n    mailbox Stopped\n    mysql.server is not running\n    service webapp Stopped\n    zimbra webapp Stopped\n    zimbraAdmin webapp Stopped\n    zimlet webapp Stopped\n\nCheck MySQL and services:\n\n    su - zimbra -c 'zmcontrol status'\n    su - zimbra -c 'mysql.server status'\n    ss -ltnp | grep 7306\n    tail -n 200 /opt/zimbra/log/mysql_error.log\n\nIf MySQL is stuck in crash recovery or has a stale socket, back up relevant files first.\n\n# Backup before MySQL recovery\n\n    mkdir -p /root/zimbra-mysql-backup\n    \n    cp -a /opt/zimbra/log/mysql_error.log /root/zimbra-mysql-backup/ 2&gt;/dev/null\n    cp -a /opt/zimbra/db/data/tc.log /root/zimbra-mysql-backup/ 2&gt;/dev/null\n    cp -a /opt/zimbra/data/tmp/mysql/mysql.sock /root/zimbra-mysql-backup/ 2&gt;/dev/null\n    cp -a /opt/zimbra/db/data/ibdata1 /root/zimbra-mysql-backup/ 2&gt;/dev/null\n    cp -a /opt/zimbra/db/data/ib_logfile* /root/zimbra-mysql-backup/ 2&gt;/dev/null\n\n# Light MySQL recovery\n\n    su - zimbra -c 'zmmailboxdctl stop'\n    \n    mv /opt/zimbra/data/tmp/mysql/mysql.sock /root/zimbra-mysql-backup/mysql.sock.bak 2&gt;/dev/null\n    mv /opt/zimbra/db/data/tc.log /root/zimbra-mysql-backup/tc.log.bak 2&gt;/dev/null\n    \n    su - zimbra -c 'mysql.server start'\n    sleep 20\n    su - zimbra -c 'mysql.server status'\n    \n    su - zimbra -c 'zmmailboxdctl start'\n    sleep 40\n    su - zimbra -c 'zmcontrol status'\n\nExpected result:\n\n    mysql is running\n    mailbox Running\n    service webapp Running\n    zimbra webapp Running\n    zimbraAdmin webapp Running\n    zimlet webapp Running\n\nThis is not a universal fix. Always check `/opt/zimbra/log/mysql_error.log` first.\n\n# Does this delete mail data?\n\nThe malware cleanup steps do not touch mailbox data directly.\n\nZimbra mail data is usually stored in:\n\n    /opt/zimbra/store/\n\nZimbra database data is usually stored in:\n\n    /opt/zimbra/db/data/\n\nThe MySQL recovery steps touch `tc.log` and `mysql.sock`, so back up first.\n\n# Check for JSP webshells\n\nAfter handling `/dev/shm`, cron and processes, also check for suspicious JSP files created by the `zimbra` user in recent days.\n\nImportant paths include:\n\n    /opt/zimbra/jetty/webapps/\n    /opt/zimbra/jetty_base/webapps/\n    /tmp/\n\nUnexpected JSP/JSPX files, executable scripts, archives or recently modified web application files may indicate payload staging or webshell deployment.\n\nCheck JSP/JSPX files:\n\n    find /opt/zimbra/jetty/webapps -type f \\( -name \"*.jsp\" -o -name \"*.jspx\" \\) -printf '%TY-%Tm-%Td %TH:%TM:%TS %p\\n' | sort\n\nIf suspicious JSP backdoors are found, preserve evidence first, then quarantine them from both paths:\n\n    /opt/zimbra/jetty/webapps/zimbra/\n    /opt/zimbra/jetty_base/webapps/zimbra/\n\nEvidence backup and quarantine:\n\n    TS=$(date +%Y%m%d_%H%M%S)\n    INC=/root/incident-zmmail-jsp-webshell-$TS\n    QUA=/root/quarantine-zmmail-jsp-webshell-$TS\n    \n    mkdir -p \"$INC\" \"$QUA\"\n    \n    # Save list and hashes\n    find /opt/zimbra/jetty/webapps/zimbra /opt/zimbra/jetty_base/webapps/zimbra \\\n      -xdev -type f \\( -iname '*.jsp' -o -iname '*.jspx' \\) -mtime -30 \\\n      -print &gt; \"$INC/suspicious-jsp-list.txt\"\n    \n    xargs -a \"$INC/suspicious-jsp-list.txt\" sha256sum &gt; \"$INC/suspicious-jsp-sha256.txt\"\n    \n    # Backup samples\n    while read f; do\n      mkdir -p \"$INC/files$(dirname \"$f\")\"\n      cp -a \"$f\" \"$INC/files$f\"\n    done &lt; \"$INC/suspicious-jsp-list.txt\"\n    \n    # Quarantine from webroot\n    while read f; do\n      mkdir -p \"$QUA$(dirname \"$f\")\"\n      mv \"$f\" \"$QUA$f\"\n    done &lt; \"$INC/suspicious-jsp-list.txt\"\n    \n    # Verify\n    find /opt/zimbra/jetty/webapps/zimbra /opt/zimbra/jetty_base/webapps/zimbra \\\n      -xdev -type f \\( -iname '*.jsp' -o -iname '*.jspx' \\) -mtime -30 -print\n\nRisks:\n\n* If a file is a legitimate custom JSP, removing it may affect a custom webmail function.\n* Random file names and content using `exec`, `base64`, AES or command execution are strong webshell indicators.\n* This does not affect mailbox data.\n* A restart is not always required immediately, but webmail should be verified after quarantine.\n\n# Important note: zmlogswatch/zmswatch may start again\n\nAfter disabling SNMP/logwatch to mitigate CVE-2026-73570, `zmlogswatch` and `zmswatch` may start again after daily logrotate or after `zmcontrol restart`.\n\nThis happens because Zimbra logrotate configs often contain `postrotate` commands that restart `zmlogswatchctl` and `zmswatchctl`. Also, `logger` may still be listed in `zimbraServiceEnabled`.\n\nSo after temporary mitigation, check these services periodically, especially after midnight or after restarting Zimbra.\n\nIf you need a stronger temporary block before patching, back up the logrotate configs, comment the restart lines, and consider removing `logger` from `zimbraServiceEnabled`.\n\nThis can prevent logwatch from starting again and reopening the attack vector, but the Admin Console may lose part of its monitoring/statistics.\n\n# Disable zmlogswatch/zmswatch so they do not auto-start\n\nWarning: disabling `logger`, `zmlogswatch` and `zmswatch` may make the Zimbra Admin Console show logger/monitoring as red, or remove some graphs/statistics.\n\nDuring the unpatched phase, this is an acceptable temporary trade-off to prevent logwatch from restarting automatically.\n\nAfter upgrading to a fixed version, restore the configuration from backup and re-enable logger if needed.\n\n# Back up Zimbra logrotate configs\n\n    cp -a /etc/logrotate.d/zimbra /etc/logrotate.d/zimbra.bak.$(date +%F-%H%M%S)\n    cp -a /opt/zimbra/conf/zmlogrotate /opt/zimbra/conf/zmlogrotate.bak.$(date +%F-%H%M%S)\n\nOpen these two files:\n\n    /etc/logrotate.d/zimbra\n    /opt/zimbra/conf/zmlogrotate\n\nFind these lines, often around line 85 and 99:\n\n    su - zimbra -c \"/opt/zimbra/bin/zmlogswatchctl restart\" &gt; /dev/null 2&gt;&amp;1 || true\n    su - zimbra -c \"/opt/zimbra/bin/zmswatchctl restart\" &gt; /dev/null 2&gt;&amp;1 || true\n\nComment them:\n\n    # su - zimbra -c \"/opt/zimbra/bin/zmlogswatchctl restart\" &gt; /dev/null 2&gt;&amp;1 || true\n    # su - zimbra -c \"/opt/zimbra/bin/zmswatchctl restart\" &gt; /dev/null 2&gt;&amp;1 || true\n\nRemove logger from enabled services:\n\n    su - zimbra -c 'zmprov ms $(zmhostname) -zimbraServiceEnabled logger'\n\nStop current logwatch/swatch processes:\n\n    su - zimbra -c 'zmlogswatchctl stop'\n    su - zimbra -c 'zmswatchctl stop'\n    su - zimbra -c 'zmlocalconfig -e snmp_notify=no'\n\nVerify:\n\n    su - zimbra -c 'zmlogswatchctl status'\n    su - zimbra -c 'zmswatchctl status'\n    su - zimbra -c 'zmlocalconfig snmp_notify'\n    su - zimbra -c 'zmprov gs $(zmhostname) zimbraServiceEnabled | egrep \"logger|snmp\" || echo \"LOGGER_SNMP_DISABLED\"'\n\nExpected result:\n\n    zmlogswatch is not running.\n    zmswatch is not running.\n    snmp_notify = no\n    LOGGER_SNMP_DISABLED\n\n# Re-enable monitoring/logger after patching\n\nOnly do this after Zimbra is patched or upgraded.\n\n    su - zimbra -c 'zmprov ms $(zmhostname) +zimbraServiceEnabled logger'\n    su - zimbra -c 'zmlogswatchctl start'\n    su - zimbra -c 'zmswatchctl start'\n\nIf you commented the logrotate files, open them again:\n\n    /etc/logrotate.d/zimbra\n    /opt/zimbra/conf/zmlogrotate\n\nUncomment these lines:\n\n    su - zimbra -c \"/opt/zimbra/bin/zmlogswatchctl restart\" &gt; /dev/null 2&gt;&amp;1 || true\n    su - zimbra -c \"/opt/zimbra/bin/zmswatchctl restart\" &gt; /dev/null 2&gt;&amp;1 || true\n\n# Re-enable SNMP only after patching\n\n    su - zimbra -c 'zmprov ms $(zmhostname) +zimbraServiceEnabled snmp'\n    su - zimbra -c 'zmlocalconfig -e snmp_notify=yes'\n    su - zimbra -c 'zmswatchctl start'\n\nVerify after re-enabling:\n\n    su - zimbra -c 'zmcontrol status'\n    su - zimbra -c 'zmlogswatchctl status'\n    su - zimbra -c 'zmswatchctl status'\n    su - zimbra -c 'zmlocalconfig snmp_notify'\n    su - zimbra -c 'zmprov gs $(zmhostname) zimbraServiceEnabled | egrep \"logger|snmp\"'\n\n# Post-cleanup tasks\n\nAfter the server is running again:\n\n* Keep SNMP/logwatch disabled until patched.\n* Monitor `/dev/shm` for 30-60 minutes.\n* Monitor the `zimbra` crontab.\n* Monitor CPU/load and outbound connections.\n* Check the mail queue.\n* Patch or upgrade Zimbra to a fixed release.\n* Only re-enable SNMP/logwatch after patching and verification.\n\nCheck queue:\n\n    /opt/zimbra/common/sbin/postqueue -p | tail -n 40\n\n# Summary workflow\n\n    1. Check /dev/shm, processes and crontab.\n    2. Stop cron, zmlogswatch and zmswatch.\n    3. Disable SNMP in Zimbra.\n    4. Preserve evidence.\n    5. Kill malware processes.\n    6. Remove malicious cron.\n    7. Quarantine malware files.\n    8. Start cron again.\n    9. Verify that malware does not respawn.\n    10. Recover MySQL/mailbox if needed.\n    11. Check JSP webshells in Zimbra webapps paths.\n    12. Monitor queue and services.\n    13. Prevent zmlogswatch/zmswatch from auto-starting before patching.\n    14. Patch or upgrade Zimbra.\n    15. Re-enable logger/SNMP only after patching and verification.\n\n# References\n\n* NVD: CVE-2026-73570\n* The Hacker News: attackers exploit Zimbra SNMP flaw\n* Zimbra Security Center\n* Zimbra Security Advisories\n\n# Conclusion\n\nCVE-2026-73570 is serious because it can allow remote command execution as the `zimbra` user through SNMP notification/logwatch handling.\n\nIn observed incidents, attackers dropped malware into `/dev/shm`, added cron persistence, and ran a miner or backdoor.\n\nThe key point is this: do not only delete the malware file. Stop the reinfection path first.\n\nA practical response order is:\n\n    stop cron + SNMP/logwatch\n    -&gt; preserve evidence\n    -&gt; kill malware\n    -&gt; remove malicious cron\n    -&gt; quarantine payloads\n    -&gt; check JSP webshells\n    -&gt; verify clean state\n    -&gt; recover Zimbra if needed\n    -&gt; block logwatch auto-restart before patching\n    -&gt; patch/upgrade Zimbra\n\nMost important: do not re-enable SNMP/logwatch before Zimbra is patched, because that may allow the malware to return.",
-    "awards": [],
-    "created_utc": "2026-08-27T06:46:08",
-    "first_author_comment": null,
-    "num_comments": 2,
-    "score": 4,
-    "subreddit": "sysadmin",
-    "tag": null,
-    "tags": [],
-    "title": "CVE-2026-73570: Zimbra SNMP RCE abused to deploy coin-miner malware",
-    "updatedAt": "2026-10-03T14:50:14.070Z",
-    "upvote_ratio": 1,
-    "url": "https://reddit.com/r/sysadmin/comments/1vzmdo0/cve202673570_zimbra_snmp_rce_abused_to_deploy/",
-    "versionList": [
-      "2026.0.0",
-      "73570.0.0"
-    ],
-    "classification": {
-      "componentType": [],
-      "securityType": [
-        "SECURITY"
-      ]
-    },
-    "metadata": {
-      "predicted": {
-        "isUpdateRelated": true,
-        "positiveScore": 0.8679752262746064,
-        "timestampPredicted": "2026-08-27T16:01:18.726456+00:00"
-      },
-      "labeled": {
-        "isUpdateRelated": null
-      }
-    },
-    "isAboutCve": true,
-    "isAboutLatestUpdate": true,
-    "comments": [
-      {
-        "id": "p66w1j5",
-        "author": "gumbrilla",
-        "body": "I'm honestly thinking if someone puts an open port 25 onto the internet, and leaves it unpatched.. since. checks notes.. July, with no restrictions or intermediations they should just pack the server in a box, and go home.",
-        "score": 1,
-        "created_utc_ts": 1787829546,
-        "created_utc": "2026-08-27T11:19:06",
-        "permalink": "https://reddit.com/r/sysadmin/comments/1vzmdo0/cve202673570_zimbra_snmp_rce_abused_to_deploy/p66w1j5/",
-        "parent_id": "t3_1vzmdo0",
-        "is_submitter": false,
-        "sentiment_score": 0.202,
-        "sentiment_bucket": "Positive",
-        "sentiment_detail": {
-          "neg": 0.055,
-          "neu": 0.871,
-          "pos": 0.075,
-          "compound": 0.2023
-        }
-      }
-    ],
-    "author_description_sentiment": {
-      "score": -0.991,
-      "detail": {
-        "neg": 0.068,
-        "neu": 0.889,
-        "pos": 0.043,
-        "compound": -0.9913
-      }
-    },
-    "category": "Negative",
-    "comments_avg_sentiment_score": 0.202,
-    "sentiment_score": -0.394,
-    "sourceBot": "reddit.py",
-    "sourceUrl": "https://reddit.com/r/sysadmin/comments/1vzmdo0/cve202673570_zimbra_snmp_rce_abused_to_deploy/"
   }
 ]
