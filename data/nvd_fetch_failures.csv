@@ -1,12 +1,13 @@
 cve,error
 CVE-2026-107891,NVD failed after 1 retries (last status=429).
 CVE-2026-10961,NVD failed after 1 retries (last status=429).
-CVE-2026-110355,NVD failed after 1 retries (last status=429).
 CVE-2026-113380,NVD failed after 1 retries (last status=429).
 CVE-2026-114148,NVD failed after 1 retries (last status=429).
-CVE-2026-115905,NVD failed after 1 retries (last status=429).
-CVE-2026-42248,NVD failed after 1 retries (last status=429).
-CVE-2026-58085,NVD failed after 1 retries (last status=429).
-CVE-2026-70571,NVD failed after 1 retries (last status=429).
-CVE-2026-78159,NVD failed after 1 retries (last status=429).
-CVE-2026-97631,NVD failed after 1 retries (last status=429).
+CVE-2026-115995,NVD failed after 1 retries (last status=429).
+CVE-2026-38704,NVD failed after 1 retries (last status=429).
+CVE-2026-43499,NVD failed after 1 retries (last status=429).
+CVE-2026-63481,NVD failed after 1 retries (last status=429).
+CVE-2026-70197,NVD failed after 1 retries (last status=429).
+CVE-2026-94300,NVD failed after 1 retries (last status=429).
+CVE-2026-96951,NVD failed after 1 retries (last status=429).
+CVE-2026-97486,NVD failed after 1 retries (last status=429).
